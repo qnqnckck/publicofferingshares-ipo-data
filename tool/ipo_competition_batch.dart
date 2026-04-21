@@ -380,6 +380,7 @@ class IpoCompetitionStock {
   }
 
   Map<String, Object?> toJson() {
+    final analysis = analyzeStock(this);
     return {
       'schemaVersion': schemaVersion,
       'id': safeId(id),
@@ -389,11 +390,13 @@ class IpoCompetitionStock {
       'subscriptionEnd': subscriptionEnd,
       'leadManagers': leadManagers,
       'snapshots': snapshots.map((snapshot) => snapshot.toJson()).toList(),
+      'analysis': analysis.toJson(),
     };
   }
 
   Map<String, Object?> toIndexJson(String path) {
     final latest = latestSnapshot;
+    final analysis = analyzeStock(this);
     return {
       'id': safeId(id),
       'company': company,
@@ -402,6 +405,10 @@ class IpoCompetitionStock {
       'subscriptionEnd': subscriptionEnd,
       'latestCompetitionRate': latest?.aggregate.competitionRate,
       'latestSnapshotAt': latest?.capturedAt,
+      'score': analysis.score.overall,
+      'grade': analysis.score.grade,
+      'decisionLevel': analysis.decision.level,
+      'expectedGainRate': analysis.expectedReturn.expectedListingGainRate,
       'path': path,
     };
   }
@@ -504,6 +511,7 @@ class IpoBrokerCompetition {
     required this.name,
     required this.offeredShares,
     required this.subscribedShares,
+    required this.offerPrice,
     required this.competitionRate,
     required this.equalCompetitionRate,
     required this.proportionalCompetitionRate,
@@ -512,6 +520,7 @@ class IpoBrokerCompetition {
   final String name;
   final int offeredShares;
   final int subscribedShares;
+  final int? offerPrice;
   final double? competitionRate;
   final double? equalCompetitionRate;
   final double? proportionalCompetitionRate;
@@ -523,6 +532,7 @@ class IpoBrokerCompetition {
       name: readRequiredString(json, 'name'),
       offeredShares: offeredShares,
       subscribedShares: subscribedShares,
+      offerPrice: readOptionalInt(json['offerPrice']),
       competitionRate: readDouble(json['competitionRate']) ??
           (offeredShares <= 0 ? null : subscribedShares / offeredShares),
       equalCompetitionRate: readDouble(json['equalCompetitionRate']),
@@ -535,6 +545,7 @@ class IpoBrokerCompetition {
       name: name.trim(),
       offeredShares: offeredShares,
       subscribedShares: subscribedShares,
+      offerPrice: offerPrice,
       competitionRate: competitionRate,
       equalCompetitionRate: equalCompetitionRate,
       proportionalCompetitionRate: proportionalCompetitionRate,
@@ -546,6 +557,7 @@ class IpoBrokerCompetition {
       'name': name,
       'offeredShares': offeredShares,
       'subscribedShares': subscribedShares,
+      'offerPrice': offerPrice,
       'competitionRate': competitionRate,
       'equalCompetitionRate': equalCompetitionRate,
       'proportionalCompetitionRate': proportionalCompetitionRate,
@@ -633,6 +645,13 @@ int readInt(Object? value) {
   return int.tryParse('$value'.replaceAll(',', '').trim()) ?? 0;
 }
 
+int? readOptionalInt(Object? value) {
+  if (value == null) {
+    return null;
+  }
+  return readInt(value);
+}
+
 double? readDouble(Object? value) {
   if (value == null) {
     return null;
@@ -644,6 +663,472 @@ double? readDouble(Object? value) {
 }
 
 void unawaited(Future<void> future) {}
+
+IpoAnalysis analyzeStock(IpoCompetitionStock stock) {
+  final latestRate = stock.latestSnapshot?.aggregate.competitionRate;
+  final competitionScore = scoreCompetition(latestRate);
+  final marketScore = scoreMarket(stock.market);
+  final managerScore = scoreLeadManagers(stock.leadManagers);
+  final recencyScore = scoreRecency(stock.subscriptionEnd);
+  final dataScore = scoreDataCompleteness(stock);
+  final total = clampInt(
+    competitionScore + marketScore + managerScore + recencyScore + dataScore,
+    0,
+    100,
+  );
+  final confidence = confidenceFor(stock);
+  final expectedGainRate = expectedGainRateFor(
+    score: total,
+    competitionRate: latestRate,
+    confidence: confidence,
+  );
+  final offerPrice = stock.latestOfferPrice;
+  final expectedAllocatedShares = expectedAllocatedSharesFor(
+    offerPrice: offerPrice,
+    competitionRate: latestRate,
+  );
+  final expectedProfit = expectedProfitFor(
+    offerPrice: offerPrice,
+    expectedGainRate: expectedGainRate,
+    expectedAllocatedShares: expectedAllocatedShares,
+  );
+  final grade = gradeFor(total);
+  final level = decisionLevelFor(total, confidence);
+
+  return IpoAnalysis(
+    score: IpoScore(
+      overall: total,
+      grade: grade,
+      confidence: confidence,
+      factors: {
+        'competition': competitionScore,
+        'market': marketScore,
+        'leadManagers': managerScore,
+        'recency': recencyScore,
+        'dataCompleteness': dataScore,
+      },
+    ),
+    expectedReturn: IpoExpectedReturn(
+      expectedListingGainRate: expectedGainRate,
+      bearCaseListingGainRate: expectedGainRate - 0.22,
+      baseCaseListingGainRate: expectedGainRate,
+      bullCaseListingGainRate: expectedGainRate + 0.35,
+      expectedAllocatedShares: expectedAllocatedShares,
+      expectedProfitKrw: expectedProfit,
+      assumptions: {
+        'offerPrice': offerPrice,
+        'competitionRate': latestRate,
+        'feeKrw': 2000,
+        'method': 'rule_based_v1_low_confidence',
+      },
+    ),
+    decision: IpoDecision(
+      level: level,
+      label: decisionLabelFor(level),
+      reasons: reasonsFor(stock, total, latestRate),
+      warnings: warningsFor(stock, confidence, latestRate),
+    ),
+    inputs: {
+      'latestCompetitionRate': latestRate,
+      'snapshotCount': stock.snapshots.length,
+      'leadManagerCount': stock.leadManagers.length,
+      'market': stock.market,
+      'hasOfferPrice': offerPrice != null,
+    },
+    methodVersion: 'ipo-score-v1',
+  );
+}
+
+class IpoAnalysis {
+  const IpoAnalysis({
+    required this.score,
+    required this.expectedReturn,
+    required this.decision,
+    required this.inputs,
+    required this.methodVersion,
+  });
+
+  final IpoScore score;
+  final IpoExpectedReturn expectedReturn;
+  final IpoDecision decision;
+  final Map<String, Object?> inputs;
+  final String methodVersion;
+
+  Map<String, Object?> toJson() {
+    return {
+      'methodVersion': methodVersion,
+      'score': score.toJson(),
+      'expectedReturn': expectedReturn.toJson(),
+      'decision': decision.toJson(),
+      'inputs': inputs,
+      'disclaimer': '공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다.',
+    };
+  }
+}
+
+class IpoScore {
+  const IpoScore({
+    required this.overall,
+    required this.grade,
+    required this.confidence,
+    required this.factors,
+  });
+
+  final int overall;
+  final String grade;
+  final double confidence;
+  final Map<String, int> factors;
+
+  Map<String, Object?> toJson() {
+    return {
+      'overall': overall,
+      'grade': grade,
+      'confidence': roundDouble(confidence, 2),
+      'factors': factors,
+    };
+  }
+}
+
+class IpoExpectedReturn {
+  const IpoExpectedReturn({
+    required this.expectedListingGainRate,
+    required this.bearCaseListingGainRate,
+    required this.baseCaseListingGainRate,
+    required this.bullCaseListingGainRate,
+    required this.expectedAllocatedShares,
+    required this.expectedProfitKrw,
+    required this.assumptions,
+  });
+
+  final double expectedListingGainRate;
+  final double bearCaseListingGainRate;
+  final double baseCaseListingGainRate;
+  final double bullCaseListingGainRate;
+  final Map<String, double> expectedAllocatedShares;
+  final Map<String, int> expectedProfitKrw;
+  final Map<String, Object?> assumptions;
+
+  Map<String, Object?> toJson() {
+    return {
+      'expectedListingGainRate': roundDouble(expectedListingGainRate, 4),
+      'bearCaseListingGainRate': roundDouble(bearCaseListingGainRate, 4),
+      'baseCaseListingGainRate': roundDouble(baseCaseListingGainRate, 4),
+      'bullCaseListingGainRate': roundDouble(bullCaseListingGainRate, 4),
+      'expectedAllocatedShares': expectedAllocatedShares.map(
+        (key, value) => MapEntry(key, roundDouble(value, 3)),
+      ),
+      'expectedProfitKrw': expectedProfitKrw,
+      'assumptions': assumptions,
+    };
+  }
+}
+
+class IpoDecision {
+  const IpoDecision({
+    required this.level,
+    required this.label,
+    required this.reasons,
+    required this.warnings,
+  });
+
+  final String level;
+  final String label;
+  final List<String> reasons;
+  final List<String> warnings;
+
+  Map<String, Object?> toJson() {
+    return {
+      'level': level,
+      'label': label,
+      'reasons': reasons,
+      'warnings': warnings,
+    };
+  }
+}
+
+extension IpoCompetitionStockAnalysisFields on IpoCompetitionStock {
+  int? get latestOfferPrice {
+    for (final snapshot in snapshots.reversed) {
+      for (final broker in snapshot.brokers) {
+        if (broker.offerPrice != null && broker.offerPrice! > 0) {
+          return broker.offerPrice;
+        }
+      }
+    }
+    return null;
+  }
+}
+
+int scoreCompetition(double? rate) {
+  if (rate == null) {
+    return 8;
+  }
+  if (rate >= 1500) {
+    return 24;
+  }
+  if (rate >= 800) {
+    return 21;
+  }
+  if (rate >= 400) {
+    return 18;
+  }
+  if (rate >= 150) {
+    return 14;
+  }
+  if (rate >= 50) {
+    return 9;
+  }
+  return 4;
+}
+
+int scoreMarket(String market) {
+  final normalized = market.toUpperCase();
+  if (normalized.contains('KOSPI')) {
+    return 13;
+  }
+  if (normalized.contains('KOSDAQ')) {
+    return 11;
+  }
+  return 8;
+}
+
+int scoreLeadManagers(List<String> managers) {
+  if (managers.length >= 4) {
+    return 13;
+  }
+  if (managers.length >= 2) {
+    return 10;
+  }
+  if (managers.length == 1) {
+    return 7;
+  }
+  return 4;
+}
+
+int scoreRecency(String? subscriptionEnd) {
+  final end = parseDate(subscriptionEnd);
+  if (end == null) {
+    return 6;
+  }
+  final now = DateTime.now();
+  final days = end.difference(DateTime(now.year, now.month, now.day)).inDays;
+  if (days >= 0 && days <= 14) {
+    return 14;
+  }
+  if (days > 14) {
+    return 10;
+  }
+  if (days >= -30) {
+    return 8;
+  }
+  return 5;
+}
+
+int scoreDataCompleteness(IpoCompetitionStock stock) {
+  var score = 0;
+  if (stock.snapshots.isNotEmpty) {
+    score += 12;
+  }
+  if (stock.leadManagers.isNotEmpty) {
+    score += 5;
+  }
+  if (stock.market.trim().isNotEmpty) {
+    score += 4;
+  }
+  if (stock.subscriptionStart != null && stock.subscriptionEnd != null) {
+    score += 4;
+  }
+  return score;
+}
+
+double confidenceFor(IpoCompetitionStock stock) {
+  var confidence = 0.25;
+  if (stock.snapshots.isNotEmpty) {
+    confidence += 0.25;
+  }
+  if (stock.latestSnapshot?.sourceUrl != null) {
+    confidence += 0.15;
+  }
+  if (stock.leadManagers.isNotEmpty) {
+    confidence += 0.1;
+  }
+  if (stock.latestOfferPrice != null) {
+    confidence += 0.1;
+  }
+  if (stock.latestSnapshot?.aggregate.competitionRate != null) {
+    confidence += 0.1;
+  }
+  return clampDouble(confidence, 0.05, 0.95);
+}
+
+double expectedGainRateFor({
+  required int score,
+  required double? competitionRate,
+  required double confidence,
+}) {
+  final scoreComponent = (score - 50) / 100;
+  final competitionComponent = competitionRate == null
+      ? 0.0
+      : clampDouble((competitionRate - 300) / 2500, -0.12, 0.28);
+  final raw = 0.12 + scoreComponent + competitionComponent;
+  return clampDouble(raw * (0.65 + confidence * 0.35), -0.25, 1.2);
+}
+
+Map<String, double> expectedAllocatedSharesFor({
+  required int? offerPrice,
+  required double? competitionRate,
+}) {
+  final price = offerPrice ?? 30000;
+  final rate = competitionRate ?? 800;
+  double sharesFor(int amount) {
+    final requestedShares = amount / price;
+    return clampDouble(requestedShares / rate, 0, 100);
+  }
+
+  return {
+    'minimumSubscription': sharesFor(price * 10),
+    'oneMillionKrw': sharesFor(1000000),
+    'fiveMillionKrw': sharesFor(5000000),
+  };
+}
+
+Map<String, int> expectedProfitFor({
+  required int? offerPrice,
+  required double expectedGainRate,
+  required Map<String, double> expectedAllocatedShares,
+}) {
+  final price = offerPrice ?? 30000;
+  return expectedAllocatedShares.map((key, shares) {
+    final profit = (shares * price * expectedGainRate - 2000).round();
+    return MapEntry(key, profit);
+  });
+}
+
+String gradeFor(int score) {
+  if (score >= 90) {
+    return 'A+';
+  }
+  if (score >= 82) {
+    return 'A';
+  }
+  if (score >= 74) {
+    return 'B+';
+  }
+  if (score >= 66) {
+    return 'B';
+  }
+  if (score >= 58) {
+    return 'C+';
+  }
+  if (score >= 50) {
+    return 'C';
+  }
+  return 'D';
+}
+
+String decisionLevelFor(int score, double confidence) {
+  if (confidence < 0.45) {
+    return 'insufficient_data';
+  }
+  if (score >= 78) {
+    return 'strong_watch';
+  }
+  if (score >= 65) {
+    return 'consider';
+  }
+  if (score >= 52) {
+    return 'neutral';
+  }
+  return 'caution';
+}
+
+String decisionLabelFor(String level) {
+  switch (level) {
+    case 'strong_watch':
+      return '관심 높음';
+    case 'consider':
+      return '청약 고려';
+    case 'neutral':
+      return '중립';
+    case 'caution':
+      return '주의';
+    default:
+      return '데이터 부족';
+  }
+}
+
+List<String> reasonsFor(
+  IpoCompetitionStock stock,
+  int score,
+  double? competitionRate,
+) {
+  final reasons = <String>[];
+  if (competitionRate != null) {
+    reasons.add('최근 확인된 일반청약 경쟁률은 ${roundDouble(competitionRate, 2)}대 1입니다.');
+  }
+  if (stock.leadManagers.length >= 2) {
+    reasons.add('복수 주관사가 참여해 청약 채널이 분산되어 있습니다.');
+  }
+  if (score >= 70) {
+    reasons.add('현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다.');
+  }
+  if (reasons.isEmpty) {
+    reasons.add('아직 판단에 필요한 입력 데이터가 충분하지 않습니다.');
+  }
+  return reasons;
+}
+
+List<String> warningsFor(
+  IpoCompetitionStock stock,
+  double confidence,
+  double? competitionRate,
+) {
+  final warnings = <String>[];
+  if (confidence < 0.6) {
+    warnings.add('기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.');
+  }
+  if (competitionRate != null && competitionRate >= 1000) {
+    warnings.add('경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.');
+  }
+  if (stock.latestOfferPrice == null) {
+    warnings.add('공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.');
+  }
+  warnings.add('본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다.');
+  return warnings;
+}
+
+int clampInt(int value, int min, int max) {
+  if (value < min) {
+    return min;
+  }
+  if (value > max) {
+    return max;
+  }
+  return value;
+}
+
+double clampDouble(double value, double min, double max) {
+  if (value < min) {
+    return min;
+  }
+  if (value > max) {
+    return max;
+  }
+  return value;
+}
+
+double roundDouble(double value, int digits) {
+  final factor = mathPow10(digits);
+  return (value * factor).round() / factor;
+}
+
+double mathPow10(int digits) {
+  var result = 1.0;
+  for (var i = 0; i < digits; i += 1) {
+    result *= 10;
+  }
+  return result;
+}
 
 Future<Map<String, Object?>> httpGetJson(Uri uri) async {
   final client = HttpClient();

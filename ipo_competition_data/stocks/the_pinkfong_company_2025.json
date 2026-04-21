@@ -16,6 +16,7 @@
           "name": "통합",
           "offeredShares": 500000,
           "subscribedShares": 423432880,
+          "offerPrice": null,
           "competitionRate": 846.9,
           "equalCompetitionRate": null,
           "proportionalCompetitionRate": null
@@ -27,5 +28,61 @@
         "competitionRate": 846.9
       }
     }
-  ]
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 61,
+      "grade": "C+",
+      "confidence": 0.75,
+      "factors": {
+        "competition": 21,
+        "market": 11,
+        "leadManagers": 4,
+        "recency": 5,
+        "dataCompleteness": 20
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.4095,
+      "bearCaseListingGainRate": 0.1895,
+      "baseCaseListingGainRate": 0.4095,
+      "bullCaseListingGainRate": 0.7595,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.012,
+        "oneMillionKrw": 0.039,
+        "fiveMillionKrw": 0.197
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1855,
+        "oneMillionKrw": -1516,
+        "fiveMillionKrw": 418
+      },
+      "assumptions": {
+        "offerPrice": null,
+        "competitionRate": 846.9,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "neutral",
+      "label": "중립",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 846.9대 1입니다."
+      ],
+      "warnings": [
+        "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "inputs": {
+      "latestCompetitionRate": 846.9,
+      "snapshotCount": 1,
+      "leadManagerCount": 0,
+      "market": "KOSDAQ",
+      "hasOfferPrice": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
 }
