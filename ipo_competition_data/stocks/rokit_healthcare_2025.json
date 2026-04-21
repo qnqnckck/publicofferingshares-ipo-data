@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "id": "rokit_healthcare_2025",
+  "company": "로킷헬스케어",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2025-04-23",
+  "subscriptionEnd": "2025-04-24",
+  "leadManagers": [
+    "SK증권",
+    "KB증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 11000,
+    "priceBandMin": 11000,
+    "priceBandMax": 13000,
+    "institutionCompetitionRate": 368.45,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2025-04-24T16:00:00+09:00",
+      "source": "public_monthly_ipo_schedule",
+      "sourceUrl": "https://honda31.tistory.com/298",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 80.44,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 80.44
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 81,
+      "grade": "B+",
+      "confidence": 0.95,
+      "factors": {
+        "competition": 9,
+        "institutionDemand": 7,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 4,
+        "market": 11,
+        "leadManagers": 10,
+        "recency": 5,
+        "dataCompleteness": 27
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.3362,
+      "bearCaseListingGainRate": 0.1162,
+      "baseCaseListingGainRate": 0.3362,
+      "bullCaseListingGainRate": 0.6862,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.124,
+        "oneMillionKrw": 1.13,
+        "fiveMillionKrw": 5.651
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1540,
+        "oneMillionKrw": 2179,
+        "fiveMillionKrw": 18897
+      },
+      "assumptions": {
+        "offerPrice": 11000,
+        "competitionRate": 80.44,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 80.44대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": 80.44,
+      "snapshotCount": 1,
+      "leadManagerCount": 2,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 368.45,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
