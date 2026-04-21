@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "mintech_2024",
+  "company": "민테크",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2024-04-23",
+  "subscriptionEnd": "2024-04-24",
+  "leadManagers": [
+    "KB증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 10500,
+    "priceBandMin": 6500,
+    "priceBandMax": 8500,
+    "institutionCompetitionRate": 946.72,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": {
+    "listingDate": "2024-05-03",
+    "openReturnRate": null,
+    "highReturnRate": 0.5238095238095238,
+    "closeReturnRate": 0.22666666666666666,
+    "sourceUrl": "https://www.sportschosun.com/life/2024-05-03/202405030000000000003543"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-04-24T17:30:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.sportschosun.com/life/2024-05-03/202405030000000000003543",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "competitionRate": 1529.4,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1529.4
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 98,
+      "grade": "A+",
+      "confidence": 0.95,
+      "factors": {
+        "competition": 24,
+        "institutionDemand": 11,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 5,
+        "market": 11,
+        "leadManagers": 7,
+        "recency": 5,
+        "dataCompleteness": 27
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.8646,
+      "bearCaseListingGainRate": 0.6446,
+      "baseCaseListingGainRate": 0.8646,
+      "bullCaseListingGainRate": 1.2146,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.007,
+        "oneMillionKrw": 0.062,
+        "fiveMillionKrw": 0.311
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1941,
+        "oneMillionKrw": -1435,
+        "fiveMillionKrw": 827
+      },
+      "assumptions": {
+        "offerPrice": 10500,
+        "competitionRate": 1529.4,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1529.4대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "inputs": {
+      "latestCompetitionRate": 1529.4,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 946.72,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
