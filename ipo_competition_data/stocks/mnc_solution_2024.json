@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "id": "mnc_solution_2024",
+  "company": "엠앤씨솔루션",
+  "market": "KOSPI",
+  "subscriptionStart": "2024-12-05",
+  "subscriptionEnd": "2024-12-06",
+  "leadManagers": [],
+  "fundamentals": {
+    "offerPrice": 65000,
+    "priceBandMin": 80000,
+    "priceBandMax": 93300,
+    "institutionCompetitionRate": 8.184,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": 595000000000,
+    "publicAllocationShares": null
+  },
+  "outcome": {
+    "listingDate": "2024-12-16",
+    "openReturnRate": -0.03538461538461538,
+    "highReturnRate": null,
+    "closeReturnRate": -0.20307692307692307,
+    "sourceUrl": "https://www.hankyung.com/article/2024121604681"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-12-06T17:30:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.g-enews.com/article/Securities/2024/12/202412161306336362edf69f862c_1",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "competitionRate": 2.4,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 2.4
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 63,
+      "grade": "C+",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 4,
+        "institutionDemand": 3,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 4,
+        "market": 13,
+        "leadManagers": 4,
+        "recency": 5,
+        "dataCompleteness": 22
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.1264,
+      "bearCaseListingGainRate": -0.0936,
+      "baseCaseListingGainRate": 0.1264,
+      "bullCaseListingGainRate": 0.4764,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 4.167,
+        "oneMillionKrw": 6.41,
+        "fiveMillionKrw": 32.051
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 32227,
+        "oneMillionKrw": 50657,
+        "fiveMillionKrw": 261284
+      },
+      "assumptions": {
+        "offerPrice": 65000,
+        "competitionRate": 2.4,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "neutral",
+      "label": "중립",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 2.4대 1입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "inputs": {
+      "latestCompetitionRate": 2.4,
+      "snapshotCount": 1,
+      "leadManagerCount": 0,
+      "market": "KOSPI",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 8.184,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
