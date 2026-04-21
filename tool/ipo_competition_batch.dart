@@ -311,17 +311,27 @@ class IpoCompetitionSnapshot {
   const IpoCompetitionSnapshot({
     required this.capturedAt,
     required this.source,
+    required this.sourceUrl,
+    required this.aggregateCompetitionRate,
     required this.brokers,
   });
 
   final String capturedAt;
   final String source;
+  final String? sourceUrl;
+  final double? aggregateCompetitionRate;
   final List<IpoBrokerCompetition> brokers;
 
   factory IpoCompetitionSnapshot.fromJson(Map<String, Object?> json) {
+    final aggregate = json['aggregate'];
     return IpoCompetitionSnapshot(
       capturedAt: readRequiredString(json, 'capturedAt'),
       source: readString(json, 'source') ?? 'manual',
+      sourceUrl: readString(json, 'sourceUrl'),
+      aggregateCompetitionRate: readDouble(json['aggregateCompetitionRate']) ??
+          (aggregate is Map<String, Object?>
+              ? readDouble(aggregate['competitionRate'])
+              : null),
       brokers: readObjectList(json['brokers'])
           .map(IpoBrokerCompetition.fromJson)
           .toList(),
@@ -332,6 +342,8 @@ class IpoCompetitionSnapshot {
     return IpoCompetitionSnapshot(
       capturedAt: capturedAt,
       source: source.trim().isEmpty ? 'manual' : source.trim(),
+      sourceUrl: sourceUrl,
+      aggregateCompetitionRate: aggregateCompetitionRate,
       brokers: brokers.map((broker) => broker.normalized()).toList()
         ..sort((a, b) => a.name.compareTo(b.name)),
     );
@@ -349,7 +361,8 @@ class IpoCompetitionSnapshot {
     return IpoBrokerCompetitionAggregate(
       offeredShares: offeredShares,
       subscribedShares: subscribedShares,
-      competitionRate: offeredShares <= 0 ? null : subscribedShares / offeredShares,
+      competitionRate: aggregateCompetitionRate ??
+          (offeredShares <= 0 ? null : subscribedShares / offeredShares),
     );
   }
 
@@ -357,6 +370,7 @@ class IpoCompetitionSnapshot {
     return {
       'capturedAt': capturedAt,
       'source': source,
+      'sourceUrl': sourceUrl,
       'brokers': brokers.map((broker) => broker.toJson()).toList(),
       'aggregate': aggregate.toJson(),
     };
