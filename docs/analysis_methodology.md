@@ -15,6 +15,10 @@ model complexity because the dataset is still sparse and source quality varies.
 The overall score is capped to `0..100`.
 
 - `competition`: latest public subscription competition rate.
+- `institutionDemand`: institution demand forecast competition rate.
+- `lockupCommitment`: institution lock-up commitment ratio.
+- `floatRate`: public float ratio on listing day.
+- `pricing`: final offer price position inside or above the submitted band.
 - `market`: KOSPI/KOSDAQ market context.
 - `leadManagers`: number of known lead managers.
 - `recency`: whether the subscription date is active/upcoming/recent.
@@ -33,6 +37,35 @@ Expected return is a coarse scenario estimate:
 
 When offer price is missing, v1 uses a conservative placeholder assumption and
 marks this in `warnings`.
+
+## Extended input blocks
+
+Stock JSON may include:
+
+```json
+{
+  "fundamentals": {
+    "offerPrice": 38000,
+    "priceBandMin": 32000,
+    "priceBandMax": 38000,
+    "institutionCompetitionRate": 615.9,
+    "institutionParticipants": 2300,
+    "lockupCommitmentRate": 0.451,
+    "floatRate": 0.32,
+    "marketCapKrw": 3707100000000,
+    "publicAllocationShares": 500000
+  },
+  "outcome": {
+    "listingDate": "2025-11-18",
+    "openReturnRate": 0.4,
+    "highReturnRate": 0.8,
+    "closeReturnRate": 0.25
+  }
+}
+```
+
+`outcome` is not used to score future rows. It is stored for backtesting and
+calibration.
 
 ## How to improve accuracy
 

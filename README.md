@@ -100,3 +100,15 @@ ITICK_API_KEY
 The workflow runs every 10 minutes during Korean weekday market hours. It
 discovers upcoming IPO rows, regenerates `ipo_competition_data/`, and commits
 changes when generated JSON changes.
+
+## Analysis output
+
+Each generated stock JSON includes `analysis`:
+
+- `score`: rule-based reference score, grade, confidence, and factor breakdown.
+- `expectedReturn`: coarse expected listing gain and allocation/profit scenarios.
+- `decision`: app-ready label, reasons, and warnings.
+- `inputs`: key fields used by the current method.
+
+The current method is `ipo-score-v1`. It is intentionally transparent and should
+be calibrated with historical `outcome` rows before being treated as predictive.

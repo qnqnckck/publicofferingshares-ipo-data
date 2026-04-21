@@ -6,6 +6,18 @@
   "subscriptionStart": "2024-04-25",
   "subscriptionEnd": "2024-04-26",
   "leadManagers": [],
+  "fundamentals": {
+    "offerPrice": 83400,
+    "priceBandMin": null,
+    "priceBandMax": null,
+    "institutionCompetitionRate": 201.0,
+    "institutionParticipants": 2021,
+    "lockupCommitmentRate": 0.451,
+    "floatRate": null,
+    "marketCapKrw": 3707100000000,
+    "publicAllocationShares": 2353393
+  },
+  "outcome": null,
   "snapshots": [
     {
       "capturedAt": "2024-04-26T17:03:00+09:00",
@@ -32,47 +44,51 @@
   "analysis": {
     "methodVersion": "ipo-score-v1",
     "score": {
-      "overall": 56,
-      "grade": "C",
-      "confidence": 0.75,
+      "overall": 81,
+      "grade": "B+",
+      "confidence": 0.95,
       "factors": {
         "competition": 14,
+        "institutionDemand": 3,
+        "lockupCommitment": 10,
+        "floatRate": 4,
+        "pricing": 4,
         "market": 13,
         "leadManagers": 4,
         "recency": 5,
-        "dataCompleteness": 20
+        "dataCompleteness": 24
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.1481,
-      "bearCaseListingGainRate": -0.0719,
-      "baseCaseListingGainRate": 0.1481,
-      "bullCaseListingGainRate": 0.4981,
+      "expectedListingGainRate": 0.4051,
+      "bearCaseListingGainRate": 0.1851,
+      "baseCaseListingGainRate": 0.4051,
+      "bullCaseListingGainRate": 0.7551,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.039,
-        "oneMillionKrw": 0.13,
-        "fiveMillionKrw": 0.652
+        "oneMillionKrw": 0.047,
+        "fiveMillionKrw": 0.234
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1826,
-        "oneMillionKrw": -1421,
-        "fiveMillionKrw": 895
+        "minimumSubscription": -679,
+        "oneMillionKrw": -416,
+        "fiveMillionKrw": 5918
       },
       "assumptions": {
-        "offerPrice": null,
+        "offerPrice": 83400,
         "competitionRate": 255.8,
         "feeKrw": 2000,
         "method": "rule_based_v1_low_confidence"
       }
     },
     "decision": {
-      "level": "neutral",
-      "label": "중립",
+      "level": "strong_watch",
+      "label": "관심 높음",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 255.8대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 255.8대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
-        "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
@@ -81,7 +97,11 @@
       "snapshotCount": 1,
       "leadManagerCount": 0,
       "market": "KOSPI",
-      "hasOfferPrice": false
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 201.0,
+      "lockupCommitmentRate": 0.451,
+      "floatRate": null,
+      "hasOutcome": false
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

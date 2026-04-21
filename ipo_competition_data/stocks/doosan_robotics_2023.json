@@ -14,6 +14,18 @@
     "신영증권",
     "하나증권"
   ],
+  "fundamentals": {
+    "offerPrice": 26000,
+    "priceBandMin": null,
+    "priceBandMax": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": null,
   "snapshots": [
     {
       "capturedAt": "2023-09-22T17:33:00+09:00",
@@ -40,49 +52,52 @@
   "analysis": {
     "methodVersion": "ipo-score-v1",
     "score": {
-      "overall": 74,
-      "grade": "B+",
-      "confidence": 0.85,
+      "overall": 90,
+      "grade": "A+",
+      "confidence": 0.9,
       "factors": {
         "competition": 18,
+        "institutionDemand": 5,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 4,
         "market": 13,
         "leadManagers": 13,
         "recency": 5,
-        "dataCompleteness": 25
+        "dataCompleteness": 24
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.426,
-      "bearCaseListingGainRate": 0.206,
-      "baseCaseListingGainRate": 0.426,
-      "bullCaseListingGainRate": 0.776,
+      "expectedListingGainRate": 0.5883,
+      "bearCaseListingGainRate": 0.3683,
+      "baseCaseListingGainRate": 0.5883,
+      "bullCaseListingGainRate": 0.9383,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.019,
-        "oneMillionKrw": 0.064,
-        "fiveMillionKrw": 0.318
+        "oneMillionKrw": 0.073,
+        "fiveMillionKrw": 0.367
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1756,
-        "oneMillionKrw": -1187,
-        "fiveMillionKrw": 2065
+        "minimumSubscription": -1708,
+        "oneMillionKrw": -877,
+        "fiveMillionKrw": 3613
       },
       "assumptions": {
-        "offerPrice": null,
+        "offerPrice": 26000,
         "competitionRate": 524.05,
         "feeKrw": 2000,
         "method": "rule_based_v1_low_confidence"
       }
     },
     "decision": {
-      "level": "consider",
-      "label": "청약 고려",
+      "level": "strong_watch",
+      "label": "관심 높음",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 524.05대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
-        "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
@@ -91,7 +106,11 @@
       "snapshotCount": 1,
       "leadManagerCount": 7,
       "market": "KOSPI",
-      "hasOfferPrice": false
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

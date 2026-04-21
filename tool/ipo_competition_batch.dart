@@ -329,6 +329,8 @@ class IpoCompetitionStock {
     required this.subscriptionStart,
     required this.subscriptionEnd,
     required this.leadManagers,
+    required this.fundamentals,
+    required this.outcome,
     required this.snapshots,
   });
 
@@ -338,6 +340,8 @@ class IpoCompetitionStock {
   final String? subscriptionStart;
   final String? subscriptionEnd;
   final List<String> leadManagers;
+  final IpoFundamentals fundamentals;
+  final IpoOutcome? outcome;
   final List<IpoCompetitionSnapshot> snapshots;
 
   factory IpoCompetitionStock.fromJson(Map<String, Object?> json) {
@@ -348,6 +352,14 @@ class IpoCompetitionStock {
       subscriptionStart: readString(json, 'subscriptionStart'),
       subscriptionEnd: readString(json, 'subscriptionEnd'),
       leadManagers: readStringList(json['leadManagers']),
+      fundamentals: IpoFundamentals.fromJson(
+        json['fundamentals'] is Map<String, Object?>
+            ? json['fundamentals'] as Map<String, Object?>
+            : const {},
+      ),
+      outcome: json['outcome'] is Map<String, Object?>
+          ? IpoOutcome.fromJson(json['outcome'] as Map<String, Object?>)
+          : null,
       snapshots: readObjectList(json['snapshots'])
           .map(IpoCompetitionSnapshot.fromJson)
           .toList(),
@@ -365,6 +377,8 @@ class IpoCompetitionStock {
           .map((item) => item.trim())
           .where((item) => item.isNotEmpty)
           .toList(),
+      fundamentals: fundamentals.normalized(),
+      outcome: outcome?.normalized(),
       snapshots: snapshots.map((snapshot) => snapshot.normalized()).toList()
         ..sort((a, b) => a.capturedAt.compareTo(b.capturedAt)),
     );
@@ -389,6 +403,8 @@ class IpoCompetitionStock {
       'subscriptionStart': subscriptionStart,
       'subscriptionEnd': subscriptionEnd,
       'leadManagers': leadManagers,
+      'fundamentals': fundamentals.toJson(),
+      'outcome': outcome?.toJson(),
       'snapshots': snapshots.map((snapshot) => snapshot.toJson()).toList(),
       'analysis': analysis.toJson(),
     };
@@ -430,10 +446,124 @@ List<IpoCompetitionStock> mergeStocks(List<IpoCompetitionStock> stocks) {
       subscriptionStart: stock.subscriptionStart ?? existing.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd ?? existing.subscriptionEnd,
       leadManagers: {...existing.leadManagers, ...stock.leadManagers}.toList(),
+      fundamentals: existing.fundamentals.merge(stock.fundamentals),
+      outcome: stock.outcome ?? existing.outcome,
       snapshots: [...existing.snapshots, ...stock.snapshots],
     );
   }
   return byId.values.toList();
+}
+
+class IpoFundamentals {
+  const IpoFundamentals({
+    required this.offerPrice,
+    required this.priceBandMin,
+    required this.priceBandMax,
+    required this.institutionCompetitionRate,
+    required this.institutionParticipants,
+    required this.lockupCommitmentRate,
+    required this.floatRate,
+    required this.marketCapKrw,
+    required this.publicAllocationShares,
+  });
+
+  final int? offerPrice;
+  final int? priceBandMin;
+  final int? priceBandMax;
+  final double? institutionCompetitionRate;
+  final int? institutionParticipants;
+  final double? lockupCommitmentRate;
+  final double? floatRate;
+  final int? marketCapKrw;
+  final int? publicAllocationShares;
+
+  factory IpoFundamentals.fromJson(Map<String, Object?> json) {
+    return IpoFundamentals(
+      offerPrice: readOptionalInt(json['offerPrice']),
+      priceBandMin: readOptionalInt(json['priceBandMin']),
+      priceBandMax: readOptionalInt(json['priceBandMax']),
+      institutionCompetitionRate: readDouble(json['institutionCompetitionRate']),
+      institutionParticipants: readOptionalInt(json['institutionParticipants']),
+      lockupCommitmentRate: readRatio(json['lockupCommitmentRate']),
+      floatRate: readRatio(json['floatRate']),
+      marketCapKrw: readOptionalInt(json['marketCapKrw']),
+      publicAllocationShares: readOptionalInt(json['publicAllocationShares']),
+    );
+  }
+
+  IpoFundamentals normalized() {
+    return this;
+  }
+
+  IpoFundamentals merge(IpoFundamentals other) {
+    return IpoFundamentals(
+      offerPrice: other.offerPrice ?? offerPrice,
+      priceBandMin: other.priceBandMin ?? priceBandMin,
+      priceBandMax: other.priceBandMax ?? priceBandMax,
+      institutionCompetitionRate:
+          other.institutionCompetitionRate ?? institutionCompetitionRate,
+      institutionParticipants: other.institutionParticipants ?? institutionParticipants,
+      lockupCommitmentRate: other.lockupCommitmentRate ?? lockupCommitmentRate,
+      floatRate: other.floatRate ?? floatRate,
+      marketCapKrw: other.marketCapKrw ?? marketCapKrw,
+      publicAllocationShares: other.publicAllocationShares ?? publicAllocationShares,
+    );
+  }
+
+  Map<String, Object?> toJson() {
+    return {
+      'offerPrice': offerPrice,
+      'priceBandMin': priceBandMin,
+      'priceBandMax': priceBandMax,
+      'institutionCompetitionRate': institutionCompetitionRate,
+      'institutionParticipants': institutionParticipants,
+      'lockupCommitmentRate': lockupCommitmentRate,
+      'floatRate': floatRate,
+      'marketCapKrw': marketCapKrw,
+      'publicAllocationShares': publicAllocationShares,
+    };
+  }
+}
+
+class IpoOutcome {
+  const IpoOutcome({
+    required this.listingDate,
+    required this.openReturnRate,
+    required this.highReturnRate,
+    required this.closeReturnRate,
+  });
+
+  final String? listingDate;
+  final double? openReturnRate;
+  final double? highReturnRate;
+  final double? closeReturnRate;
+
+  factory IpoOutcome.fromJson(Map<String, Object?> json) {
+    return IpoOutcome(
+      listingDate: readString(json, 'listingDate'),
+      openReturnRate: readRatio(json['openReturnRate']),
+      highReturnRate: readRatio(json['highReturnRate']),
+      closeReturnRate: readRatio(json['closeReturnRate']),
+    );
+  }
+
+  IpoOutcome normalized() {
+    return IpoOutcome(
+      listingDate: normalizeDate(listingDate) ?? listingDate,
+      openReturnRate: openReturnRate,
+      highReturnRate: highReturnRate,
+      closeReturnRate: closeReturnRate,
+    );
+  }
+
+  Map<String, Object?> toJson() {
+    return {
+      'listingDate': listingDate,
+      'openReturnRate': openReturnRate,
+      'highReturnRate': highReturnRate,
+      'closeReturnRate': closeReturnRate,
+    };
+  }
 }
 
 class IpoCompetitionSnapshot {
@@ -662,17 +792,40 @@ double? readDouble(Object? value) {
   return double.tryParse('$value'.replaceAll(',', '').trim());
 }
 
+double? readRatio(Object? value) {
+  final parsed = readDouble(value);
+  if (parsed == null) {
+    return null;
+  }
+  if (parsed > 1) {
+    return parsed / 100;
+  }
+  return parsed;
+}
+
 void unawaited(Future<void> future) {}
 
 IpoAnalysis analyzeStock(IpoCompetitionStock stock) {
   final latestRate = stock.latestSnapshot?.aggregate.competitionRate;
   final competitionScore = scoreCompetition(latestRate);
+  final institutionScore = scoreInstitutionDemand(stock.fundamentals);
+  final lockupScore = scoreLockup(stock.fundamentals.lockupCommitmentRate);
+  final floatScore = scoreFloat(stock.fundamentals.floatRate);
+  final pricingScore = scorePricing(stock.fundamentals);
   final marketScore = scoreMarket(stock.market);
   final managerScore = scoreLeadManagers(stock.leadManagers);
   final recencyScore = scoreRecency(stock.subscriptionEnd);
   final dataScore = scoreDataCompleteness(stock);
   final total = clampInt(
-    competitionScore + marketScore + managerScore + recencyScore + dataScore,
+    competitionScore +
+        institutionScore +
+        lockupScore +
+        floatScore +
+        pricingScore +
+        marketScore +
+        managerScore +
+        recencyScore +
+        dataScore,
     0,
     100,
   );
@@ -702,6 +855,10 @@ IpoAnalysis analyzeStock(IpoCompetitionStock stock) {
       confidence: confidence,
       factors: {
         'competition': competitionScore,
+        'institutionDemand': institutionScore,
+        'lockupCommitment': lockupScore,
+        'floatRate': floatScore,
+        'pricing': pricingScore,
         'market': marketScore,
         'leadManagers': managerScore,
         'recency': recencyScore,
@@ -734,6 +891,11 @@ IpoAnalysis analyzeStock(IpoCompetitionStock stock) {
       'leadManagerCount': stock.leadManagers.length,
       'market': stock.market,
       'hasOfferPrice': offerPrice != null,
+      'institutionCompetitionRate':
+          stock.fundamentals.institutionCompetitionRate,
+      'lockupCommitmentRate': stock.fundamentals.lockupCommitmentRate,
+      'floatRate': stock.fundamentals.floatRate,
+      'hasOutcome': stock.outcome != null,
     },
     methodVersion: 'ipo-score-v1',
   );
@@ -848,6 +1010,9 @@ class IpoDecision {
 
 extension IpoCompetitionStockAnalysisFields on IpoCompetitionStock {
   int? get latestOfferPrice {
+    if (fundamentals.offerPrice != null && fundamentals.offerPrice! > 0) {
+      return fundamentals.offerPrice;
+    }
     for (final snapshot in snapshots.reversed) {
       for (final broker in snapshot.brokers) {
         if (broker.offerPrice != null && broker.offerPrice! > 0) {
@@ -857,6 +1022,84 @@ extension IpoCompetitionStockAnalysisFields on IpoCompetitionStock {
     }
     return null;
   }
+}
+
+int scoreInstitutionDemand(IpoFundamentals fundamentals) {
+  final rate = fundamentals.institutionCompetitionRate;
+  if (rate == null) {
+    return 5;
+  }
+  if (rate >= 1500) {
+    return 16;
+  }
+  if (rate >= 1000) {
+    return 14;
+  }
+  if (rate >= 700) {
+    return 11;
+  }
+  if (rate >= 300) {
+    return 7;
+  }
+  return 3;
+}
+
+int scoreLockup(double? rate) {
+  if (rate == null) {
+    return 4;
+  }
+  if (rate >= 0.5) {
+    return 13;
+  }
+  if (rate >= 0.3) {
+    return 10;
+  }
+  if (rate >= 0.15) {
+    return 7;
+  }
+  if (rate >= 0.05) {
+    return 4;
+  }
+  return 1;
+}
+
+int scoreFloat(double? rate) {
+  if (rate == null) {
+    return 4;
+  }
+  if (rate <= 0.2) {
+    return 13;
+  }
+  if (rate <= 0.3) {
+    return 10;
+  }
+  if (rate <= 0.4) {
+    return 7;
+  }
+  if (rate <= 0.5) {
+    return 4;
+  }
+  return 1;
+}
+
+int scorePricing(IpoFundamentals fundamentals) {
+  final offer = fundamentals.offerPrice;
+  final min = fundamentals.priceBandMin;
+  final max = fundamentals.priceBandMax;
+  if (offer == null || min == null || max == null || max <= min) {
+    return 4;
+  }
+  final position = (offer - min) / (max - min);
+  if (position > 1.0) {
+    return 5;
+  }
+  if (position >= 0.85) {
+    return 9;
+  }
+  if (position >= 0.45) {
+    return 7;
+  }
+  return 4;
 }
 
 int scoreCompetition(double? rate) {
@@ -927,7 +1170,7 @@ int scoreRecency(String? subscriptionEnd) {
 int scoreDataCompleteness(IpoCompetitionStock stock) {
   var score = 0;
   if (stock.snapshots.isNotEmpty) {
-    score += 12;
+    score += 8;
   }
   if (stock.leadManagers.isNotEmpty) {
     score += 5;
@@ -937,6 +1180,18 @@ int scoreDataCompleteness(IpoCompetitionStock stock) {
   }
   if (stock.subscriptionStart != null && stock.subscriptionEnd != null) {
     score += 4;
+  }
+  if (stock.fundamentals.offerPrice != null) {
+    score += 3;
+  }
+  if (stock.fundamentals.institutionCompetitionRate != null) {
+    score += 3;
+  }
+  if (stock.fundamentals.lockupCommitmentRate != null) {
+    score += 2;
+  }
+  if (stock.fundamentals.floatRate != null) {
+    score += 1;
   }
   return score;
 }
@@ -955,8 +1210,17 @@ double confidenceFor(IpoCompetitionStock stock) {
   if (stock.latestOfferPrice != null) {
     confidence += 0.1;
   }
-  if (stock.latestSnapshot?.aggregate.competitionRate != null) {
+  if (stock.fundamentals.institutionCompetitionRate != null) {
     confidence += 0.1;
+  }
+  if (stock.fundamentals.lockupCommitmentRate != null) {
+    confidence += 0.05;
+  }
+  if (stock.fundamentals.floatRate != null) {
+    confidence += 0.05;
+  }
+  if (stock.latestSnapshot?.aggregate.competitionRate != null) {
+    confidence += 0.05;
   }
   return clampDouble(confidence, 0.05, 0.95);
 }
@@ -1176,6 +1440,18 @@ IpoCompetitionStock? stockFromDartRow(Map<String, Object?> row) {
     leadManagers: readLeadManagers(
       firstNonEmptyString(row, ['lead_mgr', 'rprsntv_mngr', 'underwriter']),
     ),
+    fundamentals: const IpoFundamentals(
+      offerPrice: null,
+      priceBandMin: null,
+      priceBandMax: null,
+      institutionCompetitionRate: null,
+      institutionParticipants: null,
+      lockupCommitmentRate: null,
+      floatRate: null,
+      marketCapKrw: null,
+      publicAllocationShares: null,
+    ),
+    outcome: null,
     snapshots: const [],
   );
 }
@@ -1215,6 +1491,18 @@ IpoCompetitionStock? stockFromItickRow(Map<String, Object?> row) {
     leadManagers: readLeadManagers(
       firstNonEmptyString(row, ['leadManager', 'lead_manager', 'underwriter']),
     ),
+    fundamentals: const IpoFundamentals(
+      offerPrice: null,
+      priceBandMin: null,
+      priceBandMax: null,
+      institutionCompetitionRate: null,
+      institutionParticipants: null,
+      lockupCommitmentRate: null,
+      floatRate: null,
+      marketCapKrw: null,
+      publicAllocationShares: null,
+    ),
+    outcome: null,
     snapshots: const [],
   );
 }
