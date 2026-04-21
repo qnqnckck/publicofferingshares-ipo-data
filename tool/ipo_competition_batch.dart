@@ -30,6 +30,7 @@ class BatchOptions {
   const BatchOptions({
     required this.seedPath,
     required this.liveDir,
+    required this.outcomeDir,
     required this.discoveredPath,
     required this.outDir,
     required this.backfillYears,
@@ -43,6 +44,7 @@ class BatchOptions {
 
   final String seedPath;
   final String liveDir;
+  final String outcomeDir;
   final String discoveredPath;
   final String outDir;
   final int backfillYears;
@@ -60,6 +62,7 @@ Usage:
 Options:
   --seed <path>               Seed JSON path. Default: data/ipo_competition_seed.json
   --live-dir <dir>            Directory with live snapshot JSON files. Default: data/live_snapshots
+  --outcome-dir <dir>         Directory with historical outcome JSON files. Default: data/outcomes
   --discovered <path>         Auto-discovered stock JSON path. Default: data/discovered/ipo_events.json
   --out <dir>                 Output directory. Default: ipo_competition_data
   --backfill-years <years>    Include IPOs from the last N years. Default: 3
@@ -90,6 +93,7 @@ Seed from the example file:
     return BatchOptions(
       seedPath: valueAfter('--seed', 'data/ipo_competition_seed.json'),
       liveDir: valueAfter('--live-dir', 'data/live_snapshots'),
+      outcomeDir: valueAfter('--outcome-dir', 'data/outcomes'),
       discoveredPath: valueAfter('--discovered', 'data/discovered/ipo_events.json'),
       outDir: valueAfter('--out', 'ipo_competition_data'),
       backfillYears: intAfter('--backfill-years', 3),
@@ -124,11 +128,15 @@ class IpoCompetitionBatch {
           : await _loadDiscoveredStocks();
       await _writeDiscoveredStocks(discoveredStocks);
 
-      final stocks = mergeStocks([
+      final stocksWithoutExternalOutcomes = mergeStocks([
         ...await _loadSeedStocks(),
         ...discoveredStocks,
         ...await _loadLiveStocks(),
       ]);
+      final stocks = mergeOutcomes(
+        stocksWithoutExternalOutcomes,
+        await _loadOutcomeRows(),
+      );
       final cutoff = DateTime(
         generatedAt.year - options.backfillYears,
         generatedAt.month,
@@ -224,6 +232,30 @@ class IpoCompetitionBatch {
       }
     }
     return stocks;
+  }
+
+  Future<List<IpoOutcomeRow>> _loadOutcomeRows() async {
+    final dir = Directory(options.outcomeDir);
+    if (!await dir.exists()) {
+      return const [];
+    }
+    final rows = <IpoOutcomeRow>[];
+    await for (final entity in dir.list()) {
+      if (entity is! File || !entity.path.endsWith('.json')) {
+        continue;
+      }
+      final decoded = jsonDecode(await entity.readAsString());
+      if (decoded is Map<String, Object?> && decoded['outcomes'] is List) {
+        rows.addAll(
+          (decoded['outcomes'] as List)
+              .whereType<Map<String, Object?>>()
+              .map(IpoOutcomeRow.fromJson),
+        );
+      } else if (decoded is Map<String, Object?>) {
+        rows.add(IpoOutcomeRow.fromJson(decoded));
+      }
+    }
+    return rows;
   }
 
   Future<List<IpoCompetitionStock>> _loadDiscoveredStocks() async {
@@ -455,6 +487,109 @@ List<IpoCompetitionStock> mergeStocks(List<IpoCompetitionStock> stocks) {
     );
   }
   return byId.values.toList();
+}
+
+List<IpoCompetitionStock> mergeOutcomes(
+  List<IpoCompetitionStock> stocks,
+  List<IpoOutcomeRow> outcomes,
+) {
+  if (outcomes.isEmpty) {
+    return stocks;
+  }
+  final byId = <String, IpoOutcomeRow>{
+    for (final outcome in outcomes)
+      if (outcome.id != null) safeId(outcome.id!): outcome,
+  };
+  final byCompany = <String, IpoOutcomeRow>{
+    for (final outcome in outcomes)
+      if (outcome.company != null) normalizeLookup(outcome.company!): outcome,
+  };
+  return stocks.map((stock) {
+    final outcomeRow =
+        byId[safeId(stock.id)] ?? byCompany[normalizeLookup(stock.company)];
+    if (outcomeRow == null) {
+      return stock;
+    }
+    return IpoCompetitionStock(
+      id: stock.id,
+      company: stock.company,
+      market: stock.market,
+      subscriptionStart: stock.subscriptionStart,
+      subscriptionEnd: stock.subscriptionEnd,
+      leadManagers: stock.leadManagers,
+      fundamentals: stock.fundamentals.merge(
+        IpoFundamentals(
+          offerPrice: outcomeRow.offerPrice,
+          priceBandMin: null,
+          priceBandMax: null,
+          institutionCompetitionRate: null,
+          institutionParticipants: null,
+          lockupCommitmentRate: null,
+          floatRate: null,
+          marketCapKrw: null,
+          publicAllocationShares: null,
+        ),
+      ),
+      outcome: outcomeRow.toOutcome(),
+      snapshots: stock.snapshots,
+    );
+  }).toList();
+}
+
+String normalizeLookup(String value) {
+  return value.replaceAll(RegExp(r'\s+'), '').toLowerCase();
+}
+
+class IpoOutcomeRow {
+  const IpoOutcomeRow({
+    required this.id,
+    required this.company,
+    required this.listingDate,
+    required this.offerPrice,
+    required this.openPrice,
+    required this.highPrice,
+    required this.closePrice,
+    required this.sourceUrl,
+  });
+
+  final String? id;
+  final String? company;
+  final String? listingDate;
+  final int? offerPrice;
+  final int? openPrice;
+  final int? highPrice;
+  final int? closePrice;
+  final String? sourceUrl;
+
+  factory IpoOutcomeRow.fromJson(Map<String, Object?> json) {
+    return IpoOutcomeRow(
+      id: readString(json, 'id'),
+      company: readString(json, 'company'),
+      listingDate: readString(json, 'listingDate'),
+      offerPrice: readOptionalInt(json['offerPrice']),
+      openPrice: readOptionalInt(json['openPrice']),
+      highPrice: readOptionalInt(json['highPrice']),
+      closePrice: readOptionalInt(json['closePrice']),
+      sourceUrl: readString(json, 'sourceUrl'),
+    );
+  }
+
+  IpoOutcome toOutcome() {
+    return IpoOutcome(
+      listingDate: normalizeDate(listingDate) ?? listingDate,
+      openReturnRate: returnRate(openPrice),
+      highReturnRate: returnRate(highPrice),
+      closeReturnRate: returnRate(closePrice),
+    );
+  }
+
+  double? returnRate(int? price) {
+    final offer = offerPrice;
+    if (offer == null || offer <= 0 || price == null || price <= 0) {
+      return null;
+    }
+    return (price - offer) / offer;
+  }
 }
 
 class IpoFundamentals {
@@ -1439,6 +1574,7 @@ Map<String, Object?> buildBacktestReport(
     'sampleCount': rows.length,
     'summary': summarizeBacktestRows(rows),
     'byGrade': summarizeByGrade(rows),
+    'byScoreBucket': summarizeByScoreBucket(rows),
     'rows': rows,
     'note':
         'Backtest is exploratory. Sample size is currently too small for predictive calibration.',
@@ -1477,6 +1613,35 @@ Map<String, Object?> summarizeByGrade(List<Map<String, Object?>> rows) {
       'sampleCount': gradeRows.length,
       'averageCloseReturnRate': average(closes),
       'medianCloseReturnRate': median(closes),
+    });
+  });
+}
+
+Map<String, Object?> summarizeByScoreBucket(List<Map<String, Object?>> rows) {
+  final grouped = <String, List<Map<String, Object?>>>{};
+  for (final row in rows) {
+    final score = row['score'];
+    if (score is! int) {
+      continue;
+    }
+    final bucketStart = (score ~/ 10) * 10;
+    final bucket = '$bucketStart-${bucketStart + 9}';
+    grouped.putIfAbsent(bucket, () => []).add(row);
+  }
+  return grouped.map((bucket, bucketRows) {
+    final closes = bucketRows
+        .map((row) => row['closeReturnRate'])
+        .whereType<double>()
+        .toList();
+    final errors = bucketRows
+        .map((row) => row['errorCloseVsExpected'])
+        .whereType<double>()
+        .toList();
+    return MapEntry(bucket, {
+      'sampleCount': bucketRows.length,
+      'averageCloseReturnRate': average(closes),
+      'medianCloseReturnRate': median(closes),
+      'averageErrorCloseVsExpected': average(errors),
     });
   });
 }

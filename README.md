@@ -87,6 +87,7 @@ This is the bridge before broker-specific adapters are implemented:
 - manually reviewed final historical rows go into `data/ipo_competition_seed.json`
 - auto-discovered upcoming rows are stored in `data/discovered/ipo_events.json`
 - active subscription snapshots go into `data/live_snapshots/*.json`
+- historical listing outcomes go into `data/outcomes/*.json`
 - future broker adapters can write the same JSON shape
 
 ## GitHub Actions secrets

@@ -88,6 +88,21 @@ The score becomes materially more useful when these fields are collected:
 The batch writes `ipo_competition_data/backtest_report.json` from rows that have
 `outcome.closeReturnRate`.
 
+Historical outcomes can be maintained independently from seed rows under
+`data/outcomes/*.json`. Each row may specify prices instead of return rates:
+
+```json
+{
+  "id": "example_ipo_id",
+  "company": "예시기업",
+  "listingDate": "2026-04-30",
+  "offerPrice": 30000,
+  "openPrice": 42000,
+  "highPrice": 48000,
+  "closePrice": 39000
+}
+```
+
 After enough rows are collected, replace the static weights with calibrated
 weights:
 
