@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-22T00:52:18.685024",
+  "generatedAt": "2026-04-22T00:55:49.247957",
   "methodVersion": "ipo-score-v1",
-  "sampleCount": 18,
+  "sampleCount": 21,
   "summary": {
-    "averageCloseReturnRate": 1.0085,
-    "medianCloseReturnRate": 0.7224,
-    "averageErrorCloseVsExpected": 0.2957,
-    "medianErrorCloseVsExpected": -0.0588
+    "averageCloseReturnRate": 1.0472,
+    "medianCloseReturnRate": 0.9333,
+    "averageErrorCloseVsExpected": 0.3179,
+    "medianErrorCloseVsExpected": 0.1777
   },
   "byGrade": {
     "A+": {
-      "sampleCount": 12,
-      "averageCloseReturnRate": 1.0842,
-      "medianCloseReturnRate": 0.8907
+      "sampleCount": 15,
+      "averageCloseReturnRate": 1.1232,
+      "medianCloseReturnRate": 0.9706
     },
     "A": {
       "sampleCount": 5,
@@ -34,10 +34,10 @@
       "averageErrorCloseVsExpected": 0.7589
     },
     "90-99": {
-      "sampleCount": 7,
-      "averageCloseReturnRate": 0.7174,
-      "medianCloseReturnRate": 0.5969,
-      "averageErrorCloseVsExpected": -0.0124
+      "sampleCount": 10,
+      "averageCloseReturnRate": 0.8859,
+      "medianCloseReturnRate": 0.9093,
+      "averageErrorCloseVsExpected": 0.1268
     },
     "80-89": {
       "sampleCount": 6,
@@ -126,6 +126,19 @@
       "errorCloseVsExpected": -0.7208
     },
     {
+      "id": "studio_samik_2024",
+      "company": "스튜디오삼익",
+      "score": 98,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8646,
+      "openReturnRate": 1.8888888888888888,
+      "highReturnRate": 1.9222222222222223,
+      "closeReturnRate": 1.2166666666666666,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240206040551008",
+      "errorCloseVsExpected": 0.3521
+    },
+    {
       "id": "apr_2024",
       "company": "에이피알",
       "score": 95,
@@ -139,6 +152,19 @@
       "errorCloseVsExpected": -0.5651
     },
     {
+      "id": "hb_investment_2024",
+      "company": "HB인베스트먼트",
+      "score": 95,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.7929,
+      "openReturnRate": 1.9705882352941178,
+      "highReturnRate": 2.3529411764705883,
+      "closeReturnRate": 0.9705882352941176,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240125045251002",
+      "errorCloseVsExpected": 0.1777
+    },
+    {
       "id": "daehan_shipbuilding_2025",
       "company": "대한조선",
       "score": 94,
@@ -150,6 +176,19 @@
       "closeReturnRate": 0.848,
       "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20250801048751008",
       "errorCloseVsExpected": 0.3222
+    },
+    {
+      "id": "inix_2024",
+      "company": "이닉스",
+      "score": 94,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8253,
+      "openReturnRate": null,
+      "highReturnRate": null,
+      "closeReturnRate": 1.65,
+      "outcomeSourceUrl": "https://www.fnnews.com/news/202402011539341900",
+      "errorCloseVsExpected": 0.8247
     },
     {
       "id": "cosem_2024",

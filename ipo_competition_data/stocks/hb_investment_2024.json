@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "id": "hb_investment_2024",
+  "company": "HB인베스트먼트",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2024-01-16",
+  "subscriptionEnd": "2024-01-17",
+  "leadManagers": [
+    "NH투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 3400,
+    "priceBandMin": 2400,
+    "priceBandMax": 2800,
+    "institutionCompetitionRate": 838.81,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": {
+    "listingDate": "2024-01-25",
+    "openReturnRate": 1.9705882352941178,
+    "highReturnRate": 2.3529411764705883,
+    "closeReturnRate": 0.9705882352941176,
+    "sourceUrl": "https://www.yna.co.kr/view/AKR20240125045251002"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-01-17T17:25:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.fnnews.com/news/202401171725485219",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "competitionRate": 892.56,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 892.56
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 95,
+      "grade": "A+",
+      "confidence": 0.95,
+      "factors": {
+        "competition": 21,
+        "institutionDemand": 11,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 5,
+        "market": 11,
+        "leadManagers": 7,
+        "recency": 5,
+        "dataCompleteness": 27
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.7929,
+      "bearCaseListingGainRate": 0.5729,
+      "baseCaseListingGainRate": 0.7929,
+      "bullCaseListingGainRate": 1.1429,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.011,
+        "oneMillionKrw": 0.33,
+        "fiveMillionKrw": 1.648
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1970,
+        "oneMillionKrw": -1112,
+        "fiveMillionKrw": 2442
+      },
+      "assumptions": {
+        "offerPrice": 3400,
+        "competitionRate": 892.56,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 892.56대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "inputs": {
+      "latestCompetitionRate": 892.56,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 838.81,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
