@@ -149,10 +149,11 @@ class IpoCompetitionBatch {
         stocksWithoutExternalOutcomes,
         await _loadOutcomeRows(),
       );
-      final enrichedStocks = mergeBrokerSnapshots(
-        stocks,
-        await _loadBrokerSnapshotRows(),
-      );
+      final brokerSnapshotRows = [
+        ...await _loadBrokerSnapshotRows(),
+        ...await _collectPublicLiveBrokerSnapshots(stocks, generatedAt),
+      ];
+      final enrichedStocks = mergeBrokerSnapshots(stocks, brokerSnapshotRows);
       final cutoff = DateTime(
         generatedAt.year - options.backfillYears,
         generatedAt.month,
@@ -417,6 +418,81 @@ class IpoCompetitionBatch {
       stderr.writeln('iTick discovery failed: $error');
       return const [];
     }
+  }
+
+  Future<List<IpoBrokerSnapshotRow>> _collectPublicLiveBrokerSnapshots(
+    List<IpoCompetitionStock> stocks,
+    DateTime now,
+  ) async {
+    final today = DateTime(now.year, now.month, now.day);
+    final active = stocks.where((stock) {
+      final start = parseDate(stock.subscriptionStart);
+      final end = parseDate(stock.subscriptionEnd) ?? start;
+      if (start == null || end == null) {
+        return false;
+      }
+      return !today.isBefore(start) && !today.isAfter(end);
+    }).toList();
+    if (active.isEmpty) {
+      return const [];
+    }
+
+    final rows = <IpoBrokerSnapshotRow>[];
+    for (final stock in active) {
+      final row = await _fetchIpostockLiveSnapshot(stock, now);
+      if (row != null) {
+        rows.add(row);
+      }
+    }
+    return rows;
+  }
+
+  Future<IpoBrokerSnapshotRow?> _fetchIpostockLiveSnapshot(
+    IpoCompetitionStock stock,
+    DateTime now,
+  ) async {
+    final baseDate = parseDate(stock.subscriptionStart) ?? now;
+    final listUrls = [
+      'http://www.ipostock.co.kr/sub03/ipo04.asp?str1=${baseDate.year}&str2=${baseDate.month}',
+      'http://www.ipostock.co.kr/sub03/ipo04.asp',
+    ];
+    final listBody = await httpGetFirstText(listUrls);
+    if (listBody == null) {
+      return null;
+    }
+
+    final detailPath = extractCommunityDetailPath(
+      html: listBody,
+      company: stock.company,
+      pathPattern: RegExp(
+        r"""((?:https?://(?:www\.)?ipostock\.co\.kr)?/view_pg/view_0[24]\.asp\?code=[A-Za-z0-9]+[^'\"\s\)]*)""",
+        caseSensitive: false,
+      ),
+    );
+    if (detailPath == null) {
+      return null;
+    }
+
+    final normalizedPath = detailPath.contains('view_04.asp')
+        ? detailPath
+        : detailPath.contains('?')
+            ? '${detailPath.replaceFirst('view_02.asp', 'view_04.asp')}&schk=2'
+            : '${detailPath.replaceFirst('view_02.asp', 'view_04.asp')}?schk=2';
+    final detailUrl = Uri.parse(
+      'http://www.ipostock.co.kr',
+    ).resolve(normalizedPath.replaceAll('&amp;', '&')).toString();
+    final detailBody = await httpGetFirstText([detailUrl]);
+    if (detailBody == null) {
+      return null;
+    }
+
+    final snapshot = parseIpostockLiveSnapshot(
+      stock: stock,
+      capturedAt: now.toIso8601String(),
+      sourceUrl: detailUrl,
+      html: detailBody,
+    );
+    return snapshot;
   }
 }
 
@@ -727,6 +803,236 @@ List<IpoCompetitionStock> mergeBrokerSnapshots(
     );
   }).toList();
 }
+
+IpoBrokerSnapshotRow? parseIpostockLiveSnapshot({
+  required IpoCompetitionStock stock,
+  required String capturedAt,
+  required String sourceUrl,
+  required String html,
+}) {
+  final text = plainText(html);
+  final companyKey = normalizeLookup(stock.company);
+  if (!normalizeLookup(text).contains(companyKey)) {
+    return null;
+  }
+
+  final competitionRate = parseCompetitionRate(
+    RegExp(
+          r'청약\s*경쟁률[^\d]{0,24}(\d+(?:,\d{3})*(?:\.\d+)?)\s*(?:대|:|：)\s*1',
+        ).firstMatch(text)?.group(1) ??
+        RegExp(
+          r'최종\s*청약\s*경쟁[율률][^\d]{0,24}(\d+(?:,\d{3})*(?:\.\d+)?)\s*(?:대|:|：)\s*1',
+        ).firstMatch(text)?.group(1) ??
+        '',
+  );
+  if (competitionRate <= 0) {
+    return null;
+  }
+
+  final offerPrice = parseCountValue(
+        RegExp(
+              r'\(확정\)\s*공모가격[^\d]{0,24}(\d+(?:,\d{3})*)\s*원',
+            ).firstMatch(text)?.group(1) ??
+            '',
+      ) ??
+      stock.fundamentals.offerPrice;
+  final depositRate = parseDepositRate(text);
+  final generalShares = parseCountValue(
+    RegExp(
+          r'일반\s*청약자[^\d]{0,24}(\d+(?:,\d{3})*)\s*주',
+        ).firstMatch(text)?.group(1) ??
+        '',
+  );
+  final brokers = parseIpostockBrokerAllocations(text);
+
+  final resolvedBrokers = <IpoBrokerCompetition>[];
+  if (brokers.isNotEmpty) {
+    for (final entry in brokers.entries) {
+      final allocation = entry.value;
+      resolvedBrokers.add(
+        IpoBrokerCompetition(
+          name: entry.key,
+          offeredShares: allocation,
+          subscribedShares: (allocation * competitionRate).round(),
+          offerPrice: offerPrice,
+          depositRate: depositRate,
+          feeKrw: null,
+          competitionRate: competitionRate,
+          equalCompetitionRate: null,
+          proportionalCompetitionRate: competitionRate,
+          equalAllocationShares: (allocation / 2).round(),
+          proportionalAllocationShares: (allocation / 2).round(),
+        ),
+      );
+    }
+  } else if (generalShares != null && generalShares > 0) {
+    resolvedBrokers.add(
+      IpoBrokerCompetition(
+        name: stock.leadManagers.length == 1 ? stock.leadManagers.first : '통합',
+        offeredShares: generalShares,
+        subscribedShares: (generalShares * competitionRate).round(),
+        offerPrice: offerPrice,
+        depositRate: depositRate,
+        feeKrw: null,
+        competitionRate: competitionRate,
+        equalCompetitionRate: null,
+        proportionalCompetitionRate: competitionRate,
+        equalAllocationShares: (generalShares / 2).round(),
+        proportionalAllocationShares: (generalShares / 2).round(),
+      ),
+    );
+  }
+
+  if (resolvedBrokers.isEmpty) {
+    return null;
+  }
+
+  return IpoBrokerSnapshotRow(
+    id: stock.id,
+    company: stock.company,
+    capturedAt: capturedAt,
+    source: 'ipostock_live',
+    sourceUrl: sourceUrl,
+    brokers: resolvedBrokers,
+  );
+}
+
+Map<String, int> parseIpostockBrokerAllocations(String text) {
+  final result = <String, int>{};
+  for (final broker in knownBrokerNames) {
+    final pattern = RegExp(
+      '${RegExp.escape(broker)}[^\\d]{0,32}(\\d(?:,?\\d){0,14})\\s*주',
+      caseSensitive: false,
+    );
+    final match = pattern.firstMatch(text);
+    if (match == null) {
+      continue;
+    }
+    final value = parseCountValue(match.group(1) ?? '');
+    if (value == null || value <= 0) {
+      continue;
+    }
+    result[canonicalBrokerName(broker)] = value;
+  }
+  return result;
+}
+
+String? extractCommunityDetailPath({
+  required String html,
+  required String company,
+  required RegExp pathPattern,
+}) {
+  final companyKey = normalizeLookup(company);
+  for (final match in pathPattern.allMatches(html)) {
+    final path = match.group(1);
+    if (path == null) {
+      continue;
+    }
+    final start = mathMax(0, match.start - 320);
+    final end = mathMin(html.length, match.end + 320);
+    final near = html.substring(start, end);
+    if (normalizeLookup(near).contains(companyKey)) {
+      return path.replaceAll('&amp;', '&');
+    }
+  }
+  return null;
+}
+
+String plainText(String html) {
+  return html
+      .replaceAll('&nbsp;', ' ')
+      .replaceAll('&amp;', '&')
+      .replaceAll('&lt;', '<')
+      .replaceAll('&gt;', '>')
+      .replaceAll('&quot;', '"')
+      .replaceAll(RegExp(r'<br\s*/?>', caseSensitive: false), ' / ')
+      .replaceAll(RegExp(r'<[^>]+>'), ' ')
+      .replaceAll(RegExp(r'\s+'), ' ')
+      .trim();
+}
+
+int mathMax(int a, int b) => a > b ? a : b;
+
+int mathMin(int a, int b) => a < b ? a : b;
+
+double parseCompetitionRate(String text) {
+  final match = RegExp(r'(\d+(?:,\d{3})*(?:\.\d+)?)')
+      .firstMatch(text.replaceAll(',', ''));
+  if (match == null) {
+    return 0;
+  }
+  return double.tryParse(match.group(1) ?? '') ?? 0;
+}
+
+int? parseCountValue(String text) {
+  final digits = text.replaceAll(RegExp(r'[^0-9]'), '');
+  if (digits.isEmpty) {
+    return null;
+  }
+  return int.tryParse(digits);
+}
+
+double? parseDepositRate(String text) {
+  final match = RegExp(r'청약\s*증거금율[^\d]{0,24}개인\s*(\d+(?:\.\d+)?)\s*%')
+      .firstMatch(text);
+  if (match == null) {
+    return 0.5;
+  }
+  final percent = double.tryParse(match.group(1) ?? '');
+  if (percent == null || percent <= 0) {
+    return 0.5;
+  }
+  return percent / 100;
+}
+
+String canonicalBrokerName(String raw) {
+  final key = normalizeLookup(raw);
+  if (key == normalizeLookup('엔에이치투자증권') || key == normalizeLookup('NH증권')) {
+    return 'NH투자증권';
+  }
+  if (key == normalizeLookup('케이비증권')) {
+    return 'KB증권';
+  }
+  for (final broker in knownBrokerNames) {
+    if (normalizeLookup(broker) == key) {
+      return broker;
+    }
+  }
+  return raw.trim();
+}
+
+const knownBrokerNames = <String>[
+  'KB증권',
+  '케이비증권',
+  'NH투자증권',
+  '엔에이치투자증권',
+  '미래에셋증권',
+  '한국투자증권',
+  '신한투자증권',
+  '대신증권',
+  '삼성증권',
+  '키움증권',
+  '하나증권',
+  'IBK투자증권',
+  '유안타증권',
+  '한화투자증권',
+  'SK증권',
+  'DB증권',
+  '교보증권',
+  '유진투자증권',
+  '현대차증권',
+  'BNK투자증권',
+  'LS증권',
+  'iM증권',
+  '다올투자증권',
+  '메리츠증권',
+  '신영증권',
+  '부국증권',
+  '유화증권',
+  '케이프투자증권',
+  '상상인증권',
+  '한양증권',
+];
 
 class IpoBrokerSnapshotRow {
   const IpoBrokerSnapshotRow({
@@ -2062,6 +2368,40 @@ Future<Map<String, Object?>> httpGetJson(Uri uri) async {
   } finally {
     client.close(force: true);
   }
+}
+
+Future<String?> httpGetFirstText(List<String> urls) async {
+  final expanded = <String>[];
+  for (final rawUrl in urls) {
+    expanded.add(rawUrl);
+    if (rawUrl.startsWith('http://') || rawUrl.startsWith('https://')) {
+      final noScheme = rawUrl.replaceFirst(RegExp(r'^https?://'), '');
+      expanded.add('https://r.jina.ai/http://$noScheme');
+    }
+  }
+
+  for (final rawUrl in expanded) {
+    final client = HttpClient();
+    try {
+      final uri = Uri.parse(rawUrl);
+      final request = await client.getUrl(uri);
+      request.headers.set(HttpHeaders.userAgentHeader, 'Mozilla/5.0');
+      request.headers.set(HttpHeaders.acceptHeader, 'text/html,*/*');
+      final response = await request.close();
+      final body = await utf8.decodeStream(response);
+      if (response.statusCode >= 200 &&
+          response.statusCode < 300 &&
+          body.trim().isNotEmpty &&
+          !RegExp('�{3,}').hasMatch(body)) {
+        return body;
+      }
+    } catch (_) {
+      // Try the next URL/mirror.
+    } finally {
+      client.close(force: true);
+    }
+  }
+  return null;
 }
 
 IpoCompetitionStock? stockFromDartRow(Map<String, Object?> row) {
