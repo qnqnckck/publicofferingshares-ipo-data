@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "id": "revucorporation_2023",
+  "company": "레뷰코퍼레이션",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2023-09-19",
+  "subscriptionEnd": "2023-09-20",
+  "leadManagers": [
+    "삼성증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 15000,
+    "priceBandMin": 11500,
+    "priceBandMax": 13200,
+    "institutionCompetitionRate": 643.7,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2023-09-20T16:00:00+09:00",
+      "source": "public_ipo_backfill",
+      "sourceUrl": "https://www.fnnews.com/news/202309201641513439",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 657.79,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 657.79
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 88,
+      "grade": "A",
+      "confidence": 0.95,
+      "factors": {
+        "competition": 18,
+        "institutionDemand": 7,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 5,
+        "market": 11,
+        "leadManagers": 7,
+        "recency": 5,
+        "dataCompleteness": 27
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.6319,
+      "bearCaseListingGainRate": 0.4119,
+      "baseCaseListingGainRate": 0.6319,
+      "bullCaseListingGainRate": 0.9819,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.015,
+        "oneMillionKrw": 0.101,
+        "fiveMillionKrw": 0.507
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1856,
+        "oneMillionKrw": -1039,
+        "fiveMillionKrw": 2803
+      },
+      "assumptions": {
+        "offerPrice": 15000,
+        "competitionRate": 657.79,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 657.79대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": 657.79,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 643.7,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

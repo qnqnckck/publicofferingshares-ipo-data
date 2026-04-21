@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "id": "green_resource_2023",
+  "company": "그린리소스",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2023-11-13",
+  "subscriptionEnd": "2023-11-14",
+  "leadManagers": [
+    "NH투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 17000,
+    "priceBandMin": 11000,
+    "priceBandMax": 14000,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2023-11-14T16:00:00+09:00",
+      "source": "public_ipo_backfill",
+      "sourceUrl": "https://www.yna.co.kr/view/AKR20231114141100002",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 590.06,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 590.06
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 83,
+      "grade": "A",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 18,
+        "institutionDemand": 5,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 5,
+        "market": 11,
+        "leadManagers": 7,
+        "recency": 5,
+        "dataCompleteness": 24
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.5462,
+      "bearCaseListingGainRate": 0.3262,
+      "baseCaseListingGainRate": 0.5462,
+      "bullCaseListingGainRate": 0.8962,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.017,
+        "oneMillionKrw": 0.1,
+        "fiveMillionKrw": 0.498
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1843,
+        "oneMillionKrw": -1074,
+        "fiveMillionKrw": 2628
+      },
+      "assumptions": {
+        "offerPrice": 17000,
+        "competitionRate": 590.06,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 590.06대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": 590.06,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

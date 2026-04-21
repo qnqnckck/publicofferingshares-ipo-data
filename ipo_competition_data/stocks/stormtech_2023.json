@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "stormtech_2023",
+  "company": "스톰테크",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2023-11-09",
+  "subscriptionEnd": "2023-11-10",
+  "leadManagers": [
+    "하이투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 11000,
+    "priceBandMin": 8000,
+    "priceBandMax": 9500,
+    "institutionCompetitionRate": 573.97,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": null,
+  "snapshots": [],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 70,
+      "grade": "B",
+      "confidence": 0.55,
+      "factors": {
+        "competition": 8,
+        "institutionDemand": 7,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 5,
+        "market": 11,
+        "leadManagers": 7,
+        "recency": 5,
+        "dataCompleteness": 19
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.2696,
+      "bearCaseListingGainRate": 0.0496,
+      "baseCaseListingGainRate": 0.2696,
+      "bullCaseListingGainRate": 0.6196,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.013,
+        "oneMillionKrw": 0.114,
+        "fiveMillionKrw": 0.568
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1963,
+        "oneMillionKrw": -1663,
+        "fiveMillionKrw": -315
+      },
+      "assumptions": {
+        "offerPrice": 11000,
+        "competitionRate": null,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "consider",
+      "label": "청약 고려",
+      "reasons": [
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": null,
+      "snapshotCount": 0,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 573.97,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "astec_2023",
+  "company": "에이에스텍",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2023-11-16",
+  "subscriptionEnd": "2023-11-17",
+  "leadManagers": [
+    "미래에셋증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 28000,
+    "priceBandMin": 21000,
+    "priceBandMax": 25000,
+    "institutionCompetitionRate": 629.95,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2023-11-17T16:00:00+09:00",
+      "source": "public_ipo_backfill",
+      "sourceUrl": "https://finfreedom.tistory.com",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1356.5,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1356.5
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 91,
+      "grade": "A+",
+      "confidence": 0.95,
+      "factors": {
+        "competition": 21,
+        "institutionDemand": 7,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 5,
+        "market": 11,
+        "leadManagers": 7,
+        "recency": 5,
+        "dataCompleteness": 27
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.7958,
+      "bearCaseListingGainRate": 0.5758,
+      "baseCaseListingGainRate": 0.7958,
+      "bullCaseListingGainRate": 1.1458,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.007,
+        "oneMillionKrw": 0.026,
+        "fiveMillionKrw": 0.132
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1836,
+        "oneMillionKrw": -1413,
+        "fiveMillionKrw": 933
+      },
+      "assumptions": {
+        "offerPrice": 28000,
+        "competitionRate": 1356.5,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1356.5대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": 1356.5,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 629.95,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
