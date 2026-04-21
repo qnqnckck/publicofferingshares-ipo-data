@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-22T01:05:02.412538",
+  "generatedAt": "2026-04-22T01:06:40.623992",
   "methodVersion": "ipo-score-v1",
-  "sampleCount": 32,
+  "sampleCount": 33,
   "summary": {
-    "averageCloseReturnRate": 0.9108,
-    "medianCloseReturnRate": 0.5818,
-    "averageErrorCloseVsExpected": 0.1896,
-    "medianErrorCloseVsExpected": -0.1814
+    "averageCloseReturnRate": 0.9001,
+    "medianCloseReturnRate": 0.5667,
+    "averageErrorCloseVsExpected": 0.1763,
+    "medianErrorCloseVsExpected": -0.1961
   },
   "byGrade": {
     "A+": {
-      "sampleCount": 24,
-      "averageCloseReturnRate": 1.0071,
-      "medianCloseReturnRate": 0.8907
+      "sampleCount": 25,
+      "averageCloseReturnRate": 0.9891,
+      "medianCloseReturnRate": 0.848
     },
     "A": {
       "sampleCount": 5,
@@ -39,10 +39,10 @@
       "averageErrorCloseVsExpected": 0.5054
     },
     "90-99": {
-      "sampleCount": 16,
-      "averageCloseReturnRate": 0.8299,
-      "medianCloseReturnRate": 0.7224,
-      "averageErrorCloseVsExpected": 0.0593
+      "sampleCount": 17,
+      "averageCloseReturnRate": 0.8139,
+      "medianCloseReturnRate": 0.5969,
+      "averageErrorCloseVsExpected": 0.0412
     },
     "80-89": {
       "sampleCount": 6,
@@ -323,6 +323,19 @@
       "closeReturnRate": 0.596875,
       "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10949582",
       "errorCloseVsExpected": -0.2041
+    },
+    {
+      "id": "iron_device_2024",
+      "company": "아이언디바이스",
+      "score": 92,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8057,
+      "openReturnRate": null,
+      "highReturnRate": 1.6242857142857143,
+      "closeReturnRate": 0.5571428571428572,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/2024092324111",
+      "errorCloseVsExpected": -0.2485
     },
     {
       "id": "seers_technology_2024",

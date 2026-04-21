@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "inspien_2024",
+  "company": "인스피언",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2024-10-07",
+  "subscriptionEnd": "2024-10-08",
+  "leadManagers": [
+    "한국투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 12000,
+    "priceBandMin": 8000,
+    "priceBandMax": 10000,
+    "institutionCompetitionRate": 1069.1,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": 121700000000,
+    "publicAllocationShares": null
+  },
+  "outcome": {
+    "listingDate": "2024-10-18",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://biz.newdaily.co.kr/site/data/html/2024/10/08/2024100800354.html"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-10-08T17:40:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.dailian.co.kr/news/view/1414940",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 865370000,
+          "offerPrice": null,
+          "competitionRate": 1538.44,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 865370000,
+        "competitionRate": 1538.44
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 100,
+      "grade": "A+",
+      "confidence": 0.95,
+      "factors": {
+        "competition": 24,
+        "institutionDemand": 14,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 5,
+        "market": 11,
+        "leadManagers": 7,
+        "recency": 5,
+        "dataCompleteness": 27
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.8843,
+      "bearCaseListingGainRate": 0.6643,
+      "baseCaseListingGainRate": 0.8843,
+      "bullCaseListingGainRate": 1.2342,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.007,
+        "oneMillionKrw": 0.054,
+        "fiveMillionKrw": 0.271
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1931,
+        "oneMillionKrw": -1425,
+        "fiveMillionKrw": 874
+      },
+      "assumptions": {
+        "offerPrice": 12000,
+        "competitionRate": 1538.44,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1538.44대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "inputs": {
+      "latestCompetitionRate": 1538.44,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1069.1,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

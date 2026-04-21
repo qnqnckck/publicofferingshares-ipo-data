@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "id": "iron_device_2024",
+  "company": "아이언디바이스",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2024-09-09",
+  "subscriptionEnd": "2024-09-10",
+  "leadManagers": [],
+  "fundamentals": {
+    "offerPrice": 7000,
+    "priceBandMin": 4900,
+    "priceBandMax": 5700,
+    "institutionCompetitionRate": 1152.8,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": 0.0334,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": {
+    "listingDate": "2024-09-23",
+    "openReturnRate": null,
+    "highReturnRate": 1.6242857142857143,
+    "closeReturnRate": 0.5571428571428572,
+    "sourceUrl": "https://www.hankyung.com/article/2024092324111"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-09-10T17:30:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.fnnews.com/ampNews/202409230918437473",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "competitionRate": 1965.03,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1965.03
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 92,
+      "grade": "A+",
+      "confidence": 0.95,
+      "factors": {
+        "competition": 24,
+        "institutionDemand": 14,
+        "lockupCommitment": 1,
+        "floatRate": 4,
+        "pricing": 5,
+        "market": 11,
+        "leadManagers": 4,
+        "recency": 5,
+        "dataCompleteness": 24
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.8057,
+      "bearCaseListingGainRate": 0.5857,
+      "baseCaseListingGainRate": 0.8057,
+      "bullCaseListingGainRate": 1.1557,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.005,
+        "oneMillionKrw": 0.073,
+        "fiveMillionKrw": 0.363
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1971,
+        "oneMillionKrw": -1590,
+        "fiveMillionKrw": 50
+      },
+      "assumptions": {
+        "offerPrice": 7000,
+        "competitionRate": 1965.03,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1965.03대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "inputs": {
+      "latestCompetitionRate": 1965.03,
+      "snapshotCount": 1,
+      "leadManagerCount": 0,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1152.8,
+      "lockupCommitmentRate": 0.0334,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
