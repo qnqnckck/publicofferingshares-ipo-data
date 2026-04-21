@@ -1,0 +1,34 @@
+name: IPO competition batch
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/10 0-8 * * 1-5"
+
+permissions:
+  contents: write
+
+jobs:
+  update-ipo-competition:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+
+      - name: Generate JSON
+        run: dart run tool/ipo_competition_batch.dart --backfill-years 3 --live-dir data/live_snapshots
+
+      - name: Commit generated data
+        run: |
+          if git diff --quiet -- ipo_competition_data; then
+            echo "No data changes."
+            exit 0
+          fi
+          git config user.name "ipo-competition-bot"
+          git config user.email "ipo-competition-bot@users.noreply.github.com"
+          git add ipo_competition_data
+          git commit -m "Update IPO competition data"
+          git push
