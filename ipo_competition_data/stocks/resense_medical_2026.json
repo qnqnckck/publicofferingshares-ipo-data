@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "id": "resense_medical_2026",
+  "company": "리센스메디컬",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2026-03-19",
+  "subscriptionEnd": "2026-03-20",
+  "leadManagers": [
+    "한국투자증권",
+    "KB증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 11000,
+    "priceBandMin": 9000,
+    "priceBandMax": 11000,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-03-20T16:00:00+09:00",
+      "source": "public_ipo_result",
+      "sourceUrl": "https://www.g-enews.com/article/Securities/2026/03/202603201646295529df2f5bc1bc_1",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2097.68,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 2097.68
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 96,
+      "grade": "A+",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 24,
+        "institutionDemand": 5,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 9,
+        "market": 11,
+        "leadManagers": 10,
+        "recency": 5,
+        "dataCompleteness": 24
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.8299,
+      "bearCaseListingGainRate": 0.6099,
+      "baseCaseListingGainRate": 0.8299,
+      "bullCaseListingGainRate": 1.1799,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.005,
+        "oneMillionKrw": 0.043,
+        "fiveMillionKrw": 0.217
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1956,
+        "oneMillionKrw": -1604,
+        "fiveMillionKrw": -22
+      },
+      "assumptions": {
+        "offerPrice": 11000,
+        "competitionRate": 2097.68,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 2097.68대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": 2097.68,
+      "snapshotCount": 1,
+      "leadManagerCount": 2,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
