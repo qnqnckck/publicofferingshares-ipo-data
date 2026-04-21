@@ -32,11 +32,13 @@ class BatchOptions {
     required this.liveDir,
     required this.outcomeDir,
     required this.brokerSnapshotDir,
+    required this.identifierPath,
     required this.discoveredPath,
     required this.outDir,
     required this.backfillYears,
     required this.interval,
     required this.discover,
+    required this.discoverIdentifiers,
     required this.dartApiKeyEnv,
     required this.itickApiKeyEnv,
     required this.kisAppKeyEnv,
@@ -49,11 +51,13 @@ class BatchOptions {
   final String liveDir;
   final String outcomeDir;
   final String brokerSnapshotDir;
+  final String identifierPath;
   final String discoveredPath;
   final String outDir;
   final int backfillYears;
   final Duration interval;
   final bool discover;
+  final bool discoverIdentifiers;
   final String dartApiKeyEnv;
   final String itickApiKeyEnv;
   final String kisAppKeyEnv;
@@ -70,6 +74,7 @@ Options:
   --live-dir <dir>            Directory with live snapshot JSON files. Default: data/live_snapshots
   --outcome-dir <dir>         Directory with historical outcome JSON files. Default: data/outcomes
   --broker-snapshot-dir <dir> Directory with broker-level snapshot JSON files. Default: data/broker_snapshots
+  --identifier-path <path>    Identifier crosswalk JSON path. Default: data/identifiers/ipo_identifiers.json
   --discovered <path>         Auto-discovered stock JSON path. Default: data/discovered/ipo_events.json
   --out <dir>                 Output directory. Default: ipo_competition_data
   --backfill-years <years>    Include IPOs from the last N years. Default: 3
@@ -79,6 +84,7 @@ Options:
   --kis-app-key-env <name>    Environment variable for KIS app key. Default: KIS_APP_KEY
   --kis-app-secret-env <name> Environment variable for KIS app secret. Default: KIS_APP_SECRET
   --no-discover               Skip remote discovery and only normalize local input files.
+  --no-identifier-discover    Skip DART company-code backfill and only use local identifier crosswalk.
   --watch                     Keep running and refresh active subscriptions.
   --help                      Show this help.
 
@@ -104,11 +110,14 @@ Seed from the example file:
       liveDir: valueAfter('--live-dir', 'data/live_snapshots'),
       outcomeDir: valueAfter('--outcome-dir', 'data/outcomes'),
       brokerSnapshotDir: valueAfter('--broker-snapshot-dir', 'data/broker_snapshots'),
+      identifierPath:
+          valueAfter('--identifier-path', 'data/identifiers/ipo_identifiers.json'),
       discoveredPath: valueAfter('--discovered', 'data/discovered/ipo_events.json'),
       outDir: valueAfter('--out', 'ipo_competition_data'),
       backfillYears: intAfter('--backfill-years', 3),
       interval: Duration(minutes: intAfter('--interval-minutes', 10)),
       discover: !args.contains('--no-discover'),
+      discoverIdentifiers: !args.contains('--no-identifier-discover'),
       dartApiKeyEnv: valueAfter('--dart-api-key-env', 'DART_API_KEY'),
       itickApiKeyEnv: valueAfter('--itick-api-key-env', 'ITICK_API_KEY'),
       kisAppKeyEnv: valueAfter('--kis-app-key-env', 'KIS_APP_KEY'),
@@ -149,11 +158,30 @@ class IpoCompetitionBatch {
         stocksWithoutExternalOutcomes,
         await _loadOutcomeRows(),
       );
+      final localIdentifierRows = await _loadIdentifierRows();
+      final identifierRows = mergeIdentifierRowsByKey([
+        ...localIdentifierRows,
+        if (options.discoverIdentifiers)
+          ...await _discoverDartIdentifierRows(
+            mergeIdentifierRows(stocks, localIdentifierRows),
+          ),
+      ]);
+      await _writeIdentifierRows(identifierRows);
+      final identifiedStocks = mergeIdentifierRows(
+        stocks,
+        identifierRows,
+      );
       final brokerSnapshotRows = [
         ...await _loadBrokerSnapshotRows(),
-        ...await _collectPublicLiveBrokerSnapshots(stocks, generatedAt),
+        ...await _collectPublicLiveBrokerSnapshots(
+          identifiedStocks,
+          generatedAt,
+        ),
       ];
-      final enrichedStocks = mergeBrokerSnapshots(stocks, brokerSnapshotRows);
+      final enrichedStocks = mergeBrokerSnapshots(
+        identifiedStocks,
+        brokerSnapshotRows,
+      );
       final cutoff = DateTime(
         generatedAt.year - options.backfillYears,
         generatedAt.month,
@@ -302,6 +330,100 @@ class IpoCompetitionBatch {
       }
     }
     return rows;
+  }
+
+  Future<List<IpoIdentifierRow>> _loadIdentifierRows() async {
+    final file = File(options.identifierPath);
+    if (!await file.exists()) {
+      return const [];
+    }
+    final decoded = jsonDecode(await file.readAsString());
+    if (decoded is! Map<String, Object?> || decoded['identifiers'] is! List) {
+      return const [];
+    }
+    return (decoded['identifiers'] as List)
+        .whereType<Map<String, Object?>>()
+        .map(IpoIdentifierRow.fromJson)
+        .toList();
+  }
+
+  Future<void> _writeIdentifierRows(List<IpoIdentifierRow> rows) async {
+    final file = File(options.identifierPath);
+    await file.parent.create(recursive: true);
+    await file.writeAsString(
+      prettyJson({
+        'schemaVersion': schemaVersion,
+        'generatedAt': DateTime.now().toIso8601String(),
+        'identifiers': rows.map((row) => row.toJson()).toList()
+          ..sort((a, b) {
+            final aCompany = '${a['company'] ?? ''}';
+            final bCompany = '${b['company'] ?? ''}';
+            return aCompany.compareTo(bCompany);
+          }),
+      }),
+    );
+  }
+
+  Future<List<IpoIdentifierRow>> _discoverDartIdentifierRows(
+    List<IpoCompetitionStock> stocks,
+  ) async {
+    final rows = <IpoIdentifierRow>[];
+    for (final stock in stocks) {
+      if (stock.identifiers.corpCode != null &&
+          stock.identifiers.corpCode!.trim().isNotEmpty) {
+        rows.add(
+          IpoIdentifierRow(
+            id: stock.id,
+            company: stock.company,
+            identifiers: stock.identifiers,
+          ),
+        );
+        continue;
+      }
+      final corpCode = await _fetchDartCorpCode(stock.company);
+      if (corpCode == null || corpCode.trim().isEmpty) {
+        continue;
+      }
+      rows.add(
+        IpoIdentifierRow(
+          id: stock.id,
+          company: stock.company,
+          identifiers: stock.identifiers.merge(
+            IpoStockIdentifiers(
+              subscriptionKey: '',
+              normalizedCompany: '',
+              corpCode: corpCode,
+              stockCode: null,
+              kindCode: null,
+              isin: null,
+            ),
+          ),
+        ),
+      );
+    }
+    return rows;
+  }
+
+  Future<String?> _fetchDartCorpCode(String company) async {
+    final body = await httpPostText(
+      Uri.parse('https://dart.fss.or.kr/corp/searchCorp.ax'),
+      {'textCrpNm': company},
+    );
+    if (body == null || body.trim().isEmpty) {
+      return null;
+    }
+    final hidden = RegExp(
+      r'''name=["']hiddenCikCD1["'][^>]*value=["'](\d+)["']''',
+      caseSensitive: false,
+    ).firstMatch(body);
+    if (hidden != null) {
+      return hidden.group(1);
+    }
+    final select = RegExp(
+      r'''select\(["'](\d+)["']\)''',
+      caseSensitive: false,
+    ).firstMatch(body);
+    return select?.group(1);
   }
 
   Future<List<IpoCompetitionStock>> _loadDiscoveredStocks() async {
@@ -1106,6 +1228,116 @@ List<IpoCompetitionStock> mergeBrokerSnapshots(
       snapshots: [...stock.snapshots, ...extraSnapshots],
     );
   }).toList();
+}
+
+List<IpoCompetitionStock> mergeIdentifierRows(
+  List<IpoCompetitionStock> stocks,
+  List<IpoIdentifierRow> rows,
+) {
+  if (rows.isEmpty) {
+    return stocks;
+  }
+  final byId = <String, IpoIdentifierRow>{
+    for (final row in rows)
+      if (row.id != null) safeId(row.id!): row,
+  };
+  final bySubscriptionKey = <String, IpoIdentifierRow>{
+    for (final row in rows)
+      if (row.identifiers.subscriptionKey.trim().isNotEmpty)
+        row.identifiers.subscriptionKey: row,
+  };
+  final byCompany = <String, IpoIdentifierRow>{
+    for (final row in rows)
+      if (row.company != null) normalizeLookup(row.company!): row,
+  };
+
+  return stocks.map((stock) {
+    final row = byId[safeId(stock.id)] ??
+        bySubscriptionKey[stock.identifiers.subscriptionKey] ??
+        byCompany[normalizeLookup(stock.company)];
+    if (row == null) {
+      return stock;
+    }
+    return IpoCompetitionStock(
+      id: stock.id,
+      company: stock.company,
+      market: stock.market,
+      subscriptionStart: stock.subscriptionStart,
+      subscriptionEnd: stock.subscriptionEnd,
+      leadManagers: stock.leadManagers,
+      sourceIdentifiers: stock.identifiers.merge(row.identifiers),
+      fundamentals: stock.fundamentals,
+      outcome: stock.outcome,
+      snapshots: stock.snapshots,
+    );
+  }).toList();
+}
+
+List<IpoIdentifierRow> mergeIdentifierRowsByKey(List<IpoIdentifierRow> rows) {
+  final byKey = <String, IpoIdentifierRow>{};
+  for (final row in rows) {
+    final key = row.id != null && row.id!.trim().isNotEmpty
+        ? 'id:${safeId(row.id!)}'
+        : row.identifiers.subscriptionKey.trim().isNotEmpty
+            ? 'sub:${row.identifiers.subscriptionKey}'
+            : row.company != null
+                ? 'company:${normalizeLookup(row.company!)}'
+                : '';
+    if (key.isEmpty) {
+      continue;
+    }
+    final existing = byKey[key];
+    if (existing == null) {
+      byKey[key] = row;
+      continue;
+    }
+    byKey[key] = IpoIdentifierRow(
+      id: row.id ?? existing.id,
+      company: row.company ?? existing.company,
+      identifiers: existing.identifiers.merge(row.identifiers),
+    );
+  }
+  return byKey.values.toList();
+}
+
+class IpoIdentifierRow {
+  const IpoIdentifierRow({
+    required this.id,
+    required this.company,
+    required this.identifiers,
+  });
+
+  final String? id;
+  final String? company;
+  final IpoStockIdentifiers identifiers;
+
+  factory IpoIdentifierRow.fromJson(Map<String, Object?> json) {
+    final nested = json['identifiers'];
+    final nestedMap = nested is Map<String, Object?> ? nested : const <String, Object?>{};
+    return IpoIdentifierRow(
+      id: readString(json, 'id'),
+      company: readString(json, 'company'),
+      identifiers: IpoStockIdentifiers.fromJson({
+        ...nestedMap,
+        'subscriptionKey':
+            readString(json, 'subscriptionKey') ?? nestedMap['subscriptionKey'],
+        'normalizedCompany':
+            readString(json, 'normalizedCompany') ?? nestedMap['normalizedCompany'],
+        'corpCode': readString(json, 'corpCode') ?? nestedMap['corpCode'],
+        'stockCode': readString(json, 'stockCode') ?? nestedMap['stockCode'],
+        'kindCode': readString(json, 'kindCode') ?? nestedMap['kindCode'],
+        'isin': readString(json, 'isin') ?? nestedMap['isin'],
+      }),
+    );
+  }
+
+  Map<String, Object?> toJson() {
+    return {
+      'id': id,
+      'company': company,
+      'identifiers': identifiers.toJson(),
+    };
+  }
 }
 
 IpoBrokerSnapshotRow? parseIpostockLiveSnapshot({
@@ -2768,6 +3000,36 @@ Future<Map<String, Object?>> httpPostJson(
       return const {};
     }
     return decoded;
+  } finally {
+    client.close(force: true);
+  }
+}
+
+Future<String?> httpPostText(Uri uri, Map<String, String> body) async {
+  final client = HttpClient();
+  try {
+    final request = await client.postUrl(uri);
+    request.headers.set(
+      HttpHeaders.contentTypeHeader,
+      'application/x-www-form-urlencoded; charset=UTF-8',
+    );
+    request.headers.set(HttpHeaders.userAgentHeader, 'Mozilla/5.0');
+    request.write(
+      body.entries
+          .map(
+            (entry) =>
+                '${Uri.encodeQueryComponent(entry.key)}=${Uri.encodeQueryComponent(entry.value)}',
+          )
+          .join('&'),
+    );
+    final response = await request.close();
+    final responseBody = await utf8.decodeStream(response);
+    if (response.statusCode < 200 || response.statusCode >= 300) {
+      return null;
+    }
+    return responseBody;
+  } catch (_) {
+    return null;
   } finally {
     client.close(force: true);
   }

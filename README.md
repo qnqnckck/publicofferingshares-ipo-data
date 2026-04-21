@@ -20,6 +20,8 @@ ipo_competition_data/
 tool/
   ipo_competition_batch.dart
 data/
+  identifiers/
+    ipo_identifiers.json
   broker_snapshots/
   discovered/
     ipo_events.json
@@ -125,7 +127,13 @@ This is the bridge before broker-specific adapters are implemented:
 - active subscription snapshots go into `data/live_snapshots/*.json`
 - historical listing outcomes go into `data/outcomes/*.json`
 - broker-level allocation and competition rows go into `data/broker_snapshots/*.json`
+- durable corpCode/stockCode/kindCode/isin crosswalk rows go into `data/identifiers/ipo_identifiers.json`
 - future broker adapters can write the same JSON shape
+
+The batch also attempts to backfill missing DART `corpCode` values through the
+public DART company search page and caches successful matches in
+`data/identifiers/ipo_identifiers.json`. Disable that network backfill with
+`--no-identifier-discover` when only local crosswalk data should be used.
 
 ## GitHub Actions secrets
 
