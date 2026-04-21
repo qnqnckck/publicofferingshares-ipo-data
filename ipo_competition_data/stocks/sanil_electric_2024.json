@@ -6,7 +6,8 @@
   "subscriptionStart": "2024-07-18",
   "subscriptionEnd": "2024-07-19",
   "leadManagers": [
-    "미래에셋증권"
+    "미래에셋증권",
+    "삼성증권"
   ],
   "fundamentals": {
     "offerPrice": 35000,
@@ -52,6 +53,86 @@
         "subscribedShares": 0,
         "competitionRate": 423.09
       }
+    },
+    {
+      "capturedAt": "2024-07-19T16:43:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/11071573",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 2188800,
+          "subscribedShares": 933876552,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 426.79,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 854.0,
+          "equalAllocationShares": 1094400,
+          "proportionalAllocationShares": 1094400,
+          "applicationCount": 465970
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 91200,
+          "subscribedShares": 30487248,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 334.29,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 667.0,
+          "equalAllocationShares": 45600,
+          "proportionalAllocationShares": 45600,
+          "applicationCount": 69300
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 2280000,
+        "subscribedShares": 964363800,
+        "competitionRate": 422.9665789473684
+      }
+    },
+    {
+      "capturedAt": "2024-07-19T16:43:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/11071573",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 2188800,
+          "subscribedShares": 933876552,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 426.79,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 854.0,
+          "equalAllocationShares": 1094400,
+          "proportionalAllocationShares": 1094400,
+          "applicationCount": 465970
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 91200,
+          "subscribedShares": 30487248,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 334.29,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 667.0,
+          "equalAllocationShares": 45600,
+          "proportionalAllocationShares": 45600,
+          "applicationCount": 69300
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 2280000,
+        "subscribedShares": 964363800,
+        "competitionRate": 422.9665789473684
+      }
     }
   ],
   "analysis": {
@@ -67,7 +148,7 @@
         "floatRate": 10,
         "pricing": 4,
         "market": 13,
-        "leadManagers": 7,
+        "leadManagers": 10,
         "recency": 5,
         "dataCompleteness": 30
       }
@@ -99,17 +180,37 @@
       "label": "관심 높음",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 423.09대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 100,
+        "proportionalScore": 7,
+        "expectedEqualShares": 2.3486,
+        "estimatedDepositForOneProportionalShare": 14945000,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      },
+      {
+        "broker": "삼성증권",
+        "equalScore": 53,
+        "proportionalScore": 9,
+        "expectedEqualShares": 0.658,
+        "estimatedDepositForOneProportionalShare": 11672500,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 423.09,
-      "snapshotCount": 1,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSPI",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 413.86,
