@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "id": "gridwiz_2024",
+  "company": "그리드위즈",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2024-06-03",
+  "subscriptionEnd": "2024-06-04",
+  "leadManagers": [
+    "삼성증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 40000,
+    "priceBandMin": 34000,
+    "priceBandMax": 40000,
+    "institutionCompetitionRate": 124.6,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": 317900000000,
+    "publicAllocationShares": null
+  },
+  "outcome": {
+    "listingDate": "2024-06-14",
+    "openReturnRate": null,
+    "highReturnRate": 1.055,
+    "closeReturnRate": null,
+    "sourceUrl": "https://m.mt.co.kr/renew/view.html?no=2024061409553166298"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-06-04T17:45:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/11033286",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 350000,
+          "subscribedShares": 199462030,
+          "offerPrice": null,
+          "competitionRate": 569.89,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 350000,
+        "subscribedShares": 199462030,
+        "competitionRate": 569.89
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 88,
+      "grade": "A",
+      "confidence": 0.95,
+      "factors": {
+        "competition": 18,
+        "institutionDemand": 3,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 9,
+        "market": 11,
+        "leadManagers": 7,
+        "recency": 5,
+        "dataCompleteness": 27
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.5973,
+      "bearCaseListingGainRate": 0.3773,
+      "baseCaseListingGainRate": 0.5973,
+      "bullCaseListingGainRate": 0.9473,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.018,
+        "oneMillionKrw": 0.044,
+        "fiveMillionKrw": 0.219
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1581,
+        "oneMillionKrw": -952,
+        "fiveMillionKrw": 3241
+      },
+      "assumptions": {
+        "offerPrice": 40000,
+        "competitionRate": 569.89,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 569.89대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "inputs": {
+      "latestCompetitionRate": 569.89,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 124.6,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
