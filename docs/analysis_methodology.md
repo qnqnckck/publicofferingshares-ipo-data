@@ -67,6 +67,32 @@ Stock JSON may include:
 `outcome` is not used to score future rows. It is stored for backtesting and
 calibration.
 
+Broker-level snapshots are maintained under `data/broker_snapshots/*.json`.
+They are required for meaningful equal/proportional allocation estimates:
+
+```json
+{
+  "id": "example_ipo_id",
+  "capturedAt": "2026-04-22T16:00:00+09:00",
+  "brokers": [
+    {
+      "name": "한국투자증권",
+      "offeredShares": 100000,
+      "equalAllocationShares": 50000,
+      "proportionalAllocationShares": 50000,
+      "applicationCount": 80000,
+      "competitionRate": 1200.0,
+      "proportionalCompetitionRate": 2400.0,
+      "depositRate": 0.5,
+      "feeKrw": 2000
+    }
+  ]
+}
+```
+
+Without broker-level rows, expected allocation remains a low-confidence
+aggregate estimate.
+
 ## How to improve accuracy
 
 The score becomes materially more useful when these fields are collected:

@@ -15,6 +15,7 @@ ipo_competition_data/
 tool/
   ipo_competition_batch.dart
 data/
+  broker_snapshots/
   discovered/
     ipo_events.json
   live_snapshots/
@@ -88,6 +89,7 @@ This is the bridge before broker-specific adapters are implemented:
 - auto-discovered upcoming rows are stored in `data/discovered/ipo_events.json`
 - active subscription snapshots go into `data/live_snapshots/*.json`
 - historical listing outcomes go into `data/outcomes/*.json`
+- broker-level allocation and competition rows go into `data/broker_snapshots/*.json`
 - future broker adapters can write the same JSON shape
 
 ## GitHub Actions secrets
@@ -109,6 +111,7 @@ Each generated stock JSON includes `analysis`:
 
 - `score`: rule-based reference score, grade, confidence, and factor breakdown.
 - `expectedReturn`: coarse expected listing gain and allocation/profit scenarios.
+- `brokerScores`: broker-level equal/proportional allocation indicators when broker data exists.
 - `decision`: app-ready label, reasons, and warnings.
 - `inputs`: key fields used by the current method.
 

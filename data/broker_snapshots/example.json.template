@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "snapshots": [
+    {
+      "id": "example_ipo_id",
+      "company": "예시기업",
+      "capturedAt": "2026-04-22T16:00:00+09:00",
+      "source": "broker_notice",
+      "sourceUrl": "https://example.com/source",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 100000,
+          "equalAllocationShares": 50000,
+          "proportionalAllocationShares": 50000,
+          "applicationCount": 80000,
+          "subscribedShares": 120000000,
+          "competitionRate": 1200.0,
+          "proportionalCompetitionRate": 2400.0,
+          "depositRate": 0.5,
+          "feeKrw": 2000
+        }
+      ]
+    }
+  ]
+}

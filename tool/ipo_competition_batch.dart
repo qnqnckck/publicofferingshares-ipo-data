@@ -31,6 +31,7 @@ class BatchOptions {
     required this.seedPath,
     required this.liveDir,
     required this.outcomeDir,
+    required this.brokerSnapshotDir,
     required this.discoveredPath,
     required this.outDir,
     required this.backfillYears,
@@ -45,6 +46,7 @@ class BatchOptions {
   final String seedPath;
   final String liveDir;
   final String outcomeDir;
+  final String brokerSnapshotDir;
   final String discoveredPath;
   final String outDir;
   final int backfillYears;
@@ -63,6 +65,7 @@ Options:
   --seed <path>               Seed JSON path. Default: data/ipo_competition_seed.json
   --live-dir <dir>            Directory with live snapshot JSON files. Default: data/live_snapshots
   --outcome-dir <dir>         Directory with historical outcome JSON files. Default: data/outcomes
+  --broker-snapshot-dir <dir> Directory with broker-level snapshot JSON files. Default: data/broker_snapshots
   --discovered <path>         Auto-discovered stock JSON path. Default: data/discovered/ipo_events.json
   --out <dir>                 Output directory. Default: ipo_competition_data
   --backfill-years <years>    Include IPOs from the last N years. Default: 3
@@ -94,6 +97,7 @@ Seed from the example file:
       seedPath: valueAfter('--seed', 'data/ipo_competition_seed.json'),
       liveDir: valueAfter('--live-dir', 'data/live_snapshots'),
       outcomeDir: valueAfter('--outcome-dir', 'data/outcomes'),
+      brokerSnapshotDir: valueAfter('--broker-snapshot-dir', 'data/broker_snapshots'),
       discoveredPath: valueAfter('--discovered', 'data/discovered/ipo_events.json'),
       outDir: valueAfter('--out', 'ipo_competition_data'),
       backfillYears: intAfter('--backfill-years', 3),
@@ -137,12 +141,16 @@ class IpoCompetitionBatch {
         stocksWithoutExternalOutcomes,
         await _loadOutcomeRows(),
       );
+      final enrichedStocks = mergeBrokerSnapshots(
+        stocks,
+        await _loadBrokerSnapshotRows(),
+      );
       final cutoff = DateTime(
         generatedAt.year - options.backfillYears,
         generatedAt.month,
         generatedAt.day,
       );
-      final selected = stocks.where((stock) {
+      final selected = enrichedStocks.where((stock) {
         final end = parseDate(stock.subscriptionEnd);
         return end == null || !end.isBefore(cutoff);
       }).toList()
@@ -253,6 +261,30 @@ class IpoCompetitionBatch {
         );
       } else if (decoded is Map<String, Object?>) {
         rows.add(IpoOutcomeRow.fromJson(decoded));
+      }
+    }
+    return rows;
+  }
+
+  Future<List<IpoBrokerSnapshotRow>> _loadBrokerSnapshotRows() async {
+    final dir = Directory(options.brokerSnapshotDir);
+    if (!await dir.exists()) {
+      return const [];
+    }
+    final rows = <IpoBrokerSnapshotRow>[];
+    await for (final entity in dir.list()) {
+      if (entity is! File || !entity.path.endsWith('.json')) {
+        continue;
+      }
+      final decoded = jsonDecode(await entity.readAsString());
+      if (decoded is Map<String, Object?> && decoded['snapshots'] is List) {
+        rows.addAll(
+          (decoded['snapshots'] as List)
+              .whereType<Map<String, Object?>>()
+              .map(IpoBrokerSnapshotRow.fromJson),
+        );
+      } else if (decoded is Map<String, Object?>) {
+        rows.add(IpoBrokerSnapshotRow.fromJson(decoded));
       }
     }
     return rows;
@@ -536,6 +568,88 @@ List<IpoCompetitionStock> mergeOutcomes(
   }).toList();
 }
 
+List<IpoCompetitionStock> mergeBrokerSnapshots(
+  List<IpoCompetitionStock> stocks,
+  List<IpoBrokerSnapshotRow> rows,
+) {
+  if (rows.isEmpty) {
+    return stocks;
+  }
+  final byId = <String, List<IpoBrokerSnapshotRow>>{};
+  final byCompany = <String, List<IpoBrokerSnapshotRow>>{};
+  for (final row in rows) {
+    if (row.id != null) {
+      byId.putIfAbsent(safeId(row.id!), () => []).add(row);
+    }
+    if (row.company != null) {
+      byCompany.putIfAbsent(normalizeLookup(row.company!), () => []).add(row);
+    }
+  }
+  return stocks.map((stock) {
+    final matches = [
+      ...?byId[safeId(stock.id)],
+      ...?byCompany[normalizeLookup(stock.company)],
+    ];
+    if (matches.isEmpty) {
+      return stock;
+    }
+    final extraSnapshots = matches.map((row) => row.toSnapshot()).toList();
+    return IpoCompetitionStock(
+      id: stock.id,
+      company: stock.company,
+      market: stock.market,
+      subscriptionStart: stock.subscriptionStart,
+      subscriptionEnd: stock.subscriptionEnd,
+      leadManagers: stock.leadManagers,
+      fundamentals: stock.fundamentals,
+      outcome: stock.outcome,
+      snapshots: [...stock.snapshots, ...extraSnapshots],
+    );
+  }).toList();
+}
+
+class IpoBrokerSnapshotRow {
+  const IpoBrokerSnapshotRow({
+    required this.id,
+    required this.company,
+    required this.capturedAt,
+    required this.source,
+    required this.sourceUrl,
+    required this.brokers,
+  });
+
+  final String? id;
+  final String? company;
+  final String capturedAt;
+  final String source;
+  final String? sourceUrl;
+  final List<IpoBrokerCompetition> brokers;
+
+  factory IpoBrokerSnapshotRow.fromJson(Map<String, Object?> json) {
+    return IpoBrokerSnapshotRow(
+      id: readString(json, 'id'),
+      company: readString(json, 'company'),
+      capturedAt:
+          readString(json, 'capturedAt') ?? DateTime.now().toIso8601String(),
+      source: readString(json, 'source') ?? 'broker_snapshot',
+      sourceUrl: readString(json, 'sourceUrl'),
+      brokers: readObjectList(json['brokers'])
+          .map(IpoBrokerCompetition.fromJson)
+          .toList(),
+    );
+  }
+
+  IpoCompetitionSnapshot toSnapshot() {
+    return IpoCompetitionSnapshot(
+      capturedAt: capturedAt,
+      source: source,
+      sourceUrl: sourceUrl,
+      aggregateCompetitionRate: null,
+      brokers: brokers,
+    );
+  }
+}
+
 String normalizeLookup(String value) {
   return value.replaceAll(RegExp(r'\s+'), '').toLowerCase();
 }
@@ -786,18 +900,28 @@ class IpoBrokerCompetition {
     required this.offeredShares,
     required this.subscribedShares,
     required this.offerPrice,
+    required this.depositRate,
+    required this.feeKrw,
     required this.competitionRate,
     required this.equalCompetitionRate,
     required this.proportionalCompetitionRate,
+    this.equalAllocationShares,
+    this.proportionalAllocationShares,
+    this.applicationCount,
   });
 
   final String name;
   final int offeredShares;
   final int subscribedShares;
   final int? offerPrice;
+  final double? depositRate;
+  final int? feeKrw;
   final double? competitionRate;
   final double? equalCompetitionRate;
   final double? proportionalCompetitionRate;
+  final int? equalAllocationShares;
+  final int? proportionalAllocationShares;
+  final int? applicationCount;
 
   factory IpoBrokerCompetition.fromJson(Map<String, Object?> json) {
     final offeredShares = readInt(json['offeredShares']);
@@ -807,10 +931,18 @@ class IpoBrokerCompetition {
       offeredShares: offeredShares,
       subscribedShares: subscribedShares,
       offerPrice: readOptionalInt(json['offerPrice']),
+      depositRate: readRatio(json['depositRate']),
+      feeKrw: readOptionalInt(json['feeKrw']),
       competitionRate: readDouble(json['competitionRate']) ??
           (offeredShares <= 0 ? null : subscribedShares / offeredShares),
       equalCompetitionRate: readDouble(json['equalCompetitionRate']),
       proportionalCompetitionRate: readDouble(json['proportionalCompetitionRate']),
+      equalAllocationShares: readOptionalInt(json['equalAllocationShares']) ??
+          readOptionalInt(json['equalAllocationVolume']),
+      proportionalAllocationShares:
+          readOptionalInt(json['proportionalAllocationShares']) ??
+              readOptionalInt(json['proportionalAllocationVolume']),
+      applicationCount: readOptionalInt(json['applicationCount']),
     );
   }
 
@@ -820,9 +952,14 @@ class IpoBrokerCompetition {
       offeredShares: offeredShares,
       subscribedShares: subscribedShares,
       offerPrice: offerPrice,
+      depositRate: depositRate,
+      feeKrw: feeKrw,
       competitionRate: competitionRate,
       equalCompetitionRate: equalCompetitionRate,
       proportionalCompetitionRate: proportionalCompetitionRate,
+      equalAllocationShares: equalAllocationShares,
+      proportionalAllocationShares: proportionalAllocationShares,
+      applicationCount: applicationCount,
     );
   }
 
@@ -832,10 +969,34 @@ class IpoBrokerCompetition {
       'offeredShares': offeredShares,
       'subscribedShares': subscribedShares,
       'offerPrice': offerPrice,
+      'depositRate': depositRate,
+      'feeKrw': feeKrw,
       'competitionRate': competitionRate,
       'equalCompetitionRate': equalCompetitionRate,
       'proportionalCompetitionRate': proportionalCompetitionRate,
+      'equalAllocationShares': equalAllocationShares,
+      'proportionalAllocationShares': proportionalAllocationShares,
+      'applicationCount': applicationCount,
     };
+  }
+
+  double? get equalExpectedSharesPerAccount {
+    final equalShares = equalAllocationShares;
+    final accounts = applicationCount;
+    if (equalShares == null || accounts == null || accounts <= 0) {
+      return null;
+    }
+    return equalShares / accounts;
+  }
+
+  double? estimatedDepositForOneProportionalShare(int? stockOfferPrice) {
+    final price = offerPrice ?? stockOfferPrice;
+    final rate = proportionalCompetitionRate ?? competitionRate;
+    final deposit = depositRate ?? 0.5;
+    if (price == null || price <= 0 || rate == null || rate <= 0) {
+      return null;
+    }
+    return price * deposit * rate;
   }
 }
 
@@ -1029,6 +1190,7 @@ IpoAnalysis analyzeStock(IpoCompetitionStock stock) {
       reasons: reasonsFor(stock, total, latestRate),
       warnings: warningsFor(stock, confidence, latestRate),
     ),
+    brokerScores: brokerScoresFor(stock),
     inputs: {
       'latestCompetitionRate': latestRate,
       'snapshotCount': stock.snapshots.length,
@@ -1050,6 +1212,7 @@ class IpoAnalysis {
     required this.score,
     required this.expectedReturn,
     required this.decision,
+    required this.brokerScores,
     required this.inputs,
     required this.methodVersion,
   });
@@ -1057,6 +1220,7 @@ class IpoAnalysis {
   final IpoScore score;
   final IpoExpectedReturn expectedReturn;
   final IpoDecision decision;
+  final List<IpoBrokerScore> brokerScores;
   final Map<String, Object?> inputs;
   final String methodVersion;
 
@@ -1066,8 +1230,46 @@ class IpoAnalysis {
       'score': score.toJson(),
       'expectedReturn': expectedReturn.toJson(),
       'decision': decision.toJson(),
+      'brokerScores': brokerScores.map((score) => score.toJson()).toList(),
       'inputs': inputs,
       'disclaimer': '공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다.',
+    };
+  }
+}
+
+class IpoBrokerScore {
+  const IpoBrokerScore({
+    required this.broker,
+    required this.equalScore,
+    required this.proportionalScore,
+    required this.expectedEqualShares,
+    required this.estimatedDepositForOneProportionalShare,
+    required this.feeKrw,
+    required this.dataQuality,
+  });
+
+  final String broker;
+  final int equalScore;
+  final int proportionalScore;
+  final double? expectedEqualShares;
+  final double? estimatedDepositForOneProportionalShare;
+  final int? feeKrw;
+  final String dataQuality;
+
+  Map<String, Object?> toJson() {
+    return {
+      'broker': broker,
+      'equalScore': equalScore,
+      'proportionalScore': proportionalScore,
+      'expectedEqualShares': expectedEqualShares == null
+          ? null
+          : roundDouble(expectedEqualShares!, 4),
+      'estimatedDepositForOneProportionalShare':
+          estimatedDepositForOneProportionalShare == null
+              ? null
+              : estimatedDepositForOneProportionalShare!.round(),
+      'feeKrw': feeKrw,
+      'dataQuality': dataQuality,
     };
   }
 }
@@ -1503,6 +1705,53 @@ List<String> warningsFor(
   }
   warnings.add('본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다.');
   return warnings;
+}
+
+List<IpoBrokerScore> brokerScoresFor(IpoCompetitionStock stock) {
+  final offerPrice = stock.latestOfferPrice;
+  final brokerMetrics = <String, IpoBrokerCompetition>{};
+  for (final snapshot in stock.snapshots) {
+    for (final broker in snapshot.brokers) {
+      if (broker.name == '통합') {
+        continue;
+      }
+      brokerMetrics[broker.name] = broker;
+    }
+  }
+  final scores = brokerMetrics.values.map((broker) {
+    final expectedEqual = broker.equalExpectedSharesPerAccount;
+    final depositForOne = broker.estimatedDepositForOneProportionalShare(
+      offerPrice,
+    );
+    final equalScore = expectedEqual == null
+        ? 30
+        : clampInt((expectedEqual * 80).round(), 0, 100);
+    final proportionalScore = depositForOne == null
+        ? 30
+        : clampInt((100000000 / depositForOne).round(), 0, 100);
+    final quality = broker.applicationCount != null &&
+            (broker.proportionalCompetitionRate != null ||
+                broker.competitionRate != null)
+        ? 'broker_verified'
+        : 'partial';
+    return IpoBrokerScore(
+      broker: broker.name,
+      equalScore: equalScore,
+      proportionalScore: proportionalScore,
+      expectedEqualShares: expectedEqual,
+      estimatedDepositForOneProportionalShare: depositForOne,
+      feeKrw: broker.feeKrw,
+      dataQuality: quality,
+    );
+  }).toList()
+    ..sort((a, b) {
+      final byEqual = b.equalScore.compareTo(a.equalScore);
+      if (byEqual != 0) {
+        return byEqual;
+      }
+      return b.proportionalScore.compareTo(a.proportionalScore);
+    });
+  return scores;
 }
 
 int clampInt(int value, int min, int max) {
