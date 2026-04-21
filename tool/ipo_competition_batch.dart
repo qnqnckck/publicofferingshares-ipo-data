@@ -773,6 +773,7 @@ class IpoCompetitionStock {
     return {
       'schemaVersion': schemaVersion,
       'id': safeId(id),
+      'identifiers': identifiers.toJson(),
       'company': company,
       'market': market,
       'subscriptionStart': subscriptionStart,
@@ -790,6 +791,7 @@ class IpoCompetitionStock {
     final analysis = analyzeStock(this);
     return {
       'id': safeId(id),
+      'identifiers': identifiers.toJson(),
       'company': company,
       'market': market,
       'subscriptionStart': subscriptionStart,
@@ -808,6 +810,64 @@ class IpoCompetitionStock {
       'path': path,
     };
   }
+
+  IpoStockIdentifiers get identifiers {
+    return IpoStockIdentifiers(
+      subscriptionKey: subscriptionKeyFor(
+        company: company,
+        subscriptionStart: subscriptionStart,
+        subscriptionEnd: subscriptionEnd,
+      ),
+      normalizedCompany: normalizeLookup(company),
+      corpCode: null,
+      stockCode: null,
+      kindCode: null,
+      isin: null,
+    );
+  }
+}
+
+class IpoStockIdentifiers {
+  const IpoStockIdentifiers({
+    required this.subscriptionKey,
+    required this.normalizedCompany,
+    required this.corpCode,
+    required this.stockCode,
+    required this.kindCode,
+    required this.isin,
+  });
+
+  final String subscriptionKey;
+  final String normalizedCompany;
+  final String? corpCode;
+  final String? stockCode;
+  final String? kindCode;
+  final String? isin;
+
+  Map<String, Object?> toJson() {
+    return {
+      'subscriptionKey': subscriptionKey,
+      'normalizedCompany': normalizedCompany,
+      'corpCode': corpCode,
+      'stockCode': stockCode,
+      'kindCode': kindCode,
+      'isin': isin,
+    };
+  }
+}
+
+String subscriptionKeyFor({
+  required String company,
+  required String? subscriptionStart,
+  required String? subscriptionEnd,
+}) {
+  final start = (normalizeDate(subscriptionStart) ?? subscriptionStart ?? '')
+      .replaceAll('-', '');
+  final end = (normalizeDate(subscriptionEnd) ?? subscriptionEnd ?? '')
+      .replaceAll('-', '');
+  return [normalizeLookup(company), start, end]
+      .where((value) => value.isNotEmpty)
+      .join('_');
 }
 
 Future<void> writeLightweightFeeds({
