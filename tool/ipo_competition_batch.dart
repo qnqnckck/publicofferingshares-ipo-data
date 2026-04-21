@@ -704,6 +704,7 @@ class IpoCompetitionStock {
     required this.subscriptionStart,
     required this.subscriptionEnd,
     required this.leadManagers,
+    required this.sourceIdentifiers,
     required this.fundamentals,
     required this.outcome,
     required this.snapshots,
@@ -715,6 +716,7 @@ class IpoCompetitionStock {
   final String? subscriptionStart;
   final String? subscriptionEnd;
   final List<String> leadManagers;
+  final IpoStockIdentifiers? sourceIdentifiers;
   final IpoFundamentals fundamentals;
   final IpoOutcome? outcome;
   final List<IpoCompetitionSnapshot> snapshots;
@@ -727,6 +729,11 @@ class IpoCompetitionStock {
       subscriptionStart: readString(json, 'subscriptionStart'),
       subscriptionEnd: readString(json, 'subscriptionEnd'),
       leadManagers: readStringList(json['leadManagers']),
+      sourceIdentifiers: json['identifiers'] is Map<String, Object?>
+          ? IpoStockIdentifiers.fromJson(
+              json['identifiers'] as Map<String, Object?>,
+            )
+          : null,
       fundamentals: IpoFundamentals.fromJson(
         json['fundamentals'] is Map<String, Object?>
             ? json['fundamentals'] as Map<String, Object?>
@@ -752,6 +759,7 @@ class IpoCompetitionStock {
           .map((item) => item.trim())
           .where((item) => item.isNotEmpty)
           .toList(),
+      sourceIdentifiers: identifiers,
       fundamentals: fundamentals.normalized(),
       outcome: outcome?.normalized(),
       snapshots: snapshots.map((snapshot) => snapshot.normalized()).toList()
@@ -812,7 +820,7 @@ class IpoCompetitionStock {
   }
 
   IpoStockIdentifiers get identifiers {
-    return IpoStockIdentifiers(
+    final fallback = IpoStockIdentifiers(
       subscriptionKey: subscriptionKeyFor(
         company: company,
         subscriptionStart: subscriptionStart,
@@ -824,6 +832,7 @@ class IpoCompetitionStock {
       kindCode: null,
       isin: null,
     );
+    return fallback.merge(sourceIdentifiers);
   }
 }
 
@@ -843,6 +852,38 @@ class IpoStockIdentifiers {
   final String? stockCode;
   final String? kindCode;
   final String? isin;
+
+  factory IpoStockIdentifiers.fromJson(Map<String, Object?> json) {
+    return IpoStockIdentifiers(
+      subscriptionKey: readString(json, 'subscriptionKey') ?? '',
+      normalizedCompany: readString(json, 'normalizedCompany') ?? '',
+      corpCode: readString(json, 'corpCode'),
+      stockCode: readString(json, 'stockCode'),
+      kindCode: readString(json, 'kindCode'),
+      isin: readString(json, 'isin'),
+    );
+  }
+
+  IpoStockIdentifiers merge(IpoStockIdentifiers? other) {
+    if (other == null) {
+      return this;
+    }
+    String? clean(String? value) {
+      final trimmed = value?.trim();
+      return trimmed == null || trimmed.isEmpty ? null : trimmed;
+    }
+
+    return IpoStockIdentifiers(
+      subscriptionKey:
+          clean(other.subscriptionKey) ?? clean(subscriptionKey) ?? '',
+      normalizedCompany:
+          clean(other.normalizedCompany) ?? clean(normalizedCompany) ?? '',
+      corpCode: clean(other.corpCode) ?? clean(corpCode),
+      stockCode: clean(other.stockCode) ?? clean(stockCode),
+      kindCode: clean(other.kindCode) ?? clean(kindCode),
+      isin: clean(other.isin) ?? clean(isin),
+    );
+  }
 
   Map<String, Object?> toJson() {
     return {
@@ -969,6 +1010,7 @@ List<IpoCompetitionStock> mergeStocks(List<IpoCompetitionStock> stocks) {
       subscriptionStart: stock.subscriptionStart ?? existing.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd ?? existing.subscriptionEnd,
       leadManagers: {...existing.leadManagers, ...stock.leadManagers}.toList(),
+      sourceIdentifiers: existing.identifiers.merge(stock.identifiers),
       fundamentals: existing.fundamentals.merge(stock.fundamentals),
       outcome: stock.outcome ?? existing.outcome,
       snapshots: [...existing.snapshots, ...stock.snapshots],
@@ -1005,6 +1047,7 @@ List<IpoCompetitionStock> mergeOutcomes(
       subscriptionStart: stock.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd,
       leadManagers: stock.leadManagers,
+      sourceIdentifiers: stock.identifiers,
       fundamentals: stock.fundamentals.merge(
         IpoFundamentals(
           offerPrice: outcomeRow.offerPrice,
@@ -1057,6 +1100,7 @@ List<IpoCompetitionStock> mergeBrokerSnapshots(
       subscriptionStart: stock.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd,
       leadManagers: stock.leadManagers,
+      sourceIdentifiers: stock.identifiers,
       fundamentals: stock.fundamentals,
       outcome: stock.outcome,
       snapshots: [...stock.snapshots, ...extraSnapshots],
@@ -2789,6 +2833,14 @@ IpoCompetitionStock? stockFromDartRow(Map<String, Object?> row) {
     leadManagers: readLeadManagers(
       firstNonEmptyString(row, ['lead_mgr', 'rprsntv_mngr', 'underwriter']),
     ),
+    sourceIdentifiers: IpoStockIdentifiers(
+      subscriptionKey: '',
+      normalizedCompany: '',
+      corpCode: firstNonEmptyString(row, ['corp_code', 'corpCode', 'corpCd']),
+      stockCode: firstNonEmptyString(row, ['stock_code', 'stockCode', 'isu_cd']),
+      kindCode: firstNonEmptyString(row, ['kindCode', 'kind_code']),
+      isin: firstNonEmptyString(row, ['isin', 'isinCd', 'isin_code']),
+    ),
     fundamentals: const IpoFundamentals(
       offerPrice: null,
       priceBandMin: null,
@@ -2839,6 +2891,14 @@ IpoCompetitionStock? stockFromItickRow(Map<String, Object?> row) {
     subscriptionEnd: subscriptionEnd,
     leadManagers: readLeadManagers(
       firstNonEmptyString(row, ['leadManager', 'lead_manager', 'underwriter']),
+    ),
+    sourceIdentifiers: IpoStockIdentifiers(
+      subscriptionKey: '',
+      normalizedCompany: '',
+      corpCode: firstNonEmptyString(row, ['corpCode', 'corp_code']),
+      stockCode: firstNonEmptyString(row, ['stockCode', 'stock_code', 'symbol']),
+      kindCode: firstNonEmptyString(row, ['kindCode', 'kind_code']),
+      isin: firstNonEmptyString(row, ['isin', 'isinCode']),
     ),
     fundamentals: const IpoFundamentals(
       offerPrice: null,
