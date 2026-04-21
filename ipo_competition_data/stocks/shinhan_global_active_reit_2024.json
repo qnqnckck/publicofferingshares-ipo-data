@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "id": "shinhan_global_active_reit_2024",
+  "company": "신한글로벌액티브리츠",
+  "market": "KOSPI",
+  "subscriptionStart": "2024-06-13",
+  "subscriptionEnd": "2024-06-14",
+  "leadManagers": [
+    "신한투자증권",
+    "한국투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 3000,
+    "priceBandMin": 3000,
+    "priceBandMax": 3800,
+    "institutionCompetitionRate": 38.7,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2024-06-14T16:00:00+09:00",
+      "source": "public_monthly_ipo_schedule",
+      "sourceUrl": "https://honda31.tistory.com/280",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 120.37,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 120.37
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 79,
+      "grade": "B+",
+      "confidence": 0.95,
+      "factors": {
+        "competition": 9,
+        "institutionDemand": 3,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 4,
+        "market": 13,
+        "leadManagers": 10,
+        "recency": 5,
+        "dataCompleteness": 27
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.3322,
+      "bearCaseListingGainRate": 0.1122,
+      "baseCaseListingGainRate": 0.3322,
+      "bullCaseListingGainRate": 0.6822,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.083,
+        "oneMillionKrw": 2.769,
+        "fiveMillionKrw": 13.846
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1917,
+        "oneMillionKrw": 760,
+        "fiveMillionKrw": 11800
+      },
+      "assumptions": {
+        "offerPrice": 3000,
+        "competitionRate": 120.37,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 120.37대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": 120.37,
+      "snapshotCount": 1,
+      "leadManagerCount": 2,
+      "market": "KOSPI",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 38.7,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
