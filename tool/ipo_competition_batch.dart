@@ -1729,7 +1729,9 @@ List<IpoBrokerScore> brokerScoresFor(IpoCompetitionStock stock) {
     final proportionalScore = depositForOne == null
         ? 30
         : clampInt((100000000 / depositForOne).round(), 0, 100);
-    final quality = broker.applicationCount != null &&
+    final hasPositiveApplicationCount =
+        broker.applicationCount != null && broker.applicationCount! > 0;
+    final quality = hasPositiveApplicationCount &&
             (broker.proportionalCompetitionRate != null ||
                 broker.competitionRate != null)
         ? 'broker_verified'

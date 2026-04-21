@@ -26,6 +26,58 @@
   },
   "snapshots": [
     {
+      "capturedAt": "2024-01-18T16:00:00+09:00",
+      "source": "public_blog_final",
+      "sourceUrl": "https://wannabe-fire.tistory.com/entry/%EA%B3%B5%EB%AA%A8%EC%A3%BC-%ED%98%84%EB%8C%80%ED%9E%98%EC%8A%A4",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 2176750,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 2462.41,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2462.41,
+          "equalAllocationShares": 1088375,
+          "proportionalAllocationShares": 1088375,
+          "applicationCount": 495785
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 2176750,
+        "subscribedShares": 0,
+        "competitionRate": 0.0
+      }
+    },
+    {
+      "capturedAt": "2024-01-18T16:00:00+09:00",
+      "source": "public_blog_final",
+      "sourceUrl": "https://wannabe-fire.tistory.com/entry/%EA%B3%B5%EB%AA%A8%EC%A3%BC-%ED%98%84%EB%8C%80%ED%9E%98%EC%8A%A4",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 2176750,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 2462.41,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2462.41,
+          "equalAllocationShares": 1088375,
+          "proportionalAllocationShares": 1088375,
+          "applicationCount": 495785
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 2176750,
+        "subscribedShares": 0,
+        "competitionRate": 0.0
+      }
+    },
+    {
       "capturedAt": "2024-01-18T17:30:00+09:00",
       "source": "article_final",
       "sourceUrl": "https://www.hankyung.com/article/2024012626856",
@@ -104,10 +156,20 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 100,
+        "proportionalScore": 11,
+        "expectedEqualShares": 2.1953,
+        "estimatedDepositForOneProportionalShare": 8987797,
+        "feeKrw": null,
+        "dataQuality": "broker_verified"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 1231.2,
-      "snapshotCount": 1,
+      "snapshotCount": 3,
       "leadManagerCount": 0,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
