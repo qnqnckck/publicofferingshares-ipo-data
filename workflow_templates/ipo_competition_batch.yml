@@ -20,6 +20,9 @@ jobs:
 
       - name: Generate JSON
         run: dart run tool/ipo_competition_batch.dart --backfill-years 3 --live-dir data/live_snapshots
+        env:
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+          ITICK_API_KEY: ${{ secrets.ITICK_API_KEY }}
 
       - name: Commit generated data
         run: |

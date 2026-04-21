@@ -15,6 +15,9 @@ ipo_competition_data/
 tool/
   ipo_competition_batch.dart
 data/
+  discovered/
+    ipo_events.json
+  live_snapshots/
   ipo_competition_seed.example.json
 .github/
   workflows/
@@ -44,6 +47,17 @@ Merge reviewed historical seed and local live snapshots:
 dart run tool/ipo_competition_batch.dart --backfill-years 3 --live-dir data/live_snapshots
 ```
 
+Remote discovery is enabled by default. It uses these optional environment
+variables:
+
+```text
+DART_API_KEY
+ITICK_API_KEY
+```
+
+If no keys are configured, the batch still runs and only normalizes local seed,
+discovered, and live snapshot files.
+
 Run continuously for active subscription days:
 
 ```bash
@@ -70,5 +84,19 @@ or `{ "stocks": [...] }`. The batch merges these snapshots by `id`.
 This is the bridge before broker-specific adapters are implemented:
 
 - manually reviewed final historical rows go into `data/ipo_competition_seed.json`
+- auto-discovered upcoming rows are stored in `data/discovered/ipo_events.json`
 - active subscription snapshots go into `data/live_snapshots/*.json`
 - future broker adapters can write the same JSON shape
+
+## GitHub Actions secrets
+
+For automatic new-IPO discovery, configure either or both repository secrets:
+
+```text
+DART_API_KEY
+ITICK_API_KEY
+```
+
+The workflow runs every 10 minutes during Korean weekday market hours. It
+discovers upcoming IPO rows, regenerates `ipo_competition_data/`, and commits
+changes when generated JSON changes.
