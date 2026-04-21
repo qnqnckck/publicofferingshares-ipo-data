@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "id": "meatbox_global_2025",
+  "company": "미트박스글로벌",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2025-01-13",
+  "subscriptionEnd": "2025-01-14",
+  "leadManagers": [
+    "미래에셋증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 19000,
+    "priceBandMin": 19000,
+    "priceBandMax": 23000,
+    "institutionCompetitionRate": 849.95,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2025-01-14T16:00:00+09:00",
+      "source": "public_monthly_ipo_schedule",
+      "sourceUrl": "https://honda31.tistory.com/287",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 459.06,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 459.06
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 91,
+      "grade": "A+",
+      "confidence": 0.95,
+      "factors": {
+        "competition": 18,
+        "institutionDemand": 11,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 4,
+        "market": 11,
+        "leadManagers": 7,
+        "recency": 5,
+        "dataCompleteness": 27
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.5832,
+      "bearCaseListingGainRate": 0.3632,
+      "baseCaseListingGainRate": 0.5832,
+      "bullCaseListingGainRate": 0.9332,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.022,
+        "oneMillionKrw": 0.115,
+        "fiveMillionKrw": 0.573
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1759,
+        "oneMillionKrw": -730,
+        "fiveMillionKrw": 4352
+      },
+      "assumptions": {
+        "offerPrice": 19000,
+        "competitionRate": 459.06,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 459.06대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": 459.06,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 849.95,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
