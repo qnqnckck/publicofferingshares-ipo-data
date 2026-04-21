@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "id": "myungin_pharm_2025",
+  "company": "명인제약",
+  "market": "KOSPI",
+  "subscriptionStart": "2025-09-18",
+  "subscriptionEnd": "2025-09-19",
+  "leadManagers": [
+    "KB증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 58000,
+    "priceBandMin": 45000,
+    "priceBandMax": 58000,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": null,
+  "snapshots": [],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 71,
+      "grade": "B",
+      "confidence": 0.45,
+      "factors": {
+        "competition": 8,
+        "institutionDemand": 5,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 9,
+        "market": 13,
+        "leadManagers": 7,
+        "recency": 5,
+        "dataCompleteness": 16
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.2665,
+      "bearCaseListingGainRate": 0.0465,
+      "baseCaseListingGainRate": 0.2665,
+      "bullCaseListingGainRate": 0.6165,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.013,
+        "oneMillionKrw": 0.022,
+        "fiveMillionKrw": 0.108
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1807,
+        "oneMillionKrw": -1667,
+        "fiveMillionKrw": -335
+      },
+      "assumptions": {
+        "offerPrice": 58000,
+        "competitionRate": null,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "insufficient_data",
+      "label": "데이터 부족",
+      "reasons": [
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": null,
+      "snapshotCount": 0,
+      "leadManagerCount": 1,
+      "market": "KOSPI",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
