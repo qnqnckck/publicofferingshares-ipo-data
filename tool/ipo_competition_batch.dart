@@ -439,12 +439,168 @@ class IpoCompetitionBatch {
 
     final rows = <IpoBrokerSnapshotRow>[];
     for (final stock in active) {
-      final row = await _fetchIpostockLiveSnapshot(stock, now);
-      if (row != null) {
-        rows.add(row);
+      rows.addAll(await _fetchPublicLiveSnapshots(stock, now));
+    }
+    return rows;
+  }
+
+  Future<List<IpoBrokerSnapshotRow>> _fetchPublicLiveSnapshots(
+    IpoCompetitionStock stock,
+    DateTime now,
+  ) async {
+    final rows = <IpoBrokerSnapshotRow>[];
+    final collectors = [
+      () => _fetchShinhanLiveSnapshot(stock, now),
+      () => _fetchDaishinLiveSnapshot(stock, now),
+      () => _fetchIpostockLiveSnapshot(stock, now),
+      () => _fetch38NewsLiveSnapshot(stock, now),
+    ];
+    for (final collect in collectors) {
+      try {
+        final row = await collect();
+        if (row != null) {
+          rows.add(row);
+        }
+      } catch (error) {
+        stderr.writeln('Live competition collector failed for ${stock.company}: $error');
       }
     }
     return rows;
+  }
+
+  Future<IpoBrokerSnapshotRow?> _fetchShinhanLiveSnapshot(
+    IpoCompetitionStock stock,
+    DateTime now,
+  ) async {
+    final candidates = [
+      parseDate(stock.subscriptionEnd),
+      parseDate(stock.subscriptionStart),
+      now,
+    ].whereType<DateTime>();
+    for (final date in candidates) {
+      final response = await httpPostJson(
+        Uri.parse(
+          'https://www.shinhansec.com/siw/banking-lending/subscribe/596001/data.do',
+        ),
+        {
+          'logined': 'false',
+          'eDate': compactDate(date),
+        },
+      );
+      final body = response['body'];
+      final list = body is Map<String, Object?> ? body['list2'] : null;
+      if (list is! List) {
+        continue;
+      }
+      final stockKey = normalizeLookup(stock.company);
+      for (final item in list.whereType<Map<String, Object?>>()) {
+        final title =
+            '${item['subEvent'] ?? item['eventName'] ?? item['eventNm'] ?? ''}';
+        final titleKey = normalizeLookup(title);
+        if (titleKey.isEmpty ||
+            !(titleKey.contains(stockKey) || stockKey.contains(titleKey))) {
+          continue;
+        }
+        final rate = parseCompetitionRate(
+          '${item['ourCompetition'] ?? item['competitionRate'] ?? ''}',
+        );
+        final applicationCount = parseCountValue(
+          '${item['applyCnt'] ?? item['applicationCount'] ?? ''}',
+        );
+        final allocationShares = parseCountValue(
+          '${item['ourAssignStockCnt'] ?? item['assignStockCnt'] ?? ''}',
+        );
+        if (rate <= 0 && applicationCount == null && allocationShares == null) {
+          continue;
+        }
+        final offered = allocationShares ?? stock.fundamentals.publicAllocationShares ?? 0;
+        return IpoBrokerSnapshotRow(
+          id: stock.id,
+          company: stock.company,
+          capturedAt: now.toIso8601String(),
+          source: 'shinhan_live',
+          sourceUrl:
+              'https://www.shinhansec.com/siw/banking-lending/subscribe/596001/view.do',
+          brokers: [
+            IpoBrokerCompetition(
+              name: '신한투자증권',
+              offeredShares: offered,
+              subscribedShares: rate > 0 && offered > 0 ? (offered * rate).round() : 0,
+              offerPrice: stock.fundamentals.offerPrice,
+              depositRate: 0.5,
+              feeKrw: null,
+              competitionRate: rate > 0 ? rate : null,
+              equalCompetitionRate: null,
+              proportionalCompetitionRate: rate > 0 ? rate : null,
+              equalAllocationShares: offered > 0 ? (offered / 2).round() : null,
+              proportionalAllocationShares: offered > 0 ? (offered / 2).round() : null,
+              applicationCount: applicationCount,
+            ),
+          ],
+        );
+      }
+    }
+    return null;
+  }
+
+  Future<IpoBrokerSnapshotRow?> _fetchDaishinLiveSnapshot(
+    IpoCompetitionStock stock,
+    DateTime now,
+  ) async {
+    final body = await httpGetFirstText([
+      'https://www.daishin.com/g.ds?m=194&p=1031&v=681',
+    ]);
+    if (body == null) {
+      return null;
+    }
+    final rows = extractHtmlTableRows(body);
+    final stockKey = normalizeLookup(stock.company);
+    for (final row in rows) {
+      if (row.length < 6) {
+        continue;
+      }
+      final joined = row.join(' ');
+      if (!normalizeLookup(joined).contains(stockKey)) {
+        continue;
+      }
+      final rates = row.map(parseCompetitionRate).where((rate) => rate > 0).toList();
+      if (rates.isEmpty) {
+        continue;
+      }
+      final rate = rates.length >= 2 ? rates[1] : rates.first;
+      final countCandidates = row
+          .map(parseCountValue)
+          .whereType<int>()
+          .where((value) => value > 100)
+          .toList();
+      final applicationCount =
+          countCandidates.isEmpty ? null : countCandidates.last;
+      final offered = stock.fundamentals.publicAllocationShares ?? 0;
+      return IpoBrokerSnapshotRow(
+        id: stock.id,
+        company: stock.company,
+        capturedAt: now.toIso8601String(),
+        source: 'daishin_live',
+        sourceUrl: 'https://www.daishin.com/g.ds?m=194&p=1031&v=681',
+        brokers: [
+          IpoBrokerCompetition(
+            name: '대신증권',
+            offeredShares: offered,
+            subscribedShares: offered > 0 ? (offered * rate).round() : 0,
+            offerPrice: stock.fundamentals.offerPrice,
+            depositRate: 0.5,
+            feeKrw: null,
+            competitionRate: rate,
+            equalCompetitionRate: null,
+            proportionalCompetitionRate: rate,
+            equalAllocationShares: offered > 0 ? (offered / 2).round() : null,
+            proportionalAllocationShares: offered > 0 ? (offered / 2).round() : null,
+            applicationCount: applicationCount,
+          ),
+        ],
+      );
+    }
+    return null;
   }
 
   Future<IpoBrokerSnapshotRow?> _fetchIpostockLiveSnapshot(
@@ -493,6 +649,50 @@ class IpoCompetitionBatch {
       html: detailBody,
     );
     return snapshot;
+  }
+
+  Future<IpoBrokerSnapshotRow?> _fetch38NewsLiveSnapshot(
+    IpoCompetitionStock stock,
+    DateTime now,
+  ) async {
+    final searchBody = await httpGetFirstText([
+      'https://www.38.co.kr/html/news/?m=nostock&key=${Uri.encodeQueryComponent(stock.company)}',
+      'http://www.38.co.kr/html/news/?m=nostock&key=${Uri.encodeQueryComponent(stock.company)}',
+    ]);
+    if (searchBody == null) {
+      return null;
+    }
+    final newsPath = extractCommunityDetailPath(
+      html: searchBody,
+      company: stock.company,
+      pathPattern: RegExp(
+        r"""((?:https?://(?:www\.)?38\.co\.kr)?/html/news/(?:\?o=v[^'\"\s\)]*no=\d+[^'\"\s\)]*|readnews\.php3\?[^'\"\s\)]*no=\d+[^'\"\s\)]*))""",
+        caseSensitive: false,
+      ),
+    );
+    if (newsPath == null) {
+      return null;
+    }
+    final newsUrl = Uri.parse('https://www.38.co.kr').resolve(newsPath).toString();
+    final newsBody = await httpGetFirstText([newsUrl]);
+    if (newsBody == null) {
+      return null;
+    }
+    final brokers = parse38NewsBrokerCompetitions(
+      stock: stock,
+      text: newsBody,
+    );
+    if (brokers.isEmpty) {
+      return null;
+    }
+    return IpoBrokerSnapshotRow(
+      id: stock.id,
+      company: stock.company,
+      capturedAt: now.toIso8601String(),
+      source: '38_news_live',
+      sourceUrl: newsUrl,
+      brokers: brokers,
+    );
   }
 }
 
@@ -915,6 +1115,66 @@ Map<String, int> parseIpostockBrokerAllocations(String text) {
     result[canonicalBrokerName(broker)] = value;
   }
   return result;
+}
+
+List<IpoBrokerCompetition> parse38NewsBrokerCompetitions({
+  required IpoCompetitionStock stock,
+  required String text,
+}) {
+  final normalized = plainText(text);
+  final result = <String, IpoBrokerCompetition>{};
+  final pattern = RegExp(
+    r'청약\s*경쟁률\s*(\d+(?:,\d{3})*(?:\.\d+)?)\s*(?:[:：]|대)\s*1\s*,?\s*비례\s*경쟁률(?:이)?\s*(\d+(?:,\d{3})*(?:\.\d+)?)\s*(?:[:：]|대)\s*1\s*\(([^\)]+)\)',
+    caseSensitive: false,
+  );
+  for (final match in pattern.allMatches(normalized)) {
+    final totalRate = parseCompetitionRate(match.group(1) ?? '');
+    final proportionalRate = parseCompetitionRate(match.group(2) ?? '');
+    final brokerName = canonicalBrokerName(match.group(3) ?? '');
+    final rate = proportionalRate > 0 ? proportionalRate : totalRate;
+    if (brokerName.isEmpty || rate <= 0) {
+      continue;
+    }
+    final offered = stock.fundamentals.publicAllocationShares ?? 0;
+    result[normalizeLookup(brokerName)] = IpoBrokerCompetition(
+      name: brokerName,
+      offeredShares: offered,
+      subscribedShares: offered > 0 ? (offered * rate).round() : 0,
+      offerPrice: stock.fundamentals.offerPrice,
+      depositRate: 0.5,
+      feeKrw: null,
+      competitionRate: totalRate > 0 ? totalRate : rate,
+      equalCompetitionRate: null,
+      proportionalCompetitionRate: rate,
+      equalAllocationShares: offered > 0 ? (offered / 2).round() : null,
+      proportionalAllocationShares: offered > 0 ? (offered / 2).round() : null,
+    );
+  }
+  return result.values.toList();
+}
+
+List<List<String>> extractHtmlTableRows(String html) {
+  final rows = <List<String>>[];
+  final rowPattern = RegExp(
+    r'<tr[^>]*>([\s\S]*?)</tr>',
+    caseSensitive: false,
+  );
+  final cellPattern = RegExp(
+    r'<t[dh][^>]*>([\s\S]*?)</t[dh]>',
+    caseSensitive: false,
+  );
+  for (final rowMatch in rowPattern.allMatches(html)) {
+    final rowHtml = rowMatch.group(1) ?? '';
+    final cells = cellPattern
+        .allMatches(rowHtml)
+        .map((match) => plainText(match.group(1) ?? ''))
+        .where((cell) => cell.isNotEmpty)
+        .toList();
+    if (cells.isNotEmpty) {
+      rows.add(cells);
+    }
+  }
+  return rows;
 }
 
 String? extractCommunityDetailPath({
@@ -2363,6 +2623,45 @@ Future<Map<String, Object?>> httpGetJson(Uri uri) async {
     final decoded = jsonDecode(body);
     if (decoded is! Map<String, Object?>) {
       throw const FormatException('Response root must be a JSON object.');
+    }
+    return decoded;
+  } finally {
+    client.close(force: true);
+  }
+}
+
+Future<Map<String, Object?>> httpPostJson(
+  Uri uri,
+  Map<String, String> body,
+) async {
+  final client = HttpClient();
+  try {
+    final request = await client.postUrl(uri);
+    request.headers.set(HttpHeaders.acceptHeader, 'application/json');
+    request.headers.set(
+      HttpHeaders.contentTypeHeader,
+      'application/x-www-form-urlencoded; charset=UTF-8',
+    );
+    request.headers.set(HttpHeaders.userAgentHeader, 'Mozilla/5.0');
+    request.write(
+      body.entries
+          .map(
+            (entry) =>
+                '${Uri.encodeQueryComponent(entry.key)}=${Uri.encodeQueryComponent(entry.value)}',
+          )
+          .join('&'),
+    );
+    final response = await request.close();
+    final responseBody = await utf8.decodeStream(response);
+    if (response.statusCode < 200 || response.statusCode >= 300) {
+      throw HttpException(
+        'HTTP ${response.statusCode}: $responseBody',
+        uri: uri,
+      );
+    }
+    final decoded = jsonDecode(responseBody);
+    if (decoded is! Map<String, Object?>) {
+      return const {};
     }
     return decoded;
   } finally {

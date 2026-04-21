@@ -104,13 +104,14 @@ or manually reviewed public disclosures.
 The batch normalizes and republishes source data into app-friendly JSON. Source
 adapters can be added incrementally per broker.
 
-During active subscription days, the batch also attempts a public live snapshot
-collection from IPOSTOCK detail pages. When the current day is inside an IPO's
-subscription window, the adapter tries to parse the public subscription
-competition rate, retail allocation shares, broker allocation table, offer
-price, and deposit rate, then merges the result into the generated stock JSON.
-If the public page has not published a rate yet, the adapter skips the stock and
-the rest of the batch still succeeds.
+During active subscription days, the batch also attempts public live snapshot
+collection from Shinhan Securities, Daishin Securities, IPOSTOCK detail pages,
+and 38 Communication news pages. When the current day is inside an IPO's
+subscription window, adapters try to parse public subscription competition
+rates, retail allocation shares, broker allocation tables, offer price, and
+deposit rate, then merge the result into the generated stock JSON. If a public
+page has not published a rate yet, that adapter skips the stock and the rest of
+the batch still succeeds.
 
 ## Live snapshot input
 
