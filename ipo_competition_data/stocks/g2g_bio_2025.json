@@ -52,6 +52,58 @@
         "subscribedShares": 105775020,
         "competitionRate": 470.1
       }
+    },
+    {
+      "capturedAt": "2025-08-06T16:59:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.fnnews.com/news/202508061659149114",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 225000,
+          "subscribedShares": 105775020,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 470.1,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 940.2,
+          "equalAllocationShares": 112500,
+          "proportionalAllocationShares": 112500,
+          "applicationCount": 302409
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 225000,
+        "subscribedShares": 105775020,
+        "competitionRate": 470.1112
+      }
+    },
+    {
+      "capturedAt": "2025-08-06T16:59:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.fnnews.com/news/202508061659149114",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 225000,
+          "subscribedShares": 105775020,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 470.1,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 940.2,
+          "equalAllocationShares": 112500,
+          "proportionalAllocationShares": 112500,
+          "applicationCount": 302409
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 225000,
+        "subscribedShares": 105775020,
+        "competitionRate": 470.1112
+      }
     }
   ],
   "analysis": {
@@ -89,7 +141,7 @@
       },
       "assumptions": {
         "offerPrice": 58000,
-        "competitionRate": 470.1,
+        "competitionRate": 470.1112,
         "feeKrw": 2000,
         "method": "rule_based_v1_low_confidence"
       }
@@ -98,17 +150,27 @@
       "level": "strong_watch",
       "label": "관심 높음",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 470.1대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 470.11대 1입니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 30,
+        "proportionalScore": 4,
+        "expectedEqualShares": 0.372,
+        "estimatedDepositForOneProportionalShare": 27265800,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": 470.1,
-      "snapshotCount": 1,
+      "latestCompetitionRate": 470.1112,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
