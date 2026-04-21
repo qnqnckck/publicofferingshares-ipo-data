@@ -55,10 +55,18 @@ variables:
 ```text
 DART_API_KEY
 ITICK_API_KEY
+KIS_APP_KEY
+KIS_APP_SECRET
 ```
 
 If no keys are configured, the batch still runs and only normalizes local seed,
 discovered, and live snapshot files.
+
+KIS OpenAPI credentials must be provided only through environment variables or
+GitHub Actions repository secrets. Do not commit the app key or app secret into
+this public repository. The batch currently detects KIS credentials but does not
+call a KIS IPO subscription competition endpoint until a verified endpoint is
+added.
 
 Run continuously for active subscription days:
 
@@ -99,6 +107,13 @@ For automatic new-IPO discovery, configure either or both repository secrets:
 ```text
 DART_API_KEY
 ITICK_API_KEY
+```
+
+For future Korea Investment & Securities OpenAPI adapters, configure both:
+
+```text
+KIS_APP_KEY
+KIS_APP_SECRET
 ```
 
 The workflow runs every 10 minutes during Korean weekday market hours. It

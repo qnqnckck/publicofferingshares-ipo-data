@@ -39,6 +39,8 @@ class BatchOptions {
     required this.discover,
     required this.dartApiKeyEnv,
     required this.itickApiKeyEnv,
+    required this.kisAppKeyEnv,
+    required this.kisAppSecretEnv,
     required this.watch,
     required this.help,
   });
@@ -54,6 +56,8 @@ class BatchOptions {
   final bool discover;
   final String dartApiKeyEnv;
   final String itickApiKeyEnv;
+  final String kisAppKeyEnv;
+  final String kisAppSecretEnv;
   final bool watch;
   final bool help;
 
@@ -72,6 +76,8 @@ Options:
   --interval-minutes <min>    Watch interval. Default: 10
   --dart-api-key-env <name>   Environment variable for DART API key. Default: DART_API_KEY
   --itick-api-key-env <name>  Environment variable for iTick API key. Default: ITICK_API_KEY
+  --kis-app-key-env <name>    Environment variable for KIS app key. Default: KIS_APP_KEY
+  --kis-app-secret-env <name> Environment variable for KIS app secret. Default: KIS_APP_SECRET
   --no-discover               Skip remote discovery and only normalize local input files.
   --watch                     Keep running and refresh active subscriptions.
   --help                      Show this help.
@@ -105,6 +111,8 @@ Seed from the example file:
       discover: !args.contains('--no-discover'),
       dartApiKeyEnv: valueAfter('--dart-api-key-env', 'DART_API_KEY'),
       itickApiKeyEnv: valueAfter('--itick-api-key-env', 'ITICK_API_KEY'),
+      kisAppKeyEnv: valueAfter('--kis-app-key-env', 'KIS_APP_KEY'),
+      kisAppSecretEnv: valueAfter('--kis-app-secret-env', 'KIS_APP_SECRET'),
       watch: args.contains('--watch'),
       help: args.contains('--help') || args.contains('-h'),
     );
@@ -332,7 +340,26 @@ class IpoCompetitionBatch {
     final discovered = <IpoCompetitionStock>[];
     discovered.addAll(await _discoverDartStocks(now));
     discovered.addAll(await _discoverItickStocks());
+    _noteKisCredentialsIfConfigured();
     return discovered;
+  }
+
+  void _noteKisCredentialsIfConfigured() {
+    final appKey = Platform.environment[options.kisAppKeyEnv]?.trim() ?? '';
+    final appSecret =
+        Platform.environment[options.kisAppSecretEnv]?.trim() ?? '';
+    if (appKey.isEmpty && appSecret.isEmpty) {
+      return;
+    }
+    if (appKey.isEmpty || appSecret.isEmpty) {
+      stderr.writeln(
+        'KIS OpenAPI credentials are partially configured. Set both ${options.kisAppKeyEnv} and ${options.kisAppSecretEnv}.',
+      );
+      return;
+    }
+    stderr.writeln(
+      'KIS OpenAPI credentials detected. IPO subscription competition adapter is not enabled until a verified KIS endpoint is added.',
+    );
   }
 
   Future<List<IpoCompetitionStock>> _discoverDartStocks(DateTime now) async {

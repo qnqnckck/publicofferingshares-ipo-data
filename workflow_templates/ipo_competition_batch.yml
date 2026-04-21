@@ -23,6 +23,8 @@ jobs:
         env:
           DART_API_KEY: ${{ secrets.DART_API_KEY }}
           ITICK_API_KEY: ${{ secrets.ITICK_API_KEY }}
+          KIS_APP_KEY: ${{ secrets.KIS_APP_KEY }}
+          KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
 
       - name: Commit generated data
         run: |
