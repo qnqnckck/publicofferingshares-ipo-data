@@ -10,6 +10,11 @@ of embedding batch jobs or source snapshots in the app repository.
 ```text
 ipo_competition_data/
   index.json
+  active.json
+  upcoming.json
+  recent.json
+  yearly/
+    {year}.json
   stocks/
     {ipoId}.json
 tool/
@@ -31,8 +36,21 @@ After this folder is pushed as a public GitHub repository, the app should read:
 
 ```text
 https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/index.json
+https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/active.json
+https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/upcoming.json
+https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/recent.json
+https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/yearly/{year}.json
 https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/stocks/{ipoId}.json
 https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/backtest_report.json
+```
+
+Recommended app access pattern:
+
+```text
+Home refresh: active.json + upcoming.json + recent.json
+History screen: yearly/{year}.json
+Detail screen: stocks/{ipoId}.json
+Fallback/full sync: index.json
 ```
 
 ## Batch

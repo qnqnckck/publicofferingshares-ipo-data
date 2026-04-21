@@ -192,6 +192,11 @@ class IpoCompetitionBatch {
       await File('${options.outDir}/index.json').writeAsString(
         prettyJson(index),
       );
+      await writeLightweightFeeds(
+        outDir: options.outDir,
+        generatedAt: generatedAt,
+        stocks: selected,
+      );
       await File('${options.outDir}/backtest_report.json').writeAsString(
         prettyJson(buildBacktestReport(selected, generatedAt)),
       );
@@ -513,6 +518,11 @@ class IpoCompetitionStock {
       'market': market,
       'subscriptionStart': subscriptionStart,
       'subscriptionEnd': subscriptionEnd,
+      'leadManagers': leadManagers,
+      'offerPrice': fundamentals.offerPrice,
+      'priceBandMin': fundamentals.priceBandMin,
+      'priceBandMax': fundamentals.priceBandMax,
+      'listingDate': outcome?.listingDate,
       'latestCompetitionRate': latest?.aggregate.competitionRate,
       'latestSnapshotAt': latest?.capturedAt,
       'score': analysis.score.overall,
@@ -521,6 +531,89 @@ class IpoCompetitionStock {
       'expectedGainRate': analysis.expectedReturn.expectedListingGainRate,
       'path': path,
     };
+  }
+}
+
+Future<void> writeLightweightFeeds({
+  required String outDir,
+  required DateTime generatedAt,
+  required List<IpoCompetitionStock> stocks,
+}) async {
+  final today = DateTime(generatedAt.year, generatedAt.month, generatedAt.day);
+  final normalized = stocks.map((stock) => stock.normalized()).toList();
+
+  bool isActive(IpoCompetitionStock stock) {
+    final start = parseDate(stock.subscriptionStart);
+    final end = parseDate(stock.subscriptionEnd) ?? start;
+    if (start == null || end == null) {
+      return false;
+    }
+    return !today.isBefore(start) && !today.isAfter(end);
+  }
+
+  bool isUpcoming(IpoCompetitionStock stock) {
+    final start = parseDate(stock.subscriptionStart);
+    return start != null && start.isAfter(today);
+  }
+
+  bool isRecent(IpoCompetitionStock stock) {
+    final end = parseDate(stock.subscriptionEnd) ??
+        parseDate(stock.outcome?.listingDate) ??
+        parseDate(stock.subscriptionStart);
+    return end != null && !end.isAfter(today);
+  }
+
+  List<Map<String, Object?>> feedItems(
+    Iterable<IpoCompetitionStock> source,
+    int limit,
+  ) {
+    return source
+        .take(limit)
+        .map((stock) => stock.toIndexJson('stocks/${stock.id}.json'))
+        .toList();
+  }
+
+  Future<void> writeFeed(String path, List<Map<String, Object?>> items) async {
+    await File('$outDir/$path').writeAsString(
+      prettyJson({
+        'schemaVersion': schemaVersion,
+        'generatedAt': generatedAt.toIso8601String(),
+        'stocks': items,
+      }),
+    );
+  }
+
+  final active = normalized.where(isActive).toList()
+    ..sort((a, b) => (a.subscriptionEnd ?? '').compareTo(b.subscriptionEnd ?? ''));
+  final upcoming = normalized.where(isUpcoming).toList()
+    ..sort((a, b) => (a.subscriptionStart ?? '').compareTo(b.subscriptionStart ?? ''));
+  final recent = normalized.where(isRecent).toList()
+    ..sort((a, b) {
+      final aDate = a.subscriptionEnd ?? a.outcome?.listingDate ?? a.subscriptionStart ?? '';
+      final bDate = b.subscriptionEnd ?? b.outcome?.listingDate ?? b.subscriptionStart ?? '';
+      return bDate.compareTo(aDate);
+    });
+
+  await writeFeed('active.json', feedItems(active, 30));
+  await writeFeed('upcoming.json', feedItems(upcoming, 60));
+  await writeFeed('recent.json', feedItems(recent, 60));
+
+  final yearlyDir = Directory('$outDir/yearly');
+  await yearlyDir.create(recursive: true);
+  final byYear = <int, List<IpoCompetitionStock>>{};
+  for (final stock in normalized) {
+    final date = parseDate(stock.subscriptionStart) ??
+        parseDate(stock.subscriptionEnd) ??
+        parseDate(stock.outcome?.listingDate);
+    if (date == null) {
+      continue;
+    }
+    byYear.putIfAbsent(date.year, () => []).add(stock);
+  }
+  for (final entry in byYear.entries) {
+    final yearly = entry.value
+      ..sort((a, b) => (b.subscriptionStart ?? '').compareTo(a.subscriptionStart ?? ''));
+    await writeFeed('yearly/${entry.key}.json', feedItems(yearly, yearly.length));
   }
 }
 
