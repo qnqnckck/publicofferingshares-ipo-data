@@ -14,10 +14,10 @@
     "priceBandMax": null,
     "institutionCompetitionRate": 413.86,
     "institutionParticipants": 2205,
-    "lockupCommitmentRate": null,
-    "floatRate": null,
-    "marketCapKrw": null,
-    "publicAllocationShares": null
+    "lockupCommitmentRate": 0.4237,
+    "floatRate": 0.2045,
+    "marketCapKrw": 1065600000000,
+    "publicAllocationShares": 1900000
   },
   "outcome": null,
   "snapshots": [
@@ -46,35 +46,35 @@
   "analysis": {
     "methodVersion": "ipo-score-v1",
     "score": {
-      "overall": 89,
-      "grade": "A",
+      "overall": 100,
+      "grade": "A+",
       "confidence": 0.95,
       "factors": {
         "competition": 18,
         "institutionDemand": 7,
-        "lockupCommitment": 4,
-        "floatRate": 4,
+        "lockupCommitment": 10,
+        "floatRate": 10,
         "pricing": 4,
         "market": 13,
         "leadManagers": 7,
         "recency": 5,
-        "dataCompleteness": 27
+        "dataCompleteness": 30
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.5494,
-      "bearCaseListingGainRate": 0.3294,
-      "baseCaseListingGainRate": 0.5494,
-      "bullCaseListingGainRate": 0.8994,
+      "expectedListingGainRate": 0.6575,
+      "bearCaseListingGainRate": 0.4375,
+      "baseCaseListingGainRate": 0.6575,
+      "bullCaseListingGainRate": 1.0075,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.024,
         "oneMillionKrw": 0.068,
         "fiveMillionKrw": 0.338
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1545,
-        "oneMillionKrw": -701,
-        "fiveMillionKrw": 4493
+        "minimumSubscription": -1456,
+        "oneMillionKrw": -446,
+        "fiveMillionKrw": 5771
       },
       "assumptions": {
         "offerPrice": 35000,
@@ -101,8 +101,8 @@
       "market": "KOSPI",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 413.86,
-      "lockupCommitmentRate": null,
-      "floatRate": null,
+      "lockupCommitmentRate": 0.4237,
+      "floatRate": 0.2045,
       "hasOutcome": false
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."

@@ -168,6 +168,9 @@ class IpoCompetitionBatch {
       await File('${options.outDir}/index.json').writeAsString(
         prettyJson(index),
       );
+      await File('${options.outDir}/backtest_report.json').writeAsString(
+        prettyJson(buildBacktestReport(selected, generatedAt)),
+      );
 
       stdout.writeln(
         '[${generatedAt.toIso8601String()}] generated ${selected.length} stock files.',
@@ -1392,6 +1395,110 @@ double mathPow10(int digits) {
     result *= 10;
   }
   return result;
+}
+
+Map<String, Object?> buildBacktestReport(
+  List<IpoCompetitionStock> stocks,
+  DateTime generatedAt,
+) {
+  final rows = stocks
+      .map((stock) {
+        final outcome = stock.outcome;
+        if (outcome?.closeReturnRate == null) {
+          return null;
+        }
+        final analysis = analyzeStock(stock);
+        return <String, Object?>{
+          'id': safeId(stock.id),
+          'company': stock.company,
+          'score': analysis.score.overall,
+          'grade': analysis.score.grade,
+          'confidence': roundDouble(analysis.score.confidence, 2),
+          'expectedListingGainRate':
+              roundDouble(analysis.expectedReturn.expectedListingGainRate, 4),
+          'openReturnRate': outcome?.openReturnRate,
+          'highReturnRate': outcome?.highReturnRate,
+          'closeReturnRate': outcome?.closeReturnRate,
+          'errorCloseVsExpected': outcome?.closeReturnRate == null
+              ? null
+              : roundDouble(
+                  outcome!.closeReturnRate! -
+                      analysis.expectedReturn.expectedListingGainRate,
+                  4,
+                ),
+        };
+      })
+      .whereType<Map<String, Object?>>()
+      .toList()
+    ..sort((a, b) => (b['score'] as int).compareTo(a['score'] as int));
+
+  return {
+    'schemaVersion': schemaVersion,
+    'generatedAt': generatedAt.toIso8601String(),
+    'methodVersion': 'ipo-score-v1',
+    'sampleCount': rows.length,
+    'summary': summarizeBacktestRows(rows),
+    'byGrade': summarizeByGrade(rows),
+    'rows': rows,
+    'note':
+        'Backtest is exploratory. Sample size is currently too small for predictive calibration.',
+  };
+}
+
+Map<String, Object?> summarizeBacktestRows(List<Map<String, Object?>> rows) {
+  final closes = rows
+      .map((row) => row['closeReturnRate'])
+      .whereType<double>()
+      .toList();
+  final errors = rows
+      .map((row) => row['errorCloseVsExpected'])
+      .whereType<double>()
+      .toList();
+  return {
+    'averageCloseReturnRate': average(closes),
+    'medianCloseReturnRate': median(closes),
+    'averageErrorCloseVsExpected': average(errors),
+    'medianErrorCloseVsExpected': median(errors),
+  };
+}
+
+Map<String, Object?> summarizeByGrade(List<Map<String, Object?>> rows) {
+  final grouped = <String, List<Map<String, Object?>>>{};
+  for (final row in rows) {
+    final grade = '${row['grade']}';
+    grouped.putIfAbsent(grade, () => []).add(row);
+  }
+  return grouped.map((grade, gradeRows) {
+    final closes = gradeRows
+        .map((row) => row['closeReturnRate'])
+        .whereType<double>()
+        .toList();
+    return MapEntry(grade, {
+      'sampleCount': gradeRows.length,
+      'averageCloseReturnRate': average(closes),
+      'medianCloseReturnRate': median(closes),
+    });
+  });
+}
+
+double? average(List<double> values) {
+  if (values.isEmpty) {
+    return null;
+  }
+  final total = values.fold<double>(0, (sum, value) => sum + value);
+  return roundDouble(total / values.length, 4);
+}
+
+double? median(List<double> values) {
+  if (values.isEmpty) {
+    return null;
+  }
+  final sorted = [...values]..sort();
+  final middle = sorted.length ~/ 2;
+  if (sorted.length.isOdd) {
+    return roundDouble(sorted[middle], 4);
+  }
+  return roundDouble((sorted[middle - 1] + sorted[middle]) / 2, 4);
 }
 
 Future<Map<String, Object?>> httpGetJson(Uri uri) async {

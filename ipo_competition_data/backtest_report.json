@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-04-22T00:17:55.013773",
+  "methodVersion": "ipo-score-v1",
+  "sampleCount": 3,
+  "summary": {
+    "averageCloseReturnRate": 0.664,
+    "medianCloseReturnRate": 0.9333,
+    "averageErrorCloseVsExpected": -0.0372,
+    "medianErrorCloseVsExpected": 0.0491
+  },
+  "byGrade": {
+    "A+": {
+      "sampleCount": 2,
+      "averageCloseReturnRate": 0.5134,
+      "medianCloseReturnRate": 0.5134
+    },
+    "B+": {
+      "sampleCount": 1,
+      "averageCloseReturnRate": 0.9652,
+      "medianCloseReturnRate": 0.9652
+    }
+  },
+  "rows": [
+    {
+      "id": "knr_system_2024",
+      "company": "케이엔알시스템",
+      "score": 100,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8843,
+      "openReturnRate": 0.017407,
+      "highReturnRate": 0.01837,
+      "closeReturnRate": 0.9333,
+      "errorCloseVsExpected": 0.0491
+    },
+    {
+      "id": "the_pinkfong_company_2025",
+      "company": "더핑크퐁컴퍼니",
+      "score": 99,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8143,
+      "openReturnRate": 0.5263,
+      "highReturnRate": null,
+      "closeReturnRate": 0.0934,
+      "errorCloseVsExpected": -0.7209
+    },
+    {
+      "id": "hd_hyundai_marine_solution_2024",
+      "company": "HD현대마린솔루션",
+      "score": 81,
+      "grade": "B+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.4051,
+      "openReturnRate": 0.4376,
+      "highReturnRate": null,
+      "closeReturnRate": 0.9652,
+      "errorCloseVsExpected": 0.5601
+    }
+  ],
+  "note": "Backtest is exploratory. Sample size is currently too small for predictive calibration."
+}

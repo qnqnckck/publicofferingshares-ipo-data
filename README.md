@@ -31,6 +31,7 @@ After this folder is pushed as a public GitHub repository, the app should read:
 ```text
 https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/index.json
 https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/stocks/{ipoId}.json
+https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/backtest_report.json
 ```
 
 ## Batch
@@ -112,3 +113,9 @@ Each generated stock JSON includes `analysis`:
 
 The current method is `ipo-score-v1`. It is intentionally transparent and should
 be calibrated with historical `outcome` rows before being treated as predictive.
+
+Generated backtest report:
+
+```text
+ipo_competition_data/backtest_report.json
+```

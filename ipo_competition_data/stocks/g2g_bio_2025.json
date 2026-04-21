@@ -14,12 +14,17 @@
     "priceBandMax": null,
     "institutionCompetitionRate": 810.6,
     "institutionParticipants": null,
-    "lockupCommitmentRate": null,
-    "floatRate": null,
+    "lockupCommitmentRate": 0.5739,
+    "floatRate": 0.2833,
     "marketCapKrw": 311200000000,
     "publicAllocationShares": 225000
   },
-  "outcome": null,
+  "outcome": {
+    "listingDate": "2025-08-14",
+    "openReturnRate": 0.6121,
+    "highReturnRate": null,
+    "closeReturnRate": null
+  },
   "snapshots": [
     {
       "capturedAt": "2025-08-06T16:50:00+09:00",
@@ -46,35 +51,35 @@
   "analysis": {
     "methodVersion": "ipo-score-v1",
     "score": {
-      "overall": 91,
+      "overall": 100,
       "grade": "A+",
       "confidence": 0.95,
       "factors": {
         "competition": 18,
         "institutionDemand": 11,
-        "lockupCommitment": 4,
-        "floatRate": 4,
+        "lockupCommitment": 13,
+        "floatRate": 10,
         "pricing": 4,
         "market": 11,
         "leadManagers": 7,
         "recency": 5,
-        "dataCompleteness": 27
+        "dataCompleteness": 30
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.5876,
-      "bearCaseListingGainRate": 0.3676,
-      "baseCaseListingGainRate": 0.5876,
-      "bullCaseListingGainRate": 0.9376,
+      "expectedListingGainRate": 0.676,
+      "bearCaseListingGainRate": 0.456,
+      "baseCaseListingGainRate": 0.676,
+      "bullCaseListingGainRate": 1.026,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.021,
         "oneMillionKrw": 0.037,
         "fiveMillionKrw": 0.183
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1275,
-        "oneMillionKrw": -750,
-        "fiveMillionKrw": 4249
+        "minimumSubscription": -1166,
+        "oneMillionKrw": -562,
+        "fiveMillionKrw": 5190
       },
       "assumptions": {
         "offerPrice": 58000,
@@ -101,9 +106,9 @@
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 810.6,
-      "lockupCommitmentRate": null,
-      "floatRate": null,
-      "hasOutcome": false
+      "lockupCommitmentRate": 0.5739,
+      "floatRate": 0.2833,
+      "hasOutcome": true
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

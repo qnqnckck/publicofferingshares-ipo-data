@@ -8,16 +8,21 @@
   "leadManagers": [],
   "fundamentals": {
     "offerPrice": 38000,
-    "priceBandMin": null,
-    "priceBandMax": null,
+    "priceBandMin": 32000,
+    "priceBandMax": 38000,
     "institutionCompetitionRate": 615.9,
     "institutionParticipants": 2300,
-    "lockupCommitmentRate": null,
-    "floatRate": null,
-    "marketCapKrw": null,
+    "lockupCommitmentRate": 0.3042,
+    "floatRate": 0.3417,
+    "marketCapKrw": 545300000000,
     "publicAllocationShares": 500000
   },
-  "outcome": null,
+  "outcome": {
+    "listingDate": "2025-11-18",
+    "openReturnRate": 0.5263,
+    "highReturnRate": null,
+    "closeReturnRate": 0.0934
+  },
   "snapshots": [
     {
       "capturedAt": "2025-11-11T08:55:00+09:00",
@@ -44,35 +49,35 @@
   "analysis": {
     "methodVersion": "ipo-score-v1",
     "score": {
-      "overall": 82,
-      "grade": "A",
-      "confidence": 0.9,
+      "overall": 99,
+      "grade": "A+",
+      "confidence": 0.95,
       "factors": {
         "competition": 21,
         "institutionDemand": 7,
-        "lockupCommitment": 4,
-        "floatRate": 4,
-        "pricing": 4,
+        "lockupCommitment": 10,
+        "floatRate": 7,
+        "pricing": 9,
         "market": 11,
         "leadManagers": 4,
         "recency": 5,
-        "dataCompleteness": 22
+        "dataCompleteness": 25
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.6357,
-      "bearCaseListingGainRate": 0.4157,
-      "baseCaseListingGainRate": 0.6357,
-      "bullCaseListingGainRate": 0.9857,
+      "expectedListingGainRate": 0.8143,
+      "bearCaseListingGainRate": 0.5943,
+      "baseCaseListingGainRate": 0.8143,
+      "bullCaseListingGainRate": 1.1643,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.012,
         "oneMillionKrw": 0.031,
         "fiveMillionKrw": 0.155
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1715,
-        "oneMillionKrw": -1249,
-        "fiveMillionKrw": 1753
+        "minimumSubscription": -1635,
+        "oneMillionKrw": -1039,
+        "fiveMillionKrw": 2807
       },
       "assumptions": {
         "offerPrice": 38000,
@@ -99,9 +104,9 @@
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 615.9,
-      "lockupCommitmentRate": null,
-      "floatRate": null,
-      "hasOutcome": false
+      "lockupCommitmentRate": 0.3042,
+      "floatRate": 0.3417,
+      "hasOutcome": true
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

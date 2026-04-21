@@ -85,6 +85,9 @@ The score becomes materially more useful when these fields are collected:
 
 ## Backtest plan
 
+The batch writes `ipo_competition_data/backtest_report.json` from rows that have
+`outcome.closeReturnRate`.
+
 After enough rows are collected, replace the static weights with calibrated
 weights:
 
