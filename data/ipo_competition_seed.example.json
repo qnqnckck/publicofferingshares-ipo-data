@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "stocks": [
+    {
+      "id": "example_ipo_id",
+      "company": "예시기업",
+      "market": "KOSDAQ",
+      "subscriptionStart": "2026-04-20",
+      "subscriptionEnd": "2026-04-21",
+      "leadManagers": ["한국투자증권"],
+      "snapshots": [
+        {
+          "capturedAt": "2026-04-21T14:20:00+09:00",
+          "source": "manual",
+          "brokers": [
+            {
+              "name": "한국투자증권",
+              "offeredShares": 100000,
+              "subscribedShares": 152342000,
+              "competitionRate": 1523.42,
+              "equalCompetitionRate": 1200.12,
+              "proportionalCompetitionRate": 1523.42
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
