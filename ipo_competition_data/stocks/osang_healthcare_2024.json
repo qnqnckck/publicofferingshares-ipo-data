@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "id": "osang_healthcare_2024",
+  "company": "오상헬스케어",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2024-03-04",
+  "subscriptionEnd": "2024-03-05",
+  "leadManagers": [],
+  "fundamentals": {
+    "offerPrice": 20000,
+    "priceBandMin": 13000,
+    "priceBandMax": 15000,
+    "institutionCompetitionRate": 993.0,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": {
+    "listingDate": "2024-03-13",
+    "openReturnRate": 0.6625,
+    "highReturnRate": 1.25,
+    "closeReturnRate": 0.4675,
+    "sourceUrl": "https://m.sedaily.com/NewsView/2D6MCY5TQR"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-03-05T17:30:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.fnnews.com/news/202403130928290644",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "competitionRate": 2126.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 2126.0
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 90,
+      "grade": "A+",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 24,
+        "institutionDemand": 11,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 5,
+        "market": 11,
+        "leadManagers": 4,
+        "recency": 5,
+        "dataCompleteness": 22
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.772,
+      "bearCaseListingGainRate": 0.552,
+      "baseCaseListingGainRate": 0.772,
+      "bullCaseListingGainRate": 1.122,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.005,
+        "oneMillionKrw": 0.024,
+        "fiveMillionKrw": 0.118
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1927,
+        "oneMillionKrw": -1637,
+        "fiveMillionKrw": -184
+      },
+      "assumptions": {
+        "offerPrice": 20000,
+        "competitionRate": 2126.0,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 2126.0대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "inputs": {
+      "latestCompetitionRate": 2126.0,
+      "snapshotCount": 1,
+      "leadManagerCount": 0,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 993.0,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

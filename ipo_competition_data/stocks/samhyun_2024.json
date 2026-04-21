@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "id": "samhyun_2024",
+  "company": "삼현",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2024-03-12",
+  "subscriptionEnd": "2024-03-13",
+  "leadManagers": [],
+  "fundamentals": {
+    "offerPrice": 30000,
+    "priceBandMin": 20000,
+    "priceBandMax": 25000,
+    "institutionCompetitionRate": 649.11,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": {
+    "listingDate": "2024-03-21",
+    "openReturnRate": 1.0166666666666666,
+    "highReturnRate": 1.3133333333333332,
+    "closeReturnRate": 0.5666666666666667,
+    "sourceUrl": "https://www.yna.co.kr/view/AKR20240321042251008"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-03-13T17:30:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.yna.co.kr/view/AKR20240321042251008",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "competitionRate": 1645.13,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1645.13
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 86,
+      "grade": "A",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 24,
+        "institutionDemand": 7,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 5,
+        "market": 11,
+        "leadManagers": 4,
+        "recency": 5,
+        "dataCompleteness": 22
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.7334,
+      "bearCaseListingGainRate": 0.5134,
+      "baseCaseListingGainRate": 0.7334,
+      "bullCaseListingGainRate": 1.0834,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.006,
+        "oneMillionKrw": 0.02,
+        "fiveMillionKrw": 0.101
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1866,
+        "oneMillionKrw": -1554,
+        "fiveMillionKrw": 229
+      },
+      "assumptions": {
+        "offerPrice": 30000,
+        "competitionRate": 1645.13,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1645.13대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "inputs": {
+      "latestCompetitionRate": 1645.13,
+      "snapshotCount": 1,
+      "leadManagerCount": 0,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 649.11,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

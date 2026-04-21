@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-22T00:48:41.047883",
+  "generatedAt": "2026-04-22T00:52:18.685024",
   "methodVersion": "ipo-score-v1",
-  "sampleCount": 14,
+  "sampleCount": 18,
   "summary": {
-    "averageCloseReturnRate": 0.9357,
+    "averageCloseReturnRate": 1.0085,
     "medianCloseReturnRate": 0.7224,
-    "averageErrorCloseVsExpected": 0.245,
-    "medianErrorCloseVsExpected": -0.0775
+    "averageErrorCloseVsExpected": 0.2957,
+    "medianErrorCloseVsExpected": -0.0588
   },
   "byGrade": {
     "A+": {
-      "sampleCount": 9,
-      "averageCloseReturnRate": 0.9471,
-      "medianCloseReturnRate": 0.848
+      "sampleCount": 12,
+      "averageCloseReturnRate": 1.0842,
+      "medianCloseReturnRate": 0.8907
     },
     "A": {
-      "sampleCount": 4,
-      "averageCloseReturnRate": 0.9026,
-      "medianCloseReturnRate": 0.2403
+      "sampleCount": 5,
+      "averageCloseReturnRate": 0.8354,
+      "medianCloseReturnRate": 0.2972
     },
     "B+": {
       "sampleCount": 1,
@@ -28,22 +28,22 @@
   },
   "byScoreBucket": {
     "100-109": {
-      "sampleCount": 4,
-      "averageCloseReturnRate": 1.4348,
-      "medianCloseReturnRate": 1.1524,
-      "averageErrorCloseVsExpected": 0.6072
+      "sampleCount": 5,
+      "averageCloseReturnRate": 1.5978,
+      "medianCloseReturnRate": 1.3714,
+      "averageErrorCloseVsExpected": 0.7589
     },
     "90-99": {
-      "sampleCount": 5,
-      "averageCloseReturnRate": 0.557,
+      "sampleCount": 7,
+      "averageCloseReturnRate": 0.7174,
       "medianCloseReturnRate": 0.5969,
-      "averageErrorCloseVsExpected": -0.1558
+      "averageErrorCloseVsExpected": -0.0124
     },
     "80-89": {
-      "sampleCount": 5,
-      "averageCloseReturnRate": 0.9152,
-      "medianCloseReturnRate": 0.2972,
-      "averageErrorCloseVsExpected": 0.3562
+      "sampleCount": 6,
+      "averageCloseReturnRate": 0.8571,
+      "medianCloseReturnRate": 0.4319,
+      "averageErrorCloseVsExpected": 0.269
     }
   },
   "rows": [
@@ -59,6 +59,19 @@
       "closeReturnRate": 0.4342857142857143,
       "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240729036251008",
       "errorCloseVsExpected": -0.2232
+    },
+    {
+      "id": "angel_robotics_2024",
+      "company": "엔젤로보틱스",
+      "score": 100,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8843,
+      "openReturnRate": 1.525,
+      "highReturnRate": 2.885,
+      "closeReturnRate": 2.25,
+      "outcomeSourceUrl": "https://www.newsway.co.kr/news/view?ud=2024032615543108321",
+      "errorCloseVsExpected": 1.3658
     },
     {
       "id": "knr_system_2024",
@@ -152,6 +165,32 @@
       "errorCloseVsExpected": -0.2041
     },
     {
+      "id": "imbdx_2024",
+      "company": "아이엠비디엑스",
+      "score": 90,
+      "grade": "A+",
+      "confidence": 0.9,
+      "expectedListingGainRate": 0.772,
+      "openReturnRate": 1.1961538461538461,
+      "highReturnRate": 2.1192307692307693,
+      "closeReturnRate": 1.7692307692307692,
+      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10981715",
+      "errorCloseVsExpected": 0.9972
+    },
+    {
+      "id": "osang_healthcare_2024",
+      "company": "오상헬스케어",
+      "score": 90,
+      "grade": "A+",
+      "confidence": 0.9,
+      "expectedListingGainRate": 0.772,
+      "openReturnRate": 0.6625,
+      "highReturnRate": 1.25,
+      "closeReturnRate": 0.4675,
+      "outcomeSourceUrl": "https://m.sedaily.com/NewsView/2D6MCY5TQR",
+      "errorCloseVsExpected": -0.3045
+    },
+    {
       "id": "doosan_robotics_2023",
       "company": "두산로보틱스",
       "score": 90,
@@ -163,6 +202,19 @@
       "closeReturnRate": 0.9769230769230769,
       "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20231005036051002",
       "errorCloseVsExpected": 0.3886
+    },
+    {
+      "id": "samhyun_2024",
+      "company": "삼현",
+      "score": 86,
+      "grade": "A",
+      "confidence": 0.9,
+      "expectedListingGainRate": 0.7334,
+      "openReturnRate": 1.0166666666666666,
+      "highReturnRate": 1.3133333333333332,
+      "closeReturnRate": 0.5666666666666667,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240321042251008",
+      "errorCloseVsExpected": -0.1667
     },
     {
       "id": "posbank_2024",
