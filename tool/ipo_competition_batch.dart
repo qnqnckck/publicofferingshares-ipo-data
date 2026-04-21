@@ -580,6 +580,7 @@ class IpoOutcomeRow {
       openReturnRate: returnRate(openPrice),
       highReturnRate: returnRate(highPrice),
       closeReturnRate: returnRate(closePrice),
+      sourceUrl: sourceUrl,
     );
   }
 
@@ -669,12 +670,14 @@ class IpoOutcome {
     required this.openReturnRate,
     required this.highReturnRate,
     required this.closeReturnRate,
+    required this.sourceUrl,
   });
 
   final String? listingDate;
   final double? openReturnRate;
   final double? highReturnRate;
   final double? closeReturnRate;
+  final String? sourceUrl;
 
   factory IpoOutcome.fromJson(Map<String, Object?> json) {
     return IpoOutcome(
@@ -682,6 +685,7 @@ class IpoOutcome {
       openReturnRate: readRatio(json['openReturnRate']),
       highReturnRate: readRatio(json['highReturnRate']),
       closeReturnRate: readRatio(json['closeReturnRate']),
+      sourceUrl: readString(json, 'sourceUrl'),
     );
   }
 
@@ -691,6 +695,7 @@ class IpoOutcome {
       openReturnRate: openReturnRate,
       highReturnRate: highReturnRate,
       closeReturnRate: closeReturnRate,
+      sourceUrl: sourceUrl,
     );
   }
 
@@ -700,6 +705,7 @@ class IpoOutcome {
       'openReturnRate': openReturnRate,
       'highReturnRate': highReturnRate,
       'closeReturnRate': closeReturnRate,
+      'sourceUrl': sourceUrl,
     };
   }
 }
@@ -1554,6 +1560,7 @@ Map<String, Object?> buildBacktestReport(
           'openReturnRate': outcome?.openReturnRate,
           'highReturnRate': outcome?.highReturnRate,
           'closeReturnRate': outcome?.closeReturnRate,
+          'outcomeSourceUrl': outcome?.sourceUrl,
           'errorCloseVsExpected': outcome?.closeReturnRate == null
               ? null
               : roundDouble(
