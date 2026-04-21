@@ -1,19 +1,24 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-22T00:26:38.849804",
+  "generatedAt": "2026-04-22T00:42:20.670948",
   "methodVersion": "ipo-score-v1",
-  "sampleCount": 3,
+  "sampleCount": 7,
   "summary": {
-    "averageCloseReturnRate": 0.664,
-    "medianCloseReturnRate": 0.9333,
-    "averageErrorCloseVsExpected": -0.0372,
+    "averageCloseReturnRate": 0.6335,
+    "medianCloseReturnRate": 0.848,
+    "averageErrorCloseVsExpected": 0.013,
     "medianErrorCloseVsExpected": 0.0491
   },
   "byGrade": {
     "A+": {
-      "sampleCount": 2,
-      "averageCloseReturnRate": 0.5134,
-      "medianCloseReturnRate": 0.5134
+      "sampleCount": 5,
+      "averageCloseReturnRate": 0.6572,
+      "medianCloseReturnRate": 0.848
+    },
+    "A": {
+      "sampleCount": 1,
+      "averageCloseReturnRate": 0.1833,
+      "medianCloseReturnRate": 0.1833
     },
     "B+": {
       "sampleCount": 1,
@@ -23,25 +28,38 @@
   },
   "byScoreBucket": {
     "100-109": {
-      "sampleCount": 1,
-      "averageCloseReturnRate": 0.9333,
-      "medianCloseReturnRate": 0.9333,
-      "averageErrorCloseVsExpected": 0.0491
+      "sampleCount": 2,
+      "averageCloseReturnRate": 0.6838,
+      "medianCloseReturnRate": 0.6838,
+      "averageErrorCloseVsExpected": -0.0871
     },
     "90-99": {
-      "sampleCount": 1,
-      "averageCloseReturnRate": 0.0934,
-      "medianCloseReturnRate": 0.0934,
-      "averageErrorCloseVsExpected": -0.7208
+      "sampleCount": 3,
+      "averageCloseReturnRate": 0.6394,
+      "medianCloseReturnRate": 0.848,
+      "averageErrorCloseVsExpected": -0.0033
     },
     "80-89": {
-      "sampleCount": 1,
-      "averageCloseReturnRate": 0.9652,
-      "medianCloseReturnRate": 0.9652,
-      "averageErrorCloseVsExpected": 0.5601
+      "sampleCount": 2,
+      "averageCloseReturnRate": 0.5743,
+      "medianCloseReturnRate": 0.5743,
+      "averageErrorCloseVsExpected": 0.1377
     }
   },
   "rows": [
+    {
+      "id": "sanil_electric_2024",
+      "company": "산일전기",
+      "score": 100,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.6575,
+      "openReturnRate": 0.28285714285714286,
+      "highReturnRate": null,
+      "closeReturnRate": 0.4342857142857143,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240729036251008",
+      "errorCloseVsExpected": -0.2232
+    },
     {
       "id": "knr_system_2024",
       "company": "케이엔알시스템",
@@ -67,6 +85,45 @@
       "closeReturnRate": 0.09342105263157895,
       "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20251118054700008",
       "errorCloseVsExpected": -0.7208
+    },
+    {
+      "id": "daehan_shipbuilding_2025",
+      "company": "대한조선",
+      "score": 94,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.5258,
+      "openReturnRate": 0.784,
+      "highReturnRate": 0.988,
+      "closeReturnRate": 0.848,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20250801048751008",
+      "errorCloseVsExpected": 0.3222
+    },
+    {
+      "id": "doosan_robotics_2023",
+      "company": "두산로보틱스",
+      "score": 90,
+      "grade": "A+",
+      "confidence": 0.9,
+      "expectedListingGainRate": 0.5883,
+      "openReturnRate": 1.273076923076923,
+      "highReturnRate": 1.6,
+      "closeReturnRate": 0.9769230769230769,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20231005036051002",
+      "errorCloseVsExpected": 0.3886
+    },
+    {
+      "id": "shift_up_2024",
+      "company": "시프트업",
+      "score": 84,
+      "grade": "A",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.4682,
+      "openReturnRate": 0.33166666666666667,
+      "highReturnRate": 0.49166666666666664,
+      "closeReturnRate": 0.18333333333333332,
+      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=358640",
+      "errorCloseVsExpected": -0.2848
     },
     {
       "id": "hd_hyundai_marine_solution_2024",
