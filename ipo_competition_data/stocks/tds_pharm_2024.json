@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "id": "tds_pharm_2024",
+  "company": "티디에스팜",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2024-08-09",
+  "subscriptionEnd": "2024-08-12",
+  "leadManagers": [],
+  "fundamentals": {
+    "offerPrice": 13000,
+    "priceBandMin": 9500,
+    "priceBandMax": 10700,
+    "institutionCompetitionRate": 1331.0,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": {
+    "listingDate": "2024-08-21",
+    "openReturnRate": 1.8076923076923077,
+    "highReturnRate": 3.0,
+    "closeReturnRate": 3.0,
+    "sourceUrl": "https://www.hankyung.com/article/2024082168291"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-08-12T17:30:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.hankyung.com/article/2024082168291",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "competitionRate": 1608.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1608.0
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 93,
+      "grade": "A+",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 24,
+        "institutionDemand": 14,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 5,
+        "market": 11,
+        "leadManagers": 4,
+        "recency": 5,
+        "dataCompleteness": 22
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.801,
+      "bearCaseListingGainRate": 0.581,
+      "baseCaseListingGainRate": 0.801,
+      "bullCaseListingGainRate": 1.151,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.006,
+        "oneMillionKrw": 0.048,
+        "fiveMillionKrw": 0.239
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1935,
+        "oneMillionKrw": -1502,
+        "fiveMillionKrw": 491
+      },
+      "assumptions": {
+        "offerPrice": 13000,
+        "competitionRate": 1608.0,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1608.0대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "inputs": {
+      "latestCompetitionRate": 1608.0,
+      "snapshotCount": 1,
+      "leadManagerCount": 0,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1331.0,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-22T01:01:53.076895",
+  "generatedAt": "2026-04-22T01:05:02.412538",
   "methodVersion": "ipo-score-v1",
-  "sampleCount": 28,
+  "sampleCount": 32,
   "summary": {
-    "averageCloseReturnRate": 0.9457,
-    "medianCloseReturnRate": 0.7224,
-    "averageErrorCloseVsExpected": 0.1861,
-    "medianErrorCloseVsExpected": -0.0588
+    "averageCloseReturnRate": 0.9108,
+    "medianCloseReturnRate": 0.5818,
+    "averageErrorCloseVsExpected": 0.1896,
+    "medianErrorCloseVsExpected": -0.1814
   },
   "byGrade": {
     "A+": {
-      "sampleCount": 22,
-      "averageCloseReturnRate": 0.9698,
+      "sampleCount": 24,
+      "averageCloseReturnRate": 1.0071,
       "medianCloseReturnRate": 0.8907
     },
     "A": {
@@ -21,9 +21,14 @@
       "medianCloseReturnRate": 0.2972
     },
     "B+": {
+      "sampleCount": 2,
+      "averageCloseReturnRate": 0.4447,
+      "medianCloseReturnRate": 0.4447
+    },
+    "C+": {
       "sampleCount": 1,
-      "averageCloseReturnRate": 0.9652,
-      "medianCloseReturnRate": 0.9652
+      "averageCloseReturnRate": -0.0903,
+      "medianCloseReturnRate": -0.0903
     }
   },
   "byScoreBucket": {
@@ -34,16 +39,28 @@
       "averageErrorCloseVsExpected": 0.5054
     },
     "90-99": {
-      "sampleCount": 14,
-      "averageCloseReturnRate": 0.7461,
+      "sampleCount": 16,
+      "averageCloseReturnRate": 0.8299,
       "medianCloseReturnRate": 0.7224,
-      "averageErrorCloseVsExpected": -0.032
+      "averageErrorCloseVsExpected": 0.0593
     },
     "80-89": {
       "sampleCount": 6,
       "averageCloseReturnRate": 0.8571,
       "medianCloseReturnRate": 0.4319,
       "averageErrorCloseVsExpected": 0.269
+    },
+    "70-79": {
+      "sampleCount": 1,
+      "averageCloseReturnRate": -0.0759,
+      "medianCloseReturnRate": -0.0759,
+      "averageErrorCloseVsExpected": -0.3425
+    },
+    "60-69": {
+      "sampleCount": 1,
+      "averageCloseReturnRate": -0.0903,
+      "medianCloseReturnRate": -0.0903,
+      "averageErrorCloseVsExpected": -0.1961
     }
   },
   "rows": [
@@ -243,6 +260,19 @@
       "errorCloseVsExpected": 0.3222
     },
     {
+      "id": "excel_therapeutics_2024",
+      "company": "엑셀세라퓨틱스",
+      "score": 94,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.6358,
+      "openReturnRate": null,
+      "highReturnRate": 0.29,
+      "closeReturnRate": -0.167,
+      "outcomeSourceUrl": "https://biz.sbs.co.kr/amp/article/20000181710",
+      "errorCloseVsExpected": -0.8028
+    },
+    {
       "id": "inix_2024",
       "company": "이닉스",
       "score": 94,
@@ -254,6 +284,19 @@
       "closeReturnRate": 1.65,
       "outcomeSourceUrl": "https://www.fnnews.com/news/202402011539341900",
       "errorCloseVsExpected": 0.8247
+    },
+    {
+      "id": "tds_pharm_2024",
+      "company": "티디에스팜",
+      "score": 93,
+      "grade": "A+",
+      "confidence": 0.9,
+      "expectedListingGainRate": 0.801,
+      "openReturnRate": 1.8076923076923077,
+      "highReturnRate": 3.0,
+      "closeReturnRate": 3.0,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/2024082168291",
+      "errorCloseVsExpected": 2.199
     },
     {
       "id": "higen_rnm_2024",
@@ -410,6 +453,32 @@
       "closeReturnRate": 0.9652278177458034,
       "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240508041000008",
       "errorCloseVsExpected": 0.5601
+    },
+    {
+      "id": "next_biomedical_2024",
+      "company": "넥스트바이오메디컬",
+      "score": 75,
+      "grade": "B+",
+      "confidence": 0.9,
+      "expectedListingGainRate": 0.2667,
+      "openReturnRate": 0.006896551724137931,
+      "highReturnRate": null,
+      "closeReturnRate": -0.07586206896551724,
+      "outcomeSourceUrl": "https://www.fnnews.com/news/202408200931417270",
+      "errorCloseVsExpected": -0.3425
+    },
+    {
+      "id": "k3i_2024",
+      "company": "케이쓰리아이",
+      "score": 60,
+      "grade": "C+",
+      "confidence": 0.8,
+      "expectedListingGainRate": 0.1058,
+      "openReturnRate": 0.01935483870967742,
+      "highReturnRate": null,
+      "closeReturnRate": -0.09032258064516129,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/2024082027786",
+      "errorCloseVsExpected": -0.1961
     }
   ],
   "note": "Backtest is exploratory. Sample size is currently too small for predictive calibration."
