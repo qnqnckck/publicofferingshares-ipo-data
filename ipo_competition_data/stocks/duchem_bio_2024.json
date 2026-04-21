@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "id": "duchem_bio_2024",
+  "company": "듀켐바이오",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2024-12-11",
+  "subscriptionEnd": "2024-12-12",
+  "leadManagers": [
+    "NH투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 8000,
+    "priceBandMin": 12300,
+    "priceBandMax": 14100,
+    "institutionCompetitionRate": 47.73,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2024-12-12T16:00:00+09:00",
+      "source": "public_monthly_ipo_schedule",
+      "sourceUrl": "https://honda31.tistory.com/286",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 172.67,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 172.67
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 79,
+      "grade": "B+",
+      "confidence": 0.95,
+      "factors": {
+        "competition": 14,
+        "institutionDemand": 3,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 4,
+        "market": 11,
+        "leadManagers": 7,
+        "recency": 5,
+        "dataCompleteness": 27
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.3528,
+      "bearCaseListingGainRate": 0.1328,
+      "baseCaseListingGainRate": 0.3528,
+      "bullCaseListingGainRate": 0.7028,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.058,
+        "oneMillionKrw": 0.724,
+        "fiveMillionKrw": 3.62
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1837,
+        "oneMillionKrw": 43,
+        "fiveMillionKrw": 8216
+      },
+      "assumptions": {
+        "offerPrice": 8000,
+        "competitionRate": 172.67,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 172.67대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": 172.67,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 47.73,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "id": "onconic_therapeutics_2024",
+  "company": "온코닉테라퓨틱스",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2024-12-09",
+  "subscriptionEnd": "2024-12-10",
+  "leadManagers": [
+    "NH투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 13000,
+    "priceBandMin": 16000,
+    "priceBandMax": 18200,
+    "institutionCompetitionRate": 198.96,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2024-12-10T16:00:00+09:00",
+      "source": "public_monthly_ipo_schedule",
+      "sourceUrl": "https://honda31.tistory.com/286",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 91.88,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 91.88
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 74,
+      "grade": "B+",
+      "confidence": 0.95,
+      "factors": {
+        "competition": 9,
+        "institutionDemand": 3,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 4,
+        "market": 11,
+        "leadManagers": 7,
+        "recency": 5,
+        "dataCompleteness": 27
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.2719,
+      "bearCaseListingGainRate": 0.0519,
+      "baseCaseListingGainRate": 0.2719,
+      "bullCaseListingGainRate": 0.6219,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.109,
+        "oneMillionKrw": 0.837,
+        "fiveMillionKrw": 4.186
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1615,
+        "oneMillionKrw": 959,
+        "fiveMillionKrw": 12797
+      },
+      "assumptions": {
+        "offerPrice": 13000,
+        "competitionRate": 91.88,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "consider",
+      "label": "청약 고려",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 91.88대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": 91.88,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 198.96,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
