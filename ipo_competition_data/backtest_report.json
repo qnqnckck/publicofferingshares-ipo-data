@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-22T02:14:50.017805",
+  "generatedAt": "2026-04-22T02:18:21.187997",
   "methodVersion": "ipo-score-v1",
-  "sampleCount": 45,
+  "sampleCount": 52,
   "summary": {
-    "averageCloseReturnRate": 0.827,
-    "medianCloseReturnRate": 0.4675,
-    "averageErrorCloseVsExpected": 0.1401,
-    "medianErrorCloseVsExpected": -0.2041
+    "averageCloseReturnRate": 0.8971,
+    "medianCloseReturnRate": 0.5099,
+    "averageErrorCloseVsExpected": 0.2057,
+    "medianErrorCloseVsExpected": -0.2137
   },
   "byGrade": {
     "A+": {
-      "sampleCount": 30,
-      "averageCloseReturnRate": 1.0614,
-      "medianCloseReturnRate": 0.8907
+      "sampleCount": 35,
+      "averageCloseReturnRate": 1.0966,
+      "medianCloseReturnRate": 0.848
     },
     "A": {
-      "sampleCount": 9,
-      "averageCloseReturnRate": 0.4044,
-      "medianCloseReturnRate": 0.13
+      "sampleCount": 10,
+      "averageCloseReturnRate": 0.353,
+      "medianCloseReturnRate": 0.0668
     },
     "B+": {
-      "sampleCount": 3,
-      "averageCloseReturnRate": 0.6238,
-      "medianCloseReturnRate": 0.9652
+      "sampleCount": 4,
+      "averageCloseReturnRate": 1.2179,
+      "medianCloseReturnRate": 0.9736
     },
     "B": {
       "sampleCount": 1,
@@ -38,28 +38,28 @@
   },
   "byScoreBucket": {
     "100-109": {
-      "sampleCount": 9,
-      "averageCloseReturnRate": 1.5434,
-      "medianCloseReturnRate": 1.3714,
-      "averageErrorCloseVsExpected": 0.6844
+      "sampleCount": 12,
+      "averageCloseReturnRate": 1.4107,
+      "medianCloseReturnRate": 1.1524,
+      "averageErrorCloseVsExpected": 0.5454
     },
     "90-99": {
-      "sampleCount": 21,
-      "averageCloseReturnRate": 0.8548,
+      "sampleCount": 23,
+      "averageCloseReturnRate": 0.9327,
       "medianCloseReturnRate": 0.5969,
-      "averageErrorCloseVsExpected": 0.0869
+      "averageErrorCloseVsExpected": 0.1594
     },
     "80-89": {
-      "sampleCount": 10,
-      "averageCloseReturnRate": 0.4605,
-      "medianCloseReturnRate": 0.1567,
-      "averageErrorCloseVsExpected": -0.1132
+      "sampleCount": 11,
+      "averageCloseReturnRate": 0.4086,
+      "medianCloseReturnRate": 0.13,
+      "averageErrorCloseVsExpected": -0.1505
     },
     "70-79": {
-      "sampleCount": 2,
-      "averageCloseReturnRate": 0.4531,
-      "medianCloseReturnRate": 0.4531,
-      "averageErrorCloseVsExpected": 0.0082
+      "sampleCount": 3,
+      "averageCloseReturnRate": 1.3021,
+      "medianCloseReturnRate": 0.9821,
+      "averageErrorCloseVsExpected": 0.9016
     },
     "60-69": {
       "sampleCount": 3,
@@ -69,6 +69,45 @@
     }
   },
   "rows": [
+    {
+      "id": "angel_robotics_2024",
+      "company": "엔젤로보틱스",
+      "score": 100,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8843,
+      "openReturnRate": 1.525,
+      "highReturnRate": 2.885,
+      "closeReturnRate": 2.25,
+      "outcomeSourceUrl": "https://www.newsway.co.kr/news/view?ud=2024032615543108321",
+      "errorCloseVsExpected": 1.3658
+    },
+    {
+      "id": "waiker_2023",
+      "company": "와이랩",
+      "score": 100,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8843,
+      "openReturnRate": null,
+      "highReturnRate": 1.4444444444444444,
+      "closeReturnRate": 0.15,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/202307200904Y",
+      "errorCloseVsExpected": -0.7343
+    },
+    {
+      "id": "sensorview_2023",
+      "company": "센서뷰",
+      "score": 100,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8843,
+      "openReturnRate": null,
+      "highReturnRate": 1.8888888888888888,
+      "closeReturnRate": 0.5177777777777778,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/202307197855Y",
+      "errorCloseVsExpected": -0.3665
+    },
     {
       "id": "woojin_entec_2024",
       "company": "우진엔텍",
@@ -80,32 +119,6 @@
       "highReturnRate": 3.0,
       "closeReturnRate": 3.0,
       "outcomeSourceUrl": "https://www.fnnews.com/ampNews/202401241556076356",
-      "errorCloseVsExpected": 2.1158
-    },
-    {
-      "id": "nobland_2024",
-      "company": "노브랜드",
-      "score": 100,
-      "grade": "A+",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.8843,
-      "openReturnRate": 1.2142857142857142,
-      "highReturnRate": 2.9642857142857144,
-      "closeReturnRate": 2.8785714285714286,
-      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/11023130",
-      "errorCloseVsExpected": 1.9943
-    },
-    {
-      "id": "esteem_2026",
-      "company": "에스팀",
-      "score": 100,
-      "grade": "A+",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.8843,
-      "openReturnRate": 2.6058823529411765,
-      "highReturnRate": 3.9823529411764707,
-      "closeReturnRate": 3.0,
-      "outcomeSourceUrl": "https://ipokorea.kr/ipo/%EC%97%90%EC%8A%A4%ED%8C%80",
       "errorCloseVsExpected": 2.1158
     },
     {
@@ -122,56 +135,17 @@
       "errorCloseVsExpected": -0.2232
     },
     {
-      "id": "innospace_2024",
-      "company": "이노스페이스",
+      "id": "esteem_2026",
+      "company": "에스팀",
       "score": 100,
       "grade": "A+",
       "confidence": 0.95,
       "expectedListingGainRate": 0.8843,
-      "openReturnRate": -0.018475750577367205,
-      "highReturnRate": null,
-      "closeReturnRate": -0.20438799076212472,
-      "outcomeSourceUrl": "https://www.asiatime.co.kr/article/20240702500416",
-      "errorCloseVsExpected": -1.0886
-    },
-    {
-      "id": "jeil_mns_2024",
-      "company": "제일엠앤에스",
-      "score": 100,
-      "grade": "A+",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.8843,
-      "openReturnRate": null,
-      "highReturnRate": 0.8727272727272727,
-      "closeReturnRate": 0.22727272727272727,
-      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/11004337",
-      "errorCloseVsExpected": -0.657
-    },
-    {
-      "id": "angel_robotics_2024",
-      "company": "엔젤로보틱스",
-      "score": 100,
-      "grade": "A+",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.8843,
-      "openReturnRate": 1.525,
-      "highReturnRate": 2.885,
-      "closeReturnRate": 2.25,
-      "outcomeSourceUrl": "https://www.newsway.co.kr/news/view?ud=2024032615543108321",
-      "errorCloseVsExpected": 1.3658
-    },
-    {
-      "id": "knr_system_2024",
-      "company": "케이엔알시스템",
-      "score": 100,
-      "grade": "A+",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.8843,
-      "openReturnRate": 1.7407407407407407,
-      "highReturnRate": 1.8333333333333333,
-      "closeReturnRate": 0.9333333333333333,
-      "outcomeSourceUrl": "https://www.hankyung.com/article/2024030796126",
-      "errorCloseVsExpected": 0.0491
+      "openReturnRate": 2.6058823529411765,
+      "highReturnRate": 3.9823529411764707,
+      "closeReturnRate": 3.0,
+      "outcomeSourceUrl": "https://ipokorea.kr/ipo/%EC%97%90%EC%8A%A4%ED%8C%80",
+      "errorCloseVsExpected": 2.1158
     },
     {
       "id": "kweather_2024",
@@ -187,6 +161,71 @@
       "errorCloseVsExpected": 0.4872
     },
     {
+      "id": "innospace_2024",
+      "company": "이노스페이스",
+      "score": 100,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8843,
+      "openReturnRate": -0.018475750577367205,
+      "highReturnRate": null,
+      "closeReturnRate": -0.20438799076212472,
+      "outcomeSourceUrl": "https://www.asiatime.co.kr/article/20240702500416",
+      "errorCloseVsExpected": -1.0886
+    },
+    {
+      "id": "philenergy_2023",
+      "company": "필에너지",
+      "score": 100,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8843,
+      "openReturnRate": null,
+      "highReturnRate": 2.8823529411764706,
+      "closeReturnRate": 2.3705882352941177,
+      "outcomeSourceUrl": "https://www.hankyung.com/amp/202307147135Y",
+      "errorCloseVsExpected": 1.4863
+    },
+    {
+      "id": "nobland_2024",
+      "company": "노브랜드",
+      "score": 100,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8843,
+      "openReturnRate": 1.2142857142857142,
+      "highReturnRate": 2.9642857142857144,
+      "closeReturnRate": 2.8785714285714286,
+      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/11023130",
+      "errorCloseVsExpected": 1.9943
+    },
+    {
+      "id": "jeil_mns_2024",
+      "company": "제일엠앤에스",
+      "score": 100,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8843,
+      "openReturnRate": null,
+      "highReturnRate": 0.8727272727272727,
+      "closeReturnRate": 0.22727272727272727,
+      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/11004337",
+      "errorCloseVsExpected": -0.657
+    },
+    {
+      "id": "knr_system_2024",
+      "company": "케이엔알시스템",
+      "score": 100,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8843,
+      "openReturnRate": 1.7407407407407407,
+      "highReturnRate": 1.8333333333333333,
+      "closeReturnRate": 0.9333333333333333,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/2024030796126",
+      "errorCloseVsExpected": 0.0491
+    },
+    {
       "id": "the_pinkfong_company_2025",
       "company": "더핑크퐁컴퍼니",
       "score": 99,
@@ -198,45 +237,6 @@
       "closeReturnRate": 0.09342105263157895,
       "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20251118054700008",
       "errorCloseVsExpected": -0.7208
-    },
-    {
-      "id": "mintech_2024",
-      "company": "민테크",
-      "score": 98,
-      "grade": "A+",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.8646,
-      "openReturnRate": null,
-      "highReturnRate": 0.5238095238095238,
-      "closeReturnRate": 0.22666666666666666,
-      "outcomeSourceUrl": "https://www.sportschosun.com/life/2024-05-03/202405030000000000003543",
-      "errorCloseVsExpected": -0.6379
-    },
-    {
-      "id": "dnd_pharmatech_2024",
-      "company": "디앤디파마텍",
-      "score": 98,
-      "grade": "A+",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.8646,
-      "openReturnRate": null,
-      "highReturnRate": 0.6333333333333333,
-      "closeReturnRate": 0.10606060606060606,
-      "outcomeSourceUrl": "https://www.hankyung.com/article/2024050229661",
-      "errorCloseVsExpected": -0.7585
-    },
-    {
-      "id": "studio_samik_2024",
-      "company": "스튜디오삼익",
-      "score": 98,
-      "grade": "A+",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.8646,
-      "openReturnRate": 1.8888888888888888,
-      "highReturnRate": 1.9222222222222223,
-      "closeReturnRate": 1.2166666666666666,
-      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240206040551008",
-      "errorCloseVsExpected": 0.3521
     },
     {
       "id": "blue_mtec_2023",
@@ -252,6 +252,45 @@
       "errorCloseVsExpected": 0.8981
     },
     {
+      "id": "studio_samik_2024",
+      "company": "스튜디오삼익",
+      "score": 98,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8646,
+      "openReturnRate": 1.8888888888888888,
+      "highReturnRate": 1.9222222222222223,
+      "closeReturnRate": 1.2166666666666666,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240206040551008",
+      "errorCloseVsExpected": 0.3521
+    },
+    {
+      "id": "dnd_pharmatech_2024",
+      "company": "디앤디파마텍",
+      "score": 98,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8646,
+      "openReturnRate": null,
+      "highReturnRate": 0.6333333333333333,
+      "closeReturnRate": 0.10606060606060606,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/2024050229661",
+      "errorCloseVsExpected": -0.7585
+    },
+    {
+      "id": "mintech_2024",
+      "company": "민테크",
+      "score": 98,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8646,
+      "openReturnRate": null,
+      "highReturnRate": 0.5238095238095238,
+      "closeReturnRate": 0.22666666666666666,
+      "outcomeSourceUrl": "https://www.sportschosun.com/life/2024-05-03/202405030000000000003543",
+      "errorCloseVsExpected": -0.6379
+    },
+    {
       "id": "ls_materials_2023",
       "company": "LS머트리얼즈",
       "score": 97,
@@ -265,17 +304,17 @@
       "errorCloseVsExpected": 2.1452
     },
     {
-      "id": "apr_2024",
-      "company": "에이피알",
+      "id": "kns_2023",
+      "company": "케이엔에스",
       "score": 95,
       "grade": "A+",
       "confidence": 0.95,
       "expectedListingGainRate": 0.8351,
-      "openReturnRate": 0.782,
-      "highReturnRate": 0.87,
-      "closeReturnRate": 0.27,
-      "outcomeSourceUrl": "https://www.newsis.com/view/NISX20240227_0002641320",
-      "errorCloseVsExpected": -0.5651
+      "openReturnRate": null,
+      "highReturnRate": null,
+      "closeReturnRate": 3.0,
+      "outcomeSourceUrl": "https://www.mt.co.kr/stock/2023/12/06/2023120616072329426",
+      "errorCloseVsExpected": 2.1649
     },
     {
       "id": "hb_investment_2024",
@@ -291,17 +330,30 @@
       "errorCloseVsExpected": 0.1777
     },
     {
-      "id": "inix_2024",
-      "company": "이닉스",
+      "id": "apr_2024",
+      "company": "에이피알",
+      "score": 95,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8351,
+      "openReturnRate": 0.782,
+      "highReturnRate": 0.87,
+      "closeReturnRate": 0.27,
+      "outcomeSourceUrl": "https://www.newsis.com/view/NISX20240227_0002641320",
+      "errorCloseVsExpected": -0.5651
+    },
+    {
+      "id": "shinsung_st_2023",
+      "company": "신성에스티",
       "score": 94,
       "grade": "A+",
       "confidence": 0.95,
       "expectedListingGainRate": 0.8253,
-      "openReturnRate": null,
-      "highReturnRate": null,
-      "closeReturnRate": 1.65,
-      "outcomeSourceUrl": "https://www.fnnews.com/news/202402011539341900",
-      "errorCloseVsExpected": 0.8247
+      "openReturnRate": 0.7711538461538462,
+      "highReturnRate": 0.8134615384615385,
+      "closeReturnRate": 0.5019230769230769,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20231019040151002",
+      "errorCloseVsExpected": -0.3234
     },
     {
       "id": "daehan_shipbuilding_2025",
@@ -330,6 +382,32 @@
       "errorCloseVsExpected": -0.8028
     },
     {
+      "id": "inix_2024",
+      "company": "이닉스",
+      "score": 94,
+      "grade": "A+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8253,
+      "openReturnRate": null,
+      "highReturnRate": null,
+      "closeReturnRate": 1.65,
+      "outcomeSourceUrl": "https://www.fnnews.com/news/202402011539341900",
+      "errorCloseVsExpected": 0.8247
+    },
+    {
+      "id": "cosem_2024",
+      "company": "코셈",
+      "score": 93,
+      "grade": "A+",
+      "confidence": 0.9,
+      "expectedListingGainRate": 0.801,
+      "openReturnRate": 1.625,
+      "highReturnRate": null,
+      "closeReturnRate": 0.596875,
+      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10949582",
+      "errorCloseVsExpected": -0.2041
+    },
+    {
       "id": "higen_rnm_2024",
       "company": "하이젠알앤엠",
       "score": 93,
@@ -356,17 +434,17 @@
       "errorCloseVsExpected": 2.199
     },
     {
-      "id": "cosem_2024",
-      "company": "코셈",
-      "score": 93,
+      "id": "iron_device_2024",
+      "company": "아이언디바이스",
+      "score": 92,
       "grade": "A+",
-      "confidence": 0.9,
-      "expectedListingGainRate": 0.801,
-      "openReturnRate": 1.625,
-      "highReturnRate": null,
-      "closeReturnRate": 0.596875,
-      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10949582",
-      "errorCloseVsExpected": -0.2041
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.8057,
+      "openReturnRate": null,
+      "highReturnRate": 1.6242857142857143,
+      "closeReturnRate": 0.5571428571428572,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/2024092324111",
+      "errorCloseVsExpected": -0.2485
     },
     {
       "id": "alux_2024",
@@ -382,19 +460,6 @@
       "errorCloseVsExpected": -1.007
     },
     {
-      "id": "iron_device_2024",
-      "company": "아이언디바이스",
-      "score": 92,
-      "grade": "A+",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.8057,
-      "openReturnRate": null,
-      "highReturnRate": 1.6242857142857143,
-      "closeReturnRate": 0.5571428571428572,
-      "outcomeSourceUrl": "https://www.hankyung.com/article/2024092324111",
-      "errorCloseVsExpected": -0.2485
-    },
-    {
       "id": "sungwoo_2024",
       "company": "성우",
       "score": 91,
@@ -406,45 +471,6 @@
       "closeReturnRate": -0.1875,
       "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=371010",
       "errorCloseVsExpected": -0.9112
-    },
-    {
-      "id": "seers_technology_2024",
-      "company": "씨어스테크놀로지",
-      "score": 90,
-      "grade": "A+",
-      "confidence": 0.9,
-      "expectedListingGainRate": 0.772,
-      "openReturnRate": 1.026470588235294,
-      "highReturnRate": 1.1176470588235294,
-      "closeReturnRate": 0.08823529411764706,
-      "outcomeSourceUrl": "https://ckang.tistory.com/115",
-      "errorCloseVsExpected": -0.6838
-    },
-    {
-      "id": "imbdx_2024",
-      "company": "아이엠비디엑스",
-      "score": 90,
-      "grade": "A+",
-      "confidence": 0.9,
-      "expectedListingGainRate": 0.772,
-      "openReturnRate": 1.1961538461538461,
-      "highReturnRate": 2.1192307692307693,
-      "closeReturnRate": 1.7692307692307692,
-      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10981715",
-      "errorCloseVsExpected": 0.9972
-    },
-    {
-      "id": "doosan_robotics_2023",
-      "company": "두산로보틱스",
-      "score": 90,
-      "grade": "A+",
-      "confidence": 0.9,
-      "expectedListingGainRate": 0.5883,
-      "openReturnRate": 1.273076923076923,
-      "highReturnRate": 1.6,
-      "closeReturnRate": 0.9769230769230769,
-      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20231005036051002",
-      "errorCloseVsExpected": 0.3886
     },
     {
       "id": "osang_healthcare_2024",
@@ -460,17 +486,56 @@
       "errorCloseVsExpected": -0.3045
     },
     {
-      "id": "toprun_total_solution_2024",
-      "company": "탑런토탈솔루션",
-      "score": 87,
-      "grade": "A",
+      "id": "imbdx_2024",
+      "company": "아이엠비디엑스",
+      "score": 90,
+      "grade": "A+",
       "confidence": 0.9,
-      "expectedListingGainRate": 0.7369,
-      "openReturnRate": -0.16,
+      "expectedListingGainRate": 0.772,
+      "openReturnRate": 1.1961538461538461,
+      "highReturnRate": 2.1192307692307693,
+      "closeReturnRate": 1.7692307692307692,
+      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10981715",
+      "errorCloseVsExpected": 0.9972
+    },
+    {
+      "id": "seers_technology_2024",
+      "company": "씨어스테크놀로지",
+      "score": 90,
+      "grade": "A+",
+      "confidence": 0.9,
+      "expectedListingGainRate": 0.772,
+      "openReturnRate": 1.026470588235294,
+      "highReturnRate": 1.1176470588235294,
+      "closeReturnRate": 0.08823529411764706,
+      "outcomeSourceUrl": "https://ckang.tistory.com/115",
+      "errorCloseVsExpected": -0.6838
+    },
+    {
+      "id": "doosan_robotics_2023",
+      "company": "두산로보틱스",
+      "score": 90,
+      "grade": "A+",
+      "confidence": 0.9,
+      "expectedListingGainRate": 0.5883,
+      "openReturnRate": 1.273076923076923,
+      "highReturnRate": 1.6,
+      "closeReturnRate": 0.9769230769230769,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20231005036051002",
+      "errorCloseVsExpected": 0.3886
+    },
+    {
+      "id": "pado_2023",
+      "company": "파두",
+      "score": 89,
+      "grade": "A",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.4145,
+      "openReturnRate": null,
       "highReturnRate": null,
-      "closeReturnRate": -0.14833333333333334,
-      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/11156542",
-      "errorCloseVsExpected": -0.8852
+      "closeReturnRate": -0.10967741935483871,
+      "outcomeSourceUrl": "https://www.seoul.co.kr/news/economy/2023/08/08/20230808013004",
+      "errorCloseVsExpected": -0.5242
     },
     {
       "id": "clobot_2024",
@@ -486,17 +551,17 @@
       "errorCloseVsExpected": -0.9707
     },
     {
-      "id": "samhyun_2024",
-      "company": "삼현",
-      "score": 86,
+      "id": "toprun_total_solution_2024",
+      "company": "탑런토탈솔루션",
+      "score": 87,
       "grade": "A",
       "confidence": 0.9,
-      "expectedListingGainRate": 0.7334,
-      "openReturnRate": 1.0166666666666666,
-      "highReturnRate": 1.3133333333333332,
-      "closeReturnRate": 0.5666666666666667,
-      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240321042251008",
-      "errorCloseVsExpected": -0.1667
+      "expectedListingGainRate": 0.7369,
+      "openReturnRate": -0.16,
+      "highReturnRate": null,
+      "closeReturnRate": -0.14833333333333334,
+      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/11156542",
+      "errorCloseVsExpected": -0.8852
     },
     {
       "id": "posbank_2024",
@@ -510,6 +575,19 @@
       "closeReturnRate": 0.2972222222222222,
       "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10931892",
       "errorCloseVsExpected": -0.4362
+    },
+    {
+      "id": "samhyun_2024",
+      "company": "삼현",
+      "score": 86,
+      "grade": "A",
+      "confidence": 0.9,
+      "expectedListingGainRate": 0.7334,
+      "openReturnRate": 1.0166666666666666,
+      "highReturnRate": 1.3133333333333332,
+      "closeReturnRate": 0.5666666666666667,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240321042251008",
+      "errorCloseVsExpected": -0.1667
     },
     {
       "id": "shift_up_2024",
@@ -614,6 +692,19 @@
       "closeReturnRate": -0.07586206896551724,
       "outcomeSourceUrl": "https://www.fnnews.com/news/202408200931417270",
       "errorCloseVsExpected": -0.3425
+    },
+    {
+      "id": "ds_dansuk_2023",
+      "company": "디에스단석",
+      "score": 75,
+      "grade": "B+",
+      "confidence": 0.55,
+      "expectedListingGainRate": 0.3117,
+      "openReturnRate": 2.7,
+      "highReturnRate": 3.0,
+      "closeReturnRate": 3.0,
+      "outcomeSourceUrl": "https://news.bizwatch.co.kr/article/market/2023/12/22/0035",
+      "errorCloseVsExpected": 2.6883
     },
     {
       "id": "3billion_2024",
