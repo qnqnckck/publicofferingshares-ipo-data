@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "id": "pado_2023",
+  "company": "파두",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2023-07-27",
+  "subscriptionEnd": "2023-07-28",
+  "leadManagers": [
+    "NH투자증권",
+    "한국투자증권",
+    "한화투자증권",
+    "현대차증권",
+    "유진투자증권",
+    "KB증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 31000,
+    "priceBandMin": 26000,
+    "priceBandMax": 31000,
+    "institutionCompetitionRate": 362.9,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2023-07-28T16:00:00+09:00",
+      "source": "public_ipo_backfill",
+      "sourceUrl": "https://loanscredit.tistory.com/entry/%ED%8C%8C%EB%91%90-%EA%B3%B5%EB%AA%A8%EC%A3%BC-%EC%B2%AD%EC%95%BD-%EB%B0%A9%EB%B2%95-6%EA%B0%80%EC%A7%80%EA%B2%BD%EC%9F%81%EB%A5%A0-%EC%A3%BC%EA%B4%80%EC%82%AC-%EC%83%81%EC%9E%A5%EC%9D%BC-%EC%88%98%EC%9A%94%EC%98%88%EC%B8%A1",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 79.75,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 79.75
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 89,
+      "grade": "A",
+      "confidence": 0.95,
+      "factors": {
+        "competition": 9,
+        "institutionDemand": 7,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 9,
+        "market": 11,
+        "leadManagers": 13,
+        "recency": 5,
+        "dataCompleteness": 27
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.4145,
+      "bearCaseListingGainRate": 0.1945,
+      "baseCaseListingGainRate": 0.4145,
+      "bullCaseListingGainRate": 0.7645,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.125,
+        "oneMillionKrw": 0.404,
+        "fiveMillionKrw": 2.022
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -389,
+        "oneMillionKrw": 3198,
+        "fiveMillionKrw": 23989
+      },
+      "assumptions": {
+        "offerPrice": 31000,
+        "competitionRate": 79.75,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 79.75대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": 79.75,
+      "snapshotCount": 1,
+      "leadManagerCount": 6,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 362.9,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

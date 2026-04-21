@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "id": "nara_cellar_2023",
+  "company": "나라셀라",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2023-05-22",
+  "subscriptionEnd": "2023-05-23",
+  "leadManagers": [
+    "신영증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 20000,
+    "priceBandMin": 20000,
+    "priceBandMax": 24000,
+    "institutionCompetitionRate": 178.47,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2023-05-23T16:00:00+09:00",
+      "source": "public_ipo_backfill",
+      "sourceUrl": "https://happy-cleanup.com/962",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 4.84,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 4.84
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v1",
+    "score": {
+      "overall": 69,
+      "grade": "B",
+      "confidence": 0.95,
+      "factors": {
+        "competition": 4,
+        "institutionDemand": 3,
+        "lockupCommitment": 4,
+        "floatRate": 4,
+        "pricing": 4,
+        "market": 11,
+        "leadManagers": 7,
+        "recency": 5,
+        "dataCompleteness": 27
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.1886,
+      "bearCaseListingGainRate": -0.0314,
+      "baseCaseListingGainRate": 0.1886,
+      "bullCaseListingGainRate": 0.5386,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 2.066,
+        "oneMillionKrw": 10.331,
+        "fiveMillionKrw": 51.653
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 5792,
+        "oneMillionKrw": 36962,
+        "fiveMillionKrw": 192811
+      },
+      "assumptions": {
+        "offerPrice": 20000,
+        "competitionRate": 4.84,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "consider",
+      "label": "청약 고려",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 4.84대 1입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": 4.84,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 178.47,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
