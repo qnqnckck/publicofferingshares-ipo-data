@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "id": "inventera_2026",
+  "identifiers": {
+    "subscriptionKey": "인벤테라_20260323_20260324",
+    "normalizedCompany": "인벤테라",
+    "corpCode": "01303047",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "인벤테라",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2026-03-23",
+  "subscriptionEnd": "2026-03-24",
+  "leadManagers": [
+    "NH투자증권",
+    "유진투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 16600,
+    "priceBandMin": 12100,
+    "priceBandMax": 16600,
+    "institutionCompetitionRate": 1328.82,
+    "institutionParticipants": 2309,
+    "lockupCommitmentRate": 0.4306,
+    "floatRate": null,
+    "marketCapKrw": 130500000000,
+    "publicAllocationShares": 295000
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-03-24T16:00:00+09:00",
+      "source": "public_ipo_result",
+      "sourceUrl": "https://www.newspim.com/news/view/20260324001299",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 295000,
+          "subscribedShares": 564460000,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1913.44,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 295000,
+        "subscribedShares": 564460000,
+        "competitionRate": 1913.44
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v2",
+    "score": {
+      "overall": 75,
+      "grade": "B+",
+      "confidence": 0.95,
+      "factors": {
+        "competition": 16,
+        "institutionDemand": 20,
+        "lockupCommitment": 14,
+        "floatRate": 0,
+        "pricing": 5,
+        "market": 5,
+        "leadManagers": 5,
+        "recency": 2,
+        "dataCompleteness": 8
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.6386,
+      "bearCaseListingGainRate": 0.4186,
+      "baseCaseListingGainRate": 0.6386,
+      "bullCaseListingGainRate": 0.9886,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.005,
+        "oneMillionKrw": 0.031,
+        "fiveMillionKrw": 0.157
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1945,
+        "oneMillionKrw": -1666,
+        "fiveMillionKrw": -331
+      },
+      "assumptions": {
+        "offerPrice": 16600,
+        "competitionRate": 1913.44,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "consider",
+      "label": "청약 고려",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1913.44대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": 1913.44,
+      "snapshotCount": 1,
+      "leadManagerCount": 2,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1328.82,
+      "lockupCommitmentRate": 0.4306,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
