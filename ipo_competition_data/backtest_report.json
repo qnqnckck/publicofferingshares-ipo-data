@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-22T17:58:28.696526",
+  "generatedAt": "2026-04-22T18:07:09.507069",
   "methodVersion": "ipo-score-v1",
   "sampleCount": 59,
   "summary": {
     "averageCloseReturnRate": 0.8601,
     "medianCloseReturnRate": 0.5019,
-    "averageErrorCloseVsExpected": 0.6338,
+    "averageErrorCloseVsExpected": 0.6263,
     "medianErrorCloseVsExpected": 0.2556
   },
   "byGrade": {
@@ -16,14 +16,14 @@
       "medianCloseReturnRate": 0.4333
     },
     "C": {
-      "sampleCount": 15,
-      "averageCloseReturnRate": 1.3483,
-      "medianCloseReturnRate": 0.9333
+      "sampleCount": 16,
+      "averageCloseReturnRate": 1.3251,
+      "medianCloseReturnRate": 0.9551
     },
     "D": {
-      "sampleCount": 41,
-      "averageCloseReturnRate": 0.721,
-      "medianCloseReturnRate": 0.2972
+      "sampleCount": 40,
+      "averageCloseReturnRate": 0.7146,
+      "medianCloseReturnRate": 0.2836
     }
   },
   "byScoreBucket": {
@@ -34,28 +34,28 @@
       "averageErrorCloseVsExpected": 0.0363
     },
     "50-59": {
-      "sampleCount": 16,
-      "averageCloseReturnRate": 1.2699,
-      "medianCloseReturnRate": 0.8853,
-      "averageErrorCloseVsExpected": 0.8494
+      "sampleCount": 17,
+      "averageCloseReturnRate": 1.2527,
+      "medianCloseReturnRate": 0.9333,
+      "averageErrorCloseVsExpected": 0.8419
     },
     "40-49": {
-      "sampleCount": 23,
-      "averageCloseReturnRate": 0.9971,
-      "medianCloseReturnRate": 0.5969,
-      "averageErrorCloseVsExpected": 0.6982
+      "sampleCount": 24,
+      "averageCloseReturnRate": 0.9965,
+      "medianCloseReturnRate": 0.7224,
+      "averageErrorCloseVsExpected": 0.6957
     },
     "30-39": {
-      "sampleCount": 10,
-      "averageCloseReturnRate": 0.5642,
-      "medianCloseReturnRate": 0.2963,
-      "averageErrorCloseVsExpected": 0.5412
+      "sampleCount": 9,
+      "averageCloseReturnRate": 0.5184,
+      "medianCloseReturnRate": 0.13,
+      "averageErrorCloseVsExpected": 0.4938
     },
     "20-29": {
-      "sampleCount": 7,
-      "averageCloseReturnRate": 0.1539,
-      "medianCloseReturnRate": 0.1578,
-      "averageErrorCloseVsExpected": 0.3
+      "sampleCount": 6,
+      "averageCloseReturnRate": 0.0158,
+      "medianCloseReturnRate": 0.041,
+      "averageErrorCloseVsExpected": 0.2111
     },
     "10-19": {
       "sampleCount": 1,
@@ -65,19 +65,6 @@
     }
   },
   "rows": [
-    {
-      "id": "truen_2023",
-      "company": "트루엔",
-      "score": 62,
-      "grade": "C+",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.5109,
-      "openReturnRate": 0.6116666666666667,
-      "highReturnRate": 0.7291666666666666,
-      "closeReturnRate": 0.43333333333333335,
-      "outcomeSourceUrl": "https://www.hankyung.com/article/202305171700Y",
-      "errorCloseVsExpected": -0.0776
-    },
     {
       "id": "sanil_electric_2024",
       "company": "산일전기",
@@ -90,6 +77,19 @@
       "closeReturnRate": 0.4342857142857143,
       "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240729036251008",
       "errorCloseVsExpected": 0.1501
+    },
+    {
+      "id": "truen_2023",
+      "company": "트루엔",
+      "score": 62,
+      "grade": "C+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.5109,
+      "openReturnRate": 0.6116666666666667,
+      "highReturnRate": 0.7291666666666666,
+      "closeReturnRate": 0.43333333333333335,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/202305171700Y",
+      "errorCloseVsExpected": -0.0776
     },
     {
       "id": "the_pinkfong_company_2025",
@@ -105,19 +105,6 @@
       "errorCloseVsExpected": -0.318
     },
     {
-      "id": "waiker_2023",
-      "company": "와이랩",
-      "score": 57,
-      "grade": "C",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.4618,
-      "openReturnRate": null,
-      "highReturnRate": 1.4444444444444444,
-      "closeReturnRate": 0.15,
-      "outcomeSourceUrl": "https://www.hankyung.com/article/202307200904Y",
-      "errorCloseVsExpected": -0.3118
-    },
-    {
       "id": "sensorview_2023",
       "company": "센서뷰",
       "score": 57,
@@ -129,6 +116,19 @@
       "closeReturnRate": 0.5177777777777778,
       "outcomeSourceUrl": "https://www.hankyung.com/article/202307197855Y",
       "errorCloseVsExpected": 0.056
+    },
+    {
+      "id": "waiker_2023",
+      "company": "와이랩",
+      "score": 57,
+      "grade": "C",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.4618,
+      "openReturnRate": null,
+      "highReturnRate": 1.4444444444444444,
+      "closeReturnRate": 0.15,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/202307200904Y",
+      "errorCloseVsExpected": -0.3118
     },
     {
       "id": "manyo_factory_2023",
@@ -168,6 +168,19 @@
       "closeReturnRate": 3.0,
       "outcomeSourceUrl": "https://ipokorea.kr/ipo/%EC%97%90%EC%8A%A4%ED%8C%80",
       "errorCloseVsExpected": 2.5481
+    },
+    {
+      "id": "doosan_robotics_2023",
+      "company": "두산로보틱스",
+      "score": 55,
+      "grade": "C",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.2551,
+      "openReturnRate": 1.273076923076923,
+      "highReturnRate": 1.6,
+      "closeReturnRate": 0.9769230769230769,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20231005036051002",
+      "errorCloseVsExpected": 0.7218
     },
     {
       "id": "gigavis_2023",
@@ -378,19 +391,6 @@
       "errorCloseVsExpected": 0.2398
     },
     {
-      "id": "ds_dansuk_2023",
-      "company": "디에스단석",
-      "score": 46,
-      "grade": "D",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.3474,
-      "openReturnRate": 2.7,
-      "highReturnRate": 3.0,
-      "closeReturnRate": 3.0,
-      "outcomeSourceUrl": "https://news.bizwatch.co.kr/article/market/2023/12/22/0035",
-      "errorCloseVsExpected": 2.6526
-    },
-    {
       "id": "studio_samik_2024",
       "company": "스튜디오삼익",
       "score": 46,
@@ -415,6 +415,19 @@
       "closeReturnRate": 0.08823529411764706,
       "outcomeSourceUrl": "https://ckang.tistory.com/115",
       "errorCloseVsExpected": -0.2592
+    },
+    {
+      "id": "ds_dansuk_2023",
+      "company": "디에스단석",
+      "score": 46,
+      "grade": "D",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.3474,
+      "openReturnRate": 2.7,
+      "highReturnRate": 3.0,
+      "closeReturnRate": 3.0,
+      "outcomeSourceUrl": "https://news.bizwatch.co.kr/article/market/2023/12/22/0035",
+      "errorCloseVsExpected": 2.6526
     },
     {
       "id": "kns_2023",
@@ -443,17 +456,17 @@
       "errorCloseVsExpected": 0.6689
     },
     {
-      "id": "daehan_shipbuilding_2025",
-      "company": "대한조선",
-      "score": 44,
+      "id": "vect_2024",
+      "company": "벡트",
+      "score": 45,
       "grade": "D",
       "confidence": 0.95,
-      "expectedListingGainRate": 0.0346,
-      "openReturnRate": 0.784,
-      "highReturnRate": 0.988,
-      "closeReturnRate": 0.848,
-      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20250801048751008",
-      "errorCloseVsExpected": 0.8134
+      "expectedListingGainRate": 0.3439,
+      "openReturnRate": null,
+      "highReturnRate": 1.5538461538461539,
+      "closeReturnRate": 0.982051282051282,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/2024121604681",
+      "errorCloseVsExpected": 0.6382
     },
     {
       "id": "osang_healthcare_2024",
@@ -467,6 +480,19 @@
       "closeReturnRate": 0.4675,
       "outcomeSourceUrl": "https://m.sedaily.com/NewsView/2D6MCY5TQR",
       "errorCloseVsExpected": 0.1394
+    },
+    {
+      "id": "daehan_shipbuilding_2025",
+      "company": "대한조선",
+      "score": 44,
+      "grade": "D",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.0346,
+      "openReturnRate": 0.784,
+      "highReturnRate": 0.988,
+      "closeReturnRate": 0.848,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20250801048751008",
+      "errorCloseVsExpected": 0.8134
     },
     {
       "id": "blue_mtec_2023",
@@ -716,19 +742,6 @@
       "errorCloseVsExpected": 0.1767
     },
     {
-      "id": "doosan_robotics_2023",
-      "company": "두산로보틱스",
-      "score": 30,
-      "grade": "D",
-      "confidence": 0.9,
-      "expectedListingGainRate": 0.0093,
-      "openReturnRate": 1.273076923076923,
-      "highReturnRate": 1.6,
-      "closeReturnRate": 0.9769230769230769,
-      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20231005036051002",
-      "errorCloseVsExpected": 0.9676
-    },
-    {
       "id": "shift_up_2024",
       "company": "시프트업",
       "score": 29,
@@ -792,19 +805,6 @@
       "closeReturnRate": 0.15777777777777777,
       "outcomeSourceUrl": "https://www.hankyung.com/article/202306164793Y",
       "errorCloseVsExpected": 0.3797
-    },
-    {
-      "id": "vect_2024",
-      "company": "벡트",
-      "score": 26,
-      "grade": "D",
-      "confidence": 0.8,
-      "expectedListingGainRate": 0.1488,
-      "openReturnRate": null,
-      "highReturnRate": 1.5538461538461539,
-      "closeReturnRate": 0.982051282051282,
-      "outcomeSourceUrl": "https://www.hankyung.com/article/2024121604681",
-      "errorCloseVsExpected": 0.8333
     },
     {
       "id": "mnc_solution_2024",

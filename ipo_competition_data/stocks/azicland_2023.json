@@ -20,12 +20,12 @@
     "offerPrice": 25000,
     "priceBandMin": 19100,
     "priceBandMax": 21400,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "institutionCompetitionRate": 490.0,
+    "institutionParticipants": 1906,
+    "lockupCommitmentRate": 0.2238,
     "floatRate": null,
-    "marketCapKrw": null,
-    "publicAllocationShares": null
+    "marketCapKrw": 264900000000,
+    "publicAllocationShares": 659000
   },
   "outcome": null,
   "snapshots": [
@@ -36,8 +36,8 @@
       "brokers": [
         {
           "name": "통합",
-          "offeredShares": 0,
-          "subscribedShares": 0,
+          "offeredShares": 659000,
+          "subscribedShares": 500760920,
           "offerPrice": null,
           "depositRate": null,
           "feeKrw": null,
@@ -50,8 +50,8 @@
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
+        "offeredShares": 659000,
+        "subscribedShares": 500760920,
         "competitionRate": 759.88
       }
     }
@@ -59,35 +59,35 @@
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 25,
+      "overall": 44,
       "grade": "D",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "factors": {
         "competition": 9,
-        "institutionDemand": 0,
-        "lockupCommitment": 0,
+        "institutionDemand": 8,
+        "lockupCommitment": 9,
         "floatRate": 0,
         "pricing": 2,
         "market": 5,
         "leadManagers": 3,
         "recency": 0,
-        "dataCompleteness": 6
+        "dataCompleteness": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.0521,
-      "bearCaseListingGainRate": -0.1679,
-      "baseCaseListingGainRate": 0.0521,
-      "bullCaseListingGainRate": 0.4021,
+      "expectedListingGainRate": 0.2397,
+      "bearCaseListingGainRate": 0.0197,
+      "baseCaseListingGainRate": 0.2397,
+      "bullCaseListingGainRate": 0.5897,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
         "oneMillionKrw": 0.053,
         "fiveMillionKrw": 0.263
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1983,
-        "oneMillionKrw": -1931,
-        "fiveMillionKrw": -1657
+        "minimumSubscription": -1921,
+        "oneMillionKrw": -1685,
+        "fiveMillionKrw": -423
       },
       "assumptions": {
         "offerPrice": 25000,
@@ -113,8 +113,8 @@
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "institutionCompetitionRate": 490.0,
+      "lockupCommitmentRate": 0.2238,
       "floatRate": null,
       "hasOutcome": false
     },

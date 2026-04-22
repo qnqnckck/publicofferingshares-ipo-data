@@ -24,14 +24,14 @@
   ],
   "fundamentals": {
     "offerPrice": 26000,
-    "priceBandMin": null,
-    "priceBandMax": null,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "priceBandMin": 21000,
+    "priceBandMax": 26000,
+    "institutionCompetitionRate": 272.0,
+    "institutionParticipants": 1920,
+    "lockupCommitmentRate": 0.516,
     "floatRate": null,
-    "marketCapKrw": null,
-    "publicAllocationShares": null
+    "marketCapKrw": 1685300000000,
+    "publicAllocationShares": 4860000
   },
   "outcome": {
     "listingDate": "2023-10-05",
@@ -44,12 +44,12 @@
     {
       "capturedAt": "2023-09-22T17:33:00+09:00",
       "source": "article_final",
-      "sourceUrl": "https://biz.newdaily.co.kr/site/data/html/2023/09/22/2023092200251.html",
+      "sourceUrl": "https://news.bizwatch.co.kr/article/market/2023/09/22/0031",
       "brokers": [
         {
           "name": "통합",
-          "offeredShares": 0,
-          "subscribedShares": 0,
+          "offeredShares": 4860000,
+          "subscribedShares": 2546870120,
           "offerPrice": null,
           "depositRate": null,
           "feeKrw": null,
@@ -62,8 +62,8 @@
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
+        "offeredShares": 4860000,
+        "subscribedShares": 2546870120,
         "competitionRate": 524.05
       }
     }
@@ -71,35 +71,35 @@
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 30,
-      "grade": "D",
-      "confidence": 0.9,
+      "overall": 55,
+      "grade": "C",
+      "confidence": 0.95,
       "factors": {
         "competition": 9,
-        "institutionDemand": 0,
-        "lockupCommitment": 0,
+        "institutionDemand": 3,
+        "lockupCommitment": 18,
         "floatRate": 0,
-        "pricing": 3,
+        "pricing": 5,
         "market": 6,
         "leadManagers": 6,
         "recency": 0,
-        "dataCompleteness": 6
+        "dataCompleteness": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.0093,
-      "bearCaseListingGainRate": -0.2107,
-      "baseCaseListingGainRate": 0.0093,
-      "bullCaseListingGainRate": 0.3593,
+      "expectedListingGainRate": 0.2551,
+      "bearCaseListingGainRate": 0.0351,
+      "baseCaseListingGainRate": 0.2551,
+      "bullCaseListingGainRate": 0.6051,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.019,
         "oneMillionKrw": 0.073,
         "fiveMillionKrw": 0.367
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1995,
-        "oneMillionKrw": -1982,
-        "fiveMillionKrw": -1911
+        "minimumSubscription": -1873,
+        "oneMillionKrw": -1513,
+        "fiveMillionKrw": 434
       },
       "assumptions": {
         "offerPrice": 26000,
@@ -109,8 +109,8 @@
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 524.05대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
@@ -126,8 +126,8 @@
       "leadManagerCount": 7,
       "market": "KOSPI",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "institutionCompetitionRate": 272.0,
+      "lockupCommitmentRate": 0.516,
       "floatRate": null,
       "hasOutcome": true
     },
