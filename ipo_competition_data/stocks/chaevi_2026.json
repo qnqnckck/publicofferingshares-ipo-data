@@ -4,7 +4,7 @@
   "identifiers": {
     "subscriptionKey": "채비_20260420_20260421",
     "normalizedCompany": "채비",
-    "corpCode": null,
+    "corpCode": "01279698",
     "stockCode": null,
     "kindCode": null,
     "isin": null
@@ -24,8 +24,8 @@
     "priceBandMin": 12300,
     "priceBandMax": 15300,
     "institutionCompetitionRate": 55.23,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "institutionParticipants": 751,
+    "lockupCommitmentRate": 0.0649,
     "floatRate": null,
     "marketCapKrw": null,
     "publicAllocationShares": null
@@ -35,35 +35,35 @@
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 29,
+      "overall": 34,
       "grade": "D",
-      "confidence": 0.55,
+      "confidence": 0.6,
       "factors": {
         "competition": 0,
         "institutionDemand": 1,
-        "lockupCommitment": 0,
+        "lockupCommitment": 4,
         "floatRate": 0,
         "pricing": 10,
         "market": 5,
         "leadManagers": 6,
         "recency": 2,
-        "dataCompleteness": 5
+        "dataCompleteness": 6
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.0758,
-      "bearCaseListingGainRate": -0.2958,
-      "baseCaseListingGainRate": -0.0758,
-      "bullCaseListingGainRate": 0.2742,
+      "expectedListingGainRate": -0.0344,
+      "bearCaseListingGainRate": -0.2544,
+      "baseCaseListingGainRate": -0.0344,
+      "bullCaseListingGainRate": 0.3156,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
         "oneMillionKrw": 0.102,
         "fiveMillionKrw": 0.508
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -2012,
-        "oneMillionKrw": -2095,
-        "fiveMillionKrw": -2474
+        "minimumSubscription": -2005,
+        "oneMillionKrw": -2043,
+        "fiveMillionKrw": -2215
       },
       "assumptions": {
         "offerPrice": 12300,
@@ -79,7 +79,6 @@
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
@@ -91,7 +90,7 @@
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 55.23,
-      "lockupCommitmentRate": null,
+      "lockupCommitmentRate": 0.0649,
       "floatRate": null,
       "hasOutcome": false
     },
