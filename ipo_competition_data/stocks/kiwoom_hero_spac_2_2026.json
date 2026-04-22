@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "id": "kiwoom_hero_spac_2_2026",
+  "identifiers": {
+    "subscriptionKey": "키움히어로스팩2호_20260414_20260415",
+    "normalizedCompany": "키움히어로스팩2호",
+    "corpCode": null,
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "키움히어로스팩2호",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2026-04-14",
+  "subscriptionEnd": "2026-04-15",
+  "leadManagers": [
+    "키움증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 2000,
+    "priceBandMin": 2000,
+    "priceBandMax": 2000,
+    "institutionCompetitionRate": 1271.12,
+    "institutionParticipants": 2054,
+    "lockupCommitmentRate": 0.0,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null
+  },
+  "outcome": null,
+  "snapshots": [],
+  "analysis": {
+    "methodVersion": "ipo-score-v2",
+    "score": {
+      "overall": 39,
+      "grade": "D",
+      "confidence": 0.6,
+      "factors": {
+        "competition": 0,
+        "institutionDemand": 20,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 3,
+        "market": 5,
+        "leadManagers": 3,
+        "recency": 2,
+        "dataCompleteness": 6
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.0086,
+      "bearCaseListingGainRate": -0.2114,
+      "baseCaseListingGainRate": 0.0086,
+      "bullCaseListingGainRate": 0.3586,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.013,
+        "oneMillionKrw": 0.625,
+        "fiveMillionKrw": 3.125
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -2000,
+        "oneMillionKrw": -1989,
+        "fiveMillionKrw": -1946
+      },
+      "assumptions": {
+        "offerPrice": 2000,
+        "competitionRate": null,
+        "feeKrw": 2000,
+        "method": "rule_based_v1_low_confidence"
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": null,
+      "snapshotCount": 0,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1271.12,
+      "lockupCommitmentRate": 0.0,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
