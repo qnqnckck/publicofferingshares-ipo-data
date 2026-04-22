@@ -20,24 +20,24 @@
     "offerPrice": 8000,
     "priceBandMin": 6000,
     "priceBandMax": 8000,
-    "institutionCompetitionRate": 1152.98,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "institutionCompetitionRate": 1153.0,
+    "institutionParticipants": 2274,
+    "lockupCommitmentRate": 0.5801,
     "floatRate": null,
-    "marketCapKrw": null,
-    "publicAllocationShares": null
+    "marketCapKrw": 101700000000,
+    "publicAllocationShares": 750000
   },
   "outcome": null,
   "snapshots": [
     {
       "capturedAt": "2025-11-19T16:00:00+09:00",
       "source": "public_monthly_ipo_schedule",
-      "sourceUrl": "https://honda31.tistory.com/303",
+      "sourceUrl": "https://www.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=04641206642367360",
       "brokers": [
         {
           "name": "통합",
-          "offeredShares": 0,
-          "subscribedShares": 0,
+          "offeredShares": 750000,
+          "subscribedShares": 2148882160,
           "offerPrice": null,
           "depositRate": null,
           "feeKrw": null,
@@ -50,8 +50,8 @@
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
+        "offeredShares": 750000,
+        "subscribedShares": 2148882160,
         "competitionRate": 2865.17
       }
     }
@@ -59,35 +59,35 @@
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 54,
-      "grade": "C",
+      "overall": 73,
+      "grade": "B",
       "confidence": 0.95,
       "factors": {
         "competition": 14,
         "institutionDemand": 20,
-        "lockupCommitment": 0,
+        "lockupCommitment": 18,
         "floatRate": 0,
         "pricing": 5,
         "market": 5,
         "leadManagers": 3,
         "recency": 0,
-        "dataCompleteness": 7
+        "dataCompleteness": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.4323,
-      "bearCaseListingGainRate": 0.2123,
-      "baseCaseListingGainRate": 0.4323,
-      "bullCaseListingGainRate": 0.7823,
+      "expectedListingGainRate": 0.619,
+      "bearCaseListingGainRate": 0.399,
+      "baseCaseListingGainRate": 0.619,
+      "bullCaseListingGainRate": 0.969,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.003,
         "oneMillionKrw": 0.044,
         "fiveMillionKrw": 0.218
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1988,
-        "oneMillionKrw": -1849,
-        "fiveMillionKrw": -1246
+        "minimumSubscription": -1983,
+        "oneMillionKrw": -1784,
+        "fiveMillionKrw": -920
       },
       "assumptions": {
         "offerPrice": 8000,
@@ -97,10 +97,11 @@
       }
     },
     "decision": {
-      "level": "neutral",
-      "label": "중립",
+      "level": "consider",
+      "label": "청약 고려",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2865.17대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 2865.17대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -114,8 +115,8 @@
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": 1152.98,
-      "lockupCommitmentRate": null,
+      "institutionCompetitionRate": 1153.0,
+      "lockupCommitmentRate": 0.5801,
       "floatRate": null,
       "hasOutcome": false
     },
