@@ -1,99 +1,27 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-22T17:40:12.071724",
+  "generatedAt": "2026-04-22T17:48:55.979494",
   "backfillCutoff": "2023-04-22T00:00:00.000",
   "totals": {
     "discovered": 0,
     "merged": 200,
     "generated": 198,
     "discoveredMissingFromGenerated": 0,
-    "stocksWithQualityIssues": 197,
+    "stocksWithQualityIssues": 196,
     "duplicateCandidates": 0
   },
   "issueCounts": {
     "missing_offer_price": 1,
-    "missing_institution_competition_rate": 12,
-    "missing_institution_participants": 190,
-    "missing_lockup_commitment_rate": 188,
-    "missing_retail_competition_rate": 9,
-    "missing_competition_snapshot": 9,
-    "missing_broker_level_competition": 195,
+    "missing_institution_competition_rate": 9,
+    "missing_institution_participants": 186,
+    "missing_lockup_commitment_rate": 184,
+    "missing_retail_competition_rate": 6,
+    "missing_competition_snapshot": 6,
+    "missing_broker_level_competition": 194,
     "missing_external_identifier": 2
   },
   "discoveredMissingFromGenerated": [],
   "qualityIssues": [
-    {
-      "id": "myungin_pharm_2025",
-      "company": "명인제약",
-      "subscriptionStart": "2025-09-18",
-      "subscriptionEnd": "2025-09-19",
-      "leadManagers": [
-        "KB증권"
-      ],
-      "path": "stocks/myungin_pharm_2025.json",
-      "issues": [
-        "missing_institution_competition_rate",
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_retail_competition_rate",
-        "missing_competition_snapshot",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 6,
-      "latestCompetitionRate": null,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
-      "score": 18,
-      "grade": "D"
-    },
-    {
-      "id": "s2w_2025",
-      "company": "에스투더블유",
-      "subscriptionStart": "2025-09-10",
-      "subscriptionEnd": "2025-09-11",
-      "leadManagers": [
-        "대신증권"
-      ],
-      "path": "stocks/s2w_2025.json",
-      "issues": [
-        "missing_institution_competition_rate",
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_retail_competition_rate",
-        "missing_competition_snapshot",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 6,
-      "latestCompetitionRate": null,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
-      "score": 17,
-      "grade": "D"
-    },
-    {
-      "id": "im_biologics_2026",
-      "company": "아이엠바이오로직스",
-      "subscriptionStart": "2026-03-11",
-      "subscriptionEnd": "2026-03-12",
-      "leadManagers": [
-        "한국투자증권",
-        "신한투자증권"
-      ],
-      "path": "stocks/im_biologics_2026.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_retail_competition_rate",
-        "missing_competition_snapshot",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 5,
-      "latestCompetitionRate": null,
-      "institutionCompetitionRate": 839.23,
-      "lockupCommitmentRate": null,
-      "score": 35,
-      "grade": "D"
-    },
     {
       "id": "ds_dansuk_2023",
       "company": "디에스단석",
@@ -231,29 +159,6 @@
       "institutionCompetitionRate": 1271.12,
       "lockupCommitmentRate": 0.0,
       "score": 39,
-      "grade": "D"
-    },
-    {
-      "id": "resense_medical_2026",
-      "company": "리센스메디컬",
-      "subscriptionStart": "2026-03-19",
-      "subscriptionEnd": "2026-03-20",
-      "leadManagers": [
-        "한국투자증권",
-        "KB증권"
-      ],
-      "path": "stocks/resense_medical_2026.json",
-      "issues": [
-        "missing_institution_competition_rate",
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 4,
-      "latestCompetitionRate": 2097.68,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
-      "score": 37,
       "grade": "D"
     },
     {
@@ -759,27 +664,6 @@
       "grade": "D"
     },
     {
-      "id": "jpi_healthcare_2025",
-      "company": "제이피아이헬스케어",
-      "subscriptionStart": "2025-08-11",
-      "subscriptionEnd": "2025-08-12",
-      "leadManagers": [
-        "키움증권"
-      ],
-      "path": "stocks/jpi_healthcare_2025.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 3,
-      "latestCompetitionRate": 1154.54,
-      "institutionCompetitionRate": 942.71,
-      "lockupCommitmentRate": null,
-      "score": 48,
-      "grade": "D"
-    },
-    {
       "id": "halla_cast_2025",
       "company": "한라캐스트",
       "subscriptionStart": "2025-08-11",
@@ -796,6 +680,27 @@
       "issueCount": 3,
       "latestCompetitionRate": 927.37,
       "institutionCompetitionRate": 832.89,
+      "lockupCommitmentRate": null,
+      "score": 48,
+      "grade": "D"
+    },
+    {
+      "id": "jpi_healthcare_2025",
+      "company": "제이피아이헬스케어",
+      "subscriptionStart": "2025-08-11",
+      "subscriptionEnd": "2025-08-12",
+      "leadManagers": [
+        "키움증권"
+      ],
+      "path": "stocks/jpi_healthcare_2025.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate",
+        "missing_broker_level_competition"
+      ],
+      "issueCount": 3,
+      "latestCompetitionRate": 1154.54,
+      "institutionCompetitionRate": 942.71,
       "lockupCommitmentRate": null,
       "score": 48,
       "grade": "D"
@@ -1182,27 +1087,6 @@
       "grade": "C"
     },
     {
-      "id": "wonil_tni_2025",
-      "company": "원일티엔아이",
-      "subscriptionStart": "2025-04-24",
-      "subscriptionEnd": "2025-04-25",
-      "leadManagers": [
-        "NH투자증권"
-      ],
-      "path": "stocks/wonil_tni_2025.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 3,
-      "latestCompetitionRate": 1312.21,
-      "institutionCompetitionRate": 1308.07,
-      "lockupCommitmentRate": null,
-      "score": 53,
-      "grade": "C"
-    },
-    {
       "id": "now_robotics_2025",
       "company": "나우로보틱스",
       "subscriptionStart": "2025-04-24",
@@ -1223,6 +1107,27 @@
       "lockupCommitmentRate": null,
       "score": 58,
       "grade": "C+"
+    },
+    {
+      "id": "wonil_tni_2025",
+      "company": "원일티엔아이",
+      "subscriptionStart": "2025-04-24",
+      "subscriptionEnd": "2025-04-25",
+      "leadManagers": [
+        "NH투자증권"
+      ],
+      "path": "stocks/wonil_tni_2025.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate",
+        "missing_broker_level_competition"
+      ],
+      "issueCount": 3,
+      "latestCompetitionRate": 1312.21,
+      "institutionCompetitionRate": 1308.07,
+      "lockupCommitmentRate": null,
+      "score": 53,
+      "grade": "C"
     },
     {
       "id": "rokit_healthcare_2025",
@@ -1268,27 +1173,6 @@
       "grade": "C"
     },
     {
-      "id": "korea_pim_2025",
-      "company": "한국피아이엠",
-      "subscriptionStart": "2025-03-25",
-      "subscriptionEnd": "2025-03-26",
-      "leadManagers": [
-        "IBK투자증권"
-      ],
-      "path": "stocks/korea_pim_2025.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 3,
-      "latestCompetitionRate": 1384.48,
-      "institutionCompetitionRate": 1214.55,
-      "lockupCommitmentRate": null,
-      "score": 53,
-      "grade": "C"
-    },
-    {
       "id": "au_brands_2025",
       "company": "에이유브랜즈",
       "subscriptionStart": "2025-03-25",
@@ -1308,6 +1192,27 @@
       "lockupCommitmentRate": null,
       "score": 48,
       "grade": "D"
+    },
+    {
+      "id": "korea_pim_2025",
+      "company": "한국피아이엠",
+      "subscriptionStart": "2025-03-25",
+      "subscriptionEnd": "2025-03-26",
+      "leadManagers": [
+        "IBK투자증권"
+      ],
+      "path": "stocks/korea_pim_2025.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate",
+        "missing_broker_level_competition"
+      ],
+      "issueCount": 3,
+      "latestCompetitionRate": 1384.48,
+      "institutionCompetitionRate": 1214.55,
+      "lockupCommitmentRate": null,
+      "score": 53,
+      "grade": "C"
     },
     {
       "id": "dozn_2025",
@@ -1719,27 +1624,6 @@
       "grade": "C"
     },
     {
-      "id": "wisenut_2025",
-      "company": "와이즈넛",
-      "subscriptionStart": "2025-01-15",
-      "subscriptionEnd": "2025-01-16",
-      "leadManagers": [
-        "삼성증권"
-      ],
-      "path": "stocks/wisenut_2025.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 3,
-      "latestCompetitionRate": 10.17,
-      "institutionCompetitionRate": 64.85,
-      "lockupCommitmentRate": null,
-      "score": 26,
-      "grade": "D"
-    },
-    {
       "id": "day1_company_2025",
       "company": "데이원컴퍼니",
       "subscriptionStart": "2025-01-15",
@@ -1759,6 +1643,27 @@
       "institutionCompetitionRate": 114.98,
       "lockupCommitmentRate": null,
       "score": 32,
+      "grade": "D"
+    },
+    {
+      "id": "wisenut_2025",
+      "company": "와이즈넛",
+      "subscriptionStart": "2025-01-15",
+      "subscriptionEnd": "2025-01-16",
+      "leadManagers": [
+        "삼성증권"
+      ],
+      "path": "stocks/wisenut_2025.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate",
+        "missing_broker_level_competition"
+      ],
+      "issueCount": 3,
+      "latestCompetitionRate": 10.17,
+      "institutionCompetitionRate": 64.85,
+      "lockupCommitmentRate": null,
+      "score": 26,
       "grade": "D"
     },
     {
@@ -2448,6 +2353,27 @@
       "grade": "D"
     },
     {
+      "id": "encell_2024",
+      "company": "이엔셀",
+      "subscriptionStart": "2024-08-12",
+      "subscriptionEnd": "2024-08-13",
+      "leadManagers": [
+        "NH투자증권"
+      ],
+      "path": "stocks/encell_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate",
+        "missing_broker_level_competition"
+      ],
+      "issueCount": 3,
+      "latestCompetitionRate": 928.06,
+      "institutionCompetitionRate": 949.3,
+      "lockupCommitmentRate": null,
+      "score": 48,
+      "grade": "D"
+    },
+    {
       "id": "m83_2024",
       "company": "엠83",
       "subscriptionStart": "2024-08-12",
@@ -2465,27 +2391,6 @@
       "issueCount": 3,
       "latestCompetitionRate": 638.05,
       "institutionCompetitionRate": 1024.72,
-      "lockupCommitmentRate": null,
-      "score": 48,
-      "grade": "D"
-    },
-    {
-      "id": "encell_2024",
-      "company": "이엔셀",
-      "subscriptionStart": "2024-08-12",
-      "subscriptionEnd": "2024-08-13",
-      "leadManagers": [
-        "NH투자증권"
-      ],
-      "path": "stocks/encell_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 3,
-      "latestCompetitionRate": 928.06,
-      "institutionCompetitionRate": 949.3,
       "lockupCommitmentRate": null,
       "score": 48,
       "grade": "D"
@@ -3236,25 +3141,6 @@
       "grade": "D"
     },
     {
-      "id": "posbank_2024",
-      "company": "포스뱅크",
-      "subscriptionStart": "2024-01-17",
-      "subscriptionEnd": "2024-01-18",
-      "leadManagers": [],
-      "path": "stocks/posbank_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 3,
-      "latestCompetitionRate": 1397.07,
-      "institutionCompetitionRate": 839.03,
-      "lockupCommitmentRate": null,
-      "score": 42,
-      "grade": "D"
-    },
-    {
       "id": "hyundai_hyms_2024",
       "company": "현대힘스",
       "subscriptionStart": "2024-01-17",
@@ -3274,24 +3160,22 @@
       "grade": "D"
     },
     {
-      "id": "hb_investment_2024",
-      "company": "HB인베스트먼트",
-      "subscriptionStart": "2024-01-16",
-      "subscriptionEnd": "2024-01-17",
-      "leadManagers": [
-        "NH투자증권"
-      ],
-      "path": "stocks/hb_investment_2024.json",
+      "id": "posbank_2024",
+      "company": "포스뱅크",
+      "subscriptionStart": "2024-01-17",
+      "subscriptionEnd": "2024-01-18",
+      "leadManagers": [],
+      "path": "stocks/posbank_2024.json",
       "issues": [
         "missing_institution_participants",
         "missing_lockup_commitment_rate",
         "missing_broker_level_competition"
       ],
       "issueCount": 3,
-      "latestCompetitionRate": 892.56,
-      "institutionCompetitionRate": 838.81,
+      "latestCompetitionRate": 1397.07,
+      "institutionCompetitionRate": 839.03,
       "lockupCommitmentRate": null,
-      "score": 45,
+      "score": 42,
       "grade": "D"
     },
     {
@@ -3314,6 +3198,27 @@
       "lockupCommitmentRate": null,
       "score": 51,
       "grade": "C"
+    },
+    {
+      "id": "hb_investment_2024",
+      "company": "HB인베스트먼트",
+      "subscriptionStart": "2024-01-16",
+      "subscriptionEnd": "2024-01-17",
+      "leadManagers": [
+        "NH투자증권"
+      ],
+      "path": "stocks/hb_investment_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate",
+        "missing_broker_level_competition"
+      ],
+      "issueCount": 3,
+      "latestCompetitionRate": 892.56,
+      "institutionCompetitionRate": 838.81,
+      "lockupCommitmentRate": null,
+      "score": 45,
+      "grade": "D"
     },
     {
       "id": "blue_mtec_2023",
@@ -3660,27 +3565,6 @@
       "grade": "D"
     },
     {
-      "id": "millie_2023",
-      "company": "밀리의서재",
-      "subscriptionStart": "2023-09-18",
-      "subscriptionEnd": "2023-09-19",
-      "leadManagers": [
-        "미래에셋증권"
-      ],
-      "path": "stocks/millie_2023.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 3,
-      "latestCompetitionRate": 449.56,
-      "institutionCompetitionRate": 619.24,
-      "lockupCommitmentRate": null,
-      "score": 37,
-      "grade": "D"
-    },
-    {
       "id": "imt_2023",
       "company": "아이엠티",
       "subscriptionStart": "2023-09-18",
@@ -3700,6 +3584,27 @@
       "institutionCompetitionRate": 753.0,
       "lockupCommitmentRate": null,
       "score": 43,
+      "grade": "D"
+    },
+    {
+      "id": "millie_2023",
+      "company": "밀리의서재",
+      "subscriptionStart": "2023-09-18",
+      "subscriptionEnd": "2023-09-19",
+      "leadManagers": [
+        "미래에셋증권"
+      ],
+      "path": "stocks/millie_2023.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate",
+        "missing_broker_level_competition"
+      ],
+      "issueCount": 3,
+      "latestCompetitionRate": 449.56,
+      "institutionCompetitionRate": 619.24,
+      "lockupCommitmentRate": null,
+      "score": 37,
       "grade": "D"
     },
     {
@@ -4128,6 +4033,26 @@
       "grade": "B+"
     },
     {
+      "id": "resense_medical_2026",
+      "company": "리센스메디컬",
+      "subscriptionStart": "2026-03-19",
+      "subscriptionEnd": "2026-03-20",
+      "leadManagers": [
+        "한국투자증권",
+        "KB증권"
+      ],
+      "path": "stocks/resense_medical_2026.json",
+      "issues": [
+        "missing_broker_level_competition"
+      ],
+      "issueCount": 1,
+      "latestCompetitionRate": 2097.68,
+      "institutionCompetitionRate": 1352.63,
+      "lockupCommitmentRate": 0.6392,
+      "score": 77,
+      "grade": "B+"
+    },
+    {
       "id": "meju_2026",
       "company": "메쥬",
       "subscriptionStart": "2026-03-16",
@@ -4162,6 +4087,44 @@
       "lockupCommitmentRate": 0.3042,
       "score": 58,
       "grade": "C+"
+    },
+    {
+      "id": "myungin_pharm_2025",
+      "company": "명인제약",
+      "subscriptionStart": "2025-09-18",
+      "subscriptionEnd": "2025-09-19",
+      "leadManagers": [
+        "KB증권"
+      ],
+      "path": "stocks/myungin_pharm_2025.json",
+      "issues": [
+        "missing_broker_level_competition"
+      ],
+      "issueCount": 1,
+      "latestCompetitionRate": 587.0,
+      "institutionCompetitionRate": 488.95,
+      "lockupCommitmentRate": 0.696,
+      "score": 57,
+      "grade": "C"
+    },
+    {
+      "id": "s2w_2025",
+      "company": "에스투더블유",
+      "subscriptionStart": "2025-09-10",
+      "subscriptionEnd": "2025-09-11",
+      "leadManagers": [
+        "대신증권"
+      ],
+      "path": "stocks/s2w_2025.json",
+      "issues": [
+        "missing_broker_level_competition"
+      ],
+      "issueCount": 1,
+      "latestCompetitionRate": 1972.62,
+      "institutionCompetitionRate": 1145.4,
+      "lockupCommitmentRate": 0.2286,
+      "score": 66,
+      "grade": "B"
     },
     {
       "id": "g2g_bio_2025",

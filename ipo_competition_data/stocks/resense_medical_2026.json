@@ -21,24 +21,24 @@
     "offerPrice": 11000,
     "priceBandMin": 9000,
     "priceBandMax": 11000,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "institutionCompetitionRate": 1352.63,
+    "institutionParticipants": 2261,
+    "lockupCommitmentRate": 0.6392,
     "floatRate": null,
-    "marketCapKrw": null,
-    "publicAllocationShares": null
+    "marketCapKrw": 119400000000,
+    "publicAllocationShares": 350000
   },
   "outcome": null,
   "snapshots": [
     {
       "capturedAt": "2026-03-20T16:00:00+09:00",
       "source": "public_ipo_result",
-      "sourceUrl": "https://www.g-enews.com/article/Securities/2026/03/202603201646295529df2f5bc1bc_1",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/11993969",
       "brokers": [
         {
           "name": "통합",
-          "offeredShares": 0,
-          "subscribedShares": 0,
+          "offeredShares": 350000,
+          "subscribedShares": 734187860,
           "offerPrice": null,
           "depositRate": null,
           "feeKrw": null,
@@ -51,8 +51,8 @@
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
+        "offeredShares": 350000,
+        "subscribedShares": 734187860,
         "competitionRate": 2097.68
       }
     }
@@ -60,35 +60,35 @@
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 37,
-      "grade": "D",
-      "confidence": 0.9,
+      "overall": 77,
+      "grade": "B+",
+      "confidence": 0.95,
       "factors": {
         "competition": 16,
-        "institutionDemand": 0,
-        "lockupCommitment": 0,
+        "institutionDemand": 20,
+        "lockupCommitment": 18,
         "floatRate": 0,
         "pricing": 5,
         "market": 5,
         "leadManagers": 5,
         "recency": 0,
-        "dataCompleteness": 6
+        "dataCompleteness": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.2606,
-      "bearCaseListingGainRate": 0.0406,
-      "baseCaseListingGainRate": 0.2606,
-      "bullCaseListingGainRate": 0.6106,
+      "expectedListingGainRate": 0.6583,
+      "bearCaseListingGainRate": 0.4383,
+      "baseCaseListingGainRate": 0.6583,
+      "bullCaseListingGainRate": 1.0083,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.005,
         "oneMillionKrw": 0.043,
         "fiveMillionKrw": 0.217
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1986,
-        "oneMillionKrw": -1876,
-        "fiveMillionKrw": -1379
+        "minimumSubscription": -1965,
+        "oneMillionKrw": -1686,
+        "fiveMillionKrw": -431
       },
       "assumptions": {
         "offerPrice": 11000,
@@ -98,11 +98,12 @@
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "consider",
+      "label": "청약 고려",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 2097.68대 1입니다.",
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -116,8 +117,8 @@
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "institutionCompetitionRate": 1352.63,
+      "lockupCommitmentRate": 0.6392,
       "floatRate": null,
       "hasOutcome": false
     },

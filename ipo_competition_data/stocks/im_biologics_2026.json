@@ -22,74 +22,150 @@
     "priceBandMin": 19000,
     "priceBandMax": 26000,
     "institutionCompetitionRate": 839.23,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "institutionParticipants": 2333,
+    "lockupCommitmentRate": 0.965,
     "floatRate": null,
-    "marketCapKrw": null,
-    "publicAllocationShares": null
+    "marketCapKrw": 383200000000,
+    "publicAllocationShares": 500000
   },
   "outcome": null,
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-03-12T17:09:00+09:00",
+      "source": "public_ipo_result",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/11986465",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1781.29,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 3562.58,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "통합",
+          "offeredShares": 500000,
+          "subscribedShares": 903000000,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1806.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "한국투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1816.3,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 3631.61,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 500000,
+        "subscribedShares": 903000000,
+        "competitionRate": 1806.0
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 35,
-      "grade": "D",
-      "confidence": 0.55,
+      "overall": 72,
+      "grade": "B",
+      "confidence": 0.95,
       "factors": {
-        "competition": 0,
+        "competition": 16,
         "institutionDemand": 15,
-        "lockupCommitment": 0,
+        "lockupCommitment": 18,
         "floatRate": 0,
         "pricing": 5,
         "market": 5,
         "leadManagers": 5,
         "recency": 0,
-        "dataCompleteness": 5
+        "dataCompleteness": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.0253,
-      "bearCaseListingGainRate": -0.2453,
-      "baseCaseListingGainRate": -0.0253,
-      "bullCaseListingGainRate": 0.3247,
+      "expectedListingGainRate": 0.6092,
+      "bearCaseListingGainRate": 0.3892,
+      "baseCaseListingGainRate": 0.6092,
+      "bullCaseListingGainRate": 0.9592,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.048,
-        "fiveMillionKrw": 0.24
+        "minimumSubscription": 0.006,
+        "oneMillionKrw": 0.021,
+        "fiveMillionKrw": 0.106
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -2008,
-        "oneMillionKrw": -2032,
-        "fiveMillionKrw": -2158
+        "minimumSubscription": -1912,
+        "oneMillionKrw": -1663,
+        "fiveMillionKrw": -314
       },
       "assumptions": {
         "offerPrice": 26000,
-        "competitionRate": null,
+        "competitionRate": 1806.0,
         "feeKrw": 2000,
         "method": "rule_based_v1_low_confidence"
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "consider",
+      "label": "청약 고려",
       "reasons": [
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "최근 확인된 일반청약 경쟁률은 1806.0대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "신한투자증권",
+        "equalScore": 30,
+        "proportionalScore": 2,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 46313540,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "한국투자증권",
+        "equalScore": 30,
+        "proportionalScore": 2,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 47210930,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 1806.0,
+      "snapshotCount": 1,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 839.23,
-      "lockupCommitmentRate": null,
+      "lockupCommitmentRate": 0.965,
       "floatRate": null,
       "hasOutcome": false
     },

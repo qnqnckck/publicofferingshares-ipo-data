@@ -20,75 +20,101 @@
     "offerPrice": 58000,
     "priceBandMin": 45000,
     "priceBandMax": 58000,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "institutionCompetitionRate": 488.95,
+    "institutionParticipants": 2028,
+    "lockupCommitmentRate": 0.696,
     "floatRate": null,
-    "marketCapKrw": null,
-    "publicAllocationShares": null
+    "marketCapKrw": 846800000000,
+    "publicAllocationShares": 1020000
   },
   "outcome": null,
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2025-09-19T17:00:00+09:00",
+      "source": "public_ipo_result",
+      "sourceUrl": "https://www.dailian.co.kr/news/view/1551692",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 1020000,
+          "subscribedShares": 598736890,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 587.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1020000,
+        "subscribedShares": 598736890,
+        "competitionRate": 587.0
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 18,
-      "grade": "D",
-      "confidence": 0.45,
+      "overall": 57,
+      "grade": "C",
+      "confidence": 0.95,
       "factors": {
-        "competition": 0,
-        "institutionDemand": 0,
-        "lockupCommitment": 0,
+        "competition": 9,
+        "institutionDemand": 8,
+        "lockupCommitment": 18,
         "floatRate": 0,
         "pricing": 5,
         "market": 6,
         "leadManagers": 3,
         "recency": 0,
-        "dataCompleteness": 4
+        "dataCompleteness": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.1615,
-      "bearCaseListingGainRate": -0.3815,
-      "baseCaseListingGainRate": -0.1615,
-      "bullCaseListingGainRate": 0.1885,
+      "expectedListingGainRate": 0.2995,
+      "bearCaseListingGainRate": 0.0795,
+      "baseCaseListingGainRate": 0.2995,
+      "bullCaseListingGainRate": 0.6495,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.022,
-        "fiveMillionKrw": 0.108
+        "minimumSubscription": 0.017,
+        "oneMillionKrw": 0.029,
+        "fiveMillionKrw": 0.147
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -2117,
-        "oneMillionKrw": -2202,
-        "fiveMillionKrw": -3009
+        "minimumSubscription": -1704,
+        "oneMillionKrw": -1490,
+        "fiveMillionKrw": 551
       },
       "assumptions": {
         "offerPrice": 58000,
-        "competitionRate": null,
+        "competitionRate": 587.0,
         "feeKrw": 2000,
         "method": "rule_based_v1_low_confidence"
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
-        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+        "최근 확인된 일반청약 경쟁률은 587.0대 1입니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
     "brokerScores": [],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 587.0,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSPI",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "institutionCompetitionRate": 488.95,
+      "lockupCommitmentRate": 0.696,
       "floatRate": null,
       "hasOutcome": false
     },

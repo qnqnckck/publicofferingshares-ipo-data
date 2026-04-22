@@ -20,75 +20,102 @@
     "offerPrice": 13200,
     "priceBandMin": 11400,
     "priceBandMax": 13200,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "institutionCompetitionRate": 1145.4,
+    "institutionParticipants": 2304,
+    "lockupCommitmentRate": 0.2286,
     "floatRate": null,
     "marketCapKrw": null,
-    "publicAllocationShares": null
+    "publicAllocationShares": 395000
   },
   "outcome": null,
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2025-09-11T16:00:00+09:00",
+      "source": "public_ipo_result",
+      "sourceUrl": "https://news.nate.com/view/20250912n04496",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 395000,
+          "subscribedShares": 779180000,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1972.62,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 395000,
+        "subscribedShares": 779180000,
+        "competitionRate": 1972.62
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 17,
-      "grade": "D",
-      "confidence": 0.45,
+      "overall": 66,
+      "grade": "B",
+      "confidence": 0.95,
       "factors": {
-        "competition": 0,
-        "institutionDemand": 0,
-        "lockupCommitment": 0,
+        "competition": 16,
+        "institutionDemand": 20,
+        "lockupCommitment": 9,
         "floatRate": 0,
         "pricing": 5,
         "market": 5,
         "leadManagers": 3,
         "recency": 0,
-        "dataCompleteness": 4
+        "dataCompleteness": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.1696,
-      "bearCaseListingGainRate": -0.3896,
-      "baseCaseListingGainRate": -0.1696,
-      "bullCaseListingGainRate": 0.1804,
+      "expectedListingGainRate": 0.5502,
+      "bearCaseListingGainRate": 0.3302,
+      "baseCaseListingGainRate": 0.5502,
+      "bullCaseListingGainRate": 0.9002,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.095,
-        "fiveMillionKrw": 0.473
+        "minimumSubscription": 0.005,
+        "oneMillionKrw": 0.038,
+        "fiveMillionKrw": 0.192
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -2028,
-        "oneMillionKrw": -2212,
-        "fiveMillionKrw": -3060
+        "minimumSubscription": -1963,
+        "oneMillionKrw": -1721,
+        "fiveMillionKrw": -605
       },
       "assumptions": {
         "offerPrice": 13200,
-        "competitionRate": null,
+        "competitionRate": 1972.62,
         "feeKrw": 2000,
         "method": "rule_based_v1_low_confidence"
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "consider",
+      "label": "청약 고려",
       "reasons": [
-        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+        "최근 확인된 일반청약 경쟁률은 1972.62대 1입니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
     "brokerScores": [],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 1972.62,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "institutionCompetitionRate": 1145.4,
+      "lockupCommitmentRate": 0.2286,
       "floatRate": null,
       "hasOutcome": false
     },
