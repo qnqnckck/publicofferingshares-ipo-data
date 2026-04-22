@@ -21,50 +21,77 @@
     "priceBandMin": 8000,
     "priceBandMax": 9500,
     "institutionCompetitionRate": 573.97,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "institutionParticipants": 1815,
+    "lockupCommitmentRate": 0.1211,
     "floatRate": null,
     "marketCapKrw": null,
-    "publicAllocationShares": null
+    "publicAllocationShares": 849800
   },
   "outcome": null,
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2023-11-10T17:30:00+09:00",
+      "source": "public_ipo_result",
+      "sourceUrl": "https://www.etoday.co.kr/news/view/2301331",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 849800,
+          "subscribedShares": 424600560,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 499.64,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 849800,
+        "subscribedShares": 424600560,
+        "competitionRate": 499.64
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 23,
+      "overall": 39,
       "grade": "D",
-      "confidence": 0.55,
+      "confidence": 0.95,
       "factors": {
-        "competition": 0,
+        "competition": 9,
         "institutionDemand": 8,
-        "lockupCommitment": 0,
+        "lockupCommitment": 4,
         "floatRate": 0,
         "pricing": 2,
         "market": 5,
         "leadManagers": 3,
         "recency": 0,
-        "dataCompleteness": 5
+        "dataCompleteness": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.1264,
-      "bearCaseListingGainRate": -0.3464,
-      "baseCaseListingGainRate": -0.1264,
-      "bullCaseListingGainRate": 0.2236,
+      "expectedListingGainRate": 0.0883,
+      "bearCaseListingGainRate": -0.1317,
+      "baseCaseListingGainRate": 0.0883,
+      "bullCaseListingGainRate": 0.4383,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.114,
-        "fiveMillionKrw": 0.568
+        "minimumSubscription": 0.02,
+        "oneMillionKrw": 0.182,
+        "fiveMillionKrw": 0.91
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -2017,
-        "oneMillionKrw": -2158,
-        "fiveMillionKrw": -2790
+        "minimumSubscription": -1981,
+        "oneMillionKrw": -1823,
+        "fiveMillionKrw": -1117
       },
       "assumptions": {
         "offerPrice": 11000,
-        "competitionRate": null,
+        "competitionRate": 499.64,
         "feeKrw": 2000,
         "method": "rule_based_v1_low_confidence"
       }
@@ -73,22 +100,21 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+        "최근 확인된 일반청약 경쟁률은 499.64대 1입니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
     "brokerScores": [],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 499.64,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 573.97,
-      "lockupCommitmentRate": null,
+      "lockupCommitmentRate": 0.1211,
       "floatRate": null,
       "hasOutcome": false
     },

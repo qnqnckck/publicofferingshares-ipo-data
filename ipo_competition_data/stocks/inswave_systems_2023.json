@@ -21,50 +21,77 @@
     "priceBandMin": 20000,
     "priceBandMax": 24000,
     "institutionCompetitionRate": 672.42,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "institutionParticipants": 1872,
+    "lockupCommitmentRate": 0.0746,
     "floatRate": null,
     "marketCapKrw": null,
-    "publicAllocationShares": null
+    "publicAllocationShares": 275000
   },
   "outcome": null,
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2023-09-15T17:11:00+09:00",
+      "source": "public_ipo_result",
+      "sourceUrl": "https://www.fnnews.com/ampNews/202309151702063203",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 275000,
+          "subscribedShares": 170200250,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 618.91,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 275000,
+        "subscribedShares": 170200250,
+        "competitionRate": 618.91
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 26,
+      "overall": 42,
       "grade": "D",
-      "confidence": 0.55,
+      "confidence": 0.95,
       "factors": {
-        "competition": 0,
+        "competition": 9,
         "institutionDemand": 8,
-        "lockupCommitment": 0,
+        "lockupCommitment": 4,
         "floatRate": 0,
         "pricing": 5,
         "market": 5,
         "leadManagers": 3,
         "recency": 0,
-        "dataCompleteness": 5
+        "dataCompleteness": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.1011,
-      "bearCaseListingGainRate": -0.3211,
-      "baseCaseListingGainRate": -0.1011,
-      "bullCaseListingGainRate": 0.2489,
+      "expectedListingGainRate": 0.1646,
+      "bearCaseListingGainRate": -0.0554,
+      "baseCaseListingGainRate": 0.1646,
+      "bullCaseListingGainRate": 0.5146,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.052,
-        "fiveMillionKrw": 0.26
+        "minimumSubscription": 0.016,
+        "oneMillionKrw": 0.067,
+        "fiveMillionKrw": 0.337
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -2030,
-        "oneMillionKrw": -2126,
-        "fiveMillionKrw": -2632
+        "minimumSubscription": -1936,
+        "oneMillionKrw": -1734,
+        "fiveMillionKrw": -670
       },
       "assumptions": {
         "offerPrice": 24000,
-        "competitionRate": null,
+        "competitionRate": 618.91,
         "feeKrw": 2000,
         "method": "rule_based_v1_low_confidence"
       }
@@ -73,22 +100,21 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+        "최근 확인된 일반청약 경쟁률은 618.91대 1입니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
     "brokerScores": [],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 618.91,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 672.42,
-      "lockupCommitmentRate": null,
+      "lockupCommitmentRate": 0.0746,
       "floatRate": null,
       "hasOutcome": false
     },

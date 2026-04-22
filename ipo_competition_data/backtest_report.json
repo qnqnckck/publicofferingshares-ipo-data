@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-22T17:48:55.979494",
+  "generatedAt": "2026-04-22T17:58:28.696526",
   "methodVersion": "ipo-score-v1",
   "sampleCount": 59,
   "summary": {
     "averageCloseReturnRate": 0.8601,
     "medianCloseReturnRate": 0.5019,
-    "averageErrorCloseVsExpected": 0.6494,
-    "medianErrorCloseVsExpected": 0.3037
+    "averageErrorCloseVsExpected": 0.6338,
+    "medianErrorCloseVsExpected": 0.2556
   },
   "byGrade": {
     "C+": {
-      "sampleCount": 2,
-      "averageCloseReturnRate": 0.2639,
-      "medianCloseReturnRate": 0.2639
+      "sampleCount": 3,
+      "averageCloseReturnRate": 0.3203,
+      "medianCloseReturnRate": 0.4333
     },
     "C": {
       "sampleCount": 15,
@@ -21,17 +21,17 @@
       "medianCloseReturnRate": 0.9333
     },
     "D": {
-      "sampleCount": 42,
-      "averageCloseReturnRate": 0.7142,
-      "medianCloseReturnRate": 0.3653
+      "sampleCount": 41,
+      "averageCloseReturnRate": 0.721,
+      "medianCloseReturnRate": 0.2972
     }
   },
   "byScoreBucket": {
     "60-69": {
-      "sampleCount": 1,
-      "averageCloseReturnRate": 0.4343,
-      "medianCloseReturnRate": 0.4343,
-      "averageErrorCloseVsExpected": 0.1501
+      "sampleCount": 2,
+      "averageCloseReturnRate": 0.4338,
+      "medianCloseReturnRate": 0.4338,
+      "averageErrorCloseVsExpected": 0.0363
     },
     "50-59": {
       "sampleCount": 16,
@@ -41,9 +41,9 @@
     },
     "40-49": {
       "sampleCount": 23,
-      "averageCloseReturnRate": 0.8855,
-      "medianCloseReturnRate": 0.5019,
-      "averageErrorCloseVsExpected": 0.6002
+      "averageCloseReturnRate": 0.9971,
+      "medianCloseReturnRate": 0.5969,
+      "averageErrorCloseVsExpected": 0.6982
     },
     "30-39": {
       "sampleCount": 10,
@@ -52,10 +52,10 @@
       "averageErrorCloseVsExpected": 0.5412
     },
     "20-29": {
-      "sampleCount": 8,
-      "averageCloseReturnRate": 0.5096,
+      "sampleCount": 7,
+      "averageCloseReturnRate": 0.1539,
       "medianCloseReturnRate": 0.1578,
-      "averageErrorCloseVsExpected": 0.6501
+      "averageErrorCloseVsExpected": 0.3
     },
     "10-19": {
       "sampleCount": 1,
@@ -65,6 +65,19 @@
     }
   },
   "rows": [
+    {
+      "id": "truen_2023",
+      "company": "트루엔",
+      "score": 62,
+      "grade": "C+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.5109,
+      "openReturnRate": 0.6116666666666667,
+      "highReturnRate": 0.7291666666666666,
+      "closeReturnRate": 0.43333333333333335,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/202305171700Y",
+      "errorCloseVsExpected": -0.0776
+    },
     {
       "id": "sanil_electric_2024",
       "company": "산일전기",
@@ -183,19 +196,6 @@
       "errorCloseVsExpected": 0.3037
     },
     {
-      "id": "kweather_2024",
-      "company": "케이웨더",
-      "score": 53,
-      "grade": "C",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.4225,
-      "openReturnRate": null,
-      "highReturnRate": null,
-      "closeReturnRate": 1.3714285714285714,
-      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10948743",
-      "errorCloseVsExpected": 0.949
-    },
-    {
       "id": "nobland_2024",
       "company": "노브랜드",
       "score": 53,
@@ -220,6 +220,19 @@
       "closeReturnRate": 2.25,
       "outcomeSourceUrl": "https://www.newsway.co.kr/news/view?ud=2024032615543108321",
       "errorCloseVsExpected": 1.8275
+    },
+    {
+      "id": "kweather_2024",
+      "company": "케이웨더",
+      "score": 53,
+      "grade": "C",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.4225,
+      "openReturnRate": null,
+      "highReturnRate": null,
+      "closeReturnRate": 1.3714285714285714,
+      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10948743",
+      "errorCloseVsExpected": 0.949
     },
     {
       "id": "woojin_entec_2024",
@@ -365,17 +378,17 @@
       "errorCloseVsExpected": 0.2398
     },
     {
-      "id": "seers_technology_2024",
-      "company": "씨어스테크놀로지",
+      "id": "ds_dansuk_2023",
+      "company": "디에스단석",
       "score": 46,
       "grade": "D",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "expectedListingGainRate": 0.3474,
-      "openReturnRate": 1.026470588235294,
-      "highReturnRate": 1.1176470588235294,
-      "closeReturnRate": 0.08823529411764706,
-      "outcomeSourceUrl": "https://ckang.tistory.com/115",
-      "errorCloseVsExpected": -0.2592
+      "openReturnRate": 2.7,
+      "highReturnRate": 3.0,
+      "closeReturnRate": 3.0,
+      "outcomeSourceUrl": "https://news.bizwatch.co.kr/article/market/2023/12/22/0035",
+      "errorCloseVsExpected": 2.6526
     },
     {
       "id": "studio_samik_2024",
@@ -389,6 +402,19 @@
       "closeReturnRate": 1.2166666666666666,
       "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240206040551008",
       "errorCloseVsExpected": 0.863
+    },
+    {
+      "id": "seers_technology_2024",
+      "company": "씨어스테크놀로지",
+      "score": 46,
+      "grade": "D",
+      "confidence": 0.9,
+      "expectedListingGainRate": 0.3474,
+      "openReturnRate": 1.026470588235294,
+      "highReturnRate": 1.1176470588235294,
+      "closeReturnRate": 0.08823529411764706,
+      "outcomeSourceUrl": "https://ckang.tistory.com/115",
+      "errorCloseVsExpected": -0.2592
     },
     {
       "id": "kns_2023",
@@ -493,19 +519,6 @@
       "closeReturnRate": 0.27,
       "outcomeSourceUrl": "https://www.newsis.com/view/NISX20240227_0002641320",
       "errorCloseVsExpected": -0.0444
-    },
-    {
-      "id": "truen_2023",
-      "company": "트루엔",
-      "score": 42,
-      "grade": "D",
-      "confidence": 0.55,
-      "expectedListingGainRate": 0.0337,
-      "openReturnRate": 0.6116666666666667,
-      "highReturnRate": 0.7291666666666666,
-      "closeReturnRate": 0.43333333333333335,
-      "outcomeSourceUrl": "https://www.hankyung.com/article/202305171700Y",
-      "errorCloseVsExpected": 0.3996
     },
     {
       "id": "ls_materials_2023",
@@ -753,19 +766,6 @@
       "closeReturnRate": -0.125,
       "outcomeSourceUrl": "https://www.fnnews.com/news/202306021540373985",
       "errorCloseVsExpected": 0.0892
-    },
-    {
-      "id": "ds_dansuk_2023",
-      "company": "디에스단석",
-      "score": 26,
-      "grade": "D",
-      "confidence": 0.55,
-      "expectedListingGainRate": -0.1011,
-      "openReturnRate": 2.7,
-      "highReturnRate": 3.0,
-      "closeReturnRate": 3.0,
-      "outcomeSourceUrl": "https://news.bizwatch.co.kr/article/market/2023/12/22/0035",
-      "errorCloseVsExpected": 3.1011
     },
     {
       "id": "next_biomedical_2024",

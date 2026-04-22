@@ -22,11 +22,11 @@
     "priceBandMin": 79000,
     "priceBandMax": 89000,
     "institutionCompetitionRate": 341.84,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "institutionParticipants": 1843,
+    "lockupCommitmentRate": 0.0855,
     "floatRate": null,
     "marketCapKrw": null,
-    "publicAllocationShares": null
+    "publicAllocationShares": 305000
   },
   "outcome": {
     "listingDate": "2023-12-22",
@@ -35,43 +35,98 @@
     "closeReturnRate": 3.0,
     "sourceUrl": "https://news.bizwatch.co.kr/article/market/2023/12/22/0035"
   },
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2023-12-15T16:00:00+09:00",
+      "source": "public_ipo_result",
+      "sourceUrl": "https://www.investnews.co.kr/news/articleView.html?idxno=3001050",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 649.033,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "NH투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 339.02,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "통합",
+          "offeredShares": 305000,
+          "subscribedShares": 300120000,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 984.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 305000,
+        "subscribedShares": 300120000,
+        "competitionRate": 984.0
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 26,
+      "overall": 46,
       "grade": "D",
-      "confidence": 0.55,
+      "confidence": 0.95,
       "factors": {
-        "competition": 0,
+        "competition": 13,
         "institutionDemand": 8,
-        "lockupCommitment": 0,
+        "lockupCommitment": 4,
         "floatRate": 0,
         "pricing": 2,
         "market": 6,
         "leadManagers": 5,
         "recency": 0,
-        "dataCompleteness": 5
+        "dataCompleteness": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.1011,
-      "bearCaseListingGainRate": -0.3211,
-      "baseCaseListingGainRate": -0.1011,
-      "bullCaseListingGainRate": 0.2489,
+      "expectedListingGainRate": 0.3474,
+      "bearCaseListingGainRate": 0.1274,
+      "baseCaseListingGainRate": 0.3474,
+      "bullCaseListingGainRate": 0.6974,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.013,
-        "fiveMillionKrw": 0.063
+        "minimumSubscription": 0.01,
+        "oneMillionKrw": 0.01,
+        "fiveMillionKrw": 0.051
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -2126,
-        "oneMillionKrw": -2126,
-        "fiveMillionKrw": -2632
+        "minimumSubscription": -1647,
+        "oneMillionKrw": -1647,
+        "fiveMillionKrw": -235
       },
       "assumptions": {
         "offerPrice": 100000,
-        "competitionRate": null,
+        "competitionRate": 984.0,
         "feeKrw": 2000,
         "method": "rule_based_v1_low_confidence"
       }
@@ -80,22 +135,41 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
+        "최근 확인된 일반청약 경쟁률은 984.0대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "NH투자증권",
+        "equalScore": 30,
+        "proportionalScore": 6,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 16951000,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "KB증권",
+        "equalScore": 30,
+        "proportionalScore": 3,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 32451650,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 984.0,
+      "snapshotCount": 1,
       "leadManagerCount": 2,
       "market": "KOSPI",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 341.84,
-      "lockupCommitmentRate": null,
+      "lockupCommitmentRate": 0.0855,
       "floatRate": null,
       "hasOutcome": true
     },
