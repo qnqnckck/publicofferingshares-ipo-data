@@ -13,7 +13,9 @@
   "market": "KOSDAQ",
   "subscriptionStart": "2024-03-25",
   "subscriptionEnd": "2024-03-26",
-  "leadManagers": [],
+  "leadManagers": [
+    "미래에셋증권"
+  ],
   "fundamentals": {
     "offerPrice": 13000,
     "priceBandMin": 7700,
@@ -58,14 +60,66 @@
         "subscribedShares": 0,
         "competitionRate": 2654.2
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:57:53.861856",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/10981715",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 13000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2654.2,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2654.2,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 2654.2
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:57:53.861856",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/10981715",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 13000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2654.2,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2654.2,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 2654.2
+      }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 42,
+      "overall": 46,
       "grade": "D",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "factors": {
         "competition": 14,
         "institutionDemand": 15,
@@ -73,25 +127,25 @@
         "floatRate": 0,
         "pricing": 2,
         "market": 5,
-        "leadManagers": 0,
+        "leadManagers": 3,
         "recency": 0,
-        "dataCompleteness": 6
+        "dataCompleteness": 7
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.3088,
-      "bearCaseListingGainRate": 0.0888,
-      "baseCaseListingGainRate": 0.3088,
-      "bullCaseListingGainRate": 0.6588,
+      "expectedListingGainRate": 0.3537,
+      "bearCaseListingGainRate": 0.1337,
+      "baseCaseListingGainRate": 0.3537,
+      "bullCaseListingGainRate": 0.7037,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.004,
         "oneMillionKrw": 0.029,
         "fiveMillionKrw": 0.145
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1985,
-        "oneMillionKrw": -1884,
-        "fiveMillionKrw": -1418
+        "minimumSubscription": -1983,
+        "oneMillionKrw": -1867,
+        "fiveMillionKrw": -1334
       },
       "assumptions": {
         "offerPrice": 13000,
@@ -111,11 +165,21 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 30,
+        "proportionalScore": 6,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 17252300,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 2654.2,
-      "snapshotCount": 1,
-      "leadManagerCount": 0,
+      "snapshotCount": 3,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 865.73,

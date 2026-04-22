@@ -13,7 +13,11 @@
   "market": "KOSPI",
   "subscriptionStart": "2024-12-05",
   "subscriptionEnd": "2024-12-06",
-  "leadManagers": [],
+  "leadManagers": [
+    "KB증권",
+    "삼성증권",
+    "키움증권"
+  ],
   "fundamentals": {
     "offerPrice": 65000,
     "priceBandMin": 80000,
@@ -58,14 +62,122 @@
         "subscribedShares": 0,
         "competitionRate": 2.4
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:57:53.861856",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.g-enews.com/article/Securities/2024/12/202412161306336362edf69f862c_1",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 65000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2.4,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2.4,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 65000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2.4,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2.4,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "키움증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 65000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2.4,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2.4,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 2.4
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:57:53.861856",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.g-enews.com/article/Securities/2024/12/202412161306336362edf69f862c_1",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 65000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2.4,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2.4,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 65000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2.4,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2.4,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "키움증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 65000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2.4,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2.4,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 2.4
+      }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 23,
+      "overall": 29,
       "grade": "D",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "factors": {
         "competition": 0,
         "institutionDemand": 1,
@@ -73,25 +185,25 @@
         "floatRate": 0,
         "pricing": 10,
         "market": 6,
-        "leadManagers": 0,
+        "leadManagers": 5,
         "recency": 0,
-        "dataCompleteness": 6
+        "dataCompleteness": 7
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.25,
-      "bearCaseListingGainRate": -0.47,
-      "baseCaseListingGainRate": -0.25,
-      "bullCaseListingGainRate": 0.1,
+      "expectedListingGainRate": -0.2054,
+      "bearCaseListingGainRate": -0.4254,
+      "baseCaseListingGainRate": -0.2054,
+      "bullCaseListingGainRate": 0.1446,
       "expectedAllocatedShares": {
         "minimumSubscription": 4.167,
         "oneMillionKrw": 6.41,
         "fiveMillionKrw": 32.051
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -69708,
-        "oneMillionKrw": -106167,
-        "fiveMillionKrw": -522833
+        "minimumSubscription": -57624,
+        "oneMillionKrw": -87576,
+        "fiveMillionKrw": -429879
       },
       "assumptions": {
         "offerPrice": 65000,
@@ -104,17 +216,46 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2.4대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 2.4대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "KB증권",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 78000,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "삼성증권",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 78000,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "키움증권",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 78000,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 2.4,
-      "snapshotCount": 1,
-      "leadManagerCount": 0,
+      "snapshotCount": 3,
+      "leadManagerCount": 3,
       "market": "KOSPI",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 8.184,

@@ -13,7 +13,9 @@
   "market": "KOSDAQ",
   "subscriptionStart": "2024-03-12",
   "subscriptionEnd": "2024-03-13",
-  "leadManagers": [],
+  "leadManagers": [
+    "한국투자증권"
+  ],
   "fundamentals": {
     "offerPrice": 30000,
     "priceBandMin": 20000,
@@ -58,14 +60,66 @@
         "subscribedShares": 0,
         "competitionRate": 1645.13
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:57:53.861856",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.yna.co.kr/view/AKR20240321042251008",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 30000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1645.13,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1645.13,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1645.13
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:57:53.861856",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.yna.co.kr/view/AKR20240321042251008",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 30000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1645.13,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1645.13,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1645.13
+      }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 37,
+      "overall": 41,
       "grade": "D",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "factors": {
         "competition": 16,
         "institutionDemand": 8,
@@ -73,25 +127,25 @@
         "floatRate": 0,
         "pricing": 2,
         "market": 5,
-        "leadManagers": 0,
+        "leadManagers": 3,
         "recency": 0,
-        "dataCompleteness": 6
+        "dataCompleteness": 7
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.2606,
-      "bearCaseListingGainRate": 0.0406,
-      "baseCaseListingGainRate": 0.2606,
-      "bullCaseListingGainRate": 0.6106,
+      "expectedListingGainRate": 0.3046,
+      "bearCaseListingGainRate": 0.0846,
+      "baseCaseListingGainRate": 0.3046,
+      "bullCaseListingGainRate": 0.6546,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.006,
         "oneMillionKrw": 0.02,
         "fiveMillionKrw": 0.101
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1952,
-        "oneMillionKrw": -1842,
-        "fiveMillionKrw": -1208
+        "minimumSubscription": -1944,
+        "oneMillionKrw": -1815,
+        "fiveMillionKrw": -1074
       },
       "assumptions": {
         "offerPrice": 30000,
@@ -111,11 +165,21 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "한국투자증권",
+        "equalScore": 30,
+        "proportionalScore": 4,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 24676950,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 1645.13,
-      "snapshotCount": 1,
-      "leadManagerCount": 0,
+      "snapshotCount": 3,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 649.11,

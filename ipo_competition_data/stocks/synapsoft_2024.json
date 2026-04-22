@@ -13,7 +13,9 @@
   "market": "KOSDAQ",
   "subscriptionStart": "2024-11-08",
   "subscriptionEnd": "2024-11-11",
-  "leadManagers": [],
+  "leadManagers": [
+    "유안타증권"
+  ],
   "fundamentals": {
     "offerPrice": 24500,
     "priceBandMin": 21000,
@@ -58,14 +60,66 @@
         "subscribedShares": 0,
         "competitionRate": 60.466
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:57:53.861856",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
+      "brokers": [
+        {
+          "name": "유안타증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 24500,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 60.466,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 60.466,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 60.466
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:57:53.861856",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
+      "brokers": [
+        {
+          "name": "유안타증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 24500,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 60.466,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 60.466,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 60.466
+      }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 38,
+      "overall": 42,
       "grade": "D",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "factors": {
         "competition": 2,
         "institutionDemand": 20,
@@ -73,25 +127,25 @@
         "floatRate": 0,
         "pricing": 5,
         "market": 5,
-        "leadManagers": 0,
+        "leadManagers": 3,
         "recency": 0,
-        "dataCompleteness": 6
+        "dataCompleteness": 7
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.0925,
-      "bearCaseListingGainRate": -0.3125,
-      "baseCaseListingGainRate": -0.0925,
-      "bullCaseListingGainRate": 0.2575,
+      "expectedListingGainRate": -0.0548,
+      "bearCaseListingGainRate": -0.2748,
+      "baseCaseListingGainRate": -0.0548,
+      "bullCaseListingGainRate": 0.2952,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.165,
         "oneMillionKrw": 0.675,
         "fiveMillionKrw": 3.375
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -2375,
-        "oneMillionKrw": -3529,
-        "fiveMillionKrw": -9646
+        "minimumSubscription": -2222,
+        "oneMillionKrw": -2907,
+        "fiveMillionKrw": -6535
       },
       "assumptions": {
         "offerPrice": 24500,
@@ -110,11 +164,21 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "유안타증권",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 740709,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 60.466,
-      "snapshotCount": 1,
-      "leadManagerCount": 0,
+      "snapshotCount": 3,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1163.2,

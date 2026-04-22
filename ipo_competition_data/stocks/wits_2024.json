@@ -13,7 +13,9 @@
   "market": "KOSDAQ",
   "subscriptionStart": "2024-11-07",
   "subscriptionEnd": "2024-11-08",
-  "leadManagers": [],
+  "leadManagers": [
+    "신한투자증권"
+  ],
   "fundamentals": {
     "offerPrice": 6400,
     "priceBandMin": 5300,
@@ -58,14 +60,66 @@
         "subscribedShares": 0,
         "competitionRate": 233.16
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:57:53.861856",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.ajunews.com/view/20241120093635200",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 6400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 233.16,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 233.16,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 233.16
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:57:53.861856",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.ajunews.com/view/20241120093635200",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 6400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 233.16,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 233.16,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 233.16
+      }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 36,
+      "overall": 40,
       "grade": "D",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "factors": {
         "competition": 5,
         "institutionDemand": 15,
@@ -73,25 +127,25 @@
         "floatRate": 0,
         "pricing": 5,
         "market": 5,
-        "leadManagers": 0,
+        "leadManagers": 3,
         "recency": 0,
-        "dataCompleteness": 6
+        "dataCompleteness": 7
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.0451,
-      "bearCaseListingGainRate": -0.2651,
-      "baseCaseListingGainRate": -0.0451,
-      "bullCaseListingGainRate": 0.3049,
+      "expectedListingGainRate": -0.0066,
+      "bearCaseListingGainRate": -0.2266,
+      "baseCaseListingGainRate": -0.0066,
+      "bullCaseListingGainRate": 0.3434,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.043,
         "oneMillionKrw": 0.67,
         "fiveMillionKrw": 3.351
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -2012,
-        "oneMillionKrw": -2193,
-        "fiveMillionKrw": -2967
+        "minimumSubscription": -2002,
+        "oneMillionKrw": -2028,
+        "fiveMillionKrw": -2142
       },
       "assumptions": {
         "offerPrice": 6400,
@@ -110,11 +164,21 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "신한투자증권",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 746112,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 233.16,
-      "snapshotCount": 1,
-      "leadManagerCount": 0,
+      "snapshotCount": 3,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 997.37,

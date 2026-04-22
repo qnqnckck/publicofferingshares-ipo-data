@@ -13,7 +13,9 @@
   "market": "KOSDAQ",
   "subscriptionStart": "2024-08-07",
   "subscriptionEnd": "2024-08-08",
-  "leadManagers": [],
+  "leadManagers": [
+    "하나증권"
+  ],
   "fundamentals": {
     "offerPrice": 15500,
     "priceBandMin": 12500,
@@ -58,12 +60,64 @@
         "subscribedShares": 11998000,
         "competitionRate": 34.28
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:57:53.861856",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.hankyung.com/article/2024082027786",
+      "brokers": [
+        {
+          "name": "하나증권",
+          "offeredShares": 350000,
+          "subscribedShares": 11998000,
+          "offerPrice": 15500,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 34.28,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 34.28,
+          "equalAllocationShares": 175000,
+          "proportionalAllocationShares": 175000,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 350000,
+        "subscribedShares": 11998000,
+        "competitionRate": 34.28
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:57:53.861856",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.hankyung.com/article/2024082027786",
+      "brokers": [
+        {
+          "name": "하나증권",
+          "offeredShares": 350000,
+          "subscribedShares": 11998000,
+          "offerPrice": 15500,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 34.28,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 34.28,
+          "equalAllocationShares": 175000,
+          "proportionalAllocationShares": 175000,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 350000,
+        "subscribedShares": 11998000,
+        "competitionRate": 34.28
+      }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 26,
+      "overall": 30,
       "grade": "D",
       "confidence": 0.95,
       "factors": {
@@ -73,25 +127,25 @@
         "floatRate": 6,
         "pricing": 5,
         "market": 5,
-        "leadManagers": 0,
+        "leadManagers": 3,
         "recency": 0,
-        "dataCompleteness": 7
+        "dataCompleteness": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.2223,
-      "bearCaseListingGainRate": -0.4423,
-      "baseCaseListingGainRate": -0.2223,
-      "bullCaseListingGainRate": 0.1277,
+      "expectedListingGainRate": -0.183,
+      "bearCaseListingGainRate": -0.403,
+      "baseCaseListingGainRate": -0.183,
+      "bullCaseListingGainRate": 0.167,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.292,
         "oneMillionKrw": 1.882,
         "fiveMillionKrw": 9.41
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -3005,
-        "oneMillionKrw": -8486,
-        "fiveMillionKrw": -34428
+        "minimumSubscription": -2828,
+        "oneMillionKrw": -7339,
+        "fiveMillionKrw": -28696
       },
       "assumptions": {
         "offerPrice": 15500,
@@ -110,11 +164,21 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "하나증권",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 265670,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 34.28,
-      "snapshotCount": 1,
-      "leadManagerCount": 0,
+      "snapshotCount": 3,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 239.23,

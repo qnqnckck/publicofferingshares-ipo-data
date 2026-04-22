@@ -13,7 +13,9 @@
   "market": "KOSDAQ",
   "subscriptionStart": "2024-03-04",
   "subscriptionEnd": "2024-03-05",
-  "leadManagers": [],
+  "leadManagers": [
+    "NH투자증권"
+  ],
   "fundamentals": {
     "offerPrice": 20000,
     "priceBandMin": 13000,
@@ -58,14 +60,66 @@
         "subscribedShares": 0,
         "competitionRate": 2126.0
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:57:53.861856",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.fnnews.com/news/202403130928290644",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 20000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2126.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2126.0,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 2126.0
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:57:53.861856",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.fnnews.com/news/202403130928290644",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 20000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2126.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2126.0,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 2126.0
+      }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 44,
+      "overall": 48,
       "grade": "D",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "factors": {
         "competition": 16,
         "institutionDemand": 15,
@@ -73,25 +127,25 @@
         "floatRate": 0,
         "pricing": 2,
         "market": 5,
-        "leadManagers": 0,
+        "leadManagers": 3,
         "recency": 0,
-        "dataCompleteness": 6
+        "dataCompleteness": 7
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.3281,
-      "bearCaseListingGainRate": 0.1081,
-      "baseCaseListingGainRate": 0.3281,
-      "bullCaseListingGainRate": 0.6781,
+      "expectedListingGainRate": 0.3733,
+      "bearCaseListingGainRate": 0.1533,
+      "baseCaseListingGainRate": 0.3733,
+      "bullCaseListingGainRate": 0.7233,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.005,
         "oneMillionKrw": 0.024,
         "fiveMillionKrw": 0.118
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1969,
-        "oneMillionKrw": -1846,
-        "fiveMillionKrw": -1228
+        "minimumSubscription": -1965,
+        "oneMillionKrw": -1824,
+        "fiveMillionKrw": -1122
       },
       "assumptions": {
         "offerPrice": 20000,
@@ -111,11 +165,21 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "NH투자증권",
+        "equalScore": 30,
+        "proportionalScore": 5,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 21260000,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 2126.0,
-      "snapshotCount": 1,
-      "leadManagerCount": 0,
+      "snapshotCount": 3,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 993.0,

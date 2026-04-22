@@ -13,7 +13,9 @@
   "market": "KOSDAQ",
   "subscriptionStart": "2024-09-09",
   "subscriptionEnd": "2024-09-10",
-  "leadManagers": [],
+  "leadManagers": [
+    "대신증권"
+  ],
   "fundamentals": {
     "offerPrice": 7000,
     "priceBandMin": 4900,
@@ -58,12 +60,64 @@
         "subscribedShares": 0,
         "competitionRate": 1965.03
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:57:53.861856",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.fnnews.com/ampNews/202409230918437473",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 7000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1965.03,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1965.03,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1965.03
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:57:53.861856",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.fnnews.com/ampNews/202409230918437473",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 7000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1965.03,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1965.03,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1965.03
+      }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 50,
+      "overall": 54,
       "grade": "C",
       "confidence": 0.95,
       "factors": {
@@ -73,25 +127,25 @@
         "floatRate": 0,
         "pricing": 2,
         "market": 5,
-        "leadManagers": 0,
+        "leadManagers": 3,
         "recency": 0,
-        "dataCompleteness": 7
+        "dataCompleteness": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.393,
-      "bearCaseListingGainRate": 0.173,
-      "baseCaseListingGainRate": 0.393,
-      "bullCaseListingGainRate": 0.743,
+      "expectedListingGainRate": 0.4323,
+      "bearCaseListingGainRate": 0.2123,
+      "baseCaseListingGainRate": 0.4323,
+      "bullCaseListingGainRate": 0.7823,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.005,
         "oneMillionKrw": 0.073,
         "fiveMillionKrw": 0.363
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1986,
-        "oneMillionKrw": -1800,
-        "fiveMillionKrw": -1000
+        "minimumSubscription": -1985,
+        "oneMillionKrw": -1780,
+        "fiveMillionKrw": -900
       },
       "assumptions": {
         "offerPrice": 7000,
@@ -101,8 +155,8 @@
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 1965.03대 1입니다."
       ],
@@ -111,11 +165,21 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "대신증권",
+        "equalScore": 30,
+        "proportionalScore": 15,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 6877605,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 1965.03,
-      "snapshotCount": 1,
-      "leadManagerCount": 0,
+      "snapshotCount": 3,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1152.8,

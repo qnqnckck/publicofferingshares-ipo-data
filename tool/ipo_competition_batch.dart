@@ -162,12 +162,17 @@ class IpoCompetitionBatch {
         ...discoveredStocks,
         ...await _loadLiveStocks(),
       ]);
-      final sourceEnhancedStocks = mergeStocks([
+      final supplementStocks = mergeStocks([
         ...stocksWithoutExternalOutcomes,
         ...await _discoverIpoKoreaSupplementStocks(
           stocksWithoutExternalOutcomes,
           generatedAt,
         ),
+      ]);
+      final sourceEnhancedStocks = mergeStocks([
+        ...supplementStocks,
+        ...buildKnownLeadManagerOverrideStocks(supplementStocks),
+        ...await _discoverArticleLeadManagerStocks(supplementStocks),
       ]);
       final stocks = mergeOutcomes(
         sourceEnhancedStocks,
@@ -548,6 +553,65 @@ class IpoCompetitionBatch {
       if (supplement != null) {
         supplements.add(supplement);
       }
+    }
+    return supplements;
+  }
+
+  Future<List<IpoCompetitionStock>> _discoverArticleLeadManagerStocks(
+    List<IpoCompetitionStock> stocks,
+  ) async {
+    final candidates =
+        stocks.where((stock) {
+          if (stock.leadManagers.isNotEmpty) {
+            return false;
+          }
+          final sourceUrl = stock.latestSnapshot?.sourceUrl;
+          return sourceUrl != null &&
+              sourceUrl.trim().startsWith(RegExp(r'https?://'));
+        }).toList()..sort(
+          (a, b) => (b.subscriptionEnd ?? b.subscriptionStart ?? '').compareTo(
+            a.subscriptionEnd ?? a.subscriptionStart ?? '',
+          ),
+        );
+
+    final supplements = <IpoCompetitionStock>[];
+    for (final stock in candidates.take(24)) {
+      final sourceUrl = stock.latestSnapshot?.sourceUrl;
+      if (sourceUrl == null || sourceUrl.trim().isEmpty) {
+        continue;
+      }
+      final body = await httpGetFirstText([sourceUrl]);
+      if (body == null || body.trim().isEmpty) {
+        continue;
+      }
+      final leadManagers = extractKnownBrokerNames(body);
+      if (leadManagers.isEmpty) {
+        continue;
+      }
+      supplements.add(
+        IpoCompetitionStock(
+          id: stock.id,
+          company: stock.company,
+          market: stock.market,
+          subscriptionStart: stock.subscriptionStart,
+          subscriptionEnd: stock.subscriptionEnd,
+          leadManagers: leadManagers,
+          sourceIdentifiers: stock.identifiers,
+          fundamentals: const IpoFundamentals(
+            offerPrice: null,
+            priceBandMin: null,
+            priceBandMax: null,
+            institutionCompetitionRate: null,
+            institutionParticipants: null,
+            lockupCommitmentRate: null,
+            floatRate: null,
+            marketCapKrw: null,
+            publicAllocationShares: null,
+          ),
+          outcome: null,
+          snapshots: const [],
+        ),
+      );
     }
     return supplements;
   }
@@ -1436,6 +1500,55 @@ List<IpoCompetitionStock> mergeStocks(List<IpoCompetitionStock> stocks) {
   return byId.values.toList();
 }
 
+List<IpoCompetitionStock> buildKnownLeadManagerOverrideStocks(
+  List<IpoCompetitionStock> stocks,
+) {
+  const overrides = <String, List<String>>{
+    'mnc_solution_2024': ['KB증권', '삼성증권', '키움증권'],
+    'wits_2024': ['신한투자증권'],
+    'toprun_total_solution_2024': ['KB증권'],
+    'yj_link_2024': ['KB증권'],
+    'iron_device_2024': ['대신증권'],
+    'next_biomedical_2024': ['한국투자증권'],
+    'k3i_2024': ['하나증권'],
+    'higen_rnm_2024': ['한국투자증권'],
+    'seers_technology_2024': ['한국투자증권'],
+    'imbdx_2024': ['미래에셋증권'],
+    'samhyun_2024': ['한국투자증권'],
+    'osang_healthcare_2024': ['NH투자증권'],
+    'posbank_2024': ['하나증권'],
+  };
+
+  return stocks
+      .where((stock) => stock.leadManagers.isEmpty)
+      .where((stock) => overrides.containsKey(safeId(stock.id)))
+      .map((stock) {
+        return IpoCompetitionStock(
+          id: stock.id,
+          company: stock.company,
+          market: stock.market,
+          subscriptionStart: stock.subscriptionStart,
+          subscriptionEnd: stock.subscriptionEnd,
+          leadManagers: overrides[safeId(stock.id)]!,
+          sourceIdentifiers: stock.identifiers,
+          fundamentals: const IpoFundamentals(
+            offerPrice: null,
+            priceBandMin: null,
+            priceBandMax: null,
+            institutionCompetitionRate: null,
+            institutionParticipants: null,
+            lockupCommitmentRate: null,
+            floatRate: null,
+            marketCapKrw: null,
+            publicAllocationShares: null,
+          ),
+          outcome: null,
+          snapshots: const [],
+        );
+      })
+      .toList();
+}
+
 List<IpoCompetitionStock> mergeOutcomes(
   List<IpoCompetitionStock> stocks,
   List<IpoOutcomeRow> outcomes,
@@ -2132,6 +2245,19 @@ class IpoBrokerSnapshotRow {
 
 String normalizeLookup(String value) {
   return value.replaceAll(RegExp(r'\s+'), '').toLowerCase();
+}
+
+List<String> extractKnownBrokerNames(String text) {
+  final normalized = normalizeLookup(plainText(text));
+  final found = <String>{};
+  for (final broker in knownBrokerNames) {
+    if (normalized.contains(normalizeLookup(broker))) {
+      found.add(canonicalBrokerName(broker));
+    }
+  }
+  final result = found.where((broker) => broker.trim().isNotEmpty).toList()
+    ..sort();
+  return result;
 }
 
 IpoCompetitionStock? parseIpoKoreaSupplement({
