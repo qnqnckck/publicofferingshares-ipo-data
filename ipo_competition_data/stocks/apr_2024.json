@@ -61,6 +61,86 @@
         "subscribedShares": 0,
         "competitionRate": 1112.54
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.newsis.com/view/NISX20240227_0002641320",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 250000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1112.54,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1112.54,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "하나증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 250000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1112.54,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1112.54,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1112.54
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.newsis.com/view/NISX20240227_0002641320",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 250000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1112.54,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1112.54,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "하나증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 250000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1112.54,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1112.54,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1112.54
+      }
     }
   ],
   "analysis": {
@@ -115,10 +195,29 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "신한투자증권",
+        "equalScore": 30,
+        "proportionalScore": 1,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 139067500,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "하나증권",
+        "equalScore": 30,
+        "proportionalScore": 1,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 139067500,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 1112.54,
-      "snapshotCount": 1,
+      "snapshotCount": 3,
       "leadManagerCount": 2,
       "market": "KOSPI",
       "hasOfferPrice": true,

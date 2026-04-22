@@ -54,6 +54,58 @@
         "subscribedShares": 0,
         "competitionRate": 449.56
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=327830",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 23000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 449.56,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 449.56,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 449.56
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=327830",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 23000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 449.56,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 449.56,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 449.56
+      }
     }
   ],
   "analysis": {
@@ -106,10 +158,20 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 30,
+        "proportionalScore": 19,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 5169940,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 449.56,
-      "snapshotCount": 1,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

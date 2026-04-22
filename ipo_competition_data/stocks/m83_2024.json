@@ -55,6 +55,86 @@
         "subscribedShares": 0,
         "competitionRate": 638.05
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.fntimes.com/html/view.php?ud=20240813172608496322f8e8c22c_18",
+      "brokers": [
+        {
+          "name": "신영증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 16000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 638.05,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 638.05,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "유진투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 16000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 638.05,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 638.05,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 638.05
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.fntimes.com/html/view.php?ud=20240813172608496322f8e8c22c_18",
+      "brokers": [
+        {
+          "name": "신영증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 16000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 638.05,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 638.05,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "유진투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 16000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 638.05,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 638.05,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 638.05
+      }
     }
   ],
   "analysis": {
@@ -108,10 +188,29 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "신영증권",
+        "equalScore": 30,
+        "proportionalScore": 20,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 5104400,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "유진투자증권",
+        "equalScore": 30,
+        "proportionalScore": 20,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 5104400,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 638.05,
-      "snapshotCount": 1,
+      "snapshotCount": 3,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

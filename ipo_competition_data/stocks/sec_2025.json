@@ -54,6 +54,58 @@
         "subscribedShares": 0,
         "competitionRate": 933.59
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://honda31.tistory.com/291",
+      "brokers": [
+        {
+          "name": "신영증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 15000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 933.59,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 933.59,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 933.59
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://honda31.tistory.com/291",
+      "brokers": [
+        {
+          "name": "신영증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 15000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 933.59,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 933.59,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 933.59
+      }
     }
   ],
   "analysis": {
@@ -106,10 +158,20 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "신영증권",
+        "equalScore": 30,
+        "proportionalScore": 14,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 7001925,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 933.59,
-      "snapshotCount": 1,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

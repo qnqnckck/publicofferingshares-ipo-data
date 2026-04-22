@@ -54,6 +54,58 @@
         "subscribedShares": 0,
         "competitionRate": 805.12
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://finfreedom.tistory.com",
+      "brokers": [
+        {
+          "name": "IBK투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 13000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 805.12,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 805.12,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 805.12
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://finfreedom.tistory.com",
+      "brokers": [
+        {
+          "name": "IBK투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 13000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 805.12,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 805.12,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 805.12
+      }
     }
   ],
   "analysis": {
@@ -106,10 +158,20 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "IBK투자증권",
+        "equalScore": 30,
+        "proportionalScore": 19,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 5233280,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 805.12,
-      "snapshotCount": 1,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

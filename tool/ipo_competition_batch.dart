@@ -190,6 +190,7 @@ class IpoCompetitionBatch {
           generatedAt,
         ),
         ...buildEstimatedBrokerSnapshotRows(identifiedStocks, generatedAt),
+        ...buildEstimatedBrokerRateOnlyRows(identifiedStocks, generatedAt),
       ];
       final enrichedStocks = mergeBrokerSnapshots(
         identifiedStocks,
@@ -250,6 +251,16 @@ class IpoCompetitionBatch {
             discoveredStocks: discoveredStocks,
             mergedStocks: enrichedStocks,
             selectedStocks: selected,
+          ),
+        ),
+      );
+      await File(
+        '${options.outDir}/broker_metrics_missing_report.json',
+      ).writeAsString(
+        prettyJson(
+          buildBrokerMetricsMissingReport(
+            generatedAt: generatedAt,
+            stocks: selected,
           ),
         ),
       );
@@ -1597,6 +1608,83 @@ List<IpoBrokerSnapshotRow> buildEstimatedBrokerSnapshotRows(
   return rows;
 }
 
+List<IpoBrokerSnapshotRow> buildEstimatedBrokerRateOnlyRows(
+  List<IpoCompetitionStock> stocks,
+  DateTime generatedAt,
+) {
+  final rows = <IpoBrokerSnapshotRow>[];
+  for (final stock in stocks) {
+    final latest = stock.latestSnapshot;
+    if (latest == null) {
+      continue;
+    }
+    final rate = latest.aggregate.competitionRate;
+    if (rate == null || rate <= 0) {
+      continue;
+    }
+    final allocation = stock.fundamentals.publicAllocationShares;
+    if (allocation != null && allocation > 0) {
+      continue;
+    }
+    final hasBrokerDetail = stock.snapshots.any(
+      (snapshot) => snapshot.brokers.any((broker) {
+        final key = normalizeLookup(broker.name);
+        final isAggregate = key == normalizeLookup('통합') || key == 'aggregate';
+        return !isAggregate &&
+            (broker.offeredShares > 0 ||
+                broker.competitionRate != null ||
+                broker.proportionalCompetitionRate != null ||
+                broker.equalAllocationShares != null ||
+                broker.proportionalAllocationShares != null);
+      }),
+    );
+    if (hasBrokerDetail) {
+      continue;
+    }
+
+    final leadManagers =
+        stock.leadManagers
+            .map(canonicalBrokerName)
+            .where((broker) => broker.trim().isNotEmpty)
+            .toSet()
+            .toList()
+          ..sort();
+    if (leadManagers.isEmpty) {
+      continue;
+    }
+
+    rows.add(
+      IpoBrokerSnapshotRow(
+        id: stock.id,
+        company: stock.company,
+        capturedAt: generatedAt.toIso8601String(),
+        source: 'estimated_broker_rate_only',
+        sourceUrl: latest.sourceUrl,
+        aggregateCompetitionRate: rate,
+        brokers: leadManagers
+            .map(
+              (brokerName) => IpoBrokerCompetition(
+                name: brokerName,
+                offeredShares: 0,
+                subscribedShares: 0,
+                offerPrice: stock.fundamentals.offerPrice,
+                depositRate: null,
+                feeKrw: null,
+                competitionRate: rate,
+                equalCompetitionRate: null,
+                proportionalCompetitionRate: rate,
+                equalAllocationShares: null,
+                proportionalAllocationShares: null,
+                applicationCount: null,
+              ),
+            )
+            .toList(),
+      ),
+    );
+  }
+  return rows;
+}
+
 List<IpoCompetitionStock> mergeIdentifierRows(
   List<IpoCompetitionStock> stocks,
   List<IpoIdentifierRow> rows,
@@ -2004,6 +2092,7 @@ class IpoBrokerSnapshotRow {
     required this.capturedAt,
     required this.source,
     required this.sourceUrl,
+    this.aggregateCompetitionRate,
     required this.brokers,
   });
 
@@ -2012,6 +2101,7 @@ class IpoBrokerSnapshotRow {
   final String capturedAt;
   final String source;
   final String? sourceUrl;
+  final double? aggregateCompetitionRate;
   final List<IpoBrokerCompetition> brokers;
 
   factory IpoBrokerSnapshotRow.fromJson(Map<String, Object?> json) {
@@ -2022,6 +2112,7 @@ class IpoBrokerSnapshotRow {
           readString(json, 'capturedAt') ?? DateTime.now().toIso8601String(),
       source: readString(json, 'source') ?? 'broker_snapshot',
       sourceUrl: readString(json, 'sourceUrl'),
+      aggregateCompetitionRate: readDouble(json['aggregateCompetitionRate']),
       brokers: readObjectList(
         json['brokers'],
       ).map(IpoBrokerCompetition.fromJson).toList(),
@@ -2033,7 +2124,7 @@ class IpoBrokerSnapshotRow {
       capturedAt: capturedAt,
       source: source,
       sourceUrl: sourceUrl,
-      aggregateCompetitionRate: null,
+      aggregateCompetitionRate: aggregateCompetitionRate,
       brokers: brokers,
     );
   }
@@ -3354,6 +3445,88 @@ List<IpoBrokerScore> brokerScoresFor(IpoCompetitionStock stock) {
         return b.proportionalScore.compareTo(a.proportionalScore);
       });
   return scores;
+}
+
+Map<String, Object?> buildBrokerMetricsMissingReport({
+  required DateTime generatedAt,
+  required List<IpoCompetitionStock> stocks,
+}) {
+  final rows = <Map<String, Object?>>[];
+  final reasonCounts = <String, int>{};
+  final today = DateTime(generatedAt.year, generatedAt.month, generatedAt.day);
+
+  bool isCompleted(IpoCompetitionStock stock) {
+    final end =
+        parseDate(stock.subscriptionEnd) ?? parseDate(stock.subscriptionStart);
+    return end != null && !end.isAfter(today);
+  }
+
+  bool hasBrokerDetail(IpoCompetitionStock stock) {
+    return stock.snapshots.any(
+      (snapshot) => snapshot.brokers.any((broker) {
+        final key = normalizeLookup(broker.name);
+        final isAggregate = key == normalizeLookup('통합') || key == 'aggregate';
+        return !isAggregate &&
+            (broker.offeredShares > 0 ||
+                broker.competitionRate != null ||
+                broker.proportionalCompetitionRate != null ||
+                broker.equalAllocationShares != null ||
+                broker.proportionalAllocationShares != null);
+      }),
+    );
+  }
+
+  for (final stock in stocks.where(isCompleted)) {
+    if (hasBrokerDetail(stock)) {
+      continue;
+    }
+    final latest = stock.latestSnapshot;
+    final reasons = <String>[];
+    if (latest == null) {
+      reasons.add('no_snapshot');
+    }
+    if (latest?.aggregate.competitionRate == null) {
+      reasons.add('no_retail_competition_rate');
+    }
+    if (stock.fundamentals.publicAllocationShares == null) {
+      reasons.add('no_public_allocation');
+    }
+    if (stock.leadManagers.isEmpty) {
+      reasons.add('no_lead_manager');
+    }
+    final reasonKey = reasons.isEmpty ? 'unknown' : reasons.join('+');
+    reasonCounts[reasonKey] = (reasonCounts[reasonKey] ?? 0) + 1;
+    rows.add({
+      'id': stock.id,
+      'company': stock.company,
+      'subscriptionStart': stock.subscriptionStart,
+      'subscriptionEnd': stock.subscriptionEnd,
+      'leadManagers': stock.leadManagers,
+      'reason': reasonKey,
+      'retailCompetitionRate': latest?.aggregate.competitionRate,
+      'publicAllocationShares': stock.fundamentals.publicAllocationShares,
+      'latestSnapshotSource': latest?.source,
+      'latestSnapshotSourceUrl': latest?.sourceUrl,
+    });
+  }
+
+  rows.sort((a, b) {
+    final byDate = '${b['subscriptionStart'] ?? ''}'.compareTo(
+      '${a['subscriptionStart'] ?? ''}',
+    );
+    if (byDate != 0) {
+      return byDate;
+    }
+    return '${a['company'] ?? ''}'.compareTo('${b['company'] ?? ''}');
+  });
+
+  return {
+    'schemaVersion': schemaVersion,
+    'generatedAt': generatedAt.toIso8601String(),
+    'totalMissing': rows.length,
+    'reasonCounts': reasonCounts,
+    'missingBrokerMetrics': rows,
+  };
 }
 
 int clampInt(int value, int min, int max) {

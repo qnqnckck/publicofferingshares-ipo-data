@@ -60,6 +60,58 @@
         "subscribedShares": 0,
         "competitionRate": 816.6
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www4.ajunews.com/view/20241031092040244",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 32000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 816.6,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 816.6,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 816.6
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www4.ajunews.com/view/20241031092040244",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 32000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 816.6,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 816.6,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 816.6
+      }
     }
   ],
   "analysis": {
@@ -112,10 +164,20 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "한국투자증권",
+        "equalScore": 30,
+        "proportionalScore": 8,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 13065600,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 816.6,
-      "snapshotCount": 1,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

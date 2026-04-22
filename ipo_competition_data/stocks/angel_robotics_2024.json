@@ -60,6 +60,58 @@
         "subscribedShares": 0,
         "competitionRate": 2242.02
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://news.bizwatch.co.kr/article/market/2024/03/26/0007",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 20000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2242.02,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2242.02,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 2242.02
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://news.bizwatch.co.kr/article/market/2024/03/26/0007",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 20000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2242.02,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2242.02,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 2242.02
+      }
     }
   ],
   "analysis": {
@@ -113,10 +165,20 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "NH투자증권",
+        "equalScore": 30,
+        "proportionalScore": 4,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 22420200,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 2242.02,
-      "snapshotCount": 1,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

@@ -54,6 +54,58 @@
         "subscribedShares": 0,
         "competitionRate": 1087.26
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://honda31.tistory.com/281",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 16500,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1087.26,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1087.26,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1087.26
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://honda31.tistory.com/281",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 16500,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1087.26,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1087.26,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1087.26
+      }
     }
   ],
   "analysis": {
@@ -107,10 +159,20 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 30,
+        "proportionalScore": 11,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 8969895,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 1087.26,
-      "snapshotCount": 1,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSPI",
       "hasOfferPrice": true,

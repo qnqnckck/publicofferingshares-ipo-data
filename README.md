@@ -146,6 +146,12 @@ equal and proportional buckets. These rows are app-ready fallback data, not
 broker-confirmed account-count data; confirmed rows from `data/broker_snapshots`
 or broker adapters take precedence.
 
+When public allocation shares are still missing but aggregate retail competition
+and lead managers exist, the batch adds an `estimated_broker_rate_only` snapshot.
+This lets the app show broker-level proportional-rate context immediately while
+leaving equal/proportional allocation volumes empty until confirmed data is
+available.
+
 The batch also attempts to backfill missing DART `corpCode` values through the
 public DART company search page and caches successful matches in
 `data/identifiers/ipo_identifiers.json`. Disable that network backfill with
@@ -196,8 +202,15 @@ Generated coverage report:
 ipo_competition_data/coverage_report.json
 ```
 
+Broker metric gap report:
+
+```text
+ipo_competition_data/broker_metrics_missing_report.json
+```
+
 The coverage report lists discovered IPOs that were not generated, duplicate
 subscription candidates, and generated stocks with missing judgement fields such
 as institution competition rate, institution participant count, lock-up
 commitment rate, retail competition rate, broker-level competition, and external
-identifiers.
+identifiers. The broker metric gap report focuses only on stocks that still
+cannot render broker-level equal/proportional context from generated JSON.

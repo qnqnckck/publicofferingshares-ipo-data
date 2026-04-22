@@ -60,6 +60,58 @@
         "subscribedShares": 0,
         "competitionRate": 1988.8
       }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.etoday.co.kr/news/view/2330958",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 7000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1988.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1988.8,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1988.8
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T22:13:28.695491",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.etoday.co.kr/news/view/2330958",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 7000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1988.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1988.8,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1988.8
+      }
     }
   ],
   "analysis": {
@@ -113,10 +165,20 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "NH투자증권",
+        "equalScore": 30,
+        "proportionalScore": 14,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 6960800,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 1988.8,
-      "snapshotCount": 1,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
