@@ -44,6 +44,7 @@ https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/recen
 https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/yearly/{year}.json
 https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/stocks/{ipoId}.json
 https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/backtest_report.json
+https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/coverage_report.json
 ```
 
 Recommended app access pattern:
@@ -173,3 +174,15 @@ Generated backtest report:
 ```text
 ipo_competition_data/backtest_report.json
 ```
+
+Generated coverage report:
+
+```text
+ipo_competition_data/coverage_report.json
+```
+
+The coverage report lists discovered IPOs that were not generated, duplicate
+subscription candidates, and generated stocks with missing judgement fields such
+as institution competition rate, institution participant count, lock-up
+commitment rate, retail competition rate, broker-level competition, and external
+identifiers.
