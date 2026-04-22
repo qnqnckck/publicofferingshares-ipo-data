@@ -2225,7 +2225,7 @@ IpoAnalysis analyzeStock(IpoCompetitionStock stock) {
       'floatRate': stock.fundamentals.floatRate,
       'hasOutcome': stock.outcome != null,
     },
-    methodVersion: 'ipo-score-v1',
+    methodVersion: 'ipo-score-v2',
   );
 }
 
@@ -2395,59 +2395,62 @@ extension IpoCompetitionStockAnalysisFields on IpoCompetitionStock {
 int scoreInstitutionDemand(IpoFundamentals fundamentals) {
   final rate = fundamentals.institutionCompetitionRate;
   if (rate == null) {
-    return 5;
+    return 0;
   }
   if (rate >= 1500) {
-    return 16;
+    return 24;
   }
   if (rate >= 1000) {
-    return 14;
+    return 20;
   }
   if (rate >= 700) {
-    return 11;
+    return 15;
   }
   if (rate >= 300) {
-    return 7;
+    return 8;
   }
-  return 3;
+  if (rate >= 100) {
+    return 3;
+  }
+  return 1;
 }
 
 int scoreLockup(double? rate) {
   if (rate == null) {
-    return 4;
+    return 0;
   }
   if (rate >= 0.5) {
-    return 13;
+    return 18;
   }
   if (rate >= 0.3) {
-    return 10;
+    return 14;
   }
   if (rate >= 0.15) {
-    return 7;
+    return 9;
   }
   if (rate >= 0.05) {
     return 4;
   }
-  return 1;
+  return 0;
 }
 
 int scoreFloat(double? rate) {
   if (rate == null) {
-    return 4;
+    return 0;
   }
   if (rate <= 0.2) {
-    return 13;
+    return 12;
   }
   if (rate <= 0.3) {
-    return 10;
+    return 9;
   }
   if (rate <= 0.4) {
-    return 7;
+    return 6;
   }
   if (rate <= 0.5) {
-    return 4;
+    return 3;
   }
-  return 1;
+  return 0;
 }
 
 int scorePricing(IpoFundamentals fundamentals) {
@@ -2455,110 +2458,110 @@ int scorePricing(IpoFundamentals fundamentals) {
   final min = fundamentals.priceBandMin;
   final max = fundamentals.priceBandMax;
   if (offer == null || min == null || max == null || max <= min) {
-    return 4;
+    return 3;
   }
   final position = (offer - min) / (max - min);
   if (position > 1.0) {
-    return 5;
+    return 2;
   }
   if (position >= 0.85) {
-    return 9;
+    return 5;
   }
   if (position >= 0.45) {
     return 7;
   }
-  return 4;
+  return 10;
 }
 
 int scoreCompetition(double? rate) {
   if (rate == null) {
-    return 8;
+    return 0;
   }
-  if (rate >= 1500) {
-    return 24;
-  }
-  if (rate >= 800) {
-    return 21;
-  }
-  if (rate >= 400) {
-    return 18;
-  }
-  if (rate >= 150) {
+  if (rate >= 2500) {
     return 14;
   }
-  if (rate >= 50) {
+  if (rate >= 1500) {
+    return 16;
+  }
+  if (rate >= 800) {
+    return 13;
+  }
+  if (rate >= 400) {
     return 9;
   }
-  return 4;
+  if (rate >= 150) {
+    return 5;
+  }
+  if (rate >= 50) {
+    return 2;
+  }
+  return 0;
 }
 
 int scoreMarket(String market) {
   final normalized = market.toUpperCase();
   if (normalized.contains('KOSPI')) {
-    return 13;
+    return 6;
   }
   if (normalized.contains('KOSDAQ')) {
-    return 11;
+    return 5;
   }
-  return 8;
+  return 3;
 }
 
 int scoreLeadManagers(List<String> managers) {
   if (managers.length >= 4) {
-    return 13;
+    return 6;
   }
   if (managers.length >= 2) {
-    return 10;
+    return 5;
   }
   if (managers.length == 1) {
-    return 7;
+    return 3;
   }
-  return 4;
+  return 0;
 }
 
 int scoreRecency(String? subscriptionEnd) {
   final end = parseDate(subscriptionEnd);
   if (end == null) {
-    return 6;
+    return 2;
   }
   final now = DateTime.now();
   final days = end.difference(DateTime(now.year, now.month, now.day)).inDays;
   if (days >= 0 && days <= 14) {
-    return 14;
+    return 4;
   }
   if (days > 14) {
-    return 10;
+    return 3;
   }
   if (days >= -30) {
-    return 8;
+    return 2;
   }
-  return 5;
+  return 0;
 }
 
 int scoreDataCompleteness(IpoCompetitionStock stock) {
   var score = 0;
   if (stock.snapshots.isNotEmpty) {
-    score += 8;
-  }
-  if (stock.leadManagers.isNotEmpty) {
-    score += 5;
-  }
-  if (stock.market.trim().isNotEmpty) {
-    score += 4;
-  }
-  if (stock.subscriptionStart != null && stock.subscriptionEnd != null) {
-    score += 4;
-  }
-  if (stock.fundamentals.offerPrice != null) {
-    score += 3;
-  }
-  if (stock.fundamentals.institutionCompetitionRate != null) {
-    score += 3;
-  }
-  if (stock.fundamentals.lockupCommitmentRate != null) {
     score += 2;
   }
-  if (stock.fundamentals.floatRate != null) {
+  if (stock.leadManagers.isNotEmpty) {
+    score += 1;
+  }
+  if (stock.market.trim().isNotEmpty) {
+    score += 1;
+  }
+  if (stock.subscriptionStart != null && stock.subscriptionEnd != null) {
+    score += 1;
+  }
+  if (stock.fundamentals.offerPrice != null) {
+    score += 1;
+  }
+  if (stock.fundamentals.institutionCompetitionRate != null) {
+    score += 1;
+  }
+  if (stock.fundamentals.lockupCommitmentRate != null) {
     score += 1;
   }
   return score;

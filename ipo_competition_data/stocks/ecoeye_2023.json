@@ -57,37 +57,37 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v1",
+    "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 73,
-      "grade": "B",
+      "overall": 19,
+      "grade": "D",
       "confidence": 0.9,
       "factors": {
-        "competition": 4,
-        "institutionDemand": 5,
-        "lockupCommitment": 4,
-        "floatRate": 4,
-        "pricing": 9,
-        "market": 11,
-        "leadManagers": 7,
-        "recency": 5,
-        "dataCompleteness": 24
+        "competition": 0,
+        "institutionDemand": 0,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 5,
+        "market": 5,
+        "leadManagers": 3,
+        "recency": 0,
+        "dataCompleteness": 6
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.2296,
-      "bearCaseListingGainRate": 0.0096,
-      "baseCaseListingGainRate": 0.2296,
-      "bullCaseListingGainRate": 0.5796,
+      "expectedListingGainRate": -0.25,
+      "bearCaseListingGainRate": -0.47,
+      "baseCaseListingGainRate": -0.25,
+      "bullCaseListingGainRate": 0.1,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.508,
         "oneMillionKrw": 1.463,
         "fiveMillionKrw": 7.314
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 2043,
-        "oneMillionKrw": 9652,
-        "fiveMillionKrw": 56262
+        "minimumSubscription": -6404,
+        "oneMillionKrw": -14690,
+        "fiveMillionKrw": -65452
       },
       "assumptions": {
         "offerPrice": 34700,
@@ -97,11 +97,10 @@
       }
     },
     "decision": {
-      "level": "consider",
-      "label": "청약 고려",
+      "level": "caution",
+      "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 19.7대 1입니다.",
-        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+        "최근 확인된 일반청약 경쟁률은 19.7대 1입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
