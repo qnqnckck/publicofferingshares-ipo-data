@@ -54,6 +54,58 @@
         "subscribedShares": 10235420,
         "competitionRate": 19.7
       }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202311140134",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 519750,
+          "subscribedShares": 10239075,
+          "offerPrice": 34700,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 19.7,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 19.7,
+          "equalAllocationShares": 259875,
+          "proportionalAllocationShares": 259875,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 519750,
+        "subscribedShares": 10239075,
+        "competitionRate": 19.7
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202311140134",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 519750,
+          "subscribedShares": 10239075,
+          "offerPrice": 34700,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 19.7,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 19.7,
+          "equalAllocationShares": 259875,
+          "proportionalAllocationShares": 259875,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 519750,
+        "subscribedShares": 10239075,
+        "competitionRate": 19.7
+      }
     }
   ],
   "analysis": {
@@ -106,10 +158,20 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "KB증권",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 341795,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 19.7,
-      "snapshotCount": 1,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

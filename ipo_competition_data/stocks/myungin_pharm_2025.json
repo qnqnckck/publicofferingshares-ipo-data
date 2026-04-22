@@ -54,6 +54,58 @@
         "subscribedShares": 598736890,
         "competitionRate": 587.0
       }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.dailian.co.kr/news/view/1551692",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 1020000,
+          "subscribedShares": 598740000,
+          "offerPrice": 58000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 587.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 587.0,
+          "equalAllocationShares": 510000,
+          "proportionalAllocationShares": 510000,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1020000,
+        "subscribedShares": 598740000,
+        "competitionRate": 587.0
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.dailian.co.kr/news/view/1551692",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 1020000,
+          "subscribedShares": 598740000,
+          "offerPrice": 58000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 587.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 587.0,
+          "equalAllocationShares": 510000,
+          "proportionalAllocationShares": 510000,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1020000,
+        "subscribedShares": 598740000,
+        "competitionRate": 587.0
+      }
     }
   ],
   "analysis": {
@@ -106,10 +158,20 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "KB증권",
+        "equalScore": 30,
+        "proportionalScore": 6,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 17023000,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 587.0,
-      "snapshotCount": 1,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSPI",
       "hasOfferPrice": true,

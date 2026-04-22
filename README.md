@@ -138,6 +138,14 @@ This is the bridge before broker-specific adapters are implemented:
 - durable corpCode/stockCode/kindCode/isin crosswalk rows go into `data/identifiers/ipo_identifiers.json`
 - future broker adapters can write the same JSON shape
 
+When a completed stock has an aggregate retail competition rate, public
+allocation shares, and lead managers but no broker-level rows yet, the batch
+adds an `estimated_broker_split` snapshot. This splits the public allocation
+evenly across lead managers and then splits each broker allocation 50/50 into
+equal and proportional buckets. These rows are app-ready fallback data, not
+broker-confirmed account-count data; confirmed rows from `data/broker_snapshots`
+or broker adapters take precedence.
+
 The batch also attempts to backfill missing DART `corpCode` values through the
 public DART company search page and caches successful matches in
 `data/identifiers/ipo_identifiers.json`. Disable that network backfill with

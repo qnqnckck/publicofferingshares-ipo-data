@@ -80,6 +80,58 @@
         "subscribedShares": 816415000,
         "competitionRate": 2428.0
       }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://channyfarm.com/%EB%A9%94%EC%A5%AC-%EC%B2%AD%EC%95%BD-%EA%B2%B0%EA%B3%BC-%EA%B2%BD%EC%9F%81%EB%A5%A0-24281-%EA%B7%A0%EB%93%B1%EB%B0%B0%EC%A0%95%C2%B7%ED%99%98%EB%B6%88%EC%9D%BC-%EC%B4%9D%EC%A0%95%EB%A6%AC/",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 336250,
+          "subscribedShares": 816499063,
+          "offerPrice": 21600,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2428.25,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2428.25,
+          "equalAllocationShares": 168125,
+          "proportionalAllocationShares": 168125,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 336250,
+        "subscribedShares": 816499063,
+        "competitionRate": 2428.250001486989
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://channyfarm.com/%EB%A9%94%EC%A5%AC-%EC%B2%AD%EC%95%BD-%EA%B2%B0%EA%B3%BC-%EA%B2%BD%EC%9F%81%EB%A5%A0-24281-%EA%B7%A0%EB%93%B1%EB%B0%B0%EC%A0%95%C2%B7%ED%99%98%EB%B6%88%EC%9D%BC-%EC%B4%9D%EC%A0%95%EB%A6%AC/",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 336250,
+          "subscribedShares": 816499063,
+          "offerPrice": 21600,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2428.25,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2428.25,
+          "equalAllocationShares": 168125,
+          "proportionalAllocationShares": 168125,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 336250,
+        "subscribedShares": 816499063,
+        "competitionRate": 2428.250001486989
+      }
     }
   ],
   "analysis": {
@@ -117,7 +169,7 @@
       },
       "assumptions": {
         "offerPrice": 21600,
-        "competitionRate": 2428.25,
+        "competitionRate": 2428.250001486989,
         "feeKrw": 2000,
         "method": "rule_based_v1_low_confidence"
       }
@@ -134,10 +186,20 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "신한투자증권",
+        "equalScore": 30,
+        "proportionalScore": 4,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 26225100,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": 2428.25,
-      "snapshotCount": 2,
+      "latestCompetitionRate": 2428.250001486989,
+      "snapshotCount": 4,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

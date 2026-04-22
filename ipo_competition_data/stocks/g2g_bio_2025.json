@@ -112,6 +112,58 @@
         "subscribedShares": 105775020,
         "competitionRate": 470.1112
       }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.chosun.com/economy/money/2025/08/06/LYSY6POOYXSTO7ACUSSRXLKMA4/?outputType=amp",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 225000,
+          "subscribedShares": 105772500,
+          "offerPrice": 58000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 470.1,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 470.1,
+          "equalAllocationShares": 112500,
+          "proportionalAllocationShares": 112500,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 225000,
+        "subscribedShares": 105772500,
+        "competitionRate": 470.1
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.chosun.com/economy/money/2025/08/06/LYSY6POOYXSTO7ACUSSRXLKMA4/?outputType=amp",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 225000,
+          "subscribedShares": 105772500,
+          "offerPrice": 58000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 470.1,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 470.1,
+          "equalAllocationShares": 112500,
+          "proportionalAllocationShares": 112500,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 225000,
+        "subscribedShares": 105772500,
+        "competitionRate": 470.1
+      }
     }
   ],
   "analysis": {
@@ -133,10 +185,10 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.3813,
-      "bearCaseListingGainRate": 0.1613,
-      "baseCaseListingGainRate": 0.3813,
-      "bullCaseListingGainRate": 0.7313,
+      "expectedListingGainRate": 0.3812,
+      "bearCaseListingGainRate": 0.1612,
+      "baseCaseListingGainRate": 0.3812,
+      "bullCaseListingGainRate": 0.7312,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.021,
         "oneMillionKrw": 0.037,
@@ -149,7 +201,7 @@
       },
       "assumptions": {
         "offerPrice": 58000,
-        "competitionRate": 470.1112,
+        "competitionRate": 470.1,
         "feeKrw": 2000,
         "method": "rule_based_v1_low_confidence"
       }
@@ -158,7 +210,7 @@
       "level": "consider",
       "label": "청약 고려",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 470.11대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 470.1대 1입니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
@@ -169,16 +221,16 @@
       {
         "broker": "미래에셋증권",
         "equalScore": 30,
-        "proportionalScore": 4,
-        "expectedEqualShares": 0.372,
-        "estimatedDepositForOneProportionalShare": 27265800,
-        "feeKrw": 2000,
-        "dataQuality": "broker_verified"
+        "proportionalScore": 7,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 13632900,
+        "feeKrw": null,
+        "dataQuality": "partial"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 470.1112,
-      "snapshotCount": 3,
+      "latestCompetitionRate": 470.1,
+      "snapshotCount": 5,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

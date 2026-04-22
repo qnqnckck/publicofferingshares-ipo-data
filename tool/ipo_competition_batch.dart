@@ -189,6 +189,7 @@ class IpoCompetitionBatch {
           identifiedStocks,
           generatedAt,
         ),
+        ...buildEstimatedBrokerSnapshotRows(identifiedStocks, generatedAt),
       ];
       final enrichedStocks = mergeBrokerSnapshots(
         identifiedStocks,
@@ -1511,6 +1512,89 @@ List<IpoCompetitionStock> mergeBrokerSnapshots(
       snapshots: [...stock.snapshots, ...extraSnapshots],
     );
   }).toList();
+}
+
+List<IpoBrokerSnapshotRow> buildEstimatedBrokerSnapshotRows(
+  List<IpoCompetitionStock> stocks,
+  DateTime generatedAt,
+) {
+  final rows = <IpoBrokerSnapshotRow>[];
+  for (final stock in stocks) {
+    final latest = stock.latestSnapshot;
+    if (latest == null) {
+      continue;
+    }
+    final rate = latest.aggregate.competitionRate;
+    final allocation = stock.fundamentals.publicAllocationShares;
+    if (rate == null || rate <= 0 || allocation == null || allocation <= 0) {
+      continue;
+    }
+    final hasBrokerDetail = stock.snapshots.any(
+      (snapshot) => snapshot.brokers.any((broker) {
+        final key = normalizeLookup(broker.name);
+        final isAggregate = key == normalizeLookup('통합') || key == 'aggregate';
+        return !isAggregate &&
+            (broker.offeredShares > 0 ||
+                broker.competitionRate != null ||
+                broker.proportionalCompetitionRate != null ||
+                broker.equalAllocationShares != null ||
+                broker.proportionalAllocationShares != null);
+      }),
+    );
+    if (hasBrokerDetail) {
+      continue;
+    }
+
+    final leadManagers =
+        stock.leadManagers
+            .map(canonicalBrokerName)
+            .where((broker) => broker.trim().isNotEmpty)
+            .toSet()
+            .toList()
+          ..sort();
+    if (leadManagers.isEmpty) {
+      continue;
+    }
+
+    final baseAllocation = allocation ~/ leadManagers.length;
+    var remainder = allocation % leadManagers.length;
+    final brokers = <IpoBrokerCompetition>[];
+    for (final brokerName in leadManagers) {
+      final brokerAllocation = baseAllocation + (remainder > 0 ? 1 : 0);
+      if (remainder > 0) {
+        remainder -= 1;
+      }
+      final equalShares = brokerAllocation ~/ 2;
+      final proportionalShares = brokerAllocation - equalShares;
+      brokers.add(
+        IpoBrokerCompetition(
+          name: brokerName,
+          offeredShares: brokerAllocation,
+          subscribedShares: (brokerAllocation * rate).round(),
+          offerPrice: stock.fundamentals.offerPrice,
+          depositRate: null,
+          feeKrw: null,
+          competitionRate: rate,
+          equalCompetitionRate: null,
+          proportionalCompetitionRate: rate,
+          equalAllocationShares: equalShares,
+          proportionalAllocationShares: proportionalShares,
+          applicationCount: null,
+        ),
+      );
+    }
+    rows.add(
+      IpoBrokerSnapshotRow(
+        id: stock.id,
+        company: stock.company,
+        capturedAt: generatedAt.toIso8601String(),
+        source: 'estimated_broker_split',
+        sourceUrl: latest.sourceUrl,
+        brokers: brokers,
+      ),
+    );
+  }
+  return rows;
 }
 
 List<IpoCompetitionStock> mergeIdentifierRows(

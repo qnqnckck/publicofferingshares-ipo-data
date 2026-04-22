@@ -55,6 +55,86 @@
         "subscribedShares": 564460000,
         "competitionRate": 1913.44
       }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.newspim.com/news/view/20260324001299",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 147500,
+          "subscribedShares": 282232400,
+          "offerPrice": 16600,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1913.44,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1913.44,
+          "equalAllocationShares": 73750,
+          "proportionalAllocationShares": 73750,
+          "applicationCount": null
+        },
+        {
+          "name": "유진투자증권",
+          "offeredShares": 147500,
+          "subscribedShares": 282232400,
+          "offerPrice": 16600,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1913.44,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1913.44,
+          "equalAllocationShares": 73750,
+          "proportionalAllocationShares": 73750,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 295000,
+        "subscribedShares": 564464800,
+        "competitionRate": 1913.44
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.newspim.com/news/view/20260324001299",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 147500,
+          "subscribedShares": 282232400,
+          "offerPrice": 16600,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1913.44,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1913.44,
+          "equalAllocationShares": 73750,
+          "proportionalAllocationShares": 73750,
+          "applicationCount": null
+        },
+        {
+          "name": "유진투자증권",
+          "offeredShares": 147500,
+          "subscribedShares": 282232400,
+          "offerPrice": 16600,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1913.44,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1913.44,
+          "equalAllocationShares": 73750,
+          "proportionalAllocationShares": 73750,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 295000,
+        "subscribedShares": 564464800,
+        "competitionRate": 1913.44
+      }
     }
   ],
   "analysis": {
@@ -110,10 +190,29 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "NH투자증권",
+        "equalScore": 30,
+        "proportionalScore": 6,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 15881552,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "유진투자증권",
+        "equalScore": 30,
+        "proportionalScore": 6,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 15881552,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 1913.44,
-      "snapshotCount": 1,
+      "snapshotCount": 3,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

@@ -54,6 +54,58 @@
         "subscribedShares": 779180000,
         "competitionRate": 1972.62
       }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://news.nate.com/view/20250912n04496",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 395000,
+          "subscribedShares": 779184900,
+          "offerPrice": 13200,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1972.62,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1972.62,
+          "equalAllocationShares": 197500,
+          "proportionalAllocationShares": 197500,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 395000,
+        "subscribedShares": 779184900,
+        "competitionRate": 1972.62
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://news.nate.com/view/20250912n04496",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 395000,
+          "subscribedShares": 779184900,
+          "offerPrice": 13200,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1972.62,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1972.62,
+          "equalAllocationShares": 197500,
+          "proportionalAllocationShares": 197500,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 395000,
+        "subscribedShares": 779184900,
+        "competitionRate": 1972.62
+      }
     }
   ],
   "analysis": {
@@ -107,10 +159,20 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "대신증권",
+        "equalScore": 30,
+        "proportionalScore": 8,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 13019292,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 1972.62,
-      "snapshotCount": 1,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

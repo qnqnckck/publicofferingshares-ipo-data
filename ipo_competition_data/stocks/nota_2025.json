@@ -80,6 +80,58 @@
         "subscribedShares": 2028078000,
         "competitionRate": 2782.0
       }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://honda31.tistory.com/303",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 729000,
+          "subscribedShares": 2027713500,
+          "offerPrice": 9100,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2781.5,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2781.5,
+          "equalAllocationShares": 364500,
+          "proportionalAllocationShares": 364500,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 729000,
+        "subscribedShares": 2027713500,
+        "competitionRate": 2781.5
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://honda31.tistory.com/303",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 729000,
+          "subscribedShares": 2027713500,
+          "offerPrice": 9100,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2781.5,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2781.5,
+          "equalAllocationShares": 364500,
+          "proportionalAllocationShares": 364500,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 729000,
+        "subscribedShares": 2027713500,
+        "competitionRate": 2781.5
+      }
     }
   ],
   "analysis": {
@@ -134,10 +186,20 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 30,
+        "proportionalScore": 8,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 12655825,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 2781.5,
-      "snapshotCount": 2,
+      "snapshotCount": 4,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

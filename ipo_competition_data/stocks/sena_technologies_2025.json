@@ -81,6 +81,86 @@
         "subscribedShares": 123900000,
         "competitionRate": 885.0
       }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://honda31.tistory.com/303",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 70000,
+          "subscribedShares": 62004600,
+          "offerPrice": 56800,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 885.78,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 885.78,
+          "equalAllocationShares": 35000,
+          "proportionalAllocationShares": 35000,
+          "applicationCount": null
+        },
+        {
+          "name": "신한투자증권",
+          "offeredShares": 70000,
+          "subscribedShares": 62004600,
+          "offerPrice": 56800,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 885.78,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 885.78,
+          "equalAllocationShares": 35000,
+          "proportionalAllocationShares": 35000,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 140000,
+        "subscribedShares": 124009200,
+        "competitionRate": 885.78
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://honda31.tistory.com/303",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 70000,
+          "subscribedShares": 62004600,
+          "offerPrice": 56800,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 885.78,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 885.78,
+          "equalAllocationShares": 35000,
+          "proportionalAllocationShares": 35000,
+          "applicationCount": null
+        },
+        {
+          "name": "신한투자증권",
+          "offeredShares": 70000,
+          "subscribedShares": 62004600,
+          "offerPrice": 56800,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 885.78,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 885.78,
+          "equalAllocationShares": 35000,
+          "proportionalAllocationShares": 35000,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 140000,
+        "subscribedShares": 124009200,
+        "competitionRate": 885.78
+      }
     }
   ],
   "analysis": {
@@ -134,10 +214,29 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "KB증권",
+        "equalScore": 30,
+        "proportionalScore": 4,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 25156152,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "신한투자증권",
+        "equalScore": 30,
+        "proportionalScore": 4,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 25156152,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 885.78,
-      "snapshotCount": 2,
+      "snapshotCount": 4,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

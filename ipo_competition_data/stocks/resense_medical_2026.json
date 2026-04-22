@@ -55,6 +55,86 @@
         "subscribedShares": 734187860,
         "competitionRate": 2097.68
       }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/11993969",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 175000,
+          "subscribedShares": 367094000,
+          "offerPrice": 11000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2097.68,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2097.68,
+          "equalAllocationShares": 87500,
+          "proportionalAllocationShares": 87500,
+          "applicationCount": null
+        },
+        {
+          "name": "한국투자증권",
+          "offeredShares": 175000,
+          "subscribedShares": 367094000,
+          "offerPrice": 11000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2097.68,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2097.68,
+          "equalAllocationShares": 87500,
+          "proportionalAllocationShares": 87500,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 350000,
+        "subscribedShares": 734188000,
+        "competitionRate": 2097.68
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/11993969",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 175000,
+          "subscribedShares": 367094000,
+          "offerPrice": 11000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2097.68,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2097.68,
+          "equalAllocationShares": 87500,
+          "proportionalAllocationShares": 87500,
+          "applicationCount": null
+        },
+        {
+          "name": "한국투자증권",
+          "offeredShares": 175000,
+          "subscribedShares": 367094000,
+          "offerPrice": 11000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2097.68,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2097.68,
+          "equalAllocationShares": 87500,
+          "proportionalAllocationShares": 87500,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 350000,
+        "subscribedShares": 734188000,
+        "competitionRate": 2097.68
+      }
     }
   ],
   "analysis": {
@@ -110,10 +190,29 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "KB증권",
+        "equalScore": 30,
+        "proportionalScore": 9,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 11537240,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "한국투자증권",
+        "equalScore": 30,
+        "proportionalScore": 9,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 11537240,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 2097.68,
-      "snapshotCount": 1,
+      "snapshotCount": 3,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

@@ -81,6 +81,86 @@
         "subscribedShares": 838200000,
         "competitionRate": 762.0
       }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.moneys.co.kr/article/2025111217300891085",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 550000,
+          "subscribedShares": 419226500,
+          "offerPrice": 6900,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 762.23,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 762.23,
+          "equalAllocationShares": 275000,
+          "proportionalAllocationShares": 275000,
+          "applicationCount": null
+        },
+        {
+          "name": "교보증권",
+          "offeredShares": 550000,
+          "subscribedShares": 419226500,
+          "offerPrice": 6900,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 762.23,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 762.23,
+          "equalAllocationShares": 275000,
+          "proportionalAllocationShares": 275000,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1100000,
+        "subscribedShares": 838453000,
+        "competitionRate": 762.23
+      }
+    },
+    {
+      "capturedAt": "2026-04-22T19:37:37.142892",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.moneys.co.kr/article/2025111217300891085",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 550000,
+          "subscribedShares": 419226500,
+          "offerPrice": 6900,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 762.23,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 762.23,
+          "equalAllocationShares": 275000,
+          "proportionalAllocationShares": 275000,
+          "applicationCount": null
+        },
+        {
+          "name": "교보증권",
+          "offeredShares": 550000,
+          "subscribedShares": 419226500,
+          "offerPrice": 6900,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 762.23,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 762.23,
+          "equalAllocationShares": 275000,
+          "proportionalAllocationShares": 275000,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1100000,
+        "subscribedShares": 838453000,
+        "competitionRate": 762.23
+      }
     }
   ],
   "analysis": {
@@ -135,10 +215,29 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "NH투자증권",
+        "equalScore": 30,
+        "proportionalScore": 38,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 2629694,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "교보증권",
+        "equalScore": 30,
+        "proportionalScore": 38,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 2629694,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 762.23,
-      "snapshotCount": 2,
+      "snapshotCount": 4,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
