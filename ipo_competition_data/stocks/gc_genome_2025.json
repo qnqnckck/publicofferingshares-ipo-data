@@ -21,52 +21,52 @@
     "priceBandMin": 9000,
     "priceBandMax": 10500,
     "institutionCompetitionRate": 547.47,
-    "institutionParticipants": null,
+    "institutionParticipants": 1692,
     "lockupCommitmentRate": null,
-    "floatRate": null,
-    "marketCapKrw": null,
-    "publicAllocationShares": null
+    "floatRate": 0.4229,
+    "marketCapKrw": 248300000000,
+    "publicAllocationShares": 1000000
   },
   "outcome": null,
   "snapshots": [
     {
       "capturedAt": "2025-05-30T16:00:00+09:00",
-      "source": "public_monthly_ipo_schedule",
-      "sourceUrl": "https://honda31.tistory.com/300",
+      "source": "public_ipo_result",
+      "sourceUrl": "https://www.mt.co.kr/thebio/2025/05/30/2025053017040339811",
       "brokers": [
         {
           "name": "통합",
-          "offeredShares": 0,
-          "subscribedShares": 0,
+          "offeredShares": 1000000,
+          "subscribedShares": 484090740,
           "offerPrice": null,
           "depositRate": null,
           "feeKrw": null,
-          "competitionRate": 484.09,
+          "competitionRate": 484.1,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": null,
+          "proportionalCompetitionRate": 967.18,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
           "applicationCount": null
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 484.09
+        "offeredShares": 1000000,
+        "subscribedShares": 484090740,
+        "competitionRate": 484.1
       }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 37,
+      "overall": 40,
       "grade": "D",
       "confidence": 0.95,
       "factors": {
         "competition": 9,
         "institutionDemand": 8,
         "lockupCommitment": 0,
-        "floatRate": 0,
+        "floatRate": 3,
         "pricing": 5,
         "market": 5,
         "leadManagers": 3,
@@ -75,23 +75,23 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.0625,
-      "bearCaseListingGainRate": -0.1575,
-      "baseCaseListingGainRate": 0.0625,
-      "bullCaseListingGainRate": 0.4125,
+      "expectedListingGainRate": 0.092,
+      "bearCaseListingGainRate": -0.128,
+      "baseCaseListingGainRate": 0.092,
+      "bullCaseListingGainRate": 0.442,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.021,
         "oneMillionKrw": 0.197,
         "fiveMillionKrw": 0.984
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1986,
-        "oneMillionKrw": -1871,
-        "fiveMillionKrw": -1354
+        "minimumSubscription": -1980,
+        "oneMillionKrw": -1810,
+        "fiveMillionKrw": -1050
       },
       "assumptions": {
         "offerPrice": 10500,
-        "competitionRate": 484.09,
+        "competitionRate": 484.1,
         "feeKrw": 2000,
         "method": "rule_based_v1_low_confidence"
       }
@@ -100,7 +100,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 484.09대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 484.1대 1입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -108,14 +108,14 @@
     },
     "brokerScores": [],
     "inputs": {
-      "latestCompetitionRate": 484.09,
+      "latestCompetitionRate": 484.1,
       "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 547.47,
       "lockupCommitmentRate": null,
-      "floatRate": null,
+      "floatRate": 0.4229,
       "hasOutcome": false
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."

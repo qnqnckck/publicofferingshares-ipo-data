@@ -16,14 +16,14 @@
   "leadManagers": [],
   "fundamentals": {
     "offerPrice": 15500,
-    "priceBandMin": null,
-    "priceBandMax": null,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
-    "floatRate": null,
-    "marketCapKrw": null,
-    "publicAllocationShares": null
+    "priceBandMin": 12500,
+    "priceBandMax": 15500,
+    "institutionCompetitionRate": 239.23,
+    "institutionParticipants": 798,
+    "lockupCommitmentRate": 0.0103,
+    "floatRate": 0.3705,
+    "marketCapKrw": 116000000000,
+    "publicAllocationShares": 350000
   },
   "outcome": {
     "listingDate": "2024-08-20",
@@ -35,13 +35,13 @@
   "snapshots": [
     {
       "capturedAt": "2024-08-08T17:30:00+09:00",
-      "source": "article_final",
+      "source": "public_ipo_result",
       "sourceUrl": "https://www.hankyung.com/article/2024082027786",
       "brokers": [
         {
           "name": "통합",
-          "offeredShares": 0,
-          "subscribedShares": 0,
+          "offeredShares": 350000,
+          "subscribedShares": 11998000,
           "offerPrice": null,
           "depositRate": null,
           "feeKrw": null,
@@ -54,8 +54,8 @@
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
+        "offeredShares": 350000,
+        "subscribedShares": 11998000,
         "competitionRate": 34.28
       }
     }
@@ -63,35 +63,35 @@
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 13,
+      "overall": 26,
       "grade": "D",
-      "confidence": 0.8,
+      "confidence": 0.95,
       "factors": {
         "competition": 0,
-        "institutionDemand": 0,
+        "institutionDemand": 3,
         "lockupCommitment": 0,
-        "floatRate": 0,
-        "pricing": 3,
+        "floatRate": 6,
+        "pricing": 5,
         "market": 5,
         "leadManagers": 0,
         "recency": 0,
-        "dataCompleteness": 5
+        "dataCompleteness": 7
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.25,
-      "bearCaseListingGainRate": -0.47,
-      "baseCaseListingGainRate": -0.25,
-      "bullCaseListingGainRate": 0.1,
+      "expectedListingGainRate": -0.2223,
+      "bearCaseListingGainRate": -0.4423,
+      "baseCaseListingGainRate": -0.2223,
+      "bullCaseListingGainRate": 0.1277,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.292,
         "oneMillionKrw": 1.882,
         "fiveMillionKrw": 9.41
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -3130,
-        "oneMillionKrw": -9293,
-        "fiveMillionKrw": -38464
+        "minimumSubscription": -3005,
+        "oneMillionKrw": -8486,
+        "fiveMillionKrw": -34428
       },
       "assumptions": {
         "offerPrice": 15500,
@@ -117,9 +117,9 @@
       "leadManagerCount": 0,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
-      "floatRate": null,
+      "institutionCompetitionRate": 239.23,
+      "lockupCommitmentRate": 0.0103,
+      "floatRate": 0.3705,
       "hasOutcome": true
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."

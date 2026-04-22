@@ -20,24 +20,24 @@
     "offerPrice": 34700,
     "priceBandMin": 28500,
     "priceBandMax": 34700,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
+    "institutionCompetitionRate": 75.14,
+    "institutionParticipants": 852,
     "lockupCommitmentRate": null,
     "floatRate": null,
-    "marketCapKrw": null,
-    "publicAllocationShares": null
+    "marketCapKrw": 343000000000,
+    "publicAllocationShares": 519750
   },
   "outcome": null,
   "snapshots": [
     {
       "capturedAt": "2023-11-13T16:00:00+09:00",
-      "source": "public_ipo_backfill",
-      "sourceUrl": "https://www.fnnews.com/news/202311141029575527",
+      "source": "public_ipo_result",
+      "sourceUrl": "https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202311140134",
       "brokers": [
         {
           "name": "통합",
-          "offeredShares": 0,
-          "subscribedShares": 0,
+          "offeredShares": 519750,
+          "subscribedShares": 10235420,
           "offerPrice": null,
           "depositRate": null,
           "feeKrw": null,
@@ -50,8 +50,8 @@
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
+        "offeredShares": 519750,
+        "subscribedShares": 10235420,
         "competitionRate": 19.7
       }
     }
@@ -59,19 +59,19 @@
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 19,
+      "overall": 21,
       "grade": "D",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "factors": {
         "competition": 0,
-        "institutionDemand": 0,
+        "institutionDemand": 1,
         "lockupCommitment": 0,
         "floatRate": 0,
         "pricing": 5,
         "market": 5,
         "leadManagers": 3,
         "recency": 0,
-        "dataCompleteness": 6
+        "dataCompleteness": 7
       }
     },
     "expectedReturn": {
@@ -113,7 +113,7 @@
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": null,
+      "institutionCompetitionRate": 75.14,
       "lockupCommitmentRate": null,
       "floatRate": null,
       "hasOutcome": false

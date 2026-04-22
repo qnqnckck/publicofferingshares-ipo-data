@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-22T09:16:17.282907",
+  "generatedAt": "2026-04-22T18:24:54.818295",
   "methodVersion": "ipo-score-v1",
   "sampleCount": 59,
   "summary": {
     "averageCloseReturnRate": 0.8601,
     "medianCloseReturnRate": 0.5019,
-    "averageErrorCloseVsExpected": 0.6263,
+    "averageErrorCloseVsExpected": 0.6258,
     "medianErrorCloseVsExpected": 0.2556
   },
   "byGrade": {
@@ -52,16 +52,10 @@
       "averageErrorCloseVsExpected": 0.4938
     },
     "20-29": {
-      "sampleCount": 6,
-      "averageCloseReturnRate": 0.0158,
-      "medianCloseReturnRate": 0.041,
-      "averageErrorCloseVsExpected": 0.2111
-    },
-    "10-19": {
-      "sampleCount": 1,
-      "averageCloseReturnRate": -0.0903,
-      "medianCloseReturnRate": -0.0903,
-      "averageErrorCloseVsExpected": 0.1597
+      "sampleCount": 7,
+      "averageCloseReturnRate": 0.0007,
+      "medianCloseReturnRate": -0.0759,
+      "averageErrorCloseVsExpected": 0.1998
     }
   },
   "rows": [
@@ -781,6 +775,19 @@
       "errorCloseVsExpected": 0.0892
     },
     {
+      "id": "k3i_2024",
+      "company": "케이쓰리아이",
+      "score": 26,
+      "grade": "D",
+      "confidence": 0.95,
+      "expectedListingGainRate": -0.2223,
+      "openReturnRate": 0.01935483870967742,
+      "highReturnRate": null,
+      "closeReturnRate": -0.09032258064516129,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/2024082027786",
+      "errorCloseVsExpected": 0.132
+    },
+    {
       "id": "next_biomedical_2024",
       "company": "넥스트바이오메디컬",
       "score": 26,
@@ -818,19 +825,6 @@
       "closeReturnRate": -0.20307692307692307,
       "outcomeSourceUrl": "https://www.hankyung.com/article/2024121604681",
       "errorCloseVsExpected": 0.0469
-    },
-    {
-      "id": "k3i_2024",
-      "company": "케이쓰리아이",
-      "score": 13,
-      "grade": "D",
-      "confidence": 0.8,
-      "expectedListingGainRate": -0.25,
-      "openReturnRate": 0.01935483870967742,
-      "highReturnRate": null,
-      "closeReturnRate": -0.09032258064516129,
-      "outcomeSourceUrl": "https://www.hankyung.com/article/2024082027786",
-      "errorCloseVsExpected": 0.1597
     }
   ],
   "note": "Backtest is exploratory. Sample size is currently too small for predictive calibration."
