@@ -162,8 +162,15 @@ class IpoCompetitionBatch {
         ...discoveredStocks,
         ...await _loadLiveStocks(),
       ]);
+      final sourceEnhancedStocks = mergeStocks([
+        ...stocksWithoutExternalOutcomes,
+        ...await _discoverIpoKoreaSupplementStocks(
+          stocksWithoutExternalOutcomes,
+          generatedAt,
+        ),
+      ]);
       final stocks = mergeOutcomes(
-        stocksWithoutExternalOutcomes,
+        sourceEnhancedStocks,
         await _loadOutcomeRows(),
       );
       final localIdentifierRows = await _loadIdentifierRows();
@@ -484,6 +491,53 @@ class IpoCompetitionBatch {
     discovered.addAll(await _discoverItickStocks());
     _noteKisCredentialsIfConfigured();
     return discovered;
+  }
+
+  Future<List<IpoCompetitionStock>> _discoverIpoKoreaSupplementStocks(
+    List<IpoCompetitionStock> stocks,
+    DateTime now,
+  ) async {
+    final today = DateTime(now.year, now.month, now.day);
+
+    bool isCompleted(IpoCompetitionStock stock) {
+      final end =
+          parseDate(stock.subscriptionEnd) ??
+          parseDate(stock.subscriptionStart);
+      return end != null && !end.isAfter(today);
+    }
+
+    bool needsSupplement(IpoCompetitionStock stock) {
+      return stock.fundamentals.institutionParticipants == null ||
+          stock.fundamentals.lockupCommitmentRate == null ||
+          stock.fundamentals.publicAllocationShares == null ||
+          stock.latestSnapshot?.aggregate.competitionRate == null;
+    }
+
+    final candidates = stocks.where(isCompleted).where(needsSupplement).toList()
+      ..sort(
+        (a, b) => (b.subscriptionEnd ?? b.subscriptionStart ?? '').compareTo(
+          a.subscriptionEnd ?? a.subscriptionStart ?? '',
+        ),
+      );
+
+    final supplements = <IpoCompetitionStock>[];
+    for (final stock in candidates.take(12)) {
+      final sourceUrl =
+          'https://ipokorea.kr/ipo/${Uri.encodeComponent(stock.company)}';
+      final body = await httpGetFirstText([sourceUrl]);
+      if (body == null || body.trim().isEmpty) {
+        continue;
+      }
+      final supplement = parseIpoKoreaSupplement(
+        stock: stock,
+        text: body,
+        sourceUrl: sourceUrl,
+      );
+      if (supplement != null) {
+        supplements.add(supplement);
+      }
+    }
+    return supplements;
   }
 
   void _noteKisCredentialsIfConfigured() {
@@ -1903,6 +1957,203 @@ class IpoBrokerSnapshotRow {
 
 String normalizeLookup(String value) {
   return value.replaceAll(RegExp(r'\s+'), '').toLowerCase();
+}
+
+IpoCompetitionStock? parseIpoKoreaSupplement({
+  required IpoCompetitionStock stock,
+  required String text,
+  required String sourceUrl,
+}) {
+  final offerPrice = parseLabeledWon(text, ['확정공모가', '확정 공모가']);
+  final institutionCompetitionRate = parseLabeledRate(text, [
+    '기관 경쟁률',
+    '기관경쟁률',
+  ]);
+  final institutionParticipants = parseLabeledInt(text, [
+    '참여건수',
+    '참여 건수',
+    '참여기관',
+    '참여 기관',
+  ]);
+  final lockupCommitmentRate = parseLabeledPercent(text, [
+    '의무보유확약 비율',
+    '의무보유확약률',
+    '의무보유 확약',
+  ]);
+  final retailCompetitionRate = parseLabeledRate(text, [
+    '일반 청약 경쟁률',
+    '일반청약 경쟁률',
+    '청약 경쟁률',
+  ]);
+  final publicAllocationShares = parseLabeledShares(text, [
+    '일반투자자 배정',
+    '일반 투자자 배정',
+    '일반청약자 배정',
+    '일반 청약자 배정',
+  ]);
+  final marketCapKrw = parseLabeledWon(text, ['예상 시가총액', '시가총액']);
+
+  final hasFundamentalSupplement =
+      offerPrice != null ||
+      institutionCompetitionRate != null ||
+      institutionParticipants != null ||
+      lockupCommitmentRate != null ||
+      publicAllocationShares != null ||
+      marketCapKrw != null;
+  final hasSnapshotSupplement = retailCompetitionRate != null;
+  if (!hasFundamentalSupplement && !hasSnapshotSupplement) {
+    return null;
+  }
+
+  final snapshots = <IpoCompetitionSnapshot>[];
+  if (retailCompetitionRate != null) {
+    final offeredShares = publicAllocationShares ?? 0;
+    snapshots.add(
+      IpoCompetitionSnapshot(
+        capturedAt:
+            '${stock.subscriptionEnd ?? stock.subscriptionStart ?? DateTime.now().toIso8601String()}T16:00:00+09:00',
+        source: 'ipokorea_supplement',
+        sourceUrl: sourceUrl,
+        aggregateCompetitionRate: retailCompetitionRate,
+        brokers: [
+          IpoBrokerCompetition(
+            name: '통합',
+            offeredShares: offeredShares,
+            subscribedShares: offeredShares <= 0
+                ? 0
+                : (offeredShares * retailCompetitionRate).round(),
+            offerPrice: offerPrice,
+            depositRate: null,
+            feeKrw: null,
+            competitionRate: retailCompetitionRate,
+            equalCompetitionRate: null,
+            proportionalCompetitionRate: null,
+          ),
+        ],
+      ),
+    );
+  }
+
+  return IpoCompetitionStock(
+    id: stock.id,
+    company: stock.company,
+    market: stock.market,
+    subscriptionStart: stock.subscriptionStart,
+    subscriptionEnd: stock.subscriptionEnd,
+    leadManagers: const [],
+    sourceIdentifiers: stock.identifiers,
+    fundamentals: IpoFundamentals(
+      offerPrice: offerPrice,
+      priceBandMin: null,
+      priceBandMax: null,
+      institutionCompetitionRate: institutionCompetitionRate,
+      institutionParticipants: institutionParticipants,
+      lockupCommitmentRate: lockupCommitmentRate,
+      floatRate: null,
+      marketCapKrw: marketCapKrw,
+      publicAllocationShares: publicAllocationShares,
+    ),
+    outcome: null,
+    snapshots: snapshots,
+  );
+}
+
+double? parseLabeledRate(String text, List<String> labels) {
+  return parseLabeledDouble(text, labels);
+}
+
+double? parseLabeledPercent(String text, List<String> labels) {
+  final parsed = parseLabeledDouble(text, labels);
+  if (parsed == null) {
+    return null;
+  }
+  return parsed > 1 ? parsed / 100 : parsed;
+}
+
+int? parseLabeledWon(String text, List<String> labels) {
+  final normalized = normalizeSourceText(text);
+  for (final label in labels) {
+    final match = RegExp(
+      '${RegExp.escape(label)}[^0-9]{0,40}([0-9][0-9,]*(?:\\.[0-9]+)?)\\s*(조|억|만|원)?',
+      caseSensitive: false,
+    ).firstMatch(normalized);
+    if (match == null) {
+      continue;
+    }
+    final value = parseNumericToken(match.group(1));
+    if (value == null) {
+      continue;
+    }
+    final unit = match.group(2) ?? '';
+    if (unit == '조') {
+      return (value * 1000000000000).round();
+    }
+    if (unit == '억') {
+      return (value * 100000000).round();
+    }
+    if (unit == '만') {
+      return (value * 10000).round();
+    }
+    return value.round();
+  }
+  return null;
+}
+
+int? parseLabeledShares(String text, List<String> labels) {
+  final normalized = normalizeSourceText(text);
+  for (final label in labels) {
+    final match = RegExp(
+      '${RegExp.escape(label)}[^0-9]{0,40}([0-9][0-9,]*(?:\\.[0-9]+)?)\\s*(억|만|주)?',
+      caseSensitive: false,
+    ).firstMatch(normalized);
+    if (match == null) {
+      continue;
+    }
+    final value = parseNumericToken(match.group(1));
+    if (value == null) {
+      continue;
+    }
+    final unit = match.group(2) ?? '';
+    if (unit == '억') {
+      return (value * 100000000).round();
+    }
+    if (unit == '만') {
+      return (value * 10000).round();
+    }
+    return value.round();
+  }
+  return null;
+}
+
+int? parseLabeledInt(String text, List<String> labels) {
+  final parsed = parseLabeledDouble(text, labels);
+  return parsed?.round();
+}
+
+double? parseLabeledDouble(String text, List<String> labels) {
+  final normalized = normalizeSourceText(text);
+  for (final label in labels) {
+    final match = RegExp(
+      '${RegExp.escape(label)}[^0-9]{0,40}([0-9][0-9,]*(?:\\.[0-9]+)?)',
+      caseSensitive: false,
+    ).firstMatch(normalized);
+    final parsed = parseNumericToken(match?.group(1));
+    if (parsed != null) {
+      return parsed;
+    }
+  }
+  return null;
+}
+
+double? parseNumericToken(String? value) {
+  if (value == null) {
+    return null;
+  }
+  return double.tryParse(value.replaceAll(',', '').trim());
+}
+
+String normalizeSourceText(String value) {
+  return value.replaceAll('&nbsp;', ' ').replaceAll(RegExp(r'\s+'), ' ').trim();
 }
 
 class IpoOutcomeRow {

@@ -116,6 +116,13 @@ deposit rate, then merge the result into the generated stock JSON. If a public
 page has not published a rate yet, that adapter skips the stock and the rest of
 the batch still succeeds.
 
+For recently completed IPOs with missing judgement fields, the batch also tries
+an IPO Korea detail-page supplement. It is deliberately capped to a small number
+of recent incomplete rows per run, so scheduled GitHub Actions can fill missing
+institution participant counts, lock-up commitment rates, retail competition
+rates, and public allocation shares incrementally without overloading public
+sources.
+
 ## Live snapshot input
 
 Files under `data/live_snapshots/*.json` may contain either a full stock object

@@ -20,12 +20,12 @@
     "offerPrice": 21600,
     "priceBandMin": 16700,
     "priceBandMax": 21600,
-    "institutionCompetitionRate": 1108.93,
+    "institutionCompetitionRate": 1109.0,
     "institutionParticipants": 2320,
-    "lockupCommitmentRate": 0.7539,
+    "lockupCommitmentRate": 0.9670000000000001,
     "floatRate": null,
-    "marketCapKrw": null,
-    "publicAllocationShares": null
+    "marketCapKrw": 209000000000,
+    "publicAllocationShares": 336250
   },
   "outcome": null,
   "snapshots": [
@@ -53,6 +53,32 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 2428.25
+      }
+    },
+    {
+      "capturedAt": "2026-03-17T16:00:00+09:00",
+      "source": "ipokorea_supplement",
+      "sourceUrl": "https://ipokorea.kr/ipo/%EB%A9%94%EC%A5%AC",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 336250,
+          "subscribedShares": 816415000,
+          "offerPrice": 21600,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2428.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 336250,
+        "subscribedShares": 816415000,
+        "competitionRate": 2428.0
       }
     }
   ],
@@ -111,12 +137,12 @@
     "brokerScores": [],
     "inputs": {
       "latestCompetitionRate": 2428.25,
-      "snapshotCount": 1,
+      "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": 1108.93,
-      "lockupCommitmentRate": 0.7539,
+      "institutionCompetitionRate": 1109.0,
+      "lockupCommitmentRate": 0.9670000000000001,
       "floatRate": null,
       "hasOutcome": false
     },
