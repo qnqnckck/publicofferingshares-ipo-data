@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-23T04:26:34.487031",
+  "generatedAt": "2026-04-23T06:21:53.158953",
   "methodVersion": "ipo-score-v1",
   "sampleCount": 59,
   "summary": {
     "averageCloseReturnRate": 0.8601,
     "medianCloseReturnRate": 0.5019,
-    "averageErrorCloseVsExpected": 0.6106,
+    "averageErrorCloseVsExpected": 0.61,
     "medianErrorCloseVsExpected": 0.2556
   },
   "byGrade": {
@@ -51,16 +51,16 @@
       "averageErrorCloseVsExpected": 0.7353
     },
     "40-49": {
-      "sampleCount": 25,
-      "averageCloseReturnRate": 0.9227,
-      "medianCloseReturnRate": 0.5667,
-      "averageErrorCloseVsExpected": 0.6408
+      "sampleCount": 26,
+      "averageCloseReturnRate": 0.9243,
+      "medianCloseReturnRate": 0.5818,
+      "averageErrorCloseVsExpected": 0.6525
     },
     "30-39": {
-      "sampleCount": 8,
-      "averageCloseReturnRate": 0.5118,
-      "medianCloseReturnRate": 0.0271,
-      "averageErrorCloseVsExpected": 0.5399
+      "sampleCount": 7,
+      "averageCloseReturnRate": 0.447,
+      "medianCloseReturnRate": -0.0759,
+      "averageErrorCloseVsExpected": 0.4766
     },
     "20-29": {
       "sampleCount": 5,
@@ -591,6 +591,19 @@
       "errorCloseVsExpected": -0.0444
     },
     {
+      "id": "hd_hyundai_marine_solution_2024",
+      "company": "HD현대마린솔루션",
+      "score": 42,
+      "grade": "D",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.0219,
+      "openReturnRate": 0.43764988009592326,
+      "highReturnRate": null,
+      "closeReturnRate": 0.9652278177458034,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240508041000008",
+      "errorCloseVsExpected": 0.9433
+    },
+    {
       "id": "inix_2024",
       "company": "이닉스",
       "score": 41,
@@ -667,19 +680,6 @@
       "closeReturnRate": -0.3825,
       "outcomeSourceUrl": "https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=AKR20241101064952008",
       "errorCloseVsExpected": -0.5059
-    },
-    {
-      "id": "hd_hyundai_marine_solution_2024",
-      "company": "HD현대마린솔루션",
-      "score": 38,
-      "grade": "D",
-      "confidence": 0.95,
-      "expectedListingGainRate": -0.0174,
-      "openReturnRate": 0.43764988009592326,
-      "highReturnRate": null,
-      "closeReturnRate": 0.9652278177458034,
-      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240508041000008",
-      "errorCloseVsExpected": 0.9826
     },
     {
       "id": "sungwoo_2024",

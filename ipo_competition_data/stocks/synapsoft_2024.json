@@ -15,6 +15,7 @@
   "subscriptionEnd": "2024-11-11",
   "leadManagers": [
     "미래에셋증권",
+    "하나증권",
     "한국투자증권"
   ],
   "fundamentals": {
@@ -63,12 +64,26 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T04:26:34.487031",
+      "capturedAt": "2026-04-23T06:21:53.158953",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
       "brokers": [
         {
           "name": "미래에셋증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 24500,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 60.466,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 60.466,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "하나증권",
           "offeredShares": 0,
           "subscribedShares": 0,
           "offerPrice": 24500,
@@ -103,12 +118,26 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T04:26:34.487031",
+      "capturedAt": "2026-04-23T06:21:53.158953",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
       "brokers": [
         {
           "name": "미래에셋증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 24500,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 60.466,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 60.466,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "하나증권",
           "offeredShares": 0,
           "subscribedShares": 0,
           "offerPrice": 24500,
@@ -205,6 +234,15 @@
         "dataQuality": "partial"
       },
       {
+        "broker": "하나증권",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 740709,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
         "broker": "한국투자증권",
         "equalScore": 30,
         "proportionalScore": 100,
@@ -217,7 +255,7 @@
     "inputs": {
       "latestCompetitionRate": 60.466,
       "snapshotCount": 3,
-      "leadManagerCount": 2,
+      "leadManagerCount": 3,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1163.2,
