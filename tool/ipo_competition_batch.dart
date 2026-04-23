@@ -1615,10 +1615,16 @@ List<IpoCompetitionStock> mergeBrokerSnapshots(
     }
   }
   return stocks.map((stock) {
-    final matches = [
+    final seen = <IpoBrokerSnapshotRow>{};
+    final matches = <IpoBrokerSnapshotRow>[];
+    for (final row in [
       ...?byId[safeId(stock.id)],
       ...?byCompany[normalizeLookup(stock.company)],
-    ];
+    ]) {
+      if (seen.add(row)) {
+        matches.add(row);
+      }
+    }
     if (matches.isEmpty) {
       return stock;
     }
@@ -3078,9 +3084,7 @@ class IpoBrokerScore {
           ? null
           : roundDouble(expectedEqualShares!, 4),
       'estimatedDepositForOneProportionalShare':
-          estimatedDepositForOneProportionalShare == null
-          ? null
-          : estimatedDepositForOneProportionalShare!.round(),
+          estimatedDepositForOneProportionalShare?.round(),
       'feeKrw': feeKrw,
       'dataQuality': dataQuality,
     };

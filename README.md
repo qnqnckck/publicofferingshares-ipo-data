@@ -98,6 +98,27 @@ dart run tool/ipo_competition_batch.dart --backfill-years 3 --watch --interval-m
 GitHub Actions runs the same generation command every 10 minutes during Korean
 weekday market hours.
 
+The checked-in workflow file is maintained under
+`workflow_templates/ipo_competition_batch.yml`. When this data repository is
+published as a standalone GitHub repository, copy that template to
+`.github/workflows/ipo_competition_batch.yml` and keep the template updated with
+any runtime, secret, or command changes.
+
+## Documentation upkeep
+
+Every data-pipeline or app-facing data contract change must update this README
+or `docs/analysis_methodology.md` in the same change. In particular, document:
+
+- new external source adapters or GitHub Actions secrets
+- new generated JSON fields read by the Flutter app
+- score, grade, confidence, or missing-data display behavior
+- manual override files under `data/outcomes`, `data/broker_snapshots`,
+  `data/identifiers`, or `data/ipo_competition_seed.json`
+
+If a generated stock has missing judgement inputs, the app should not present a
+low numeric score as if it were a negative assessment. It should render a neutral
+white/gray "정보 부족" state and grade `-` until enough source fields are present.
+
 ## Data source policy
 
 Do not fabricate historical competition rates. Seed rows should come from a
@@ -187,7 +208,7 @@ Each generated stock JSON includes `analysis`:
 - `decision`: app-ready label, reasons, and warnings.
 - `inputs`: key fields used by the current method.
 
-The current method is `ipo-score-v1`. It is intentionally transparent and should
+The current method is `ipo-score-v2`. It is intentionally transparent and should
 be calibrated with historical `outcome` rows before being treated as predictive.
 
 Generated backtest report:

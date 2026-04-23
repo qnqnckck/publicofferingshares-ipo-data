@@ -5,7 +5,7 @@ The score is a reference indicator, not investment advice.
 
 ## Current method
 
-`methodVersion: ipo-score-v1`
+`methodVersion: ipo-score-v2`
 
 The first version is intentionally rule-based. It prioritizes transparency over
 model complexity because the dataset is still sparse and source quality varies.
@@ -23,6 +23,24 @@ The overall score is capped to `0..100`.
 - `leadManagers`: number of known lead managers.
 - `recency`: whether the subscription date is active/upcoming/recent.
 - `dataCompleteness`: availability of snapshots, source URL, market, date, and managers.
+
+## Missing-data display policy
+
+The score is meaningful only when enough judgement inputs are present. If a
+generated feed item is missing required source context, the Flutter app should
+show a neutral information state instead of a low grade:
+
+- score label: `정보 부족`
+- grade label: `-`
+- visual treatment: white/gray, not red or other warning colors
+
+Missing source context includes absent public subscription competition snapshots,
+absent retail competition rate after the subscription has completed, absent
+broker-level competition rows for completed IPOs, or an explicit
+`decisionLevel: insufficient_data`.
+
+This prevents sparse rows, such as newly discovered or incompletely crawled IPOs,
+from being mistaken for objectively poor subscriptions.
 
 ## Expected return
 
