@@ -94,6 +94,27 @@ the related `spacMomentum` and `spacVolatility` score factors, so strong SPAC
 subscription demand is no longer suppressed by missing operating-company float
 or lock-up fields.
 
+### SPAC calibration overlay
+
+When historical SPAC outcomes exist, the generator also writes
+`ipo_competition_data/calibration_report.json` and applies a lightweight
+sample-size-damped adjustment to future SPAC expected returns.
+
+- calibration uses a SPAC-specific reference return, not close only:
+  `0.45 * open + 0.35 * high + 0.20 * close` when those prices exist.
+- the model compares that historical reference return with the raw expected
+  listing gain rate and stores the average error by retail competition bucket.
+- the applied adjustment is intentionally capped and damped while sample size is
+  small.
+
+Applied calibration is exposed in each SPAC item's
+`analysis.expectedReturn.assumptions` as:
+
+- `uncalibratedBaseGainRate`
+- `calibrationApplied`
+- `calibrationSampleCount`
+- `calibrationCompetitionBucket`
+
 ## Extended input blocks
 
 Stock JSON may include:

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 const schemaVersion = 1;
+IpoAnalysisCalibration _analysisCalibration = const IpoAnalysisCalibration();
 
 Future<void> main(List<String> args) async {
   final options = BatchOptions.parse(args);
@@ -220,6 +221,8 @@ class IpoCompetitionBatch {
             return a.company.compareTo(b.company);
           });
 
+      _analysisCalibration = buildAnalysisCalibration(selected);
+
       await Directory('${options.outDir}/stocks').create(recursive: true);
       final indexStocks = <Map<String, Object?>>[];
 
@@ -248,6 +251,15 @@ class IpoCompetitionBatch {
       await File(
         '${options.outDir}/backtest_report.json',
       ).writeAsString(prettyJson(buildBacktestReport(selected, generatedAt)));
+      await File('${options.outDir}/calibration_report.json').writeAsString(
+        prettyJson(
+          buildCalibrationReport(
+            stocks: selected,
+            generatedAt: generatedAt,
+            calibration: _analysisCalibration,
+          ),
+        ),
+      );
       await File('${options.outDir}/coverage_report.json').writeAsString(
         prettyJson(
           buildCoverageReport(
@@ -2929,7 +2941,11 @@ double? readRatio(Object? value) {
 
 void unawaited(Future<void> future) {}
 
-IpoAnalysis analyzeStock(IpoCompetitionStock stock) {
+IpoAnalysis analyzeStock(
+  IpoCompetitionStock stock, {
+  IpoAnalysisCalibration? calibration,
+}) {
+  final effectiveCalibration = calibration ?? _analysisCalibration;
   final isSpac = isSpacStock(stock);
   final latestRate = stock.latestSnapshot?.aggregate.competitionRate;
   final competitionScore = scoreCompetition(latestRate);
@@ -2972,6 +2988,7 @@ IpoAnalysis analyzeStock(IpoCompetitionStock stock) {
     score: total,
     competitionRate: latestRate,
     confidence: confidence,
+    calibration: effectiveCalibration,
   );
   final expectedGainRate = expectedReturnProfile.expectedListingGainRate;
   final offerPrice = stock.latestOfferPrice;
@@ -3058,6 +3075,82 @@ class IpoAnalysis {
       'brokerScores': brokerScores.map((score) => score.toJson()).toList(),
       'inputs': inputs,
       'disclaimer': '공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다.',
+    };
+  }
+}
+
+class IpoAnalysisCalibration {
+  const IpoAnalysisCalibration({this.spac});
+
+  final IpoSpacCalibration? spac;
+
+  bool get hasSpac => spac != null && spac!.sampleCount > 0;
+
+  Map<String, Object?> toJson() {
+    return {'spac': spac?.toJson()};
+  }
+}
+
+class IpoSpacCalibration {
+  const IpoSpacCalibration({
+    required this.sampleCount,
+    required this.averageReferenceError,
+    required this.medianReferenceError,
+    required this.dampedAdjustment,
+    required this.maxAdjustment,
+    required this.byCompetitionBucket,
+  });
+
+  final int sampleCount;
+  final double? averageReferenceError;
+  final double? medianReferenceError;
+  final double dampedAdjustment;
+  final double maxAdjustment;
+  final Map<String, IpoBucketCalibration> byCompetitionBucket;
+
+  IpoBucketCalibration? bucketFor(double? competitionRate) {
+    if (competitionRate == null) {
+      return null;
+    }
+    return byCompetitionBucket[competitionBucketFor(competitionRate)];
+  }
+
+  Map<String, Object?> toJson() {
+    return {
+      'sampleCount': sampleCount,
+      'averageReferenceError': averageReferenceError,
+      'medianReferenceError': medianReferenceError,
+      'dampedAdjustment': dampedAdjustment,
+      'maxAdjustment': maxAdjustment,
+      'byCompetitionBucket': byCompetitionBucket.map(
+        (key, value) => MapEntry(key, value.toJson()),
+      ),
+    };
+  }
+}
+
+class IpoBucketCalibration {
+  const IpoBucketCalibration({
+    required this.bucket,
+    required this.sampleCount,
+    required this.averageReferenceError,
+    required this.medianReferenceError,
+    required this.dampedAdjustment,
+  });
+
+  final String bucket;
+  final int sampleCount;
+  final double? averageReferenceError;
+  final double? medianReferenceError;
+  final double dampedAdjustment;
+
+  Map<String, Object?> toJson() {
+    return {
+      'bucket': bucket,
+      'sampleCount': sampleCount,
+      'averageReferenceError': averageReferenceError,
+      'medianReferenceError': medianReferenceError,
+      'dampedAdjustment': dampedAdjustment,
     };
   }
 }
@@ -3478,6 +3571,7 @@ IpoExpectedReturnProfile expectedReturnProfileFor({
   required int score,
   required double? competitionRate,
   required double confidence,
+  required IpoAnalysisCalibration calibration,
 }) {
   if (isSpacStock(stock)) {
     return spacExpectedReturnProfileFor(
@@ -3485,6 +3579,7 @@ IpoExpectedReturnProfile expectedReturnProfileFor({
       score: score,
       competitionRate: competitionRate,
       confidence: confidence,
+      calibration: calibration.spac,
     );
   }
   final expected = generalExpectedGainRateFor(
@@ -3519,6 +3614,7 @@ IpoExpectedReturnProfile spacExpectedReturnProfileFor({
   required int score,
   required double? competitionRate,
   required double confidence,
+  required IpoSpacCalibration? calibration,
 }) {
   final proportionalRate = maxProportionalCompetitionRate(stock);
   final institutionRate = stock.fundamentals.institutionCompetitionRate;
@@ -3549,7 +3645,18 @@ IpoExpectedReturnProfile spacExpectedReturnProfileFor({
       lowLockupBaseBoost +
       scoreComponent;
   final confidenceFactor = 0.78 + confidence * 0.22;
-  final base = clampDouble(rawBase * confidenceFactor, -0.05, 1.6);
+  final uncalibratedBase = clampDouble(rawBase * confidenceFactor, -0.05, 1.6);
+  final bucketCalibration = calibration?.bucketFor(competitionRate);
+  final calibrationAdjustment = clampDouble(
+    bucketCalibration?.dampedAdjustment ?? calibration?.dampedAdjustment ?? 0,
+    -(calibration?.maxAdjustment ?? 0.22),
+    calibration?.maxAdjustment ?? 0.22,
+  );
+  final base = clampDouble(
+    uncalibratedBase + calibrationAdjustment,
+    -0.05,
+    1.6,
+  );
   final volatilityPremium =
       0.28 +
       (lowLockupVolatility ? 0.42 : 0.12) +
@@ -3571,6 +3678,10 @@ IpoExpectedReturnProfile spacExpectedReturnProfileFor({
       'proportionalCompetitionRate': proportionalRate,
       'institutionCompetitionRate': institutionRate,
       'lowLockupVolatility': lowLockupVolatility,
+      'uncalibratedBaseGainRate': uncalibratedBase,
+      'calibrationApplied': calibrationAdjustment,
+      'calibrationSampleCount': calibration?.sampleCount ?? 0,
+      'calibrationCompetitionBucket': bucketCalibration?.bucket,
     },
   );
 }
@@ -3912,6 +4023,185 @@ double mathPow10(int digits) {
   return result;
 }
 
+IpoAnalysisCalibration buildAnalysisCalibration(
+  List<IpoCompetitionStock> stocks,
+) {
+  final rows = stocks
+      .where((stock) => isSpacStock(stock))
+      .map((stock) {
+        final referenceReturn = referenceReturnRateForBacktest(stock);
+        if (referenceReturn == null) {
+          return null;
+        }
+        final rawAnalysis = analyzeStock(
+          stock,
+          calibration: const IpoAnalysisCalibration(),
+        );
+        final competitionRate = stock.latestSnapshot?.aggregate.competitionRate;
+        return {
+          'id': safeId(stock.id),
+          'competitionBucket': competitionBucketFor(competitionRate),
+          'referenceError': roundDouble(
+            referenceReturn -
+                rawAnalysis.expectedReturn.expectedListingGainRate,
+            4,
+          ),
+        };
+      })
+      .whereType<Map<String, Object?>>()
+      .toList();
+  if (rows.isEmpty) {
+    return const IpoAnalysisCalibration();
+  }
+  final errors = rows
+      .map((row) => row['referenceError'])
+      .whereType<double>()
+      .toList();
+  final bucketed = <String, List<double>>{};
+  for (final row in rows) {
+    final bucket = '${row['competitionBucket']}';
+    final error = row['referenceError'];
+    if (error is! double) {
+      continue;
+    }
+    bucketed.putIfAbsent(bucket, () => []).add(error);
+  }
+  final byCompetitionBucket = bucketed.map((bucket, values) {
+    return MapEntry(
+      bucket,
+      IpoBucketCalibration(
+        bucket: bucket,
+        sampleCount: values.length,
+        averageReferenceError: average(values),
+        medianReferenceError: median(values),
+        dampedAdjustment: dampedCalibrationAdjustment(values),
+      ),
+    );
+  });
+  return IpoAnalysisCalibration(
+    spac: IpoSpacCalibration(
+      sampleCount: rows.length,
+      averageReferenceError: average(errors),
+      medianReferenceError: median(errors),
+      dampedAdjustment: dampedCalibrationAdjustment(errors),
+      maxAdjustment: 0.22,
+      byCompetitionBucket: byCompetitionBucket,
+    ),
+  );
+}
+
+Map<String, Object?> buildCalibrationReport({
+  required List<IpoCompetitionStock> stocks,
+  required DateTime generatedAt,
+  required IpoAnalysisCalibration calibration,
+}) {
+  final spacRows = stocks
+      .where((stock) => isSpacStock(stock))
+      .map((stock) {
+        final referenceReturn = referenceReturnRateForBacktest(stock);
+        if (referenceReturn == null) {
+          return null;
+        }
+        final rawAnalysis = analyzeStock(
+          stock,
+          calibration: const IpoAnalysisCalibration(),
+        );
+        final competitionRate = stock.latestSnapshot?.aggregate.competitionRate;
+        return {
+          'id': safeId(stock.id),
+          'company': stock.company,
+          'competitionRate': competitionRate,
+          'competitionBucket': competitionBucketFor(competitionRate),
+          'expectedListingGainRateRaw': roundDouble(
+            rawAnalysis.expectedReturn.expectedListingGainRate,
+            4,
+          ),
+          'referenceReturnRate': referenceReturn,
+          'referenceError': roundDouble(
+            referenceReturn -
+                rawAnalysis.expectedReturn.expectedListingGainRate,
+            4,
+          ),
+        };
+      })
+      .whereType<Map<String, Object?>>()
+      .toList();
+  spacRows.sort((a, b) => '${b['id']}'.compareTo('${a['id']}'));
+  return {
+    'schemaVersion': schemaVersion,
+    'generatedAt': generatedAt.toIso8601String(),
+    'methodVersion': 'ipo-score-v4',
+    'calibration': calibration.toJson(),
+    'spacHistoricalRows': spacRows,
+    'note':
+        'Calibration is intentionally weak and sample-size damped. It is used only as a lightweight adjustment layer.',
+  };
+}
+
+double dampedCalibrationAdjustment(List<double> errors) {
+  final avg = average(errors);
+  if (avg == null) {
+    return 0;
+  }
+  final sampleWeight = clampDouble(errors.length / 5, 0.15, 0.6);
+  return roundDouble(avg * sampleWeight, 4);
+}
+
+double? referenceReturnRateForBacktest(IpoCompetitionStock stock) {
+  final outcome = stock.outcome;
+  if (outcome == null) {
+    return null;
+  }
+  if (isSpacStock(stock)) {
+    final weighted = weightedAverage([
+      (outcome.openReturnRate, 0.45),
+      (outcome.highReturnRate, 0.35),
+      (outcome.closeReturnRate, 0.20),
+    ]);
+    if (weighted != null) {
+      return weighted;
+    }
+  }
+  return outcome.closeReturnRate ??
+      outcome.openReturnRate ??
+      outcome.highReturnRate;
+}
+
+String competitionBucketFor(double? competitionRate) {
+  if (competitionRate == null) {
+    return 'unknown';
+  }
+  if (competitionRate >= 2000) {
+    return '2000+';
+  }
+  if (competitionRate >= 1500) {
+    return '1500-1999';
+  }
+  if (competitionRate >= 1000) {
+    return '1000-1499';
+  }
+  if (competitionRate >= 500) {
+    return '500-999';
+  }
+  return '0-499';
+}
+
+double? weightedAverage(List<(double?, double)> values) {
+  var totalWeight = 0.0;
+  var total = 0.0;
+  for (final (value, weight) in values) {
+    if (value == null) {
+      continue;
+    }
+    total += value * weight;
+    totalWeight += weight;
+  }
+  if (totalWeight == 0) {
+    return null;
+  }
+  return roundDouble(total / totalWeight, 4);
+}
+
 Map<String, Object?> buildBacktestReport(
   List<IpoCompetitionStock> stocks,
   DateTime generatedAt,
@@ -3923,10 +4213,14 @@ Map<String, Object?> buildBacktestReport(
             if (outcome?.closeReturnRate == null) {
               return null;
             }
-            final analysis = analyzeStock(stock);
+            final analysis = analyzeStock(
+              stock,
+              calibration: const IpoAnalysisCalibration(),
+            );
             return <String, Object?>{
               'id': safeId(stock.id),
               'company': stock.company,
+              'isSpac': isSpacStock(stock),
               'score': analysis.score.overall,
               'grade': analysis.score.grade,
               'confidence': roundDouble(analysis.score.confidence, 2),
@@ -3937,11 +4231,20 @@ Map<String, Object?> buildBacktestReport(
               'openReturnRate': outcome?.openReturnRate,
               'highReturnRate': outcome?.highReturnRate,
               'closeReturnRate': outcome?.closeReturnRate,
+              'referenceReturnRate': referenceReturnRateForBacktest(stock),
               'outcomeSourceUrl': outcome?.sourceUrl,
               'errorCloseVsExpected': outcome?.closeReturnRate == null
                   ? null
                   : roundDouble(
                       outcome!.closeReturnRate! -
+                          analysis.expectedReturn.expectedListingGainRate,
+                      4,
+                    ),
+              'errorReferenceVsExpected':
+                  referenceReturnRateForBacktest(stock) == null
+                  ? null
+                  : roundDouble(
+                      referenceReturnRateForBacktest(stock)! -
                           analysis.expectedReturn.expectedListingGainRate,
                       4,
                     ),
@@ -3954,7 +4257,7 @@ Map<String, Object?> buildBacktestReport(
   return {
     'schemaVersion': schemaVersion,
     'generatedAt': generatedAt.toIso8601String(),
-    'methodVersion': 'ipo-score-v1',
+    'methodVersion': 'ipo-score-v4',
     'sampleCount': rows.length,
     'summary': summarizeBacktestRows(rows),
     'byGrade': summarizeByGrade(rows),
@@ -3974,11 +4277,23 @@ Map<String, Object?> summarizeBacktestRows(List<Map<String, Object?>> rows) {
       .map((row) => row['errorCloseVsExpected'])
       .whereType<double>()
       .toList();
+  final referenceReturns = rows
+      .map((row) => row['referenceReturnRate'])
+      .whereType<double>()
+      .toList();
+  final referenceErrors = rows
+      .map((row) => row['errorReferenceVsExpected'])
+      .whereType<double>()
+      .toList();
   return {
     'averageCloseReturnRate': average(closes),
     'medianCloseReturnRate': median(closes),
     'averageErrorCloseVsExpected': average(errors),
     'medianErrorCloseVsExpected': median(errors),
+    'averageReferenceReturnRate': average(referenceReturns),
+    'medianReferenceReturnRate': median(referenceReturns),
+    'averageErrorReferenceVsExpected': average(referenceErrors),
+    'medianErrorReferenceVsExpected': median(referenceErrors),
   };
 }
 
@@ -4021,11 +4336,16 @@ Map<String, Object?> summarizeByScoreBucket(List<Map<String, Object?>> rows) {
         .map((row) => row['errorCloseVsExpected'])
         .whereType<double>()
         .toList();
+    final referenceErrors = bucketRows
+        .map((row) => row['errorReferenceVsExpected'])
+        .whereType<double>()
+        .toList();
     return MapEntry(bucket, {
       'sampleCount': bucketRows.length,
       'averageCloseReturnRate': average(closes),
       'medianCloseReturnRate': median(closes),
       'averageErrorCloseVsExpected': average(errors),
+      'averageErrorReferenceVsExpected': average(referenceErrors),
     });
   });
 }

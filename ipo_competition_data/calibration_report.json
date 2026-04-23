@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-04-24T01:13:37.871616",
+  "methodVersion": "ipo-score-v4",
+  "calibration": {
+    "spac": {
+      "sampleCount": 1,
+      "averageReferenceError": 0.5982,
+      "medianReferenceError": 0.5982,
+      "dampedAdjustment": 0.1196,
+      "maxAdjustment": 0.22,
+      "byCompetitionBucket": {
+        "1500-1999": {
+          "bucket": "1500-1999",
+          "sampleCount": 1,
+          "averageReferenceError": 0.5982,
+          "medianReferenceError": 0.5982,
+          "dampedAdjustment": 0.1196
+        }
+      }
+    }
+  },
+  "spacHistoricalRows": [
+    {
+      "id": "kiwoom_hero_spac_2_2026",
+      "company": "키움히어로스팩2호",
+      "competitionRate": 1727.59,
+      "competitionBucket": "1500-1999",
+      "expectedListingGainRateRaw": 1.0708,
+      "referenceReturnRate": 1.669,
+      "referenceError": 0.5982
+    }
+  ],
+  "note": "Calibration is intentionally weak and sample-size damped. It is used only as a lightweight adjustment layer."
+}
