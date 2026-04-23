@@ -5,10 +5,11 @@ The score is a reference indicator, not investment advice.
 
 ## Current method
 
-`methodVersion: ipo-score-v2`
+`methodVersion: ipo-score-v3`
 
-The first version is intentionally rule-based. It prioritizes transparency over
-model complexity because the dataset is still sparse and source quality varies.
+The current version is intentionally rule-based. It prioritizes transparency
+over model complexity because the dataset is still sparse and source quality
+varies.
 
 ## Score factors
 
@@ -53,8 +54,32 @@ Expected return is a coarse scenario estimate:
 - `expectedAllocatedShares`
 - `expectedProfitKrw`
 
-When offer price is missing, v1 uses a conservative placeholder assumption and
-marks this in `warnings`.
+When offer price is missing, the generator uses a conservative placeholder
+assumption and marks this in `warnings`.
+
+### SPAC expected-return overlay
+
+SPAC IPOs are modeled separately from operating-company IPOs because the listing
+day payoff is usually driven by fixed 2,000 KRW offer pricing, retail momentum,
+proportional competition intensity, and short-term volatility rather than
+fundamental valuation.
+
+For stocks whose company name contains `스팩` or `SPAC`, v3 applies
+`ipo_score_v3_spac_listing_day_momentum` to expected returns:
+
+- retail competition rate remains the aggregate demand signal.
+- broker proportional competition rate is used as an additional listing-day
+  momentum signal when broker-level snapshots exist.
+- institution demand forecast competition adds demand confirmation.
+- near-zero lock-up commitment is treated as volatility: it raises bull-case
+  upside but also widens the bear case.
+- fixed low offer price and public allocation size add SPAC-specific momentum
+  adjustments.
+
+This overlay affects `expectedListingGainRate`, `bearCaseListingGainRate`,
+`baseCaseListingGainRate`, and `bullCaseListingGainRate`. It does not directly
+raise the grade. Grades remain a broader subscription attractiveness indicator,
+while the SPAC overlay is a listing-day scenario estimate.
 
 ## Extended input blocks
 
@@ -108,8 +133,10 @@ They are required for meaningful equal/proportional allocation estimates:
 }
 ```
 
-Without broker-level rows, expected allocation remains a low-confidence
-aggregate estimate.
+When broker-level equal allocation and application-count rows are available,
+`expectedAllocatedShares` includes the expected equal shares per account plus the
+proportional estimate for each capital scenario. Without broker-level rows,
+expected allocation remains a low-confidence aggregate/proportional estimate.
 
 ## How to improve accuracy
 

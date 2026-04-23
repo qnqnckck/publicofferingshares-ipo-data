@@ -56,33 +56,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://news.nate.com/view/20250912n04496",
-      "brokers": [
-        {
-          "name": "대신증권",
-          "offeredShares": 395000,
-          "subscribedShares": 779184900,
-          "offerPrice": 13200,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1972.62,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1972.62,
-          "equalAllocationShares": 197500,
-          "proportionalAllocationShares": 197500,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 395000,
-        "subscribedShares": 779184900,
-        "competitionRate": 1972.62
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_split",
       "sourceUrl": "https://news.nate.com/view/20250912n04496",
       "brokers": [
@@ -109,7 +83,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 66,
       "grade": "B",
@@ -145,7 +119,7 @@
         "offerPrice": 13200,
         "competitionRate": 1972.62,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -172,7 +146,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 1972.62,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

@@ -14,8 +14,7 @@
   "subscriptionStart": "2024-03-25",
   "subscriptionEnd": "2024-03-26",
   "leadManagers": [
-    "미래에셋증권",
-    "삼성증권"
+    "미래에셋증권"
   ],
   "fundamentals": {
     "offerPrice": 13000,
@@ -63,66 +62,12 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.mk.co.kr/news/stock/10981715",
       "brokers": [
         {
           "name": "미래에셋증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 13000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2654.2,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2654.2,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "삼성증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 13000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2654.2,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2654.2,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 2654.2
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://www.mk.co.kr/news/stock/10981715",
-      "brokers": [
-        {
-          "name": "미래에셋증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 13000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2654.2,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2654.2,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "삼성증권",
           "offeredShares": 0,
           "subscribedShares": 0,
           "offerPrice": 13000,
@@ -144,9 +89,9 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
-      "overall": 48,
+      "overall": 46,
       "grade": "D",
       "confidence": 0.95,
       "factors": {
@@ -156,39 +101,38 @@
         "floatRate": 0,
         "pricing": 2,
         "market": 5,
-        "leadManagers": 5,
+        "leadManagers": 3,
         "recency": 0,
         "dataCompleteness": 7
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.3733,
-      "bearCaseListingGainRate": 0.1533,
-      "baseCaseListingGainRate": 0.3733,
-      "bullCaseListingGainRate": 0.7233,
+      "expectedListingGainRate": 0.3537,
+      "bearCaseListingGainRate": 0.1337,
+      "baseCaseListingGainRate": 0.3537,
+      "bullCaseListingGainRate": 0.7037,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.004,
         "oneMillionKrw": 0.029,
         "fiveMillionKrw": 0.145
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1982,
-        "oneMillionKrw": -1859,
-        "fiveMillionKrw": -1297
+        "minimumSubscription": -1983,
+        "oneMillionKrw": -1867,
+        "fiveMillionKrw": -1334
       },
       "assumptions": {
         "offerPrice": 13000,
         "competitionRate": 2654.2,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2654.2대 1입니다.",
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "최근 확인된 일반청약 경쟁률은 2654.2대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -204,21 +148,12 @@
         "estimatedDepositForOneProportionalShare": 17252300,
         "feeKrw": null,
         "dataQuality": "partial"
-      },
-      {
-        "broker": "삼성증권",
-        "equalScore": 30,
-        "proportionalScore": 6,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 17252300,
-        "feeKrw": null,
-        "dataQuality": "partial"
       }
     ],
     "inputs": {
       "latestCompetitionRate": 2654.2,
-      "snapshotCount": 3,
-      "leadManagerCount": 2,
+      "snapshotCount": 2,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 865.73,

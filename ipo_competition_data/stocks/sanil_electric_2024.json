@@ -103,87 +103,7 @@
       }
     },
     {
-      "capturedAt": "2024-07-19T16:43:00+09:00",
-      "source": "article_final",
-      "sourceUrl": "https://www.mk.co.kr/news/stock/11071573",
-      "brokers": [
-        {
-          "name": "미래에셋증권",
-          "offeredShares": 2188800,
-          "subscribedShares": 933876552,
-          "offerPrice": null,
-          "depositRate": 0.5,
-          "feeKrw": 2000,
-          "competitionRate": 426.79,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 854.0,
-          "equalAllocationShares": 1094400,
-          "proportionalAllocationShares": 1094400,
-          "applicationCount": 465970
-        },
-        {
-          "name": "삼성증권",
-          "offeredShares": 91200,
-          "subscribedShares": 30487248,
-          "offerPrice": null,
-          "depositRate": 0.5,
-          "feeKrw": 2000,
-          "competitionRate": 334.29,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 667.0,
-          "equalAllocationShares": 45600,
-          "proportionalAllocationShares": 45600,
-          "applicationCount": 69300
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 2280000,
-        "subscribedShares": 964363800,
-        "competitionRate": 422.9665789473684
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://www.mt.co.kr/stock/2024/07/19/2024071916324060805",
-      "brokers": [
-        {
-          "name": "미래에셋증권",
-          "offeredShares": 950000,
-          "subscribedShares": 401935500,
-          "offerPrice": 35000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 423.09,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 423.09,
-          "equalAllocationShares": 475000,
-          "proportionalAllocationShares": 475000,
-          "applicationCount": null
-        },
-        {
-          "name": "삼성증권",
-          "offeredShares": 950000,
-          "subscribedShares": 401935500,
-          "offerPrice": 35000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 423.09,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 423.09,
-          "equalAllocationShares": 475000,
-          "proportionalAllocationShares": 475000,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 1900000,
-        "subscribedShares": 803871000,
-        "competitionRate": 423.09
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.mt.co.kr/stock/2024/07/19/2024071916324060805",
       "brokers": [
@@ -224,7 +144,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 62,
       "grade": "C+",
@@ -247,20 +167,20 @@
       "baseCaseListingGainRate": 0.2842,
       "bullCaseListingGainRate": 0.6342,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.024,
-        "oneMillionKrw": 0.068,
-        "fiveMillionKrw": 0.338
+        "minimumSubscription": 2.372,
+        "oneMillionKrw": 2.416,
+        "fiveMillionKrw": 2.686
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1765,
-        "oneMillionKrw": -1328,
-        "fiveMillionKrw": 1358
+        "minimumSubscription": 21595,
+        "oneMillionKrw": 22032,
+        "fiveMillionKrw": 24718
       },
       "assumptions": {
         "offerPrice": 35000,
         "competitionRate": 423.09,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -296,7 +216,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 423.09,
-      "snapshotCount": 5,
+      "snapshotCount": 3,
       "leadManagerCount": 2,
       "market": "KOSPI",
       "hasOfferPrice": true,

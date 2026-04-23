@@ -62,33 +62,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202305090274",
-      "brokers": [
-        {
-          "name": "미래에셋증권",
-          "offeredShares": 625000,
-          "subscribedShares": 926150000,
-          "offerPrice": 12000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1481.84,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1481.84,
-          "equalAllocationShares": 312500,
-          "proportionalAllocationShares": 312500,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 625000,
-        "subscribedShares": 926150000,
-        "competitionRate": 1481.84
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=A202305090274",
       "brokers": [
@@ -115,7 +89,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 62,
       "grade": "C+",
@@ -151,7 +125,7 @@
         "offerPrice": 12000,
         "competitionRate": 1481.84,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -178,7 +152,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 1481.84,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

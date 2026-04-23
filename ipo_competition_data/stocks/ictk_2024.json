@@ -56,33 +56,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://m.mt.co.kr/renew/view.html?no=2024050817400698628",
-      "brokers": [
-        {
-          "name": "NH투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 20000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1107.95,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1107.95,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 1107.95
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://m.mt.co.kr/renew/view.html?no=2024050817400698628",
       "brokers": [
@@ -109,7 +83,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 45,
       "grade": "D",
@@ -145,7 +119,7 @@
         "offerPrice": 20000,
         "competitionRate": 1107.95,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -172,7 +146,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 1107.95,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

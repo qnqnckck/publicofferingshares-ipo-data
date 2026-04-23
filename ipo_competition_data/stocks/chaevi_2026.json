@@ -59,75 +59,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://www.newspim.com/news/view/20260421001292",
-      "brokers": [
-        {
-          "name": "KB증권",
-          "offeredShares": 562500,
-          "subscribedShares": 169875000,
-          "offerPrice": 12300,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 302.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 302.0,
-          "equalAllocationShares": 281250,
-          "proportionalAllocationShares": 281250,
-          "applicationCount": null
-        },
-        {
-          "name": "대신증권",
-          "offeredShares": 562500,
-          "subscribedShares": 169875000,
-          "offerPrice": 12300,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 302.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 302.0,
-          "equalAllocationShares": 281250,
-          "proportionalAllocationShares": 281250,
-          "applicationCount": null
-        },
-        {
-          "name": "삼성증권",
-          "offeredShares": 562500,
-          "subscribedShares": 169875000,
-          "offerPrice": 12300,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 302.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 302.0,
-          "equalAllocationShares": 281250,
-          "proportionalAllocationShares": 281250,
-          "applicationCount": null
-        },
-        {
-          "name": "하나증권",
-          "offeredShares": 562500,
-          "subscribedShares": 169875000,
-          "offerPrice": 12300,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 302.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 302.0,
-          "equalAllocationShares": 281250,
-          "proportionalAllocationShares": 281250,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 2250000,
-        "subscribedShares": 679500000,
-        "competitionRate": 302.0
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.newspim.com/news/view/20260421001292",
       "brokers": [
@@ -196,7 +128,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 50,
       "grade": "C",
@@ -232,7 +164,7 @@
         "offerPrice": 12300,
         "competitionRate": 302.0,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -286,7 +218,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 302.0,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 4,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

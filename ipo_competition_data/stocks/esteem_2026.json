@@ -62,33 +62,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://www.ajunews.com/amp/20260224173430042",
-      "brokers": [
-        {
-          "name": "한국투자증권",
-          "offeredShares": 450000,
-          "subscribedShares": 882391500,
-          "offerPrice": 8500,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1960.87,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1960.87,
-          "equalAllocationShares": 225000,
-          "proportionalAllocationShares": 225000,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 450000,
-        "subscribedShares": 882391500,
-        "competitionRate": 1960.87
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.ajunews.com/amp/20260224173430042",
       "brokers": [
@@ -115,7 +89,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 71,
       "grade": "B",
@@ -151,7 +125,7 @@
         "offerPrice": 8500,
         "competitionRate": 1960.87,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -179,7 +153,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 1960.87,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

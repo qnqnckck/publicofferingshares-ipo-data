@@ -82,33 +82,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://honda31.tistory.com/303",
-      "brokers": [
-        {
-          "name": "키움증권",
-          "offeredShares": 300000,
-          "subscribedShares": 661191000,
-          "offerPrice": 22000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2203.97,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2203.97,
-          "equalAllocationShares": 150000,
-          "proportionalAllocationShares": 150000,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 300000,
-        "subscribedShares": 661191000,
-        "competitionRate": 2203.97
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_split",
       "sourceUrl": "https://honda31.tistory.com/303",
       "brokers": [
@@ -135,7 +109,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 75,
       "grade": "B+",
@@ -171,7 +145,7 @@
         "offerPrice": 22000,
         "competitionRate": 2203.97,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -199,7 +173,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 2203.97,
-      "snapshotCount": 4,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

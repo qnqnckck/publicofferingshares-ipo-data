@@ -2954,13 +2954,16 @@ IpoAnalysis analyzeStock(IpoCompetitionStock stock) {
     100,
   );
   final confidence = confidenceFor(stock);
-  final expectedGainRate = expectedGainRateFor(
+  final expectedReturnProfile = expectedReturnProfileFor(
+    stock: stock,
     score: total,
     competitionRate: latestRate,
     confidence: confidence,
   );
+  final expectedGainRate = expectedReturnProfile.expectedListingGainRate;
   final offerPrice = stock.latestOfferPrice;
   final expectedAllocatedShares = expectedAllocatedSharesFor(
+    stock: stock,
     offerPrice: offerPrice,
     competitionRate: latestRate,
   );
@@ -2991,16 +2994,16 @@ IpoAnalysis analyzeStock(IpoCompetitionStock stock) {
     ),
     expectedReturn: IpoExpectedReturn(
       expectedListingGainRate: expectedGainRate,
-      bearCaseListingGainRate: expectedGainRate - 0.22,
-      baseCaseListingGainRate: expectedGainRate,
-      bullCaseListingGainRate: expectedGainRate + 0.35,
+      bearCaseListingGainRate: expectedReturnProfile.bearCaseListingGainRate,
+      baseCaseListingGainRate: expectedReturnProfile.baseCaseListingGainRate,
+      bullCaseListingGainRate: expectedReturnProfile.bullCaseListingGainRate,
       expectedAllocatedShares: expectedAllocatedShares,
       expectedProfitKrw: expectedProfit,
       assumptions: {
         'offerPrice': offerPrice,
         'competitionRate': latestRate,
         'feeKrw': 2000,
-        'method': 'rule_based_v1_low_confidence',
+        ...expectedReturnProfile.assumptions,
       },
     ),
     decision: IpoDecision(
@@ -3022,7 +3025,7 @@ IpoAnalysis analyzeStock(IpoCompetitionStock stock) {
       'floatRate': stock.fundamentals.floatRate,
       'hasOutcome': stock.outcome != null,
     },
-    methodVersion: 'ipo-score-v2',
+    methodVersion: 'ipo-score-v3',
   );
 }
 
@@ -3146,6 +3149,22 @@ class IpoExpectedReturn {
       'assumptions': assumptions,
     };
   }
+}
+
+class IpoExpectedReturnProfile {
+  const IpoExpectedReturnProfile({
+    required this.expectedListingGainRate,
+    required this.bearCaseListingGainRate,
+    required this.baseCaseListingGainRate,
+    required this.bullCaseListingGainRate,
+    required this.assumptions,
+  });
+
+  final double expectedListingGainRate;
+  final double bearCaseListingGainRate;
+  final double baseCaseListingGainRate;
+  final double bullCaseListingGainRate;
+  final Map<String, Object?> assumptions;
 }
 
 class IpoDecision {
@@ -3391,7 +3410,35 @@ double confidenceFor(IpoCompetitionStock stock) {
   return clampDouble(confidence, 0.05, 0.95);
 }
 
-double expectedGainRateFor({
+IpoExpectedReturnProfile expectedReturnProfileFor({
+  required IpoCompetitionStock stock,
+  required int score,
+  required double? competitionRate,
+  required double confidence,
+}) {
+  if (isSpacStock(stock)) {
+    return spacExpectedReturnProfileFor(
+      stock: stock,
+      score: score,
+      competitionRate: competitionRate,
+      confidence: confidence,
+    );
+  }
+  final expected = generalExpectedGainRateFor(
+    score: score,
+    competitionRate: competitionRate,
+    confidence: confidence,
+  );
+  return IpoExpectedReturnProfile(
+    expectedListingGainRate: expected,
+    bearCaseListingGainRate: expected - 0.22,
+    baseCaseListingGainRate: expected,
+    bullCaseListingGainRate: expected + 0.35,
+    assumptions: const {'method': 'ipo_score_v2_general_rule_based'},
+  );
+}
+
+double generalExpectedGainRateFor({
   required int score,
   required double? competitionRate,
   required double confidence,
@@ -3404,15 +3451,97 @@ double expectedGainRateFor({
   return clampDouble(raw * (0.65 + confidence * 0.35), -0.25, 1.2);
 }
 
+IpoExpectedReturnProfile spacExpectedReturnProfileFor({
+  required IpoCompetitionStock stock,
+  required int score,
+  required double? competitionRate,
+  required double confidence,
+}) {
+  final proportionalRate = maxProportionalCompetitionRate(stock);
+  final institutionRate = stock.fundamentals.institutionCompetitionRate;
+  final lockupRate = stock.fundamentals.lockupCommitmentRate;
+  final offerPrice = stock.latestOfferPrice;
+  final retailBoost = competitionRate == null
+      ? 0.0
+      : clampDouble((competitionRate - 500) / 3000, -0.06, 0.28);
+  final proportionalBoost = proportionalRate == null
+      ? 0.0
+      : clampDouble((proportionalRate - 1000) / 7000, 0, 0.26);
+  final institutionBoost = institutionRate == null
+      ? 0.0
+      : clampDouble((institutionRate - 700) / 2500, 0, 0.16);
+  final fixedPriceBoost = offerPrice != null && offerPrice <= 2500 ? 0.08 : 0.0;
+  final scarcityBoost =
+      (stock.fundamentals.publicAllocationShares ?? 0) >= 1000000 ? 0.03 : 0.0;
+  final lowLockupVolatility = lockupRate != null && lockupRate <= 0.01;
+  final lowLockupBaseBoost = lowLockupVolatility ? 0.05 : 0.0;
+  final scoreComponent = clampDouble((score - 50) / 220, -0.08, 0.16);
+  final rawBase =
+      0.1 +
+      retailBoost +
+      proportionalBoost +
+      institutionBoost +
+      fixedPriceBoost +
+      scarcityBoost +
+      lowLockupBaseBoost +
+      scoreComponent;
+  final confidenceFactor = 0.78 + confidence * 0.22;
+  final base = clampDouble(rawBase * confidenceFactor, -0.05, 1.6);
+  final volatilityPremium =
+      0.28 +
+      (lowLockupVolatility ? 0.42 : 0.12) +
+      (proportionalRate != null && proportionalRate >= 3000 ? 0.22 : 0.0);
+  final bear = clampDouble(
+    base - (lowLockupVolatility ? 0.65 : 0.42),
+    -0.2,
+    1.0,
+  );
+  final bull = clampDouble(base + volatilityPremium, 0, 2.8);
+  return IpoExpectedReturnProfile(
+    expectedListingGainRate: base,
+    bearCaseListingGainRate: bear,
+    baseCaseListingGainRate: base,
+    bullCaseListingGainRate: bull,
+    assumptions: {
+      'method': 'ipo_score_v3_spac_listing_day_momentum',
+      'spacModel': true,
+      'proportionalCompetitionRate': proportionalRate,
+      'institutionCompetitionRate': institutionRate,
+      'lowLockupVolatility': lowLockupVolatility,
+    },
+  );
+}
+
+bool isSpacStock(IpoCompetitionStock stock) {
+  final normalizedCompany = normalizeLookup(stock.company);
+  return normalizedCompany.contains('스팩') || normalizedCompany.contains('spac');
+}
+
+double? maxProportionalCompetitionRate(IpoCompetitionStock stock) {
+  double? maxRate;
+  for (final snapshot in stock.snapshots) {
+    for (final broker in snapshot.brokers) {
+      final rate = broker.proportionalCompetitionRate;
+      if (rate != null && rate > 0 && (maxRate == null || rate > maxRate)) {
+        maxRate = rate;
+      }
+    }
+  }
+  return maxRate;
+}
+
 Map<String, double> expectedAllocatedSharesFor({
+  required IpoCompetitionStock stock,
   required int? offerPrice,
   required double? competitionRate,
 }) {
   final price = offerPrice ?? 30000;
   final rate = competitionRate ?? 800;
+  final equalShares = bestEqualExpectedSharesPerAccount(stock) ?? 0;
   double sharesFor(int amount) {
     final requestedShares = amount / price;
-    return clampDouble(requestedShares / rate, 0, 100);
+    final proportionalShares = clampDouble(requestedShares / rate, 0, 100);
+    return clampDouble(equalShares + proportionalShares, 0, 200);
   }
 
   return {
@@ -3420,6 +3549,21 @@ Map<String, double> expectedAllocatedSharesFor({
     'oneMillionKrw': sharesFor(1000000),
     'fiveMillionKrw': sharesFor(5000000),
   };
+}
+
+double? bestEqualExpectedSharesPerAccount(IpoCompetitionStock stock) {
+  double? best;
+  for (final snapshot in stock.snapshots) {
+    for (final broker in snapshot.brokers) {
+      final expected = broker.equalExpectedSharesPerAccount;
+      if (expected != null &&
+          expected > 0 &&
+          (best == null || expected > best)) {
+        best = expected;
+      }
+    }
+  }
+  return best;
 }
 
 Map<String, int> expectedProfitFor({

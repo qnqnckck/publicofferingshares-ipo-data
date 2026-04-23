@@ -58,61 +58,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://www.hankyung.com/article/202311095486Y",
-      "brokers": [
-        {
-          "name": "NH투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 36200,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 70.04,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 70.04,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "미래에셋증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 36200,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 70.04,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 70.04,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "하이투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 36200,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 70.04,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 70.04,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 70.04
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.hankyung.com/article/202311095486Y",
       "brokers": [
@@ -167,7 +113,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 31,
       "grade": "D",
@@ -203,7 +149,7 @@
         "offerPrice": 36200,
         "competitionRate": 70.04,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -248,7 +194,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 70.04,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 3,
       "market": "KOSPI",
       "hasOfferPrice": true,

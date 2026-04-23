@@ -64,61 +64,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://www.g-enews.com/article/Securities/2024/12/202412161306336362edf69f862c_1",
-      "brokers": [
-        {
-          "name": "KB증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 65000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2.4,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2.4,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "삼성증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 65000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2.4,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2.4,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "키움증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 65000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2.4,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2.4,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 2.4
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.g-enews.com/article/Securities/2024/12/202412161306336362edf69f862c_1",
       "brokers": [
@@ -173,7 +119,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 29,
       "grade": "D",
@@ -209,7 +155,7 @@
         "offerPrice": 65000,
         "competitionRate": 2.4,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -254,7 +200,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 2.4,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 3,
       "market": "KOSPI",
       "hasOfferPrice": true,

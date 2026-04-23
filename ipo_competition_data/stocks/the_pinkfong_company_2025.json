@@ -77,46 +77,6 @@
       }
     },
     {
-      "capturedAt": "2025-11-07T16:00:00+09:00",
-      "source": "public_blog_final",
-      "sourceUrl": "https://jung-defi.tistory.com/entry/%EB%8D%94%ED%95%91%ED%81%AC%ED%90%81%EC%BB%B4%ED%8D%BC%EB%8B%88-%EA%B3%B5%EB%AA%A8%EC%A3%BC-%EC%B2%AD%EC%95%BD-%EC%99%84%EB%B2%BD-%EC%A0%95%EB%A6%AC-%EC%BD%94%EC%8A%A4%EB%8B%A5-%EC%83%81%EC%9E%A5-%EA%B3%B5%EB%AA%A8%EA%B0%80-38000%EC%9B%90",
-      "brokers": [
-        {
-          "name": "미래에셋증권",
-          "offeredShares": 312500,
-          "subscribedShares": 0,
-          "offerPrice": null,
-          "depositRate": 0.5,
-          "feeKrw": 2000,
-          "competitionRate": 916.27,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1832.53,
-          "equalAllocationShares": 156250,
-          "proportionalAllocationShares": 156250,
-          "applicationCount": 294323
-        },
-        {
-          "name": "삼성증권",
-          "offeredShares": 187500,
-          "subscribedShares": 0,
-          "offerPrice": null,
-          "depositRate": 0.5,
-          "feeKrw": 2000,
-          "competitionRate": 734.04,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1468.08,
-          "equalAllocationShares": 93750,
-          "proportionalAllocationShares": 93750,
-          "applicationCount": 173101
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 500000,
-        "subscribedShares": 0,
-        "competitionRate": 0.0
-      }
-    },
-    {
       "capturedAt": "2025-11-11T08:55:00+09:00",
       "source": "article_final",
       "sourceUrl": "https://www.fnnews.com/news/202511110851140275",
@@ -143,47 +103,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://www.fnnews.com/news/202511110851140275",
-      "brokers": [
-        {
-          "name": "미래에셋증권",
-          "offeredShares": 250000,
-          "subscribedShares": 211725000,
-          "offerPrice": 38000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 846.9,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 846.9,
-          "equalAllocationShares": 125000,
-          "proportionalAllocationShares": 125000,
-          "applicationCount": null
-        },
-        {
-          "name": "삼성증권",
-          "offeredShares": 250000,
-          "subscribedShares": 211725000,
-          "offerPrice": 38000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 846.9,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 846.9,
-          "equalAllocationShares": 125000,
-          "proportionalAllocationShares": 125000,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 500000,
-        "subscribedShares": 423450000,
-        "competitionRate": 846.9
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.fnnews.com/news/202511110851140275",
       "brokers": [
@@ -224,7 +144,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 64,
       "grade": "C+",
@@ -247,20 +167,20 @@
       "baseCaseListingGainRate": 0.4704,
       "bullCaseListingGainRate": 0.8204,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.012,
-        "oneMillionKrw": 0.031,
-        "fiveMillionKrw": 0.155
+        "minimumSubscription": 0.553,
+        "oneMillionKrw": 0.573,
+        "fiveMillionKrw": 0.697
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1789,
-        "oneMillionKrw": -1445,
-        "fiveMillionKrw": 777
+        "minimumSubscription": 7892,
+        "oneMillionKrw": 8236,
+        "fiveMillionKrw": 10458
       },
       "assumptions": {
         "offerPrice": 38000,
         "competitionRate": 846.9,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -296,7 +216,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 846.9,
-      "snapshotCount": 5,
+      "snapshotCount": 3,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

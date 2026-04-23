@@ -56,33 +56,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://www.fnnews.com/news/202311021724043372",
-      "brokers": [
-        {
-          "name": "KB증권",
-          "offeredShares": 1750000,
-          "subscribedShares": 1752152500,
-          "offerPrice": 1800,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1001.23,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1001.23,
-          "equalAllocationShares": 875000,
-          "proportionalAllocationShares": 875000,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 1750000,
-        "subscribedShares": 1752152500,
-        "competitionRate": 1001.23
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.fnnews.com/news/202311021724043372",
       "brokers": [
@@ -109,7 +83,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 55,
       "grade": "C",
@@ -145,7 +119,7 @@
         "offerPrice": 1800,
         "competitionRate": 1001.23,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -172,7 +146,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 1001.23,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

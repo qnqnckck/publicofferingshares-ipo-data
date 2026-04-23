@@ -64,61 +64,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://news.nate.com/view/20260223n35432",
-      "brokers": [
-        {
-          "name": "NH투자증권",
-          "offeredShares": 5880000,
-          "subscribedShares": 791448000,
-          "offerPrice": 8300,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 134.6,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 134.6,
-          "equalAllocationShares": 2940000,
-          "proportionalAllocationShares": 2940000,
-          "applicationCount": null
-        },
-        {
-          "name": "삼성증권",
-          "offeredShares": 5880000,
-          "subscribedShares": 791448000,
-          "offerPrice": 8300,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 134.6,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 134.6,
-          "equalAllocationShares": 2940000,
-          "proportionalAllocationShares": 2940000,
-          "applicationCount": null
-        },
-        {
-          "name": "신한투자증권",
-          "offeredShares": 5880000,
-          "subscribedShares": 791448000,
-          "offerPrice": 8300,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 134.6,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 134.6,
-          "equalAllocationShares": 2940000,
-          "proportionalAllocationShares": 2940000,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 17640000,
-        "subscribedShares": 2374344000,
-        "competitionRate": 134.6
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_split",
       "sourceUrl": "https://news.nate.com/view/20260223n35432",
       "brokers": [
@@ -173,7 +119,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 49,
       "grade": "D",
@@ -209,7 +155,7 @@
         "offerPrice": 8300,
         "competitionRate": 134.6,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -254,7 +200,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 134.6,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 3,
       "market": "KOSPI",
       "hasOfferPrice": true,

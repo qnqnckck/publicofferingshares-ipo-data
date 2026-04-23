@@ -88,59 +88,7 @@
       }
     },
     {
-      "capturedAt": "2025-08-06T16:59:00+09:00",
-      "source": "article_final",
-      "sourceUrl": "https://www.fnnews.com/news/202508061659149114",
-      "brokers": [
-        {
-          "name": "미래에셋증권",
-          "offeredShares": 225000,
-          "subscribedShares": 105775020,
-          "offerPrice": null,
-          "depositRate": 0.5,
-          "feeKrw": 2000,
-          "competitionRate": 470.1,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 940.2,
-          "equalAllocationShares": 112500,
-          "proportionalAllocationShares": 112500,
-          "applicationCount": 302409
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 225000,
-        "subscribedShares": 105775020,
-        "competitionRate": 470.1112
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://www.chosun.com/economy/money/2025/08/06/LYSY6POOYXSTO7ACUSSRXLKMA4/?outputType=amp",
-      "brokers": [
-        {
-          "name": "미래에셋증권",
-          "offeredShares": 225000,
-          "subscribedShares": 105772500,
-          "offerPrice": 58000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 470.1,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 470.1,
-          "equalAllocationShares": 112500,
-          "proportionalAllocationShares": 112500,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 225000,
-        "subscribedShares": 105772500,
-        "competitionRate": 470.1
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.chosun.com/economy/money/2025/08/06/LYSY6POOYXSTO7ACUSSRXLKMA4/?outputType=amp",
       "brokers": [
@@ -167,7 +115,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 70,
       "grade": "B",
@@ -190,20 +138,20 @@
       "baseCaseListingGainRate": 0.3812,
       "bullCaseListingGainRate": 0.7312,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.021,
-        "oneMillionKrw": 0.037,
-        "fiveMillionKrw": 0.183
+        "minimumSubscription": 0.393,
+        "oneMillionKrw": 0.409,
+        "fiveMillionKrw": 0.555
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1530,
-        "oneMillionKrw": -1189,
-        "fiveMillionKrw": 2055
+        "minimumSubscription": 6696,
+        "oneMillionKrw": 7037,
+        "fiveMillionKrw": 10281
       },
       "assumptions": {
         "offerPrice": 58000,
         "competitionRate": 470.1,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -230,7 +178,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 470.1,
-      "snapshotCount": 5,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

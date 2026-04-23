@@ -60,32 +60,6 @@
       }
     },
     {
-      "capturedAt": "2024-01-18T16:00:00+09:00",
-      "source": "public_blog_final",
-      "sourceUrl": "https://wannabe-fire.tistory.com/entry/%EA%B3%B5%EB%AA%A8%EC%A3%BC-%ED%98%84%EB%8C%80%ED%9E%98%EC%8A%A4",
-      "brokers": [
-        {
-          "name": "미래에셋증권",
-          "offeredShares": 2176750,
-          "subscribedShares": 0,
-          "offerPrice": null,
-          "depositRate": 0.5,
-          "feeKrw": null,
-          "competitionRate": 2462.41,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2462.41,
-          "equalAllocationShares": 1088375,
-          "proportionalAllocationShares": 1088375,
-          "applicationCount": 495785
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 2176750,
-        "subscribedShares": 0,
-        "competitionRate": 0.0
-      }
-    },
-    {
       "capturedAt": "2024-01-18T17:30:00+09:00",
       "source": "article_final",
       "sourceUrl": "https://www.hankyung.com/article/2024012626856",
@@ -113,7 +87,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 34,
       "grade": "D",
@@ -136,20 +110,20 @@
       "baseCaseListingGainRate": 0.2316,
       "bullCaseListingGainRate": 0.5816,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.008,
-        "oneMillionKrw": 0.111,
-        "fiveMillionKrw": 0.556
+        "minimumSubscription": 2.203,
+        "oneMillionKrw": 2.307,
+        "fiveMillionKrw": 2.752
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1986,
-        "oneMillionKrw": -1812,
-        "fiveMillionKrw": -1059
+        "minimumSubscription": 1725,
+        "oneMillionKrw": 1900,
+        "fiveMillionKrw": 2652
       },
       "assumptions": {
         "offerPrice": 7300,
         "competitionRate": 1231.2,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -176,7 +150,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 1231.2,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 0,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

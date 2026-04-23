@@ -60,32 +60,6 @@
       }
     },
     {
-      "capturedAt": "2024-02-14T16:00:00+09:00",
-      "source": "article_final",
-      "sourceUrl": "https://news.bizwatch.co.kr/article/market/2024/02/14/0015",
-      "brokers": [
-        {
-          "name": "키움증권",
-          "offeredShares": 150000,
-          "subscribedShares": 0,
-          "offerPrice": null,
-          "depositRate": 0.5,
-          "feeKrw": null,
-          "competitionRate": 2518.4,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 5036.8,
-          "equalAllocationShares": 75000,
-          "proportionalAllocationShares": 75000,
-          "applicationCount": 422268
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 150000,
-        "subscribedShares": 0,
-        "competitionRate": 0.0
-      }
-    },
-    {
       "capturedAt": "2024-02-14T17:09:00+09:00",
       "source": "article_final",
       "sourceUrl": "https://www.fnnews.com/news/202402141709403581",
@@ -113,7 +87,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 47,
       "grade": "D",
@@ -136,20 +110,20 @@
       "baseCaseListingGainRate": 0.3571,
       "bullCaseListingGainRate": 0.7071,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.004,
-        "oneMillionKrw": 0.025,
-        "fiveMillionKrw": 0.124
+        "minimumSubscription": 0.182,
+        "oneMillionKrw": 0.202,
+        "fiveMillionKrw": 0.302
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1977,
-        "oneMillionKrw": -1858,
-        "fiveMillionKrw": -1291
+        "minimumSubscription": -963,
+        "oneMillionKrw": -844,
+        "fiveMillionKrw": -276
       },
       "assumptions": {
         "offerPrice": 16000,
         "competitionRate": 2518.4,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -176,7 +150,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 2518.4,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 0,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

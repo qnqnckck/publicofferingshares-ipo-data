@@ -27,7 +27,13 @@
     "marketCapKrw": null,
     "publicAllocationShares": 1500000
   },
-  "outcome": null,
+  "outcome": {
+    "listingDate": "2026-04-23",
+    "openReturnRate": 1.395,
+    "highReturnRate": 2.765,
+    "closeReturnRate": 0.3675,
+    "sourceUrl": "https://sale.mimint.co.kr/bbs/view/news/S1N11/5359024"
+  },
   "snapshots": [
     {
       "capturedAt": "2026-04-15T16:00:00+09:00",
@@ -57,7 +63,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 57,
       "grade": "C",
@@ -75,25 +81,29 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.4618,
-      "bearCaseListingGainRate": 0.2418,
-      "baseCaseListingGainRate": 0.4618,
-      "bullCaseListingGainRate": 0.8118,
+      "expectedListingGainRate": 0.9809,
+      "bearCaseListingGainRate": 0.3309,
+      "baseCaseListingGainRate": 0.9809,
+      "bullCaseListingGainRate": 1.9009,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.006,
-        "oneMillionKrw": 0.289,
-        "fiveMillionKrw": 1.447
+        "minimumSubscription": 4.986,
+        "oneMillionKrw": 5.269,
+        "fiveMillionKrw": 6.427
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1995,
-        "oneMillionKrw": -1733,
-        "fiveMillionKrw": -664
+        "minimumSubscription": 7781,
+        "oneMillionKrw": 8338,
+        "fiveMillionKrw": 10609
       },
       "assumptions": {
         "offerPrice": 2000,
         "competitionRate": 1727.59,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v3_spac_listing_day_momentum",
+        "spacModel": true,
+        "proportionalCompetitionRate": 3455.18,
+        "institutionCompetitionRate": 1271.12,
+        "lowLockupVolatility": true
       }
     },
     "decision": {
@@ -127,7 +137,7 @@
       "institutionCompetitionRate": 1271.12,
       "lockupCommitmentRate": 0.0,
       "floatRate": null,
-      "hasOutcome": false
+      "hasOutcome": true
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

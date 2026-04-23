@@ -60,32 +60,6 @@
       }
     },
     {
-      "capturedAt": "2024-08-12T16:00:00+09:00",
-      "source": "public_blog_final",
-      "sourceUrl": "https://traveller92.tistory.com/entry/%EA%B3%B5%EB%AA%A8%EC%A3%BC-%EC%B5%9C%EC%A2%85%EC%B2%AD%EC%95%BD%EA%B2%B0%EA%B3%BC-%ED%8B%B0%EB%94%94%EC%97%90%EC%8A%A4%ED%8C%9C-%EA%B2%BD%EC%9F%81%EB%A5%A0-%EB%B0%B0%EC%A0%95%EC%88%98%EB%9F%89-%EC%83%81%EC%9E%A5%EC%9D%BC",
-      "brokers": [
-        {
-          "name": "한국투자증권",
-          "offeredShares": 250000,
-          "subscribedShares": 0,
-          "offerPrice": null,
-          "depositRate": 0.5,
-          "feeKrw": 2000,
-          "competitionRate": 3215.35,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1607.68,
-          "equalAllocationShares": 125000,
-          "proportionalAllocationShares": 125000,
-          "applicationCount": 291304
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 250000,
-        "subscribedShares": 0,
-        "competitionRate": 0.0
-      }
-    },
-    {
       "capturedAt": "2024-08-12T17:30:00+09:00",
       "source": "article_final",
       "sourceUrl": "https://www.hankyung.com/article/2024082168291",
@@ -113,7 +87,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 49,
       "grade": "D",
@@ -136,20 +110,20 @@
       "baseCaseListingGainRate": 0.3764,
       "bullCaseListingGainRate": 0.7264,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.006,
-        "oneMillionKrw": 0.048,
-        "fiveMillionKrw": 0.239
+        "minimumSubscription": 0.435,
+        "oneMillionKrw": 0.477,
+        "fiveMillionKrw": 0.668
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1970,
-        "oneMillionKrw": -1766,
-        "fiveMillionKrw": -830
+        "minimumSubscription": 130,
+        "oneMillionKrw": 333,
+        "fiveMillionKrw": 1270
       },
       "assumptions": {
         "offerPrice": 13000,
         "competitionRate": 1608.0,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -176,7 +150,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 1608.0,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 0,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

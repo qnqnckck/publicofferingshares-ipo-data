@@ -58,61 +58,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://honda31.tistory.com/290",
-      "brokers": [
-        {
-          "name": "NH투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 13500,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 816.41,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 816.41,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "신한투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 13500,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 816.41,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 816.41,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "유진투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 13500,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 816.41,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 816.41,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 816.41
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://honda31.tistory.com/290",
       "brokers": [
@@ -167,7 +113,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 50,
       "grade": "C",
@@ -203,7 +149,7 @@
         "offerPrice": 13500,
         "competitionRate": 816.41,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -248,7 +194,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 816.41,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 3,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

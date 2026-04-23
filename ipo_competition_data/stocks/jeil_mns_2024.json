@@ -88,59 +88,7 @@
       }
     },
     {
-      "capturedAt": "2024-04-19T17:30:00+09:00",
-      "source": "public_ipo_summary",
-      "sourceUrl": "https://listup24.com/%EC%A0%9C%EC%9D%BC%EC%97%A0%EC%95%A4%EC%97%90%EC%8A%A4-%EA%B3%B5%EB%AA%A8%EC%A3%BC-%EC%B2%AD%EC%95%BD-%EC%83%81%EC%9E%A5-%EA%B3%B5%EB%AA%A8%EA%B0%80-%EC%88%98%EC%9A%94%EC%98%88%EC%B8%A1-%EA%B2%BD/",
-      "brokers": [
-        {
-          "name": "KB증권",
-          "offeredShares": 600000,
-          "subscribedShares": 0,
-          "offerPrice": null,
-          "depositRate": 0.5,
-          "feeKrw": 1500,
-          "competitionRate": 1438.96,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2878.0,
-          "equalAllocationShares": 300000,
-          "proportionalAllocationShares": 300000,
-          "applicationCount": 0
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 600000,
-        "subscribedShares": 0,
-        "competitionRate": 0.0
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://www.mk.co.kr/news/stock/11004337",
-      "brokers": [
-        {
-          "name": "KB증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 22000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1435.6,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1435.6,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 1435.6
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.mk.co.kr/news/stock/11004337",
       "brokers": [
@@ -167,7 +115,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 50,
       "grade": "C",
@@ -203,7 +151,7 @@
         "offerPrice": 22000,
         "competitionRate": 1435.6,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -230,7 +178,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 1435.6,
-      "snapshotCount": 5,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

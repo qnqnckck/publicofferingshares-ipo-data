@@ -83,47 +83,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://honda31.tistory.com/303",
-      "brokers": [
-        {
-          "name": "KB증권",
-          "offeredShares": 70000,
-          "subscribedShares": 62004600,
-          "offerPrice": 56800,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 885.78,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 885.78,
-          "equalAllocationShares": 35000,
-          "proportionalAllocationShares": 35000,
-          "applicationCount": null
-        },
-        {
-          "name": "신한투자증권",
-          "offeredShares": 70000,
-          "subscribedShares": 62004600,
-          "offerPrice": 56800,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 885.78,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 885.78,
-          "equalAllocationShares": 35000,
-          "proportionalAllocationShares": 35000,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 140000,
-        "subscribedShares": 124009200,
-        "competitionRate": 885.78
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_split",
       "sourceUrl": "https://honda31.tistory.com/303",
       "brokers": [
@@ -164,7 +124,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 69,
       "grade": "B",
@@ -200,7 +160,7 @@
         "offerPrice": 56800,
         "competitionRate": 885.78,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -236,7 +196,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 885.78,
-      "snapshotCount": 4,
+      "snapshotCount": 3,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

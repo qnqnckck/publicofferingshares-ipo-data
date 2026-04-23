@@ -83,47 +83,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T11:06:54.359452",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://www.moneys.co.kr/article/2025111217300891085",
-      "brokers": [
-        {
-          "name": "NH투자증권",
-          "offeredShares": 550000,
-          "subscribedShares": 419226500,
-          "offerPrice": 6900,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 762.23,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 762.23,
-          "equalAllocationShares": 275000,
-          "proportionalAllocationShares": 275000,
-          "applicationCount": null
-        },
-        {
-          "name": "교보증권",
-          "offeredShares": 550000,
-          "subscribedShares": 419226500,
-          "offerPrice": 6900,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 762.23,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 762.23,
-          "equalAllocationShares": 275000,
-          "proportionalAllocationShares": 275000,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 1100000,
-        "subscribedShares": 838453000,
-        "competitionRate": 762.23
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T11:06:54.359452",
+      "capturedAt": "2026-04-24T00:36:18.604262",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.moneys.co.kr/article/2025111217300891085",
       "brokers": [
@@ -164,7 +124,7 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v2",
+    "methodVersion": "ipo-score-v3",
     "score": {
       "overall": 70,
       "grade": "B",
@@ -200,7 +160,7 @@
         "offerPrice": 6900,
         "competitionRate": 762.23,
         "feeKrw": 2000,
-        "method": "rule_based_v1_low_confidence"
+        "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
@@ -237,7 +197,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 762.23,
-      "snapshotCount": 4,
+      "snapshotCount": 3,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
