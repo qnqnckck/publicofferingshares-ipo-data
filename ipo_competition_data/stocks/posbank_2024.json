@@ -14,7 +14,8 @@
   "subscriptionStart": "2024-01-17",
   "subscriptionEnd": "2024-01-18",
   "leadManagers": [
-    "하나증권"
+    "하나증권",
+    "삼성증권"
   ],
   "fundamentals": {
     "offerPrice": 18000,
@@ -62,10 +63,24 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T09:53:45.093668",
+      "capturedAt": "2026-04-23T11:06:54.359452",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.mk.co.kr/news/stock/10931892",
       "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 18000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1397.07,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1397.07,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
         {
           "name": "하나증권",
           "offeredShares": 0,
@@ -88,10 +103,24 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T09:53:45.093668",
+      "capturedAt": "2026-04-23T11:06:54.359452",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.mk.co.kr/news/stock/10931892",
       "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 18000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1397.07,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1397.07,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
         {
           "name": "하나증권",
           "offeredShares": 0,
@@ -117,7 +146,7 @@
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 46,
+      "overall": 48,
       "grade": "D",
       "confidence": 0.95,
       "factors": {
@@ -127,25 +156,25 @@
         "floatRate": 0,
         "pricing": 3,
         "market": 5,
-        "leadManagers": 3,
+        "leadManagers": 5,
         "recency": 0,
         "dataCompleteness": 7
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.3537,
-      "bearCaseListingGainRate": 0.1337,
-      "baseCaseListingGainRate": 0.3537,
-      "bullCaseListingGainRate": 0.7037,
+      "expectedListingGainRate": 0.3733,
+      "bearCaseListingGainRate": 0.1533,
+      "baseCaseListingGainRate": 0.3733,
+      "bullCaseListingGainRate": 0.7233,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.007,
         "oneMillionKrw": 0.04,
         "fiveMillionKrw": 0.199
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1954,
-        "oneMillionKrw": -1747,
-        "fiveMillionKrw": -734
+        "minimumSubscription": -1952,
+        "oneMillionKrw": -1733,
+        "fiveMillionKrw": -664
       },
       "assumptions": {
         "offerPrice": 18000,
@@ -158,7 +187,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1397.07대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 1397.07대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -166,6 +196,15 @@
       ]
     },
     "brokerScores": [
+      {
+        "broker": "삼성증권",
+        "equalScore": 30,
+        "proportionalScore": 8,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 12573630,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
       {
         "broker": "하나증권",
         "equalScore": 30,
@@ -179,7 +218,7 @@
     "inputs": {
       "latestCompetitionRate": 1397.07,
       "snapshotCount": 3,
-      "leadManagerCount": 1,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 839.03,

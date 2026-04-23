@@ -14,7 +14,8 @@
   "subscriptionStart": "2024-10-23",
   "subscriptionEnd": "2024-10-24",
   "leadManagers": [
-    "KB증권"
+    "KB증권",
+    "삼성증권"
   ],
   "fundamentals": {
     "offerPrice": 18000,
@@ -62,12 +63,26 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T09:53:45.093668",
+      "capturedAt": "2026-04-23T11:06:54.359452",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.mk.co.kr/news/stock/11156542",
       "brokers": [
         {
           "name": "KB증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 18000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 984.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 984.0,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "삼성증권",
           "offeredShares": 0,
           "subscribedShares": 0,
           "offerPrice": 18000,
@@ -88,12 +103,26 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T09:53:45.093668",
+      "capturedAt": "2026-04-23T11:06:54.359452",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.mk.co.kr/news/stock/11156542",
       "brokers": [
         {
           "name": "KB증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 18000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 984.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 984.0,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "삼성증권",
           "offeredShares": 0,
           "subscribedShares": 0,
           "offerPrice": 18000,
@@ -117,7 +146,7 @@
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 45,
+      "overall": 47,
       "grade": "D",
       "confidence": 0.95,
       "factors": {
@@ -127,25 +156,25 @@
         "floatRate": 0,
         "pricing": 2,
         "market": 5,
-        "leadManagers": 3,
+        "leadManagers": 5,
         "recency": 0,
         "dataCompleteness": 7
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.3376,
-      "bearCaseListingGainRate": 0.1176,
-      "baseCaseListingGainRate": 0.3376,
-      "bullCaseListingGainRate": 0.6876,
+      "expectedListingGainRate": 0.3572,
+      "bearCaseListingGainRate": 0.1372,
+      "baseCaseListingGainRate": 0.3572,
+      "bullCaseListingGainRate": 0.7072,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.01,
         "oneMillionKrw": 0.056,
         "fiveMillionKrw": 0.282
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1938,
-        "oneMillionKrw": -1657,
-        "fiveMillionKrw": -285
+        "minimumSubscription": -1935,
+        "oneMillionKrw": -1637,
+        "fiveMillionKrw": -185
       },
       "assumptions": {
         "offerPrice": 18000,
@@ -158,7 +187,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 984.0대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 984.0대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -173,12 +203,21 @@
         "estimatedDepositForOneProportionalShare": 8856000,
         "feeKrw": null,
         "dataQuality": "partial"
+      },
+      {
+        "broker": "삼성증권",
+        "equalScore": 30,
+        "proportionalScore": 11,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 8856000,
+        "feeKrw": null,
+        "dataQuality": "partial"
       }
     ],
     "inputs": {
       "latestCompetitionRate": 984.0,
       "snapshotCount": 3,
-      "leadManagerCount": 1,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 841.12,
