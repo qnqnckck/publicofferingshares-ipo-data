@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-23T07:59:16.729216",
+  "generatedAt": "2026-04-23T08:15:45.317066",
   "methodVersion": "ipo-score-v1",
   "sampleCount": 59,
   "summary": {
     "averageCloseReturnRate": 0.8601,
     "medianCloseReturnRate": 0.5019,
-    "averageErrorCloseVsExpected": 0.6095,
+    "averageErrorCloseVsExpected": 0.6089,
     "medianErrorCloseVsExpected": 0.2556
   },
   "byGrade": {
@@ -51,16 +51,16 @@
       "averageErrorCloseVsExpected": 0.7342
     },
     "40-49": {
-      "sampleCount": 25,
-      "averageCloseReturnRate": 0.9679,
-      "medianCloseReturnRate": 0.5969,
-      "averageErrorCloseVsExpected": 0.6812
+      "sampleCount": 26,
+      "averageCloseReturnRate": 0.9243,
+      "medianCloseReturnRate": 0.5818,
+      "averageErrorCloseVsExpected": 0.6507
     },
     "30-39": {
-      "sampleCount": 8,
-      "averageCloseReturnRate": 0.3705,
-      "medianCloseReturnRate": -0.0831,
-      "averageErrorCloseVsExpected": 0.408
+      "sampleCount": 7,
+      "averageCloseReturnRate": 0.447,
+      "medianCloseReturnRate": -0.0759,
+      "averageErrorCloseVsExpected": 0.4766
     },
     "20-29": {
       "sampleCount": 5,
@@ -435,19 +435,6 @@
       "errorCloseVsExpected": -0.341
     },
     {
-      "id": "clobot_2024",
-      "company": "클로봇",
-      "score": 47,
-      "grade": "D",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.3635,
-      "openReturnRate": -0.038461538461538464,
-      "highReturnRate": null,
-      "closeReturnRate": -0.2276923076923077,
-      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=370460",
-      "errorCloseVsExpected": -0.5912
-    },
-    {
       "id": "cosem_2024",
       "company": "코셈",
       "score": 47,
@@ -526,6 +513,19 @@
       "errorCloseVsExpected": 2.6561
     },
     {
+      "id": "clobot_2024",
+      "company": "클로봇",
+      "score": 45,
+      "grade": "D",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.3439,
+      "openReturnRate": -0.038461538461538464,
+      "highReturnRate": null,
+      "closeReturnRate": -0.2276923076923077,
+      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=370460",
+      "errorCloseVsExpected": -0.5716
+    },
+    {
       "id": "hb_investment_2024",
       "company": "HB인베스트먼트",
       "score": 45,
@@ -550,6 +550,19 @@
       "closeReturnRate": -0.14833333333333334,
       "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/11156542",
       "errorCloseVsExpected": -0.4859
+    },
+    {
+      "id": "synapsoft_2024",
+      "company": "사이냅소프트",
+      "score": 44,
+      "grade": "D",
+      "confidence": 0.95,
+      "expectedListingGainRate": -0.0352,
+      "openReturnRate": -0.1346938775510204,
+      "highReturnRate": null,
+      "closeReturnRate": -0.1653061224489796,
+      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
+      "errorCloseVsExpected": -0.1301
     },
     {
       "id": "daehan_shipbuilding_2025",
@@ -680,19 +693,6 @@
       "closeReturnRate": -0.1875,
       "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=371010",
       "errorCloseVsExpected": -0.3905
-    },
-    {
-      "id": "synapsoft_2024",
-      "company": "사이냅소프트",
-      "score": 38,
-      "grade": "D",
-      "confidence": 0.9,
-      "expectedListingGainRate": -0.0925,
-      "openReturnRate": -0.1346938775510204,
-      "highReturnRate": null,
-      "closeReturnRate": -0.1653061224489796,
-      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
-      "errorCloseVsExpected": -0.0728
     },
     {
       "id": "hyundai_hyms_2024",
