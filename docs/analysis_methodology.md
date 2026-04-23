@@ -5,7 +5,7 @@ The score is a reference indicator, not investment advice.
 
 ## Current method
 
-`methodVersion: ipo-score-v3`
+`methodVersion: ipo-score-v4`
 
 The current version is intentionally rule-based. It prioritizes transparency
 over model complexity because the dataset is still sparse and source quality
@@ -19,11 +19,23 @@ The overall score is capped to `0..100`.
 - `institutionDemand`: institution demand forecast competition rate.
 - `lockupCommitment`: institution lock-up commitment ratio.
 - `floatRate`: public float ratio on listing day.
+- `spacMomentum`: SPAC-only listing-day demand signal from retail,
+  proportional, and institution competition.
+- `spacVolatility`: SPAC-only volatility adjustment for low lock-up and hot
+  retail demand.
 - `pricing`: final offer price position inside or above the submitted band.
 - `market`: KOSPI/KOSDAQ market context.
 - `leadManagers`: number of known lead managers.
 - `recency`: whether the subscription date is active/upcoming/recent.
 - `dataCompleteness`: availability of snapshots, source URL, market, date, and managers.
+
+For operating-company IPOs, `lockupCommitment` and `floatRate` remain direct
+quality factors. For SPAC IPOs, those two factors are replaced by
+`spacMomentum` and `spacVolatility` because low or absent lock-up commitments
+are common and should not be interpreted the same way as a weak operating
+company IPO. SPAC scoring therefore treats broker proportional competition,
+retail competition, institution demand, fixed low offer price, and volatility as
+separate subscription attractiveness signals.
 
 ## Missing-data display policy
 
@@ -64,8 +76,8 @@ day payoff is usually driven by fixed 2,000 KRW offer pricing, retail momentum,
 proportional competition intensity, and short-term volatility rather than
 fundamental valuation.
 
-For stocks whose company name contains `스팩` or `SPAC`, v3 applies
-`ipo_score_v3_spac_listing_day_momentum` to expected returns:
+For stocks whose company name contains `스팩` or `SPAC`, v4 applies
+`ipo_score_v4_spac_listing_day_momentum` to expected returns:
 
 - retail competition rate remains the aggregate demand signal.
 - broker proportional competition rate is used as an additional listing-day
@@ -77,9 +89,10 @@ For stocks whose company name contains `스팩` or `SPAC`, v3 applies
   adjustments.
 
 This overlay affects `expectedListingGainRate`, `bearCaseListingGainRate`,
-`baseCaseListingGainRate`, and `bullCaseListingGainRate`. It does not directly
-raise the grade. Grades remain a broader subscription attractiveness indicator,
-while the SPAC overlay is a listing-day scenario estimate.
+`baseCaseListingGainRate`, and `bullCaseListingGainRate`. SPAC grades also use
+the related `spacMomentum` and `spacVolatility` score factors, so strong SPAC
+subscription demand is no longer suppressed by missing operating-company float
+or lock-up fields.
 
 ## Extended input blocks
 

@@ -2930,26 +2930,39 @@ double? readRatio(Object? value) {
 void unawaited(Future<void> future) {}
 
 IpoAnalysis analyzeStock(IpoCompetitionStock stock) {
+  final isSpac = isSpacStock(stock);
   final latestRate = stock.latestSnapshot?.aggregate.competitionRate;
   final competitionScore = scoreCompetition(latestRate);
   final institutionScore = scoreInstitutionDemand(stock.fundamentals);
-  final lockupScore = scoreLockup(stock.fundamentals.lockupCommitmentRate);
-  final floatScore = scoreFloat(stock.fundamentals.floatRate);
+  final spacMomentumScore = isSpac ? scoreSpacMomentum(stock) : 0;
+  final spacVolatilityScore = isSpac ? scoreSpacVolatility(stock) : 0;
+  final lockupScore = isSpac
+      ? 0
+      : scoreLockup(stock.fundamentals.lockupCommitmentRate);
+  final floatScore = isSpac ? 0 : scoreFloat(stock.fundamentals.floatRate);
   final pricingScore = scorePricing(stock.fundamentals);
   final marketScore = scoreMarket(stock.market);
   final managerScore = scoreLeadManagers(stock.leadManagers);
   final recencyScore = scoreRecency(stock.subscriptionEnd);
   final dataScore = scoreDataCompleteness(stock);
+  final factors = <String, int>{
+    'competition': competitionScore,
+    'institutionDemand': institutionScore,
+    if (isSpac) ...{
+      'spacMomentum': spacMomentumScore,
+      'spacVolatility': spacVolatilityScore,
+    } else ...{
+      'lockupCommitment': lockupScore,
+      'floatRate': floatScore,
+    },
+    'pricing': pricingScore,
+    'market': marketScore,
+    'leadManagers': managerScore,
+    'recency': recencyScore,
+    'dataCompleteness': dataScore,
+  };
   final total = clampInt(
-    competitionScore +
-        institutionScore +
-        lockupScore +
-        floatScore +
-        pricingScore +
-        marketScore +
-        managerScore +
-        recencyScore +
-        dataScore,
+    factors.values.fold<int>(0, (sum, value) => sum + value),
     0,
     100,
   );
@@ -2980,17 +2993,7 @@ IpoAnalysis analyzeStock(IpoCompetitionStock stock) {
       overall: total,
       grade: grade,
       confidence: confidence,
-      factors: {
-        'competition': competitionScore,
-        'institutionDemand': institutionScore,
-        'lockupCommitment': lockupScore,
-        'floatRate': floatScore,
-        'pricing': pricingScore,
-        'market': marketScore,
-        'leadManagers': managerScore,
-        'recency': recencyScore,
-        'dataCompleteness': dataScore,
-      },
+      factors: factors,
     ),
     expectedReturn: IpoExpectedReturn(
       expectedListingGainRate: expectedGainRate,
@@ -3025,7 +3028,7 @@ IpoAnalysis analyzeStock(IpoCompetitionStock stock) {
       'floatRate': stock.fundamentals.floatRate,
       'hasOutcome': stock.outcome != null,
     },
-    methodVersion: 'ipo-score-v3',
+    methodVersion: 'ipo-score-v4',
   );
 }
 
@@ -3267,6 +3270,66 @@ int scoreFloat(double? rate) {
   return 0;
 }
 
+int scoreSpacMomentum(IpoCompetitionStock stock) {
+  final retailRate = stock.latestSnapshot?.aggregate.competitionRate;
+  final proportionalRate = maxProportionalCompetitionRate(stock);
+  final institutionRate = stock.fundamentals.institutionCompetitionRate;
+  var score = 0;
+  if (retailRate != null) {
+    if (retailRate >= 2000) {
+      score += 7;
+    } else if (retailRate >= 1500) {
+      score += 6;
+    } else if (retailRate >= 1000) {
+      score += 4;
+    } else if (retailRate >= 500) {
+      score += 2;
+    }
+  }
+  if (proportionalRate != null) {
+    if (proportionalRate >= 3500) {
+      score += 6;
+    } else if (proportionalRate >= 2500) {
+      score += 5;
+    } else if (proportionalRate >= 1500) {
+      score += 3;
+    } else if (proportionalRate >= 800) {
+      score += 1;
+    }
+  }
+  if (institutionRate != null) {
+    if (institutionRate >= 1200) {
+      score += 4;
+    } else if (institutionRate >= 800) {
+      score += 3;
+    } else if (institutionRate >= 400) {
+      score += 1;
+    }
+  }
+  final offerPrice = stock.latestOfferPrice;
+  if (offerPrice != null && offerPrice <= 2500) {
+    score += 1;
+  }
+  return clampInt(score, 0, 16);
+}
+
+int scoreSpacVolatility(IpoCompetitionStock stock) {
+  final lockupRate = stock.fundamentals.lockupCommitmentRate;
+  final retailRate = stock.latestSnapshot?.aggregate.competitionRate;
+  var score = 2;
+  if (lockupRate == null) {
+    score += 1;
+  } else if (lockupRate <= 0.01) {
+    score += 2;
+  } else if (lockupRate <= 0.05) {
+    score += 1;
+  }
+  if (retailRate != null && retailRate >= 1500) {
+    score += 1;
+  }
+  return clampInt(score, 0, 4);
+}
+
 int scorePricing(IpoFundamentals fundamentals) {
   final offer = fundamentals.offerPrice;
   final min = fundamentals.priceBandMin;
@@ -3503,7 +3566,7 @@ IpoExpectedReturnProfile spacExpectedReturnProfileFor({
     baseCaseListingGainRate: base,
     bullCaseListingGainRate: bull,
     assumptions: {
-      'method': 'ipo_score_v3_spac_listing_day_momentum',
+      'method': 'ipo_score_v4_spac_listing_day_momentum',
       'spacModel': true,
       'proportionalCompetitionRate': proportionalRate,
       'institutionCompetitionRate': institutionRate,
@@ -3643,6 +3706,16 @@ List<String> reasonsFor(
   if (stock.leadManagers.length >= 2) {
     reasons.add('복수 주관사가 참여해 청약 채널이 분산되어 있습니다.');
   }
+  if (isSpacStock(stock)) {
+    final proportionalRate = maxProportionalCompetitionRate(stock);
+    if (proportionalRate != null) {
+      reasons.add(
+        '스팩 전용 보정으로 비례 경쟁률 ${roundDouble(proportionalRate, 2)}대 1을 상장일 수급 요인에 반영했습니다.',
+      );
+    } else {
+      reasons.add('스팩 전용 보정으로 일반 IPO 확약률 대신 상장일 수급 요인을 반영했습니다.');
+    }
+  }
   if (score >= 70) {
     reasons.add('현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다.');
   }
@@ -3663,6 +3736,9 @@ List<String> warningsFor(
   }
   if (competitionRate != null && competitionRate >= 1000) {
     warnings.add('경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.');
+  }
+  if (isSpacStock(stock)) {
+    warnings.add('스팩의 낮은 기관 확약률은 일반 IPO 안정성 감점이 아니라 상장일 변동성 위험으로 해석합니다.');
   }
   if (stock.latestOfferPrice == null) {
     warnings.add('공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.');

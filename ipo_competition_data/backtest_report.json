@@ -1,15 +1,20 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-24T00:36:18.604262",
+  "generatedAt": "2026-04-24T00:58:41.232954",
   "methodVersion": "ipo-score-v1",
   "sampleCount": 60,
   "summary": {
     "averageCloseReturnRate": 0.8519,
     "medianCloseReturnRate": 0.4847,
-    "averageErrorCloseVsExpected": 0.5892,
+    "averageErrorCloseVsExpected": 0.588,
     "medianErrorCloseVsExpected": 0.2477
   },
   "byGrade": {
+    "B+": {
+      "sampleCount": 1,
+      "averageCloseReturnRate": 0.3675,
+      "medianCloseReturnRate": 0.3675
+    },
     "B": {
       "sampleCount": 1,
       "averageCloseReturnRate": 3.0,
@@ -21,9 +26,9 @@
       "medianCloseReturnRate": 0.4333
     },
     "C": {
-      "sampleCount": 18,
-      "averageCloseReturnRate": 1.1013,
-      "medianCloseReturnRate": 0.8853
+      "sampleCount": 17,
+      "averageCloseReturnRate": 1.1445,
+      "medianCloseReturnRate": 0.9333
     },
     "D": {
       "sampleCount": 38,
@@ -33,10 +38,10 @@
   },
   "byScoreBucket": {
     "70-79": {
-      "sampleCount": 1,
-      "averageCloseReturnRate": 3.0,
-      "medianCloseReturnRate": 3.0,
-      "averageErrorCloseVsExpected": 2.4007
+      "sampleCount": 2,
+      "averageCloseReturnRate": 1.6838,
+      "medianCloseReturnRate": 1.6838,
+      "averageErrorCloseVsExpected": 0.8487
     },
     "60-69": {
       "sampleCount": 3,
@@ -45,10 +50,10 @@
       "averageErrorCloseVsExpected": -0.1015
     },
     "50-59": {
-      "sampleCount": 18,
-      "averageCloseReturnRate": 1.1013,
-      "medianCloseReturnRate": 0.8853,
-      "averageErrorCloseVsExpected": 0.6593
+      "sampleCount": 17,
+      "averageCloseReturnRate": 1.1445,
+      "medianCloseReturnRate": 0.9333,
+      "averageErrorCloseVsExpected": 0.7353
     },
     "40-49": {
       "sampleCount": 25,
@@ -70,6 +75,19 @@
     }
   },
   "rows": [
+    {
+      "id": "kiwoom_hero_spac_2_2026",
+      "company": "키움히어로스팩2호",
+      "score": 77,
+      "grade": "B+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 1.0708,
+      "openReturnRate": 1.395,
+      "highReturnRate": 2.765,
+      "closeReturnRate": 0.3675,
+      "outcomeSourceUrl": "https://sale.mimint.co.kr/bbs/view/news/S1N11/5359024",
+      "errorCloseVsExpected": -0.7033
+    },
     {
       "id": "esteem_2026",
       "company": "에스팀",
@@ -134,19 +152,6 @@
       "closeReturnRate": 0.5177777777777778,
       "outcomeSourceUrl": "https://www.hankyung.com/article/202307197855Y",
       "errorCloseVsExpected": 0.056
-    },
-    {
-      "id": "kiwoom_hero_spac_2_2026",
-      "company": "키움히어로스팩2호",
-      "score": 57,
-      "grade": "C",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.9809,
-      "openReturnRate": 1.395,
-      "highReturnRate": 2.765,
-      "closeReturnRate": 0.3675,
-      "outcomeSourceUrl": "https://sale.mimint.co.kr/bbs/view/news/S1N11/5359024",
-      "errorCloseVsExpected": -0.6134
     },
     {
       "id": "waiker_2023",
@@ -253,19 +258,6 @@
       "errorCloseVsExpected": 1.8275
     },
     {
-      "id": "higen_rnm_2024",
-      "company": "하이젠알앤엠",
-      "score": 53,
-      "grade": "C",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.4225,
-      "openReturnRate": null,
-      "highReturnRate": 2.0428571428571427,
-      "closeReturnRate": 1.1657142857142857,
-      "outcomeSourceUrl": "https://www.hankyung.com/article/202406276414Y",
-      "errorCloseVsExpected": 0.7432
-    },
-    {
       "id": "nobland_2024",
       "company": "노브랜드",
       "score": 53,
@@ -290,6 +282,19 @@
       "closeReturnRate": 1.3714285714285714,
       "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10948743",
       "errorCloseVsExpected": 0.949
+    },
+    {
+      "id": "higen_rnm_2024",
+      "company": "하이젠알앤엠",
+      "score": 51,
+      "grade": "C",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.4028,
+      "openReturnRate": null,
+      "highReturnRate": 2.0428571428571427,
+      "closeReturnRate": 1.1657142857142857,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/202406276414Y",
+      "errorCloseVsExpected": 0.7629
     },
     {
       "id": "woojin_entec_2024",
