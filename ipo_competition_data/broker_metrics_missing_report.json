@@ -1,9 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-22T22:57:53.861856",
-  "totalMissing": 1,
+  "generatedAt": "2026-04-23T01:24:34.045833",
+  "totalMissing": 3,
   "reasonCounts": {
-    "no_snapshot+no_retail_competition_rate+no_public_allocation": 1
+    "no_snapshot+no_retail_competition_rate+no_public_allocation": 1,
+    "no_public_allocation+no_lead_manager": 2
   },
   "missingBrokerMetrics": [
     {
@@ -19,6 +20,30 @@
       "publicAllocationShares": null,
       "latestSnapshotSource": null,
       "latestSnapshotSourceUrl": null
+    },
+    {
+      "id": "synapsoft_2024",
+      "company": "사이냅소프트",
+      "subscriptionStart": "2024-11-08",
+      "subscriptionEnd": "2024-11-11",
+      "leadManagers": [],
+      "reason": "no_public_allocation+no_lead_manager",
+      "retailCompetitionRate": 60.466,
+      "publicAllocationShares": null,
+      "latestSnapshotSource": "article_final",
+      "latestSnapshotSourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333"
+    },
+    {
+      "id": "clobot_2024",
+      "company": "클로봇",
+      "subscriptionStart": "2024-10-16",
+      "subscriptionEnd": "2024-10-17",
+      "leadManagers": [],
+      "reason": "no_public_allocation+no_lead_manager",
+      "retailCompetitionRate": 1037.0,
+      "publicAllocationShares": null,
+      "latestSnapshotSource": "article_final",
+      "latestSnapshotSourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=370460"
     }
   ]
 }

@@ -13,7 +13,10 @@
   "market": "KOSPI",
   "subscriptionStart": "2024-04-25",
   "subscriptionEnd": "2024-04-26",
-  "leadManagers": [],
+  "leadManagers": [
+    "대신증권",
+    "유안타증권"
+  ],
   "fundamentals": {
     "offerPrice": 83400,
     "priceBandMin": null,
@@ -222,12 +225,92 @@
         "subscribedShares": 601948634,
         "competitionRate": 255.7777492611769
       }
+    },
+    {
+      "capturedAt": "2026-04-23T01:24:34.045833",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.newspim.com/news/view/20240426001088",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 1176697,
+          "subscribedShares": 300999093,
+          "offerPrice": 83400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 255.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 255.8,
+          "equalAllocationShares": 588348,
+          "proportionalAllocationShares": 588349,
+          "applicationCount": null
+        },
+        {
+          "name": "유안타증권",
+          "offeredShares": 1176696,
+          "subscribedShares": 300998837,
+          "offerPrice": 83400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 255.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 255.8,
+          "equalAllocationShares": 588348,
+          "proportionalAllocationShares": 588348,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 2353393,
+        "subscribedShares": 601997930,
+        "competitionRate": 255.80000025495104
+      }
+    },
+    {
+      "capturedAt": "2026-04-23T01:24:34.045833",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.newspim.com/news/view/20240426001088",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 1176697,
+          "subscribedShares": 300999093,
+          "offerPrice": 83400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 255.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 255.8,
+          "equalAllocationShares": 588348,
+          "proportionalAllocationShares": 588349,
+          "applicationCount": null
+        },
+        {
+          "name": "유안타증권",
+          "offeredShares": 1176696,
+          "subscribedShares": 300998837,
+          "offerPrice": 83400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 255.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 255.8,
+          "equalAllocationShares": 588348,
+          "proportionalAllocationShares": 588348,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 2353393,
+        "subscribedShares": 601997930,
+        "competitionRate": 255.80000025495104
+      }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 38,
+      "overall": 44,
       "grade": "D",
       "confidence": 0.95,
       "factors": {
@@ -237,29 +320,29 @@
         "floatRate": 0,
         "pricing": 3,
         "market": 6,
-        "leadManagers": 0,
+        "leadManagers": 5,
         "recency": 0,
-        "dataCompleteness": 7
+        "dataCompleteness": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.0174,
-      "bearCaseListingGainRate": -0.2374,
-      "baseCaseListingGainRate": -0.0174,
-      "bullCaseListingGainRate": 0.3326,
+      "expectedListingGainRate": 0.0416,
+      "bearCaseListingGainRate": -0.1784,
+      "baseCaseListingGainRate": 0.0416,
+      "bullCaseListingGainRate": 0.3916,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.039,
         "oneMillionKrw": 0.047,
         "fiveMillionKrw": 0.234
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -2057,
-        "oneMillionKrw": -2068,
-        "fiveMillionKrw": -2340
+        "minimumSubscription": -1864,
+        "oneMillionKrw": -1837,
+        "fiveMillionKrw": -1187
       },
       "assumptions": {
         "offerPrice": 83400,
-        "competitionRate": 255.7777492611769,
+        "competitionRate": 255.80000025495104,
         "feeKrw": 2000,
         "method": "rule_based_v1_low_confidence"
       }
@@ -268,7 +351,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 255.78대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 255.8대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -294,15 +378,6 @@
         "dataQuality": "broker_verified"
       },
       {
-        "broker": "대신증권",
-        "equalScore": 92,
-        "proportionalScore": 4,
-        "expectedEqualShares": 1.154,
-        "estimatedDepositForOneProportionalShare": 22648104,
-        "feeKrw": 2000,
-        "dataQuality": "broker_verified"
-      },
-      {
         "broker": "KB증권",
         "equalScore": 88,
         "proportionalScore": 5,
@@ -319,12 +394,30 @@
         "estimatedDepositForOneProportionalShare": 19827933,
         "feeKrw": 2000,
         "dataQuality": "broker_verified"
+      },
+      {
+        "broker": "대신증권",
+        "equalScore": 30,
+        "proportionalScore": 9,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 10666860,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "유안타증권",
+        "equalScore": 30,
+        "proportionalScore": 9,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 10666860,
+        "feeKrw": null,
+        "dataQuality": "partial"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 255.7777492611769,
-      "snapshotCount": 3,
-      "leadManagerCount": 0,
+      "latestCompetitionRate": 255.80000025495104,
+      "snapshotCount": 5,
+      "leadManagerCount": 2,
       "market": "KOSPI",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 201.0,

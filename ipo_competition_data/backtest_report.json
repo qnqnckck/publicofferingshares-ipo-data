@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-22T22:57:53.861856",
+  "generatedAt": "2026-04-23T01:24:34.045833",
   "methodVersion": "ipo-score-v1",
   "sampleCount": 59,
   "summary": {
     "averageCloseReturnRate": 0.8601,
     "medianCloseReturnRate": 0.5019,
-    "averageErrorCloseVsExpected": 0.6102,
+    "averageErrorCloseVsExpected": 0.6106,
     "medianErrorCloseVsExpected": 0.2556
   },
   "byGrade": {
@@ -52,15 +52,15 @@
     },
     "40-49": {
       "sampleCount": 25,
-      "averageCloseReturnRate": 0.9227,
-      "medianCloseReturnRate": 0.5667,
-      "averageErrorCloseVsExpected": 0.6398
+      "averageCloseReturnRate": 0.9679,
+      "medianCloseReturnRate": 0.5969,
+      "averageErrorCloseVsExpected": 0.683
     },
     "30-39": {
       "sampleCount": 8,
-      "averageCloseReturnRate": 0.5118,
-      "medianCloseReturnRate": 0.0271,
-      "averageErrorCloseVsExpected": 0.5399
+      "averageCloseReturnRate": 0.3705,
+      "medianCloseReturnRate": -0.0831,
+      "averageErrorCloseVsExpected": 0.408
     },
     "20-29": {
       "sampleCount": 5,
@@ -461,6 +461,19 @@
       "errorCloseVsExpected": 1.4155
     },
     {
+      "id": "ds_dansuk_2023",
+      "company": "디에스단석",
+      "score": 46,
+      "grade": "D",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.3474,
+      "openReturnRate": 2.7,
+      "highReturnRate": 3.0,
+      "closeReturnRate": 3.0,
+      "outcomeSourceUrl": "https://news.bizwatch.co.kr/article/market/2023/12/22/0035",
+      "errorCloseVsExpected": 2.6526
+    },
+    {
       "id": "posbank_2024",
       "company": "포스뱅크",
       "score": 46,
@@ -485,32 +498,6 @@
       "closeReturnRate": 1.2166666666666666,
       "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240206040551008",
       "errorCloseVsExpected": 0.863
-    },
-    {
-      "id": "ds_dansuk_2023",
-      "company": "디에스단석",
-      "score": 46,
-      "grade": "D",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.3474,
-      "openReturnRate": 2.7,
-      "highReturnRate": 3.0,
-      "closeReturnRate": 3.0,
-      "outcomeSourceUrl": "https://news.bizwatch.co.kr/article/market/2023/12/22/0035",
-      "errorCloseVsExpected": 2.6526
-    },
-    {
-      "id": "clobot_2024",
-      "company": "클로봇",
-      "score": 45,
-      "grade": "D",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.3439,
-      "openReturnRate": -0.038461538461538464,
-      "highReturnRate": null,
-      "closeReturnRate": -0.2276923076923077,
-      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=370460",
-      "errorCloseVsExpected": -0.5716
     },
     {
       "id": "hb_investment_2024",
@@ -552,6 +539,19 @@
       "errorCloseVsExpected": -0.4859
     },
     {
+      "id": "hd_hyundai_marine_solution_2024",
+      "company": "HD현대마린솔루션",
+      "score": 44,
+      "grade": "D",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.0416,
+      "openReturnRate": 0.43764988009592326,
+      "highReturnRate": null,
+      "closeReturnRate": 0.9652278177458034,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240508041000008",
+      "errorCloseVsExpected": 0.9236
+    },
+    {
       "id": "daehan_shipbuilding_2025",
       "company": "대한조선",
       "score": 44,
@@ -591,19 +591,6 @@
       "errorCloseVsExpected": -0.0444
     },
     {
-      "id": "synapsoft_2024",
-      "company": "사이냅소프트",
-      "score": 42,
-      "grade": "D",
-      "confidence": 0.95,
-      "expectedListingGainRate": -0.0548,
-      "openReturnRate": -0.1346938775510204,
-      "highReturnRate": null,
-      "closeReturnRate": -0.1653061224489796,
-      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
-      "errorCloseVsExpected": -0.1105
-    },
-    {
       "id": "inix_2024",
       "company": "이닉스",
       "score": 41,
@@ -628,6 +615,19 @@
       "closeReturnRate": 3.0,
       "outcomeSourceUrl": "https://www.mt.co.kr/stock/2023/12/12/2023121217303822818",
       "errorCloseVsExpected": 2.6954
+    },
+    {
+      "id": "clobot_2024",
+      "company": "클로봇",
+      "score": 41,
+      "grade": "D",
+      "confidence": 0.9,
+      "expectedListingGainRate": 0.2992,
+      "openReturnRate": -0.038461538461538464,
+      "highReturnRate": null,
+      "closeReturnRate": -0.2276923076923077,
+      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=370460",
+      "errorCloseVsExpected": -0.5268
     },
     {
       "id": "shinsung_st_2023",
@@ -669,19 +669,6 @@
       "errorCloseVsExpected": -0.5059
     },
     {
-      "id": "hd_hyundai_marine_solution_2024",
-      "company": "HD현대마린솔루션",
-      "score": 38,
-      "grade": "D",
-      "confidence": 0.95,
-      "expectedListingGainRate": -0.0174,
-      "openReturnRate": 0.43764988009592326,
-      "highReturnRate": null,
-      "closeReturnRate": 0.9652278177458034,
-      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240508041000008",
-      "errorCloseVsExpected": 0.9826
-    },
-    {
       "id": "sungwoo_2024",
       "company": "성우",
       "score": 38,
@@ -693,6 +680,19 @@
       "closeReturnRate": -0.1875,
       "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=371010",
       "errorCloseVsExpected": -0.3905
+    },
+    {
+      "id": "synapsoft_2024",
+      "company": "사이냅소프트",
+      "score": 38,
+      "grade": "D",
+      "confidence": 0.9,
+      "expectedListingGainRate": -0.0925,
+      "openReturnRate": -0.1346938775510204,
+      "highReturnRate": null,
+      "closeReturnRate": -0.1653061224489796,
+      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
+      "errorCloseVsExpected": -0.0728
     },
     {
       "id": "hyundai_hyms_2024",
