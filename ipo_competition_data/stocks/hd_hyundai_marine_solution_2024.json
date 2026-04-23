@@ -13,9 +13,7 @@
   "market": "KOSPI",
   "subscriptionStart": "2024-04-25",
   "subscriptionEnd": "2024-04-26",
-  "leadManagers": [
-    "KB증권"
-  ],
+  "leadManagers": [],
   "fundamentals": {
     "offerPrice": 83400,
     "priceBandMin": null,
@@ -224,64 +222,12 @@
         "subscribedShares": 601948634,
         "competitionRate": 255.7777492611769
       }
-    },
-    {
-      "capturedAt": "2026-04-23T08:15:45.317066",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://www.newspim.com/news/view/20240426001088",
-      "brokers": [
-        {
-          "name": "KB증권",
-          "offeredShares": 2353393,
-          "subscribedShares": 601997929,
-          "offerPrice": 83400,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 255.8,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 255.8,
-          "equalAllocationShares": 1176696,
-          "proportionalAllocationShares": 1176697,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 2353393,
-        "subscribedShares": 601997929,
-        "competitionRate": 255.79999983003265
-      }
-    },
-    {
-      "capturedAt": "2026-04-23T08:15:45.317066",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://www.newspim.com/news/view/20240426001088",
-      "brokers": [
-        {
-          "name": "KB증권",
-          "offeredShares": 2353393,
-          "subscribedShares": 601997929,
-          "offerPrice": 83400,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 255.8,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 255.8,
-          "equalAllocationShares": 1176696,
-          "proportionalAllocationShares": 1176697,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 2353393,
-        "subscribedShares": 601997929,
-        "competitionRate": 255.79999983003265
-      }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 42,
+      "overall": 38,
       "grade": "D",
       "confidence": 0.95,
       "factors": {
@@ -291,29 +237,29 @@
         "floatRate": 0,
         "pricing": 3,
         "market": 6,
-        "leadManagers": 3,
+        "leadManagers": 0,
         "recency": 0,
-        "dataCompleteness": 8
+        "dataCompleteness": 7
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.0219,
-      "bearCaseListingGainRate": -0.1981,
-      "baseCaseListingGainRate": 0.0219,
-      "bullCaseListingGainRate": 0.3719,
+      "expectedListingGainRate": -0.0174,
+      "bearCaseListingGainRate": -0.2374,
+      "baseCaseListingGainRate": -0.0174,
+      "bullCaseListingGainRate": 0.3326,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.039,
         "oneMillionKrw": 0.047,
         "fiveMillionKrw": 0.234
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1929,
-        "oneMillionKrw": -1914,
-        "fiveMillionKrw": -1571
+        "minimumSubscription": -2057,
+        "oneMillionKrw": -2068,
+        "fiveMillionKrw": -2340
       },
       "assumptions": {
         "offerPrice": 83400,
-        "competitionRate": 255.79999983003265,
+        "competitionRate": 255.7777492611769,
         "feeKrw": 2000,
         "method": "rule_based_v1_low_confidence"
       }
@@ -322,7 +268,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 255.8대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 255.78대 1입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -357,6 +303,15 @@
         "dataQuality": "broker_verified"
       },
       {
+        "broker": "KB증권",
+        "equalScore": 88,
+        "proportionalScore": 5,
+        "expectedEqualShares": 1.0965,
+        "estimatedDepositForOneProportionalShare": 21216126,
+        "feeKrw": 1500,
+        "dataQuality": "broker_verified"
+      },
+      {
         "broker": "삼성증권",
         "equalScore": 66,
         "proportionalScore": 5,
@@ -364,21 +319,12 @@
         "estimatedDepositForOneProportionalShare": 19827933,
         "feeKrw": 2000,
         "dataQuality": "broker_verified"
-      },
-      {
-        "broker": "KB증권",
-        "equalScore": 30,
-        "proportionalScore": 9,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 10666860,
-        "feeKrw": null,
-        "dataQuality": "partial"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 255.79999983003265,
-      "snapshotCount": 5,
-      "leadManagerCount": 1,
+      "latestCompetitionRate": 255.7777492611769,
+      "snapshotCount": 3,
+      "leadManagerCount": 0,
       "market": "KOSPI",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 201.0,

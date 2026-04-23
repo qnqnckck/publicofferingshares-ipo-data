@@ -14,7 +14,8 @@
   "subscriptionStart": "2024-11-07",
   "subscriptionEnd": "2024-11-08",
   "leadManagers": [
-    "신한투자증권"
+    "신한투자증권",
+    "하나증권"
   ],
   "fundamentals": {
     "offerPrice": 6400,
@@ -62,12 +63,26 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T08:15:45.317066",
+      "capturedAt": "2026-04-23T09:53:45.093668",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.ajunews.com/view/20241120093635200",
       "brokers": [
         {
           "name": "신한투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 6400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 233.16,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 233.16,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "하나증권",
           "offeredShares": 0,
           "subscribedShares": 0,
           "offerPrice": 6400,
@@ -88,12 +103,26 @@
       }
     },
     {
-      "capturedAt": "2026-04-23T08:15:45.317066",
+      "capturedAt": "2026-04-23T09:53:45.093668",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.ajunews.com/view/20241120093635200",
       "brokers": [
         {
           "name": "신한투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 6400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 233.16,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 233.16,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "하나증권",
           "offeredShares": 0,
           "subscribedShares": 0,
           "offerPrice": 6400,
@@ -117,7 +146,7 @@
   "analysis": {
     "methodVersion": "ipo-score-v2",
     "score": {
-      "overall": 40,
+      "overall": 42,
       "grade": "D",
       "confidence": 0.95,
       "factors": {
@@ -127,25 +156,25 @@
         "floatRate": 0,
         "pricing": 5,
         "market": 5,
-        "leadManagers": 3,
+        "leadManagers": 5,
         "recency": 0,
         "dataCompleteness": 7
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.0066,
-      "bearCaseListingGainRate": -0.2266,
-      "baseCaseListingGainRate": -0.0066,
-      "bullCaseListingGainRate": 0.3434,
+      "expectedListingGainRate": 0.013,
+      "bearCaseListingGainRate": -0.207,
+      "baseCaseListingGainRate": 0.013,
+      "bullCaseListingGainRate": 0.363,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.043,
         "oneMillionKrw": 0.67,
         "fiveMillionKrw": 3.351
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -2002,
-        "oneMillionKrw": -2028,
-        "fiveMillionKrw": -2142
+        "minimumSubscription": -1996,
+        "oneMillionKrw": -1944,
+        "fiveMillionKrw": -1721
       },
       "assumptions": {
         "offerPrice": 6400,
@@ -158,7 +187,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 233.16대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 233.16대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -173,12 +203,21 @@
         "estimatedDepositForOneProportionalShare": 746112,
         "feeKrw": null,
         "dataQuality": "partial"
+      },
+      {
+        "broker": "하나증권",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 746112,
+        "feeKrw": null,
+        "dataQuality": "partial"
       }
     ],
     "inputs": {
       "latestCompetitionRate": 233.16,
       "snapshotCount": 3,
-      "leadManagerCount": 1,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 997.37,

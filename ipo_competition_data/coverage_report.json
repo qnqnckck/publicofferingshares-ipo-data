@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-23T08:15:45.317066",
+  "generatedAt": "2026-04-23T09:53:45.093668",
   "backfillCutoff": "2023-04-23T00:00:00.000",
   "totals": {
     "discovered": 0,
@@ -17,7 +17,7 @@
     "missing_lockup_commitment_rate": 162,
     "missing_retail_competition_rate": 1,
     "missing_competition_snapshot": 1,
-    "missing_broker_level_competition": 4,
+    "missing_broker_level_competition": 6,
     "missing_external_identifier": 2
   },
   "discoveredMissingFromGenerated": [],
@@ -66,6 +66,44 @@
       "institutionCompetitionRate": 1271.12,
       "lockupCommitmentRate": 0.0,
       "score": 39,
+      "grade": "D"
+    },
+    {
+      "id": "synapsoft_2024",
+      "company": "사이냅소프트",
+      "subscriptionStart": "2024-11-08",
+      "subscriptionEnd": "2024-11-11",
+      "leadManagers": [],
+      "path": "stocks/synapsoft_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate",
+        "missing_broker_level_competition"
+      ],
+      "issueCount": 3,
+      "latestCompetitionRate": 60.466,
+      "institutionCompetitionRate": 1163.2,
+      "lockupCommitmentRate": null,
+      "score": 38,
+      "grade": "D"
+    },
+    {
+      "id": "clobot_2024",
+      "company": "클로봇",
+      "subscriptionStart": "2024-10-16",
+      "subscriptionEnd": "2024-10-17",
+      "leadManagers": [],
+      "path": "stocks/clobot_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate",
+        "missing_broker_level_competition"
+      ],
+      "issueCount": 3,
+      "latestCompetitionRate": 1037.0,
+      "institutionCompetitionRate": 933.85,
+      "lockupCommitmentRate": null,
+      "score": 41,
       "grade": "D"
     },
     {
@@ -1265,27 +1303,6 @@
       "grade": "D"
     },
     {
-      "id": "synapsoft_2024",
-      "company": "사이냅소프트",
-      "subscriptionStart": "2024-11-08",
-      "subscriptionEnd": "2024-11-11",
-      "leadManagers": [
-        "미래에셋증권",
-        "한국투자증권"
-      ],
-      "path": "stocks/synapsoft_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 60.466,
-      "institutionCompetitionRate": 1163.2,
-      "lockupCommitmentRate": null,
-      "score": 44,
-      "grade": "D"
-    },
-    {
       "id": "s_chem_2024",
       "company": "에스켐",
       "subscriptionStart": "2024-11-07",
@@ -1331,7 +1348,8 @@
       "subscriptionStart": "2024-11-07",
       "subscriptionEnd": "2024-11-08",
       "leadManagers": [
-        "신한투자증권"
+        "신한투자증권",
+        "하나증권"
       ],
       "path": "stocks/wits_2024.json",
       "issues": [
@@ -1342,7 +1360,7 @@
       "latestCompetitionRate": 233.16,
       "institutionCompetitionRate": 997.37,
       "lockupCommitmentRate": null,
-      "score": 40,
+      "score": 42,
       "grade": "D"
     },
     {
@@ -1567,26 +1585,6 @@
       "grade": "C"
     },
     {
-      "id": "clobot_2024",
-      "company": "클로봇",
-      "subscriptionStart": "2024-10-16",
-      "subscriptionEnd": "2024-10-17",
-      "leadManagers": [
-        "미래에셋증권"
-      ],
-      "path": "stocks/clobot_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 1037.0,
-      "institutionCompetitionRate": 933.85,
-      "lockupCommitmentRate": null,
-      "score": 45,
-      "grade": "D"
-    },
-    {
       "id": "cmes_2024",
       "company": "씨메스",
       "subscriptionStart": "2024-10-15",
@@ -1770,26 +1768,6 @@
       "grade": "D"
     },
     {
-      "id": "encell_2024",
-      "company": "이엔셀",
-      "subscriptionStart": "2024-08-12",
-      "subscriptionEnd": "2024-08-13",
-      "leadManagers": [
-        "NH투자증권"
-      ],
-      "path": "stocks/encell_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 928.06,
-      "institutionCompetitionRate": 949.3,
-      "lockupCommitmentRate": null,
-      "score": 48,
-      "grade": "D"
-    },
-    {
       "id": "m83_2024",
       "company": "엠83",
       "subscriptionStart": "2024-08-12",
@@ -1806,6 +1784,26 @@
       "issueCount": 2,
       "latestCompetitionRate": 638.05,
       "institutionCompetitionRate": 1024.72,
+      "lockupCommitmentRate": null,
+      "score": 48,
+      "grade": "D"
+    },
+    {
+      "id": "encell_2024",
+      "company": "이엔셀",
+      "subscriptionStart": "2024-08-12",
+      "subscriptionEnd": "2024-08-13",
+      "leadManagers": [
+        "NH투자증권"
+      ],
+      "path": "stocks/encell_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 928.06,
+      "institutionCompetitionRate": 949.3,
       "lockupCommitmentRate": null,
       "score": 48,
       "grade": "D"
@@ -2038,8 +2036,7 @@
       "subscriptionStart": "2024-06-18",
       "subscriptionEnd": "2024-06-19",
       "leadManagers": [
-        "한국투자증권",
-        "신한투자증권"
+        "한국투자증권"
       ],
       "path": "stocks/higen_rnm_2024.json",
       "issues": [
@@ -2050,7 +2047,7 @@
       "latestCompetitionRate": 2549.13,
       "institutionCompetitionRate": 1099.2,
       "lockupCommitmentRate": null,
-      "score": 53,
+      "score": 51,
       "grade": "C"
     },
     {
