@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-24T08:08:27.968901",
+  "generatedAt": "2026-04-24T08:30:04.918899",
   "backfillCutoff": "2023-04-24T00:00:00.000",
   "totals": {
     "discovered": 0,
@@ -16,7 +16,7 @@
     "missing_institution_participants": 161,
     "missing_lockup_commitment_rate": 162,
     "missing_external_identifier": 2,
-    "missing_broker_level_competition": 3
+    "missing_broker_level_competition": 4
   },
   "discoveredMissingFromGenerated": [],
   "qualityIssues": [
@@ -42,6 +42,25 @@
       "institutionCompetitionRate": null,
       "lockupCommitmentRate": null,
       "score": 20,
+      "grade": "D"
+    },
+    {
+      "id": "clobot_2024",
+      "company": "클로봇",
+      "subscriptionStart": "2024-10-16",
+      "subscriptionEnd": "2024-10-17",
+      "leadManagers": [],
+      "path": "stocks/clobot_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate",
+        "missing_broker_level_competition"
+      ],
+      "issueCount": 3,
+      "latestCompetitionRate": 1037.0,
+      "institutionCompetitionRate": 933.85,
+      "lockupCommitmentRate": null,
+      "score": 41,
       "grade": "D"
     },
     {
@@ -811,26 +830,6 @@
       "grade": "D"
     },
     {
-      "id": "lkchem_2025",
-      "company": "엘케이켐",
-      "subscriptionStart": "2025-02-13",
-      "subscriptionEnd": "2025-02-14",
-      "leadManagers": [
-        "신영증권"
-      ],
-      "path": "stocks/lkchem_2025.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 652.52,
-      "institutionCompetitionRate": 1052.62,
-      "lockupCommitmentRate": null,
-      "score": 49,
-      "grade": "D"
-    },
-    {
       "id": "winners_2025",
       "company": "위너스",
       "subscriptionStart": "2025-02-13",
@@ -849,6 +848,26 @@
       "lockupCommitmentRate": null,
       "score": 56,
       "grade": "C"
+    },
+    {
+      "id": "lkchem_2025",
+      "company": "엘케이켐",
+      "subscriptionStart": "2025-02-13",
+      "subscriptionEnd": "2025-02-14",
+      "leadManagers": [
+        "신영증권"
+      ],
+      "path": "stocks/lkchem_2025.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 652.52,
+      "institutionCompetitionRate": 1052.62,
+      "lockupCommitmentRate": null,
+      "score": 49,
+      "grade": "D"
     },
     {
       "id": "motive_link_2025",
@@ -1246,7 +1265,9 @@
       "subscriptionStart": "2024-11-08",
       "subscriptionEnd": "2024-11-11",
       "leadManagers": [
-        "미래에셋증권"
+        "NH투자증권",
+        "미래에셋증권",
+        "하나증권"
       ],
       "path": "stocks/synapsoft_2024.json",
       "issues": [
@@ -1257,7 +1278,7 @@
       "latestCompetitionRate": 60.466,
       "institutionCompetitionRate": 1163.2,
       "lockupCommitmentRate": null,
-      "score": 42,
+      "score": 44,
       "grade": "D"
     },
     {
@@ -1422,26 +1443,6 @@
       "grade": "D"
     },
     {
-      "id": "hem_pharma_2024",
-      "company": "에이치이엠파마",
-      "subscriptionStart": "2024-10-24",
-      "subscriptionEnd": "2024-10-25",
-      "leadManagers": [
-        "신한투자증권"
-      ],
-      "path": "stocks/hem_pharma_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 672.17,
-      "institutionCompetitionRate": 1220.68,
-      "lockupCommitmentRate": null,
-      "score": 46,
-      "grade": "D"
-    },
-    {
       "id": "airrane_2024",
       "company": "에어레인",
       "subscriptionStart": "2024-10-24",
@@ -1457,6 +1458,26 @@
       "issueCount": 2,
       "latestCompetitionRate": 418.31,
       "institutionCompetitionRate": 1000.1,
+      "lockupCommitmentRate": null,
+      "score": 46,
+      "grade": "D"
+    },
+    {
+      "id": "hem_pharma_2024",
+      "company": "에이치이엠파마",
+      "subscriptionStart": "2024-10-24",
+      "subscriptionEnd": "2024-10-25",
+      "leadManagers": [
+        "신한투자증권"
+      ],
+      "path": "stocks/hem_pharma_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 672.17,
+      "institutionCompetitionRate": 1220.68,
       "lockupCommitmentRate": null,
       "score": 46,
       "grade": "D"
@@ -1540,26 +1561,6 @@
       "lockupCommitmentRate": null,
       "score": 50,
       "grade": "C"
-    },
-    {
-      "id": "clobot_2024",
-      "company": "클로봇",
-      "subscriptionStart": "2024-10-16",
-      "subscriptionEnd": "2024-10-17",
-      "leadManagers": [
-        "미래에셋증권"
-      ],
-      "path": "stocks/clobot_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 1037.0,
-      "institutionCompetitionRate": 933.85,
-      "lockupCommitmentRate": null,
-      "score": 45,
-      "grade": "D"
     },
     {
       "id": "cmes_2024",
