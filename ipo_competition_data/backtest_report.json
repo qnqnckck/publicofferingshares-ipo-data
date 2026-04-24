@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-24T01:13:37.871616",
+  "generatedAt": "2026-04-24T01:24:06.176100",
   "methodVersion": "ipo-score-v4",
   "sampleCount": 60,
   "summary": {
     "averageCloseReturnRate": 0.8519,
     "medianCloseReturnRate": 0.4847,
-    "averageErrorCloseVsExpected": 0.588,
+    "averageErrorCloseVsExpected": 0.5886,
     "medianErrorCloseVsExpected": 0.2477,
     "averageReferenceReturnRate": 0.8736,
     "medianReferenceReturnRate": 0.5099,
-    "averageErrorReferenceVsExpected": 0.6097,
+    "averageErrorReferenceVsExpected": 0.6102,
     "medianErrorReferenceVsExpected": 0.2589
   },
   "byGrade": {
@@ -64,17 +64,17 @@
     },
     "40-49": {
       "sampleCount": 25,
-      "averageCloseReturnRate": 0.9227,
-      "medianCloseReturnRate": 0.5667,
-      "averageErrorCloseVsExpected": 0.639,
-      "averageErrorReferenceVsExpected": 0.639
+      "averageCloseReturnRate": 0.9679,
+      "medianCloseReturnRate": 0.5969,
+      "averageErrorCloseVsExpected": 0.6826,
+      "averageErrorReferenceVsExpected": 0.6826
     },
     "30-39": {
       "sampleCount": 8,
-      "averageCloseReturnRate": 0.5118,
-      "medianCloseReturnRate": 0.0271,
-      "averageErrorCloseVsExpected": 0.5399,
-      "averageErrorReferenceVsExpected": 0.5399
+      "averageCloseReturnRate": 0.3705,
+      "medianCloseReturnRate": -0.0831,
+      "averageErrorCloseVsExpected": 0.408,
+      "averageErrorReferenceVsExpected": 0.408
     },
     "20-29": {
       "sampleCount": 5,
@@ -630,20 +630,20 @@
       "errorReferenceVsExpected": 1.4155
     },
     {
-      "id": "clobot_2024",
-      "company": "클로봇",
+      "id": "hd_hyundai_marine_solution_2024",
+      "company": "HD현대마린솔루션",
       "isSpac": false,
       "score": 45,
       "grade": "D",
       "confidence": 0.95,
-      "expectedListingGainRate": 0.3439,
-      "openReturnRate": -0.038461538461538464,
+      "expectedListingGainRate": 0.0514,
+      "openReturnRate": 0.43764988009592326,
       "highReturnRate": null,
-      "closeReturnRate": -0.2276923076923077,
-      "referenceReturnRate": -0.2276923076923077,
-      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=370460",
-      "errorCloseVsExpected": -0.5716,
-      "errorReferenceVsExpected": -0.5716
+      "closeReturnRate": 0.9652278177458034,
+      "referenceReturnRate": 0.9652278177458034,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240508041000008",
+      "errorCloseVsExpected": 0.9138,
+      "errorReferenceVsExpected": 0.9138
     },
     {
       "id": "hb_investment_2024",
@@ -694,22 +694,6 @@
       "errorReferenceVsExpected": -0.4859
     },
     {
-      "id": "synapsoft_2024",
-      "company": "사이냅소프트",
-      "isSpac": false,
-      "score": 44,
-      "grade": "D",
-      "confidence": 0.95,
-      "expectedListingGainRate": -0.0352,
-      "openReturnRate": -0.1346938775510204,
-      "highReturnRate": null,
-      "closeReturnRate": -0.1653061224489796,
-      "referenceReturnRate": -0.1653061224489796,
-      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
-      "errorCloseVsExpected": -0.1301,
-      "errorReferenceVsExpected": -0.1301
-    },
-    {
       "id": "daehan_shipbuilding_2025",
       "company": "대한조선",
       "isSpac": false,
@@ -756,6 +740,22 @@
       "outcomeSourceUrl": "https://www.newsis.com/view/NISX20240227_0002641320",
       "errorCloseVsExpected": -0.0444,
       "errorReferenceVsExpected": -0.0444
+    },
+    {
+      "id": "clobot_2024",
+      "company": "클로봇",
+      "isSpac": false,
+      "score": 41,
+      "grade": "D",
+      "confidence": 0.9,
+      "expectedListingGainRate": 0.2992,
+      "openReturnRate": -0.038461538461538464,
+      "highReturnRate": null,
+      "closeReturnRate": -0.2276923076923077,
+      "referenceReturnRate": -0.2276923076923077,
+      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=370460",
+      "errorCloseVsExpected": -0.5268,
+      "errorReferenceVsExpected": -0.5268
     },
     {
       "id": "inix_2024",
@@ -838,6 +838,22 @@
       "errorReferenceVsExpected": 0.2621
     },
     {
+      "id": "synapsoft_2024",
+      "company": "사이냅소프트",
+      "isSpac": false,
+      "score": 38,
+      "grade": "D",
+      "confidence": 0.9,
+      "expectedListingGainRate": -0.0925,
+      "openReturnRate": -0.1346938775510204,
+      "highReturnRate": null,
+      "closeReturnRate": -0.1653061224489796,
+      "referenceReturnRate": -0.1653061224489796,
+      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
+      "errorCloseVsExpected": -0.0728,
+      "errorReferenceVsExpected": -0.0728
+    },
+    {
       "id": "sungwoo_2024",
       "company": "성우",
       "isSpac": false,
@@ -852,22 +868,6 @@
       "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=371010",
       "errorCloseVsExpected": -0.3905,
       "errorReferenceVsExpected": -0.3905
-    },
-    {
-      "id": "hd_hyundai_marine_solution_2024",
-      "company": "HD현대마린솔루션",
-      "isSpac": false,
-      "score": 38,
-      "grade": "D",
-      "confidence": 0.95,
-      "expectedListingGainRate": -0.0174,
-      "openReturnRate": 0.43764988009592326,
-      "highReturnRate": null,
-      "closeReturnRate": 0.9652278177458034,
-      "referenceReturnRate": 0.9652278177458034,
-      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240508041000008",
-      "errorCloseVsExpected": 0.9826,
-      "errorReferenceVsExpected": 0.9826
     },
     {
       "id": "hyundai_hyms_2024",

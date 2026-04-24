@@ -13,7 +13,17 @@
   "market": "KOSPI",
   "subscriptionStart": "2024-04-25",
   "subscriptionEnd": "2024-04-26",
-  "leadManagers": [],
+  "leadManagers": [
+    "IBK투자증권",
+    "KB증권",
+    "LS증권",
+    "SK증권",
+    "다올투자증권",
+    "메리츠증권",
+    "삼성증권",
+    "키움증권",
+    "하나증권"
+  ],
   "fundamentals": {
     "offerPrice": 83400,
     "priceBandMin": null,
@@ -140,12 +150,150 @@
         "subscribedShares": 601948634,
         "competitionRate": 255.7777492611769
       }
+    },
+    {
+      "capturedAt": "2026-04-24T01:24:06.176100",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.newspim.com/news/view/20240426001088",
+      "brokers": [
+        {
+          "name": "IBK투자증권",
+          "offeredShares": 261489,
+          "subscribedShares": 66888886,
+          "offerPrice": 83400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 255.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 255.8,
+          "equalAllocationShares": 130744,
+          "proportionalAllocationShares": 130745,
+          "applicationCount": null
+        },
+        {
+          "name": "KB증권",
+          "offeredShares": 261488,
+          "subscribedShares": 66888630,
+          "offerPrice": 83400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 255.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 255.8,
+          "equalAllocationShares": 130744,
+          "proportionalAllocationShares": 130744,
+          "applicationCount": null
+        },
+        {
+          "name": "LS증권",
+          "offeredShares": 261488,
+          "subscribedShares": 66888630,
+          "offerPrice": 83400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 255.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 255.8,
+          "equalAllocationShares": 130744,
+          "proportionalAllocationShares": 130744,
+          "applicationCount": null
+        },
+        {
+          "name": "SK증권",
+          "offeredShares": 261488,
+          "subscribedShares": 66888630,
+          "offerPrice": 83400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 255.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 255.8,
+          "equalAllocationShares": 130744,
+          "proportionalAllocationShares": 130744,
+          "applicationCount": null
+        },
+        {
+          "name": "다올투자증권",
+          "offeredShares": 261488,
+          "subscribedShares": 66888630,
+          "offerPrice": 83400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 255.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 255.8,
+          "equalAllocationShares": 130744,
+          "proportionalAllocationShares": 130744,
+          "applicationCount": null
+        },
+        {
+          "name": "메리츠증권",
+          "offeredShares": 261488,
+          "subscribedShares": 66888630,
+          "offerPrice": 83400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 255.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 255.8,
+          "equalAllocationShares": 130744,
+          "proportionalAllocationShares": 130744,
+          "applicationCount": null
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 261488,
+          "subscribedShares": 66888630,
+          "offerPrice": 83400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 255.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 255.8,
+          "equalAllocationShares": 130744,
+          "proportionalAllocationShares": 130744,
+          "applicationCount": null
+        },
+        {
+          "name": "키움증권",
+          "offeredShares": 261488,
+          "subscribedShares": 66888630,
+          "offerPrice": 83400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 255.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 255.8,
+          "equalAllocationShares": 130744,
+          "proportionalAllocationShares": 130744,
+          "applicationCount": null
+        },
+        {
+          "name": "하나증권",
+          "offeredShares": 261488,
+          "subscribedShares": 66888630,
+          "offerPrice": 83400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 255.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 255.8,
+          "equalAllocationShares": 130744,
+          "proportionalAllocationShares": 130744,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 2353393,
+        "subscribedShares": 601997926,
+        "competitionRate": 255.79999855527743
+      }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 38,
+      "overall": 45,
       "grade": "D",
       "confidence": 0.95,
       "factors": {
@@ -155,29 +303,29 @@
         "floatRate": 0,
         "pricing": 3,
         "market": 6,
-        "leadManagers": 0,
+        "leadManagers": 6,
         "recency": 0,
-        "dataCompleteness": 7
+        "dataCompleteness": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.0174,
-      "bearCaseListingGainRate": -0.2374,
-      "baseCaseListingGainRate": -0.0174,
-      "bullCaseListingGainRate": 0.3326,
+      "expectedListingGainRate": 0.0514,
+      "bearCaseListingGainRate": -0.1686,
+      "baseCaseListingGainRate": 0.0514,
+      "bullCaseListingGainRate": 0.4014,
       "expectedAllocatedShares": {
         "minimumSubscription": 1.306,
         "oneMillionKrw": 1.314,
         "fiveMillionKrw": 1.502
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -3893,
-        "oneMillionKrw": -3905,
-        "fiveMillionKrw": -4177
+        "minimumSubscription": 3601,
+        "oneMillionKrw": 3634,
+        "fiveMillionKrw": 4438
       },
       "assumptions": {
         "offerPrice": 83400,
-        "competitionRate": 255.7777492611769,
+        "competitionRate": 255.79999855527743,
         "feeKrw": 2000,
         "method": "ipo_score_v2_general_rule_based"
       }
@@ -186,22 +334,14 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 255.78대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 255.8대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
     "brokerScores": [
-      {
-        "broker": "하나증권",
-        "equalScore": 100,
-        "proportionalScore": 5,
-        "expectedEqualShares": 1.2673,
-        "estimatedDepositForOneProportionalShare": 21063921,
-        "feeKrw": 2000,
-        "dataQuality": "broker_verified"
-      },
       {
         "broker": "신한투자증권",
         "equalScore": 95,
@@ -222,27 +362,90 @@
       },
       {
         "broker": "KB증권",
-        "equalScore": 88,
-        "proportionalScore": 5,
-        "expectedEqualShares": 1.0965,
-        "estimatedDepositForOneProportionalShare": 21216126,
-        "feeKrw": 1500,
-        "dataQuality": "broker_verified"
+        "equalScore": 30,
+        "proportionalScore": 9,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 10666860,
+        "feeKrw": null,
+        "dataQuality": "partial"
       },
       {
         "broker": "삼성증권",
-        "equalScore": 66,
-        "proportionalScore": 5,
-        "expectedEqualShares": 0.8195,
-        "estimatedDepositForOneProportionalShare": 19827933,
-        "feeKrw": 2000,
-        "dataQuality": "broker_verified"
+        "equalScore": 30,
+        "proportionalScore": 9,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 10666860,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "하나증권",
+        "equalScore": 30,
+        "proportionalScore": 9,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 10666860,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "IBK투자증권",
+        "equalScore": 30,
+        "proportionalScore": 9,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 10666860,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "LS증권",
+        "equalScore": 30,
+        "proportionalScore": 9,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 10666860,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "SK증권",
+        "equalScore": 30,
+        "proportionalScore": 9,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 10666860,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "다올투자증권",
+        "equalScore": 30,
+        "proportionalScore": 9,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 10666860,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "메리츠증권",
+        "equalScore": 30,
+        "proportionalScore": 9,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 10666860,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "키움증권",
+        "equalScore": 30,
+        "proportionalScore": 9,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 10666860,
+        "feeKrw": null,
+        "dataQuality": "partial"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 255.7777492611769,
-      "snapshotCount": 2,
-      "leadManagerCount": 0,
+      "latestCompetitionRate": 255.79999855527743,
+      "snapshotCount": 3,
+      "leadManagerCount": 9,
       "market": "KOSPI",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 201.0,
