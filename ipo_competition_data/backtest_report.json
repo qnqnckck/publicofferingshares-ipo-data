@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-24T06:27:49.291689",
+  "generatedAt": "2026-04-24T08:08:27.968901",
   "methodVersion": "ipo-score-v4",
   "sampleCount": 60,
   "summary": {
     "averageCloseReturnRate": 0.8519,
     "medianCloseReturnRate": 0.4847,
-    "averageErrorCloseVsExpected": 0.5871,
+    "averageErrorCloseVsExpected": 0.5868,
     "medianErrorCloseVsExpected": 0.2477,
     "averageReferenceReturnRate": 0.8736,
     "medianReferenceReturnRate": 0.5099,
-    "averageErrorReferenceVsExpected": 0.6088,
+    "averageErrorReferenceVsExpected": 0.6085,
     "medianErrorReferenceVsExpected": 0.2589
   },
   "byGrade": {
@@ -63,18 +63,18 @@
       "averageErrorReferenceVsExpected": 0.7342
     },
     "40-49": {
-      "sampleCount": 25,
-      "averageCloseReturnRate": 0.9679,
-      "medianCloseReturnRate": 0.5969,
-      "averageErrorCloseVsExpected": 0.68,
-      "averageErrorReferenceVsExpected": 0.68
+      "sampleCount": 26,
+      "averageCloseReturnRate": 0.9243,
+      "medianCloseReturnRate": 0.5818,
+      "averageErrorCloseVsExpected": 0.6504,
+      "averageErrorReferenceVsExpected": 0.6504
     },
     "30-39": {
-      "sampleCount": 8,
-      "averageCloseReturnRate": 0.3705,
-      "medianCloseReturnRate": -0.0831,
-      "averageErrorCloseVsExpected": 0.408,
-      "averageErrorReferenceVsExpected": 0.408
+      "sampleCount": 7,
+      "averageCloseReturnRate": 0.447,
+      "medianCloseReturnRate": -0.0759,
+      "averageErrorCloseVsExpected": 0.4766,
+      "averageErrorReferenceVsExpected": 0.4766
     },
     "20-29": {
       "sampleCount": 5,
@@ -534,22 +534,6 @@
       "errorReferenceVsExpected": 0.0942
     },
     {
-      "id": "clobot_2024",
-      "company": "클로봇",
-      "isSpac": false,
-      "score": 47,
-      "grade": "D",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.3635,
-      "openReturnRate": -0.038461538461538464,
-      "highReturnRate": null,
-      "closeReturnRate": -0.2276923076923077,
-      "referenceReturnRate": -0.2276923076923077,
-      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=370460",
-      "errorCloseVsExpected": -0.5912,
-      "errorReferenceVsExpected": -0.5912
-    },
-    {
       "id": "excel_therapeutics_2024",
       "company": "엑셀세라퓨틱스",
       "isSpac": false,
@@ -614,22 +598,6 @@
       "errorReferenceVsExpected": 0.863
     },
     {
-      "id": "imbdx_2024",
-      "company": "아이엠비디엑스",
-      "isSpac": false,
-      "score": 46,
-      "grade": "D",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.3537,
-      "openReturnRate": 1.1961538461538461,
-      "highReturnRate": 2.1192307692307693,
-      "closeReturnRate": 1.7692307692307692,
-      "referenceReturnRate": 1.7692307692307692,
-      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10981715",
-      "errorCloseVsExpected": 1.4155,
-      "errorReferenceVsExpected": 1.4155
-    },
-    {
       "id": "ds_dansuk_2023",
       "company": "디에스단석",
       "isSpac": false,
@@ -646,6 +614,22 @@
       "errorReferenceVsExpected": 2.6526
     },
     {
+      "id": "imbdx_2024",
+      "company": "아이엠비디엑스",
+      "isSpac": false,
+      "score": 46,
+      "grade": "D",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.3537,
+      "openReturnRate": 1.1961538461538461,
+      "highReturnRate": 2.1192307692307693,
+      "closeReturnRate": 1.7692307692307692,
+      "referenceReturnRate": 1.7692307692307692,
+      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10981715",
+      "errorCloseVsExpected": 1.4155,
+      "errorReferenceVsExpected": 1.4155
+    },
+    {
       "id": "hd_hyundai_marine_solution_2024",
       "company": "HD현대마린솔루션",
       "isSpac": false,
@@ -660,6 +644,22 @@
       "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240508041000008",
       "errorCloseVsExpected": 0.9138,
       "errorReferenceVsExpected": 0.9138
+    },
+    {
+      "id": "clobot_2024",
+      "company": "클로봇",
+      "isSpac": false,
+      "score": 45,
+      "grade": "D",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.3439,
+      "openReturnRate": -0.038461538461538464,
+      "highReturnRate": null,
+      "closeReturnRate": -0.2276923076923077,
+      "referenceReturnRate": -0.2276923076923077,
+      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=370460",
+      "errorCloseVsExpected": -0.5716,
+      "errorReferenceVsExpected": -0.5716
     },
     {
       "id": "hb_investment_2024",
@@ -742,6 +742,22 @@
       "errorReferenceVsExpected": 1.4385
     },
     {
+      "id": "synapsoft_2024",
+      "company": "사이냅소프트",
+      "isSpac": false,
+      "score": 42,
+      "grade": "D",
+      "confidence": 0.95,
+      "expectedListingGainRate": -0.0548,
+      "openReturnRate": -0.1346938775510204,
+      "highReturnRate": null,
+      "closeReturnRate": -0.1653061224489796,
+      "referenceReturnRate": -0.1653061224489796,
+      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
+      "errorCloseVsExpected": -0.1105,
+      "errorReferenceVsExpected": -0.1105
+    },
+    {
       "id": "apr_2024",
       "company": "에이피알",
       "isSpac": false,
@@ -758,22 +774,6 @@
       "errorReferenceVsExpected": -0.0444
     },
     {
-      "id": "alux_2024",
-      "company": "에이럭스",
-      "isSpac": false,
-      "score": 41,
-      "grade": "D",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.1234,
-      "openReturnRate": -0.22125,
-      "highReturnRate": null,
-      "closeReturnRate": -0.3825,
-      "referenceReturnRate": -0.3825,
-      "outcomeSourceUrl": "https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=AKR20241101064952008",
-      "errorCloseVsExpected": -0.5059,
-      "errorReferenceVsExpected": -0.5059
-    },
-    {
       "id": "inix_2024",
       "company": "이닉스",
       "isSpac": false,
@@ -788,6 +788,22 @@
       "outcomeSourceUrl": "https://www.fnnews.com/news/202402011539341900",
       "errorCloseVsExpected": 1.3454,
       "errorReferenceVsExpected": 1.3454
+    },
+    {
+      "id": "alux_2024",
+      "company": "에이럭스",
+      "isSpac": false,
+      "score": 41,
+      "grade": "D",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.1234,
+      "openReturnRate": -0.22125,
+      "highReturnRate": null,
+      "closeReturnRate": -0.3825,
+      "referenceReturnRate": -0.3825,
+      "outcomeSourceUrl": "https://www.wowtv.co.kr/NewsCenter/News/Read?articleId=AKR20241101064952008",
+      "errorCloseVsExpected": -0.5059,
+      "errorReferenceVsExpected": -0.5059
     },
     {
       "id": "ls_materials_2023",
@@ -836,22 +852,6 @@
       "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240321042251008",
       "errorCloseVsExpected": 0.2621,
       "errorReferenceVsExpected": 0.2621
-    },
-    {
-      "id": "synapsoft_2024",
-      "company": "사이냅소프트",
-      "isSpac": false,
-      "score": 38,
-      "grade": "D",
-      "confidence": 0.9,
-      "expectedListingGainRate": -0.0925,
-      "openReturnRate": -0.1346938775510204,
-      "highReturnRate": null,
-      "closeReturnRate": -0.1653061224489796,
-      "referenceReturnRate": -0.1653061224489796,
-      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
-      "errorCloseVsExpected": -0.0728,
-      "errorReferenceVsExpected": -0.0728
     },
     {
       "id": "sungwoo_2024",
