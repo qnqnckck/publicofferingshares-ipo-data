@@ -1,0 +1,55 @@
+name: Video OCR secondary ingest
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 0-9 * * 1-5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: video-ocr-secondary-ingest
+  cancel-in-progress: false
+
+jobs:
+  ingest-video-ocr-secondary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install OCR ingest dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install yt-dlp pillow rapidocr-onnxruntime
+
+      - name: Fetch latest frame and write fallback broker snapshots
+        run: |
+          echo "TODO: implement tool/video_ocr_secondary_ingest.py"
+          echo "Expected output: data/broker_snapshots/YYYY.json rows with source=youtube_video_ocr_secondary"
+
+      - name: Rebuild derived IPO data
+        run: dart run tool/ipo_competition_batch.dart --backfill-years 3 --live-dir data/live_snapshots --outcome-dir data/outcomes --broker-snapshot-dir data/broker_snapshots
+        env:
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+          ITICK_API_KEY: ${{ secrets.ITICK_API_KEY }}
+          KIS_APP_KEY: ${{ secrets.KIS_APP_KEY }}
+          KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
+
+      - name: Commit generated data
+        run: |
+          if git diff --quiet -- data/broker_snapshots ipo_competition_data; then
+            echo "No data changes."
+            exit 0
+          fi
+          git config user.name "ipo-competition-bot"
+          git config user.email "ipo-competition-bot@users.noreply.github.com"
+          git add data/broker_snapshots ipo_competition_data
+          git commit -m "Update secondary video OCR broker snapshots"
+          git push

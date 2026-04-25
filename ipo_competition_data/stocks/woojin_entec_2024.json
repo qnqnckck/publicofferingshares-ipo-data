@@ -86,32 +86,6 @@
         "subscribedShares": 0,
         "competitionRate": 2707.18
       }
-    },
-    {
-      "capturedAt": "2026-04-24T01:13:37.871616",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://www.fnnews.com/ampNews/202401171725118930",
-      "brokers": [
-        {
-          "name": "KB증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 5300,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2707.18,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2707.18,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 2707.18
-      }
     }
   ],
   "analysis": {
@@ -169,16 +143,16 @@
       {
         "broker": "KB증권",
         "equalScore": 30,
-        "proportionalScore": 14,
+        "proportionalScore": 7,
         "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 7174027,
+        "estimatedDepositForOneProportionalShare": 14347100,
         "feeKrw": null,
         "dataQuality": "partial"
       }
     ],
     "inputs": {
       "latestCompetitionRate": 2707.18,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

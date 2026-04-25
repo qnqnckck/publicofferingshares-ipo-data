@@ -101,46 +101,6 @@
         "subscribedShares": 423432880,
         "competitionRate": 846.9
       }
-    },
-    {
-      "capturedAt": "2026-04-24T01:13:37.871616",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://www.fnnews.com/news/202511110851140275",
-      "brokers": [
-        {
-          "name": "미래에셋증권",
-          "offeredShares": 250000,
-          "subscribedShares": 211725000,
-          "offerPrice": 38000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 846.9,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 846.9,
-          "equalAllocationShares": 125000,
-          "proportionalAllocationShares": 125000,
-          "applicationCount": null
-        },
-        {
-          "name": "삼성증권",
-          "offeredShares": 250000,
-          "subscribedShares": 211725000,
-          "offerPrice": 38000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 846.9,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 846.9,
-          "equalAllocationShares": 125000,
-          "proportionalAllocationShares": 125000,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 500000,
-        "subscribedShares": 423450000,
-        "competitionRate": 846.9
-      }
     }
   ],
   "analysis": {
@@ -196,27 +156,27 @@
     },
     "brokerScores": [
       {
-        "broker": "미래에셋증권",
-        "equalScore": 30,
-        "proportionalScore": 6,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 16091100,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "broker": "삼성증권",
+        "equalScore": 43,
+        "proportionalScore": 4,
+        "expectedEqualShares": 0.5416,
+        "estimatedDepositForOneProportionalShare": 27893520,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       },
       {
-        "broker": "삼성증권",
-        "equalScore": 30,
-        "proportionalScore": 6,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 16091100,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "broker": "미래에셋증권",
+        "equalScore": 42,
+        "proportionalScore": 3,
+        "expectedEqualShares": 0.5309,
+        "estimatedDepositForOneProportionalShare": 34818070,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
       "latestCompetitionRate": 846.9,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
