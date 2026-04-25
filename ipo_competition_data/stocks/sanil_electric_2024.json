@@ -101,46 +101,6 @@
         "subscribedShares": 964363800,
         "competitionRate": 422.9665789473684
       }
-    },
-    {
-      "capturedAt": "2026-04-24T11:07:25.774270",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://www.mt.co.kr/stock/2024/07/19/2024071916324060805",
-      "brokers": [
-        {
-          "name": "미래에셋증권",
-          "offeredShares": 950000,
-          "subscribedShares": 401935500,
-          "offerPrice": 35000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 423.09,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 423.09,
-          "equalAllocationShares": 475000,
-          "proportionalAllocationShares": 475000,
-          "applicationCount": null
-        },
-        {
-          "name": "삼성증권",
-          "offeredShares": 950000,
-          "subscribedShares": 401935500,
-          "offerPrice": 35000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 423.09,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 423.09,
-          "equalAllocationShares": 475000,
-          "proportionalAllocationShares": 475000,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 1900000,
-        "subscribedShares": 803871000,
-        "competitionRate": 423.09
-      }
     }
   ],
   "analysis": {
@@ -197,26 +157,26 @@
     "brokerScores": [
       {
         "broker": "미래에셋증권",
-        "equalScore": 30,
-        "proportionalScore": 14,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 7404075,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 100,
+        "proportionalScore": 7,
+        "expectedEqualShares": 2.3486,
+        "estimatedDepositForOneProportionalShare": 14945000,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       },
       {
         "broker": "삼성증권",
-        "equalScore": 30,
-        "proportionalScore": 14,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 7404075,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 53,
+        "proportionalScore": 9,
+        "expectedEqualShares": 0.658,
+        "estimatedDepositForOneProportionalShare": 11672500,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
       "latestCompetitionRate": 423.09,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 2,
       "market": "KOSPI",
       "hasOfferPrice": true,

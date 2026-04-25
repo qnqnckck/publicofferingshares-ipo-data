@@ -1637,6 +1637,22 @@ List<IpoCompetitionStock> mergeBrokerSnapshots(
         matches.add(row);
       }
     }
+    final hasVerifiedBrokerRow = matches.any(
+      (row) =>
+          !row.source.startsWith('estimated_') &&
+          row.brokers.any(
+            (broker) =>
+                normalizeLookup(broker.name) != normalizeLookup('통합') &&
+                ((broker.applicationCount ?? 0) > 0 ||
+                    (broker.equalAllocationShares ?? 0) > 0 ||
+                    (broker.proportionalAllocationShares ?? 0) > 0 ||
+                    broker.proportionalCompetitionRate != null ||
+                    broker.equalCompetitionRate != null),
+          ),
+    );
+    if (hasVerifiedBrokerRow) {
+      matches.removeWhere((row) => row.source.startsWith('estimated_'));
+    }
     if (matches.isEmpty) {
       return stock;
     }

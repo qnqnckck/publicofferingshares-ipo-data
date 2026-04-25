@@ -86,32 +86,6 @@
         "subscribedShares": 0,
         "competitionRate": 0.0
       }
-    },
-    {
-      "capturedAt": "2026-04-24T11:07:25.774270",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://www.mk.co.kr/news/stock/11004337",
-      "brokers": [
-        {
-          "name": "KB증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 22000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1435.6,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1435.6,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 1435.6
-      }
     }
   ],
   "analysis": {
@@ -169,16 +143,16 @@
       {
         "broker": "KB증권",
         "equalScore": 30,
-        "proportionalScore": 6,
+        "proportionalScore": 3,
         "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 15791600,
-        "feeKrw": null,
+        "estimatedDepositForOneProportionalShare": 31658000,
+        "feeKrw": 1500,
         "dataQuality": "partial"
       }
     ],
     "inputs": {
       "latestCompetitionRate": 1435.6,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

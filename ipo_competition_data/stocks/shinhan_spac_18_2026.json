@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "id": "shinhan_spac_18_2026",
+  "identifiers": {
+    "subscriptionKey": "신한제18호스팩_20260420_20260421",
+    "normalizedCompany": "신한제18호스팩",
+    "corpCode": null,
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "신한제18호스팩",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2026-04-20",
+  "subscriptionEnd": "2026-04-21",
+  "leadManagers": [
+    "신한투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 2000,
+    "priceBandMin": 2000,
+    "priceBandMax": 2000,
+    "institutionCompetitionRate": 1388.6,
+    "institutionParticipants": 2044,
+    "lockupCommitmentRate": 0.0,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": 1250000
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-20T16:17:00+09:00",
+      "source": "article_and_public_estimate",
+      "sourceUrl": "https://golbangeconomy.tistory.com/entry/shinhan-spac-18-ipo-day1-results",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 1250000,
+          "subscribedShares": 44812500,
+          "offerPrice": null,
+          "depositRate": 1.0,
+          "feeKrw": 2000,
+          "competitionRate": 35.85,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 71.7,
+          "equalAllocationShares": 625000,
+          "proportionalAllocationShares": 625000,
+          "applicationCount": 44707
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1250000,
+        "subscribedShares": 44812500,
+        "competitionRate": 35.85
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 50,
+      "grade": "C",
+      "confidence": 0.95,
+      "factors": {
+        "competition": 0,
+        "institutionDemand": 20,
+        "spacMomentum": 5,
+        "spacVolatility": 4,
+        "pricing": 3,
+        "market": 5,
+        "leadManagers": 3,
+        "recency": 2,
+        "dataCompleteness": 8
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.4756,
+      "bearCaseListingGainRate": -0.1744,
+      "baseCaseListingGainRate": 0.4756,
+      "bullCaseListingGainRate": 1.1756,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 14.259,
+        "oneMillionKrw": 27.927,
+        "fiveMillionKrw": 83.715
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 11564,
+        "oneMillionKrw": 24566,
+        "fiveMillionKrw": 77636
+      },
+      "assumptions": {
+        "offerPrice": 2000,
+        "competitionRate": 35.85,
+        "feeKrw": 2000,
+        "method": "ipo_score_v4_spac_listing_day_momentum",
+        "spacModel": true,
+        "proportionalCompetitionRate": 71.7,
+        "institutionCompetitionRate": 1388.6,
+        "lowLockupVolatility": true,
+        "uncalibratedBaseGainRate": 0.35604,
+        "calibrationApplied": 0.1196,
+        "calibrationSampleCount": 1,
+        "calibrationCompetitionBucket": null
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 35.85대 1입니다.",
+        "스팩 전용 보정으로 비례 경쟁률 71.7대 1을 상장일 수급 요인에 반영했습니다."
+      ],
+      "warnings": [
+        "스팩의 낮은 기관 확약률은 일반 IPO 안정성 감점이 아니라 상장일 변동성 위험으로 해석합니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "신한투자증권",
+        "equalScore": 100,
+        "proportionalScore": 100,
+        "expectedEqualShares": 13.9799,
+        "estimatedDepositForOneProportionalShare": 143400,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 35.85,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1388.6,
+      "lockupCommitmentRate": 0.0,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

@@ -13,10 +13,7 @@
   "market": "KOSDAQ",
   "subscriptionStart": "2024-10-16",
   "subscriptionEnd": "2024-10-17",
-  "leadManagers": [
-    "NH투자증권",
-    "하나증권"
-  ],
+  "leadManagers": [],
   "fundamentals": {
     "offerPrice": 13000,
     "priceBandMin": 9400,
@@ -61,54 +58,14 @@
         "subscribedShares": 0,
         "competitionRate": 1037.0
       }
-    },
-    {
-      "capturedAt": "2026-04-24T11:07:25.774270",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=370460",
-      "brokers": [
-        {
-          "name": "NH투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 13000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1037.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1037.0,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "하나증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 13000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1037.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1037.0,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 1037.0
-      }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 47,
+      "overall": 41,
       "grade": "D",
-      "confidence": 0.95,
+      "confidence": 0.9,
       "factors": {
         "competition": 13,
         "institutionDemand": 15,
@@ -116,25 +73,25 @@
         "floatRate": 0,
         "pricing": 2,
         "market": 5,
-        "leadManagers": 5,
+        "leadManagers": 0,
         "recency": 0,
-        "dataCompleteness": 7
+        "dataCompleteness": 6
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.3635,
-      "bearCaseListingGainRate": 0.1435,
-      "baseCaseListingGainRate": 0.3635,
-      "bullCaseListingGainRate": 0.7135,
+      "expectedListingGainRate": 0.2992,
+      "bearCaseListingGainRate": 0.0792,
+      "baseCaseListingGainRate": 0.2992,
+      "bullCaseListingGainRate": 0.6492,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.01,
         "oneMillionKrw": 0.074,
         "fiveMillionKrw": 0.371
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1954,
-        "oneMillionKrw": -1649,
-        "fiveMillionKrw": -247
+        "minimumSubscription": -1962,
+        "oneMillionKrw": -1712,
+        "fiveMillionKrw": -558
       },
       "assumptions": {
         "offerPrice": 13000,
@@ -147,38 +104,18 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1037.0대 1입니다.",
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "최근 확인된 일반청약 경쟁률은 1037.0대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [
-      {
-        "broker": "NH투자증권",
-        "equalScore": 30,
-        "proportionalScore": 15,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 6740500,
-        "feeKrw": null,
-        "dataQuality": "partial"
-      },
-      {
-        "broker": "하나증권",
-        "equalScore": 30,
-        "proportionalScore": 15,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 6740500,
-        "feeKrw": null,
-        "dataQuality": "partial"
-      }
-    ],
+    "brokerScores": [],
     "inputs": {
       "latestCompetitionRate": 1037.0,
-      "snapshotCount": 2,
-      "leadManagerCount": 2,
+      "snapshotCount": 1,
+      "leadManagerCount": 0,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 933.85,

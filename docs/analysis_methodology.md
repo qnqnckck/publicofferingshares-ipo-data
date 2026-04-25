@@ -167,6 +167,32 @@ They are required for meaningful equal/proportional allocation estimates:
 }
 ```
 
+### Secondary fallback sources
+
+When official broker allocation notices or first-party live competition pages
+are missing, this repository may attach a secondary broker snapshot from a
+screen-parsed public source such as a YouTube live board.
+
+Current source naming:
+
+- `youtube_video_ocr_secondary`
+
+Rules:
+
+- secondary snapshots are fallback-only and should not replace later official
+  broker notices for the same broker.
+- they are acceptable for filling `applicationCount`,
+  `equalAllocationShares`, and broker presence when the official source is
+  absent.
+- values derived from a screen parse should keep the source explicit so app and
+  downstream tooling can lower trust or label them as supplemental if needed.
+
+Recommended use:
+
+- prefer `official_broker_result*`, direct broker live pages, and public JSON.
+- use `youtube_video_ocr_secondary` only to avoid a blank broker card when no
+  official broker row exists yet.
+
 When broker-level equal allocation and application-count rows are available,
 `expectedAllocatedShares` includes the expected equal shares per account plus the
 proportional estimate for each capital scenario. Without broker-level rows,

@@ -33,6 +33,74 @@
   "outcome": null,
   "snapshots": [
     {
+      "capturedAt": "2026-04-21T15:55:00+09:00",
+      "source": "youtube_video_ocr_secondary",
+      "sourceUrl": "https://www.youtube.com/watch?v=F7R73x1AwNs",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 843750,
+          "subscribedShares": 254812500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 302.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 421875,
+          "proportionalAllocationShares": 421875,
+          "applicationCount": 43181
+        },
+        {
+          "name": "대신증권",
+          "offeredShares": 281250,
+          "subscribedShares": 84937500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 302.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 140625,
+          "proportionalAllocationShares": 140625,
+          "applicationCount": 7321
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 843750,
+          "subscribedShares": 254812500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 302.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 421875,
+          "proportionalAllocationShares": 421875,
+          "applicationCount": 38248
+        },
+        {
+          "name": "하나증권",
+          "offeredShares": 281250,
+          "subscribedShares": 84937500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 302.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 140625,
+          "proportionalAllocationShares": 140625,
+          "applicationCount": 4938
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 2250000,
+        "subscribedShares": 679500000,
+        "competitionRate": 302.0
+      }
+    },
+    {
       "capturedAt": "2026-04-21T17:26:00+09:00",
       "source": "public_ipo_result",
       "sourceUrl": "https://www.newspim.com/news/view/20260421001292",
@@ -55,74 +123,6 @@
       "aggregate": {
         "offeredShares": 2250000,
         "subscribedShares": 680469540,
-        "competitionRate": 302.0
-      }
-    },
-    {
-      "capturedAt": "2026-04-24T11:07:25.774270",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://www.newspim.com/news/view/20260421001292",
-      "brokers": [
-        {
-          "name": "KB증권",
-          "offeredShares": 562500,
-          "subscribedShares": 169875000,
-          "offerPrice": 12300,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 302.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 302.0,
-          "equalAllocationShares": 281250,
-          "proportionalAllocationShares": 281250,
-          "applicationCount": null
-        },
-        {
-          "name": "대신증권",
-          "offeredShares": 562500,
-          "subscribedShares": 169875000,
-          "offerPrice": 12300,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 302.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 302.0,
-          "equalAllocationShares": 281250,
-          "proportionalAllocationShares": 281250,
-          "applicationCount": null
-        },
-        {
-          "name": "삼성증권",
-          "offeredShares": 562500,
-          "subscribedShares": 169875000,
-          "offerPrice": 12300,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 302.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 302.0,
-          "equalAllocationShares": 281250,
-          "proportionalAllocationShares": 281250,
-          "applicationCount": null
-        },
-        {
-          "name": "하나증권",
-          "offeredShares": 562500,
-          "subscribedShares": 169875000,
-          "offerPrice": 12300,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 302.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 302.0,
-          "equalAllocationShares": 281250,
-          "proportionalAllocationShares": 281250,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 2250000,
-        "subscribedShares": 679500000,
         "competitionRate": 302.0
       }
     }
@@ -151,14 +151,14 @@
       "baseCaseListingGainRate": 0.1187,
       "bullCaseListingGainRate": 0.4687,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.033,
-        "oneMillionKrw": 0.269,
-        "fiveMillionKrw": 1.346
+        "minimumSubscription": 28.511,
+        "oneMillionKrw": 28.747,
+        "fiveMillionKrw": 29.824
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1952,
-        "oneMillionKrw": -1607,
-        "fiveMillionKrw": -35
+        "minimumSubscription": 39622,
+        "oneMillionKrw": 39966,
+        "fiveMillionKrw": 41538
       },
       "assumptions": {
         "offerPrice": 12300,
@@ -181,39 +181,39 @@
     "brokerScores": [
       {
         "broker": "KB증권",
-        "equalScore": 30,
+        "equalScore": 100,
         "proportionalScore": 54,
-        "expectedEqualShares": null,
+        "expectedEqualShares": 9.7699,
         "estimatedDepositForOneProportionalShare": 1857300,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       },
       {
         "broker": "대신증권",
-        "equalScore": 30,
+        "equalScore": 100,
         "proportionalScore": 54,
-        "expectedEqualShares": null,
+        "expectedEqualShares": 19.2084,
         "estimatedDepositForOneProportionalShare": 1857300,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       },
       {
         "broker": "삼성증권",
-        "equalScore": 30,
+        "equalScore": 100,
         "proportionalScore": 54,
-        "expectedEqualShares": null,
+        "expectedEqualShares": 11.03,
         "estimatedDepositForOneProportionalShare": 1857300,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       },
       {
         "broker": "하나증권",
-        "equalScore": 30,
+        "equalScore": 100,
         "proportionalScore": 54,
-        "expectedEqualShares": null,
+        "expectedEqualShares": 28.4781,
         "estimatedDepositForOneProportionalShare": 1857300,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {

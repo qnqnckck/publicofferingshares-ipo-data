@@ -14,11 +14,7 @@
   "subscriptionStart": "2024-06-18",
   "subscriptionEnd": "2024-06-19",
   "leadManagers": [
-    "한국투자증권",
-    "교보증권",
-    "미래에셋증권",
-    "삼성증권",
-    "키움증권"
+    "한국투자증권"
   ],
   "fundamentals": {
     "offerPrice": 7000,
@@ -66,66 +62,10 @@
       }
     },
     {
-      "capturedAt": "2026-04-24T11:07:25.774270",
+      "capturedAt": "2026-04-26T07:22:32.341178",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.hankyung.com/article/202406276414Y",
       "brokers": [
-        {
-          "name": "교보증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 7000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2549.13,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2549.13,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "미래에셋증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 7000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2549.13,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2549.13,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "삼성증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 7000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2549.13,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2549.13,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "키움증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 7000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2549.13,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2549.13,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        },
         {
           "name": "한국투자증권",
           "offeredShares": 0,
@@ -151,7 +91,7 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 54,
+      "overall": 51,
       "grade": "C",
       "confidence": 0.95,
       "factors": {
@@ -161,25 +101,25 @@
         "floatRate": 0,
         "pricing": 2,
         "market": 5,
-        "leadManagers": 6,
+        "leadManagers": 3,
         "recency": 0,
         "dataCompleteness": 7
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.4323,
-      "bearCaseListingGainRate": 0.2123,
-      "baseCaseListingGainRate": 0.4323,
-      "bullCaseListingGainRate": 0.7823,
+      "expectedListingGainRate": 0.4028,
+      "bearCaseListingGainRate": 0.1828,
+      "baseCaseListingGainRate": 0.4028,
+      "bullCaseListingGainRate": 0.7528,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.004,
         "oneMillionKrw": 0.056,
         "fiveMillionKrw": 0.28
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1988,
-        "oneMillionKrw": -1830,
-        "fiveMillionKrw": -1152
+        "minimumSubscription": -1989,
+        "oneMillionKrw": -1842,
+        "fiveMillionKrw": -1210
       },
       "assumptions": {
         "offerPrice": 7000,
@@ -189,11 +129,10 @@
       }
     },
     "decision": {
-      "level": "neutral",
-      "label": "중립",
+      "level": "caution",
+      "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2549.13대 1입니다.",
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "최근 확인된 일반청약 경쟁률은 2549.13대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -201,42 +140,6 @@
       ]
     },
     "brokerScores": [
-      {
-        "broker": "교보증권",
-        "equalScore": 30,
-        "proportionalScore": 11,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 8921955,
-        "feeKrw": null,
-        "dataQuality": "partial"
-      },
-      {
-        "broker": "미래에셋증권",
-        "equalScore": 30,
-        "proportionalScore": 11,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 8921955,
-        "feeKrw": null,
-        "dataQuality": "partial"
-      },
-      {
-        "broker": "삼성증권",
-        "equalScore": 30,
-        "proportionalScore": 11,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 8921955,
-        "feeKrw": null,
-        "dataQuality": "partial"
-      },
-      {
-        "broker": "키움증권",
-        "equalScore": 30,
-        "proportionalScore": 11,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 8921955,
-        "feeKrw": null,
-        "dataQuality": "partial"
-      },
       {
         "broker": "한국투자증권",
         "equalScore": 30,
@@ -250,7 +153,7 @@
     "inputs": {
       "latestCompetitionRate": 2549.13,
       "snapshotCount": 2,
-      "leadManagerCount": 5,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1099.2,
