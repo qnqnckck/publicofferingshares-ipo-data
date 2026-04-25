@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "id": "shinhan_spac_18_2026",
+  "identifiers": {
+    "subscriptionKey": "신한제18호스팩_20260420_20260421",
+    "normalizedCompany": "신한제18호스팩",
+    "corpCode": null,
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "신한제18호스팩",
+  "market": "KOSDAQ",
+  "subscriptionStart": "2026-04-20",
+  "subscriptionEnd": "2026-04-21",
+  "leadManagers": [
+    "신한투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 2000,
+    "priceBandMin": 2000,
+    "priceBandMax": 2000,
+    "institutionCompetitionRate": 1388.6,
+    "institutionParticipants": 2044,
+    "lockupCommitmentRate": 0.0,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": 1250000
+  },
+  "outcome": null,
+  "snapshots": [],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 48,
+      "grade": "D",
+      "confidence": 0.6,
+      "factors": {
+        "competition": 0,
+        "institutionDemand": 20,
+        "spacMomentum": 5,
+        "spacVolatility": 4,
+        "pricing": 3,
+        "market": 5,
+        "leadManagers": 3,
+        "recency": 2,
+        "dataCompleteness": 6
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.4943,
+      "bearCaseListingGainRate": -0.1557,
+      "baseCaseListingGainRate": 0.4943,
+      "bullCaseListingGainRate": 1.1943,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.013,
+        "oneMillionKrw": 0.625,
+        "fiveMillionKrw": 3.125
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1988,
+        "oneMillionKrw": -1382,
+        "fiveMillionKrw": 1090
+      },
+      "assumptions": {
+        "offerPrice": 2000,
+        "competitionRate": null,
+        "feeKrw": 2000,
+        "method": "ipo_score_v4_spac_listing_day_momentum",
+        "spacModel": true,
+        "proportionalCompetitionRate": null,
+        "institutionCompetitionRate": 1388.6,
+        "lowLockupVolatility": true,
+        "uncalibratedBaseGainRate": 0.3747490909090909,
+        "calibrationApplied": 0.1196,
+        "calibrationSampleCount": 1,
+        "calibrationCompetitionBucket": null
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "스팩 전용 보정으로 일반 IPO 확약률 대신 상장일 수급 요인을 반영했습니다."
+      ],
+      "warnings": [
+        "스팩의 낮은 기관 확약률은 일반 IPO 안정성 감점이 아니라 상장일 변동성 위험으로 해석합니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": null,
+      "snapshotCount": 0,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1388.6,
+      "lockupCommitmentRate": 0.0,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
