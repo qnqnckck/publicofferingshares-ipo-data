@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "shinhan_spac_18_2026",
+      "company": "신한제18호스팩",
+      "youtubeUrl": "https://www.youtube.com/watch?v=aaaxwDUdko4",
+      "timestampSeconds": 29728,
+      "capturedAtKst": "2026-04-21T16:00:00+09:00",
+      "source": "youtube_video_ocr_secondary",
+      "sourceLabel": "공모주린이 2일차 마감 화면",
+      "sourceUrl": "https://www.youtube.com/watch?v=aaaxwDUdko4&t=29728s",
+      "aggregateCompetitionRate": 0,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 1250000,
+          "equalAllocationShares": 625000,
+          "proportionalAllocationShares": 625000,
+          "depositRate": 1.0,
+          "feeKrw": 2000,
+          "ocrHints": {
+            "competitionPatterns": [
+              "청약\\s*경쟁률\\s*(\\d+(?:\\.\\d+)?)",
+              "경쟁률\\s*(\\d+(?:\\.\\d+)?)"
+            ],
+            "proportionalCompetitionPatterns": [
+              "비례\\s*경쟁률\\s*(\\d+(?:\\.\\d+)?)",
+              "비례\\s*(\\d+(?:\\.\\d+)?)\\s*대\\s*1"
+            ],
+            "applicationCountPatterns": [
+              "청약건수\\s*(\\d+(?:,\\d{3})*)",
+              "건수\\s*(\\d+(?:,\\d{3})*)"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -186,6 +186,9 @@ Rules:
   absent.
 - values derived from a screen parse should keep the source explicit so app and
   downstream tooling can lower trust or label them as supplemental if needed.
+- GitHub Actions OCR collection reads `data/video_ocr_sources.json`, extracts the
+  configured latest frame, and upserts snapshots by `id + source`. For the same
+  source, a newer `capturedAt` replaces the older fallback row.
 
 Recommended use:
 
