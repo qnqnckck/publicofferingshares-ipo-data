@@ -3408,7 +3408,9 @@ int scoreFloatForStock(IpoCompetitionStock stock) {
 int scoreDemandStrengthForStock(IpoCompetitionStock stock) {
   var score = 0;
   final participants = stock.fundamentals.institutionParticipants ?? 0;
-  if (participants >= 2000) {
+  if (participants >= 2200) {
+    score += 7;
+  } else if (participants >= 2000) {
     score += 6;
   } else if (participants >= 1500) {
     score += 5;
@@ -3421,12 +3423,13 @@ int scoreDemandStrengthForStock(IpoCompetitionStock stock) {
   final offer = stock.fundamentals.offerPrice;
   final min = stock.fundamentals.priceBandMin;
   final max = stock.fundamentals.priceBandMax;
-  if (offer != null &&
-      min != null &&
-      max != null &&
-      max > min &&
-      offer >= max) {
-    score += 4;
+  if (offer != null && min != null && max != null && max > min) {
+    final position = (offer - min) / (max - min);
+    if (offer >= max) {
+      score += 6;
+    } else if (position >= 0.9) {
+      score += 4;
+    }
   }
   return clampInt(score, 0, 10);
 }
@@ -3503,7 +3506,7 @@ int scorePricing(IpoFundamentals fundamentals) {
     return 4;
   }
   if (position >= 0.85) {
-    return 6;
+    return 8;
   }
   if (position >= 0.45) {
     return 7;
