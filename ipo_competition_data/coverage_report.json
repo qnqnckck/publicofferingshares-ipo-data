@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-26T17:16:29.422449",
+  "generatedAt": "2026-04-26T17:18:59.507657",
   "backfillCutoff": "2023-04-26T00:00:00.000",
   "totals": {
     "discovered": 0,
@@ -16,7 +16,7 @@
     "missing_institution_participants": 162,
     "missing_lockup_commitment_rate": 163,
     "missing_external_identifier": 3,
-    "missing_broker_level_competition": 9
+    "missing_broker_level_competition": 8
   },
   "discoveredMissingFromGenerated": [],
   "qualityIssues": [
@@ -42,25 +42,6 @@
       "institutionCompetitionRate": null,
       "lockupCommitmentRate": null,
       "score": 20,
-      "grade": "D"
-    },
-    {
-      "id": "clobot_2024",
-      "company": "클로봇",
-      "subscriptionStart": "2024-10-16",
-      "subscriptionEnd": "2024-10-17",
-      "leadManagers": [],
-      "path": "stocks/clobot_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 3,
-      "latestCompetitionRate": 1037.0,
-      "institutionCompetitionRate": 933.85,
-      "lockupCommitmentRate": null,
-      "score": 41,
       "grade": "D"
     },
     {
@@ -1423,26 +1404,6 @@
       "grade": "D"
     },
     {
-      "id": "nomus_2024",
-      "company": "노머스",
-      "subscriptionStart": "2024-11-04",
-      "subscriptionEnd": "2024-11-05",
-      "leadManagers": [
-        "대신증권"
-      ],
-      "path": "stocks/nomus_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 2.62,
-      "institutionCompetitionRate": 288.0,
-      "lockupCommitmentRate": null,
-      "score": 23,
-      "grade": "D"
-    },
-    {
       "id": "dotmill_2024",
       "company": "닷밀",
       "subscriptionStart": "2024-11-04",
@@ -1460,6 +1421,26 @@
       "institutionCompetitionRate": 1082.35,
       "lockupCommitmentRate": null,
       "score": 42,
+      "grade": "D"
+    },
+    {
+      "id": "nomus_2024",
+      "company": "노머스",
+      "subscriptionStart": "2024-11-04",
+      "subscriptionEnd": "2024-11-05",
+      "leadManagers": [
+        "대신증권"
+      ],
+      "path": "stocks/nomus_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 2.62,
+      "institutionCompetitionRate": 288.0,
+      "lockupCommitmentRate": null,
+      "score": 23,
       "grade": "D"
     },
     {
@@ -1624,6 +1605,27 @@
       "grade": "C"
     },
     {
+      "id": "clobot_2024",
+      "company": "클로봇",
+      "subscriptionStart": "2024-10-16",
+      "subscriptionEnd": "2024-10-17",
+      "leadManagers": [
+        "미래에셋증권",
+        "신영증권"
+      ],
+      "path": "stocks/clobot_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 1037.0,
+      "institutionCompetitionRate": 933.85,
+      "lockupCommitmentRate": null,
+      "score": 47,
+      "grade": "D"
+    },
+    {
       "id": "cmes_2024",
       "company": "씨메스",
       "subscriptionStart": "2024-10-15",
@@ -1706,27 +1708,6 @@
       "grade": "D"
     },
     {
-      "id": "hankem_2024",
-      "company": "한켐",
-      "subscriptionStart": "2024-10-07",
-      "subscriptionEnd": "2024-10-08",
-      "leadManagers": [
-        "신영증권",
-        "유진투자증권"
-      ],
-      "path": "stocks/hankem_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 464.65,
-      "institutionCompetitionRate": 1019.86,
-      "lockupCommitmentRate": null,
-      "score": 48,
-      "grade": "D"
-    },
-    {
       "id": "selbion_2024",
       "company": "셀비온",
       "subscriptionStart": "2024-10-07",
@@ -1765,6 +1746,27 @@
       "lockupCommitmentRate": null,
       "score": 53,
       "grade": "C"
+    },
+    {
+      "id": "hankem_2024",
+      "company": "한켐",
+      "subscriptionStart": "2024-10-07",
+      "subscriptionEnd": "2024-10-08",
+      "leadManagers": [
+        "신영증권",
+        "유진투자증권"
+      ],
+      "path": "stocks/hankem_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 464.65,
+      "institutionCompetitionRate": 1019.86,
+      "lockupCommitmentRate": null,
+      "score": 48,
+      "grade": "D"
     },
     {
       "id": "zenix_2024",
