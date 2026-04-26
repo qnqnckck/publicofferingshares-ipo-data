@@ -225,15 +225,7 @@ class SecondaryVideoOcrIngest:
         }
 
     def _extract_frame(self, youtube_url: str, timestamp_seconds: int, frame_path: Path) -> None:
-        info = subprocess.run(
-            ["yt-dlp", "-g", "-f", "best[ext=mp4]/best", youtube_url],
-            check=True,
-            capture_output=True,
-            text=True,
-        )
-        stream_url = next((line.strip() for line in info.stdout.splitlines() if line.strip()), "")
-        if not stream_url:
-            raise RuntimeError(f"yt-dlp returned no stream url for {youtube_url}")
+        stream_url = self._resolve_stream_url(youtube_url)
         subprocess.run(
             [
                 "ffmpeg",
@@ -250,6 +242,56 @@ class SecondaryVideoOcrIngest:
             capture_output=True,
             text=True,
         )
+
+    def _resolve_stream_url(self, youtube_url: str) -> str:
+        attempts = [
+            [
+                "yt-dlp",
+                "-g",
+                "-f",
+                "best[ext=mp4]/best",
+                "--extractor-args",
+                "youtube:player_client=android",
+                youtube_url,
+            ],
+            [
+                "yt-dlp",
+                "-g",
+                "-f",
+                "best[ext=mp4]/best",
+                "--extractor-args",
+                "youtube:player_client=web",
+                youtube_url,
+            ],
+            [
+                "yt-dlp",
+                "-g",
+                "-f",
+                "best",
+                youtube_url,
+            ],
+        ]
+        last_error = "unknown yt-dlp failure"
+        for command in attempts:
+            result = subprocess.run(
+                command,
+                check=False,
+                capture_output=True,
+                text=True,
+            )
+            if result.returncode == 0:
+                stream_url = next(
+                    (line.strip() for line in result.stdout.splitlines() if line.strip()),
+                    "",
+                )
+                if stream_url:
+                    return stream_url
+                last_error = "yt-dlp returned success but no stream url"
+                continue
+            last_error = result.stderr.strip() or result.stdout.strip() or (
+                f"yt-dlp exited with code {result.returncode}"
+            )
+        raise RuntimeError(f"failed to resolve stream url for {youtube_url}: {last_error}")
 
     def _crop_image(self, frame_path: Path, crop: dict[str, Any]) -> None:
         x = _to_int(crop.get("x")) or 0
