@@ -3645,6 +3645,15 @@ IpoExpectedReturnProfile spacExpectedReturnProfileFor({
   final institutionBoost = institutionRate == null
       ? 0.0
       : clampDouble((institutionRate - 700) / 2500, 0, 0.16);
+  final retailTailBoost = competitionRate == null
+      ? 0.0
+      : clampDouble((competitionRate - 1500) / 8000, 0, 0.04);
+  final proportionalTailBoost = proportionalRate == null
+      ? 0.0
+      : clampDouble((proportionalRate - 3000) / 12000, 0, 0.04);
+  final institutionTailBoost = institutionRate == null
+      ? 0.0
+      : clampDouble((institutionRate - 1200) / 6000, 0, 0.03);
   final fixedPriceBoost = offerPrice != null && offerPrice <= 2500 ? 0.08 : 0.0;
   final scarcityBoost =
       (stock.fundamentals.publicAllocationShares ?? 0) >= 1000000 ? 0.03 : 0.0;
@@ -3656,6 +3665,9 @@ IpoExpectedReturnProfile spacExpectedReturnProfileFor({
       retailBoost +
       proportionalBoost +
       institutionBoost +
+      retailTailBoost +
+      proportionalTailBoost +
+      institutionTailBoost +
       fixedPriceBoost +
       scarcityBoost +
       lowLockupBaseBoost +
@@ -3693,6 +3705,9 @@ IpoExpectedReturnProfile spacExpectedReturnProfileFor({
       'spacModel': true,
       'proportionalCompetitionRate': proportionalRate,
       'institutionCompetitionRate': institutionRate,
+      'retailTailBoost': retailTailBoost,
+      'proportionalTailBoost': proportionalTailBoost,
+      'institutionTailBoost': institutionTailBoost,
       'lowLockupVolatility': lowLockupVolatility,
       'uncalibratedBaseGainRate': uncalibratedBase,
       'calibrationApplied': calibrationAdjustment,

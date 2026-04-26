@@ -101,19 +101,19 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 1.1904,
-      "bearCaseListingGainRate": 0.5404,
-      "baseCaseListingGainRate": 1.1904,
-      "bullCaseListingGainRate": 2.1104,
+      "expectedListingGainRate": 1.2752,
+      "bearCaseListingGainRate": 0.6252,
+      "baseCaseListingGainRate": 1.2752,
+      "bullCaseListingGainRate": 2.1952,
       "expectedAllocatedShares": {
         "minimumSubscription": 13.986,
         "oneMillionKrw": 14.266,
         "fiveMillionKrw": 15.408
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 31297,
-        "oneMillionKrw": 31964,
-        "fiveMillionKrw": 34685
+        "minimumSubscription": 33668,
+        "oneMillionKrw": 34382,
+        "fiveMillionKrw": 37296
       },
       "assumptions": {
         "offerPrice": 2000,
@@ -123,9 +123,12 @@
         "spacModel": true,
         "proportionalCompetitionRate": 3500.0,
         "institutionCompetitionRate": 1388.6,
+        "retailTailBoost": 0.03125,
+        "proportionalTailBoost": 0.04,
+        "institutionTailBoost": 0.03,
         "lowLockupVolatility": true,
-        "uncalibratedBaseGainRate": 1.0708172727272727,
-        "calibrationApplied": 0.1196,
+        "uncalibratedBaseGainRate": 1.1709535227272727,
+        "calibrationApplied": 0.1042,
         "calibrationSampleCount": 1,
         "calibrationCompetitionBucket": "1500-1999"
       }
