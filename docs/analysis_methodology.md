@@ -17,6 +17,8 @@ The overall score is capped to `0..100`.
 
 - `competition`: latest public subscription competition rate.
 - `institutionDemand`: institution demand forecast competition rate.
+- `demandStrength`: operating-company IPO demand-strength proxy from
+  institution participation breadth and top-band pricing confirmation.
 - `lockupCommitment`: institution lock-up commitment ratio.
 - `floatRate`: public float ratio on listing day.
 - `spacMomentum`: SPAC-only listing-day demand signal from retail,
@@ -55,6 +57,7 @@ more directly tied to the subscription decision itself:
 - lock-up commitment
 - float / supply burden when known
 - final pricing position
+- demand breadth from institution participation and top-band confirmation
 
 The final score is normalized by the maximum available weight of the active
 factor set. That prevents rows from appearing artificially low after

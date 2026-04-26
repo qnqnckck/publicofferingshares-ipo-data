@@ -83,7 +83,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T00:52:38.877510",
+      "capturedAt": "2026-04-27T01:00:38.230703",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.moneys.co.kr/article/2025111217300891085",
       "brokers": [
@@ -126,31 +126,32 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 65,
+      "overall": 70,
       "grade": "B",
       "confidence": 0.95,
       "factors": {
         "competition": 9,
         "institutionDemand": 20,
+        "demandStrength": 10,
         "lockupCommitment": 18,
         "floatRate": 0,
-        "pricing": 5
+        "pricing": 6
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.4469,
-      "bearCaseListingGainRate": 0.2269,
-      "baseCaseListingGainRate": 0.4469,
-      "bullCaseListingGainRate": 0.7969,
+      "expectedListingGainRate": 0.4961,
+      "bearCaseListingGainRate": 0.2761,
+      "baseCaseListingGainRate": 0.4961,
+      "bullCaseListingGainRate": 0.8461,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
         "oneMillionKrw": 0.19,
         "fiveMillionKrw": 0.951
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1960,
-        "oneMillionKrw": -1414,
-        "fiveMillionKrw": 932
+        "minimumSubscription": -1955,
+        "oneMillionKrw": -1349,
+        "fiveMillionKrw": 1254
       },
       "assumptions": {
         "offerPrice": 6900,
@@ -164,7 +165,8 @@
       "label": "청약 고려",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 762.23대 1입니다.",
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."

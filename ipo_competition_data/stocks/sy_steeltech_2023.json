@@ -56,7 +56,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T00:52:38.877510",
+      "capturedAt": "2026-04-27T01:00:38.230703",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.fnnews.com/news/202311021724043372",
       "brokers": [
@@ -85,31 +85,32 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 49,
-      "grade": "C",
+      "overall": 56,
+      "grade": "C+",
       "confidence": 0.95,
       "factors": {
         "competition": 13,
         "institutionDemand": 20,
+        "demandStrength": 9,
         "lockupCommitment": 4,
         "floatRate": 0,
-        "pricing": 2
+        "pricing": 4
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.3832,
-      "bearCaseListingGainRate": 0.1632,
-      "baseCaseListingGainRate": 0.3832,
-      "bullCaseListingGainRate": 0.7332,
+      "expectedListingGainRate": 0.452,
+      "bearCaseListingGainRate": 0.2319,
+      "baseCaseListingGainRate": 0.452,
+      "bullCaseListingGainRate": 0.8019,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.01,
         "oneMillionKrw": 0.555,
         "fiveMillionKrw": 2.774
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1993,
-        "oneMillionKrw": -1617,
-        "fiveMillionKrw": -86
+        "minimumSubscription": -1992,
+        "oneMillionKrw": -1549,
+        "fiveMillionKrw": 257
       },
       "assumptions": {
         "offerPrice": 1800,
@@ -119,8 +120,8 @@
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 1001.23대 1입니다."
       ],

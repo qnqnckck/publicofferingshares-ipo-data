@@ -34,31 +34,32 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 65,
-      "grade": "B",
+      "overall": 80,
+      "grade": "A-",
       "confidence": 0.6,
       "factors": {
-        "competition": 6,
+        "competition": 12,
         "institutionDemand": 20,
+        "demandStrength": 10,
         "lockupCommitment": 18,
-        "floatRate": 3,
-        "pricing": 5
+        "floatRate": 6,
+        "pricing": 6
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.2322,
-      "bearCaseListingGainRate": 0.0122,
-      "baseCaseListingGainRate": 0.2322,
-      "bullCaseListingGainRate": 0.5822,
+      "expectedListingGainRate": 0.3612,
+      "bearCaseListingGainRate": 0.1412,
+      "baseCaseListingGainRate": 0.3612,
+      "bullCaseListingGainRate": 0.7112,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
         "oneMillionKrw": 0.208,
         "fiveMillionKrw": 1.042
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1983,
-        "oneMillionKrw": -1710,
-        "fiveMillionKrw": -549
+        "minimumSubscription": -1973,
+        "oneMillionKrw": -1549,
+        "fiveMillionKrw": 258
       },
       "assumptions": {
         "offerPrice": 6000,
@@ -68,10 +69,11 @@
       }
     },
     "decision": {
-      "level": "consider",
-      "label": "청약 고려",
+      "level": "strong_watch",
+      "label": "관심 높음",
       "reasons": [
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."

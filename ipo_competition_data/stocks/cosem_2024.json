@@ -89,31 +89,32 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 45,
+      "overall": 47,
       "grade": "C",
       "confidence": 0.9,
       "factors": {
         "competition": 14,
         "institutionDemand": 20,
+        "demandStrength": 4,
         "lockupCommitment": 0,
         "floatRate": 0,
-        "pricing": 2
+        "pricing": 4
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.3378,
-      "bearCaseListingGainRate": 0.1178,
-      "baseCaseListingGainRate": 0.3378,
-      "bullCaseListingGainRate": 0.6878,
+      "expectedListingGainRate": 0.3571,
+      "bearCaseListingGainRate": 0.1371,
+      "baseCaseListingGainRate": 0.3571,
+      "bullCaseListingGainRate": 0.7071,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.182,
         "oneMillionKrw": 0.202,
         "fiveMillionKrw": 0.302
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1019,
-        "oneMillionKrw": -906,
-        "fiveMillionKrw": -370
+        "minimumSubscription": -963,
+        "oneMillionKrw": -844,
+        "fiveMillionKrw": -276
       },
       "assumptions": {
         "offerPrice": 16000,

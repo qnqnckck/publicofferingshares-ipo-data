@@ -2966,6 +2966,7 @@ IpoAnalysis analyzeStock(
   final latestRate = stock.latestSnapshot?.aggregate.competitionRate;
   final competitionScore = scoreCompetitionForStock(stock);
   final institutionScore = scoreInstitutionDemand(stock.fundamentals);
+  final demandStrengthScore = isSpac ? 0 : scoreDemandStrengthForStock(stock);
   final spacMomentumScore = isSpac ? scoreSpacMomentum(stock) : 0;
   final spacVolatilityScore = isSpac ? scoreSpacVolatility(stock) : 0;
   final lockupScore = isSpac
@@ -2988,6 +2989,7 @@ IpoAnalysis analyzeStock(
       'recency': recencyScore,
       'dataCompleteness': dataScore,
     } else ...{
+      'demandStrength': demandStrengthScore,
       'lockupCommitment': lockupScore,
       'floatRate': floatScore,
       'pricing': pricingScore,
@@ -3398,9 +3400,35 @@ int scoreFloatForStock(IpoCompetitionStock stock) {
     return direct;
   }
   if (isBeforeOrDuringSubscription(stock)) {
-    return 3;
+    return 6;
   }
   return 0;
+}
+
+int scoreDemandStrengthForStock(IpoCompetitionStock stock) {
+  var score = 0;
+  final participants = stock.fundamentals.institutionParticipants ?? 0;
+  if (participants >= 2000) {
+    score += 6;
+  } else if (participants >= 1500) {
+    score += 5;
+  } else if (participants >= 1000) {
+    score += 3;
+  } else if (participants >= 700) {
+    score += 1;
+  }
+
+  final offer = stock.fundamentals.offerPrice;
+  final min = stock.fundamentals.priceBandMin;
+  final max = stock.fundamentals.priceBandMax;
+  if (offer != null &&
+      min != null &&
+      max != null &&
+      max > min &&
+      offer >= max) {
+    score += 4;
+  }
+  return clampInt(score, 0, 10);
 }
 
 int scoreSpacMomentum(IpoCompetitionStock stock) {
@@ -3472,10 +3500,10 @@ int scorePricing(IpoFundamentals fundamentals) {
   }
   final position = (offer - min) / (max - min);
   if (position > 1.0) {
-    return 2;
+    return 4;
   }
   if (position >= 0.85) {
-    return 5;
+    return 6;
   }
   if (position >= 0.45) {
     return 7;
@@ -3521,13 +3549,13 @@ int scoreCompetitionForStock(IpoCompetitionStock stock) {
   final institutionRate = stock.fundamentals.institutionCompetitionRate ?? 0;
   final lockupRate = stock.fundamentals.lockupCommitmentRate ?? 0;
   if (institutionRate >= 1000 && lockupRate >= 0.5) {
-    return 6;
+    return 12;
   }
   if (institutionRate >= 700 && lockupRate >= 0.3) {
-    return 4;
+    return 8;
   }
   if (institutionRate >= 300) {
-    return 2;
+    return 4;
   }
   return 0;
 }
@@ -3832,6 +3860,9 @@ Map<String, int> expectedProfitFor({
 }
 
 String gradeFor(int score) {
+  if (score >= 98) {
+    return 'S';
+  }
   if (score >= 93) {
     return 'A+';
   }
@@ -3863,6 +3894,7 @@ int maxScoreForFactors(Map<String, int> factors) {
   const maxByFactor = <String, int>{
     'competition': 16,
     'institutionDemand': 24,
+    'demandStrength': 10,
     'spacMomentum': 16,
     'spacVolatility': 4,
     'lockupCommitment': 18,

@@ -62,7 +62,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T00:52:38.877510",
+      "capturedAt": "2026-04-27T01:00:38.230703",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://happy-cleanup.com/962",
       "brokers": [
@@ -91,31 +91,32 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 49,
+      "overall": 50,
       "grade": "C",
       "confidence": 0.95,
       "factors": {
         "competition": 13,
         "institutionDemand": 24,
+        "demandStrength": 4,
         "lockupCommitment": 0,
         "floatRate": 0,
-        "pricing": 2
+        "pricing": 4
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.3141,
-      "bearCaseListingGainRate": 0.0941,
-      "baseCaseListingGainRate": 0.3141,
-      "bullCaseListingGainRate": 0.6641,
+      "expectedListingGainRate": 0.3239,
+      "bearCaseListingGainRate": 0.1039,
+      "baseCaseListingGainRate": 0.3239,
+      "bullCaseListingGainRate": 0.6739,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.012,
         "oneMillionKrw": 0.028,
         "fiveMillionKrw": 0.141
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1836,
-        "oneMillionKrw": -1619,
-        "fiveMillionKrw": -95
+        "minimumSubscription": -1831,
+        "oneMillionKrw": -1607,
+        "fiveMillionKrw": -35
       },
       "assumptions": {
         "offerPrice": 43000,
