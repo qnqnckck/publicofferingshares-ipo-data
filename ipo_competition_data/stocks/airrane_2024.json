@@ -20,6 +20,7 @@
     "offerPrice": 23000,
     "priceBandMin": 16000,
     "priceBandMax": 18500,
+    "topBandConfirmation": null,
     "institutionCompetitionRate": 1000.1,
     "institutionParticipants": null,
     "lockupCommitmentRate": null,
@@ -56,7 +57,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T01:05:03.663284",
+      "capturedAt": "2026-04-27T01:09:40.314493",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://honda31.tistory.com/285",
       "brokers": [
@@ -85,12 +86,12 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 43,
-      "grade": "C-",
+      "overall": 46,
+      "grade": "C",
       "confidence": 0.95,
       "factors": {
         "competition": 9,
-        "institutionDemand": 20,
+        "institutionDemand": 22,
         "demandStrength": 6,
         "lockupCommitment": 0,
         "floatRate": 0,
@@ -98,19 +99,19 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.0956,
-      "bearCaseListingGainRate": -0.1244,
-      "baseCaseListingGainRate": 0.0956,
-      "bullCaseListingGainRate": 0.4456,
+      "expectedListingGainRate": 0.1251,
+      "bearCaseListingGainRate": -0.0949,
+      "baseCaseListingGainRate": 0.1251,
+      "bullCaseListingGainRate": 0.4751,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.024,
         "oneMillionKrw": 0.104,
         "fiveMillionKrw": 0.52
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1947,
-        "oneMillionKrw": -1771,
-        "fiveMillionKrw": -857
+        "minimumSubscription": -1931,
+        "oneMillionKrw": -1701,
+        "fiveMillionKrw": -505
       },
       "assumptions": {
         "offerPrice": 23000,

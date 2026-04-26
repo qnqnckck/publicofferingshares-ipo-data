@@ -21,6 +21,7 @@
     "offerPrice": 16000,
     "priceBandMin": 11000,
     "priceBandMax": 13000,
+    "topBandConfirmation": null,
     "institutionCompetitionRate": 1024.72,
     "institutionParticipants": null,
     "lockupCommitmentRate": null,
@@ -57,7 +58,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T01:05:03.663284",
+      "capturedAt": "2026-04-27T01:09:40.314493",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.fntimes.com/html/view.php?ud=20240813172608496322f8e8c22c_18",
       "brokers": [
@@ -100,12 +101,12 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 43,
-      "grade": "C-",
+      "overall": 46,
+      "grade": "C",
       "confidence": 0.95,
       "factors": {
         "competition": 9,
-        "institutionDemand": 20,
+        "institutionDemand": 22,
         "demandStrength": 6,
         "lockupCommitment": 0,
         "floatRate": 0,
@@ -113,19 +114,19 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.182,
-      "bearCaseListingGainRate": -0.038,
-      "baseCaseListingGainRate": 0.182,
-      "bullCaseListingGainRate": 0.532,
+      "expectedListingGainRate": 0.2115,
+      "bearCaseListingGainRate": -0.0085,
+      "baseCaseListingGainRate": 0.2115,
+      "bullCaseListingGainRate": 0.5615,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.016,
         "oneMillionKrw": 0.098,
         "fiveMillionKrw": 0.49
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1954,
-        "oneMillionKrw": -1715,
-        "fiveMillionKrw": -574
+        "minimumSubscription": -1947,
+        "oneMillionKrw": -1669,
+        "fiveMillionKrw": -343
       },
       "assumptions": {
         "offerPrice": 16000,

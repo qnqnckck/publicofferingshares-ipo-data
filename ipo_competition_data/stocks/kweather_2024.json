@@ -20,6 +20,7 @@
     "offerPrice": 7000,
     "priceBandMin": 4800,
     "priceBandMax": 5800,
+    "topBandConfirmation": null,
     "institutionCompetitionRate": 1362.5,
     "institutionParticipants": null,
     "lockupCommitmentRate": null,
@@ -62,7 +63,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T01:05:03.663284",
+      "capturedAt": "2026-04-27T01:09:40.314493",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.etoday.co.kr/news/view/2330958",
       "brokers": [
@@ -91,12 +92,12 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 51,
+      "overall": 56,
       "grade": "C+",
       "confidence": 0.95,
       "factors": {
         "competition": 16,
-        "institutionDemand": 20,
+        "institutionDemand": 24,
         "demandStrength": 6,
         "lockupCommitment": 0,
         "floatRate": 0,
@@ -104,19 +105,19 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.4028,
-      "bearCaseListingGainRate": 0.1828,
-      "baseCaseListingGainRate": 0.4028,
-      "bullCaseListingGainRate": 0.7528,
+      "expectedListingGainRate": 0.452,
+      "bearCaseListingGainRate": 0.2319,
+      "baseCaseListingGainRate": 0.452,
+      "bullCaseListingGainRate": 0.8019,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.005,
         "oneMillionKrw": 0.072,
         "fiveMillionKrw": 0.359
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1986,
-        "oneMillionKrw": -1797,
-        "fiveMillionKrw": -987
+        "minimumSubscription": -1984,
+        "oneMillionKrw": -1773,
+        "fiveMillionKrw": -864
       },
       "assumptions": {
         "offerPrice": 7000,
@@ -126,8 +127,8 @@
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 1988.8대 1입니다."
       ],

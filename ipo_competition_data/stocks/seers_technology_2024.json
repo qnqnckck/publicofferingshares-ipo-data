@@ -20,6 +20,7 @@
     "offerPrice": 17000,
     "priceBandMin": 10500,
     "priceBandMax": 14000,
+    "topBandConfirmation": null,
     "institutionCompetitionRate": 1084.4,
     "institutionParticipants": null,
     "lockupCommitmentRate": null,
@@ -62,7 +63,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T01:05:03.663284",
+      "capturedAt": "2026-04-27T01:09:40.314493",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://ckang.tistory.com/115",
       "brokers": [
@@ -91,12 +92,12 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 48,
+      "overall": 50,
       "grade": "C",
       "confidence": 0.95,
       "factors": {
         "competition": 13,
-        "institutionDemand": 20,
+        "institutionDemand": 22,
         "demandStrength": 6,
         "lockupCommitment": 0,
         "floatRate": 0,
@@ -104,19 +105,19 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.3733,
-      "bearCaseListingGainRate": 0.1533,
-      "baseCaseListingGainRate": 0.3733,
-      "bullCaseListingGainRate": 0.7233,
+      "expectedListingGainRate": 0.393,
+      "bearCaseListingGainRate": 0.173,
+      "baseCaseListingGainRate": 0.393,
+      "bullCaseListingGainRate": 0.743,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.007,
         "oneMillionKrw": 0.041,
         "fiveMillionKrw": 0.205
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1956,
-        "oneMillionKrw": -1740,
-        "fiveMillionKrw": -701
+        "minimumSubscription": -1954,
+        "oneMillionKrw": -1727,
+        "fiveMillionKrw": -633
       },
       "assumptions": {
         "offerPrice": 17000,

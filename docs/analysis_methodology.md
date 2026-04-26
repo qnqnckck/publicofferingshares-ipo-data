@@ -59,6 +59,11 @@ more directly tied to the subscription decision itself:
 - final pricing position
 - demand breadth from institution participation and top-band confirmation
 
+If a row explicitly records `topBandConfirmation: true`, the operating-company
+model treats that as stronger than a simple upper-band close. This is intended
+for cases where institutions effectively bid at or above the top of the range
+across the order book.
+
 The final score is normalized by the maximum available weight of the active
 factor set. That prevents rows from appearing artificially low after
 non-decision helper factors are removed from the operating-company score.

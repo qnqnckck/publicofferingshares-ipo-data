@@ -613,6 +613,7 @@ class IpoCompetitionBatch {
             offerPrice: null,
             priceBandMin: null,
             priceBandMax: null,
+            topBandConfirmation: null,
             institutionCompetitionRate: null,
             institutionParticipants: null,
             lockupCommitmentRate: null,
@@ -1547,6 +1548,7 @@ List<IpoCompetitionStock> buildKnownLeadManagerOverrideStocks(
             offerPrice: null,
             priceBandMin: null,
             priceBandMax: null,
+            topBandConfirmation: null,
             institutionCompetitionRate: null,
             institutionParticipants: null,
             lockupCommitmentRate: null,
@@ -1595,6 +1597,7 @@ List<IpoCompetitionStock> mergeOutcomes(
           offerPrice: outcomeRow.offerPrice,
           priceBandMin: null,
           priceBandMax: null,
+          topBandConfirmation: null,
           institutionCompetitionRate: null,
           institutionParticipants: null,
           lockupCommitmentRate: null,
@@ -2381,6 +2384,7 @@ IpoCompetitionStock? parseIpoKoreaSupplement({
       offerPrice: offerPrice,
       priceBandMin: null,
       priceBandMax: null,
+      topBandConfirmation: null,
       institutionCompetitionRate: institutionCompetitionRate,
       institutionParticipants: institutionParticipants,
       lockupCommitmentRate: lockupCommitmentRate,
@@ -2549,6 +2553,7 @@ class IpoFundamentals {
     required this.offerPrice,
     required this.priceBandMin,
     required this.priceBandMax,
+    required this.topBandConfirmation,
     required this.institutionCompetitionRate,
     required this.institutionParticipants,
     required this.lockupCommitmentRate,
@@ -2560,6 +2565,7 @@ class IpoFundamentals {
   final int? offerPrice;
   final int? priceBandMin;
   final int? priceBandMax;
+  final bool? topBandConfirmation;
   final double? institutionCompetitionRate;
   final int? institutionParticipants;
   final double? lockupCommitmentRate;
@@ -2572,6 +2578,7 @@ class IpoFundamentals {
       offerPrice: readOptionalInt(json['offerPrice']),
       priceBandMin: readOptionalInt(json['priceBandMin']),
       priceBandMax: readOptionalInt(json['priceBandMax']),
+      topBandConfirmation: json['topBandConfirmation'] as bool?,
       institutionCompetitionRate: readDouble(
         json['institutionCompetitionRate'],
       ),
@@ -2592,6 +2599,7 @@ class IpoFundamentals {
       offerPrice: other.offerPrice ?? offerPrice,
       priceBandMin: other.priceBandMin ?? priceBandMin,
       priceBandMax: other.priceBandMax ?? priceBandMax,
+      topBandConfirmation: other.topBandConfirmation ?? topBandConfirmation,
       institutionCompetitionRate:
           other.institutionCompetitionRate ?? institutionCompetitionRate,
       institutionParticipants:
@@ -2609,6 +2617,7 @@ class IpoFundamentals {
       'offerPrice': offerPrice,
       'priceBandMin': priceBandMin,
       'priceBandMax': priceBandMax,
+      'topBandConfirmation': topBandConfirmation,
       'institutionCompetitionRate': institutionCompetitionRate,
       'institutionParticipants': institutionParticipants,
       'lockupCommitmentRate': lockupCommitmentRate,
@@ -3325,11 +3334,14 @@ int scoreInstitutionDemand(IpoFundamentals fundamentals) {
   if (rate == null) {
     return 0;
   }
+  if (rate >= 1200) {
+    return 24;
+  }
   if (rate >= 1500) {
     return 24;
   }
   if (rate >= 1000) {
-    return 20;
+    return 22;
   }
   if (rate >= 700) {
     return 15;
@@ -3400,7 +3412,7 @@ int scoreFloatForStock(IpoCompetitionStock stock) {
     return direct;
   }
   if (isBeforeOrDuringSubscription(stock)) {
-    return 6;
+    return 8;
   }
   return 0;
 }
@@ -3425,7 +3437,9 @@ int scoreDemandStrengthForStock(IpoCompetitionStock stock) {
   final max = stock.fundamentals.priceBandMax;
   if (offer != null && min != null && max != null && max > min) {
     final position = (offer - min) / (max - min);
-    if (offer >= max) {
+    if (stock.fundamentals.topBandConfirmation == true) {
+      score += 8;
+    } else if (offer >= max) {
       score += 6;
     } else if (position >= 0.9) {
       score += 4;
@@ -3502,6 +3516,9 @@ int scorePricing(IpoFundamentals fundamentals) {
     return 3;
   }
   final position = (offer - min) / (max - min);
+  if (fundamentals.topBandConfirmation == true) {
+    return 10;
+  }
   if (position > 1.0) {
     return 4;
   }
@@ -3551,6 +3568,11 @@ int scoreCompetitionForStock(IpoCompetitionStock stock) {
   }
   final institutionRate = stock.fundamentals.institutionCompetitionRate ?? 0;
   final lockupRate = stock.fundamentals.lockupCommitmentRate ?? 0;
+  if (stock.fundamentals.topBandConfirmation == true &&
+      institutionRate >= 1000 &&
+      lockupRate >= 0.5) {
+    return 16;
+  }
   if (institutionRate >= 1000 && lockupRate >= 0.5) {
     return 12;
   }
@@ -4672,6 +4694,7 @@ IpoCompetitionStock? stockFromDartRow(Map<String, Object?> row) {
       offerPrice: null,
       priceBandMin: null,
       priceBandMax: null,
+      topBandConfirmation: null,
       institutionCompetitionRate: null,
       institutionParticipants: null,
       lockupCommitmentRate: null,
@@ -4735,6 +4758,7 @@ IpoCompetitionStock? stockFromItickRow(Map<String, Object?> row) {
       offerPrice: null,
       priceBandMin: null,
       priceBandMax: null,
+      topBandConfirmation: null,
       institutionCompetitionRate: null,
       institutionParticipants: null,
       lockupCommitmentRate: null,
