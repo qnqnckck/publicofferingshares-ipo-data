@@ -189,6 +189,9 @@ Rules:
 - GitHub Actions OCR collection reads `data/video_ocr_sources.json`, extracts the
   configured latest frame, and upserts snapshots by `id + source`. For the same
   source, a newer `capturedAt` replaces the older fallback row.
+- each source may define `imagePath` for the latest maintained screenshot. When
+  present, OCR uses that image first and skips direct YouTube access. This is
+  the preferred operating mode because it avoids anti-bot failures.
 
 Recommended use:
 

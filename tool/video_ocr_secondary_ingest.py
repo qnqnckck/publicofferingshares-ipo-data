@@ -109,9 +109,6 @@ class SecondaryVideoOcrIngest:
             print("No video OCR sources configured.")
             return 0
 
-        _require_bin("yt-dlp")
-        _require_bin("ffmpeg")
-
         extracted_rows: list[dict[str, Any]] = []
         with tempfile.TemporaryDirectory(prefix="video-ocr-secondary-") as tmp:
             tmpdir = Path(tmp)
@@ -152,12 +149,23 @@ class SecondaryVideoOcrIngest:
     def _extract_source(self, tmpdir: Path, source: dict[str, Any]) -> dict[str, Any] | None:
         youtube_url = str(source.get("youtubeUrl", "")).strip()
         timestamp_seconds = int(source.get("timestampSeconds", 0) or 0)
-        if not youtube_url:
-            print(f"skip invalid source config: {source.get('id')}")
-            return None
-
+        image_path_value = str(source.get("imagePath", "")).strip()
         frame_path = tmpdir / f"{source['id']}.png"
-        self._extract_frame(youtube_url, timestamp_seconds, frame_path)
+        if image_path_value:
+            image_path = Path(image_path_value)
+            if not image_path.is_absolute():
+                image_path = self.config_path.parent.parent / image_path
+            if not image_path.exists():
+                print(f"skip missing imagePath for {source.get('id')}: {image_path}")
+                return None
+            frame_path.write_bytes(image_path.read_bytes())
+        else:
+            if not youtube_url:
+                print(f"skip invalid source config: {source.get('id')}")
+                return None
+            _require_bin("yt-dlp")
+            _require_bin("ffmpeg")
+            self._extract_frame(youtube_url, timestamp_seconds, frame_path)
 
         crop = source.get("crop")
         if isinstance(crop, dict):
