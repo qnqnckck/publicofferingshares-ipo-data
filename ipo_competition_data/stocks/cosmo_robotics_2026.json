@@ -19,67 +19,65 @@
     "유안타증권"
   ],
   "fundamentals": {
-    "offerPrice": null,
+    "offerPrice": 6000,
     "priceBandMin": 5300,
     "priceBandMax": 6000,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "institutionCompetitionRate": 1140.11,
+    "institutionParticipants": 2257,
+    "lockupCommitmentRate": 0.7303,
     "floatRate": null,
     "marketCapKrw": null,
-    "publicAllocationShares": null
+    "publicAllocationShares": 1042500
   },
   "outcome": null,
   "snapshots": [],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 20,
-      "grade": "D",
-      "confidence": 0.35,
+      "overall": 63,
+      "grade": "C+",
+      "confidence": 0.6,
       "factors": {
         "competition": 0,
-        "institutionDemand": 0,
-        "lockupCommitment": 0,
+        "institutionDemand": 20,
+        "lockupCommitment": 18,
         "floatRate": 0,
-        "pricing": 3,
+        "pricing": 5,
         "market": 5,
         "leadManagers": 5,
         "recency": 4,
-        "dataCompleteness": 3
+        "dataCompleteness": 6
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.139,
-      "bearCaseListingGainRate": -0.3591,
-      "baseCaseListingGainRate": -0.139,
-      "bullCaseListingGainRate": 0.211,
+      "expectedListingGainRate": 0.215,
+      "bearCaseListingGainRate": -0.005,
+      "baseCaseListingGainRate": 0.215,
+      "bullCaseListingGainRate": 0.565,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.042,
-        "fiveMillionKrw": 0.208
+        "oneMillionKrw": 0.208,
+        "fiveMillionKrw": 1.042
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -2052,
-        "oneMillionKrw": -2174,
-        "fiveMillionKrw": -2869
+        "minimumSubscription": -1984,
+        "oneMillionKrw": -1731,
+        "fiveMillionKrw": -656
       },
       "assumptions": {
-        "offerPrice": null,
+        "offerPrice": 6000,
         "competitionRate": null,
         "feeKrw": 2000,
         "method": "ipo_score_v2_general_rule_based"
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
-        "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
@@ -89,9 +87,9 @@
       "snapshotCount": 0,
       "leadManagerCount": 3,
       "market": "KOSDAQ",
-      "hasOfferPrice": false,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1140.11,
+      "lockupCommitmentRate": 0.7303,
       "floatRate": null,
       "hasOutcome": false
     },

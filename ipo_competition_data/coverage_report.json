@@ -1,49 +1,24 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-26T09:35:11.980348",
-  "backfillCutoff": "2023-04-26T00:00:00.000",
+  "generatedAt": "2026-04-27T00:15:26.595350",
+  "backfillCutoff": "2023-04-27T00:00:00.000",
   "totals": {
     "discovered": 0,
     "merged": 201,
     "generated": 199,
     "discoveredMissingFromGenerated": 0,
-    "stocksWithQualityIssues": 169,
+    "stocksWithQualityIssues": 168,
     "duplicateCandidates": 0
   },
   "issueCounts": {
-    "missing_offer_price": 1,
-    "missing_institution_competition_rate": 2,
-    "missing_institution_participants": 162,
-    "missing_lockup_commitment_rate": 163,
     "missing_external_identifier": 3,
+    "missing_institution_participants": 161,
+    "missing_lockup_commitment_rate": 162,
+    "missing_institution_competition_rate": 1,
     "missing_broker_level_competition": 1
   },
   "discoveredMissingFromGenerated": [],
   "qualityIssues": [
-    {
-      "id": "cosmo_robotics_2026",
-      "company": "코스모로보틱스",
-      "subscriptionStart": "2026-04-27",
-      "subscriptionEnd": "2026-04-28",
-      "leadManagers": [
-        "유진투자증권",
-        "NH투자증권",
-        "유안타증권"
-      ],
-      "path": "stocks/cosmo_robotics_2026.json",
-      "issues": [
-        "missing_offer_price",
-        "missing_institution_competition_rate",
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 4,
-      "latestCompetitionRate": null,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
-      "score": 20,
-      "grade": "D"
-    },
     {
       "id": "synapsoft_2024",
       "company": "사이냅소프트",
@@ -1995,8 +1970,7 @@
       "subscriptionStart": "2024-06-18",
       "subscriptionEnd": "2024-06-19",
       "leadManagers": [
-        "한국투자증권",
-        "신영증권"
+        "한국투자증권"
       ],
       "path": "stocks/higen_rnm_2024.json",
       "issues": [
@@ -2007,7 +1981,7 @@
       "latestCompetitionRate": 2549.13,
       "institutionCompetitionRate": 1099.2,
       "lockupCommitmentRate": null,
-      "score": 53,
+      "score": 51,
       "grade": "C"
     },
     {
