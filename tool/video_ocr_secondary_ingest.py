@@ -8,9 +8,11 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from contextlib import suppress
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
+from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 
 def _read_json(path: Path) -> dict[str, Any]:
@@ -163,9 +165,23 @@ class SecondaryVideoOcrIngest:
             if not youtube_url:
                 print(f"skip invalid source config: {source.get('id')}")
                 return None
-            _require_bin("yt-dlp")
-            _require_bin("ffmpeg")
-            self._extract_frame(youtube_url, timestamp_seconds, frame_path)
+            browser_error: Exception | None = None
+            try:
+                self._capture_frame_with_browser(youtube_url, timestamp_seconds, frame_path)
+            except Exception as exc:
+                browser_error = exc
+                print(f"browser capture failed for {source.get('id')}: {exc}")
+            if not frame_path.exists():
+                _require_bin("yt-dlp")
+                _require_bin("ffmpeg")
+                try:
+                    self._extract_frame(youtube_url, timestamp_seconds, frame_path)
+                except Exception:
+                    if browser_error is not None:
+                        raise RuntimeError(
+                            f"both browser capture and yt-dlp fallback failed for {source.get('id')}"
+                        ) from browser_error
+                    raise
 
         crop = source.get("crop")
         if isinstance(crop, dict):
@@ -249,6 +265,121 @@ class SecondaryVideoOcrIngest:
             check=True,
             capture_output=True,
             text=True,
+        )
+
+    def _capture_frame_with_browser(
+        self,
+        youtube_url: str,
+        timestamp_seconds: int,
+        frame_path: Path,
+    ) -> None:
+        try:
+            from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
+            from playwright.sync_api import sync_playwright
+        except ImportError as exc:
+            raise RuntimeError("playwright is required for browser capture") from exc
+
+        target_url = self._youtube_url_with_timestamp(youtube_url, timestamp_seconds)
+        with sync_playwright() as playwright:
+            browser = playwright.chromium.launch(
+                headless=True,
+                args=[
+                    "--disable-blink-features=AutomationControlled",
+                    "--autoplay-policy=no-user-gesture-required",
+                    "--disable-dev-shm-usage",
+                ],
+            )
+            context = browser.new_context(
+                locale="ko-KR",
+                viewport={"width": 1600, "height": 900},
+                user_agent=(
+                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/124.0.0.0 Safari/537.36"
+                ),
+                color_scheme="light",
+            )
+            page = context.new_page()
+            try:
+                page.goto(target_url, wait_until="domcontentloaded", timeout=120000)
+                self._dismiss_youtube_overlays(page)
+                page.wait_for_timeout(3500)
+                video = page.locator("video").first
+                video.wait_for(state="visible", timeout=45000)
+                with suppress(Exception):
+                    page.evaluate(
+                        """(seconds) => {
+                            const video = document.querySelector('video');
+                            if (!video) return;
+                            video.muted = true;
+                            video.pause();
+                            if (seconds > 0) {
+                              video.currentTime = seconds;
+                            }
+                        }""",
+                        timestamp_seconds,
+                    )
+                page.wait_for_timeout(2500)
+                self._dismiss_youtube_overlays(page)
+                try:
+                    video.screenshot(path=str(frame_path))
+                except PlaywrightTimeoutError:
+                    page.screenshot(path=str(frame_path), full_page=False)
+            finally:
+                context.close()
+                browser.close()
+
+    def _dismiss_youtube_overlays(self, page: Any) -> None:
+        candidates = [
+            "button[aria-label='Accept all']",
+            "button[aria-label='모두 수락']",
+            "button:has-text('Accept all')",
+            "button:has-text('모두 수락')",
+            "button:has-text('I agree')",
+            "button:has-text('동의')",
+            "button[aria-label='닫기']",
+            "button[aria-label='Close']",
+        ]
+        for selector in candidates:
+            with suppress(Exception):
+                locator = page.locator(selector).first
+                if locator.is_visible(timeout=500):
+                    locator.click(timeout=1000)
+                    page.wait_for_timeout(500)
+        with suppress(Exception):
+            page.evaluate(
+                """() => {
+                    const video = document.querySelector('video');
+                    if (video) {
+                      video.controls = false;
+                    }
+                    const selectors = [
+                      '.ytp-gradient-top',
+                      '.ytp-gradient-bottom',
+                      '.ytp-chrome-top',
+                      '.ytp-chrome-bottom',
+                      '.ytp-pause-overlay',
+                      '.ytp-ce-element',
+                      '.ytp-cards-teaser',
+                      '.ytp-cued-thumbnail-overlay',
+                      'tp-yt-paper-dialog',
+                    ];
+                    for (const selector of selectors) {
+                      for (const node of document.querySelectorAll(selector)) {
+                        node.style.display = 'none';
+                      }
+                    }
+                }"""
+            )
+
+    def _youtube_url_with_timestamp(self, youtube_url: str, timestamp_seconds: int) -> str:
+        if timestamp_seconds <= 0:
+            return youtube_url
+        parsed = urlparse(youtube_url)
+        query = dict(parse_qsl(parsed.query, keep_blank_values=True))
+        query["t"] = f"{timestamp_seconds}s"
+        return urlunparse(
+            parsed._replace(query=urlencode(query, doseq=True)),
         )
 
     def _resolve_stream_url(self, youtube_url: str) -> str:

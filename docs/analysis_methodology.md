@@ -186,9 +186,11 @@ Rules:
   absent.
 - values derived from a screen parse should keep the source explicit so app and
   downstream tooling can lower trust or label them as supplemental if needed.
-- GitHub Actions OCR collection reads `data/video_ocr_sources.json`, extracts the
-  configured latest frame, and upserts snapshots by `id + source`. For the same
-  source, a newer `capturedAt` replaces the older fallback row.
+- GitHub Actions OCR collection reads `data/video_ocr_sources.json`, captures the
+  configured latest frame with a Chromium browser session first, and upserts
+  snapshots by `id + source`. If browser capture fails, the pipeline can still
+  fall back to direct stream extraction. For the same source, a newer
+  `capturedAt` replaces the older fallback row.
 - each source may define `imagePath` for the latest maintained screenshot. When
   present, OCR uses that image first and skips direct YouTube access. This is
   the preferred operating mode because it avoids anti-bot failures.

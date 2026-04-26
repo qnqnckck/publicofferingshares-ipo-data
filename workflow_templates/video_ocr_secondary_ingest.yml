@@ -27,11 +27,12 @@ jobs:
       - name: Install OCR ingest dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install yt-dlp pillow rapidocr-onnxruntime
+          pip install yt-dlp pillow rapidocr-onnxruntime playwright
           sudo apt-get update
           sudo apt-get install -y ffmpeg
+          python -m playwright install chromium
 
-      - name: Fetch latest frame and write fallback broker snapshots
+      - name: Capture browser frame and write fallback broker snapshots
         run: |
           python tool/video_ocr_secondary_ingest.py --config data/video_ocr_sources.json --broker-snapshot-dir data/broker_snapshots
 
