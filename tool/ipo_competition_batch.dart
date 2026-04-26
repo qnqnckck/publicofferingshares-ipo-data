@@ -3006,9 +3006,12 @@ IpoAnalysis analyzeStock(
   };
   final rawTotal = factors.values.fold<int>(0, (sum, value) => sum + value);
   final maxPossible = maxScoreForFactors(factors);
-  final total = maxPossible <= 0
+  final normalizedTotal = maxPossible <= 0
       ? 0
       : clampInt(((rawTotal / maxPossible) * 100).round(), 0, 100);
+  final total = isSpac
+      ? clampInt(normalizedTotal, 0, spacScoreCeilingFor(stock))
+      : normalizedTotal;
   final confidence = confidenceFor(stock);
   final expectedReturnProfile = expectedReturnProfileFor(
     stock: stock,
@@ -3680,7 +3683,41 @@ double confidenceFor(IpoCompetitionStock stock) {
   if (stock.latestSnapshot?.aggregate.competitionRate != null) {
     confidence += 0.05;
   }
+  if (isSpacStock(stock)) {
+    final ceiling = spacConfidenceCeilingFor(stock);
+    if (confidence > ceiling) {
+      confidence = ceiling;
+    }
+  }
   return clampDouble(confidence, 0.05, 0.95);
+}
+
+int spacScoreCeilingFor(IpoCompetitionStock stock) {
+  final source = stock.latestSnapshot?.source.toLowerCase() ?? '';
+  if (source.contains('community') ||
+      source.contains('article_and_public_estimate') ||
+      source.contains('youtube_video_ocr_secondary') ||
+      source.contains('estimated')) {
+    return 82;
+  }
+  if (source.contains('live') || source.contains('ipostock')) {
+    return 88;
+  }
+  return 90;
+}
+
+double spacConfidenceCeilingFor(IpoCompetitionStock stock) {
+  final source = stock.latestSnapshot?.source.toLowerCase() ?? '';
+  if (source.contains('community') ||
+      source.contains('article_and_public_estimate') ||
+      source.contains('youtube_video_ocr_secondary') ||
+      source.contains('estimated')) {
+    return 0.78;
+  }
+  if (source.contains('live') || source.contains('ipostock')) {
+    return 0.86;
+  }
+  return 0.9;
 }
 
 IpoExpectedReturnProfile expectedReturnProfileFor({
