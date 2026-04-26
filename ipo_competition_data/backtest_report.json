@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-26T07:22:32.341178",
+  "generatedAt": "2026-04-26T09:39:49.267694",
   "methodVersion": "ipo-score-v4",
   "sampleCount": 60,
   "summary": {
     "averageCloseReturnRate": 0.8519,
     "medianCloseReturnRate": 0.4847,
-    "averageErrorCloseVsExpected": 0.5891,
+    "averageErrorCloseVsExpected": 0.5887,
     "medianErrorCloseVsExpected": 0.2477,
     "averageReferenceReturnRate": 0.8736,
     "medianReferenceReturnRate": 0.5099,
-    "averageErrorReferenceVsExpected": 0.6108,
+    "averageErrorReferenceVsExpected": 0.6104,
     "medianErrorReferenceVsExpected": 0.2589
   },
   "byGrade": {
@@ -59,8 +59,8 @@
       "sampleCount": 17,
       "averageCloseReturnRate": 1.1445,
       "medianCloseReturnRate": 0.9333,
-      "averageErrorCloseVsExpected": 0.7353,
-      "averageErrorReferenceVsExpected": 0.7353
+      "averageErrorCloseVsExpected": 0.7342,
+      "averageErrorReferenceVsExpected": 0.7342
     },
     "40-49": {
       "sampleCount": 25,
@@ -310,6 +310,22 @@
       "errorReferenceVsExpected": 1.8275
     },
     {
+      "id": "higen_rnm_2024",
+      "company": "하이젠알앤엠",
+      "isSpac": false,
+      "score": 53,
+      "grade": "C",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.4225,
+      "openReturnRate": null,
+      "highReturnRate": 2.0428571428571427,
+      "closeReturnRate": 1.1657142857142857,
+      "referenceReturnRate": 1.1657142857142857,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/202406276414Y",
+      "errorCloseVsExpected": 0.7432,
+      "errorReferenceVsExpected": 0.7432
+    },
+    {
       "id": "nobland_2024",
       "company": "노브랜드",
       "isSpac": false,
@@ -340,22 +356,6 @@
       "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10948743",
       "errorCloseVsExpected": 0.949,
       "errorReferenceVsExpected": 0.949
-    },
-    {
-      "id": "higen_rnm_2024",
-      "company": "하이젠알앤엠",
-      "isSpac": false,
-      "score": 51,
-      "grade": "C",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.4028,
-      "openReturnRate": null,
-      "highReturnRate": 2.0428571428571427,
-      "closeReturnRate": 1.1657142857142857,
-      "referenceReturnRate": 1.1657142857142857,
-      "outcomeSourceUrl": "https://www.hankyung.com/article/202406276414Y",
-      "errorCloseVsExpected": 0.7629,
-      "errorReferenceVsExpected": 0.7629
     },
     {
       "id": "woojin_entec_2024",

@@ -14,7 +14,9 @@
   "subscriptionStart": "2024-06-18",
   "subscriptionEnd": "2024-06-19",
   "leadManagers": [
-    "한국투자증권"
+    "한국투자증권",
+    "NH투자증권",
+    "신한투자증권"
   ],
   "fundamentals": {
     "offerPrice": 7000,
@@ -62,10 +64,38 @@
       }
     },
     {
-      "capturedAt": "2026-04-26T07:22:32.341178",
+      "capturedAt": "2026-04-26T09:39:49.267694",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.hankyung.com/article/202406276414Y",
       "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 7000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2549.13,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2549.13,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "신한투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 7000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2549.13,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2549.13,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        },
         {
           "name": "한국투자증권",
           "offeredShares": 0,
@@ -91,7 +121,7 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 51,
+      "overall": 53,
       "grade": "C",
       "confidence": 0.95,
       "factors": {
@@ -101,25 +131,25 @@
         "floatRate": 0,
         "pricing": 2,
         "market": 5,
-        "leadManagers": 3,
+        "leadManagers": 5,
         "recency": 0,
         "dataCompleteness": 7
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.4028,
-      "bearCaseListingGainRate": 0.1828,
-      "baseCaseListingGainRate": 0.4028,
-      "bullCaseListingGainRate": 0.7528,
+      "expectedListingGainRate": 0.4225,
+      "bearCaseListingGainRate": 0.2025,
+      "baseCaseListingGainRate": 0.4225,
+      "bullCaseListingGainRate": 0.7725,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.004,
         "oneMillionKrw": 0.056,
         "fiveMillionKrw": 0.28
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1989,
-        "oneMillionKrw": -1842,
-        "fiveMillionKrw": -1210
+        "minimumSubscription": -1988,
+        "oneMillionKrw": -1834,
+        "fiveMillionKrw": -1171
       },
       "assumptions": {
         "offerPrice": 7000,
@@ -129,10 +159,11 @@
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2549.13대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 2549.13대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -140,6 +171,24 @@
       ]
     },
     "brokerScores": [
+      {
+        "broker": "NH투자증권",
+        "equalScore": 30,
+        "proportionalScore": 11,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 8921955,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "신한투자증권",
+        "equalScore": 30,
+        "proportionalScore": 11,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 8921955,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
       {
         "broker": "한국투자증권",
         "equalScore": 30,
@@ -153,7 +202,7 @@
     "inputs": {
       "latestCompetitionRate": 2549.13,
       "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "leadManagerCount": 3,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1099.2,
