@@ -1361,17 +1361,17 @@ Map<String, Object?> buildCoverageReport({
     if (latest == null && isCompleted(stock)) {
       issues.add('missing_competition_snapshot');
     }
-    final hasBrokerDetail =
-        latest?.brokers.any((broker) {
-          final isAggregateName =
-              broker.name == '통합' || broker.name == 'aggregate';
-          return !isAggregateName &&
-              (broker.offeredShares > 0 ||
-                  broker.competitionRate != null ||
-                  broker.equalCompetitionRate != null ||
-                  broker.proportionalCompetitionRate != null);
-        }) ??
-        false;
+    final hasBrokerDetail = stock.snapshots.any(
+      (snapshot) => snapshot.brokers.any((broker) {
+        final isAggregateName =
+            broker.name == '통합' || broker.name == 'aggregate';
+        return !isAggregateName &&
+            (broker.offeredShares > 0 ||
+                broker.competitionRate != null ||
+                broker.equalCompetitionRate != null ||
+                broker.proportionalCompetitionRate != null);
+      }),
+    );
     if (!hasBrokerDetail && isCompleted(stock)) {
       issues.add('missing_broker_level_competition');
     }

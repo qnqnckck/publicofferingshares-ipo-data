@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-26T17:18:59.507657",
+  "generatedAt": "2026-04-26T17:21:19.653712",
   "backfillCutoff": "2023-04-26T00:00:00.000",
   "totals": {
     "discovered": 0,
     "merged": 201,
     "generated": 199,
     "discoveredMissingFromGenerated": 0,
-    "stocksWithQualityIssues": 172,
+    "stocksWithQualityIssues": 169,
     "duplicateCandidates": 0
   },
   "issueCounts": {
@@ -15,8 +15,7 @@
     "missing_institution_competition_rate": 2,
     "missing_institution_participants": 162,
     "missing_lockup_commitment_rate": 163,
-    "missing_external_identifier": 3,
-    "missing_broker_level_competition": 8
+    "missing_external_identifier": 3
   },
   "discoveredMissingFromGenerated": [],
   "qualityIssues": [
@@ -43,105 +42,6 @@
       "lockupCommitmentRate": null,
       "score": 20,
       "grade": "D"
-    },
-    {
-      "id": "tds_pharm_2024",
-      "company": "티디에스팜",
-      "subscriptionStart": "2024-08-09",
-      "subscriptionEnd": "2024-08-12",
-      "leadManagers": [],
-      "path": "stocks/tds_pharm_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 3,
-      "latestCompetitionRate": 1608.0,
-      "institutionCompetitionRate": 1331.0,
-      "lockupCommitmentRate": null,
-      "score": 49,
-      "grade": "D"
-    },
-    {
-      "id": "jeil_mns_2024",
-      "company": "제일엠앤에스",
-      "subscriptionStart": "2024-04-18",
-      "subscriptionEnd": "2024-04-19",
-      "leadManagers": [
-        "KB증권"
-      ],
-      "path": "stocks/jeil_mns_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 3,
-      "latestCompetitionRate": 1435.6,
-      "institutionCompetitionRate": 645.91,
-      "lockupCommitmentRate": null,
-      "score": 50,
-      "grade": "C"
-    },
-    {
-      "id": "cosem_2024",
-      "company": "코셈",
-      "subscriptionStart": "2024-02-13",
-      "subscriptionEnd": "2024-02-14",
-      "leadManagers": [],
-      "path": "stocks/cosem_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 3,
-      "latestCompetitionRate": 2518.4,
-      "institutionCompetitionRate": 1267.6,
-      "lockupCommitmentRate": null,
-      "score": 47,
-      "grade": "D"
-    },
-    {
-      "id": "hyundai_hyms_2024",
-      "company": "현대힘스",
-      "subscriptionStart": "2024-01-17",
-      "subscriptionEnd": "2024-01-18",
-      "leadManagers": [],
-      "path": "stocks/hyundai_hyms_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 3,
-      "latestCompetitionRate": 1231.2,
-      "institutionCompetitionRate": 680.82,
-      "lockupCommitmentRate": null,
-      "score": 34,
-      "grade": "D"
-    },
-    {
-      "id": "woojin_entec_2024",
-      "company": "우진엔텍",
-      "subscriptionStart": "2024-01-16",
-      "subscriptionEnd": "2024-01-17",
-      "leadManagers": [
-        "KB증권"
-      ],
-      "path": "stocks/woojin_entec_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 3,
-      "latestCompetitionRate": 2707.18,
-      "institutionCompetitionRate": 1263.32,
-      "lockupCommitmentRate": null,
-      "score": 51,
-      "grade": "C"
     },
     {
       "id": "innotech_2025",
@@ -1444,26 +1344,6 @@
       "grade": "D"
     },
     {
-      "id": "tomocube_2024",
-      "company": "토모큐브",
-      "subscriptionStart": "2024-10-28",
-      "subscriptionEnd": "2024-10-29",
-      "leadManagers": [
-        "대신증권"
-      ],
-      "path": "stocks/tomocube_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 39.94,
-      "institutionCompetitionRate": 967.71,
-      "lockupCommitmentRate": null,
-      "score": 32,
-      "grade": "D"
-    },
-    {
       "id": "theborn_korea_2024",
       "company": "더본코리아",
       "subscriptionStart": "2024-10-28",
@@ -1482,6 +1362,26 @@
       "institutionCompetitionRate": 734.67,
       "lockupCommitmentRate": null,
       "score": 44,
+      "grade": "D"
+    },
+    {
+      "id": "tomocube_2024",
+      "company": "토모큐브",
+      "subscriptionStart": "2024-10-28",
+      "subscriptionEnd": "2024-10-29",
+      "leadManagers": [
+        "대신증권"
+      ],
+      "path": "stocks/tomocube_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 39.94,
+      "institutionCompetitionRate": 967.71,
+      "lockupCommitmentRate": null,
+      "score": 32,
       "grade": "D"
     },
     {
@@ -1809,6 +1709,26 @@
       "grade": "D"
     },
     {
+      "id": "encell_2024",
+      "company": "이엔셀",
+      "subscriptionStart": "2024-08-12",
+      "subscriptionEnd": "2024-08-13",
+      "leadManagers": [
+        "NH투자증권"
+      ],
+      "path": "stocks/encell_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 928.06,
+      "institutionCompetitionRate": 949.3,
+      "lockupCommitmentRate": null,
+      "score": 48,
+      "grade": "D"
+    },
+    {
       "id": "m83_2024",
       "company": "엠83",
       "subscriptionStart": "2024-08-12",
@@ -1830,23 +1750,21 @@
       "grade": "D"
     },
     {
-      "id": "encell_2024",
-      "company": "이엔셀",
-      "subscriptionStart": "2024-08-12",
-      "subscriptionEnd": "2024-08-13",
-      "leadManagers": [
-        "NH투자증권"
-      ],
-      "path": "stocks/encell_2024.json",
+      "id": "tds_pharm_2024",
+      "company": "티디에스팜",
+      "subscriptionStart": "2024-08-09",
+      "subscriptionEnd": "2024-08-12",
+      "leadManagers": [],
+      "path": "stocks/tds_pharm_2024.json",
       "issues": [
         "missing_institution_participants",
         "missing_lockup_commitment_rate"
       ],
       "issueCount": 2,
-      "latestCompetitionRate": 928.06,
-      "institutionCompetitionRate": 949.3,
+      "latestCompetitionRate": 1608.0,
+      "institutionCompetitionRate": 1331.0,
       "lockupCommitmentRate": null,
-      "score": 48,
+      "score": 49,
       "grade": "D"
     },
     {
@@ -2133,26 +2051,6 @@
       "grade": "D"
     },
     {
-      "id": "seers_technology_2024",
-      "company": "씨어스테크놀로지",
-      "subscriptionStart": "2024-06-10",
-      "subscriptionEnd": "2024-06-11",
-      "leadManagers": [
-        "한국투자증권"
-      ],
-      "path": "stocks/seers_technology_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 1436.96,
-      "institutionCompetitionRate": 1084.4,
-      "lockupCommitmentRate": null,
-      "score": 50,
-      "grade": "C"
-    },
-    {
       "id": "hanjung_ncs_2024",
       "company": "한중엔시에스",
       "subscriptionStart": "2024-06-10",
@@ -2171,6 +2069,26 @@
       "lockupCommitmentRate": null,
       "score": 45,
       "grade": "D"
+    },
+    {
+      "id": "seers_technology_2024",
+      "company": "씨어스테크놀로지",
+      "subscriptionStart": "2024-06-10",
+      "subscriptionEnd": "2024-06-11",
+      "leadManagers": [
+        "한국투자증권"
+      ],
+      "path": "stocks/seers_technology_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 1436.96,
+      "institutionCompetitionRate": 1084.4,
+      "lockupCommitmentRate": null,
+      "score": 50,
+      "grade": "C"
     },
     {
       "id": "lameditech_2024",
@@ -2311,6 +2229,26 @@
       "lockupCommitmentRate": null,
       "score": 48,
       "grade": "D"
+    },
+    {
+      "id": "jeil_mns_2024",
+      "company": "제일엠앤에스",
+      "subscriptionStart": "2024-04-18",
+      "subscriptionEnd": "2024-04-19",
+      "leadManagers": [
+        "KB증권"
+      ],
+      "path": "stocks/jeil_mns_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 1435.6,
+      "institutionCompetitionRate": 645.91,
+      "lockupCommitmentRate": null,
+      "score": 50,
+      "grade": "C"
     },
     {
       "id": "imbdx_2024",
@@ -2475,6 +2413,24 @@
       "grade": "C"
     },
     {
+      "id": "cosem_2024",
+      "company": "코셈",
+      "subscriptionStart": "2024-02-13",
+      "subscriptionEnd": "2024-02-14",
+      "leadManagers": [],
+      "path": "stocks/cosem_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 2518.4,
+      "institutionCompetitionRate": 1267.6,
+      "lockupCommitmentRate": null,
+      "score": 47,
+      "grade": "D"
+    },
+    {
       "id": "studio_samik_2024",
       "company": "스튜디오삼익",
       "subscriptionStart": "2024-01-25",
@@ -2535,6 +2491,24 @@
       "grade": "D"
     },
     {
+      "id": "hyundai_hyms_2024",
+      "company": "현대힘스",
+      "subscriptionStart": "2024-01-17",
+      "subscriptionEnd": "2024-01-18",
+      "leadManagers": [],
+      "path": "stocks/hyundai_hyms_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 1231.2,
+      "institutionCompetitionRate": 680.82,
+      "lockupCommitmentRate": null,
+      "score": 34,
+      "grade": "D"
+    },
+    {
       "id": "hb_investment_2024",
       "company": "HB인베스트먼트",
       "subscriptionStart": "2024-01-16",
@@ -2553,6 +2527,26 @@
       "lockupCommitmentRate": null,
       "score": 45,
       "grade": "D"
+    },
+    {
+      "id": "woojin_entec_2024",
+      "company": "우진엔텍",
+      "subscriptionStart": "2024-01-16",
+      "subscriptionEnd": "2024-01-17",
+      "leadManagers": [
+        "KB증권"
+      ],
+      "path": "stocks/woojin_entec_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 2707.18,
+      "institutionCompetitionRate": 1263.32,
+      "lockupCommitmentRate": null,
+      "score": 51,
+      "grade": "C"
     },
     {
       "id": "blue_mtec_2023",
@@ -3291,28 +3285,6 @@
       "grade": "B+"
     },
     {
-      "id": "chaevi_2026",
-      "company": "채비",
-      "subscriptionStart": "2026-04-20",
-      "subscriptionEnd": "2026-04-21",
-      "leadManagers": [
-        "KB증권",
-        "삼성증권",
-        "대신증권",
-        "하나증권"
-      ],
-      "path": "stocks/chaevi_2026.json",
-      "issues": [
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 1,
-      "latestCompetitionRate": 302.0,
-      "institutionCompetitionRate": 55.23,
-      "lockupCommitmentRate": 0.0649,
-      "score": 50,
-      "grade": "C"
-    },
-    {
       "id": "kiwoom_hero_spac_2_2026",
       "company": "키움히어로스팩2호",
       "subscriptionStart": "2026-04-14",
@@ -3330,26 +3302,6 @@
       "lockupCommitmentRate": 0.0,
       "score": 77,
       "grade": "B+"
-    },
-    {
-      "id": "the_pinkfong_company_2025",
-      "company": "더핑크퐁컴퍼니",
-      "subscriptionStart": "2025-11-06",
-      "subscriptionEnd": "2025-11-07",
-      "leadManagers": [
-        "미래에셋증권",
-        "삼성증권"
-      ],
-      "path": "stocks/the_pinkfong_company_2025.json",
-      "issues": [
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 1,
-      "latestCompetitionRate": 846.9,
-      "institutionCompetitionRate": 615.9,
-      "lockupCommitmentRate": 0.3042,
-      "score": 64,
-      "grade": "C+"
     },
     {
       "id": "halla_cast_2025",
@@ -3428,26 +3380,6 @@
       "lockupCommitmentRate": 0.0334,
       "score": 54,
       "grade": "C"
-    },
-    {
-      "id": "sanil_electric_2024",
-      "company": "산일전기",
-      "subscriptionStart": "2024-07-18",
-      "subscriptionEnd": "2024-07-19",
-      "leadManagers": [
-        "미래에셋증권",
-        "삼성증권"
-      ],
-      "path": "stocks/sanil_electric_2024.json",
-      "issues": [
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 1,
-      "latestCompetitionRate": 423.09,
-      "institutionCompetitionRate": 413.86,
-      "lockupCommitmentRate": 0.4237,
-      "score": 62,
-      "grade": "C+"
     },
     {
       "id": "green_resource_2023",
