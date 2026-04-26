@@ -62,7 +62,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T00:40:25.957060",
+      "capturedAt": "2026-04-27T00:48:52.971808",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://happy-cleanup.com/962",
       "brokers": [
@@ -91,8 +91,8 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 54,
-      "grade": "C",
+      "overall": 39,
+      "grade": "D",
       "confidence": 0.95,
       "factors": {
         "competition": 13,
@@ -100,26 +100,26 @@
         "lockupCommitment": 0,
         "floatRate": 0,
         "pricing": 2,
-        "market": 5,
-        "leadManagers": 3,
+        "market": 0,
+        "leadManagers": 0,
         "recency": 0,
-        "dataCompleteness": 7
+        "dataCompleteness": 0
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.4323,
-      "bearCaseListingGainRate": 0.2123,
-      "baseCaseListingGainRate": 0.4323,
-      "bullCaseListingGainRate": 0.7823,
+      "expectedListingGainRate": 0.2849,
+      "bearCaseListingGainRate": 0.0649,
+      "baseCaseListingGainRate": 0.2849,
+      "bullCaseListingGainRate": 0.6349,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.007,
         "oneMillionKrw": 0.138,
         "fiveMillionKrw": 0.688
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1985,
-        "oneMillionKrw": -1702,
-        "fiveMillionKrw": -512
+        "minimumSubscription": -1990,
+        "oneMillionKrw": -1804,
+        "fiveMillionKrw": -1019
       },
       "assumptions": {
         "offerPrice": 5000,
@@ -129,8 +129,8 @@
       }
     },
     "decision": {
-      "level": "neutral",
-      "label": "중립",
+      "level": "caution",
+      "label": "주의",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 1452.49대 1입니다."
       ],

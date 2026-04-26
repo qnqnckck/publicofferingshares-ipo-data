@@ -88,8 +88,8 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 72,
-      "grade": "B",
+      "overall": 54,
+      "grade": "C",
       "confidence": 0.95,
       "factors": {
         "competition": 16,
@@ -97,26 +97,26 @@
         "lockupCommitment": 18,
         "floatRate": 0,
         "pricing": 5,
-        "market": 5,
-        "leadManagers": 5,
+        "market": 0,
+        "leadManagers": 0,
         "recency": 0,
-        "dataCompleteness": 8
+        "dataCompleteness": 0
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.6092,
-      "bearCaseListingGainRate": 0.3892,
-      "baseCaseListingGainRate": 0.6092,
-      "bullCaseListingGainRate": 0.9592,
+      "expectedListingGainRate": 0.4323,
+      "bearCaseListingGainRate": 0.2123,
+      "baseCaseListingGainRate": 0.4323,
+      "bullCaseListingGainRate": 0.7823,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.006,
         "oneMillionKrw": 0.021,
         "fiveMillionKrw": 0.106
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1912,
-        "oneMillionKrw": -1663,
-        "fiveMillionKrw": -314
+        "minimumSubscription": -1938,
+        "oneMillionKrw": -1761,
+        "fiveMillionKrw": -803
       },
       "assumptions": {
         "offerPrice": 26000,
@@ -126,12 +126,11 @@
       }
     },
     "decision": {
-      "level": "consider",
-      "label": "청약 고려",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 1806.0대 1입니다.",
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
-        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",

@@ -57,7 +57,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T00:40:25.957060",
+      "capturedAt": "2026-04-27T00:48:52.971808",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.newspim.com/news/view/20260324001299",
       "brokers": [
@@ -100,8 +100,8 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 73,
-      "grade": "B",
+      "overall": 55,
+      "grade": "C",
       "confidence": 0.95,
       "factors": {
         "competition": 16,
@@ -109,26 +109,26 @@
         "lockupCommitment": 14,
         "floatRate": 0,
         "pricing": 5,
-        "market": 5,
-        "leadManagers": 5,
+        "market": 0,
+        "leadManagers": 0,
         "recency": 0,
-        "dataCompleteness": 8
+        "dataCompleteness": 0
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.619,
-      "bearCaseListingGainRate": 0.399,
-      "baseCaseListingGainRate": 0.619,
-      "bullCaseListingGainRate": 0.969,
+      "expectedListingGainRate": 0.4421,
+      "bearCaseListingGainRate": 0.2221,
+      "baseCaseListingGainRate": 0.4421,
+      "bullCaseListingGainRate": 0.7921,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.005,
         "oneMillionKrw": 0.031,
         "fiveMillionKrw": 0.157
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1946,
-        "oneMillionKrw": -1677,
-        "fiveMillionKrw": -383
+        "minimumSubscription": -1962,
+        "oneMillionKrw": -1769,
+        "fiveMillionKrw": -845
       },
       "assumptions": {
         "offerPrice": 16600,
@@ -138,12 +138,11 @@
       }
     },
     "decision": {
-      "level": "consider",
-      "label": "청약 고려",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 1913.44대 1입니다.",
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
-        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",

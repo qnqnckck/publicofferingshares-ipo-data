@@ -2973,10 +2973,10 @@ IpoAnalysis analyzeStock(
       : scoreLockup(stock.fundamentals.lockupCommitmentRate);
   final floatScore = isSpac ? 0 : scoreFloatForStock(stock);
   final pricingScore = scorePricing(stock.fundamentals);
-  final marketScore = scoreMarket(stock.market);
-  final managerScore = scoreLeadManagers(stock.leadManagers);
-  final recencyScore = scoreRecency(stock.subscriptionEnd);
-  final dataScore = scoreDataCompleteness(stock);
+  final marketScore = isSpac ? scoreMarket(stock.market) : 0;
+  final managerScore = isSpac ? scoreLeadManagers(stock.leadManagers) : 0;
+  final recencyScore = isSpac ? scoreRecency(stock.subscriptionEnd) : 0;
+  final dataScore = isSpac ? scoreDataCompleteness(stock) : 0;
   final factors = <String, int>{
     'competition': competitionScore,
     'institutionDemand': institutionScore,

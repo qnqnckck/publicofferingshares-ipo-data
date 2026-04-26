@@ -45,6 +45,17 @@ float data is treated as a mild neutral placeholder rather than a full zero.
 This keeps pre-subscription judgement usable while still remaining more
 conservative than after live retail data arrives.
 
+For operating-company IPOs, `market`, `leadManagers`, `recency`, and
+`dataCompleteness` are retained as metadata and confidence inputs but no longer
+add to the core subscription score. The score is now centered on items that are
+more directly tied to the subscription decision itself:
+
+- retail competition when it exists
+- institution demand forecast competition
+- lock-up commitment
+- float / supply burden when known
+- final pricing position
+
 ## Missing-data display policy
 
 The score is meaningful only when enough judgement inputs are present. If a
