@@ -37,6 +37,14 @@ company IPO. SPAC scoring therefore treats broker proportional competition,
 retail competition, institution demand, fixed low offer price, and volatility as
 separate subscription attractiveness signals.
 
+For operating-company IPOs that are still before or during the subscription
+window, missing retail competition rate is not treated the same way as a weak
+completed deal. In that stage the generator applies a small pending-demand
+competition score from institution demand and lock-up strength, and missing
+float data is treated as a mild neutral placeholder rather than a full zero.
+This keeps pre-subscription judgement usable while still remaining more
+conservative than after live retail data arrives.
+
 ## Missing-data display policy
 
 The score is meaningful only when enough judgement inputs are present. If a

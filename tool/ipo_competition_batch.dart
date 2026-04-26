@@ -2964,14 +2964,14 @@ IpoAnalysis analyzeStock(
   final effectiveCalibration = calibration ?? _analysisCalibration;
   final isSpac = isSpacStock(stock);
   final latestRate = stock.latestSnapshot?.aggregate.competitionRate;
-  final competitionScore = scoreCompetition(latestRate);
+  final competitionScore = scoreCompetitionForStock(stock);
   final institutionScore = scoreInstitutionDemand(stock.fundamentals);
   final spacMomentumScore = isSpac ? scoreSpacMomentum(stock) : 0;
   final spacVolatilityScore = isSpac ? scoreSpacVolatility(stock) : 0;
   final lockupScore = isSpac
       ? 0
       : scoreLockup(stock.fundamentals.lockupCommitmentRate);
-  final floatScore = isSpac ? 0 : scoreFloat(stock.fundamentals.floatRate);
+  final floatScore = isSpac ? 0 : scoreFloatForStock(stock);
   final pricingScore = scorePricing(stock.fundamentals);
   final marketScore = scoreMarket(stock.market);
   final managerScore = scoreLeadManagers(stock.leadManagers);
@@ -3379,6 +3379,30 @@ int scoreFloat(double? rate) {
   return 0;
 }
 
+bool isBeforeOrDuringSubscription(IpoCompetitionStock stock) {
+  final now = DateTime.now();
+  final today = DateTime(now.year, now.month, now.day);
+  final start = parseDate(stock.subscriptionStart);
+  final end = parseDate(stock.subscriptionEnd) ?? start;
+  if (start == null && end == null) {
+    return false;
+  }
+  final effectiveEnd = end ?? start!;
+  return !effectiveEnd.isBefore(today);
+}
+
+int scoreFloatForStock(IpoCompetitionStock stock) {
+  final rate = stock.fundamentals.floatRate;
+  final direct = scoreFloat(rate);
+  if (rate != null) {
+    return direct;
+  }
+  if (isBeforeOrDuringSubscription(stock)) {
+    return 3;
+  }
+  return 0;
+}
+
 int scoreSpacMomentum(IpoCompetitionStock stock) {
   final retailRate = stock.latestSnapshot?.aggregate.competitionRate;
   final proportionalRate = maxProportionalCompetitionRate(stock);
@@ -3479,6 +3503,28 @@ int scoreCompetition(double? rate) {
     return 5;
   }
   if (rate >= 50) {
+    return 2;
+  }
+  return 0;
+}
+
+int scoreCompetitionForStock(IpoCompetitionStock stock) {
+  final direct = scoreCompetition(stock.latestSnapshot?.aggregate.competitionRate);
+  if (direct > 0) {
+    return direct;
+  }
+  if (!isBeforeOrDuringSubscription(stock)) {
+    return 0;
+  }
+  final institutionRate = stock.fundamentals.institutionCompetitionRate ?? 0;
+  final lockupRate = stock.fundamentals.lockupCommitmentRate ?? 0;
+  if (institutionRate >= 1000 && lockupRate >= 0.5) {
+    return 6;
+  }
+  if (institutionRate >= 700 && lockupRate >= 0.3) {
+    return 4;
+  }
+  if (institutionRate >= 300) {
     return 2;
   }
   return 0;
