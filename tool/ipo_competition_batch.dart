@@ -3049,7 +3049,7 @@ IpoAnalysis analyzeStock(
       assumptions: {
         'offerPrice': offerPrice,
         'competitionRate': latestRate,
-        'feeKrw': 2000,
+        'feeKrw': null,
         ...expectedReturnProfile.assumptions,
       },
     ),
@@ -3879,7 +3879,7 @@ Map<String, int> expectedProfitFor({
 }) {
   final price = offerPrice ?? 30000;
   return expectedAllocatedShares.map((key, shares) {
-    final profit = (shares * price * expectedGainRate - 2000).round();
+    final profit = (shares * price * expectedGainRate).round();
     return MapEntry(key, profit);
   });
 }
