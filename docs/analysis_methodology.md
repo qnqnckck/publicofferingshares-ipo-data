@@ -56,6 +56,10 @@ more directly tied to the subscription decision itself:
 - float / supply burden when known
 - final pricing position
 
+The final score is normalized by the maximum available weight of the active
+factor set. That prevents rows from appearing artificially low after
+non-decision helper factors are removed from the operating-company score.
+
 ## Missing-data display policy
 
 The score is meaningful only when enough judgement inputs are present. If a

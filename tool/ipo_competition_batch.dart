@@ -2983,21 +2983,21 @@ IpoAnalysis analyzeStock(
     if (isSpac) ...{
       'spacMomentum': spacMomentumScore,
       'spacVolatility': spacVolatilityScore,
+      'market': marketScore,
+      'leadManagers': managerScore,
+      'recency': recencyScore,
+      'dataCompleteness': dataScore,
     } else ...{
       'lockupCommitment': lockupScore,
       'floatRate': floatScore,
+      'pricing': pricingScore,
     },
-    'pricing': pricingScore,
-    'market': marketScore,
-    'leadManagers': managerScore,
-    'recency': recencyScore,
-    'dataCompleteness': dataScore,
   };
-  final total = clampInt(
-    factors.values.fold<int>(0, (sum, value) => sum + value),
-    0,
-    100,
-  );
+  final rawTotal = factors.values.fold<int>(0, (sum, value) => sum + value);
+  final maxPossible = maxScoreForFactors(factors);
+  final total = maxPossible <= 0
+      ? 0
+      : clampInt(((rawTotal / maxPossible) * 100).round(), 0, 100);
   final confidence = confidenceFor(stock);
   final expectedReturnProfile = expectedReturnProfileFor(
     stock: stock,
@@ -3509,7 +3509,9 @@ int scoreCompetition(double? rate) {
 }
 
 int scoreCompetitionForStock(IpoCompetitionStock stock) {
-  final direct = scoreCompetition(stock.latestSnapshot?.aggregate.competitionRate);
+  final direct = scoreCompetition(
+    stock.latestSnapshot?.aggregate.competitionRate,
+  );
   if (direct > 0) {
     return direct;
   }
@@ -3830,25 +3832,48 @@ Map<String, int> expectedProfitFor({
 }
 
 String gradeFor(int score) {
-  if (score >= 90) {
+  if (score >= 93) {
     return 'A+';
   }
-  if (score >= 82) {
+  if (score >= 86) {
     return 'A';
   }
-  if (score >= 74) {
+  if (score >= 79) {
+    return 'A-';
+  }
+  if (score >= 72) {
     return 'B+';
   }
-  if (score >= 66) {
+  if (score >= 65) {
     return 'B';
   }
   if (score >= 58) {
+    return 'B-';
+  }
+  if (score >= 51) {
     return 'C+';
   }
-  if (score >= 50) {
+  if (score >= 44) {
     return 'C';
   }
-  return 'D';
+  return 'C-';
+}
+
+int maxScoreForFactors(Map<String, int> factors) {
+  const maxByFactor = <String, int>{
+    'competition': 16,
+    'institutionDemand': 24,
+    'spacMomentum': 16,
+    'spacVolatility': 4,
+    'lockupCommitment': 18,
+    'floatRate': 12,
+    'pricing': 10,
+    'market': 6,
+    'leadManagers': 6,
+    'recency': 4,
+    'dataCompleteness': 8,
+  };
+  return factors.keys.fold<int>(0, (sum, key) => sum + (maxByFactor[key] ?? 0));
 }
 
 String decisionLevelFor(int score, double confidence) {

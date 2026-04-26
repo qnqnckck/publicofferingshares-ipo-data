@@ -83,7 +83,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T00:48:52.971808",
+      "capturedAt": "2026-04-27T00:52:38.877510",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.newspim.com/news/view/20260317001347",
       "brokers": [
@@ -126,35 +126,31 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 59,
-      "grade": "C+",
+      "overall": 74,
+      "grade": "B+",
       "confidence": 0.95,
       "factors": {
         "competition": 16,
         "institutionDemand": 20,
         "lockupCommitment": 18,
         "floatRate": 0,
-        "pricing": 5,
-        "market": 0,
-        "leadManagers": 0,
-        "recency": 0,
-        "dataCompleteness": 0
+        "pricing": 5
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.4814,
-      "bearCaseListingGainRate": 0.2614,
-      "baseCaseListingGainRate": 0.4814,
-      "bullCaseListingGainRate": 0.8314,
+      "expectedListingGainRate": 0.6288,
+      "bearCaseListingGainRate": 0.4088,
+      "baseCaseListingGainRate": 0.6288,
+      "bullCaseListingGainRate": 0.9788,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.006,
         "oneMillionKrw": 0.031,
         "fiveMillionKrw": 0.157
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1945,
-        "oneMillionKrw": -1712,
-        "fiveMillionKrw": -561
+        "minimumSubscription": -1929,
+        "oneMillionKrw": -1624,
+        "fiveMillionKrw": -121
       },
       "assumptions": {
         "offerPrice": 19000,
@@ -164,11 +160,12 @@
       }
     },
     "decision": {
-      "level": "neutral",
-      "label": "중립",
+      "level": "consider",
+      "label": "청약 고려",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 1673.04대 1입니다.",
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",

@@ -85,15 +85,14 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 77,
-      "grade": "B+",
+      "overall": 88,
+      "grade": "A",
       "confidence": 0.95,
       "factors": {
         "competition": 16,
         "institutionDemand": 20,
         "spacMomentum": 16,
         "spacVolatility": 4,
-        "pricing": 3,
         "market": 5,
         "leadManagers": 3,
         "recency": 2,
@@ -101,19 +100,19 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 1.2752,
-      "bearCaseListingGainRate": 0.6252,
-      "baseCaseListingGainRate": 1.2752,
-      "bullCaseListingGainRate": 2.1952,
+      "expectedListingGainRate": 1.3046,
+      "bearCaseListingGainRate": 0.6546,
+      "baseCaseListingGainRate": 1.3046,
+      "bullCaseListingGainRate": 2.2246,
       "expectedAllocatedShares": {
         "minimumSubscription": 13.986,
         "oneMillionKrw": 14.266,
         "fiveMillionKrw": 15.408
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 33668,
-        "oneMillionKrw": 34382,
-        "fiveMillionKrw": 37296
+        "minimumSubscription": 34492,
+        "oneMillionKrw": 35222,
+        "fiveMillionKrw": 38204
       },
       "assumptions": {
         "offerPrice": 2000,
@@ -127,15 +126,15 @@
         "proportionalTailBoost": 0.04,
         "institutionTailBoost": 0.03,
         "lowLockupVolatility": true,
-        "uncalibratedBaseGainRate": 1.1709535227272727,
-        "calibrationApplied": 0.1042,
+        "uncalibratedBaseGainRate": 1.20781625,
+        "calibrationApplied": 0.0968,
         "calibrationSampleCount": 1,
         "calibrationCompetitionBucket": "1500-1999"
       }
     },
     "decision": {
-      "level": "consider",
-      "label": "청약 고려",
+      "level": "strong_watch",
+      "label": "관심 높음",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 1750.0대 1입니다.",
         "스팩 전용 보정으로 비례 경쟁률 3500.0대 1을 상장일 수급 요인에 반영했습니다.",
