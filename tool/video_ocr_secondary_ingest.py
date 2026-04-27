@@ -221,6 +221,7 @@ class SecondaryVideoOcrIngest:
     def _extract_source(self, tmpdir: Path, source: dict[str, Any]) -> dict[str, Any] | None:
         youtube_url = str(source.get("youtubeUrl", "")).strip()
         timestamp_seconds = int(source.get("timestampSeconds", 0) or 0)
+        live_stream = bool(source.get("liveStream"))
         image_path_value = str(source.get("imagePath", "")).strip()
         frame_path = tmpdir / f"{source['id']}.png"
         if image_path_value:
@@ -242,7 +243,13 @@ class SecondaryVideoOcrIngest:
                 return None
             browser_error: Exception | None = None
             try:
-                self._capture_frame_with_browser(youtube_url, timestamp_seconds, frame_path)
+                self._capture_frame_with_browser(
+                    youtube_url,
+                    timestamp_seconds,
+                    frame_path,
+                    live_stream=live_stream,
+                    capture_selector=str(source.get("captureSelector", "")).strip() or None,
+                )
             except Exception as exc:
                 browser_error = exc
                 print(f"browser capture failed for {source.get('id')}: {exc}")
@@ -263,6 +270,7 @@ class SecondaryVideoOcrIngest:
         if isinstance(crop, dict):
             self._crop_image(frame_path, crop)
 
+        self._prepare_image_for_ocr(frame_path)
         text = self._ocr_image(frame_path)
         extracted_brokers: list[BrokerExtraction] = []
         for broker_cfg in source.get("brokers", []):
@@ -298,6 +306,9 @@ class SecondaryVideoOcrIngest:
             )
 
         if not extracted_brokers:
+            preview = re.sub(r"\s+", " ", text).strip()[:240]
+            if preview:
+                print(f"ocr preview for {source.get('id')}: {preview}")
             print(f"no brokers extracted for {source.get('id')}")
             return None
 
@@ -348,6 +359,9 @@ class SecondaryVideoOcrIngest:
         youtube_url: str,
         timestamp_seconds: int,
         frame_path: Path,
+        *,
+        live_stream: bool = False,
+        capture_selector: str | None = None,
     ) -> None:
         try:
             from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
@@ -383,7 +397,7 @@ class SecondaryVideoOcrIngest:
                 video = page.locator("video").first
                 video.wait_for(state="attached", timeout=45000)
                 effective_timestamp = timestamp_seconds
-                if effective_timestamp <= 0:
+                if not live_stream and effective_timestamp <= 0:
                     with suppress(Exception):
                         duration = page.evaluate(
                             """() => {
@@ -393,23 +407,29 @@ class SecondaryVideoOcrIngest:
                         )
                         if isinstance(duration, (int, float)) and duration > 5:
                             effective_timestamp = max(int(duration) - 3, 0)
-                with suppress(Exception):
-                    page.evaluate(
-                        """(seconds) => {
-                            const video = document.querySelector('video');
-                            if (!video) return;
-                            video.muted = true;
-                            video.pause();
-                            if (seconds > 0) {
-                              video.currentTime = seconds;
-                            }
-                        }""",
-                        effective_timestamp,
-                    )
+                if not live_stream:
+                    with suppress(Exception):
+                        page.evaluate(
+                            """(seconds) => {
+                                const video = document.querySelector('video');
+                                if (!video) return;
+                                video.muted = true;
+                                video.pause();
+                                if (seconds > 0) {
+                                  video.currentTime = seconds;
+                                }
+                            }""",
+                            effective_timestamp,
+                        )
                 page.wait_for_timeout(3500)
                 self._dismiss_youtube_overlays(page)
+                player = page.locator(capture_selector or "#movie_player").first
                 try:
-                    video.screenshot(path=str(frame_path))
+                    if live_stream or capture_selector:
+                        player.wait_for(state="visible", timeout=10000)
+                        player.screenshot(path=str(frame_path))
+                    else:
+                        video.screenshot(path=str(frame_path))
                 except PlaywrightTimeoutError:
                     page.screenshot(path=str(frame_path), full_page=False)
                 except Exception:
@@ -533,6 +553,17 @@ class SecondaryVideoOcrIngest:
         image = Image.open(frame_path)
         cropped = image.crop((x, y, x + width, y + height))
         cropped.save(frame_path)
+
+    def _prepare_image_for_ocr(self, frame_path: Path) -> None:
+        from PIL import Image, ImageEnhance, ImageFilter
+
+        image = Image.open(frame_path).convert("L")
+        width, height = image.size
+        if width > 0 and height > 0:
+            image = image.resize((width * 2, height * 2))
+        image = ImageEnhance.Contrast(image).enhance(1.8)
+        image = image.filter(ImageFilter.SHARPEN)
+        image.save(frame_path)
 
     def _ocr_image(self, frame_path: Path) -> str:
         try:

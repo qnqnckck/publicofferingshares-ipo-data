@@ -232,6 +232,9 @@ Rules:
   the workflow now falls back to browser capture instead of skipping the source.
 - when `timestampSeconds` is `0`, browser capture attempts to move to the end of
   the video and capture the latest result screen.
+- live boards may set `liveStream: true` and `captureSelector` (for example
+  `#movie_player`) so the workflow captures the active player container without
+  seeking to the end of the stream first.
 
 Recommended use:
 
