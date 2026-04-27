@@ -253,9 +253,10 @@ class SecondaryVideoOcrIngest:
                     self._extract_frame(youtube_url, timestamp_seconds, frame_path)
                 except Exception:
                     if browser_error is not None:
-                        raise RuntimeError(
-                            f"both browser capture and yt-dlp fallback failed for {source.get('id')}"
-                        ) from browser_error
+                        print(
+                            f"skip source after browser and yt-dlp failures: {source.get('id')}"
+                        )
+                        return None
                     raise
 
         crop = source.get("crop")
@@ -380,7 +381,7 @@ class SecondaryVideoOcrIngest:
                 self._dismiss_youtube_overlays(page)
                 page.wait_for_timeout(3500)
                 video = page.locator("video").first
-                video.wait_for(state="visible", timeout=45000)
+                video.wait_for(state="attached", timeout=45000)
                 effective_timestamp = timestamp_seconds
                 if effective_timestamp <= 0:
                     with suppress(Exception):
@@ -410,6 +411,8 @@ class SecondaryVideoOcrIngest:
                 try:
                     video.screenshot(path=str(frame_path))
                 except PlaywrightTimeoutError:
+                    page.screenshot(path=str(frame_path), full_page=False)
+                except Exception:
                     page.screenshot(path=str(frame_path), full_page=False)
             finally:
                 context.close()
