@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -112,6 +113,8 @@ class SecondaryVideoOcrIngest:
         self.broker_snapshot_dir = broker_snapshot_dir
         self.dry_run = dry_run
         self.debug_frame_dir = debug_frame_dir
+        cookies_path_value = os.environ.get("YOUTUBE_COOKIES_PATH", "").strip()
+        self.youtube_cookies_path = Path(cookies_path_value) if cookies_path_value else None
 
     def run(self) -> int:
         config = _read_json(self.config_path)
@@ -463,6 +466,9 @@ class SecondaryVideoOcrIngest:
                 ),
                 color_scheme="light",
             )
+            if self.youtube_cookies_path and self.youtube_cookies_path.exists():
+                with suppress(Exception):
+                    context.add_cookies(self._load_browser_cookies(self.youtube_cookies_path))
             page = context.new_page()
             try:
                 page.goto(embed_url if live_stream else target_url, wait_until="domcontentloaded", timeout=120000)
@@ -691,8 +697,18 @@ class SecondaryVideoOcrIngest:
     def _discover_candidate_youtube_urls(self, company: str) -> list[str]:
         query = f"{company} 공모주린이 LIVE"
         attempts = [
-            ["yt-dlp", f"ytsearch5:{query}", "--flat-playlist", "--dump-single-json", "--no-warnings"],
-            ["yt-dlp", f"ytsearch3:{query}", "--flat-playlist", "--dump-single-json", "--no-warnings"],
+            self._yt_dlp_command(
+                f"ytsearch5:{query}",
+                "--flat-playlist",
+                "--dump-single-json",
+                "--no-warnings",
+            ),
+            self._yt_dlp_command(
+                f"ytsearch3:{query}",
+                "--flat-playlist",
+                "--dump-single-json",
+                "--no-warnings",
+            ),
         ]
         for command in attempts:
             result = subprocess.run(
@@ -728,31 +744,28 @@ class SecondaryVideoOcrIngest:
 
     def _resolve_stream_url(self, youtube_url: str) -> str:
         attempts = [
-            [
-                "yt-dlp",
+            self._yt_dlp_command(
                 "-g",
                 "-f",
                 "best[ext=mp4]/best",
                 "--extractor-args",
                 "youtube:player_client=android",
                 youtube_url,
-            ],
-            [
-                "yt-dlp",
+            ),
+            self._yt_dlp_command(
                 "-g",
                 "-f",
                 "best[ext=mp4]/best",
                 "--extractor-args",
                 "youtube:player_client=web",
                 youtube_url,
-            ],
-            [
-                "yt-dlp",
+            ),
+            self._yt_dlp_command(
                 "-g",
                 "-f",
                 "best",
                 youtube_url,
-            ],
+            ),
         ]
         last_error = "unknown yt-dlp failure"
         for command in attempts:
@@ -775,6 +788,40 @@ class SecondaryVideoOcrIngest:
                 f"yt-dlp exited with code {result.returncode}"
             )
         raise RuntimeError(f"failed to resolve stream url for {youtube_url}: {last_error}")
+
+    def _yt_dlp_command(self, *args: str) -> list[str]:
+        command = ["yt-dlp"]
+        if self.youtube_cookies_path and self.youtube_cookies_path.exists():
+            command.extend(["--cookies", str(self.youtube_cookies_path)])
+        command.extend(args)
+        return command
+
+    def _load_browser_cookies(self, cookies_path: Path) -> list[dict[str, Any]]:
+        cookies: list[dict[str, Any]] = []
+        for line in cookies_path.read_text(encoding="utf-8", errors="ignore").splitlines():
+            stripped = line.strip()
+            if not stripped or stripped.startswith("#"):
+                continue
+            parts = stripped.split("\t")
+            if len(parts) != 7:
+                continue
+            domain, include_subdomains, path, secure, expires, name, value = parts
+            host_only = include_subdomains.upper() != "TRUE"
+            expires_value = float(expires) if expires.isdigit() else -1
+            cookie = {
+                "name": name,
+                "value": value,
+                "domain": domain.lstrip("."),
+                "path": path or "/",
+                "httpOnly": False,
+                "secure": secure.upper() == "TRUE",
+            }
+            if expires_value > 0:
+                cookie["expires"] = expires_value
+            if host_only:
+                cookie["domain"] = domain.lstrip(".")
+            cookies.append(cookie)
+        return cookies
 
     def _crop_image(self, frame_path: Path, crop: dict[str, Any]) -> None:
         x = _to_int(crop.get("x")) or 0
