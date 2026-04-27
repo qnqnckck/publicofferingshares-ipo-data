@@ -398,6 +398,7 @@ class SecondaryVideoOcrIngest:
             raise RuntimeError("playwright is required for browser capture") from exc
 
         target_url = self._youtube_url_with_timestamp(youtube_url, timestamp_seconds)
+        embed_url = self._youtube_embed_url(youtube_url, timestamp_seconds, live_stream=live_stream)
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch(
                 headless=True,
@@ -419,11 +420,25 @@ class SecondaryVideoOcrIngest:
             )
             page = context.new_page()
             try:
-                page.goto(target_url, wait_until="domcontentloaded", timeout=120000)
+                page.goto(embed_url if live_stream else target_url, wait_until="domcontentloaded", timeout=120000)
                 self._dismiss_youtube_overlays(page)
                 page.wait_for_timeout(3500)
                 video = page.locator("video").first
                 video.wait_for(state="attached", timeout=45000)
+                with suppress(Exception):
+                    page.evaluate(
+                        """() => {
+                            const video = document.querySelector('video');
+                            if (!video) return;
+                            video.muted = true;
+                            video.volume = 0;
+                            video.play?.();
+                        }"""
+                    )
+                with suppress(Exception):
+                    play_button = page.locator(".ytp-large-play-button, .ytp-play-button").first
+                    if play_button.is_visible(timeout=1000):
+                        play_button.click(timeout=2000)
                 effective_timestamp = timestamp_seconds
                 if not live_stream and effective_timestamp <= 0:
                     with suppress(Exception):
@@ -453,7 +468,10 @@ class SecondaryVideoOcrIngest:
                 self._dismiss_youtube_overlays(page)
                 player = page.locator(capture_selector or "#movie_player").first
                 try:
-                    if live_stream or capture_selector:
+                    if live_stream:
+                        video.wait_for(state="visible", timeout=10000)
+                        video.screenshot(path=str(frame_path))
+                    elif capture_selector:
                         player.wait_for(state="visible", timeout=10000)
                         player.screenshot(path=str(frame_path))
                     else:
@@ -518,6 +536,36 @@ class SecondaryVideoOcrIngest:
         return urlunparse(
             parsed._replace(query=urlencode(query, doseq=True)),
         )
+
+    def _youtube_embed_url(
+        self,
+        youtube_url: str,
+        timestamp_seconds: int,
+        *,
+        live_stream: bool = False,
+    ) -> str:
+        parsed = urlparse(youtube_url)
+        video_id = ""
+        if parsed.netloc.endswith("youtu.be"):
+            video_id = parsed.path.strip("/")
+        elif "youtube.com" in parsed.netloc:
+            query = dict(parse_qsl(parsed.query, keep_blank_values=True))
+            video_id = str(query.get("v", "")).strip()
+            if not video_id and "/embed/" in parsed.path:
+                video_id = parsed.path.split("/embed/", 1)[1].split("/", 1)[0]
+        if not video_id:
+            return self._youtube_url_with_timestamp(youtube_url, timestamp_seconds)
+
+        params = {
+            "autoplay": "1",
+            "mute": "1",
+            "playsinline": "1",
+            "controls": "0",
+            "rel": "0",
+        }
+        if not live_stream and timestamp_seconds > 0:
+            params["start"] = str(timestamp_seconds)
+        return f"https://www.youtube.com/embed/{video_id}?{urlencode(params)}"
 
     def _resolve_stream_url(self, youtube_url: str) -> str:
         attempts = [
