@@ -57,7 +57,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T07:35:26.173208",
+      "capturedAt": "2026-04-27T17:15:31.209048",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://honda31.tistory.com/288",
       "brokers": [
@@ -99,25 +99,33 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.1154,
-      "bearCaseListingGainRate": -0.3354,
-      "baseCaseListingGainRate": -0.1154,
-      "bullCaseListingGainRate": 0.2346,
+      "expectedListingGainRate": 0.2513,
+      "bearCaseListingGainRate": 0.0713,
+      "baseCaseListingGainRate": 0.2513,
+      "bullCaseListingGainRate": 0.4713,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.094,
         "oneMillionKrw": 0.896,
         "fiveMillionKrw": 4.48
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -114,
-        "oneMillionKrw": -1086,
-        "fiveMillionKrw": -5429
+        "minimumSubscription": 248,
+        "oneMillionKrw": 2364,
+        "fiveMillionKrw": 11819
       },
       "assumptions": {
         "offerPrice": 10500,
         "competitionRate": 106.3,
         "feeKrw": null,
-        "method": "ipo_score_v5_general_recent_weighted",
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.24,
+        "generalPriorBase": 0.18276253714285715,
+        "institutionBoost": 0.0512675,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false

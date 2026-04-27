@@ -57,7 +57,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T07:35:26.173208",
+      "capturedAt": "2026-04-27T17:15:31.209048",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.etoday.co.kr/news/view/2301331",
       "brokers": [
@@ -99,25 +99,33 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.0883,
-      "bearCaseListingGainRate": -0.1317,
-      "baseCaseListingGainRate": 0.0883,
-      "bullCaseListingGainRate": 0.4383,
+      "expectedListingGainRate": 0.5292,
+      "bearCaseListingGainRate": 0.3492,
+      "baseCaseListingGainRate": 0.5292,
+      "bullCaseListingGainRate": 0.7492,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.02,
         "oneMillionKrw": 0.182,
         "fiveMillionKrw": 0.91
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 19,
-        "oneMillionKrw": 177,
-        "fiveMillionKrw": 883
+        "minimumSubscription": 117,
+        "oneMillionKrw": 1059,
+        "fiveMillionKrw": 5296
       },
       "assumptions": {
         "offerPrice": 11000,
         "competitionRate": 499.64,
         "feeKrw": null,
-        "method": "ipo_score_v5_general_recent_weighted",
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.52,
+        "generalPriorBase": 0.20628435428571432,
+        "institutionBoost": 0.009246250000000003,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.04,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false

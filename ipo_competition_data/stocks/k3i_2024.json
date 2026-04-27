@@ -63,7 +63,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T07:35:26.173208",
+      "capturedAt": "2026-04-27T17:15:31.209048",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.hankyung.com/article/2024082027786",
       "brokers": [
@@ -105,25 +105,33 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.2125,
-      "bearCaseListingGainRate": -0.4325,
-      "baseCaseListingGainRate": -0.2125,
-      "bullCaseListingGainRate": 0.1375,
+      "expectedListingGainRate": 0.0098,
+      "bearCaseListingGainRate": -0.15,
+      "baseCaseListingGainRate": 0.0098,
+      "bullCaseListingGainRate": 0.2298,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.292,
         "oneMillionKrw": 1.882,
         "fiveMillionKrw": 9.41
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -961,
-        "oneMillionKrw": -6199,
-        "fiveMillionKrw": -30995
+        "minimumSubscription": 44,
+        "oneMillionKrw": 285,
+        "fiveMillionKrw": 1423
       },
       "assumptions": {
         "offerPrice": 15500,
         "competitionRate": 34.28,
         "feeKrw": null,
-        "method": "ipo_score_v5_general_recent_weighted",
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.03,
+        "generalPriorBase": 0.06067999999999998,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false

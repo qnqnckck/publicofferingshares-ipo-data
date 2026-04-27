@@ -57,7 +57,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T07:35:26.173208",
+      "capturedAt": "2026-04-27T17:15:31.209048",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.fnnews.com/ampNews/202309151702063203",
       "brokers": [
@@ -99,25 +99,33 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.1745,
-      "bearCaseListingGainRate": -0.0455,
-      "baseCaseListingGainRate": 0.1745,
-      "bullCaseListingGainRate": 0.5245,
+      "expectedListingGainRate": 0.5416,
+      "bearCaseListingGainRate": 0.3616,
+      "baseCaseListingGainRate": 0.5416,
+      "bullCaseListingGainRate": 0.7616,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.016,
         "oneMillionKrw": 0.067,
         "fiveMillionKrw": 0.337
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 68,
-        "oneMillionKrw": 282,
-        "fiveMillionKrw": 1409
+        "minimumSubscription": 210,
+        "oneMillionKrw": 875,
+        "fiveMillionKrw": 4375
       },
       "assumptions": {
         "offerPrice": 24000,
         "competitionRate": 618.91,
         "feeKrw": null,
-        "method": "ipo_score_v5_general_recent_weighted",
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.52,
+        "generalPriorBase": 0.25266589714285714,
+        "institutionBoost": 0.021552499999999995,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.04,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false

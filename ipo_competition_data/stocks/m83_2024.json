@@ -58,7 +58,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T07:35:26.173208",
+      "capturedAt": "2026-04-27T17:15:31.209048",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.fntimes.com/html/view.php?ud=20240813172608496322f8e8c22c_18",
       "brokers": [
@@ -114,25 +114,33 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.2115,
-      "bearCaseListingGainRate": -0.0085,
-      "baseCaseListingGainRate": 0.2115,
-      "bullCaseListingGainRate": 0.5615,
+      "expectedListingGainRate": 0.5456,
+      "bearCaseListingGainRate": 0.3656,
+      "baseCaseListingGainRate": 0.5456,
+      "bullCaseListingGainRate": 0.7656,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.016,
         "oneMillionKrw": 0.098,
         "fiveMillionKrw": 0.49
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 53,
-        "oneMillionKrw": 331,
-        "fiveMillionKrw": 1657
+        "minimumSubscription": 137,
+        "oneMillionKrw": 855,
+        "fiveMillionKrw": 4275
       },
       "assumptions": {
         "offerPrice": 16000,
         "competitionRate": 638.05,
         "feeKrw": null,
-        "method": "ipo_score_v5_general_recent_weighted",
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.52,
+        "generalPriorBase": 0.29519999999999996,
+        "institutionBoost": 0.06559000000000001,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false

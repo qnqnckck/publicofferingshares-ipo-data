@@ -65,7 +65,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T07:35:26.173208",
+      "capturedAt": "2026-04-27T17:15:31.209048",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.g-enews.com/article/Securities/2024/12/202412161306336362edf69f862c_1",
       "brokers": [
@@ -135,25 +135,33 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.25,
-      "bearCaseListingGainRate": -0.47,
-      "baseCaseListingGainRate": -0.25,
-      "bullCaseListingGainRate": 0.1,
+      "expectedListingGainRate": -0.01,
+      "bearCaseListingGainRate": -0.15,
+      "baseCaseListingGainRate": -0.01,
+      "bullCaseListingGainRate": 0.21,
       "expectedAllocatedShares": {
         "minimumSubscription": 4.167,
         "oneMillionKrw": 6.41,
         "fiveMillionKrw": 32.051
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -67708,
-        "oneMillionKrw": -104167,
-        "fiveMillionKrw": -520833
+        "minimumSubscription": -2708,
+        "oneMillionKrw": -4167,
+        "fiveMillionKrw": -20833
       },
       "assumptions": {
         "offerPrice": 65000,
         "competitionRate": 2.4,
         "feeKrw": null,
-        "method": "ipo_score_v5_general_recent_weighted",
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.03,
+        "generalPriorBase": -0.06232000000000002,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false

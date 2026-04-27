@@ -57,7 +57,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T07:35:26.173208",
+      "capturedAt": "2026-04-27T17:15:31.209048",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://finfreedom.tistory.com",
       "brokers": [
@@ -99,25 +99,33 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.3537,
-      "bearCaseListingGainRate": 0.1337,
-      "baseCaseListingGainRate": 0.3537,
-      "bullCaseListingGainRate": 0.7037,
+      "expectedListingGainRate": 0.9498,
+      "bearCaseListingGainRate": 0.7698,
+      "baseCaseListingGainRate": 0.9498,
+      "bullCaseListingGainRate": 1.1698,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.006,
         "oneMillionKrw": 0.036,
         "fiveMillionKrw": 0.18
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 37,
-        "oneMillionKrw": 217,
-        "fiveMillionKrw": 1083
+        "minimumSubscription": 99,
+        "oneMillionKrw": 582,
+        "fiveMillionKrw": 2910
       },
       "assumptions": {
         "offerPrice": 17000,
         "competitionRate": 1632.25,
         "feeKrw": null,
-        "method": "ipo_score_v5_general_recent_weighted",
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.2682833828571428,
+        "institutionBoost": 0.039814999999999996,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false

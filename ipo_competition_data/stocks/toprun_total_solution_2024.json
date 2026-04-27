@@ -63,7 +63,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T07:35:26.173208",
+      "capturedAt": "2026-04-27T17:15:31.209048",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.mk.co.kr/news/stock/11156542",
       "brokers": [
@@ -105,25 +105,33 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.3081,
-      "bearCaseListingGainRate": 0.0881,
-      "baseCaseListingGainRate": 0.3081,
-      "bullCaseListingGainRate": 0.6581,
+      "expectedListingGainRate": 0.7226,
+      "bearCaseListingGainRate": 0.5426,
+      "baseCaseListingGainRate": 0.7226,
+      "bullCaseListingGainRate": 0.9426,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.01,
         "oneMillionKrw": 0.056,
         "fiveMillionKrw": 0.282
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 56,
-        "oneMillionKrw": 313,
-        "fiveMillionKrw": 1566
+        "minimumSubscription": 132,
+        "oneMillionKrw": 734,
+        "fiveMillionKrw": 3672
       },
       "assumptions": {
         "offerPrice": 18000,
         "competitionRate": 984.0,
         "feeKrw": null,
-        "method": "ipo_score_v5_general_recent_weighted",
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.23866029714285714,
+        "institutionBoost": 0.04264,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false

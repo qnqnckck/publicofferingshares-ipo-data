@@ -65,7 +65,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T07:35:26.173208",
+      "capturedAt": "2026-04-27T17:15:31.209048",
       "source": "estimated_broker_split",
       "sourceUrl": "https://news.nate.com/view/20260223n35432",
       "brokers": [
@@ -135,25 +135,33 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.0454,
-      "bearCaseListingGainRate": -0.2654,
-      "baseCaseListingGainRate": -0.0454,
-      "bullCaseListingGainRate": 0.3046,
+      "expectedListingGainRate": 0.2405,
+      "bearCaseListingGainRate": 0.0605,
+      "baseCaseListingGainRate": 0.2405,
+      "bullCaseListingGainRate": 0.4605,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.074,
         "oneMillionKrw": 0.895,
         "fiveMillionKrw": 4.476
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -28,
-        "oneMillionKrw": -337,
-        "fiveMillionKrw": -1685
+        "minimumSubscription": 148,
+        "oneMillionKrw": 1787,
+        "fiveMillionKrw": 8934
       },
       "assumptions": {
         "offerPrice": 8300,
         "competitionRate": 134.6,
         "feeKrw": null,
-        "method": "ipo_score_v5_general_recent_weighted",
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.24,
+        "generalPriorBase": 0.20429714285714284,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0005000000000000004,
+        "participantBoost": 0.04,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false

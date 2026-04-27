@@ -65,7 +65,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T07:35:26.173208",
+      "capturedAt": "2026-04-27T17:15:31.209048",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.asiae.co.kr/article/2024070316511377246",
       "brokers": [
@@ -135,25 +135,33 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.2392,
-      "bearCaseListingGainRate": -0.4592,
-      "baseCaseListingGainRate": -0.2392,
-      "bullCaseListingGainRate": 0.1108,
+      "expectedListingGainRate": 0.34,
+      "bearCaseListingGainRate": 0.16,
+      "baseCaseListingGainRate": 0.34,
+      "bullCaseListingGainRate": 0.56,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.029,
         "oneMillionKrw": 0.049,
         "fiveMillionKrw": 0.244
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -421,
-        "oneMillionKrw": -701,
-        "fiveMillionKrw": -3505
+        "minimumSubscription": 598,
+        "oneMillionKrw": 996,
+        "fiveMillionKrw": 4982
       },
       "assumptions": {
         "offerPrice": 60000,
         "competitionRate": 341.24,
         "feeKrw": null,
-        "method": "ipo_score_v5_general_recent_weighted",
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.38,
+        "generalPriorBase": -0.06232000000000002,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false

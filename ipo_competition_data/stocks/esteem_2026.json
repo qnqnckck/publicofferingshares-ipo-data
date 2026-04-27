@@ -63,7 +63,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T07:35:26.173208",
+      "capturedAt": "2026-04-27T17:15:31.209048",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.ajunews.com/amp/20260224173430042",
       "brokers": [
@@ -105,25 +105,33 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.6877,
-      "bearCaseListingGainRate": 0.4677,
-      "baseCaseListingGainRate": 0.6877,
-      "bullCaseListingGainRate": 1.0378,
+      "expectedListingGainRate": 1.2074,
+      "bearCaseListingGainRate": 1.0,
+      "baseCaseListingGainRate": 1.2074,
+      "bullCaseListingGainRate": 1.4274,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.005,
         "oneMillionKrw": 0.06,
         "fiveMillionKrw": 0.3
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 30,
-        "oneMillionKrw": 351,
-        "fiveMillionKrw": 1754
+        "minimumSubscription": 52,
+        "oneMillionKrw": 616,
+        "fiveMillionKrw": 3079
       },
       "assumptions": {
         "offerPrice": 8500,
         "competitionRate": 1960.87,
         "feeKrw": null,
-        "method": "ipo_score_v5_general_recent_weighted",
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.6936965714285713,
+        "institutionBoost": 0.09,
+        "lockupBoost": 0.07297500000000001,
+        "participantBoost": 0.05,
+        "topBandBoost": 0.0,
+        "scoreBoost": 0.044444444444444446,
+        "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false

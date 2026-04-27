@@ -63,7 +63,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T07:35:26.173208",
+      "capturedAt": "2026-04-27T17:15:31.209048",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.yna.co.kr/view/AKR20241210148100008",
       "brokers": [
@@ -105,25 +105,33 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.2358,
-      "bearCaseListingGainRate": 0.0158,
-      "baseCaseListingGainRate": 0.2358,
-      "bullCaseListingGainRate": 0.5858,
+      "expectedListingGainRate": 0.6969,
+      "bearCaseListingGainRate": 0.5169,
+      "baseCaseListingGainRate": 0.6969,
+      "bullCaseListingGainRate": 0.9169,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.008,
         "oneMillionKrw": 0.104,
         "fiveMillionKrw": 0.522
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 13,
-        "oneMillionKrw": 180,
-        "fiveMillionKrw": 898
+        "minimumSubscription": 39,
+        "oneMillionKrw": 531,
+        "fiveMillionKrw": 2654
       },
       "assumptions": {
         "offerPrice": 7300,
         "competitionRate": 1313.0,
         "feeKrw": null,
-        "method": "ipo_score_v5_general_recent_weighted",
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.14408571428571426,
+        "institutionBoost": 0.016875,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false

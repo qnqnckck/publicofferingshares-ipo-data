@@ -208,19 +208,19 @@ class IpoCompetitionBatch {
         generatedAt.month,
         generatedAt.day,
       );
-      final selected =
-          enrichedStocks.where((stock) {
-            final end = parseDate(stock.subscriptionEnd);
-            return end == null || !end.isBefore(cutoff);
-          }).toList()..sort((a, b) {
-            final byDate = (b.subscriptionStart ?? '').compareTo(
-              a.subscriptionStart ?? '',
-            );
-            if (byDate != 0) {
-              return byDate;
-            }
-            return a.company.compareTo(b.company);
-          });
+      final selected = enrichedStocks.where((stock) {
+        final end = parseDate(stock.subscriptionEnd);
+        return end == null || !end.isBefore(cutoff);
+      }).toList()
+        ..sort((a, b) {
+          final byDate = (b.subscriptionStart ?? '').compareTo(
+            a.subscriptionStart ?? '',
+          );
+          if (byDate != 0) {
+            return byDate;
+          }
+          return a.company.compareTo(b.company);
+        });
 
       _analysisCalibration = buildAnalysisCalibration(selected);
 
@@ -327,8 +327,8 @@ class IpoCompetitionBatch {
       if (decoded is Map<String, Object?> && decoded['stocks'] is List) {
         stocks.addAll(
           (decoded['stocks'] as List).whereType<Map<String, Object?>>().map(
-            IpoCompetitionStock.fromJson,
-          ),
+                IpoCompetitionStock.fromJson,
+              ),
         );
       } else if (decoded is Map<String, Object?>) {
         stocks.add(IpoCompetitionStock.fromJson(decoded));
@@ -351,8 +351,8 @@ class IpoCompetitionBatch {
       if (decoded is Map<String, Object?> && decoded['outcomes'] is List) {
         rows.addAll(
           (decoded['outcomes'] as List).whereType<Map<String, Object?>>().map(
-            IpoOutcomeRow.fromJson,
-          ),
+                IpoOutcomeRow.fromJson,
+              ),
         );
       } else if (decoded is Map<String, Object?>) {
         rows.add(IpoOutcomeRow.fromJson(decoded));
@@ -375,8 +375,8 @@ class IpoCompetitionBatch {
       if (decoded is Map<String, Object?> && decoded['snapshots'] is List) {
         rows.addAll(
           (decoded['snapshots'] as List).whereType<Map<String, Object?>>().map(
-            IpoBrokerSnapshotRow.fromJson,
-          ),
+                IpoBrokerSnapshotRow.fromJson,
+              ),
         );
       } else if (decoded is Map<String, Object?>) {
         rows.add(IpoBrokerSnapshotRow.fromJson(decoded));
@@ -530,8 +530,7 @@ class IpoCompetitionBatch {
     final today = DateTime(now.year, now.month, now.day);
 
     bool isCompleted(IpoCompetitionStock stock) {
-      final end =
-          parseDate(stock.subscriptionEnd) ??
+      final end = parseDate(stock.subscriptionEnd) ??
           parseDate(stock.subscriptionStart);
       return end != null && !end.isAfter(today);
     }
@@ -573,19 +572,19 @@ class IpoCompetitionBatch {
   Future<List<IpoCompetitionStock>> _discoverArticleLeadManagerStocks(
     List<IpoCompetitionStock> stocks,
   ) async {
-    final candidates =
-        stocks.where((stock) {
-          if (stock.leadManagers.isNotEmpty) {
-            return false;
-          }
-          final sourceUrl = stock.latestSnapshot?.sourceUrl;
-          return sourceUrl != null &&
-              sourceUrl.trim().startsWith(RegExp(r'https?://'));
-        }).toList()..sort(
-          (a, b) => (b.subscriptionEnd ?? b.subscriptionStart ?? '').compareTo(
-            a.subscriptionEnd ?? a.subscriptionStart ?? '',
-          ),
-        );
+    final candidates = stocks.where((stock) {
+      if (stock.leadManagers.isNotEmpty) {
+        return false;
+      }
+      final sourceUrl = stock.latestSnapshot?.sourceUrl;
+      return sourceUrl != null &&
+          sourceUrl.trim().startsWith(RegExp(r'https?://'));
+    }).toList()
+      ..sort(
+        (a, b) => (b.subscriptionEnd ?? b.subscriptionStart ?? '').compareTo(
+          a.subscriptionEnd ?? a.subscriptionStart ?? '',
+        ),
+      );
 
     final supplements = <IpoCompetitionStock>[];
     for (final stock in candidates.take(24)) {
@@ -805,9 +804,8 @@ class IpoCompetitionBatch {
             IpoBrokerCompetition(
               name: '신한투자증권',
               offeredShares: offered,
-              subscribedShares: rate > 0 && offered > 0
-                  ? (offered * rate).round()
-                  : 0,
+              subscribedShares:
+                  rate > 0 && offered > 0 ? (offered * rate).round() : 0,
               offerPrice: stock.fundamentals.offerPrice,
               depositRate: 0.5,
               feeKrw: null,
@@ -815,9 +813,8 @@ class IpoCompetitionBatch {
               equalCompetitionRate: null,
               proportionalCompetitionRate: rate > 0 ? rate : null,
               equalAllocationShares: offered > 0 ? (offered / 2).round() : null,
-              proportionalAllocationShares: offered > 0
-                  ? (offered / 2).round()
-                  : null,
+              proportionalAllocationShares:
+                  offered > 0 ? (offered / 2).round() : null,
               applicationCount: applicationCount,
             ),
           ],
@@ -847,10 +844,8 @@ class IpoCompetitionBatch {
       if (!normalizeLookup(joined).contains(stockKey)) {
         continue;
       }
-      final rates = row
-          .map(parseCompetitionRate)
-          .where((rate) => rate > 0)
-          .toList();
+      final rates =
+          row.map(parseCompetitionRate).where((rate) => rate > 0).toList();
       if (rates.isEmpty) {
         continue;
       }
@@ -860,9 +855,8 @@ class IpoCompetitionBatch {
           .whereType<int>()
           .where((value) => value > 100)
           .toList();
-      final applicationCount = countCandidates.isEmpty
-          ? null
-          : countCandidates.last;
+      final applicationCount =
+          countCandidates.isEmpty ? null : countCandidates.last;
       final offered = stock.fundamentals.publicAllocationShares ?? 0;
       return IpoBrokerSnapshotRow(
         id: stock.id,
@@ -882,9 +876,8 @@ class IpoCompetitionBatch {
             equalCompetitionRate: null,
             proportionalCompetitionRate: rate,
             equalAllocationShares: offered > 0 ? (offered / 2).round() : null,
-            proportionalAllocationShares: offered > 0
-                ? (offered / 2).round()
-                : null,
+            proportionalAllocationShares:
+                offered > 0 ? (offered / 2).round() : null,
             applicationCount: applicationCount,
           ),
         ],
@@ -922,8 +915,8 @@ class IpoCompetitionBatch {
     final normalizedPath = detailPath.contains('view_04.asp')
         ? detailPath
         : detailPath.contains('?')
-        ? '${detailPath.replaceFirst('view_02.asp', 'view_04.asp')}&schk=2'
-        : '${detailPath.replaceFirst('view_02.asp', 'view_04.asp')}?schk=2';
+            ? '${detailPath.replaceFirst('view_02.asp', 'view_04.asp')}&schk=2'
+            : '${detailPath.replaceFirst('view_02.asp', 'view_04.asp')}?schk=2';
     final detailUrl = Uri.parse(
       'http://www.ipostock.co.kr',
     ).resolve(normalizedPath.replaceAll('&amp;', '&')).toString();
@@ -1225,8 +1218,7 @@ Future<void> writeLightweightFeeds({
   }
 
   bool isRecent(IpoCompetitionStock stock) {
-    final end =
-        parseDate(stock.subscriptionEnd) ??
+    final end = parseDate(stock.subscriptionEnd) ??
         parseDate(stock.outcome?.listingDate) ??
         parseDate(stock.subscriptionStart);
     return end != null && !end.isAfter(today);
@@ -1263,13 +1255,11 @@ Future<void> writeLightweightFeeds({
     );
   final recent = normalized.where(isRecent).toList()
     ..sort((a, b) {
-      final aDate =
-          a.subscriptionEnd ??
+      final aDate = a.subscriptionEnd ??
           a.outcome?.listingDate ??
           a.subscriptionStart ??
           '';
-      final bDate =
-          b.subscriptionEnd ??
+      final bDate = b.subscriptionEnd ??
           b.outcome?.listingDate ??
           b.subscriptionStart ??
           '';
@@ -1284,8 +1274,7 @@ Future<void> writeLightweightFeeds({
   await yearlyDir.create(recursive: true);
   final byYear = <int, List<IpoCompetitionStock>>{};
   for (final stock in normalized) {
-    final date =
-        parseDate(stock.subscriptionStart) ??
+    final date = parseDate(stock.subscriptionStart) ??
         parseDate(stock.subscriptionEnd) ??
         parseDate(stock.outcome?.listingDate);
     if (date == null) {
@@ -1314,15 +1303,12 @@ Map<String, Object?> buildCoverageReport({
   required List<IpoCompetitionStock> selectedStocks,
 }) {
   final today = DateTime(generatedAt.year, generatedAt.month, generatedAt.day);
-  final normalizedDiscovered = discoveredStocks
-      .map((stock) => stock.normalized())
-      .toList();
-  final normalizedMerged = mergedStocks
-      .map((stock) => stock.normalized())
-      .toList();
-  final normalizedSelected = selectedStocks
-      .map((stock) => stock.normalized())
-      .toList();
+  final normalizedDiscovered =
+      discoveredStocks.map((stock) => stock.normalized()).toList();
+  final normalizedMerged =
+      mergedStocks.map((stock) => stock.normalized()).toList();
+  final normalizedSelected =
+      selectedStocks.map((stock) => stock.normalized()).toList();
   final selectedKeys = normalizedSelected
       .map((stock) => stock.identifiers.subscriptionKey)
       .where((key) => key.isNotEmpty)
@@ -1454,21 +1440,20 @@ Map<String, Object?> buildCoverageReport({
   final duplicateCandidates = byKey.entries
       .where((entry) => entry.value.map((stock) => stock.id).toSet().length > 1)
       .map((entry) {
-        return {
-          'subscriptionKey': entry.key,
-          'stocks': entry.value
-              .map(
-                (stock) => {
-                  'id': stock.id,
-                  'company': stock.company,
-                  'subscriptionStart': stock.subscriptionStart,
-                  'subscriptionEnd': stock.subscriptionEnd,
-                },
-              )
-              .toList(),
-        };
-      })
-      .toList();
+    return {
+      'subscriptionKey': entry.key,
+      'stocks': entry.value
+          .map(
+            (stock) => {
+              'id': stock.id,
+              'company': stock.company,
+              'subscriptionStart': stock.subscriptionStart,
+              'subscriptionEnd': stock.subscriptionEnd,
+            },
+          )
+          .toList(),
+    };
+  }).toList();
 
   return {
     'schemaVersion': schemaVersion,
@@ -1537,31 +1522,30 @@ List<IpoCompetitionStock> buildKnownLeadManagerOverrideStocks(
       .where((stock) => stock.leadManagers.isEmpty)
       .where((stock) => overrides.containsKey(safeId(stock.id)))
       .map((stock) {
-        return IpoCompetitionStock(
-          id: stock.id,
-          company: stock.company,
-          market: stock.market,
-          subscriptionStart: stock.subscriptionStart,
-          subscriptionEnd: stock.subscriptionEnd,
-          leadManagers: overrides[safeId(stock.id)]!,
-          sourceIdentifiers: stock.identifiers,
-          fundamentals: const IpoFundamentals(
-            offerPrice: null,
-            priceBandMin: null,
-            priceBandMax: null,
-            topBandConfirmation: null,
-            institutionCompetitionRate: null,
-            institutionParticipants: null,
-            lockupCommitmentRate: null,
-            floatRate: null,
-            marketCapKrw: null,
-            publicAllocationShares: null,
-          ),
-          outcome: null,
-          snapshots: const [],
-        );
-      })
-      .toList();
+    return IpoCompetitionStock(
+      id: stock.id,
+      company: stock.company,
+      market: stock.market,
+      subscriptionStart: stock.subscriptionStart,
+      subscriptionEnd: stock.subscriptionEnd,
+      leadManagers: overrides[safeId(stock.id)]!,
+      sourceIdentifiers: stock.identifiers,
+      fundamentals: const IpoFundamentals(
+        offerPrice: null,
+        priceBandMin: null,
+        priceBandMax: null,
+        topBandConfirmation: null,
+        institutionCompetitionRate: null,
+        institutionParticipants: null,
+        lockupCommitmentRate: null,
+        floatRate: null,
+        marketCapKrw: null,
+        publicAllocationShares: null,
+      ),
+      outcome: null,
+      snapshots: const [],
+    );
+  }).toList();
 }
 
 List<IpoCompetitionStock> mergeOutcomes(
@@ -1707,13 +1691,12 @@ List<IpoBrokerSnapshotRow> buildEstimatedBrokerSnapshotRows(
       continue;
     }
 
-    final leadManagers =
-        stock.leadManagers
-            .map(canonicalBrokerName)
-            .where((broker) => broker.trim().isNotEmpty)
-            .toSet()
-            .toList()
-          ..sort();
+    final leadManagers = stock.leadManagers
+        .map(canonicalBrokerName)
+        .where((broker) => broker.trim().isNotEmpty)
+        .toSet()
+        .toList()
+      ..sort();
     if (leadManagers.isEmpty) {
       continue;
     }
@@ -1793,13 +1776,12 @@ List<IpoBrokerSnapshotRow> buildEstimatedBrokerRateOnlyRows(
       continue;
     }
 
-    final leadManagers =
-        stock.leadManagers
-            .map(canonicalBrokerName)
-            .where((broker) => broker.trim().isNotEmpty)
-            .toSet()
-            .toList()
-          ..sort();
+    final leadManagers = stock.leadManagers
+        .map(canonicalBrokerName)
+        .where((broker) => broker.trim().isNotEmpty)
+        .toSet()
+        .toList()
+      ..sort();
     if (leadManagers.isEmpty) {
       continue;
     }
@@ -1858,8 +1840,7 @@ List<IpoCompetitionStock> mergeIdentifierRows(
   };
 
   return stocks.map((stock) {
-    final row =
-        byId[safeId(stock.id)] ??
+    final row = byId[safeId(stock.id)] ??
         bySubscriptionKey[stock.identifiers.subscriptionKey] ??
         byCompany[normalizeLookup(stock.company)];
     if (row == null) {
@@ -1886,10 +1867,10 @@ List<IpoIdentifierRow> mergeIdentifierRowsByKey(List<IpoIdentifierRow> rows) {
     final key = row.id != null && row.id!.trim().isNotEmpty
         ? 'id:${safeId(row.id!)}'
         : row.identifiers.subscriptionKey.trim().isNotEmpty
-        ? 'sub:${row.identifiers.subscriptionKey}'
-        : row.company != null
-        ? 'company:${normalizeLookup(row.company!)}'
-        : '';
+            ? 'sub:${row.identifiers.subscriptionKey}'
+            : row.company != null
+                ? 'company:${normalizeLookup(row.company!)}'
+                : '';
     if (key.isEmpty) {
       continue;
     }
@@ -1920,9 +1901,8 @@ class IpoIdentifierRow {
 
   factory IpoIdentifierRow.fromJson(Map<String, Object?> json) {
     final nested = json['identifiers'];
-    final nestedMap = nested is Map<String, Object?>
-        ? nested
-        : const <String, Object?>{};
+    final nestedMap =
+        nested is Map<String, Object?> ? nested : const <String, Object?>{};
     return IpoIdentifierRow(
       id: readString(json, 'id'),
       company: readString(json, 'company'),
@@ -1930,8 +1910,7 @@ class IpoIdentifierRow {
         ...nestedMap,
         'subscriptionKey':
             readString(json, 'subscriptionKey') ?? nestedMap['subscriptionKey'],
-        'normalizedCompany':
-            readString(json, 'normalizedCompany') ??
+        'normalizedCompany': readString(json, 'normalizedCompany') ??
             nestedMap['normalizedCompany'],
         'corpCode': readString(json, 'corpCode') ?? nestedMap['corpCode'],
         'stockCode': readString(json, 'stockCode') ?? nestedMap['stockCode'],
@@ -1971,8 +1950,7 @@ IpoBrokerSnapshotRow? parseIpostockLiveSnapshot({
     return null;
   }
 
-  final offerPrice =
-      parseCountValue(
+  final offerPrice = parseCountValue(
         RegExp(
               r'\(확정\)\s*공모가격[^\d]{0,24}(\d+(?:,\d{3})*)\s*원',
             ).firstMatch(text)?.group(1) ??
@@ -2332,8 +2310,7 @@ IpoCompetitionStock? parseIpoKoreaSupplement({
   ]);
   final marketCapKrw = parseLabeledWon(text, ['예상 시가총액', '시가총액']);
 
-  final hasFundamentalSupplement =
-      offerPrice != null ||
+  final hasFundamentalSupplement = offerPrice != null ||
       institutionCompetitionRate != null ||
       institutionParticipants != null ||
       lockupCommitmentRate != null ||
@@ -2696,8 +2673,7 @@ class IpoCompetitionSnapshot {
       capturedAt: readRequiredString(json, 'capturedAt'),
       source: readString(json, 'source') ?? 'manual',
       sourceUrl: readString(json, 'sourceUrl'),
-      aggregateCompetitionRate:
-          readDouble(json['aggregateCompetitionRate']) ??
+      aggregateCompetitionRate: readDouble(json['aggregateCompetitionRate']) ??
           (aggregate is Map<String, Object?>
               ? readDouble(aggregate['competitionRate'])
               : null),
@@ -2730,8 +2706,7 @@ class IpoCompetitionSnapshot {
     return IpoBrokerCompetitionAggregate(
       offeredShares: offeredShares,
       subscribedShares: subscribedShares,
-      competitionRate:
-          aggregateCompetitionRate ??
+      competitionRate: aggregateCompetitionRate ??
           (offeredShares <= 0 ? null : subscribedShares / offeredShares),
     );
   }
@@ -2786,19 +2761,17 @@ class IpoBrokerCompetition {
       offerPrice: readOptionalInt(json['offerPrice']),
       depositRate: readRatio(json['depositRate']),
       feeKrw: readOptionalInt(json['feeKrw']),
-      competitionRate:
-          readDouble(json['competitionRate']) ??
+      competitionRate: readDouble(json['competitionRate']) ??
           (offeredShares <= 0 ? null : subscribedShares / offeredShares),
       equalCompetitionRate: readDouble(json['equalCompetitionRate']),
       proportionalCompetitionRate: readDouble(
         json['proportionalCompetitionRate'],
       ),
-      equalAllocationShares:
-          readOptionalInt(json['equalAllocationShares']) ??
+      equalAllocationShares: readOptionalInt(json['equalAllocationShares']) ??
           readOptionalInt(json['equalAllocationVolume']),
       proportionalAllocationShares:
           readOptionalInt(json['proportionalAllocationShares']) ??
-          readOptionalInt(json['proportionalAllocationVolume']),
+              readOptionalInt(json['proportionalAllocationVolume']),
       applicationCount: readOptionalInt(json['applicationCount']),
     );
   }
@@ -2986,9 +2959,8 @@ IpoAnalysis analyzeStock(
   final demandStrengthScore = isSpac ? 0 : scoreDemandStrengthForStock(stock);
   final spacMomentumScore = isSpac ? scoreSpacMomentum(stock) : 0;
   final spacVolatilityScore = isSpac ? scoreSpacVolatility(stock) : 0;
-  final lockupScore = isSpac
-      ? 0
-      : scoreLockup(stock.fundamentals.lockupCommitmentRate);
+  final lockupScore =
+      isSpac ? 0 : scoreLockup(stock.fundamentals.lockupCommitmentRate);
   final floatScore = isSpac ? 0 : scoreFloatForStock(stock);
   final pricingScore = scorePricing(stock.fundamentals);
   final marketScore = isSpac ? scoreMarket(stock.market) : 0;
@@ -3778,43 +3750,140 @@ IpoExpectedReturnProfile expectedReturnProfileFor({
       calibration: calibration.spac,
     );
   }
-  final expected = generalExpectedGainRateFor(
+  return generalExpectedReturnProfileFor(
+    stock: stock,
     score: score,
     competitionRate: competitionRate,
     confidence: confidence,
-    calibration: competitionRate == null ? calibration.general : null,
+    calibration: calibration.general,
+  );
+}
+
+IpoExpectedReturnProfile generalExpectedReturnProfileFor({
+  required IpoCompetitionStock stock,
+  required int score,
+  required double? competitionRate,
+  required double confidence,
+  required IpoGeneralCalibration? calibration,
+}) {
+  final fundamentals = stock.fundamentals;
+  final institutionRate = fundamentals.institutionCompetitionRate;
+  final lockupRate = fundamentals.lockupCommitmentRate;
+  final participants = fundamentals.institutionParticipants ?? 0;
+  final topBandConfirmed = fundamentals.topBandConfirmation == true;
+
+  final priorBase = generalExpectedGainRateFor(
+    stock: stock,
+    score: score,
+    competitionRate: null,
+    confidence: confidence,
+    calibration: calibration,
   );
   final generalAdjustment = competitionRate == null
       ? clampDouble(
-          calibration.general?.dampedAdjustment ?? 0,
-          -(calibration.general?.maxAdjustment ?? 0.18),
-          calibration.general?.maxAdjustment ?? 0.18,
+          calibration?.dampedAdjustment ?? 0,
+          -(calibration?.maxAdjustment ?? 0.18),
+          calibration?.maxAdjustment ?? 0.18,
         )
       : 0.0;
+  final competitionBase = generalCompetitionBaselineFor(competitionRate);
+  final institutionBoost = institutionRate == null
+      ? 0.0
+      : clampDouble((institutionRate - 500) / 8000, 0, 0.09);
+  final lockupBoost =
+      lockupRate == null ? 0.0 : clampDouble((lockupRate - 0.15) / 4.0, 0, 0.1);
+  final participantBoost = participants >= 2200
+      ? 0.05
+      : participants >= 1800
+          ? 0.04
+          : participants >= 1200
+              ? 0.025
+              : participants >= 800
+                  ? 0.01
+                  : 0.0;
+  final topBandBoost = topBandConfirmed ? 0.06 : 0.0;
+  final scoreBoost = clampDouble((score - 72) / 180, -0.04, 0.08);
+  final demandOverlay = institutionBoost +
+      lockupBoost +
+      participantBoost +
+      topBandBoost +
+      scoreBoost;
+  final competitionDrivenBase = competitionRate == null
+      ? priorBase
+      : clampDouble(
+          max(competitionBase, priorBase * 0.82) + demandOverlay,
+          -0.1,
+          1.3,
+        );
+  final expected = clampDouble(
+    competitionDrivenBase + generalAdjustment,
+    -0.1,
+    1.3,
+  );
+  final bear = clampDouble(
+    expected - (competitionRate == null ? 0.2 : 0.18),
+    -0.15,
+    1.0,
+  );
+  final bull = clampDouble(
+    expected +
+        (competitionRate == null ? 0.28 : 0.22) +
+        (topBandConfirmed ? 0.06 : 0.0) +
+        (lockupRate != null && lockupRate >= 0.6 ? 0.08 : 0.0),
+    0,
+    1.8,
+  );
   return IpoExpectedReturnProfile(
     expectedListingGainRate: expected,
-    bearCaseListingGainRate: expected - 0.22,
+    bearCaseListingGainRate: bear,
     baseCaseListingGainRate: expected,
-    bullCaseListingGainRate: expected + 0.35,
+    bullCaseListingGainRate: bull,
     assumptions: {
-      'method': 'ipo_score_v5_general_recent_weighted',
+      'method': 'ipo_score_v6_general_competition_calibrated',
+      'generalCompetitionBaseline': competitionBase,
+      'generalPriorBase': priorBase,
+      'institutionBoost': institutionBoost,
+      'lockupBoost': lockupBoost,
+      'participantBoost': participantBoost,
+      'topBandBoost': topBandBoost,
+      'scoreBoost': scoreBoost,
+      'competitionPresent': competitionRate != null,
       'generalCalibrationApplied': generalAdjustment,
-      'generalCalibrationSampleCount': calibration.general?.sampleCount ?? 0,
+      'generalCalibrationSampleCount': calibration?.sampleCount ?? 0,
       'generalCompetitionPending': competitionRate == null,
     },
   );
 }
 
 double generalExpectedGainRateFor({
+  required IpoCompetitionStock stock,
   required int score,
   required double? competitionRate,
   required double confidence,
   required IpoGeneralCalibration? calibration,
 }) {
-  final scoreComponent = (score - 50) / 100;
+  final institutionRate = stock.fundamentals.institutionCompetitionRate;
+  final lockupRate = stock.fundamentals.lockupCommitmentRate;
+  final participants = stock.fundamentals.institutionParticipants ?? 0;
+  final topBandConfirmed = stock.fundamentals.topBandConfirmation == true;
+  final scoreComponent = (score - 58) / 120;
   final competitionComponent = competitionRate == null
       ? 0.0
-      : clampDouble((competitionRate - 300) / 2500, -0.12, 0.28);
+      : clampDouble((competitionRate - 220) / 1800, -0.08, 0.24);
+  final institutionComponent = institutionRate == null
+      ? 0.0
+      : clampDouble((institutionRate - 450) / 7000, 0, 0.08);
+  final lockupComponent = lockupRate == null
+      ? 0.0
+      : clampDouble((lockupRate - 0.12) / 4.2, 0, 0.09);
+  final participantComponent = participants >= 2200
+      ? 0.045
+      : participants >= 1800
+          ? 0.03
+          : participants >= 1200
+              ? 0.018
+              : 0.0;
+  final topBandComponent = topBandConfirmed ? 0.06 : 0.0;
   final calibrationAdjustment = competitionRate == null
       ? clampDouble(
           calibration?.dampedAdjustment ?? 0,
@@ -3822,9 +3891,40 @@ double generalExpectedGainRateFor({
           calibration?.maxAdjustment ?? 0.18,
         )
       : 0.0;
-  final raw =
-      0.12 + scoreComponent + competitionComponent + calibrationAdjustment;
-  return clampDouble(raw * (0.65 + confidence * 0.35), -0.25, 1.2);
+  final raw = 0.14 +
+      scoreComponent +
+      competitionComponent +
+      institutionComponent +
+      lockupComponent +
+      participantComponent +
+      topBandComponent +
+      calibrationAdjustment;
+  return clampDouble(raw * (0.68 + confidence * 0.32), -0.2, 1.2);
+}
+
+double generalCompetitionBaselineFor(double? competitionRate) {
+  if (competitionRate == null) {
+    return 0.0;
+  }
+  if (competitionRate >= 1500) {
+    return 0.95;
+  }
+  if (competitionRate >= 800) {
+    return 0.72;
+  }
+  if (competitionRate >= 400) {
+    return 0.52;
+  }
+  if (competitionRate >= 200) {
+    return 0.38;
+  }
+  if (competitionRate >= 100) {
+    return 0.24;
+  }
+  if (competitionRate >= 50) {
+    return 0.1;
+  }
+  return 0.03;
 }
 
 IpoExpectedReturnProfile spacExpectedReturnProfileFor({
@@ -3862,8 +3962,7 @@ IpoExpectedReturnProfile spacExpectedReturnProfileFor({
   final lowLockupVolatility = lockupRate != null && lockupRate <= 0.01;
   final lowLockupBaseBoost = lowLockupVolatility ? 0.05 : 0.0;
   final scoreComponent = clampDouble((score - 50) / 220, -0.08, 0.16);
-  final rawBase =
-      0.1 +
+  final rawBase = 0.1 +
       retailBoost +
       proportionalBoost +
       institutionBoost +
@@ -3887,8 +3986,7 @@ IpoExpectedReturnProfile spacExpectedReturnProfileFor({
     -0.05,
     1.6,
   );
-  final volatilityPremium =
-      0.28 +
+  final volatilityPremium = 0.28 +
       (lowLockupVolatility ? 0.42 : 0.12) +
       (proportionalRate != null && proportionalRate >= 3000 ? 0.22 : 0.0);
   final bear = clampDouble(
@@ -4129,42 +4227,41 @@ List<IpoBrokerScore> brokerScoresFor(IpoCompetitionStock stock) {
       brokerMetrics[broker.name] = broker;
     }
   }
-  final scores =
-      brokerMetrics.values.map((broker) {
-        final expectedEqual = broker.equalExpectedSharesPerAccount;
-        final depositForOne = broker.estimatedDepositForOneProportionalShare(
-          offerPrice,
-        );
-        final equalScore = expectedEqual == null
-            ? 30
-            : clampInt((expectedEqual * 80).round(), 0, 100);
-        final proportionalScore = depositForOne == null
-            ? 30
-            : clampInt((100000000 / depositForOne).round(), 0, 100);
-        final hasPositiveApplicationCount =
-            broker.applicationCount != null && broker.applicationCount! > 0;
-        final quality =
-            hasPositiveApplicationCount &&
-                (broker.proportionalCompetitionRate != null ||
-                    broker.competitionRate != null)
-            ? 'broker_verified'
-            : 'partial';
-        return IpoBrokerScore(
-          broker: broker.name,
-          equalScore: equalScore,
-          proportionalScore: proportionalScore,
-          expectedEqualShares: expectedEqual,
-          estimatedDepositForOneProportionalShare: depositForOne,
-          feeKrw: broker.feeKrw,
-          dataQuality: quality,
-        );
-      }).toList()..sort((a, b) {
-        final byEqual = b.equalScore.compareTo(a.equalScore);
-        if (byEqual != 0) {
-          return byEqual;
-        }
-        return b.proportionalScore.compareTo(a.proportionalScore);
-      });
+  final scores = brokerMetrics.values.map((broker) {
+    final expectedEqual = broker.equalExpectedSharesPerAccount;
+    final depositForOne = broker.estimatedDepositForOneProportionalShare(
+      offerPrice,
+    );
+    final equalScore = expectedEqual == null
+        ? 30
+        : clampInt((expectedEqual * 80).round(), 0, 100);
+    final proportionalScore = depositForOne == null
+        ? 30
+        : clampInt((100000000 / depositForOne).round(), 0, 100);
+    final hasPositiveApplicationCount =
+        broker.applicationCount != null && broker.applicationCount! > 0;
+    final quality = hasPositiveApplicationCount &&
+            (broker.proportionalCompetitionRate != null ||
+                broker.competitionRate != null)
+        ? 'broker_verified'
+        : 'partial';
+    return IpoBrokerScore(
+      broker: broker.name,
+      equalScore: equalScore,
+      proportionalScore: proportionalScore,
+      expectedEqualShares: expectedEqual,
+      estimatedDepositForOneProportionalShare: depositForOne,
+      feeKrw: broker.feeKrw,
+      dataQuality: quality,
+    );
+  }).toList()
+    ..sort((a, b) {
+      final byEqual = b.equalScore.compareTo(a.equalScore);
+      if (byEqual != 0) {
+        return byEqual;
+      }
+      return b.proportionalScore.compareTo(a.proportionalScore);
+    });
   return scores;
 }
 
@@ -4338,10 +4435,8 @@ IpoAnalysisCalibration buildAnalysisCalibration(
   if (spacRows.isEmpty && generalRows.isEmpty) {
     return const IpoAnalysisCalibration();
   }
-  final spacErrors = spacRows
-      .map((row) => row['referenceError'])
-      .whereType<double>()
-      .toList();
+  final spacErrors =
+      spacRows.map((row) => row['referenceError']).whereType<double>().toList();
   final bucketed = <String, List<double>>{};
   for (final row in spacRows) {
     final bucket = '${row['competitionBucket']}';
@@ -4513,8 +4608,7 @@ double dampedCalibrationAdjustmentWeighted(List<(double, double)> errors) {
 }
 
 double recencyWeightForCalibration(IpoCompetitionStock stock) {
-  final anchor =
-      parseDate(stock.outcome?.listingDate) ??
+  final anchor = parseDate(stock.outcome?.listingDate) ??
       parseDate(stock.subscriptionEnd) ??
       parseDate(stock.subscriptionStart);
   if (anchor == null) {
@@ -4586,53 +4680,52 @@ Map<String, Object?> buildBacktestReport(
   List<IpoCompetitionStock> stocks,
   DateTime generatedAt,
 ) {
-  final rows =
-      stocks
-          .map((stock) {
-            final outcome = stock.outcome;
-            if (outcome?.closeReturnRate == null) {
-              return null;
-            }
-            final analysis = analyzeStock(
-              stock,
-              calibration: const IpoAnalysisCalibration(),
-            );
-            return <String, Object?>{
-              'id': safeId(stock.id),
-              'company': stock.company,
-              'isSpac': isSpacStock(stock),
-              'score': analysis.score.overall,
-              'grade': analysis.score.grade,
-              'confidence': roundDouble(analysis.score.confidence, 2),
-              'expectedListingGainRate': roundDouble(
-                analysis.expectedReturn.expectedListingGainRate,
-                4,
-              ),
-              'openReturnRate': outcome?.openReturnRate,
-              'highReturnRate': outcome?.highReturnRate,
-              'closeReturnRate': outcome?.closeReturnRate,
-              'referenceReturnRate': referenceReturnRateForBacktest(stock),
-              'outcomeSourceUrl': outcome?.sourceUrl,
-              'errorCloseVsExpected': outcome?.closeReturnRate == null
-                  ? null
-                  : roundDouble(
-                      outcome!.closeReturnRate! -
-                          analysis.expectedReturn.expectedListingGainRate,
-                      4,
-                    ),
-              'errorReferenceVsExpected':
-                  referenceReturnRateForBacktest(stock) == null
+  final rows = stocks
+      .map((stock) {
+        final outcome = stock.outcome;
+        if (outcome?.closeReturnRate == null) {
+          return null;
+        }
+        final analysis = analyzeStock(
+          stock,
+          calibration: const IpoAnalysisCalibration(),
+        );
+        return <String, Object?>{
+          'id': safeId(stock.id),
+          'company': stock.company,
+          'isSpac': isSpacStock(stock),
+          'score': analysis.score.overall,
+          'grade': analysis.score.grade,
+          'confidence': roundDouble(analysis.score.confidence, 2),
+          'expectedListingGainRate': roundDouble(
+            analysis.expectedReturn.expectedListingGainRate,
+            4,
+          ),
+          'openReturnRate': outcome?.openReturnRate,
+          'highReturnRate': outcome?.highReturnRate,
+          'closeReturnRate': outcome?.closeReturnRate,
+          'referenceReturnRate': referenceReturnRateForBacktest(stock),
+          'outcomeSourceUrl': outcome?.sourceUrl,
+          'errorCloseVsExpected': outcome?.closeReturnRate == null
+              ? null
+              : roundDouble(
+                  outcome!.closeReturnRate! -
+                      analysis.expectedReturn.expectedListingGainRate,
+                  4,
+                ),
+          'errorReferenceVsExpected':
+              referenceReturnRateForBacktest(stock) == null
                   ? null
                   : roundDouble(
                       referenceReturnRateForBacktest(stock)! -
                           analysis.expectedReturn.expectedListingGainRate,
                       4,
                     ),
-            };
-          })
-          .whereType<Map<String, Object?>>()
-          .toList()
-        ..sort((a, b) => (b['score'] as int).compareTo(a['score'] as int));
+        };
+      })
+      .whereType<Map<String, Object?>>()
+      .toList()
+    ..sort((a, b) => (b['score'] as int).compareTo(a['score'] as int));
 
   return {
     'schemaVersion': schemaVersion,
@@ -4649,10 +4742,8 @@ Map<String, Object?> buildBacktestReport(
 }
 
 Map<String, Object?> summarizeBacktestRows(List<Map<String, Object?>> rows) {
-  final closes = rows
-      .map((row) => row['closeReturnRate'])
-      .whereType<double>()
-      .toList();
+  final closes =
+      rows.map((row) => row['closeReturnRate']).whereType<double>().toList();
   final errors = rows
       .map((row) => row['errorCloseVsExpected'])
       .whereType<double>()

@@ -57,7 +57,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T07:35:26.173208",
+      "capturedAt": "2026-04-27T17:15:31.209048",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=327830",
       "brokers": [
@@ -99,25 +99,33 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.0195,
-      "bearCaseListingGainRate": -0.2005,
-      "baseCaseListingGainRate": 0.0195,
-      "bullCaseListingGainRate": 0.3695,
+      "expectedListingGainRate": 0.4949,
+      "bearCaseListingGainRate": 0.3149,
+      "baseCaseListingGainRate": 0.4949,
+      "bullCaseListingGainRate": 0.7149,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.022,
         "oneMillionKrw": 0.097,
         "fiveMillionKrw": 0.484
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 10,
-        "oneMillionKrw": 43,
-        "fiveMillionKrw": 217
+        "minimumSubscription": 253,
+        "oneMillionKrw": 1101,
+        "fiveMillionKrw": 5504
       },
       "assumptions": {
         "offerPrice": 23000,
         "competitionRate": 449.56,
         "feeKrw": null,
-        "method": "ipo_score_v5_general_recent_weighted",
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.52,
+        "generalPriorBase": 0.14187030857142854,
+        "institutionBoost": 0.014905000000000002,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false

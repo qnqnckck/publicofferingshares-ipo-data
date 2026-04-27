@@ -63,7 +63,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T07:35:26.173208",
+      "capturedAt": "2026-04-27T17:15:31.209048",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://cashcow.tistory.com/848",
       "brokers": [
@@ -105,25 +105,33 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.452,
-      "bearCaseListingGainRate": 0.2319,
-      "baseCaseListingGainRate": 0.452,
-      "bullCaseListingGainRate": 0.8019,
+      "expectedListingGainRate": 1.0,
+      "bearCaseListingGainRate": 0.82,
+      "baseCaseListingGainRate": 1.0,
+      "bullCaseListingGainRate": 1.22,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.006,
         "oneMillionKrw": 0.142,
         "fiveMillionKrw": 0.708
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 13,
-        "oneMillionKrw": 288,
-        "fiveMillionKrw": 1441
+        "minimumSubscription": 29,
+        "oneMillionKrw": 638,
+        "fiveMillionKrw": 3188
       },
       "assumptions": {
         "offerPrice": 4500,
         "competitionRate": 1568.37,
         "feeKrw": null,
-        "method": "ipo_score_v5_general_recent_weighted",
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.37720000000000004,
+        "institutionBoost": 0.09,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false

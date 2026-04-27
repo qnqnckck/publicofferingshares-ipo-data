@@ -103,25 +103,33 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.415,
-      "bearCaseListingGainRate": 0.195,
-      "baseCaseListingGainRate": 0.415,
-      "bullCaseListingGainRate": 0.765,
+      "expectedListingGainRate": 1.0,
+      "bearCaseListingGainRate": 0.82,
+      "baseCaseListingGainRate": 1.0,
+      "bullCaseListingGainRate": 1.22,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.182,
         "oneMillionKrw": 0.202,
         "fiveMillionKrw": 0.302
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 1206,
-        "oneMillionKrw": 1344,
-        "fiveMillionKrw": 2003
+        "minimumSubscription": 2905,
+        "oneMillionKrw": 3239,
+        "fiveMillionKrw": 4827
       },
       "assumptions": {
         "offerPrice": 16000,
         "competitionRate": 2518.4,
         "feeKrw": null,
-        "method": "ipo_score_v5_general_recent_weighted",
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.3468666666666667,
+        "institutionBoost": 0.09,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false

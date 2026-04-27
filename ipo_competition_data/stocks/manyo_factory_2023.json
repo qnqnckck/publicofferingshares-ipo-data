@@ -64,7 +64,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T07:35:26.173208",
+      "capturedAt": "2026-04-27T17:15:31.209048",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://happy-cleanup.com/962",
       "brokers": [
@@ -120,25 +120,33 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.4127,
-      "bearCaseListingGainRate": 0.1927,
-      "baseCaseListingGainRate": 0.4127,
-      "bullCaseListingGainRate": 0.7627,
+      "expectedListingGainRate": 0.77,
+      "bearCaseListingGainRate": 0.59,
+      "baseCaseListingGainRate": 0.77,
+      "bullCaseListingGainRate": 0.99,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.008,
         "oneMillionKrw": 0.049,
         "fiveMillionKrw": 0.247
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 52,
-        "oneMillionKrw": 326,
-        "fiveMillionKrw": 1631
+        "minimumSubscription": 97,
+        "oneMillionKrw": 609,
+        "fiveMillionKrw": 3043
       },
       "assumptions": {
         "offerPrice": 16000,
         "competitionRate": 1265.33,
         "feeKrw": null,
-        "method": "ipo_score_v5_general_recent_weighted",
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.3444,
+        "institutionBoost": 0.09,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false
