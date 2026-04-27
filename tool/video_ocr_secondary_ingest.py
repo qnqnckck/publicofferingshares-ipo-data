@@ -14,7 +14,7 @@ from contextlib import suppress
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
-from urllib.parse import parse_qsl, quote_plus, urlencode, urlparse, urlunparse
+from urllib.parse import parse_qsl, quote, quote_plus, urlencode, urlparse, urlunparse
 from zoneinfo import ZoneInfo
 
 
@@ -115,6 +115,8 @@ class SecondaryVideoOcrIngest:
         self.debug_frame_dir = debug_frame_dir
         cookies_path_value = os.environ.get("YOUTUBE_COOKIES_PATH", "").strip()
         self.youtube_cookies_path = Path(cookies_path_value) if cookies_path_value else None
+        self.finuts_id = os.environ.get("FINUTS_ID", "").strip()
+        self.finuts_password = os.environ.get("FINUTS_PASSWORD", "").strip()
 
     def run(self) -> int:
         config = _read_json(self.config_path)
@@ -230,12 +232,38 @@ class SecondaryVideoOcrIngest:
 
     def _extract_source(self, tmpdir: Path, source: dict[str, Any]) -> dict[str, Any] | None:
         youtube_url = str(source.get("youtubeUrl", "")).strip()
+        finuts_url = str(source.get("finutsUrl", "")).strip()
         timestamp_seconds = int(source.get("timestampSeconds", 0) or 0)
         live_stream = bool(source.get("liveStream"))
         company = str(source.get("company", "")).strip() or None
         source_label = str(source.get("sourceLabel", "")).strip() or None
         image_path_value = str(source.get("imagePath", "")).strip()
         frame_path = tmpdir / f"{source['id']}.png"
+        if finuts_url and self.finuts_id and self.finuts_password:
+            finuts_brokers = self._extract_brokers_from_finuts(source, finuts_url)
+            if finuts_brokers:
+                aggregate_offered = sum(item.offered_shares or 0 for item in finuts_brokers)
+                aggregate_subscribed = sum(
+                    int(round((item.offered_shares or 0) * (item.competition_rate or 0)))
+                    for item in finuts_brokers
+                )
+                aggregate_rate = _to_float(source.get("aggregateCompetitionRate"))
+                if not aggregate_rate and aggregate_offered > 0:
+                    aggregate_rate = aggregate_subscribed / aggregate_offered
+                return {
+                    "id": source.get("id"),
+                    "company": source.get("company"),
+                    "capturedAt": source.get("capturedAtKst"),
+                    "source": source.get("source", "finuts_member_secondary"),
+                    "sourceUrl": source.get("sourceUrl", finuts_url),
+                    "aggregateCompetitionRate": aggregate_rate,
+                    "brokers": [item.to_json() for item in finuts_brokers],
+                    "aggregate": {
+                        "offeredShares": aggregate_offered or None,
+                        "subscribedShares": aggregate_subscribed or None,
+                        "competitionRate": aggregate_rate or None,
+                    },
+                }
         if image_path_value:
             image_path = Path(image_path_value)
             if not image_path.is_absolute():
@@ -342,6 +370,196 @@ class SecondaryVideoOcrIngest:
                 "competitionRate": aggregate_rate or None,
             },
         }
+
+    def _extract_brokers_from_finuts(
+        self,
+        source: dict[str, Any],
+        finuts_url: str,
+    ) -> list[BrokerExtraction]:
+        jugansa_rows, altmnt_rows = self._fetch_finuts_ajax_rows(
+            finuts_url,
+            search_deposit_manwon=int(source.get("finutsSearchDepositManwon", 100) or 100),
+        )
+        if not jugansa_rows:
+            return []
+
+        offer_price = _to_int(source.get("offerPrice"))
+        search_deposit_krw = (
+            int(source.get("finutsSearchDepositManwon", 100) or 100) * 10000
+        )
+        extracted_brokers: list[BrokerExtraction] = []
+        for broker_cfg in source.get("brokers", []):
+            if not isinstance(broker_cfg, dict):
+                continue
+            jugansa = self._match_finuts_broker_row(broker_cfg, jugansa_rows)
+            if jugansa is None:
+                print(f"skip broker with no finuts match: {broker_cfg.get('name')}")
+                continue
+            altmnt = self._match_finuts_broker_row(broker_cfg, altmnt_rows)
+
+            offered_shares = _to_int(jugansa.get("ALTMNT_CNT")) or _to_int(
+                broker_cfg.get("offeredShares")
+            )
+            equal_supply = round(offered_shares / 2) if offered_shares else _to_int(
+                broker_cfg.get("equalAllocationShares")
+            )
+            proportional_supply = (
+                round(offered_shares / 2)
+                if offered_shares
+                else _to_int(broker_cfg.get("proportionalAllocationShares"))
+            )
+
+            expected_equal = _to_float(jugansa.get("EQLTY_STOCK_CNT"))
+            application_count = None
+            if equal_supply and expected_equal and expected_equal > 0:
+                application_count = max(1, int(round(equal_supply / expected_equal)))
+
+            deposit_rate = _to_float(broker_cfg.get("depositRate")) or 0.5
+            proportional_shares = (
+                _to_float(altmnt.get("PROP_CMPET_ALTMNT"))
+                if altmnt is not None
+                else None
+            )
+            proportional_rate = None
+            if (
+                proportional_shares is not None
+                and proportional_shares > 0
+                and offer_price
+                and offer_price > 0
+                and deposit_rate > 0
+            ):
+                deposit_for_one = search_deposit_krw / proportional_shares
+                proportional_rate = deposit_for_one / (offer_price * deposit_rate)
+
+            extracted_brokers.append(
+                BrokerExtraction(
+                    name=str(broker_cfg.get("name", "")).strip(),
+                    offered_shares=offered_shares,
+                    equal_allocation_shares=equal_supply,
+                    proportional_allocation_shares=proportional_supply,
+                    deposit_rate=deposit_rate,
+                    fee_krw=_to_int(jugansa.get("FEE")) or _to_int(broker_cfg.get("feeKrw")),
+                    competition_rate=_to_float(jugansa.get("SCSCS_CMPET_RT")),
+                    proportional_competition_rate=proportional_rate,
+                    application_count=application_count,
+                )
+            )
+        return extracted_brokers
+
+    def _fetch_finuts_ajax_rows(
+        self,
+        finuts_url: str,
+        *,
+        search_deposit_manwon: int,
+    ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+        if not self.finuts_id or not self.finuts_password:
+            return [], []
+        try:
+            from playwright.sync_api import sync_playwright
+        except ImportError as exc:
+            raise RuntimeError("playwright is required for finuts capture") from exc
+
+        parsed = urlparse(finuts_url)
+        return_path = parsed.path
+        if parsed.query:
+            return_path = f"{return_path}?{parsed.query}"
+        login_url = (
+            f"{parsed.scheme}://{parsed.netloc}/html/user/login.php?"
+            f"url={quote(return_path, safe='/?=&')}"
+        )
+
+        with sync_playwright() as playwright:
+            browser = playwright.chromium.launch(
+                headless=True,
+                args=["--disable-dev-shm-usage", "--disable-blink-features=AutomationControlled"],
+            )
+            page = browser.new_page(viewport={"width": 1600, "height": 2200}, locale="ko-KR")
+            try:
+                page.goto(login_url, wait_until="domcontentloaded", timeout=120000)
+                page.fill("#user_id", self.finuts_id)
+                page.fill("#user_pwd", self.finuts_password)
+                page.click("#btn_login")
+                page.wait_for_timeout(4000)
+                if "login.php" in page.url:
+                    raise RuntimeError("finuts login did not complete")
+                ipo_sn = self._extract_finuts_ipo_sn(finuts_url)
+                if not ipo_sn:
+                    raise RuntimeError(f"missing finuts ipo_sn in url: {finuts_url}")
+                jugansa_text = page.evaluate(
+                    """async (ipoSn) => {
+                        const fd = new URLSearchParams();
+                        fd.set('ipo_sn', ipoSn);
+                        const res = await fetch('/html/task/ipo/ajaxJugansaList.php', {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                            'X-Requested-With': 'XMLHttpRequest',
+                          },
+                          body: fd.toString(),
+                        });
+                        return await res.text();
+                    }""",
+                    ipo_sn,
+                )
+                altmnt_text = page.evaluate(
+                    """async ({ipoSn, amount}) => {
+                        const fd = new URLSearchParams();
+                        fd.set('ipo_sn', ipoSn);
+                        fd.set('search_scscs_wrtm', String(amount));
+                        const res = await fetch('/html/task/ipo/ajaxAltmntList.php', {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                            'X-Requested-With': 'XMLHttpRequest',
+                          },
+                          body: fd.toString(),
+                        });
+                        return await res.text();
+                    }""",
+                    {"ipoSn": ipo_sn, "amount": search_deposit_manwon},
+                )
+            finally:
+                browser.close()
+
+        jugansa_rows = json.loads(jugansa_text) if jugansa_text else []
+        altmnt_rows = json.loads(altmnt_text) if altmnt_text else []
+        return (
+            [row for row in jugansa_rows if isinstance(row, dict)],
+            [row for row in altmnt_rows if isinstance(row, dict)],
+        )
+
+    def _extract_finuts_ipo_sn(self, finuts_url: str) -> str | None:
+        query = dict(parse_qsl(urlparse(finuts_url).query, keep_blank_values=True))
+        ipo_sn = str(query.get("ipo_sn", "")).strip()
+        return ipo_sn or None
+
+    def _match_finuts_broker_row(
+        self,
+        broker_cfg: dict[str, Any],
+        rows: list[dict[str, Any]],
+    ) -> dict[str, Any] | None:
+        aliases = [
+            str(value).strip()
+            for value in [broker_cfg.get("name"), *(broker_cfg.get("aliases") or [])]
+            if str(value).strip()
+        ]
+        normalized_aliases = [self._normalize_broker_name(value) for value in aliases]
+        for row in rows:
+            row_name = self._normalize_broker_name(str(row.get("SCRT_CO_NM", "")).strip())
+            if not row_name:
+                continue
+            if row_name in normalized_aliases:
+                return row
+            for alias in normalized_aliases:
+                if alias and (alias in row_name or row_name in alias):
+                    return row
+        return None
+
+    def _normalize_broker_name(self, value: str) -> str:
+        compact = re.sub(r"\s+", "", value)
+        for suffix in ["투자증권", "증권", "증권㈜", "(주)", "주식회사"]:
+            compact = compact.replace(suffix, "")
+        return compact.upper()
 
     def _extract_brokers_from_frame(
         self,

@@ -49,6 +49,8 @@ jobs:
           python tool/video_ocr_secondary_ingest.py --config data/video_ocr_sources.json --broker-snapshot-dir data/broker_snapshots --debug-frame-dir artifacts/video_ocr_debug
         env:
           YOUTUBE_COOKIES_PATH: /tmp/ocr-secrets/youtube_cookies.txt
+          FINUTS_ID: ${{ secrets.FINUTS_ID }}
+          FINUTS_PASSWORD: ${{ secrets.FINUTS_PASSWORD }}
 
       - name: Upload OCR debug frames
         if: always()
