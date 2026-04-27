@@ -14,9 +14,7 @@
   "subscriptionStart": "2024-06-18",
   "subscriptionEnd": "2024-06-19",
   "leadManagers": [
-    "한국투자증권",
-    "메리츠증권",
-    "삼성증권"
+    "한국투자증권"
   ],
   "fundamentals": {
     "offerPrice": 7000,
@@ -65,38 +63,10 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T05:08:07.029384",
+      "capturedAt": "2026-04-27T05:41:58.850186",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.hankyung.com/article/202406276414Y",
       "brokers": [
-        {
-          "name": "메리츠증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 7000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2549.13,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2549.13,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "삼성증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 7000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2549.13,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2549.13,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "applicationCount": null
-        },
         {
           "name": "한국투자증권",
           "offeredShares": 0,
@@ -163,8 +133,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2549.13대 1입니다.",
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "최근 확인된 일반청약 경쟁률은 2549.13대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -172,24 +141,6 @@
       ]
     },
     "brokerScores": [
-      {
-        "broker": "메리츠증권",
-        "equalScore": 30,
-        "proportionalScore": 11,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 8921955,
-        "feeKrw": null,
-        "dataQuality": "partial"
-      },
-      {
-        "broker": "삼성증권",
-        "equalScore": 30,
-        "proportionalScore": 11,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 8921955,
-        "feeKrw": null,
-        "dataQuality": "partial"
-      },
       {
         "broker": "한국투자증권",
         "equalScore": 30,
@@ -203,7 +154,7 @@
     "inputs": {
       "latestCompetitionRate": 2549.13,
       "snapshotCount": 2,
-      "leadManagerCount": 3,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1099.2,
