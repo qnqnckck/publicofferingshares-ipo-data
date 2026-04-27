@@ -195,7 +195,10 @@ class SecondaryVideoOcrIngest:
         if not isinstance(stocks, list):
             return base_sources
 
-        now_kst = datetime.now(ZoneInfo("Asia/Seoul")).date()
+        now_kst = datetime.now(ZoneInfo("Asia/Seoul"))
+        now_date = now_kst.date()
+        schedule_open_hour = _to_float(schedule_autoload.get("marketOpenHourKst"))
+        schedule_close_hour = _to_float(schedule_autoload.get("marketCloseHourKst"))
         existing_ids = {str(source.get("id", "")).strip() for source in base_sources}
         catalog_by_id = {
             str(source.get("id", "")).strip(): source
@@ -219,7 +222,21 @@ class SecondaryVideoOcrIngest:
                 continue
             window_start = start - timedelta(days=days_before_start)
             window_end = end + timedelta(days=days_after_end)
-            if window_start <= now_kst <= window_end:
+            if not (window_start <= now_date <= window_end):
+                continue
+            if start <= now_date <= end:
+                open_hour = _to_float(source.get("marketOpenHourKst"))
+                close_hour = _to_float(source.get("marketCloseHourKst"))
+                if open_hour is None:
+                    open_hour = schedule_open_hour
+                if close_hour is None:
+                    close_hour = schedule_close_hour
+                if open_hour is not None and close_hour is not None:
+                    current_hour = (
+                        now_kst.hour + (now_kst.minute / 60) + (now_kst.second / 3600)
+                    )
+                    if current_hour < open_hour or current_hour > close_hour:
+                        continue
                 autoload_sources.append(source)
                 existing_ids.add(stock_id)
 
