@@ -36,12 +36,13 @@ jobs:
           python -m playwright install chromium
 
       - name: Restore YouTube cookies
-        if: ${{ secrets.YOUTUBE_COOKIES_TXT != '' }}
         run: |
-          mkdir -p /tmp/ocr-secrets
-          cat <<'EOF' > /tmp/ocr-secrets/youtube_cookies.txt
-          ${{ secrets.YOUTUBE_COOKIES_TXT }}
-          EOF
+          if [ -n "${YOUTUBE_COOKIES_TXT}" ]; then
+            mkdir -p /tmp/ocr-secrets
+            printf "%s" "${YOUTUBE_COOKIES_TXT}" > /tmp/ocr-secrets/youtube_cookies.txt
+          fi
+        env:
+          YOUTUBE_COOKIES_TXT: ${{ secrets.YOUTUBE_COOKIES_TXT }}
 
       - name: Capture browser frame and write fallback broker snapshots
         run: |
