@@ -1053,9 +1053,14 @@ class IpoCompetitionStock {
     if (snapshots.isEmpty) {
       return null;
     }
-    return snapshots.reduce(
-      (a, b) => a.capturedAt.compareTo(b.capturedAt) >= 0 ? a : b,
-    );
+    return snapshots.reduce((a, b) {
+      final aPriority = snapshotSourcePriority(a.source);
+      final bPriority = snapshotSourcePriority(b.source);
+      if (aPriority != bPriority) {
+        return aPriority > bPriority ? a : b;
+      }
+      return a.capturedAt.compareTo(b.capturedAt) >= 0 ? a : b;
+    });
   }
 
   Map<String, Object?> toJson() {
@@ -2884,6 +2889,26 @@ String? readString(Map<String, Object?> json, String key) {
     return null;
   }
   return '$value';
+}
+
+int snapshotSourcePriority(String source) {
+  final normalized = source.trim().toLowerCase();
+  if (normalized.contains('finuts')) {
+    return 100;
+  }
+  if (normalized.contains('ipostock')) {
+    return 80;
+  }
+  if (normalized.contains('38_news')) {
+    return 60;
+  }
+  if (normalized.contains('youtube')) {
+    return 40;
+  }
+  if (normalized.contains('community') || normalized.contains('estimate')) {
+    return 20;
+  }
+  return 0;
 }
 
 List<String> readStringList(Object? value) {
