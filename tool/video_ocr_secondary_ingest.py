@@ -229,6 +229,8 @@ class SecondaryVideoOcrIngest:
         youtube_url = str(source.get("youtubeUrl", "")).strip()
         timestamp_seconds = int(source.get("timestampSeconds", 0) or 0)
         live_stream = bool(source.get("liveStream"))
+        company = str(source.get("company", "")).strip() or None
+        source_label = str(source.get("sourceLabel", "")).strip() or None
         image_path_value = str(source.get("imagePath", "")).strip()
         frame_path = tmpdir / f"{source['id']}.png"
         if image_path_value:
@@ -256,8 +258,8 @@ class SecondaryVideoOcrIngest:
                     frame_path,
                     live_stream=live_stream,
                     capture_selector=str(source.get("captureSelector", "")).strip() or None,
-                    company=str(source.get("company", "")).strip() or None,
-                    source_label=str(source.get("sourceLabel", "")).strip() or None,
+                    company=company,
+                    source_label=source_label,
                 )
             except Exception as exc:
                 browser_error = exc
@@ -275,6 +277,74 @@ class SecondaryVideoOcrIngest:
                         return None
                     raise
 
+        extracted_brokers, text = self._extract_brokers_from_frame(source, frame_path)
+
+        if not extracted_brokers and company:
+            for candidate_url in self._discover_candidate_youtube_urls(company):
+                if candidate_url == youtube_url:
+                    continue
+                retry_path = tmpdir / f"{source['id']}_candidate.png"
+                with suppress(Exception):
+                    if retry_path.exists():
+                        retry_path.unlink()
+                try:
+                    self._capture_frame_with_browser(
+                        candidate_url,
+                        timestamp_seconds,
+                        retry_path,
+                        live_stream=live_stream,
+                        capture_selector=str(source.get("captureSelector", "")).strip() or None,
+                        company=company,
+                        source_label=source_label,
+                    )
+                except Exception as exc:
+                    print(f"candidate browser capture failed for {source.get('id')}: {candidate_url} ({exc})")
+                    continue
+                candidate_brokers, candidate_text = self._extract_brokers_from_frame(source, retry_path)
+                if candidate_brokers:
+                    print(f"using discovered youtube candidate for {source.get('id')}: {candidate_url}")
+                    frame_path.write_bytes(retry_path.read_bytes())
+                    extracted_brokers = candidate_brokers
+                    text = candidate_text
+                    source["youtubeUrl"] = candidate_url
+                    source["sourceUrl"] = candidate_url
+                    break
+
+        if not extracted_brokers:
+            preview = re.sub(r"\s+", " ", text).strip()[:240]
+            if preview:
+                print(f"ocr preview for {source.get('id')}: {preview}")
+            print(f"no brokers extracted for {source.get('id')}")
+            return None
+
+        aggregate_rate = _to_float(source.get("aggregateCompetitionRate"))
+        if not aggregate_rate:
+            aggregate_rate = max((item.competition_rate or 0 for item in extracted_brokers), default=0)
+        aggregate_offered = sum(item.offered_shares or 0 for item in extracted_brokers)
+        aggregate_subscribed = sum(
+            int(round((item.offered_shares or 0) * (item.competition_rate or 0)))
+            for item in extracted_brokers
+        )
+        return {
+            "id": source.get("id"),
+            "company": source.get("company"),
+            "capturedAt": source.get("capturedAtKst"),
+            "source": source.get("source", "youtube_video_ocr_secondary"),
+            "sourceUrl": source.get("sourceUrl", youtube_url),
+            "aggregateCompetitionRate": aggregate_rate,
+            "brokers": [item.to_json() for item in extracted_brokers],
+            "aggregate": {
+                "offeredShares": aggregate_offered or None,
+                "subscribedShares": aggregate_subscribed or None,
+                "competitionRate": aggregate_rate or None,
+            },
+        }
+
+    def _extract_brokers_from_frame(
+        self,
+        source: dict[str, Any],
+        frame_path: Path,
+    ) -> tuple[list[BrokerExtraction], str]:
         crop = source.get("crop")
         if isinstance(crop, dict):
             self._crop_image(frame_path, crop)
@@ -314,36 +384,7 @@ class SecondaryVideoOcrIngest:
                     application_count=int(application_count) if application_count else None,
                 )
             )
-
-        if not extracted_brokers:
-            preview = re.sub(r"\s+", " ", text).strip()[:240]
-            if preview:
-                print(f"ocr preview for {source.get('id')}: {preview}")
-            print(f"no brokers extracted for {source.get('id')}")
-            return None
-
-        aggregate_rate = _to_float(source.get("aggregateCompetitionRate"))
-        if not aggregate_rate:
-            aggregate_rate = max((item.competition_rate or 0 for item in extracted_brokers), default=0)
-        aggregate_offered = sum(item.offered_shares or 0 for item in extracted_brokers)
-        aggregate_subscribed = sum(
-            int(round((item.offered_shares or 0) * (item.competition_rate or 0)))
-            for item in extracted_brokers
-        )
-        return {
-            "id": source.get("id"),
-            "company": source.get("company"),
-            "capturedAt": source.get("capturedAtKst"),
-            "source": source.get("source", "youtube_video_ocr_secondary"),
-            "sourceUrl": source.get("sourceUrl", youtube_url),
-            "aggregateCompetitionRate": aggregate_rate,
-            "brokers": [item.to_json() for item in extracted_brokers],
-            "aggregate": {
-                "offeredShares": aggregate_offered or None,
-                "subscribedShares": aggregate_subscribed or None,
-                "competitionRate": aggregate_rate or None,
-            },
-        }
+        return extracted_brokers, text
 
     def _write_debug_outputs(
         self,
@@ -646,6 +687,44 @@ class SecondaryVideoOcrIngest:
         if not live_stream and timestamp_seconds > 0:
             params["start"] = str(timestamp_seconds)
         return f"https://www.youtube.com/embed/{video_id}?{urlencode(params)}"
+
+    def _discover_candidate_youtube_urls(self, company: str) -> list[str]:
+        query = f"{company} 공모주린이 LIVE"
+        attempts = [
+            ["yt-dlp", f"ytsearch5:{query}", "--flat-playlist", "--dump-single-json", "--no-warnings"],
+            ["yt-dlp", f"ytsearch3:{query}", "--flat-playlist", "--dump-single-json", "--no-warnings"],
+        ]
+        for command in attempts:
+            result = subprocess.run(
+                command,
+                check=False,
+                capture_output=True,
+                text=True,
+            )
+            if result.returncode != 0:
+                continue
+            try:
+                payload = json.loads(result.stdout)
+            except json.JSONDecodeError:
+                continue
+            entries = payload.get("entries") or []
+            urls: list[str] = []
+            lowered_company = company.lower()
+            for entry in entries:
+                if not isinstance(entry, dict):
+                    continue
+                video_id = str(entry.get("id", "")).strip()
+                title = str(entry.get("title", "")).strip()
+                channel = str(entry.get("channel", "")).strip()
+                if not video_id:
+                    continue
+                normalized = f"{title} {channel}".lower()
+                if lowered_company not in normalized:
+                    continue
+                urls.append(f"https://www.youtube.com/watch?v={video_id}")
+            if urls:
+                return urls
+        return []
 
     def _resolve_stream_url(self, youtube_url: str) -> str:
         attempts = [
