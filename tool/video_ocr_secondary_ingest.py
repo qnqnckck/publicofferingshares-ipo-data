@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import os
 import re
@@ -14,6 +15,7 @@ from contextlib import suppress
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
+from urllib.request import urlopen
 from urllib.parse import parse_qsl, quote, quote_plus, urlencode, urlparse, urlunparse
 from zoneinfo import ZoneInfo
 
@@ -205,6 +207,10 @@ class SecondaryVideoOcrIngest:
             for source in catalog_sources
             if str(source.get("id", "")).strip()
         }
+        finuts_entries_by_company: dict[str, dict[str, Any]] = {}
+        if schedule_autoload.get("finutsAutodiscover", True):
+            with suppress(Exception):
+                finuts_entries_by_company = self._discover_finuts_entries()
 
         autoload_sources: list[dict[str, Any]] = []
         for stock in stocks:
@@ -214,6 +220,14 @@ class SecondaryVideoOcrIngest:
             if not stock_id or stock_id in existing_ids:
                 continue
             source = catalog_by_id.get(stock_id)
+            if source is None and finuts_entries_by_company:
+                source = self._build_finuts_source_from_stock(
+                    stock,
+                    finuts_entries_by_company.get(
+                        self._normalize_company_name(str(stock.get("company", "")).strip())
+                    ),
+                    now_kst,
+                )
             if source is None:
                 continue
             start = _parse_date(str(stock.get("subscriptionStart", "")).strip())
@@ -246,6 +260,121 @@ class SecondaryVideoOcrIngest:
                 ", ".join(str(source.get("id")) for source in autoload_sources),
             )
         return [*base_sources, *autoload_sources]
+
+    def _discover_finuts_entries(self) -> dict[str, dict[str, Any]]:
+        entries: dict[str, dict[str, Any]] = {}
+        for cat in ("04", "05", "06"):
+            url = f"https://www.finuts.co.kr/html/ipo/ipoList.php?cat={cat}"
+            try:
+                with urlopen(url, timeout=30) as response:
+                    html_text = response.read().decode("utf-8", errors="ignore")
+            except Exception as exc:
+                print(f"finuts autodiscover skipped for cat {cat}: {exc}")
+                continue
+            for entry in self._extract_finuts_entries_from_html(html_text):
+                normalized = self._normalize_company_name(entry.get("company", ""))
+                if not normalized:
+                    continue
+                entries[normalized] = entry
+        if entries:
+            print(f"finuts autodiscover entries: {len(entries)}")
+        return entries
+
+    def _extract_finuts_entries_from_html(self, html_text: str) -> list[dict[str, Any]]:
+        entries: dict[str, dict[str, Any]] = {}
+        patterns = [
+            re.compile(
+                r"""<tr[^>]*onclick="ipoView\((\d+),'([^']+)'\)"[^>]*>.*?"""
+                r"""<td[^>]*>.*?</td>\s*<td>(.*?)</td>""",
+                flags=re.IGNORECASE | re.DOTALL,
+            ),
+            re.compile(
+                r"""<div class="date-group" onclick="ipoView\((\d+),'([^']+)'\)".*?"""
+                r"""<ul><li>(.*?)</li>""",
+                flags=re.IGNORECASE | re.DOTALL,
+            ),
+        ]
+        for pattern in patterns:
+            for match in pattern.finditer(html_text):
+                ipo_sn, security_type, company_raw = match.groups()
+                company = self._strip_html(company_raw)
+                if not company:
+                    continue
+                entries[ipo_sn] = {
+                    "ipoSn": ipo_sn,
+                    "securityType": security_type,
+                    "company": company,
+                    "finutsUrl": f"https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn={ipo_sn}",
+                }
+        return list(entries.values())
+
+    def _build_finuts_source_from_stock(
+        self,
+        stock: dict[str, Any],
+        finuts_entry: dict[str, Any] | None,
+        now_kst: datetime,
+    ) -> dict[str, Any] | None:
+        if finuts_entry is None:
+            return None
+        stock_id = str(stock.get("id", "")).strip()
+        company = str(stock.get("company", "")).strip()
+        fundamentals = stock.get("fundamentals", {})
+        if not isinstance(fundamentals, dict):
+            fundamentals = {}
+        offer_price = _to_int(fundamentals.get("offerPrice"))
+        lead_managers = stock.get("leadManagers", [])
+        if not stock_id or not company or not isinstance(lead_managers, list) or not lead_managers:
+            return None
+        brokers: list[dict[str, Any]] = []
+        for manager in lead_managers:
+            name = str(manager).strip()
+            if not name:
+                continue
+            aliases = sorted(
+                {
+                    name,
+                    self._short_broker_alias(name),
+                    self._normalize_broker_name(name),
+                }
+                - {""}
+            )
+            brokers.append(
+                {
+                    "name": name,
+                    "aliases": aliases,
+                    "depositRate": 0.5,
+                    "feeKrw": 2000,
+                }
+            )
+        if not brokers:
+            return None
+        return {
+            "id": stock_id,
+            "company": company,
+            "capturedAtKst": now_kst.replace(microsecond=0).isoformat(),
+            "source": "finuts_member_secondary",
+            "sourceLabel": "finuts",
+            "sourceUrl": finuts_entry["finutsUrl"],
+            "finutsUrl": finuts_entry["finutsUrl"],
+            "finutsSearchDepositManwon": 100,
+            "offerPrice": offer_price,
+            "brokers": brokers,
+        }
+
+    def _normalize_company_name(self, value: str) -> str:
+        compact = self._strip_html(value)
+        compact = re.sub(r"\s+", "", compact)
+        compact = compact.replace("(주)", "").replace("주식회사", "")
+        return compact.lower()
+
+    def _strip_html(self, value: str) -> str:
+        return html.unescape(re.sub(r"<[^>]+>", "", value)).strip()
+
+    def _short_broker_alias(self, value: str) -> str:
+        compact = re.sub(r"\s+", "", value)
+        for suffix in ["투자증권", "증권", "증권㈜", "(주)", "주식회사"]:
+            compact = compact.replace(suffix, "")
+        return compact
 
     def _extract_source(self, tmpdir: Path, source: dict[str, Any]) -> dict[str, Any] | None:
         youtube_url = str(source.get("youtubeUrl", "")).strip()
