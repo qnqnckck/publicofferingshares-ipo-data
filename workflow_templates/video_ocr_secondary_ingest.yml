@@ -61,17 +61,6 @@ jobs:
           FINUTS_ID: ${{ secrets.FINUTS_ID }}
           FINUTS_PASSWORD: ${{ secrets.FINUTS_PASSWORD }}
 
-      - name: Backfill Finuts broker snapshots for all known stocks
-        run: |
-          if [ -z "${FINUTS_ID}" ] || [ -z "${FINUTS_PASSWORD}" ]; then
-            echo "FINUTS credentials are not configured. Skipping full Finuts backfill."
-            exit 0
-          fi
-          python tool/video_ocr_secondary_ingest.py --config data/video_ocr_finuts_backfill.json --all-stocks --broker-snapshot-dir data/broker_snapshots
-        env:
-          FINUTS_ID: ${{ secrets.FINUTS_ID }}
-          FINUTS_PASSWORD: ${{ secrets.FINUTS_PASSWORD }}
-
       - name: Upload OCR debug frames
         if: always()
         uses: actions/upload-artifact@v4

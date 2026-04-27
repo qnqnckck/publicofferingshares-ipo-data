@@ -213,9 +213,15 @@ becomes the primary automation path:
 1. discover and normalize upcoming IPO rows
 2. rebuild baseline generated JSON
 3. ingest public OCR/live fallback broker snapshots
-4. backfill Finuts broker snapshots for all known stocks
-5. regenerate `ipo_competition_data/`
-6. commit and push changed files to `main`
+4. regenerate `ipo_competition_data/`
+5. commit and push changed files to `main`
+
+This scheduled workflow is intended for newly discovered, upcoming, and active
+subscription rows only. It should not perform a full historical Finuts sweep on
+every run.
+
+For one-off historical repair or full repository-wide broker backfills, use the
+manual `finuts_full_backfill` workflow.
 
 The standalone `ipo_competition_batch` workflow is kept as a manual fallback.
 
