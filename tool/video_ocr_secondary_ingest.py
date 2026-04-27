@@ -577,10 +577,14 @@ class SecondaryVideoOcrIngest:
         source: dict[str, Any],
         finuts_url: str,
     ) -> list[BrokerExtraction]:
-        jugansa_rows, altmnt_rows = self._fetch_finuts_ajax_rows(
-            finuts_url,
-            search_deposit_manwon=int(source.get("finutsSearchDepositManwon", 100) or 100),
-        )
+        try:
+            jugansa_rows, altmnt_rows = self._fetch_finuts_ajax_rows(
+                finuts_url,
+                search_deposit_manwon=int(source.get("finutsSearchDepositManwon", 100) or 100),
+            )
+        except Exception as exc:
+            print(f"skip finuts source after fetch failure: {source.get('id')} ({exc})")
+            return []
         if not jugansa_rows:
             return []
 
@@ -674,58 +678,62 @@ class SecondaryVideoOcrIngest:
             f"url={quote(return_path, safe='/?=&')}"
         )
 
-        with sync_playwright() as playwright:
-            browser = playwright.chromium.launch(
-                headless=True,
-                args=["--disable-dev-shm-usage", "--disable-blink-features=AutomationControlled"],
-            )
-            page = browser.new_page(viewport={"width": 1600, "height": 2200}, locale="ko-KR")
-            try:
-                page.goto(login_url, wait_until="domcontentloaded", timeout=120000)
-                page.fill("#user_id", self.finuts_id)
-                page.fill("#user_pwd", self.finuts_password)
-                page.click("#btn_login")
-                page.wait_for_timeout(4000)
-                if "login.php" in page.url:
-                    raise RuntimeError("finuts login did not complete")
-                ipo_sn = self._extract_finuts_ipo_sn(finuts_url)
-                if not ipo_sn:
-                    raise RuntimeError(f"missing finuts ipo_sn in url: {finuts_url}")
-                jugansa_text = page.evaluate(
-                    """async (ipoSn) => {
-                        const fd = new URLSearchParams();
-                        fd.set('ipo_sn', ipoSn);
-                        const res = await fetch('/html/task/ipo/ajaxJugansaList.php', {
-                          method: 'POST',
-                          headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                            'X-Requested-With': 'XMLHttpRequest',
-                          },
-                          body: fd.toString(),
-                        });
-                        return await res.text();
-                    }""",
-                    ipo_sn,
+        try:
+            with sync_playwright() as playwright:
+                browser = playwright.chromium.launch(
+                    headless=True,
+                    args=["--disable-dev-shm-usage", "--disable-blink-features=AutomationControlled"],
                 )
-                altmnt_text = page.evaluate(
-                    """async ({ipoSn, amount}) => {
-                        const fd = new URLSearchParams();
-                        fd.set('ipo_sn', ipoSn);
-                        fd.set('search_scscs_wrtm', String(amount));
-                        const res = await fetch('/html/task/ipo/ajaxAltmntList.php', {
-                          method: 'POST',
-                          headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                            'X-Requested-With': 'XMLHttpRequest',
-                          },
-                          body: fd.toString(),
-                        });
-                        return await res.text();
-                    }""",
-                    {"ipoSn": ipo_sn, "amount": search_deposit_manwon},
-                )
-            finally:
-                browser.close()
+                page = browser.new_page(viewport={"width": 1600, "height": 2200}, locale="ko-KR")
+                try:
+                    page.goto(login_url, wait_until="domcontentloaded", timeout=120000)
+                    page.fill("#user_id", self.finuts_id)
+                    page.fill("#user_pwd", self.finuts_password)
+                    page.click("#btn_login")
+                    page.wait_for_timeout(4000)
+                    if "login.php" in page.url:
+                        raise RuntimeError("finuts login did not complete")
+                    ipo_sn = self._extract_finuts_ipo_sn(finuts_url)
+                    if not ipo_sn:
+                        raise RuntimeError(f"missing finuts ipo_sn in url: {finuts_url}")
+                    jugansa_text = page.evaluate(
+                        """async (ipoSn) => {
+                            const fd = new URLSearchParams();
+                            fd.set('ipo_sn', ipoSn);
+                            const res = await fetch('/html/task/ipo/ajaxJugansaList.php', {
+                              method: 'POST',
+                              headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                                'X-Requested-With': 'XMLHttpRequest',
+                              },
+                              body: fd.toString(),
+                            });
+                            return await res.text();
+                        }""",
+                        ipo_sn,
+                    )
+                    altmnt_text = page.evaluate(
+                        """async ({ipoSn, amount}) => {
+                            const fd = new URLSearchParams();
+                            fd.set('ipo_sn', ipoSn);
+                            fd.set('search_scscs_wrtm', String(amount));
+                            const res = await fetch('/html/task/ipo/ajaxAltmntList.php', {
+                              method: 'POST',
+                              headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                                'X-Requested-With': 'XMLHttpRequest',
+                              },
+                              body: fd.toString(),
+                            });
+                            return await res.text();
+                        }""",
+                        {"ipoSn": ipo_sn, "amount": search_deposit_manwon},
+                    )
+                finally:
+                    browser.close()
+        except Exception as exc:
+            print(f"finuts playwright fallback failed: {finuts_url} ({exc})")
+            return [], []
 
         jugansa_rows = json.loads(jugansa_text) if jugansa_text else []
         altmnt_rows = json.loads(altmnt_text) if altmnt_text else []
