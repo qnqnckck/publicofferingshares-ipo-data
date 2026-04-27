@@ -101,10 +101,17 @@ class BrokerExtraction:
 
 
 class SecondaryVideoOcrIngest:
-    def __init__(self, config_path: Path, broker_snapshot_dir: Path, dry_run: bool) -> None:
+    def __init__(
+        self,
+        config_path: Path,
+        broker_snapshot_dir: Path,
+        dry_run: bool,
+        debug_frame_dir: Path | None = None,
+    ) -> None:
         self.config_path = config_path
         self.broker_snapshot_dir = broker_snapshot_dir
         self.dry_run = dry_run
+        self.debug_frame_dir = debug_frame_dir
 
     def run(self) -> int:
         config = _read_json(self.config_path)
@@ -272,6 +279,7 @@ class SecondaryVideoOcrIngest:
 
         self._prepare_image_for_ocr(frame_path)
         text = self._ocr_image(frame_path)
+        self._write_debug_outputs(source, frame_path, text)
         extracted_brokers: list[BrokerExtraction] = []
         for broker_cfg in source.get("brokers", []):
             if not isinstance(broker_cfg, dict):
@@ -334,6 +342,26 @@ class SecondaryVideoOcrIngest:
                 "competitionRate": aggregate_rate or None,
             },
         }
+
+    def _write_debug_outputs(
+        self,
+        source: dict[str, Any],
+        frame_path: Path,
+        text: str,
+    ) -> None:
+        if self.debug_frame_dir is None:
+            return
+        self.debug_frame_dir.mkdir(parents=True, exist_ok=True)
+        source_id = str(source.get("id", "unknown")).strip() or "unknown"
+        target_image = self.debug_frame_dir / f"{source_id}.png"
+        target_text = self.debug_frame_dir / f"{source_id}.txt"
+        target_json = self.debug_frame_dir / f"{source_id}.json"
+        target_image.write_bytes(frame_path.read_bytes())
+        target_text.write_text(text, encoding="utf-8")
+        target_json.write_text(
+            json.dumps(source, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
 
     def _extract_frame(self, youtube_url: str, timestamp_seconds: int, frame_path: Path) -> None:
         stream_url = self._resolve_stream_url(youtube_url)
@@ -617,6 +645,11 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         action="store_true",
         help="Parse and print without writing any files",
     )
+    parser.add_argument(
+        "--debug-frame-dir",
+        default="",
+        help="Optional directory to write captured OCR debug frames and text",
+    )
     return parser.parse_args(argv)
 
 
@@ -633,6 +666,7 @@ def main(argv: list[str]) -> int:
         config_path=config_path,
         broker_snapshot_dir=Path(args.broker_snapshot_dir),
         dry_run=args.dry_run,
+        debug_frame_dir=Path(args.debug_frame_dir) if args.debug_frame_dir else None,
     )
     return runner.run()
 

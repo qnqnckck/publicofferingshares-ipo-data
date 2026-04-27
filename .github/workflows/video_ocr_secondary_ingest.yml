@@ -37,7 +37,15 @@ jobs:
 
       - name: Capture browser frame and write fallback broker snapshots
         run: |
-          python tool/video_ocr_secondary_ingest.py --config data/video_ocr_sources.json --broker-snapshot-dir data/broker_snapshots
+          python tool/video_ocr_secondary_ingest.py --config data/video_ocr_sources.json --broker-snapshot-dir data/broker_snapshots --debug-frame-dir artifacts/video_ocr_debug
+
+      - name: Upload OCR debug frames
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-ocr-debug
+          path: artifacts/video_ocr_debug
+          if-no-files-found: ignore
 
       - name: Rebuild derived IPO data
         run: dart run tool/ipo_competition_batch.dart --backfill-years 3 --live-dir data/live_snapshots --outcome-dir data/outcomes --broker-snapshot-dir data/broker_snapshots
