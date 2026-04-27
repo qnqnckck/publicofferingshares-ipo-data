@@ -222,9 +222,16 @@ Rules:
   snapshots by `id + source`. If browser capture fails, the pipeline can still
   fall back to direct stream extraction. For the same source, a newer
   `capturedAt` replaces the older fallback row.
+- `scheduleAutoload` can automatically include catalogued sources for stocks
+  whose subscription window is imminent or active, so upcoming IPO rows do not
+  need to be added by hand every time.
 - each source may define `imagePath` for the latest maintained screenshot. When
   present, OCR uses that image first and skips direct YouTube access. This is
   the preferred operating mode because it avoids anti-bot failures.
+- if `imagePath` is configured but the file is missing and `youtubeUrl` exists,
+  the workflow now falls back to browser capture instead of skipping the source.
+- when `timestampSeconds` is `0`, browser capture attempts to move to the end of
+  the video and capture the latest result screen.
 
 Recommended use:
 

@@ -1,5 +1,11 @@
 {
   "schemaVersion": 1,
+  "scheduleAutoload": {
+    "enabled": true,
+    "seedPath": "data/ipo_competition_seed.json",
+    "daysBeforeStart": 2,
+    "daysAfterEnd": 0
+  },
   "sources": [
     {
       "id": "shinhan_spac_18_2026",
@@ -43,5 +49,6 @@
         }
       ]
     }
-  ]
+  ],
+  "catalog": []
 }

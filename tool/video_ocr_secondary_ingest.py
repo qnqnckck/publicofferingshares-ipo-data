@@ -8,11 +8,13 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from datetime import datetime, timedelta
 from contextlib import suppress
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
+from zoneinfo import ZoneInfo
 
 
 def _read_json(path: Path) -> dict[str, Any]:
@@ -106,7 +108,7 @@ class SecondaryVideoOcrIngest:
 
     def run(self) -> int:
         config = _read_json(self.config_path)
-        sources = config.get("sources", [])
+        sources = self._resolve_sources(config)
         if not isinstance(sources, list) or not sources:
             print("No video OCR sources configured.")
             return 0
@@ -148,6 +150,74 @@ class SecondaryVideoOcrIngest:
 
         return 0
 
+    def _resolve_sources(self, config: dict[str, Any]) -> list[dict[str, Any]]:
+        base_sources = [
+            source
+            for source in config.get("sources", [])
+            if isinstance(source, dict)
+        ]
+        catalog_sources = [
+            source
+            for source in config.get("catalog", [])
+            if isinstance(source, dict)
+        ]
+        schedule_autoload = config.get("scheduleAutoload", {})
+        if not isinstance(schedule_autoload, dict) or not schedule_autoload.get("enabled"):
+            return base_sources
+
+        seed_path_value = str(
+            schedule_autoload.get("seedPath", "data/ipo_competition_seed.json"),
+        ).strip()
+        seed_path = Path(seed_path_value)
+        if not seed_path.is_absolute():
+            seed_path = self.config_path.parent.parent / seed_path
+        if not seed_path.exists():
+            print(f"schedule autoload skipped; missing seed path: {seed_path}")
+            return base_sources
+
+        days_before_start = _to_int(schedule_autoload.get("daysBeforeStart")) or 2
+        days_after_end = _to_int(schedule_autoload.get("daysAfterEnd")) or 0
+
+        seed_payload = _read_json(seed_path)
+        stocks = seed_payload.get("stocks", [])
+        if not isinstance(stocks, list):
+            return base_sources
+
+        now_kst = datetime.now(ZoneInfo("Asia/Seoul")).date()
+        existing_ids = {str(source.get("id", "")).strip() for source in base_sources}
+        catalog_by_id = {
+            str(source.get("id", "")).strip(): source
+            for source in catalog_sources
+            if str(source.get("id", "")).strip()
+        }
+
+        autoload_sources: list[dict[str, Any]] = []
+        for stock in stocks:
+            if not isinstance(stock, dict):
+                continue
+            stock_id = str(stock.get("id", "")).strip()
+            if not stock_id or stock_id in existing_ids:
+                continue
+            source = catalog_by_id.get(stock_id)
+            if source is None:
+                continue
+            start = _parse_date(str(stock.get("subscriptionStart", "")).strip())
+            end = _parse_date(str(stock.get("subscriptionEnd", "")).strip()) or start
+            if start is None:
+                continue
+            window_start = start - timedelta(days=days_before_start)
+            window_end = end + timedelta(days=days_after_end)
+            if window_start <= now_kst <= window_end:
+                autoload_sources.append(source)
+                existing_ids.add(stock_id)
+
+        if autoload_sources:
+            print(
+                "schedule autoload sources:",
+                ", ".join(str(source.get("id")) for source in autoload_sources),
+            )
+        return [*base_sources, *autoload_sources]
+
     def _extract_source(self, tmpdir: Path, source: dict[str, Any]) -> dict[str, Any] | None:
         youtube_url = str(source.get("youtubeUrl", "")).strip()
         timestamp_seconds = int(source.get("timestampSeconds", 0) or 0)
@@ -157,11 +227,16 @@ class SecondaryVideoOcrIngest:
             image_path = Path(image_path_value)
             if not image_path.is_absolute():
                 image_path = self.config_path.parent.parent / image_path
-            if not image_path.exists():
+            if image_path.exists():
+                frame_path.write_bytes(image_path.read_bytes())
+            elif youtube_url:
+                print(
+                    f"missing imagePath for {source.get('id')}, falling back to browser capture: {image_path}"
+                )
+            else:
                 print(f"skip missing imagePath for {source.get('id')}: {image_path}")
                 return None
-            frame_path.write_bytes(image_path.read_bytes())
-        else:
+        if not frame_path.exists():
             if not youtube_url:
                 print(f"skip invalid source config: {source.get('id')}")
                 return None
@@ -306,6 +381,17 @@ class SecondaryVideoOcrIngest:
                 page.wait_for_timeout(3500)
                 video = page.locator("video").first
                 video.wait_for(state="visible", timeout=45000)
+                effective_timestamp = timestamp_seconds
+                if effective_timestamp <= 0:
+                    with suppress(Exception):
+                        duration = page.evaluate(
+                            """() => {
+                                const video = document.querySelector('video');
+                                return video ? Number(video.duration || 0) : 0;
+                            }"""
+                        )
+                        if isinstance(duration, (int, float)) and duration > 5:
+                            effective_timestamp = max(int(duration) - 3, 0)
                 with suppress(Exception):
                     page.evaluate(
                         """(seconds) => {
@@ -317,9 +403,9 @@ class SecondaryVideoOcrIngest:
                               video.currentTime = seconds;
                             }
                         }""",
-                        timestamp_seconds,
+                        effective_timestamp,
                     )
-                page.wait_for_timeout(2500)
+                page.wait_for_timeout(3500)
                 self._dismiss_youtube_overlays(page)
                 try:
                     video.screenshot(path=str(frame_path))
@@ -515,6 +601,14 @@ def main(argv: list[str]) -> int:
         dry_run=args.dry_run,
     )
     return runner.run()
+
+
+def _parse_date(value: str) -> datetime.date | None:
+    if not value:
+        return None
+    with suppress(ValueError):
+        return datetime.fromisoformat(value).date()
+    return None
 
 
 if __name__ == "__main__":

@@ -1,5 +1,11 @@
 {
   "schemaVersion": 1,
+  "scheduleAutoload": {
+    "enabled": true,
+    "seedPath": "data/ipo_competition_seed.json",
+    "daysBeforeStart": 2,
+    "daysAfterEnd": 0
+  },
   "sources": [
     {
       "id": "shinhan_spac_18_2026",
@@ -26,6 +32,93 @@
           "proportionalAllocationShares": 625000,
           "depositRate": 1.0,
           "feeKrw": 2000,
+          "ocrHints": {
+            "competitionPatterns": [
+              "청약\\s*경쟁률\\s*(\\d+(?:\\.\\d+)?)",
+              "경쟁률\\s*(\\d+(?:\\.\\d+)?)"
+            ],
+            "proportionalCompetitionPatterns": [
+              "비례\\s*경쟁률\\s*(\\d+(?:\\.\\d+)?)",
+              "비례\\s*(\\d+(?:\\.\\d+)?)\\s*대\\s*1"
+            ],
+            "applicationCountPatterns": [
+              "청약건수\\s*(\\d+(?:,\\d{3})*)",
+              "건수\\s*(\\d+(?:,\\d{3})*)"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "catalog": [
+    {
+      "id": "cosmo_robotics_2026",
+      "company": "코스모로보틱스",
+      "youtubeUrl": "https://www.youtube.com/watch?v=20wOm9TcbFQ",
+      "timestampSeconds": 0,
+      "capturedAtKst": "2026-04-27T16:00:00+09:00",
+      "source": "youtube_video_ocr_secondary",
+      "sourceLabel": "공모주린이 청약 진행 화면",
+      "sourceUrl": "https://www.youtube.com/watch?v=20wOm9TcbFQ",
+      "aggregateCompetitionRate": 0,
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "brokers": [
+        {
+          "name": "유진투자증권",
+          "offeredShares": 347500,
+          "equalAllocationShares": 173750,
+          "proportionalAllocationShares": 173750,
+          "depositRate": 0.5,
+          "feeKrw": 0,
+          "ocrHints": {
+            "competitionPatterns": [
+              "청약\\s*경쟁률\\s*(\\d+(?:\\.\\d+)?)",
+              "경쟁률\\s*(\\d+(?:\\.\\d+)?)"
+            ],
+            "proportionalCompetitionPatterns": [
+              "비례\\s*경쟁률\\s*(\\d+(?:\\.\\d+)?)",
+              "비례\\s*(\\d+(?:\\.\\d+)?)\\s*대\\s*1"
+            ],
+            "applicationCountPatterns": [
+              "청약건수\\s*(\\d+(?:,\\d{3})*)",
+              "건수\\s*(\\d+(?:,\\d{3})*)"
+            ]
+          }
+        },
+        {
+          "name": "NH투자증권",
+          "offeredShares": 347500,
+          "equalAllocationShares": 173750,
+          "proportionalAllocationShares": 173750,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "ocrHints": {
+            "competitionPatterns": [
+              "청약\\s*경쟁률\\s*(\\d+(?:\\.\\d+)?)",
+              "경쟁률\\s*(\\d+(?:\\.\\d+)?)"
+            ],
+            "proportionalCompetitionPatterns": [
+              "비례\\s*경쟁률\\s*(\\d+(?:\\.\\d+)?)",
+              "비례\\s*(\\d+(?:\\.\\d+)?)\\s*대\\s*1"
+            ],
+            "applicationCountPatterns": [
+              "청약건수\\s*(\\d+(?:,\\d{3})*)",
+              "건수\\s*(\\d+(?:,\\d{3})*)"
+            ]
+          }
+        },
+        {
+          "name": "유안타증권",
+          "offeredShares": 347500,
+          "equalAllocationShares": 173750,
+          "proportionalAllocationShares": 173750,
+          "depositRate": 0.5,
+          "feeKrw": 0,
           "ocrHints": {
             "competitionPatterns": [
               "청약\\s*경쟁률\\s*(\\d+(?:\\.\\d+)?)",
