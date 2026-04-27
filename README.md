@@ -198,6 +198,27 @@ The workflow runs every 10 minutes during Korean weekday market hours. It
 discovers upcoming IPO rows, regenerates `ipo_competition_data/`, and commits
 changes when generated JSON changes.
 
+For automatic broker-metric enrichment and end-to-end unattended updates,
+configure these additional repository secrets:
+
+```text
+FINUTS_ID
+FINUTS_PASSWORD
+YOUTUBE_COOKIES_TXT
+```
+
+With those secrets present, the scheduled `video_ocr_secondary_ingest` workflow
+becomes the primary automation path:
+
+1. discover and normalize upcoming IPO rows
+2. rebuild baseline generated JSON
+3. ingest public OCR/live fallback broker snapshots
+4. backfill Finuts broker snapshots for all known stocks
+5. regenerate `ipo_competition_data/`
+6. commit and push changed files to `main`
+
+The standalone `ipo_competition_batch` workflow is kept as a manual fallback.
+
 ## Analysis output
 
 Each generated stock JSON includes `analysis`:
