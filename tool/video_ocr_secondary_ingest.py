@@ -13,7 +13,7 @@ from contextlib import suppress
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
-from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
+from urllib.parse import parse_qsl, quote_plus, urlencode, urlparse, urlunparse
 from zoneinfo import ZoneInfo
 
 
@@ -256,6 +256,8 @@ class SecondaryVideoOcrIngest:
                     frame_path,
                     live_stream=live_stream,
                     capture_selector=str(source.get("captureSelector", "")).strip() or None,
+                    company=str(source.get("company", "")).strip() or None,
+                    source_label=str(source.get("sourceLabel", "")).strip() or None,
                 )
             except Exception as exc:
                 browser_error = exc
@@ -390,6 +392,8 @@ class SecondaryVideoOcrIngest:
         *,
         live_stream: bool = False,
         capture_selector: str | None = None,
+        company: str | None = None,
+        source_label: str | None = None,
     ) -> None:
         try:
             from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
@@ -439,6 +443,22 @@ class SecondaryVideoOcrIngest:
                     play_button = page.locator(".ytp-large-play-button, .ytp-play-button").first
                     if play_button.is_visible(timeout=1000):
                         play_button.click(timeout=2000)
+                if live_stream and self._is_youtube_player_blocked(page):
+                    self._open_live_watch_result(page, company=company, source_label=source_label)
+                    self._dismiss_youtube_overlays(page)
+                    page.wait_for_timeout(3500)
+                    video = page.locator("video").first
+                    video.wait_for(state="attached", timeout=45000)
+                    with suppress(Exception):
+                        page.evaluate(
+                            """() => {
+                                const video = document.querySelector('video');
+                                if (!video) return;
+                                video.muted = true;
+                                video.volume = 0;
+                                video.play?.();
+                            }"""
+                        )
                 effective_timestamp = timestamp_seconds
                 if not live_stream and effective_timestamp <= 0:
                     with suppress(Exception):
@@ -483,6 +503,66 @@ class SecondaryVideoOcrIngest:
             finally:
                 context.close()
                 browser.close()
+
+    def _is_youtube_player_blocked(self, page: Any) -> bool:
+        with suppress(Exception):
+            text = page.locator("body").inner_text(timeout=2000)
+            normalized = re.sub(r"\s+", " ", text)
+            for marker in [
+                "오류 153",
+                "Error 153",
+                "동영상을 재생할 수 없습니다",
+                "재생할 수 없습니다",
+                "다른 웹사이트",
+                "video unavailable",
+            ]:
+                if marker.lower() in normalized.lower():
+                    return True
+        return False
+
+    def _open_live_watch_result(
+        self,
+        page: Any,
+        *,
+        company: str | None = None,
+        source_label: str | None = None,
+    ) -> None:
+        terms = " ".join(
+            part for part in [company or "", "공모주린이", "LIVE"] if part.strip()
+        ).strip() or (source_label or "")
+        if not terms:
+            return
+        page.goto(
+            f"https://www.youtube.com/results?search_query={quote_plus(terms)}",
+            wait_until="domcontentloaded",
+            timeout=120000,
+        )
+        self._dismiss_youtube_overlays(page)
+        page.wait_for_timeout(3000)
+        candidates = [
+            "ytd-video-renderer a#video-title",
+            "ytd-compact-video-renderer a#video-title",
+            "a#video-title",
+            "a#thumbnail",
+        ]
+        lowered_company = (company or "").lower()
+        for selector in candidates:
+            with suppress(Exception):
+                links = page.locator(selector)
+                count = min(links.count(), 12)
+                for index in range(count):
+                    link = links.nth(index)
+                    title = ""
+                    with suppress(Exception):
+                        title = (link.get_attribute("title") or link.inner_text(timeout=1000) or "").strip()
+                    normalized = title.lower()
+                    if lowered_company and lowered_company not in normalized:
+                        continue
+                    with suppress(Exception):
+                        link.click(timeout=3000)
+                        page.wait_for_load_state("domcontentloaded", timeout=120000)
+                        page.wait_for_timeout(3000)
+                        return
 
     def _dismiss_youtube_overlays(self, page: Any) -> None:
         candidates = [
