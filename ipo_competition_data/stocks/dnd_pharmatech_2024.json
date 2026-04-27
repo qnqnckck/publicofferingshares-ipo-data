@@ -63,7 +63,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T01:56:52.110384",
+      "capturedAt": "2026-04-27T11:42:25.004627",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.fnnews.com/news/202405020958088635",
       "brokers": [
@@ -123,7 +123,10 @@
         "offerPrice": 33000,
         "competitionRate": 1544.0,
         "feeKrw": null,
-        "method": "ipo_score_v2_general_rule_based"
+        "method": "ipo_score_v5_general_recent_weighted",
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 65,
+        "generalCompetitionPending": false
       }
     },
     "decision": {

@@ -65,7 +65,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T01:56:52.110384",
+      "capturedAt": "2026-04-27T11:42:25.004627",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=404690",
       "brokers": [
@@ -153,7 +153,10 @@
         "offerPrice": 50000,
         "competitionRate": 238.0,
         "feeKrw": null,
-        "method": "ipo_score_v2_general_rule_based"
+        "method": "ipo_score_v5_general_recent_weighted",
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 65,
+        "generalCompetitionPending": false
       }
     },
     "decision": {

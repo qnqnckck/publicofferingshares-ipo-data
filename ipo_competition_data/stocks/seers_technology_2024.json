@@ -63,7 +63,7 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T01:56:52.110384",
+      "capturedAt": "2026-04-27T11:42:25.004627",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://ckang.tistory.com/115",
       "brokers": [
@@ -123,7 +123,10 @@
         "offerPrice": 17000,
         "competitionRate": 1436.96,
         "feeKrw": null,
-        "method": "ipo_score_v2_general_rule_based"
+        "method": "ipo_score_v5_general_recent_weighted",
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 65,
+        "generalCompetitionPending": false
       }
     },
     "decision": {
