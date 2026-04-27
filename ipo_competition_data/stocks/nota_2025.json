@@ -47,6 +47,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -73,6 +74,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -83,29 +85,30 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://honda31.tistory.com/303",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100434",
       "brokers": [
         {
           "name": "미래에셋증권",
           "offeredShares": 729000,
-          "subscribedShares": 2027713500,
-          "offerPrice": 9100,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2781.5,
+          "subscribedShares": 4055427000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 5563.0,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2781.5,
+          "proportionalCompetitionRate": null,
           "equalAllocationShares": 364500,
           "proportionalAllocationShares": 364500,
+          "expectedEqualShares": 0.95,
           "applicationCount": null
         }
       ],
       "aggregate": {
         "offeredShares": 729000,
-        "subscribedShares": 2027713500,
-        "competitionRate": 2781.5
+        "subscribedShares": 4055427000,
+        "competitionRate": 5563.0
       }
     }
   ],
@@ -130,18 +133,18 @@
       "baseCaseListingGainRate": 1.2142,
       "bullCaseListingGainRate": 1.5142,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.004,
-        "oneMillionKrw": 0.04,
-        "fiveMillionKrw": 0.198
+        "minimumSubscription": 0.952,
+        "oneMillionKrw": 0.97,
+        "fiveMillionKrw": 1.049
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 40,
-        "oneMillionKrw": 437,
-        "fiveMillionKrw": 2183
+        "minimumSubscription": 10517,
+        "oneMillionKrw": 10715,
+        "fiveMillionKrw": 11588
       },
       "assumptions": {
         "offerPrice": 9100,
-        "competitionRate": 2781.5,
+        "competitionRate": 5563.0,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
@@ -161,7 +164,7 @@
       "level": "strong_watch",
       "label": "관심 높음",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2781.5대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 5563.0대 1입니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
@@ -172,16 +175,16 @@
     "brokerScores": [
       {
         "broker": "미래에셋증권",
-        "equalScore": 30,
-        "proportionalScore": 8,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 12655825,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 76,
+        "proportionalScore": 4,
+        "expectedEqualShares": 0.95,
+        "estimatedDepositForOneProportionalShare": 25311650,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 2781.5,
+      "latestCompetitionRate": 5563.0,
       "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

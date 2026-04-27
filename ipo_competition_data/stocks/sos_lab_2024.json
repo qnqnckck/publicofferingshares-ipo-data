@@ -47,6 +47,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -57,40 +58,41 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://honda31.tistory.com/278",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100185",
       "brokers": [
         {
           "name": "한국투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 11500,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2229.39,
+          "offeredShares": 475000,
+          "subscribedShares": 2117440750,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 4457.77,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2229.39,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 237500,
+          "proportionalAllocationShares": 237500,
+          "expectedEqualShares": 0.62,
           "applicationCount": null
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 2229.39
+        "offeredShares": 475000,
+        "subscribedShares": 2117440750,
+        "competitionRate": 4457.77
       }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 53,
+      "overall": 51,
       "grade": "C+",
       "confidence": 0.95,
       "factors": {
-        "competition": 16,
+        "competition": 14,
         "institutionDemand": 22,
         "demandStrength": 6,
         "lockupCommitment": 0,
@@ -104,22 +106,22 @@
       "baseCaseListingGainRate": 0.9815,
       "bullCaseListingGainRate": 1.2015,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.004,
-        "oneMillionKrw": 0.039,
-        "fiveMillionKrw": 0.195
+        "minimumSubscription": 0.622,
+        "oneMillionKrw": 0.64,
+        "fiveMillionKrw": 0.718
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 51,
-        "oneMillionKrw": 440,
-        "fiveMillionKrw": 2201
+        "minimumSubscription": 7024,
+        "oneMillionKrw": 7219,
+        "fiveMillionKrw": 8099
       },
       "assumptions": {
         "offerPrice": 11500,
-        "competitionRate": 2229.39,
+        "competitionRate": 4457.77,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.3526,
+        "generalPriorBase": 0.3362,
         "institutionBoost": 0.07153749999999999,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -132,10 +134,10 @@
       }
     },
     "decision": {
-      "level": "neutral",
-      "label": "중립",
+      "level": "caution",
+      "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2229.39대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 4457.77대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -145,16 +147,16 @@
     "brokerScores": [
       {
         "broker": "한국투자증권",
-        "equalScore": 30,
-        "proportionalScore": 8,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 12818993,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 50,
+        "proportionalScore": 4,
+        "expectedEqualShares": 0.62,
+        "estimatedDepositForOneProportionalShare": 25632178,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 2229.39,
+      "latestCompetitionRate": 4457.77,
       "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

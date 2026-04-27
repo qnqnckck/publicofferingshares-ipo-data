@@ -48,6 +48,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -58,54 +59,56 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://www.newspim.com/news/view/20260324001299",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100518",
       "brokers": [
         {
           "name": "NH투자증권",
-          "offeredShares": 147500,
-          "subscribedShares": 282232400,
-          "offerPrice": 16600,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1913.44,
+          "offeredShares": 206500,
+          "subscribedShares": 732628960,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 3547.84,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1913.44,
-          "equalAllocationShares": 73750,
-          "proportionalAllocationShares": 73750,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 103250,
+          "proportionalAllocationShares": 103250,
+          "expectedEqualShares": 0.3,
           "applicationCount": null
         },
         {
           "name": "유진투자증권",
-          "offeredShares": 147500,
-          "subscribedShares": 282232400,
-          "offerPrice": 16600,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1913.44,
+          "offeredShares": 88500,
+          "subscribedShares": 396213615,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 4476.99,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1913.44,
-          "equalAllocationShares": 73750,
-          "proportionalAllocationShares": 73750,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 44250,
+          "proportionalAllocationShares": 44250,
+          "expectedEqualShares": 0.6,
           "applicationCount": null
         }
       ],
       "aggregate": {
         "offeredShares": 295000,
-        "subscribedShares": 564464800,
-        "competitionRate": 1913.44
+        "subscribedShares": 1128842575,
+        "competitionRate": 3826.585
       }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 80,
-      "grade": "A-",
+      "overall": 78,
+      "grade": "B+",
       "confidence": 0.95,
       "factors": {
-        "competition": 16,
+        "competition": 14,
         "institutionDemand": 24,
         "demandStrength": 10,
         "lockupCommitment": 14,
@@ -114,32 +117,32 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 1.2046,
+      "expectedListingGainRate": 1.1935,
       "bearCaseListingGainRate": 1.0,
-      "baseCaseListingGainRate": 1.2046,
-      "bullCaseListingGainRate": 1.4246,
+      "baseCaseListingGainRate": 1.1935,
+      "bullCaseListingGainRate": 1.4135,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.005,
-        "oneMillionKrw": 0.031,
-        "fiveMillionKrw": 0.157
+        "minimumSubscription": 0.603,
+        "oneMillionKrw": 0.616,
+        "fiveMillionKrw": 0.679
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 105,
-        "oneMillionKrw": 630,
-        "fiveMillionKrw": 3148
+        "minimumSubscription": 11939,
+        "oneMillionKrw": 12199,
+        "fiveMillionKrw": 13447
       },
       "assumptions": {
         "offerPrice": 16600,
-        "competitionRate": 1913.44,
+        "competitionRate": 3826.585,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.6910491428571429,
+        "generalPriorBase": 0.6746491428571428,
         "institutionBoost": 0.09,
         "lockupBoost": 0.07014999999999999,
         "participantBoost": 0.05,
         "topBandBoost": 0.0,
-        "scoreBoost": 0.044444444444444446,
+        "scoreBoost": 0.03333333333333333,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
@@ -150,7 +153,7 @@
       "level": "strong_watch",
       "label": "관심 높음",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1913.44대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 3826.59대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
@@ -161,26 +164,26 @@
     },
     "brokerScores": [
       {
-        "broker": "NH투자증권",
-        "equalScore": 30,
-        "proportionalScore": 6,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 15881552,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "broker": "유진투자증권",
+        "equalScore": 48,
+        "proportionalScore": 3,
+        "expectedEqualShares": 0.6,
+        "estimatedDepositForOneProportionalShare": 37159017,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       },
       {
-        "broker": "유진투자증권",
-        "equalScore": 30,
-        "proportionalScore": 6,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 15881552,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "broker": "NH투자증권",
+        "equalScore": 24,
+        "proportionalScore": 3,
+        "expectedEqualShares": 0.3,
+        "estimatedDepositForOneProportionalShare": 29447072,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 1913.44,
+      "latestCompetitionRate": 3826.585,
       "snapshotCount": 2,
       "leadManagerCount": 2,
       "market": "KOSDAQ",

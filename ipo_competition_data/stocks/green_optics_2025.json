@@ -47,6 +47,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -73,6 +74,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -83,40 +85,41 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://honda31.tistory.com/303",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100454",
       "brokers": [
         {
           "name": "신영증권",
           "offeredShares": 500000,
-          "subscribedShares": 600000000,
-          "offerPrice": 16000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1200.0,
+          "subscribedShares": 1199905000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 2399.81,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1200.0,
+          "proportionalCompetitionRate": null,
           "equalAllocationShares": 250000,
           "proportionalAllocationShares": 250000,
+          "expectedEqualShares": 1.56,
           "applicationCount": null
         }
       ],
       "aggregate": {
         "offeredShares": 500000,
-        "subscribedShares": 600000000,
-        "competitionRate": 1200.0
+        "subscribedShares": 1199905000,
+        "competitionRate": 2399.81
       }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 71,
-      "grade": "B",
+      "overall": 74,
+      "grade": "B+",
       "confidence": 0.95,
       "factors": {
-        "competition": 13,
+        "competition": 16,
         "institutionDemand": 15,
         "demandStrength": 10,
         "lockupCommitment": 18,
@@ -125,32 +128,32 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.9122,
-      "bearCaseListingGainRate": 0.7322,
-      "baseCaseListingGainRate": 0.9122,
-      "bullCaseListingGainRate": 1.2122,
+      "expectedListingGainRate": 1.1589,
+      "bearCaseListingGainRate": 0.9789,
+      "baseCaseListingGainRate": 1.1589,
+      "bullCaseListingGainRate": 1.4589,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.008,
-        "oneMillionKrw": 0.052,
-        "fiveMillionKrw": 0.26
+        "minimumSubscription": 1.564,
+        "oneMillionKrw": 1.586,
+        "fiveMillionKrw": 1.69
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 122,
-        "oneMillionKrw": 760,
-        "fiveMillionKrw": 3801
+        "minimumSubscription": 29002,
+        "oneMillionKrw": 29408,
+        "fiveMillionKrw": 31340
       },
       "assumptions": {
         "offerPrice": 16000,
-        "competitionRate": 1200.0,
+        "competitionRate": 2399.81,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.6115325714285714,
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.6361325714285714,
         "institutionBoost": 0.05775,
         "lockupBoost": 0.1,
         "participantBoost": 0.04,
         "topBandBoost": 0.0,
-        "scoreBoost": -0.005555555555555556,
+        "scoreBoost": 0.011111111111111112,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
@@ -161,7 +164,7 @@
       "level": "consider",
       "label": "청약 고려",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1200.0대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 2399.81대 1입니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
@@ -172,16 +175,16 @@
     "brokerScores": [
       {
         "broker": "신영증권",
-        "equalScore": 30,
-        "proportionalScore": 10,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 9600000,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 100,
+        "proportionalScore": 5,
+        "expectedEqualShares": 1.56,
+        "estimatedDepositForOneProportionalShare": 19198480,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 1200.0,
+      "latestCompetitionRate": 2399.81,
       "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

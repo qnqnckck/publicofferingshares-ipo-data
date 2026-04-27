@@ -47,6 +47,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -57,40 +58,41 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://honda31.tistory.com/285",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100230",
       "brokers": [
         {
           "name": "신한투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 23000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 672.17,
+          "offeredShares": 174250,
+          "subscribedShares": 234251245,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 1344.34,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 672.17,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 87125,
+          "proportionalAllocationShares": 87125,
+          "expectedEqualShares": 0.43,
           "applicationCount": null
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 672.17
+        "offeredShares": 174250,
+        "subscribedShares": 234251245,
+        "competitionRate": 1344.34
       }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 48,
-      "grade": "C",
+      "overall": 52,
+      "grade": "C+",
       "confidence": 0.95,
       "factors": {
-        "competition": 9,
+        "competition": 13,
         "institutionDemand": 24,
         "demandStrength": 6,
         "lockupCommitment": 0,
@@ -99,27 +101,27 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.57,
-      "bearCaseListingGainRate": 0.39,
-      "baseCaseListingGainRate": 0.57,
-      "bullCaseListingGainRate": 0.79,
+      "expectedListingGainRate": 0.77,
+      "bearCaseListingGainRate": 0.59,
+      "baseCaseListingGainRate": 0.77,
+      "bullCaseListingGainRate": 0.99,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.015,
-        "oneMillionKrw": 0.065,
-        "fiveMillionKrw": 0.323
+        "minimumSubscription": 0.437,
+        "oneMillionKrw": 0.462,
+        "fiveMillionKrw": 0.592
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 195,
-        "oneMillionKrw": 848,
-        "fiveMillionKrw": 4240
+        "minimumSubscription": 7747,
+        "oneMillionKrw": 8188,
+        "fiveMillionKrw": 10479
       },
       "assumptions": {
         "offerPrice": 23000,
-        "competitionRate": 672.17,
+        "competitionRate": 1344.34,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.52,
-        "generalPriorBase": 0.3116,
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.3444,
         "institutionBoost": 0.09,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -132,28 +134,29 @@
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 672.17대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 1344.34대 1입니다."
       ],
       "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
     "brokerScores": [
       {
         "broker": "신한투자증권",
-        "equalScore": 30,
-        "proportionalScore": 13,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 7729955,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 34,
+        "proportionalScore": 6,
+        "expectedEqualShares": 0.43,
+        "estimatedDepositForOneProportionalShare": 15459910,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 672.17,
+      "latestCompetitionRate": 1344.34,
       "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

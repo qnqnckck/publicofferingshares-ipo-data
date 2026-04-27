@@ -53,6 +53,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -63,29 +64,30 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://www.newspim.com/news/view/20240129000612",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100009",
       "brokers": [
         {
           "name": "DB금융투자",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 18000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2650.0,
+          "offeredShares": 212500,
+          "subscribedShares": 1126390250,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 5300.66,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2650.0,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 106250,
+          "proportionalAllocationShares": 106250,
+          "expectedEqualShares": 0.67,
           "applicationCount": null
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 2650.0
+        "offeredShares": 212500,
+        "subscribedShares": 1126390250,
+        "competitionRate": 5300.66
       }
     }
   ],
@@ -110,18 +112,18 @@
       "baseCaseListingGainRate": 0.9684,
       "bullCaseListingGainRate": 1.1884,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.004,
-        "oneMillionKrw": 0.021,
-        "fiveMillionKrw": 0.105
+        "minimumSubscription": 0.672,
+        "oneMillionKrw": 0.68,
+        "fiveMillionKrw": 0.722
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 66,
-        "oneMillionKrw": 365,
-        "fiveMillionKrw": 1827
+        "minimumSubscription": 11711,
+        "oneMillionKrw": 11861,
+        "fiveMillionKrw": 12592
       },
       "assumptions": {
         "offerPrice": 18000,
-        "competitionRate": 2650.0,
+        "competitionRate": 5300.66,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
@@ -141,7 +143,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2650.0대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 5300.66대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -151,16 +153,16 @@
     "brokerScores": [
       {
         "broker": "DB금융투자",
-        "equalScore": 30,
-        "proportionalScore": 4,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 23850000,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 54,
+        "proportionalScore": 2,
+        "expectedEqualShares": 0.67,
+        "estimatedDepositForOneProportionalShare": 47705940,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 2650.0,
+      "latestCompetitionRate": 5300.66,
       "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

@@ -48,6 +48,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -58,54 +59,56 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://honda31.tistory.com/287",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100307",
       "brokers": [
         {
           "name": "미래에셋증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 13000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 133.46,
+          "offeredShares": 238175,
+          "subscribedShares": 69899599,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 293.48,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 133.46,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 119088,
+          "proportionalAllocationShares": 119088,
+          "expectedEqualShares": 3.04,
           "applicationCount": null
         },
         {
           "name": "삼성증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 13000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 133.46,
+          "offeredShares": 102075,
+          "subscribedShares": 20819217,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 203.96,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 133.46,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 51038,
+          "proportionalAllocationShares": 51038,
+          "expectedEqualShares": 3.07,
           "applicationCount": null
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 133.46
+        "offeredShares": 340250,
+        "subscribedShares": 90718816,
+        "competitionRate": 266.624
       }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 17,
+      "overall": 20,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
-        "competition": 2,
+        "competition": 5,
         "institutionDemand": 3,
         "demandStrength": 0,
         "lockupCommitment": 0,
@@ -114,27 +117,27 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.2,
-      "bearCaseListingGainRate": 0.02,
-      "baseCaseListingGainRate": 0.2,
-      "bullCaseListingGainRate": 0.42,
+      "expectedListingGainRate": 0.34,
+      "bearCaseListingGainRate": 0.16,
+      "baseCaseListingGainRate": 0.34,
+      "bullCaseListingGainRate": 0.56,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.075,
-        "oneMillionKrw": 0.576,
-        "fiveMillionKrw": 2.882
+        "minimumSubscription": 3.108,
+        "oneMillionKrw": 3.359,
+        "fiveMillionKrw": 4.513
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 195,
-        "oneMillionKrw": 1499,
-        "fiveMillionKrw": 7493
+        "minimumSubscription": 13735,
+        "oneMillionKrw": 14845,
+        "fiveMillionKrw": 19945
       },
       "assumptions": {
         "offerPrice": 13000,
-        "competitionRate": 133.46,
+        "competitionRate": 266.624,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.24,
-        "generalPriorBase": -0.021320000000000002,
+        "generalCompetitionBaseline": 0.38,
+        "generalPriorBase": 0.003280000000000021,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -150,7 +153,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 133.46대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 266.62대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
@@ -159,26 +162,26 @@
     },
     "brokerScores": [
       {
-        "broker": "미래에셋증권",
-        "equalScore": 30,
-        "proportionalScore": 100,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 867490,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "broker": "삼성증권",
+        "equalScore": 100,
+        "proportionalScore": 75,
+        "expectedEqualShares": 3.07,
+        "estimatedDepositForOneProportionalShare": 1325740,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       },
       {
-        "broker": "삼성증권",
-        "equalScore": 30,
-        "proportionalScore": 100,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 867490,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "broker": "미래에셋증권",
+        "equalScore": 100,
+        "proportionalScore": 52,
+        "expectedEqualShares": 3.04,
+        "estimatedDepositForOneProportionalShare": 1907620,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 133.46,
+      "latestCompetitionRate": 266.624,
       "snapshotCount": 2,
       "leadManagerCount": 2,
       "market": "KOSDAQ",

@@ -47,6 +47,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -57,40 +58,41 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://honda31.tistory.com/301",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100404",
       "brokers": [
         {
           "name": "미래에셋증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 14000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1922.75,
+          "offeredShares": 500000,
+          "subscribedShares": 1922750000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 3845.5,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1922.75,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 250000,
+          "proportionalAllocationShares": 250000,
+          "expectedEqualShares": 0.9,
           "applicationCount": null
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 1922.75
+        "offeredShares": 500000,
+        "subscribedShares": 1922750000,
+        "competitionRate": 3845.5
       }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 58,
-      "grade": "B-",
+      "overall": 56,
+      "grade": "C+",
       "confidence": 0.95,
       "factors": {
-        "competition": 16,
+        "competition": 14,
         "institutionDemand": 22,
         "demandStrength": 6,
         "lockupCommitment": 0,
@@ -104,22 +106,22 @@
       "baseCaseListingGainRate": 0.9835,
       "bullCaseListingGainRate": 1.2034,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.005,
-        "oneMillionKrw": 0.037,
-        "fiveMillionKrw": 0.186
+        "minimumSubscription": 0.903,
+        "oneMillionKrw": 0.919,
+        "fiveMillionKrw": 0.993
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 72,
-        "oneMillionKrw": 511,
-        "fiveMillionKrw": 2557
+        "minimumSubscription": 12427,
+        "oneMillionKrw": 12647,
+        "fiveMillionKrw": 13670
       },
       "assumptions": {
         "offerPrice": 14000,
-        "competitionRate": 1922.75,
+        "competitionRate": 3845.5,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.3936,
+        "generalPriorBase": 0.37720000000000004,
         "institutionBoost": 0.07344999999999999,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -135,7 +137,7 @@
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1922.75대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 3845.5대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -145,16 +147,16 @@
     "brokerScores": [
       {
         "broker": "미래에셋증권",
-        "equalScore": 30,
-        "proportionalScore": 7,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 13459250,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 72,
+        "proportionalScore": 4,
+        "expectedEqualShares": 0.9,
+        "estimatedDepositForOneProportionalShare": 26918500,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 1922.75,
+      "latestCompetitionRate": 3845.5,
       "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

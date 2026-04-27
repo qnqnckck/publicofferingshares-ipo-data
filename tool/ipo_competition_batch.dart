@@ -2740,6 +2740,7 @@ class IpoBrokerCompetition {
     required this.proportionalCompetitionRate,
     this.equalAllocationShares,
     this.proportionalAllocationShares,
+    this.expectedEqualShares,
     this.applicationCount,
   });
 
@@ -2754,6 +2755,7 @@ class IpoBrokerCompetition {
   final double? proportionalCompetitionRate;
   final int? equalAllocationShares;
   final int? proportionalAllocationShares;
+  final double? expectedEqualShares;
   final int? applicationCount;
 
   factory IpoBrokerCompetition.fromJson(Map<String, Object?> json) {
@@ -2777,6 +2779,7 @@ class IpoBrokerCompetition {
       proportionalAllocationShares:
           readOptionalInt(json['proportionalAllocationShares']) ??
               readOptionalInt(json['proportionalAllocationVolume']),
+      expectedEqualShares: readDouble(json['expectedEqualShares']),
       applicationCount: readOptionalInt(json['applicationCount']),
     );
   }
@@ -2794,6 +2797,7 @@ class IpoBrokerCompetition {
       proportionalCompetitionRate: proportionalCompetitionRate,
       equalAllocationShares: equalAllocationShares,
       proportionalAllocationShares: proportionalAllocationShares,
+      expectedEqualShares: expectedEqualShares,
       applicationCount: applicationCount,
     );
   }
@@ -2811,11 +2815,17 @@ class IpoBrokerCompetition {
       'proportionalCompetitionRate': proportionalCompetitionRate,
       'equalAllocationShares': equalAllocationShares,
       'proportionalAllocationShares': proportionalAllocationShares,
+      'expectedEqualShares': expectedEqualShares == null
+          ? null
+          : roundDouble(expectedEqualShares!, 4),
       'applicationCount': applicationCount,
     };
   }
 
   double? get equalExpectedSharesPerAccount {
+    if (expectedEqualShares != null && expectedEqualShares! > 0) {
+      return expectedEqualShares;
+    }
     final equalShares = equalAllocationShares;
     final accounts = applicationCount;
     if (equalShares == null || accounts == null || accounts <= 0) {
@@ -4244,12 +4254,18 @@ List<String> warningsFor(
 List<IpoBrokerScore> brokerScoresFor(IpoCompetitionStock stock) {
   final offerPrice = stock.latestOfferPrice;
   final brokerMetrics = <String, IpoBrokerCompetition>{};
+  final brokerPriorities = <String, int>{};
   for (final snapshot in stock.snapshots) {
+    final sourcePriority = snapshotSourcePriority(snapshot.source);
     for (final broker in snapshot.brokers) {
       if (broker.name == '통합') {
         continue;
       }
-      brokerMetrics[broker.name] = broker;
+      final previousPriority = brokerPriorities[broker.name] ?? -1;
+      if (sourcePriority >= previousPriority) {
+        brokerMetrics[broker.name] = broker;
+        brokerPriorities[broker.name] = sourcePriority;
+      }
     }
   }
   final scores = brokerMetrics.values.map((broker) {
@@ -4265,7 +4281,8 @@ List<IpoBrokerScore> brokerScoresFor(IpoCompetitionStock stock) {
         : clampInt((100000000 / depositForOne).round(), 0, 100);
     final hasPositiveApplicationCount =
         broker.applicationCount != null && broker.applicationCount! > 0;
-    final quality = hasPositiveApplicationCount &&
+    final hasDirectExpectedEqual = expectedEqual != null && expectedEqual > 0;
+    final quality = (hasPositiveApplicationCount || hasDirectExpectedEqual) &&
             (broker.proportionalCompetitionRate != null ||
                 broker.competitionRate != null)
         ? 'broker_verified'

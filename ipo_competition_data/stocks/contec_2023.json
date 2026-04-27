@@ -47,6 +47,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -57,29 +58,30 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://finfreedom.tistory.com",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100085",
       "brokers": [
         {
           "name": "대신증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 22500,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 9.09,
+          "offeredShares": 515000,
+          "subscribedShares": 9367850,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 18.19,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 9.09,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": 22.22222222222222,
+          "equalAllocationShares": 257500,
+          "proportionalAllocationShares": 257500,
+          "expectedEqualShares": 8.04,
           "applicationCount": null
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 9.09
+        "offeredShares": 515000,
+        "subscribedShares": 9367850,
+        "competitionRate": 18.19
       }
     }
   ],
@@ -104,18 +106,18 @@
       "baseCaseListingGainRate": -0.01,
       "bullCaseListingGainRate": 0.21,
       "expectedAllocatedShares": {
-        "minimumSubscription": 1.1,
-        "oneMillionKrw": 4.889,
-        "fiveMillionKrw": 24.447
+        "minimumSubscription": 8.59,
+        "oneMillionKrw": 10.483,
+        "fiveMillionKrw": 20.257
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -248,
-        "oneMillionKrw": -1100,
-        "fiveMillionKrw": -5501
+        "minimumSubscription": -1933,
+        "oneMillionKrw": -2359,
+        "fiveMillionKrw": -4558
       },
       "assumptions": {
         "offerPrice": 22500,
-        "competitionRate": 9.09,
+        "competitionRate": 18.19,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
@@ -135,7 +137,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 9.09대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 18.19대 1입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -144,16 +146,16 @@
     "brokerScores": [
       {
         "broker": "대신증권",
-        "equalScore": 30,
+        "equalScore": 100,
         "proportionalScore": 100,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 102263,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "expectedEqualShares": 8.04,
+        "estimatedDepositForOneProportionalShare": 250000,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 9.09,
+      "latestCompetitionRate": 18.19,
       "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

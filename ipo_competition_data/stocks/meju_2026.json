@@ -47,6 +47,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -73,6 +74,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -83,40 +85,41 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://channyfarm.com/%EB%A9%94%EC%A5%AC-%EC%B2%AD%EC%95%BD-%EA%B2%B0%EA%B3%BC-%EA%B2%BD%EC%9F%81%EB%A5%A0-24281-%EA%B7%A0%EB%93%B1%EB%B0%B0%EC%A0%95%C2%B7%ED%99%98%EB%B6%88%EC%9D%BC-%EC%B4%9D%EC%A0%95%EB%A6%AC/",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100517",
       "brokers": [
         {
           "name": "신한투자증권",
           "offeredShares": 336250,
-          "subscribedShares": 816499063,
-          "offerPrice": 21600,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2428.25,
+          "subscribedShares": 1632661875,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 4855.5,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2428.25,
+          "proportionalCompetitionRate": null,
           "equalAllocationShares": 168125,
           "proportionalAllocationShares": 168125,
+          "expectedEqualShares": 0.41,
           "applicationCount": null
         }
       ],
       "aggregate": {
         "offeredShares": 336250,
-        "subscribedShares": 816499063,
-        "competitionRate": 2428.250001486989
+        "subscribedShares": 1632661875,
+        "competitionRate": 4855.5
       }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 82,
+      "overall": 80,
       "grade": "A-",
       "confidence": 0.95,
       "factors": {
-        "competition": 16,
+        "competition": 14,
         "institutionDemand": 22,
         "demandStrength": 10,
         "lockupCommitment": 18,
@@ -125,32 +128,32 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 1.2317,
+      "expectedListingGainRate": 1.2206,
       "bearCaseListingGainRate": 1.0,
-      "baseCaseListingGainRate": 1.2317,
-      "bullCaseListingGainRate": 1.5317,
+      "baseCaseListingGainRate": 1.2206,
+      "bullCaseListingGainRate": 1.5206,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.004,
-        "oneMillionKrw": 0.019,
-        "fiveMillionKrw": 0.095
+        "minimumSubscription": 0.412,
+        "oneMillionKrw": 0.42,
+        "fiveMillionKrw": 0.458
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 110,
-        "oneMillionKrw": 507,
-        "fiveMillionKrw": 2536
+        "minimumSubscription": 10864,
+        "oneMillionKrw": 11061,
+        "fiveMillionKrw": 12066
       },
       "assumptions": {
         "offerPrice": 21600,
-        "competitionRate": 2428.250001486989,
+        "competitionRate": 4855.5,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.7232400000000001,
+        "generalPriorBase": 0.7068400000000001,
         "institutionBoost": 0.076125,
         "lockupBoost": 0.1,
         "participantBoost": 0.05,
         "topBandBoost": 0.0,
-        "scoreBoost": 0.05555555555555555,
+        "scoreBoost": 0.044444444444444446,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
@@ -161,7 +164,7 @@
       "level": "strong_watch",
       "label": "관심 높음",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2428.25대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 4855.5대 1입니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
@@ -172,16 +175,16 @@
     "brokerScores": [
       {
         "broker": "신한투자증권",
-        "equalScore": 30,
-        "proportionalScore": 4,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 26225100,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 33,
+        "proportionalScore": 2,
+        "expectedEqualShares": 0.41,
+        "estimatedDepositForOneProportionalShare": 52439400,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 2428.250001486989,
+      "latestCompetitionRate": 4855.5,
       "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

@@ -47,6 +47,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -57,40 +58,41 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://finfreedom.tistory.com",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100155",
       "brokers": [
         {
           "name": "DB금융투자",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 26000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2316.13,
+          "offeredShares": 110000,
+          "subscribedShares": 497779700,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 4525.27,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2316.13,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 55000,
+          "proportionalAllocationShares": 55000,
+          "expectedEqualShares": 0.47,
           "applicationCount": null
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 2316.13
+        "offeredShares": 110000,
+        "subscribedShares": 497779700,
+        "competitionRate": 4525.27
       }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 56,
+      "overall": 53,
       "grade": "C+",
       "confidence": 0.95,
       "factors": {
-        "competition": 16,
+        "competition": 14,
         "institutionDemand": 24,
         "demandStrength": 6,
         "lockupCommitment": 0,
@@ -104,22 +106,22 @@
       "baseCaseListingGainRate": 1.0,
       "bullCaseListingGainRate": 1.22,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.004,
-        "oneMillionKrw": 0.017,
-        "fiveMillionKrw": 0.083
+        "minimumSubscription": 0.472,
+        "oneMillionKrw": 0.478,
+        "fiveMillionKrw": 0.512
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 112,
-        "oneMillionKrw": 432,
-        "fiveMillionKrw": 2159
+        "minimumSubscription": 12277,
+        "oneMillionKrw": 12441,
+        "fiveMillionKrw": 13325
       },
       "assumptions": {
         "offerPrice": 26000,
-        "competitionRate": 2316.13,
+        "competitionRate": 4525.27,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.37720000000000004,
+        "generalPriorBase": 0.3526,
         "institutionBoost": 0.09,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -135,7 +137,7 @@
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2316.13대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 4525.27대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -145,16 +147,16 @@
     "brokerScores": [
       {
         "broker": "DB금융투자",
-        "equalScore": 30,
-        "proportionalScore": 3,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 30109690,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 38,
+        "proportionalScore": 2,
+        "expectedEqualShares": 0.47,
+        "estimatedDepositForOneProportionalShare": 58828510,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 2316.13,
+      "latestCompetitionRate": 4525.27,
       "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

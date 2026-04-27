@@ -47,6 +47,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -57,40 +58,41 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://honda31.tistory.com/278",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100188",
       "brokers": [
         {
           "name": "IBK투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 30000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1000.82,
+          "offeredShares": 400000,
+          "subscribedShares": 800656000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 1500,
+          "competitionRate": 2001.64,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1000.82,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 200000,
+          "proportionalAllocationShares": 200000,
+          "expectedEqualShares": 1.49,
           "applicationCount": null
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 1000.82
+        "offeredShares": 400000,
+        "subscribedShares": 800656000,
+        "competitionRate": 2001.64
       }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 42,
-      "grade": "C-",
+      "overall": 46,
+      "grade": "C",
       "confidence": 0.95,
       "factors": {
-        "competition": 13,
+        "competition": 16,
         "institutionDemand": 15,
         "demandStrength": 6,
         "lockupCommitment": 0,
@@ -99,27 +101,27 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.7082,
-      "bearCaseListingGainRate": 0.5282,
-      "baseCaseListingGainRate": 0.7082,
-      "bullCaseListingGainRate": 0.9282,
+      "expectedListingGainRate": 0.9382,
+      "bearCaseListingGainRate": 0.7582,
+      "baseCaseListingGainRate": 0.9382,
+      "bullCaseListingGainRate": 1.1582,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.01,
-        "oneMillionKrw": 0.033,
-        "fiveMillionKrw": 0.167
+        "minimumSubscription": 1.495,
+        "oneMillionKrw": 1.507,
+        "fiveMillionKrw": 1.573
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 212,
-        "oneMillionKrw": 708,
-        "fiveMillionKrw": 3538
+        "minimumSubscription": 42080,
+        "oneMillionKrw": 42408,
+        "fiveMillionKrw": 44283
       },
       "assumptions": {
         "offerPrice": 30000,
-        "competitionRate": 1000.82,
+        "competitionRate": 2001.64,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.22246928000000002,
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.25526928,
         "institutionBoost": 0.028242500000000007,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -135,7 +137,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1000.82대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 2001.64대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -145,16 +147,16 @@
     "brokerScores": [
       {
         "broker": "IBK투자증권",
-        "equalScore": 30,
-        "proportionalScore": 7,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 15012300,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 100,
+        "proportionalScore": 3,
+        "expectedEqualShares": 1.49,
+        "estimatedDepositForOneProportionalShare": 30024600,
+        "feeKrw": 1500,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 1000.82,
+      "latestCompetitionRate": 2001.64,
       "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

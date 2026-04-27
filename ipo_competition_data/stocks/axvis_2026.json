@@ -47,6 +47,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -57,29 +58,30 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://www.newspim.com/news/view/20260224001095",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100508",
       "brokers": [
         {
           "name": "미래에셋증권",
           "offeredShares": 575000,
-          "subscribedShares": 1558859500,
-          "offerPrice": 11500,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2711.06,
+          "subscribedShares": 3117719000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 5422.12,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2711.06,
+          "proportionalCompetitionRate": null,
           "equalAllocationShares": 287500,
           "proportionalAllocationShares": 287500,
+          "expectedEqualShares": 0.48,
           "applicationCount": null
         }
       ],
       "aggregate": {
         "offeredShares": 575000,
-        "subscribedShares": 1558859500,
-        "competitionRate": 2711.06
+        "subscribedShares": 3117719000,
+        "competitionRate": 5422.12
       }
     }
   ],
@@ -104,18 +106,18 @@
       "baseCaseListingGainRate": 1.2225,
       "bullCaseListingGainRate": 1.5225,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.004,
-        "oneMillionKrw": 0.032,
-        "fiveMillionKrw": 0.16
+        "minimumSubscription": 0.482,
+        "oneMillionKrw": 0.496,
+        "fiveMillionKrw": 0.56
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 52,
-        "oneMillionKrw": 451,
-        "fiveMillionKrw": 2255
+        "minimumSubscription": 6774,
+        "oneMillionKrw": 6973,
+        "fiveMillionKrw": 7875
       },
       "assumptions": {
         "offerPrice": 11500,
-        "competitionRate": 2711.06,
+        "competitionRate": 5422.12,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
@@ -135,7 +137,7 @@
       "level": "strong_watch",
       "label": "관심 높음",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2711.06대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 5422.12대 1입니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
@@ -146,16 +148,16 @@
     "brokerScores": [
       {
         "broker": "미래에셋증권",
-        "equalScore": 30,
-        "proportionalScore": 6,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 15588595,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 38,
+        "proportionalScore": 3,
+        "expectedEqualShares": 0.48,
+        "estimatedDepositForOneProportionalShare": 31177190,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 2711.06,
+      "latestCompetitionRate": 5422.12,
       "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

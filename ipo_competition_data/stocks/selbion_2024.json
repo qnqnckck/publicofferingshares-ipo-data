@@ -47,6 +47,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -57,40 +58,41 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://honda31.tistory.com/284",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100261",
       "brokers": [
         {
           "name": "대신증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 15000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1065.46,
+          "offeredShares": 477750,
+          "subscribedShares": 1018047030,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 2130.92,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1065.46,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 238875,
+          "proportionalAllocationShares": 238875,
+          "expectedEqualShares": 0.95,
           "applicationCount": null
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 1065.46
+        "offeredShares": 477750,
+        "subscribedShares": 1018047030,
+        "competitionRate": 2130.92
       }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 50,
-      "grade": "C",
+      "overall": 53,
+      "grade": "C+",
       "confidence": 0.95,
       "factors": {
-        "competition": 13,
+        "competition": 16,
         "institutionDemand": 22,
         "demandStrength": 6,
         "lockupCommitment": 0,
@@ -99,27 +101,27 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.7488,
-      "bearCaseListingGainRate": 0.5688,
-      "baseCaseListingGainRate": 0.7488,
-      "bullCaseListingGainRate": 0.9688,
+      "expectedListingGainRate": 0.9788,
+      "bearCaseListingGainRate": 0.7988,
+      "baseCaseListingGainRate": 0.9788,
+      "bullCaseListingGainRate": 1.1988,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.009,
-        "oneMillionKrw": 0.063,
-        "fiveMillionKrw": 0.313
+        "minimumSubscription": 0.955,
+        "oneMillionKrw": 0.981,
+        "fiveMillionKrw": 1.106
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 105,
-        "oneMillionKrw": 703,
-        "fiveMillionKrw": 3514
+        "minimumSubscription": 14016,
+        "oneMillionKrw": 14407,
+        "fiveMillionKrw": 16244
       },
       "assumptions": {
         "offerPrice": 15000,
-        "competitionRate": 1065.46,
+        "competitionRate": 2130.92,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.328,
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.3526,
         "institutionBoost": 0.06877375000000001,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -132,10 +134,10 @@
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1065.46대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 2130.92대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -145,16 +147,16 @@
     "brokerScores": [
       {
         "broker": "대신증권",
-        "equalScore": 30,
-        "proportionalScore": 13,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 7990950,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 76,
+        "proportionalScore": 6,
+        "expectedEqualShares": 0.95,
+        "estimatedDepositForOneProportionalShare": 15981900,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 1065.46,
+      "latestCompetitionRate": 2130.92,
       "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

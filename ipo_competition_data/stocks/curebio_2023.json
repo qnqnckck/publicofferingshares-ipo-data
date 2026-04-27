@@ -47,6 +47,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -57,29 +58,30 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://finfreedom.tistory.com",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100133",
       "brokers": [
         {
           "name": "키움증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 13000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 10.12,
+          "offeredShares": 350000,
+          "subscribedShares": 7084000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 20.24,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 10.12,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": 21.97802197802198,
+          "equalAllocationShares": 175000,
+          "proportionalAllocationShares": 175000,
+          "expectedEqualShares": 11.97,
           "applicationCount": null
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 10.12
+        "offeredShares": 350000,
+        "subscribedShares": 7084000,
+        "competitionRate": 20.24
       }
     }
   ],
@@ -104,18 +106,18 @@
       "baseCaseListingGainRate": -0.01,
       "bullCaseListingGainRate": 0.21,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.988,
-        "oneMillionKrw": 7.601,
-        "fiveMillionKrw": 38.005
+        "minimumSubscription": 12.464,
+        "oneMillionKrw": 15.771,
+        "fiveMillionKrw": 30.973
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -128,
-        "oneMillionKrw": -988,
-        "fiveMillionKrw": -4941
+        "minimumSubscription": -1620,
+        "oneMillionKrw": -2050,
+        "fiveMillionKrw": -4026
       },
       "assumptions": {
         "offerPrice": 13000,
-        "competitionRate": 10.12,
+        "competitionRate": 20.24,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
@@ -135,7 +137,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 10.12대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 20.24대 1입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -144,16 +146,16 @@
     "brokerScores": [
       {
         "broker": "키움증권",
-        "equalScore": 30,
+        "equalScore": 100,
         "proportionalScore": 100,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 65780,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "expectedEqualShares": 11.97,
+        "estimatedDepositForOneProportionalShare": 142857,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 10.12,
+      "latestCompetitionRate": 20.24,
       "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

@@ -12,10 +12,11 @@ import sys
 import tempfile
 from datetime import datetime, timedelta
 from contextlib import suppress
+from http.cookiejar import CookieJar
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
-from urllib.request import urlopen
+from urllib.request import HTTPCookieProcessor, Request, build_opener, urlopen
 from urllib.parse import parse_qsl, quote, quote_plus, urlencode, urlparse, urlunparse
 from zoneinfo import ZoneInfo
 
@@ -79,6 +80,7 @@ class BrokerExtraction:
     offered_shares: int | None
     equal_allocation_shares: int | None
     proportional_allocation_shares: int | None
+    expected_equal_shares: float | None
     deposit_rate: float | None
     fee_krw: int | None
     competition_rate: float | None
@@ -94,6 +96,7 @@ class BrokerExtraction:
             "offeredShares": self.offered_shares,
             "equalAllocationShares": self.equal_allocation_shares,
             "proportionalAllocationShares": self.proportional_allocation_shares,
+            "expectedEqualShares": self.expected_equal_shares,
             "applicationCount": self.application_count,
             "subscribedShares": subscribed_shares,
             "competitionRate": self.competition_rate,
@@ -109,11 +112,13 @@ class SecondaryVideoOcrIngest:
         config_path: Path,
         broker_snapshot_dir: Path,
         dry_run: bool,
+        include_all_stocks: bool = False,
         debug_frame_dir: Path | None = None,
     ) -> None:
         self.config_path = config_path
         self.broker_snapshot_dir = broker_snapshot_dir
         self.dry_run = dry_run
+        self.include_all_stocks = include_all_stocks
         self.debug_frame_dir = debug_frame_dir
         cookies_path_value = os.environ.get("YOUTUBE_COOKIES_PATH", "").strip()
         self.youtube_cookies_path = Path(cookies_path_value) if cookies_path_value else None
@@ -230,6 +235,10 @@ class SecondaryVideoOcrIngest:
                 )
             if source is None:
                 continue
+            if self.include_all_stocks:
+                autoload_sources.append(source)
+                existing_ids.add(stock_id)
+                continue
             start = _parse_date(str(stock.get("subscriptionStart", "")).strip())
             end = _parse_date(str(stock.get("subscriptionEnd", "")).strip()) or start
             if start is None:
@@ -263,22 +272,68 @@ class SecondaryVideoOcrIngest:
 
     def _discover_finuts_entries(self) -> dict[str, dict[str, Any]]:
         entries: dict[str, dict[str, Any]] = {}
-        for cat in ("04", "05", "06"):
-            url = f"https://www.finuts.co.kr/html/ipo/ipoList.php?cat={cat}"
-            try:
-                with urlopen(url, timeout=30) as response:
-                    html_text = response.read().decode("utf-8", errors="ignore")
-            except Exception as exc:
-                print(f"finuts autodiscover skipped for cat {cat}: {exc}")
-                continue
-            for entry in self._extract_finuts_entries_from_html(html_text):
+        ajax_entries = self._fetch_finuts_list_entries()
+        if ajax_entries:
+            for entry in ajax_entries:
                 normalized = self._normalize_company_name(entry.get("company", ""))
                 if not normalized:
                     continue
                 entries[normalized] = entry
+        if not entries:
+            for cat in ("04", "05", "06"):
+                url = f"https://www.finuts.co.kr/html/ipo/ipoList.php?cat={cat}"
+                try:
+                    with urlopen(url, timeout=30) as response:
+                        html_text = response.read().decode("utf-8", errors="ignore")
+                except Exception as exc:
+                    print(f"finuts autodiscover skipped for cat {cat}: {exc}")
+                    continue
+                for entry in self._extract_finuts_entries_from_html(html_text):
+                    normalized = self._normalize_company_name(entry.get("company", ""))
+                    if not normalized:
+                        continue
+                    entries[normalized] = entry
         if entries:
             print(f"finuts autodiscover entries: {len(entries)}")
         return entries
+
+    def _fetch_finuts_list_entries(self) -> list[dict[str, Any]]:
+        url = "https://www.finuts.co.kr/html/task/ipo/ipoListQuery.php"
+        payload = urlencode({"active": "ipo-011", "search_text": ""}).encode()
+        request = Request(
+            url,
+            data=payload,
+            headers={
+                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                "X-Requested-With": "XMLHttpRequest",
+            },
+        )
+        try:
+            with urlopen(request, timeout=30) as response:
+                body = response.read().decode("utf-8", errors="ignore")
+        except Exception as exc:
+            print(f"finuts ajax autodiscover skipped: {exc}")
+            return []
+        with suppress(json.JSONDecodeError):
+            payload_obj = json.loads(body)
+            rows = payload_obj.get("data", [])
+            if isinstance(rows, list):
+                entries: dict[str, dict[str, Any]] = {}
+                for row in rows:
+                    if not isinstance(row, dict):
+                        continue
+                    ipo_sn = str(row.get("IPO_SN", "")).strip()
+                    company = self._strip_html(str(row.get("ENT_NM", "")).strip())
+                    if not ipo_sn or not company:
+                        continue
+                    entries[ipo_sn] = {
+                        "ipoSn": ipo_sn,
+                        "securityType": str(row.get("SE_CD", "")).strip(),
+                        "company": company,
+                        "finutsUrl": f"https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn={ipo_sn}",
+                    }
+                return list(entries.values())
+        return []
 
     def _extract_finuts_entries_from_html(self, html_text: str) -> list[dict[str, Any]]:
         entries: dict[str, dict[str, Any]] = {}
@@ -556,9 +611,6 @@ class SecondaryVideoOcrIngest:
             )
 
             expected_equal = _to_float(jugansa.get("EQLTY_STOCK_CNT"))
-            application_count = None
-            if equal_supply and expected_equal and expected_equal > 0:
-                application_count = max(1, int(round(equal_supply / expected_equal)))
 
             deposit_rate = _to_float(broker_cfg.get("depositRate")) or 0.5
             proportional_shares = (
@@ -583,11 +635,12 @@ class SecondaryVideoOcrIngest:
                     offered_shares=offered_shares,
                     equal_allocation_shares=equal_supply,
                     proportional_allocation_shares=proportional_supply,
+                    expected_equal_shares=expected_equal,
                     deposit_rate=deposit_rate,
                     fee_krw=_to_int(jugansa.get("FEE")) or _to_int(broker_cfg.get("feeKrw")),
                     competition_rate=_to_float(jugansa.get("SCSCS_CMPET_RT")),
                     proportional_competition_rate=proportional_rate,
-                    application_count=application_count,
+                    application_count=None,
                 )
             )
         return extracted_brokers
@@ -600,6 +653,13 @@ class SecondaryVideoOcrIngest:
     ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
         if not self.finuts_id or not self.finuts_password:
             return [], []
+        with suppress(Exception):
+            session_rows = self._fetch_finuts_ajax_rows_via_session(
+                finuts_url,
+                search_deposit_manwon=search_deposit_manwon,
+            )
+            if session_rows != ([], []):
+                return session_rows
         try:
             from playwright.sync_api import sync_playwright
         except ImportError as exc:
@@ -669,6 +729,106 @@ class SecondaryVideoOcrIngest:
 
         jugansa_rows = json.loads(jugansa_text) if jugansa_text else []
         altmnt_rows = json.loads(altmnt_text) if altmnt_text else []
+        if not isinstance(jugansa_rows, list):
+            jugansa_rows = []
+        if not isinstance(altmnt_rows, list):
+            altmnt_rows = []
+        return (
+            [row for row in jugansa_rows if isinstance(row, dict)],
+            [row for row in altmnt_rows if isinstance(row, dict)],
+        )
+
+    def _fetch_finuts_ajax_rows_via_session(
+        self,
+        finuts_url: str,
+        *,
+        search_deposit_manwon: int,
+    ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+        parsed = urlparse(finuts_url)
+        return_path = parsed.path
+        if parsed.query:
+            return_path = f"{parsed.path}?{parsed.query}"
+        login_url = (
+            f"{parsed.scheme}://{parsed.netloc}/html/user/login.php?"
+            f"url={quote(return_path, safe='/?=&')}"
+        )
+        cookie_jar = CookieJar()
+        opener = build_opener(HTTPCookieProcessor(cookie_jar))
+        opener.addheaders = [
+            ("User-Agent", "Mozilla/5.0"),
+        ]
+        login_page = opener.open(login_url, timeout=30).read().decode("utf-8", errors="ignore")
+        token_match = re.search(
+            r'<input[^>]+name="_token"[^>]+value="([^"]+)"',
+            login_page,
+            flags=re.IGNORECASE,
+        )
+        token = token_match.group(1).strip() if token_match else ""
+        if not token:
+            return [], []
+        login_payload = urlencode(
+            {
+                "user_id": self.finuts_id,
+                "user_pwd": self.finuts_password,
+                "save_id": "",
+                "_token": token,
+            }
+        ).encode()
+        login_request = Request(
+            f"{parsed.scheme}://{parsed.netloc}/html/task/user/ajaxMemberLoginCheck.php",
+            data=login_payload,
+            headers={
+                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                "X-Requested-With": "XMLHttpRequest",
+                "Referer": login_url,
+            },
+        )
+        login_response = opener.open(login_request, timeout=30).read().decode(
+            "utf-8",
+            errors="ignore",
+        )
+        if '"S"' not in login_response and "S" != login_response.strip():
+            return [], []
+        ipo_sn = self._extract_finuts_ipo_sn(finuts_url)
+        if not ipo_sn:
+            return [], []
+        jugansa_request = Request(
+            f"{parsed.scheme}://{parsed.netloc}/html/task/ipo/ajaxJugansaList.php",
+            data=urlencode({"ipo_sn": ipo_sn}).encode(),
+            headers={
+                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                "X-Requested-With": "XMLHttpRequest",
+                "Referer": finuts_url,
+            },
+        )
+        altmnt_request = Request(
+            f"{parsed.scheme}://{parsed.netloc}/html/task/ipo/ajaxAltmntList.php",
+            data=urlencode(
+                {
+                    "ipo_sn": ipo_sn,
+                    "search_scscs_wrtm": str(search_deposit_manwon),
+                }
+            ).encode(),
+            headers={
+                "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                "X-Requested-With": "XMLHttpRequest",
+                "Referer": finuts_url,
+            },
+        )
+        jugansa_text = opener.open(jugansa_request, timeout=30).read().decode(
+            "utf-8",
+            errors="ignore",
+        )
+        altmnt_text = opener.open(altmnt_request, timeout=30).read().decode(
+            "utf-8",
+            errors="ignore",
+        )
+        jugansa_rows = json.loads(jugansa_text) if jugansa_text else []
+        altmnt_rows = json.loads(altmnt_text) if altmnt_text else []
+        if not isinstance(jugansa_rows, list):
+            jugansa_rows = []
+        if not isinstance(altmnt_rows, list):
+            altmnt_rows = []
         return (
             [row for row in jugansa_rows if isinstance(row, dict)],
             [row for row in altmnt_rows if isinstance(row, dict)],
@@ -744,6 +904,7 @@ class SecondaryVideoOcrIngest:
                     proportional_allocation_shares=_to_int(
                         broker_cfg.get("proportionalAllocationShares")
                     ),
+                    expected_equal_shares=None,
                     deposit_rate=_to_float(broker_cfg.get("depositRate")),
                     fee_krw=_to_int(broker_cfg.get("feeKrw")),
                     competition_rate=competition,
@@ -1264,6 +1425,11 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         help="Parse and print without writing any files",
     )
     parser.add_argument(
+        "--all-stocks",
+        action="store_true",
+        help="Attempt Finuts matching for every stock in the seed file, ignoring the active subscription window",
+    )
+    parser.add_argument(
         "--debug-frame-dir",
         default="",
         help="Optional directory to write captured OCR debug frames and text",
@@ -1284,6 +1450,7 @@ def main(argv: list[str]) -> int:
         config_path=config_path,
         broker_snapshot_dir=Path(args.broker_snapshot_dir),
         dry_run=args.dry_run,
+        include_all_stocks=args.all_stocks,
         debug_frame_dir=Path(args.debug_frame_dir) if args.debug_frame_dir else None,
     )
     return runner.run()

@@ -55,6 +55,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -65,68 +66,71 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://www.asiae.co.kr/article/2024070316511377246",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100209",
       "brokers": [
         {
           "name": "NH투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 60000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 341.24,
+          "offeredShares": 811567,
+          "subscribedShares": 549382165,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 676.94,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 341.24,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 405784,
+          "proportionalAllocationShares": 405784,
+          "expectedEqualShares": 1.36,
           "applicationCount": null
         },
         {
           "name": "신한투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 60000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 341.24,
+          "offeredShares": 108209,
+          "subscribedShares": 70346671,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 650.1,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 341.24,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 54104,
+          "proportionalAllocationShares": 54104,
+          "expectedEqualShares": 0.88,
           "applicationCount": null
         },
         {
           "name": "한국투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 60000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 341.24,
+          "offeredShares": 892724,
+          "subscribedShares": 616372359,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 690.44,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 341.24,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 446362,
+          "proportionalAllocationShares": 446362,
+          "expectedEqualShares": 1.34,
           "applicationCount": null
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 341.24
+        "offeredShares": 1812500,
+        "subscribedShares": 1236101195,
+        "competitionRate": 681.9868662068966
       }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 12,
+      "overall": 17,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
-        "competition": 5,
+        "competition": 9,
         "institutionDemand": 3,
         "demandStrength": 0,
         "lockupCommitment": 0,
@@ -135,27 +139,27 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.34,
-      "bearCaseListingGainRate": 0.16,
-      "baseCaseListingGainRate": 0.34,
-      "bullCaseListingGainRate": 0.56,
+      "expectedListingGainRate": 0.48,
+      "bearCaseListingGainRate": 0.3,
+      "baseCaseListingGainRate": 0.48,
+      "bullCaseListingGainRate": 0.7,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.029,
-        "oneMillionKrw": 0.049,
-        "fiveMillionKrw": 0.244
+        "minimumSubscription": 1.375,
+        "oneMillionKrw": 1.384,
+        "fiveMillionKrw": 1.482
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 598,
-        "oneMillionKrw": 996,
-        "fiveMillionKrw": 4982
+        "minimumSubscription": 39590,
+        "oneMillionKrw": 39872,
+        "fiveMillionKrw": 42687
       },
       "assumptions": {
         "offerPrice": 60000,
-        "competitionRate": 341.24,
+        "competitionRate": 681.9868662068966,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.38,
-        "generalPriorBase": -0.06232000000000002,
+        "generalCompetitionBaseline": 0.52,
+        "generalPriorBase": -0.021320000000000002,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -171,7 +175,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 341.24대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 681.99대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
@@ -181,34 +185,34 @@
     "brokerScores": [
       {
         "broker": "NH투자증권",
-        "equalScore": 30,
-        "proportionalScore": 10,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 10237200,
-        "feeKrw": null,
-        "dataQuality": "partial"
-      },
-      {
-        "broker": "신한투자증권",
-        "equalScore": 30,
-        "proportionalScore": 10,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 10237200,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 100,
+        "proportionalScore": 5,
+        "expectedEqualShares": 1.36,
+        "estimatedDepositForOneProportionalShare": 20308200,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       },
       {
         "broker": "한국투자증권",
-        "equalScore": 30,
-        "proportionalScore": 10,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 10237200,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 100,
+        "proportionalScore": 5,
+        "expectedEqualShares": 1.34,
+        "estimatedDepositForOneProportionalShare": 20713200,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      },
+      {
+        "broker": "신한투자증권",
+        "equalScore": 70,
+        "proportionalScore": 5,
+        "expectedEqualShares": 0.88,
+        "estimatedDepositForOneProportionalShare": 19503000,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 341.24,
+      "latestCompetitionRate": 681.9868662068966,
       "snapshotCount": 2,
       "leadManagerCount": 3,
       "market": "KOSPI",

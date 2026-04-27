@@ -47,6 +47,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -57,40 +58,41 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://honda31.tistory.com/301",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100387",
       "brokers": [
         {
           "name": "대신증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 4700,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2161.33,
+          "offeredShares": 875000,
+          "subscribedShares": 3759586250,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 4296.67,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2161.33,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 437500,
+          "proportionalAllocationShares": 437500,
+          "expectedEqualShares": 2.24,
           "applicationCount": null
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 2161.33
+        "offeredShares": 875000,
+        "subscribedShares": 3759586250,
+        "competitionRate": 4296.67
       }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 60,
+      "overall": 58,
       "grade": "B-",
       "confidence": 0.95,
       "factors": {
-        "competition": 16,
+        "competition": 14,
         "institutionDemand": 24,
         "demandStrength": 6,
         "lockupCommitment": 0,
@@ -104,22 +106,22 @@
       "baseCaseListingGainRate": 1.0,
       "bullCaseListingGainRate": 1.22,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.005,
-        "oneMillionKrw": 0.098,
-        "fiveMillionKrw": 0.492
+        "minimumSubscription": 2.242,
+        "oneMillionKrw": 2.29,
+        "fiveMillionKrw": 2.488
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 22,
-        "oneMillionKrw": 463,
-        "fiveMillionKrw": 2313
+        "minimumSubscription": 10539,
+        "oneMillionKrw": 10761,
+        "fiveMillionKrw": 11692
       },
       "assumptions": {
         "offerPrice": 4700,
-        "competitionRate": 2161.33,
+        "competitionRate": 4296.67,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.41000000000000003,
+        "generalPriorBase": 0.3936,
         "institutionBoost": 0.09,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -135,7 +137,7 @@
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2161.33대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 4296.67대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -145,16 +147,16 @@
     "brokerScores": [
       {
         "broker": "대신증권",
-        "equalScore": 30,
-        "proportionalScore": 20,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 5079126,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 100,
+        "proportionalScore": 10,
+        "expectedEqualShares": 2.24,
+        "estimatedDepositForOneProportionalShare": 10097175,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 2161.33,
+      "latestCompetitionRate": 4296.67,
       "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

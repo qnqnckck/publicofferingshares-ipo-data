@@ -33,7 +33,64 @@
   "outcome": null,
   "snapshots": [
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100523",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 417000,
+          "subscribedShares": 119061840,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 285.52,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 333.3333333333333,
+          "equalAllocationShares": 208500,
+          "proportionalAllocationShares": 208500,
+          "expectedEqualShares": 1.52,
+          "applicationCount": null
+        },
+        {
+          "name": "유안타증권",
+          "offeredShares": 208500,
+          "subscribedShares": 6970155,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 3000,
+          "competitionRate": 33.43,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 41.666666666666664,
+          "equalAllocationShares": 104250,
+          "proportionalAllocationShares": 104250,
+          "expectedEqualShares": 14.21,
+          "applicationCount": null
+        },
+        {
+          "name": "유진투자증권",
+          "offeredShares": 417000,
+          "subscribedShares": 67920960,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 162.88,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 333.3333333333333,
+          "equalAllocationShares": 208500,
+          "proportionalAllocationShares": 208500,
+          "expectedEqualShares": 10.76,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1042500,
+        "subscribedShares": 193952955,
+        "competitionRate": 186.046
+      }
+    },
+    {
+      "capturedAt": "2026-04-27T22:39:35.123146",
       "source": "38_news_live",
       "sourceUrl": "http://www.38.co.kr/html/news/?o=v&m=nostock&key=&no=1945292&page=1",
       "brokers": [
@@ -49,6 +106,7 @@
           "proportionalCompetitionRate": 286.0,
           "equalAllocationShares": 521250,
           "proportionalAllocationShares": 521250,
+          "expectedEqualShares": null,
           "applicationCount": null
         },
         {
@@ -63,6 +121,7 @@
           "proportionalCompetitionRate": 33.0,
           "equalAllocationShares": 521250,
           "proportionalAllocationShares": 521250,
+          "expectedEqualShares": null,
           "applicationCount": null
         },
         {
@@ -77,6 +136,7 @@
           "proportionalCompetitionRate": 162.88,
           "equalAllocationShares": 521250,
           "proportionalAllocationShares": 521250,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -84,60 +144,6 @@
         "offeredShares": 3127500,
         "subscribedShares": 502359900,
         "competitionRate": 160.62666666666667
-      }
-    },
-    {
-      "capturedAt": "2026-04-27T16:00:00+09:00",
-      "source": "finuts_member_secondary",
-      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100523",
-      "brokers": [
-        {
-          "name": "NH투자증권",
-          "offeredShares": 417000,
-          "subscribedShares": 117727440,
-          "offerPrice": null,
-          "depositRate": 0.5,
-          "feeKrw": 2000,
-          "competitionRate": 282.32,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 333.3333333333333,
-          "equalAllocationShares": 208500,
-          "proportionalAllocationShares": 208500,
-          "applicationCount": 136275
-        },
-        {
-          "name": "유안타증권",
-          "offeredShares": 208500,
-          "subscribedShares": 6895095,
-          "offerPrice": null,
-          "depositRate": 0.5,
-          "feeKrw": 3000,
-          "competitionRate": 33.07,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 37.03703703703704,
-          "equalAllocationShares": 104250,
-          "proportionalAllocationShares": 104250,
-          "applicationCount": 7235
-        },
-        {
-          "name": "유진투자증권",
-          "offeredShares": 417000,
-          "subscribedShares": 66995220,
-          "offerPrice": null,
-          "depositRate": 0.5,
-          "feeKrw": 2000,
-          "competitionRate": 160.66,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 333.3333333333333,
-          "equalAllocationShares": 208500,
-          "proportionalAllocationShares": 208500,
-          "applicationCount": 19164
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 1042500,
-        "subscribedShares": 191617755,
-        "competitionRate": 183.806
       }
     }
   ],
@@ -162,18 +168,18 @@
       "baseCaseListingGainRate": 0.9748,
       "bullCaseListingGainRate": 1.3348,
       "expectedAllocatedShares": {
-        "minimumSubscription": 14.464,
-        "oneMillionKrw": 15.316,
-        "fiveMillionKrw": 18.943
+        "minimumSubscription": 14.264,
+        "oneMillionKrw": 15.106,
+        "fiveMillionKrw": 18.689
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 84591,
-        "oneMillionKrw": 89576,
-        "fiveMillionKrw": 110789
+        "minimumSubscription": 83422,
+        "oneMillionKrw": 88347,
+        "fiveMillionKrw": 109305
       },
       "assumptions": {
         "offerPrice": 6000,
-        "competitionRate": 183.806,
+        "competitionRate": 186.046,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.24,
@@ -193,7 +199,7 @@
       "level": "strong_watch",
       "label": "관심 높음",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 183.81대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 186.05대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
@@ -206,7 +212,7 @@
         "broker": "NH투자증권",
         "equalScore": 100,
         "proportionalScore": 100,
-        "expectedEqualShares": 1.53,
+        "expectedEqualShares": 1.52,
         "estimatedDepositForOneProportionalShare": 1000000,
         "feeKrw": 2000,
         "dataQuality": "broker_verified"
@@ -215,8 +221,8 @@
         "broker": "유안타증권",
         "equalScore": 100,
         "proportionalScore": 100,
-        "expectedEqualShares": 14.4091,
-        "estimatedDepositForOneProportionalShare": 111111,
+        "expectedEqualShares": 14.21,
+        "estimatedDepositForOneProportionalShare": 125000,
         "feeKrw": 3000,
         "dataQuality": "broker_verified"
       },
@@ -224,14 +230,14 @@
         "broker": "유진투자증권",
         "equalScore": 100,
         "proportionalScore": 100,
-        "expectedEqualShares": 10.8798,
+        "expectedEqualShares": 10.76,
         "estimatedDepositForOneProportionalShare": 1000000,
         "feeKrw": 2000,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 183.806,
+      "latestCompetitionRate": 186.046,
       "snapshotCount": 2,
       "leadManagerCount": 3,
       "market": "KOSDAQ",

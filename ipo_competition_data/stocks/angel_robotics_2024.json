@@ -53,6 +53,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -63,40 +64,41 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://news.bizwatch.co.kr/article/market/2024/03/26/0007",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100118",
       "brokers": [
         {
           "name": "NH투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 20000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2242.02,
+          "offeredShares": 400000,
+          "subscribedShares": 1793616000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 4484.04,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2242.02,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 200000,
+          "proportionalAllocationShares": 200000,
+          "expectedEqualShares": 0.37,
           "applicationCount": null
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 2242.02
+        "offeredShares": 400000,
+        "subscribedShares": 1793616000,
+        "competitionRate": 4484.04
       }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 53,
+      "overall": 51,
       "grade": "C+",
       "confidence": 0.95,
       "factors": {
-        "competition": 16,
+        "competition": 14,
         "institutionDemand": 22,
         "demandStrength": 6,
         "lockupCommitment": 0,
@@ -110,22 +112,22 @@
       "baseCaseListingGainRate": 0.9921,
       "bullCaseListingGainRate": 1.2121,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.004,
-        "oneMillionKrw": 0.022,
-        "fiveMillionKrw": 0.112
+        "minimumSubscription": 0.372,
+        "oneMillionKrw": 0.381,
+        "fiveMillionKrw": 0.426
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 89,
-        "oneMillionKrw": 443,
-        "fiveMillionKrw": 2213
+        "minimumSubscription": 7386,
+        "oneMillionKrw": 7563,
+        "fiveMillionKrw": 8448
       },
       "assumptions": {
         "offerPrice": 20000,
-        "competitionRate": 2242.02,
+        "competitionRate": 4484.04,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.3526,
+        "generalPriorBase": 0.3362,
         "institutionBoost": 0.082125,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -138,10 +140,10 @@
       }
     },
     "decision": {
-      "level": "neutral",
-      "label": "중립",
+      "level": "caution",
+      "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2242.02대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 4484.04대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -152,15 +154,15 @@
       {
         "broker": "NH투자증권",
         "equalScore": 30,
-        "proportionalScore": 4,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 22420200,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "proportionalScore": 2,
+        "expectedEqualShares": 0.37,
+        "estimatedDepositForOneProportionalShare": 44840400,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 2242.02,
+      "latestCompetitionRate": 4484.04,
       "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

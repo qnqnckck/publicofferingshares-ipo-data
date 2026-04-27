@@ -47,6 +47,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -57,40 +58,41 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://honda31.tistory.com/300",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100372",
       "brokers": [
         {
           "name": "신한투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 3600,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2166.01,
+          "offeredShares": 1575000,
+          "subscribedShares": 6821356500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 4331.02,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2166.01,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 787500,
+          "proportionalAllocationShares": 787500,
+          "expectedEqualShares": 4.12,
           "applicationCount": null
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 2166.01
+        "offeredShares": 1575000,
+        "subscribedShares": 6821356500,
+        "competitionRate": 4331.02
       }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 58,
-      "grade": "B-",
+      "overall": 56,
+      "grade": "C+",
       "confidence": 0.95,
       "factors": {
-        "competition": 16,
+        "competition": 14,
         "institutionDemand": 22,
         "demandStrength": 6,
         "lockupCommitment": 0,
@@ -104,22 +106,22 @@
       "baseCaseListingGainRate": 0.9901,
       "bullCaseListingGainRate": 1.2101,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.005,
-        "oneMillionKrw": 0.128,
-        "fiveMillionKrw": 0.641
+        "minimumSubscription": 4.122,
+        "oneMillionKrw": 4.184,
+        "fiveMillionKrw": 4.441
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 16,
-        "oneMillionKrw": 457,
-        "fiveMillionKrw": 2286
+        "minimumSubscription": 14694,
+        "oneMillionKrw": 14914,
+        "fiveMillionKrw": 15828
       },
       "assumptions": {
         "offerPrice": 3600,
-        "competitionRate": 2166.01,
+        "competitionRate": 4331.02,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.3936,
+        "generalPriorBase": 0.37720000000000004,
         "institutionBoost": 0.08011875,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -135,7 +137,7 @@
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2166.01대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 4331.02대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -145,16 +147,16 @@
     "brokerScores": [
       {
         "broker": "신한투자증권",
-        "equalScore": 30,
-        "proportionalScore": 26,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 3898818,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "equalScore": 100,
+        "proportionalScore": 13,
+        "expectedEqualShares": 4.12,
+        "estimatedDepositForOneProportionalShare": 7795836,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 2166.01,
+      "latestCompetitionRate": 4331.02,
       "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

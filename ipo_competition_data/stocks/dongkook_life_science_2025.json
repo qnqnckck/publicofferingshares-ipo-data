@@ -48,6 +48,7 @@
           "proportionalCompetitionRate": null,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
           "applicationCount": null
         }
       ],
@@ -58,43 +59,45 @@
       }
     },
     {
-      "capturedAt": "2026-04-27T10:33:34.772657",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://honda31.tistory.com/288",
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100334",
       "brokers": [
         {
           "name": "KB증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 9000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 15.2,
+          "offeredShares": 75000,
+          "subscribedShares": 5764500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 1500,
+          "competitionRate": 76.86,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 15.2,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": 111.11111111111111,
+          "equalAllocationShares": 37500,
+          "proportionalAllocationShares": 37500,
+          "expectedEqualShares": 3.15,
           "applicationCount": null
         },
         {
           "name": "NH투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 9000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 15.2,
+          "offeredShares": 425000,
+          "subscribedShares": 9401000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 22.12,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 15.2,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
+          "proportionalCompetitionRate": 24.691358024691358,
+          "equalAllocationShares": 212500,
+          "proportionalAllocationShares": 212500,
+          "expectedEqualShares": 25.4,
           "applicationCount": null
         }
       ],
       "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 15.2
+        "offeredShares": 500000,
+        "subscribedShares": 15165500,
+        "competitionRate": 30.331
       }
     }
   ],
@@ -119,18 +122,18 @@
       "baseCaseListingGainRate": -0.01,
       "bullCaseListingGainRate": 0.21,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.658,
-        "oneMillionKrw": 7.31,
-        "fiveMillionKrw": 36.55
+        "minimumSubscription": 25.73,
+        "oneMillionKrw": 29.063,
+        "fiveMillionKrw": 43.716
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -59,
-        "oneMillionKrw": -658,
-        "fiveMillionKrw": -3289
+        "minimumSubscription": -2316,
+        "oneMillionKrw": -2616,
+        "fiveMillionKrw": -3934
       },
       "assumptions": {
         "offerPrice": 9000,
-        "competitionRate": 15.2,
+        "competitionRate": 30.331,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
@@ -150,7 +153,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 15.2대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 30.33대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
@@ -160,25 +163,25 @@
     "brokerScores": [
       {
         "broker": "KB증권",
-        "equalScore": 30,
+        "equalScore": 100,
         "proportionalScore": 100,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 68400,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "expectedEqualShares": 3.15,
+        "estimatedDepositForOneProportionalShare": 500000,
+        "feeKrw": 1500,
+        "dataQuality": "broker_verified"
       },
       {
         "broker": "NH투자증권",
-        "equalScore": 30,
+        "equalScore": 100,
         "proportionalScore": 100,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 68400,
-        "feeKrw": null,
-        "dataQuality": "partial"
+        "expectedEqualShares": 25.4,
+        "estimatedDepositForOneProportionalShare": 111111,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 15.2,
+      "latestCompetitionRate": 30.331,
       "snapshotCount": 2,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
