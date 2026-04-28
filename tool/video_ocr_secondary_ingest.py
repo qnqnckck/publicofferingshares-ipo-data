@@ -454,7 +454,7 @@ class SecondaryVideoOcrIngest:
                 return {
                     "id": source.get("id"),
                     "company": source.get("company"),
-                    "capturedAt": source.get("capturedAtKst"),
+                    "capturedAt": now_kst.replace(microsecond=0).isoformat(),
                     "source": source.get("source", "finuts_member_secondary"),
                     "sourceUrl": source.get("sourceUrl", finuts_url),
                     "aggregateCompetitionRate": aggregate_rate,
