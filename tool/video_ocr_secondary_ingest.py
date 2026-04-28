@@ -432,6 +432,7 @@ class SecondaryVideoOcrIngest:
         return compact
 
     def _extract_source(self, tmpdir: Path, source: dict[str, Any]) -> dict[str, Any] | None:
+        now_kst = datetime.now(ZoneInfo("Asia/Seoul"))
         youtube_url = str(source.get("youtubeUrl", "")).strip()
         finuts_url = str(source.get("finutsUrl", "")).strip()
         timestamp_seconds = int(source.get("timestampSeconds", 0) or 0)
