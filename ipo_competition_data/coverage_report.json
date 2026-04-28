@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-28T15:13:10.112071",
+  "generatedAt": "2026-04-28T16:33:58.503209",
   "backfillCutoff": "2023-04-28T00:00:00.000",
   "totals": {
     "discovered": 0,
@@ -14,30 +14,10 @@
     "missing_external_identifier": 3,
     "missing_institution_participants": 162,
     "missing_lockup_commitment_rate": 162,
-    "missing_institution_competition_rate": 1,
-    "missing_broker_level_competition": 1
+    "missing_institution_competition_rate": 1
   },
   "discoveredMissingFromGenerated": [],
   "qualityIssues": [
-    {
-      "id": "synapsoft_2024",
-      "company": "사이냅소프트",
-      "subscriptionStart": "2024-11-08",
-      "subscriptionEnd": "2024-11-11",
-      "leadManagers": [],
-      "path": "stocks/synapsoft_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 3,
-      "latestCompetitionRate": 60.466,
-      "institutionCompetitionRate": 1163.2,
-      "lockupCommitmentRate": null,
-      "score": 42,
-      "grade": "C-"
-    },
     {
       "id": "innotech_2025",
       "company": "이노테크",
@@ -1015,6 +995,26 @@
       "grade": "B-"
     },
     {
+      "id": "wisenut_2025",
+      "company": "와이즈넛",
+      "subscriptionStart": "2025-01-15",
+      "subscriptionEnd": "2025-01-16",
+      "leadManagers": [
+        "삼성증권"
+      ],
+      "path": "stocks/wisenut_2025.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 19.34,
+      "institutionCompetitionRate": 64.85,
+      "lockupCommitmentRate": null,
+      "score": 12,
+      "grade": "C-"
+    },
+    {
       "id": "day1_company_2025",
       "company": "데이원컴퍼니",
       "subscriptionStart": "2025-01-15",
@@ -1033,26 +1033,6 @@
       "institutionCompetitionRate": 114.98,
       "lockupCommitmentRate": null,
       "score": 20,
-      "grade": "C-"
-    },
-    {
-      "id": "wisenut_2025",
-      "company": "와이즈넛",
-      "subscriptionStart": "2025-01-15",
-      "subscriptionEnd": "2025-01-16",
-      "leadManagers": [
-        "삼성증권"
-      ],
-      "path": "stocks/wisenut_2025.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 19.34,
-      "institutionCompetitionRate": 64.85,
-      "lockupCommitmentRate": null,
-      "score": 12,
       "grade": "C-"
     },
     {
@@ -1219,6 +1199,26 @@
       "grade": "C-"
     },
     {
+      "id": "synapsoft_2024",
+      "company": "사이냅소프트",
+      "subscriptionStart": "2024-11-08",
+      "subscriptionEnd": "2024-11-11",
+      "leadManagers": [
+        "BNK투자증권"
+      ],
+      "path": "stocks/synapsoft_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 60.466,
+      "institutionCompetitionRate": 1163.2,
+      "lockupCommitmentRate": null,
+      "score": 42,
+      "grade": "C-"
+    },
+    {
       "id": "s_chem_2024",
       "company": "에스켐",
       "subscriptionStart": "2024-11-07",
@@ -1299,26 +1299,6 @@
       "grade": "C-"
     },
     {
-      "id": "nomus_2024",
-      "company": "노머스",
-      "subscriptionStart": "2024-11-04",
-      "subscriptionEnd": "2024-11-05",
-      "leadManagers": [
-        "대신증권"
-      ],
-      "path": "stocks/nomus_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 5.24,
-      "institutionCompetitionRate": 288.0,
-      "lockupCommitmentRate": null,
-      "score": 19,
-      "grade": "C-"
-    },
-    {
       "id": "dotmill_2024",
       "company": "닷밀",
       "subscriptionStart": "2024-11-04",
@@ -1339,23 +1319,23 @@
       "grade": "C-"
     },
     {
-      "id": "tomocube_2024",
-      "company": "토모큐브",
-      "subscriptionStart": "2024-10-28",
-      "subscriptionEnd": "2024-10-29",
+      "id": "nomus_2024",
+      "company": "노머스",
+      "subscriptionStart": "2024-11-04",
+      "subscriptionEnd": "2024-11-05",
       "leadManagers": [
         "대신증권"
       ],
-      "path": "stocks/tomocube_2024.json",
+      "path": "stocks/nomus_2024.json",
       "issues": [
         "missing_institution_participants",
         "missing_lockup_commitment_rate"
       ],
       "issueCount": 2,
-      "latestCompetitionRate": 79.88,
-      "institutionCompetitionRate": 967.71,
+      "latestCompetitionRate": 5.24,
+      "institutionCompetitionRate": 288.0,
       "lockupCommitmentRate": null,
-      "score": 30,
+      "score": 19,
       "grade": "C-"
     },
     {
@@ -1378,6 +1358,26 @@
       "lockupCommitmentRate": null,
       "score": 46,
       "grade": "C"
+    },
+    {
+      "id": "tomocube_2024",
+      "company": "토모큐브",
+      "subscriptionStart": "2024-10-28",
+      "subscriptionEnd": "2024-10-29",
+      "leadManagers": [
+        "대신증권"
+      ],
+      "path": "stocks/tomocube_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 79.88,
+      "institutionCompetitionRate": 967.71,
+      "lockupCommitmentRate": null,
+      "score": 30,
+      "grade": "C-"
     },
     {
       "id": "airrane_2024",
@@ -1603,26 +1603,6 @@
       "grade": "C-"
     },
     {
-      "id": "inspien_2024",
-      "company": "인스피언",
-      "subscriptionStart": "2024-10-07",
-      "subscriptionEnd": "2024-10-08",
-      "leadManagers": [
-        "한국투자증권"
-      ],
-      "path": "stocks/inspien_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 3075.88,
-      "institutionCompetitionRate": 1069.1,
-      "lockupCommitmentRate": null,
-      "score": 51,
-      "grade": "C+"
-    },
-    {
       "id": "hankem_2024",
       "company": "한켐",
       "subscriptionStart": "2024-10-07",
@@ -1642,6 +1622,26 @@
       "lockupCommitmentRate": null,
       "score": 50,
       "grade": "C"
+    },
+    {
+      "id": "inspien_2024",
+      "company": "인스피언",
+      "subscriptionStart": "2024-10-07",
+      "subscriptionEnd": "2024-10-08",
+      "leadManagers": [
+        "한국투자증권"
+      ],
+      "path": "stocks/inspien_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 3075.88,
+      "institutionCompetitionRate": 1069.1,
+      "lockupCommitmentRate": null,
+      "score": 51,
+      "grade": "C+"
     },
     {
       "id": "selbion_2024",
