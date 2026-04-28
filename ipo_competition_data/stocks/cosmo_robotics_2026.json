@@ -88,48 +88,6 @@
         "subscribedShares": 193952955,
         "competitionRate": 186.046
       }
-    },
-    {
-      "capturedAt": "2026-04-28T07:59:16.011064",
-      "source": "38_news_live",
-      "sourceUrl": "http://www.38.co.kr/html/news/?o=v&m=nostock&key=&no=1945292&page=1",
-      "brokers": [
-        {
-          "name": "KB증권",
-          "offeredShares": 1042500,
-          "subscribedShares": 643222500,
-          "offerPrice": 6000,
-          "depositRate": 0.5,
-          "feeKrw": null,
-          "competitionRate": 309.02,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 617.0,
-          "equalAllocationShares": 521250,
-          "proportionalAllocationShares": 521250,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "삼성증권",
-          "offeredShares": 1042500,
-          "subscribedShares": 634882500,
-          "offerPrice": 6000,
-          "depositRate": 0.5,
-          "feeKrw": null,
-          "competitionRate": 305.15,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 609.0,
-          "equalAllocationShares": 521250,
-          "proportionalAllocationShares": 521250,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 2085000,
-        "subscribedShares": 1278105000,
-        "competitionRate": 613.0
-      }
     }
   ],
   "analysis": {
@@ -219,29 +177,11 @@
         "estimatedDepositForOneProportionalShare": 1000000,
         "feeKrw": 2000,
         "dataQuality": "broker_verified"
-      },
-      {
-        "broker": "삼성증권",
-        "equalScore": 30,
-        "proportionalScore": 55,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 1827000,
-        "feeKrw": null,
-        "dataQuality": "partial"
-      },
-      {
-        "broker": "KB증권",
-        "equalScore": 30,
-        "proportionalScore": 54,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 1851000,
-        "feeKrw": null,
-        "dataQuality": "partial"
       }
     ],
     "inputs": {
       "latestCompetitionRate": 186.046,
-      "snapshotCount": 2,
+      "snapshotCount": 1,
       "leadManagerCount": 3,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
