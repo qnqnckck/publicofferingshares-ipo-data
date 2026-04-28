@@ -23,72 +23,15 @@
     "priceBandMin": 5300,
     "priceBandMax": 6000,
     "topBandConfirmation": true,
-    "institutionCompetitionRate": 1140.11,
+    "institutionCompetitionRate": 1140.0,
     "institutionParticipants": 2257,
-    "lockupCommitmentRate": 0.7303,
+    "lockupCommitmentRate": 0.727,
     "floatRate": null,
-    "marketCapKrw": null,
+    "marketCapKrw": 191900000000,
     "publicAllocationShares": 1042500
   },
   "outcome": null,
   "snapshots": [
-    {
-      "capturedAt": "2026-04-27T15:00:15.317092",
-      "source": "38_news_live",
-      "sourceUrl": "http://www.38.co.kr/html/news/?o=v&m=nostock&key=&no=1945292&page=1",
-      "brokers": [
-        {
-          "name": "NH투자증권",
-          "offeredShares": 1042500,
-          "subscribedShares": 298155000,
-          "offerPrice": 6000,
-          "depositRate": 0.5,
-          "feeKrw": null,
-          "competitionRate": 142.76,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 286.0,
-          "equalAllocationShares": 521250,
-          "proportionalAllocationShares": 521250,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "유안타증권",
-          "offeredShares": 1042500,
-          "subscribedShares": 34402500,
-          "offerPrice": 6000,
-          "depositRate": 0.5,
-          "feeKrw": null,
-          "competitionRate": 16.71,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 33.0,
-          "equalAllocationShares": 521250,
-          "proportionalAllocationShares": 521250,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "유진투자증권",
-          "offeredShares": 1042500,
-          "subscribedShares": 169802400,
-          "offerPrice": 6000,
-          "depositRate": 0.5,
-          "feeKrw": null,
-          "competitionRate": 81.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 162.88,
-          "equalAllocationShares": 521250,
-          "proportionalAllocationShares": 521250,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 3127500,
-        "subscribedShares": 502359900,
-        "competitionRate": 160.62666666666667
-      }
-    },
     {
       "capturedAt": "2026-04-27T22:38:45+09:00",
       "source": "finuts_member_secondary",
@@ -145,6 +88,63 @@
         "subscribedShares": 193952955,
         "competitionRate": 186.046
       }
+    },
+    {
+      "capturedAt": "2026-04-28T00:05:31.736219",
+      "source": "38_news_live",
+      "sourceUrl": "http://www.38.co.kr/html/news/?o=v&m=nostock&key=&no=1945292&page=1",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 1042500,
+          "subscribedShares": 298155000,
+          "offerPrice": 6000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 142.76,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 286.0,
+          "equalAllocationShares": 521250,
+          "proportionalAllocationShares": 521250,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "유안타증권",
+          "offeredShares": 1042500,
+          "subscribedShares": 34402500,
+          "offerPrice": 6000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 16.71,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 33.0,
+          "equalAllocationShares": 521250,
+          "proportionalAllocationShares": 521250,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "유진투자증권",
+          "offeredShares": 1042500,
+          "subscribedShares": 169802400,
+          "offerPrice": 6000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 81.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 162.88,
+          "equalAllocationShares": 521250,
+          "proportionalAllocationShares": 521250,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 3127500,
+        "subscribedShares": 502359900,
+        "competitionRate": 160.62666666666667
+      }
     }
   ],
   "analysis": {
@@ -163,19 +163,19 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.9748,
-      "bearCaseListingGainRate": 0.7948,
-      "baseCaseListingGainRate": 0.9748,
-      "bullCaseListingGainRate": 1.3348,
+      "expectedListingGainRate": 0.9747,
+      "bearCaseListingGainRate": 0.7947,
+      "baseCaseListingGainRate": 0.9747,
+      "bullCaseListingGainRate": 1.3347,
       "expectedAllocatedShares": {
         "minimumSubscription": 14.264,
         "oneMillionKrw": 15.106,
         "fiveMillionKrw": 18.689
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 83422,
-        "oneMillionKrw": 88347,
-        "fiveMillionKrw": 109305
+        "minimumSubscription": 83421,
+        "oneMillionKrw": 88346,
+        "fiveMillionKrw": 109303
       },
       "assumptions": {
         "offerPrice": 6000,
@@ -184,7 +184,7 @@
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.24,
         "generalPriorBase": 0.77408,
-        "institutionBoost": 0.08001374999999998,
+        "institutionBoost": 0.08,
         "lockupBoost": 0.1,
         "participantBoost": 0.05,
         "topBandBoost": 0.06,
@@ -242,8 +242,8 @@
       "leadManagerCount": 3,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": 1140.11,
-      "lockupCommitmentRate": 0.7303,
+      "institutionCompetitionRate": 1140.0,
+      "lockupCommitmentRate": 0.727,
       "floatRate": null,
       "hasOutcome": false
     },

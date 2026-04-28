@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-27T15:00:15.317092",
-  "backfillCutoff": "2023-04-27T00:00:00.000",
+  "generatedAt": "2026-04-28T00:05:31.736219",
+  "backfillCutoff": "2023-04-28T00:00:00.000",
   "totals": {
     "discovered": 0,
     "merged": 201,
@@ -12,7 +12,7 @@
   },
   "issueCounts": {
     "missing_external_identifier": 3,
-    "missing_institution_participants": 161,
+    "missing_institution_participants": 162,
     "missing_lockup_commitment_rate": 162,
     "missing_institution_competition_rate": 1,
     "missing_broker_level_competition": 1
@@ -95,6 +95,26 @@
       "issueCount": 2,
       "latestCompetitionRate": 2309.08,
       "institutionCompetitionRate": 942.71,
+      "lockupCommitmentRate": null,
+      "score": 50,
+      "grade": "C"
+    },
+    {
+      "id": "halla_cast_2025",
+      "company": "한라캐스트",
+      "subscriptionStart": "2025-08-11",
+      "subscriptionEnd": "2025-08-12",
+      "leadManagers": [
+        "대신증권"
+      ],
+      "path": "stocks/halla_cast_2025.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 1944.73,
+      "institutionCompetitionRate": 832.89,
       "lockupCommitmentRate": null,
       "score": 50,
       "grade": "C"
@@ -1279,26 +1299,6 @@
       "grade": "C-"
     },
     {
-      "id": "dotmill_2024",
-      "company": "닷밀",
-      "subscriptionStart": "2024-11-04",
-      "subscriptionEnd": "2024-11-05",
-      "leadManagers": [
-        "미래에셋증권"
-      ],
-      "path": "stocks/dotmill_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 116.8,
-      "institutionCompetitionRate": 1082.35,
-      "lockupCommitmentRate": null,
-      "score": 42,
-      "grade": "C-"
-    },
-    {
       "id": "nomus_2024",
       "company": "노머스",
       "subscriptionStart": "2024-11-04",
@@ -1316,6 +1316,26 @@
       "institutionCompetitionRate": 288.0,
       "lockupCommitmentRate": null,
       "score": 19,
+      "grade": "C-"
+    },
+    {
+      "id": "dotmill_2024",
+      "company": "닷밀",
+      "subscriptionStart": "2024-11-04",
+      "subscriptionEnd": "2024-11-05",
+      "leadManagers": [
+        "미래에셋증권"
+      ],
+      "path": "stocks/dotmill_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 116.8,
+      "institutionCompetitionRate": 1082.35,
+      "lockupCommitmentRate": null,
+      "score": 42,
       "grade": "C-"
     },
     {
@@ -1583,26 +1603,6 @@
       "grade": "C-"
     },
     {
-      "id": "selbion_2024",
-      "company": "셀비온",
-      "subscriptionStart": "2024-10-07",
-      "subscriptionEnd": "2024-10-08",
-      "leadManagers": [
-        "대신증권"
-      ],
-      "path": "stocks/selbion_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 2130.92,
-      "institutionCompetitionRate": 1050.19,
-      "lockupCommitmentRate": null,
-      "score": 53,
-      "grade": "C+"
-    },
-    {
       "id": "inspien_2024",
       "company": "인스피언",
       "subscriptionStart": "2024-10-07",
@@ -1642,6 +1642,26 @@
       "lockupCommitmentRate": null,
       "score": 50,
       "grade": "C"
+    },
+    {
+      "id": "selbion_2024",
+      "company": "셀비온",
+      "subscriptionStart": "2024-10-07",
+      "subscriptionEnd": "2024-10-08",
+      "leadManagers": [
+        "대신증권"
+      ],
+      "path": "stocks/selbion_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 2130.92,
+      "institutionCompetitionRate": 1050.19,
+      "lockupCommitmentRate": null,
+      "score": 53,
+      "grade": "C+"
     },
     {
       "id": "zenix_2024",
@@ -1970,7 +1990,9 @@
       "subscriptionStart": "2024-06-18",
       "subscriptionEnd": "2024-06-19",
       "leadManagers": [
-        "한국투자증권"
+        "한국투자증권",
+        "삼성증권",
+        "하나증권"
       ],
       "path": "stocks/higen_rnm_2024.json",
       "issues": [
@@ -2446,6 +2468,24 @@
       "grade": "C-"
     },
     {
+      "id": "hyundai_hyms_2024",
+      "company": "현대힘스",
+      "subscriptionStart": "2024-01-17",
+      "subscriptionEnd": "2024-01-18",
+      "leadManagers": [],
+      "path": "stocks/hyundai_hyms_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 1231.2,
+      "institutionCompetitionRate": 680.82,
+      "lockupCommitmentRate": null,
+      "score": 34,
+      "grade": "C-"
+    },
+    {
       "id": "posbank_2024",
       "company": "포스뱅크",
       "subscriptionStart": "2024-01-17",
@@ -2461,24 +2501,6 @@
       "issueCount": 2,
       "latestCompetitionRate": 1397.07,
       "institutionCompetitionRate": 839.03,
-      "lockupCommitmentRate": null,
-      "score": 34,
-      "grade": "C-"
-    },
-    {
-      "id": "hyundai_hyms_2024",
-      "company": "현대힘스",
-      "subscriptionStart": "2024-01-17",
-      "subscriptionEnd": "2024-01-18",
-      "leadManagers": [],
-      "path": "stocks/hyundai_hyms_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 1231.2,
-      "institutionCompetitionRate": 680.82,
       "lockupCommitmentRate": null,
       "score": 34,
       "grade": "C-"
@@ -2691,23 +2713,44 @@
       "grade": "C-"
     },
     {
-      "id": "megatouch_2023",
-      "company": "메가터치",
+      "id": "curacle_cell_2023",
+      "company": "큐로셀",
       "subscriptionStart": "2023-10-31",
       "subscriptionEnd": "2023-11-01",
       "leadManagers": [
-        "NH투자증권"
+        "미래에셋증권",
+        "삼성증권"
       ],
-      "path": "stocks/megatouch_2023.json",
+      "path": "stocks/curacle_cell_2023.json",
       "issues": [
         "missing_institution_participants",
         "missing_lockup_commitment_rate"
       ],
       "issueCount": 2,
-      "latestCompetitionRate": 1261.58,
-      "institutionCompetitionRate": 765.86,
+      "latestCompetitionRate": 339.405,
+      "institutionCompetitionRate": 20.88,
       "lockupCommitmentRate": null,
-      "score": 42,
+      "score": 18,
+      "grade": "C-"
+    },
+    {
+      "id": "contec_2023",
+      "company": "컨텍",
+      "subscriptionStart": "2023-10-31",
+      "subscriptionEnd": "2023-11-01",
+      "leadManagers": [
+        "대신증권"
+      ],
+      "path": "stocks/contec_2023.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 18.19,
+      "institutionCompetitionRate": 198.93,
+      "lockupCommitmentRate": null,
+      "score": 19,
       "grade": "C-"
     },
     {
@@ -2731,44 +2774,23 @@
       "grade": "C"
     },
     {
-      "id": "contec_2023",
-      "company": "컨텍",
+      "id": "megatouch_2023",
+      "company": "메가터치",
       "subscriptionStart": "2023-10-31",
       "subscriptionEnd": "2023-11-01",
       "leadManagers": [
-        "대신증권"
+        "NH투자증권"
       ],
-      "path": "stocks/contec_2023.json",
+      "path": "stocks/megatouch_2023.json",
       "issues": [
         "missing_institution_participants",
         "missing_lockup_commitment_rate"
       ],
       "issueCount": 2,
-      "latestCompetitionRate": 18.19,
-      "institutionCompetitionRate": 198.93,
+      "latestCompetitionRate": 1261.58,
+      "institutionCompetitionRate": 765.86,
       "lockupCommitmentRate": null,
-      "score": 19,
-      "grade": "C-"
-    },
-    {
-      "id": "curacle_cell_2023",
-      "company": "큐로셀",
-      "subscriptionStart": "2023-10-31",
-      "subscriptionEnd": "2023-11-01",
-      "leadManagers": [
-        "미래에셋증권",
-        "삼성증권"
-      ],
-      "path": "stocks/curacle_cell_2023.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 339.405,
-      "institutionCompetitionRate": 20.88,
-      "lockupCommitmentRate": null,
-      "score": 18,
+      "score": 42,
       "grade": "C-"
     },
     {
@@ -2852,6 +2874,26 @@
       "grade": "C-"
     },
     {
+      "id": "millie_2023",
+      "company": "밀리의서재",
+      "subscriptionStart": "2023-09-18",
+      "subscriptionEnd": "2023-09-19",
+      "leadManagers": [
+        "미래에셋증권"
+      ],
+      "path": "stocks/millie_2023.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 899.12,
+      "institutionCompetitionRate": 619.24,
+      "lockupCommitmentRate": null,
+      "score": 39,
+      "grade": "C-"
+    },
+    {
       "id": "imt_2023",
       "company": "아이엠티",
       "subscriptionStart": "2023-09-18",
@@ -2870,26 +2912,6 @@
       "institutionCompetitionRate": 753.0,
       "lockupCommitmentRate": null,
       "score": 42,
-      "grade": "C-"
-    },
-    {
-      "id": "millie_2023",
-      "company": "밀리의서재",
-      "subscriptionStart": "2023-09-18",
-      "subscriptionEnd": "2023-09-19",
-      "leadManagers": [
-        "미래에셋증권"
-      ],
-      "path": "stocks/millie_2023.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 899.12,
-      "institutionCompetitionRate": 619.24,
-      "lockupCommitmentRate": null,
-      "score": 39,
       "grade": "C-"
     },
     {
@@ -3277,25 +3299,6 @@
       "lockupCommitmentRate": 0.0,
       "score": 82,
       "grade": "A-"
-    },
-    {
-      "id": "halla_cast_2025",
-      "company": "한라캐스트",
-      "subscriptionStart": "2025-08-11",
-      "subscriptionEnd": "2025-08-12",
-      "leadManagers": [
-        "대신증권"
-      ],
-      "path": "stocks/halla_cast_2025.json",
-      "issues": [
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 1,
-      "latestCompetitionRate": 1944.73,
-      "institutionCompetitionRate": 671.98,
-      "lockupCommitmentRate": null,
-      "score": 42,
-      "grade": "C-"
     },
     {
       "id": "g2g_bio_2025",
