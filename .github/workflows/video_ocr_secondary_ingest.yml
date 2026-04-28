@@ -55,7 +55,15 @@ jobs:
 
       - name: Capture browser frame and write fallback broker snapshots
         run: |
-          python tool/video_ocr_secondary_ingest.py --config data/video_ocr_sources.json --broker-snapshot-dir data/broker_snapshots --debug-frame-dir artifacts/video_ocr_debug
+          extra_args=""
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            extra_args="--all-stocks"
+          fi
+          python tool/video_ocr_secondary_ingest.py \
+            --config data/video_ocr_sources.json \
+            --broker-snapshot-dir data/broker_snapshots \
+            --debug-frame-dir artifacts/video_ocr_debug \
+            ${extra_args}
         env:
           YOUTUBE_COOKIES_PATH: /tmp/ocr-secrets/youtube_cookies.txt
           FINUTS_ID: ${{ secrets.FINUTS_ID }}
