@@ -282,6 +282,14 @@ class IpoCompetitionBatch {
           ),
         ),
       );
+      await File('${options.outDir}/service_health_report.json').writeAsString(
+        prettyJson(
+          buildServiceHealthReport(
+            generatedAt: generatedAt,
+            stocks: selected,
+          ),
+        ),
+      );
 
       stdout.writeln(
         '[${generatedAt.toIso8601String()}] generated ${selected.length} stock files.',
@@ -1326,55 +1334,7 @@ Map<String, Object?> buildCoverageReport({
   }
 
   bool isCompleted(IpoCompetitionStock stock) {
-    final end =
-        parseDate(stock.subscriptionEnd) ?? parseDate(stock.subscriptionStart);
-    return end != null && !end.isAfter(today);
-  }
-
-  List<String> issuesFor(IpoCompetitionStock stock) {
-    final issues = <String>[];
-    final fundamentals = stock.fundamentals;
-    final latest = stock.latestSnapshot;
-    final identifiers = stock.identifiers;
-    if (fundamentals.offerPrice == null) {
-      issues.add('missing_offer_price');
-    }
-    if (fundamentals.institutionCompetitionRate == null) {
-      issues.add('missing_institution_competition_rate');
-    }
-    if (fundamentals.institutionParticipants == null) {
-      issues.add('missing_institution_participants');
-    }
-    if (fundamentals.lockupCommitmentRate == null) {
-      issues.add('missing_lockup_commitment_rate');
-    }
-    if (latest?.aggregate.competitionRate == null && isCompleted(stock)) {
-      issues.add('missing_retail_competition_rate');
-    }
-    if (latest == null && isCompleted(stock)) {
-      issues.add('missing_competition_snapshot');
-    }
-    final hasBrokerDetail = stock.snapshots.any(
-      (snapshot) => snapshot.brokers.any((broker) {
-        final isAggregateName =
-            broker.name == '통합' || broker.name == 'aggregate';
-        return !isAggregateName &&
-            (broker.offeredShares > 0 ||
-                broker.competitionRate != null ||
-                broker.equalCompetitionRate != null ||
-                broker.proportionalCompetitionRate != null);
-      }),
-    );
-    if (!hasBrokerDetail && isCompleted(stock)) {
-      issues.add('missing_broker_level_competition');
-    }
-    if (identifiers.corpCode == null &&
-        identifiers.stockCode == null &&
-        identifiers.kindCode == null &&
-        identifiers.isin == null) {
-      issues.add('missing_external_identifier');
-    }
-    return issues;
+    return isCompletedOnOrBefore(stock, today);
   }
 
   Map<String, Object?> stockIssueJson(
@@ -1405,7 +1365,7 @@ Map<String, Object?> buildCoverageReport({
   final qualityRows = <Map<String, Object?>>[];
   final issueCounts = <String, int>{};
   for (final stock in normalizedSelected) {
-    final issues = issuesFor(stock);
+    final issues = coverageIssuesFor(stock, today);
     if (issues.isEmpty) {
       continue;
     }
@@ -1476,6 +1436,223 @@ Map<String, Object?> buildCoverageReport({
     'discoveredMissingFromGenerated': discoveredMissingFromGenerated,
     'qualityIssues': qualityRows,
     'duplicateCandidates': duplicateCandidates,
+  };
+}
+
+bool isCompletedOnOrBefore(IpoCompetitionStock stock, DateTime today) {
+  final end =
+      parseDate(stock.subscriptionEnd) ?? parseDate(stock.subscriptionStart);
+  return end != null && !end.isAfter(today);
+}
+
+bool isActiveOnDate(IpoCompetitionStock stock, DateTime today) {
+  final start = parseDate(stock.subscriptionStart);
+  final end = parseDate(stock.subscriptionEnd) ?? start;
+  if (start == null || end == null) {
+    return false;
+  }
+  return !today.isBefore(start) && !today.isAfter(end);
+}
+
+bool hasBrokerLevelSnapshot(IpoCompetitionStock stock) {
+  return stock.snapshots.any(
+    (snapshot) => snapshot.brokers.any((broker) {
+      final isAggregateName = broker.name == '통합' || broker.name == 'aggregate';
+      return !isAggregateName &&
+          (broker.offeredShares > 0 ||
+              broker.competitionRate != null ||
+              broker.equalCompetitionRate != null ||
+              broker.proportionalCompetitionRate != null);
+    }),
+  );
+}
+
+List<String> coverageIssuesFor(IpoCompetitionStock stock, DateTime today) {
+  final issues = <String>[];
+  final fundamentals = stock.fundamentals;
+  final latest = stock.latestSnapshot;
+  final identifiers = stock.identifiers;
+  final isCompleted = isCompletedOnOrBefore(stock, today);
+  if (fundamentals.offerPrice == null) {
+    issues.add('missing_offer_price');
+  }
+  if (fundamentals.institutionCompetitionRate == null) {
+    issues.add('missing_institution_competition_rate');
+  }
+  if (fundamentals.institutionParticipants == null) {
+    issues.add('missing_institution_participants');
+  }
+  if (fundamentals.lockupCommitmentRate == null) {
+    issues.add('missing_lockup_commitment_rate');
+  }
+  if (latest?.aggregate.competitionRate == null && isCompleted) {
+    issues.add('missing_retail_competition_rate');
+  }
+  if (latest == null && isCompleted) {
+    issues.add('missing_competition_snapshot');
+  }
+  if (!hasBrokerLevelSnapshot(stock) && isCompleted) {
+    issues.add('missing_broker_level_competition');
+  }
+  if (identifiers.corpCode == null &&
+      identifiers.stockCode == null &&
+      identifiers.kindCode == null &&
+      identifiers.isin == null) {
+    issues.add('missing_external_identifier');
+  }
+  return issues;
+}
+
+Map<String, Object?> buildServiceHealthReport({
+  required DateTime generatedAt,
+  required List<IpoCompetitionStock> stocks,
+}) {
+  final today = DateTime(generatedAt.year, generatedAt.month, generatedAt.day);
+  final normalized = stocks.map((stock) => stock.normalized()).toList();
+  final active = normalized
+      .where((stock) => isActiveOnDate(stock, today))
+      .toList()
+    ..sort(
+        (a, b) => (a.subscriptionEnd ?? '').compareTo(b.subscriptionEnd ?? ''));
+  final upcomingNext7Days = normalized.where((stock) {
+    final start = parseDate(stock.subscriptionStart);
+    if (start == null || !start.isAfter(today)) {
+      return false;
+    }
+    return !start.isAfter(today.add(const Duration(days: 7)));
+  }).toList()
+    ..sort((a, b) =>
+        (a.subscriptionStart ?? '').compareTo(b.subscriptionStart ?? ''));
+
+  final latestSourceCounts = <String, int>{};
+  final freshnessBuckets = <String, int>{
+    'within_1h': 0,
+    'within_6h': 0,
+    'within_24h': 0,
+    'older': 0,
+    'missing': 0,
+  };
+  var missingInstitutionCompetition = 0;
+  var missingInstitutionParticipants = 0;
+  var missingLockupCommitmentRate = 0;
+  var missingLatestCompetitionRate = 0;
+  var missingLatestSnapshotAt = 0;
+  var missingBrokerMetrics = 0;
+  var liveLikeSourceCount = 0;
+  var finutsSourceCount = 0;
+  var ocrSourceCount = 0;
+
+  for (final stock in active) {
+    final latest = stock.latestSnapshot;
+    final source = latest?.source.trim().isEmpty ?? true
+        ? 'missing'
+        : latest!.source.trim();
+    latestSourceCounts[source] = (latestSourceCounts[source] ?? 0) + 1;
+
+    final lowerSource = source.toLowerCase();
+    if (lowerSource.contains('live') || lowerSource.contains('ipostock')) {
+      liveLikeSourceCount += 1;
+    }
+    if (lowerSource.contains('finuts')) {
+      finutsSourceCount += 1;
+    }
+    if (lowerSource.contains('ocr') || lowerSource.contains('youtube')) {
+      ocrSourceCount += 1;
+    }
+
+    final capturedAt = parseDate(latest?.capturedAt);
+    if (capturedAt == null) {
+      freshnessBuckets['missing'] = (freshnessBuckets['missing'] ?? 0) + 1;
+      missingLatestSnapshotAt += 1;
+    } else {
+      final age = generatedAt.difference(capturedAt);
+      if (age <= const Duration(hours: 1)) {
+        freshnessBuckets['within_1h'] =
+            (freshnessBuckets['within_1h'] ?? 0) + 1;
+      } else if (age <= const Duration(hours: 6)) {
+        freshnessBuckets['within_6h'] =
+            (freshnessBuckets['within_6h'] ?? 0) + 1;
+      } else if (age <= const Duration(hours: 24)) {
+        freshnessBuckets['within_24h'] =
+            (freshnessBuckets['within_24h'] ?? 0) + 1;
+      } else {
+        freshnessBuckets['older'] = (freshnessBuckets['older'] ?? 0) + 1;
+      }
+    }
+
+    if (stock.fundamentals.institutionCompetitionRate == null) {
+      missingInstitutionCompetition += 1;
+    }
+    if (stock.fundamentals.institutionParticipants == null) {
+      missingInstitutionParticipants += 1;
+    }
+    if (stock.fundamentals.lockupCommitmentRate == null) {
+      missingLockupCommitmentRate += 1;
+    }
+    if (latest?.aggregate.competitionRate == null) {
+      missingLatestCompetitionRate += 1;
+    }
+    if (!hasBrokerLevelSnapshot(stock)) {
+      missingBrokerMetrics += 1;
+    }
+  }
+
+  final activeSamples = active.take(5).map((stock) {
+    final latest = stock.latestSnapshot;
+    return {
+      'id': stock.id,
+      'company': stock.company,
+      'path': 'stocks/${stock.id}.json',
+      'subscriptionStart': stock.subscriptionStart,
+      'subscriptionEnd': stock.subscriptionEnd,
+      'latestSnapshotAt': latest?.capturedAt,
+      'latestSnapshotSource': latest?.source,
+      'latestCompetitionRate': latest?.aggregate.competitionRate,
+      'institutionCompetitionRate':
+          stock.fundamentals.institutionCompetitionRate,
+      'institutionParticipants': stock.fundamentals.institutionParticipants,
+      'lockupCommitmentRate': stock.fundamentals.lockupCommitmentRate,
+      'issues': coverageIssuesFor(stock, today),
+    };
+  }).toList();
+
+  final sortedSourceCounts = latestSourceCounts.entries.toList()
+    ..sort((a, b) => b.value.compareTo(a.value));
+
+  return {
+    'schemaVersion': schemaVersion,
+    'generatedAt': generatedAt.toIso8601String(),
+    'totals': {
+      'generatedStocks': normalized.length,
+      'activeStocks': active.length,
+      'upcomingNext7Days': upcomingNext7Days.length,
+    },
+    'activeReadiness': {
+      'missingLatestSnapshotAt': missingLatestSnapshotAt,
+      'missingLatestCompetitionRate': missingLatestCompetitionRate,
+      'missingBrokerLevelCompetition': missingBrokerMetrics,
+      'missingInstitutionCompetitionRate': missingInstitutionCompetition,
+      'missingInstitutionParticipants': missingInstitutionParticipants,
+      'missingLockupCommitmentRate': missingLockupCommitmentRate,
+      'liveLikeSourceCount': liveLikeSourceCount,
+      'finutsSourceCount': finutsSourceCount,
+      'ocrSourceCount': ocrSourceCount,
+    },
+    'activeLatestSourceCounts': {
+      for (final entry in sortedSourceCounts) entry.key: entry.value,
+    },
+    'activeSnapshotFreshness': freshnessBuckets,
+    'activeSamples': activeSamples,
+    'upcomingSamples': upcomingNext7Days.take(5).map((stock) {
+      return {
+        'id': stock.id,
+        'company': stock.company,
+        'path': 'stocks/${stock.id}.json',
+        'subscriptionStart': stock.subscriptionStart,
+        'subscriptionEnd': stock.subscriptionEnd,
+        'leadManagers': stock.leadManagers,
+      };
+    }).toList(),
   };
 }
 

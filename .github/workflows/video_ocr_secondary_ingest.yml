@@ -54,6 +54,7 @@ jobs:
           KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
 
       - name: Capture browser frame and write fallback broker snapshots
+        continue-on-error: true
         run: |
           extra_args=""
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then

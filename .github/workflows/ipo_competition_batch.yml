@@ -2,6 +2,9 @@ name: IPO competition batch
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "*/30 23 * * 0-4"
+    - cron: "*/30 0-10 * * 1-5"
 
 permissions:
   contents: write
