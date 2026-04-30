@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-04-29T11:22:40.663562",
-  "backfillCutoff": "2023-04-29T00:00:00.000",
+  "generatedAt": "2026-04-30T00:04:12.238814",
+  "backfillCutoff": "2023-04-30T00:00:00.000",
   "totals": {
     "discovered": 0,
     "merged": 201,
     "generated": 199,
     "discoveredMissingFromGenerated": 0,
-    "stocksWithQualityIssues": 168,
+    "stocksWithQualityIssues": 167,
     "duplicateCandidates": 0
   },
   "issueCounts": {
-    "missing_external_identifier": 3,
+    "missing_external_identifier": 2,
     "missing_institution_participants": 162,
     "missing_lockup_commitment_rate": 162,
     "missing_institution_competition_rate": 1,
@@ -1339,26 +1339,6 @@
       "grade": "C-"
     },
     {
-      "id": "tomocube_2024",
-      "company": "토모큐브",
-      "subscriptionStart": "2024-10-28",
-      "subscriptionEnd": "2024-10-29",
-      "leadManagers": [
-        "대신증권"
-      ],
-      "path": "stocks/tomocube_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 79.88,
-      "institutionCompetitionRate": 967.71,
-      "lockupCommitmentRate": null,
-      "score": 30,
-      "grade": "C-"
-    },
-    {
       "id": "theborn_korea_2024",
       "company": "더본코리아",
       "subscriptionStart": "2024-10-28",
@@ -1380,24 +1360,24 @@
       "grade": "C"
     },
     {
-      "id": "airrane_2024",
-      "company": "에어레인",
-      "subscriptionStart": "2024-10-24",
-      "subscriptionEnd": "2024-10-25",
+      "id": "tomocube_2024",
+      "company": "토모큐브",
+      "subscriptionStart": "2024-10-28",
+      "subscriptionEnd": "2024-10-29",
       "leadManagers": [
-        "신영증권"
+        "대신증권"
       ],
-      "path": "stocks/airrane_2024.json",
+      "path": "stocks/tomocube_2024.json",
       "issues": [
         "missing_institution_participants",
         "missing_lockup_commitment_rate"
       ],
       "issueCount": 2,
-      "latestCompetitionRate": 836.62,
-      "institutionCompetitionRate": 1000.1,
+      "latestCompetitionRate": 79.88,
+      "institutionCompetitionRate": 967.71,
       "lockupCommitmentRate": null,
-      "score": 50,
-      "grade": "C"
+      "score": 30,
+      "grade": "C-"
     },
     {
       "id": "hem_pharma_2024",
@@ -1418,6 +1398,26 @@
       "lockupCommitmentRate": null,
       "score": 52,
       "grade": "C+"
+    },
+    {
+      "id": "airrane_2024",
+      "company": "에어레인",
+      "subscriptionStart": "2024-10-24",
+      "subscriptionEnd": "2024-10-25",
+      "leadManagers": [
+        "신영증권"
+      ],
+      "path": "stocks/airrane_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 836.62,
+      "institutionCompetitionRate": 1000.1,
+      "lockupCommitmentRate": null,
+      "score": 50,
+      "grade": "C"
     },
     {
       "id": "alux_2024",
@@ -1603,6 +1603,26 @@
       "grade": "C-"
     },
     {
+      "id": "selbion_2024",
+      "company": "셀비온",
+      "subscriptionStart": "2024-10-07",
+      "subscriptionEnd": "2024-10-08",
+      "leadManagers": [
+        "대신증권"
+      ],
+      "path": "stocks/selbion_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 2130.92,
+      "institutionCompetitionRate": 1050.19,
+      "lockupCommitmentRate": null,
+      "score": 53,
+      "grade": "C+"
+    },
+    {
       "id": "inspien_2024",
       "company": "인스피언",
       "subscriptionStart": "2024-10-07",
@@ -1642,26 +1662,6 @@
       "lockupCommitmentRate": null,
       "score": 50,
       "grade": "C"
-    },
-    {
-      "id": "selbion_2024",
-      "company": "셀비온",
-      "subscriptionStart": "2024-10-07",
-      "subscriptionEnd": "2024-10-08",
-      "leadManagers": [
-        "대신증권"
-      ],
-      "path": "stocks/selbion_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 2130.92,
-      "institutionCompetitionRate": 1050.19,
-      "lockupCommitmentRate": null,
-      "score": 53,
-      "grade": "C+"
     },
     {
       "id": "zenix_2024",
@@ -3259,25 +3259,6 @@
       "lockupCommitmentRate": null,
       "score": 52,
       "grade": "C+"
-    },
-    {
-      "id": "shinhan_spac_18_2026",
-      "company": "신한제18호스팩",
-      "subscriptionStart": "2026-04-20",
-      "subscriptionEnd": "2026-04-21",
-      "leadManagers": [
-        "신한투자증권"
-      ],
-      "path": "stocks/shinhan_spac_18_2026.json",
-      "issues": [
-        "missing_external_identifier"
-      ],
-      "issueCount": 1,
-      "latestCompetitionRate": 3201.72,
-      "institutionCompetitionRate": 1388.6,
-      "lockupCommitmentRate": 0.0,
-      "score": 90,
-      "grade": "A"
     },
     {
       "id": "kiwoom_hero_spac_2_2026",
