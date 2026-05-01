@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-01T10:01:28.095764",
+  "generatedAt": "2026-05-01T10:53:26.839166",
   "backfillCutoff": "2023-05-01T00:00:00.000",
   "totals": {
     "discovered": 0,
@@ -14,30 +14,10 @@
     "missing_external_identifier": 2,
     "missing_institution_participants": 162,
     "missing_lockup_commitment_rate": 162,
-    "missing_institution_competition_rate": 1,
-    "missing_broker_level_competition": 1
+    "missing_institution_competition_rate": 1
   },
   "discoveredMissingFromGenerated": [],
   "qualityIssues": [
-    {
-      "id": "synapsoft_2024",
-      "company": "사이냅소프트",
-      "subscriptionStart": "2024-11-08",
-      "subscriptionEnd": "2024-11-11",
-      "leadManagers": [],
-      "path": "stocks/synapsoft_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
-        "missing_broker_level_competition"
-      ],
-      "issueCount": 3,
-      "latestCompetitionRate": 60.466,
-      "institutionCompetitionRate": 1163.2,
-      "lockupCommitmentRate": null,
-      "score": 42,
-      "grade": "C-"
-    },
     {
       "id": "innotech_2025",
       "company": "이노테크",
@@ -1219,6 +1199,26 @@
       "grade": "C-"
     },
     {
+      "id": "synapsoft_2024",
+      "company": "사이냅소프트",
+      "subscriptionStart": "2024-11-08",
+      "subscriptionEnd": "2024-11-11",
+      "leadManagers": [
+        "SK증권"
+      ],
+      "path": "stocks/synapsoft_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 60.466,
+      "institutionCompetitionRate": 1163.2,
+      "lockupCommitmentRate": null,
+      "score": 42,
+      "grade": "C-"
+    },
+    {
       "id": "s_chem_2024",
       "company": "에스켐",
       "subscriptionStart": "2024-11-07",
@@ -1339,6 +1339,26 @@
       "grade": "C-"
     },
     {
+      "id": "tomocube_2024",
+      "company": "토모큐브",
+      "subscriptionStart": "2024-10-28",
+      "subscriptionEnd": "2024-10-29",
+      "leadManagers": [
+        "대신증권"
+      ],
+      "path": "stocks/tomocube_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 79.88,
+      "institutionCompetitionRate": 967.71,
+      "lockupCommitmentRate": null,
+      "score": 30,
+      "grade": "C-"
+    },
+    {
       "id": "theborn_korea_2024",
       "company": "더본코리아",
       "subscriptionStart": "2024-10-28",
@@ -1358,26 +1378,6 @@
       "lockupCommitmentRate": null,
       "score": 46,
       "grade": "C"
-    },
-    {
-      "id": "tomocube_2024",
-      "company": "토모큐브",
-      "subscriptionStart": "2024-10-28",
-      "subscriptionEnd": "2024-10-29",
-      "leadManagers": [
-        "대신증권"
-      ],
-      "path": "stocks/tomocube_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 79.88,
-      "institutionCompetitionRate": 967.71,
-      "lockupCommitmentRate": null,
-      "score": 30,
-      "grade": "C-"
     },
     {
       "id": "hem_pharma_2024",
@@ -1704,6 +1704,26 @@
       "grade": "C-"
     },
     {
+      "id": "encell_2024",
+      "company": "이엔셀",
+      "subscriptionStart": "2024-08-12",
+      "subscriptionEnd": "2024-08-13",
+      "leadManagers": [
+        "NH투자증권"
+      ],
+      "path": "stocks/encell_2024.json",
+      "issues": [
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ],
+      "issueCount": 2,
+      "latestCompetitionRate": 1856.12,
+      "institutionCompetitionRate": 949.3,
+      "lockupCommitmentRate": null,
+      "score": 50,
+      "grade": "C"
+    },
+    {
       "id": "m83_2024",
       "company": "엠83",
       "subscriptionStart": "2024-08-12",
@@ -1722,26 +1742,6 @@
       "institutionCompetitionRate": 1024.72,
       "lockupCommitmentRate": null,
       "score": 46,
-      "grade": "C"
-    },
-    {
-      "id": "encell_2024",
-      "company": "이엔셀",
-      "subscriptionStart": "2024-08-12",
-      "subscriptionEnd": "2024-08-13",
-      "leadManagers": [
-        "NH투자증권"
-      ],
-      "path": "stocks/encell_2024.json",
-      "issues": [
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ],
-      "issueCount": 2,
-      "latestCompetitionRate": 1856.12,
-      "institutionCompetitionRate": 949.3,
-      "lockupCommitmentRate": null,
-      "score": 50,
       "grade": "C"
     },
     {
