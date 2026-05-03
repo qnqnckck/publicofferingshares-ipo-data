@@ -86,6 +86,9 @@ jobs:
           KIS_APP_KEY: ${{ secrets.KIS_APP_KEY }}
           KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
 
+      - name: Validate Finuts schedule sync
+        run: python tool/validate_finuts_schedule_sync.py
+
       - name: Commit generated data
         run: |
           if git diff --quiet -- data/discovered data/identifiers data/broker_snapshots ipo_competition_data; then

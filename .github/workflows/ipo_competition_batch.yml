@@ -20,6 +20,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
       - name: Setup Dart
         uses: dart-lang/setup-dart@v1
 
@@ -30,6 +35,9 @@ jobs:
           ITICK_API_KEY: ${{ secrets.ITICK_API_KEY }}
           KIS_APP_KEY: ${{ secrets.KIS_APP_KEY }}
           KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
+
+      - name: Validate Finuts schedule sync
+        run: python tool/validate_finuts_schedule_sync.py
 
       - name: Commit generated data
         run: |
