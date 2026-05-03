@@ -631,6 +631,8 @@ class IpoCompetitionBatch {
             floatRate: null,
             marketCapKrw: null,
             publicAllocationShares: null,
+            hasPutbackRight: false,
+            putbackSummary: null,
           ),
           outcome: null,
           snapshots: const [],
@@ -1388,6 +1390,12 @@ Map<String, Object?> buildDashboardFeedItem(
   final latest = stock.latestSnapshot;
   final analysis = analyzeStock(stock);
   final bestBroker = bestDashboardBrokerMetric(latest);
+  final putbackSummary =
+      stock.fundamentals.putbackSummary?.trim().isNotEmpty == true
+      ? stock.fundamentals.putbackSummary!.trim()
+      : null;
+  final hasPutbackRight =
+      stock.fundamentals.hasPutbackRight || putbackSummary != null;
   return {
     'id': safeId(stock.id),
     'path': path,
@@ -1402,6 +1410,8 @@ Map<String, Object?> buildDashboardFeedItem(
     'score': analysis.score.overall,
     'grade': analysis.score.grade,
     'decisionLevel': analysis.decision.level,
+    'hasPutbackRight': hasPutbackRight,
+    'putbackSummary': putbackSummary,
     'bestBrokerName': bestBroker?.name,
     'bestBrokerCompetitionRate':
         bestBroker?.proportionalCompetitionRate ?? bestBroker?.competitionRate,
@@ -1853,6 +1863,8 @@ List<IpoCompetitionStock> buildKnownLeadManagerOverrideStocks(
             floatRate: null,
             marketCapKrw: null,
             publicAllocationShares: null,
+            hasPutbackRight: false,
+            putbackSummary: null,
           ),
           outcome: null,
           snapshots: const [],
@@ -1902,6 +1914,8 @@ List<IpoCompetitionStock> mergeOutcomes(
           floatRate: null,
           marketCapKrw: null,
           publicAllocationShares: null,
+          hasPutbackRight: false,
+          putbackSummary: null,
         ),
       ),
       outcome: outcomeRow.toOutcome(),
@@ -2689,6 +2703,8 @@ IpoCompetitionStock? parseIpoKoreaSupplement({
       floatRate: null,
       marketCapKrw: marketCapKrw,
       publicAllocationShares: publicAllocationShares,
+      hasPutbackRight: false,
+      putbackSummary: null,
     ),
     outcome: null,
     snapshots: snapshots,
@@ -2858,6 +2874,8 @@ class IpoFundamentals {
     required this.floatRate,
     required this.marketCapKrw,
     required this.publicAllocationShares,
+    required this.hasPutbackRight,
+    required this.putbackSummary,
   });
 
   final int? offerPrice;
@@ -2870,6 +2888,8 @@ class IpoFundamentals {
   final double? floatRate;
   final int? marketCapKrw;
   final int? publicAllocationShares;
+  final bool hasPutbackRight;
+  final String? putbackSummary;
 
   factory IpoFundamentals.fromJson(Map<String, Object?> json) {
     return IpoFundamentals(
@@ -2885,6 +2905,14 @@ class IpoFundamentals {
       floatRate: readRatio(json['floatRate']),
       marketCapKrw: readOptionalInt(json['marketCapKrw']),
       publicAllocationShares: readOptionalInt(json['publicAllocationShares']),
+      hasPutbackRight:
+          json['hasPutbackRight'] as bool? ??
+          json['putbackRight'] as bool? ??
+          false,
+      putbackSummary:
+          readString(json, 'putbackSummary') ??
+          readString(json, 'putbackRightSummary') ??
+          readString(json, 'putbackNote'),
     );
   }
 
@@ -2907,6 +2935,8 @@ class IpoFundamentals {
       marketCapKrw: other.marketCapKrw ?? marketCapKrw,
       publicAllocationShares:
           other.publicAllocationShares ?? publicAllocationShares,
+      hasPutbackRight: other.hasPutbackRight || hasPutbackRight,
+      putbackSummary: other.putbackSummary ?? putbackSummary,
     );
   }
 
@@ -2922,6 +2952,8 @@ class IpoFundamentals {
       'floatRate': floatRate,
       'marketCapKrw': marketCapKrw,
       'publicAllocationShares': publicAllocationShares,
+      'hasPutbackRight': hasPutbackRight,
+      'putbackSummary': putbackSummary,
     };
   }
 }
@@ -5388,6 +5420,8 @@ IpoCompetitionStock? stockFromDartRow(Map<String, Object?> row) {
       floatRate: null,
       marketCapKrw: null,
       publicAllocationShares: null,
+      hasPutbackRight: false,
+      putbackSummary: null,
     ),
     outcome: null,
     snapshots: const [],
@@ -5452,6 +5486,8 @@ IpoCompetitionStock? stockFromItickRow(Map<String, Object?> row) {
       floatRate: null,
       marketCapKrw: null,
       publicAllocationShares: null,
+      hasPutbackRight: false,
+      putbackSummary: null,
     ),
     outcome: null,
     snapshots: const [],
