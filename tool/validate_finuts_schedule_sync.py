@@ -120,14 +120,59 @@ def load_feed_items() -> dict[str, dict[str, Any]]:
     return items
 
 
+def load_stock_detail(stock_id: str) -> dict[str, Any] | None:
+    path = DATA_DIR / "stocks" / f"{stock_id}.json"
+    if not path.exists():
+        return None
+    payload = json.loads(path.read_text())
+    return payload if isinstance(payload, dict) else None
+
+
+def has_core_analysis(detail: dict[str, Any]) -> bool:
+    analysis = detail.get("analysis")
+    if not isinstance(analysis, dict):
+        return False
+    score = analysis.get("score")
+    expected_return = analysis.get("expectedReturn")
+    if not isinstance(score, dict) or not isinstance(expected_return, dict):
+        return False
+    return (
+        score.get("overall") is not None
+        and expected_return.get("expectedListingGainRate") is not None
+    )
+
+
+def has_ready_analysis_inputs(detail: dict[str, Any]) -> bool:
+    fundamentals = detail.get("fundamentals")
+    if not isinstance(fundamentals, dict):
+        return False
+    return (
+        fundamentals.get("offerPrice") is not None
+        and fundamentals.get("institutionCompetitionRate") is not None
+        and fundamentals.get("lockupCommitmentRate") is not None
+    )
+
+
+def analysis_method(detail: dict[str, Any]) -> str | None:
+    analysis = detail.get("analysis")
+    if not isinstance(analysis, dict):
+        return None
+    value = analysis.get("methodVersion")
+    return str(value).strip() if value is not None else None
+
+
 def main() -> int:
     today = date.today()
     horizon = today + timedelta(days=21)
+    imminent_horizon = today + timedelta(days=7)
     finuts_events = fetch_finuts_events()
     feed_items = load_feed_items()
 
     missing: list[str] = []
     mismatched: list[str] = []
+    missing_detail: list[str] = []
+    missing_analysis: list[str] = []
+    pending_analysis: list[str] = []
     for event in finuts_events:
         if event.security_type not in {"IPO", "SPAC"}:
             continue
@@ -149,14 +194,54 @@ def main() -> int:
                 f"{event.company} subscriptionEnd mismatch finuts={event.subscription_end} feed={feed.get('subscriptionEnd')}"
             )
 
-    if not missing and not mismatched:
+        stock_id = str(feed.get("id") or "").strip()
+        if not stock_id:
+            missing_detail.append(f"{event.company} missing stock id in public feed")
+            continue
+        detail = load_stock_detail(stock_id)
+        if detail is None:
+            missing_detail.append(
+                f"{event.company} missing stock detail file stocks/{stock_id}.json"
+            )
+            continue
+
+        method = analysis_method(detail)
+        analysis_ready = has_core_analysis(detail)
+        if analysis_ready:
+            continue
+
+        ready_inputs = has_ready_analysis_inputs(detail)
+        is_imminent = (event.subscription_start or horizon) <= imminent_horizon
+        reason = (
+            f"{event.company} analysis pending method={method or 'none'} "
+            f"inputs_ready={ready_inputs} subscription={event.subscription_start}~{event.subscription_end}"
+        )
+        if ready_inputs or is_imminent:
+            missing_analysis.append(reason)
+        else:
+            pending_analysis.append(reason)
+
+    if (
+        not missing
+        and not mismatched
+        and not missing_detail
+        and not missing_analysis
+    ):
         print("OK: future Finuts schedule is reflected in public feeds.")
+        for line in pending_analysis:
+            print(f"PENDING: {line}")
         return 0
 
     for line in missing:
         print(f"MISSING: {line}")
     for line in mismatched:
         print(f"MISMATCH: {line}")
+    for line in missing_detail:
+        print(f"MISSING_DETAIL: {line}")
+    for line in missing_analysis:
+        print(f"MISSING_ANALYSIS: {line}")
+    for line in pending_analysis:
+        print(f"PENDING: {line}")
     return 1
 
 
