@@ -59,22 +59,54 @@
     }
   ],
   "analysis": {
-    "methodVersion": "manual-fallback-v1",
+    "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": null,
-      "grade": null,
-      "confidence": 0.2,
-      "factors": {}
+      "overall": 82,
+      "grade": "A-",
+      "confidence": 0.72,
+      "factors": {
+        "competition": 12,
+        "institutionDemand": 24,
+        "demandStrength": 10,
+        "lockupCommitment": 18,
+        "floatRate": 0,
+        "pricing": 10
+      }
     },
-    "expectedReturn": {},
+    "expectedReturn": {
+      "expectedListingGainRate": 1.1284,
+      "bearCaseListingGainRate": 0.92,
+      "baseCaseListingGainRate": 1.1284,
+      "bullCaseListingGainRate": 1.3684,
+      "assumptions": {
+        "offerPrice": 5000,
+        "competitionRate": 1486.66,
+        "feeKrw": 2000,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.7084,
+        "institutionBoost": 0.09,
+        "lockupBoost": 0.1,
+        "participantBoost": 0.05,
+        "topBandBoost": 0.06,
+        "scoreBoost": 0.05555555555555555,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 65,
+        "generalCompetitionPending": false
+      }
+    },
     "decision": {
-      "level": "insufficient_data",
-      "label": "정보 보강 필요",
+      "level": "strong_watch",
+      "label": "관심 높음",
       "reasons": [
-        "피너츠 기준 일정, 확정공모가, 기관 수요예측 경쟁률을 우선 반영했습니다."
+        "피너츠 기준 일반청약 경쟁률 1486.66대 1과 확정공모가를 반영했습니다.",
+        "기관 참여 1,259곳과 의무보유확약 67.24%로 수급 지표가 양호합니다.",
+        "희망가 상단 확정으로 가격 수요도 비교적 견조하게 해석됩니다."
       ],
       "warnings": [
-        "자동 점수 산정에 필요한 공개 상세 데이터가 아직 부족할 수 있습니다."
+        "단일 주관사 청약으로 계좌 전략 선택 폭은 제한될 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
     "inputs": {
