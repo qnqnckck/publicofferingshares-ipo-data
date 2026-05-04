@@ -616,6 +616,7 @@ class IpoCompetitionBatch {
           id: stock.id,
           company: stock.company,
           market: stock.market,
+          industry: stock.industry,
           subscriptionStart: stock.subscriptionStart,
           subscriptionEnd: stock.subscriptionEnd,
           leadManagers: leadManagers,
@@ -1002,6 +1003,7 @@ class IpoCompetitionStock {
     required this.id,
     required this.company,
     required this.market,
+    required this.industry,
     required this.subscriptionStart,
     required this.subscriptionEnd,
     required this.leadManagers,
@@ -1014,6 +1016,7 @@ class IpoCompetitionStock {
   final String id;
   final String company;
   final String market;
+  final String industry;
   final String? subscriptionStart;
   final String? subscriptionEnd;
   final List<String> leadManagers;
@@ -1027,6 +1030,7 @@ class IpoCompetitionStock {
       id: readRequiredString(json, 'id'),
       company: readRequiredString(json, 'company'),
       market: readString(json, 'market') ?? '',
+      industry: readString(json, 'industry') ?? '',
       subscriptionStart: readString(json, 'subscriptionStart'),
       subscriptionEnd: readString(json, 'subscriptionEnd'),
       leadManagers: readStringList(json['leadManagers']),
@@ -1054,6 +1058,7 @@ class IpoCompetitionStock {
       id: safeId(id),
       company: company.trim(),
       market: market.trim(),
+      industry: industry.trim(),
       subscriptionStart: subscriptionStart,
       subscriptionEnd: subscriptionEnd,
       leadManagers: leadManagers
@@ -1090,6 +1095,7 @@ class IpoCompetitionStock {
       'identifiers': identifiers.toJson(),
       'company': company,
       'market': market,
+      'industry': industry,
       'subscriptionStart': subscriptionStart,
       'subscriptionEnd': subscriptionEnd,
       'leadManagers': leadManagers,
@@ -1108,6 +1114,7 @@ class IpoCompetitionStock {
       'identifiers': identifiers.toJson(),
       'company': company,
       'market': market,
+      'industry': industry,
       'subscriptionStart': subscriptionStart,
       'subscriptionEnd': subscriptionEnd,
       'leadManagers': leadManagers,
@@ -1402,6 +1409,7 @@ Map<String, Object?> buildDashboardFeedItem(
     'identifiers': stock.identifiers.toJson(),
     'company': stock.company,
     'market': stock.market,
+    'industry': stock.industry,
     'subscriptionStart': stock.subscriptionStart,
     'subscriptionEnd': stock.subscriptionEnd,
     'listingDate': stock.outcome?.listingDate,
@@ -1809,6 +1817,7 @@ List<IpoCompetitionStock> mergeStocks(List<IpoCompetitionStock> stocks) {
       id: id,
       company: stock.company.trim().isEmpty ? existing.company : stock.company,
       market: stock.market.trim().isEmpty ? existing.market : stock.market,
+      industry: stock.industry.trim().isEmpty ? existing.industry : stock.industry,
       subscriptionStart: stock.subscriptionStart ?? existing.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd ?? existing.subscriptionEnd,
       leadManagers: {...existing.leadManagers, ...stock.leadManagers}.toList(),
@@ -1848,6 +1857,7 @@ List<IpoCompetitionStock> buildKnownLeadManagerOverrideStocks(
           id: stock.id,
           company: stock.company,
           market: stock.market,
+          industry: stock.industry,
           subscriptionStart: stock.subscriptionStart,
           subscriptionEnd: stock.subscriptionEnd,
           leadManagers: overrides[safeId(stock.id)]!,
@@ -1898,6 +1908,7 @@ List<IpoCompetitionStock> mergeOutcomes(
       id: stock.id,
       company: stock.company,
       market: stock.market,
+      industry: stock.industry,
       subscriptionStart: stock.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd,
       leadManagers: stock.leadManagers,
@@ -1976,6 +1987,7 @@ List<IpoCompetitionStock> mergeBrokerSnapshots(
       id: stock.id,
       company: stock.company,
       market: stock.market,
+      industry: stock.industry,
       subscriptionStart: stock.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd,
       leadManagers: stock.leadManagers,
@@ -2180,6 +2192,7 @@ List<IpoCompetitionStock> mergeIdentifierRows(
       id: stock.id,
       company: stock.company,
       market: stock.market,
+      industry: stock.industry,
       subscriptionStart: stock.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd,
       leadManagers: stock.leadManagers,
@@ -2688,6 +2701,7 @@ IpoCompetitionStock? parseIpoKoreaSupplement({
     id: stock.id,
     company: stock.company,
     market: stock.market,
+    industry: stock.industry,
     subscriptionStart: stock.subscriptionStart,
     subscriptionEnd: stock.subscriptionEnd,
     leadManagers: const [],
@@ -5392,6 +5406,9 @@ IpoCompetitionStock? stockFromDartRow(Map<String, Object?> row) {
     id: safeId('${company}_${subscriptionStart ?? ''}'),
     company: company,
     market: '',
+    industry:
+        firstNonEmptyString(row, ['induty', 'industry', 'sector', 'induty_nm']) ??
+        '',
     subscriptionStart: subscriptionStart,
     subscriptionEnd: subscriptionEnd,
     leadManagers: readLeadManagers(
@@ -5458,6 +5475,7 @@ IpoCompetitionStock? stockFromItickRow(Map<String, Object?> row) {
     id: safeId('${company}_${subscriptionStart ?? ''}'),
     company: company,
     market: firstNonEmptyString(row, ['market', 'exchange']) ?? '',
+    industry: firstNonEmptyString(row, ['industry', 'sector']) ?? '',
     subscriptionStart: subscriptionStart,
     subscriptionEnd: subscriptionEnd,
     leadManagers: readLeadManagers(
