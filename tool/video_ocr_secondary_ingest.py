@@ -214,9 +214,8 @@ class SecondaryVideoOcrIngest:
             if str(source.get("id", "")).strip()
         }
         finuts_entries_by_company: dict[str, dict[str, Any]] = {}
-        if schedule_autoload.get("finutsAutodiscover", True):
-            with suppress(Exception):
-                finuts_entries_by_company = self._discover_finuts_entries()
+        autodiscover_enabled = bool(schedule_autoload.get("finutsAutodiscover", True))
+        autodiscover_loaded = False
 
         autoload_sources: list[dict[str, Any]] = []
         for stock in stocks:
@@ -227,6 +226,18 @@ class SecondaryVideoOcrIngest:
                 continue
             source = catalog_by_id.get(stock_id)
             if source is None:
+                # Prefer seeded Finuts source URLs from existing stock snapshots.
+                # This avoids hitting Finuts autodiscovery for stocks we already know.
+                source = self._build_finuts_source_from_stock(
+                    stock,
+                    None,
+                    now_kst,
+                )
+            if source is None and autodiscover_enabled:
+                if not autodiscover_loaded:
+                    autodiscover_loaded = True
+                    with suppress(Exception):
+                        finuts_entries_by_company = self._discover_finuts_entries()
                 source = self._build_finuts_source_from_stock(
                     stock,
                     finuts_entries_by_company.get(
