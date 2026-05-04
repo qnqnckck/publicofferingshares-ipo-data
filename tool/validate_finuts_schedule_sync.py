@@ -6,12 +6,14 @@ from dataclasses import dataclass
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Any
+from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "ipo_competition_data"
+SEED_PATH = ROOT / "data" / "ipo_competition_seed.json"
 FINUTS_URL = "https://www.finuts.co.kr/html/task/ipo/ipoListQuery.php"
 
 
@@ -106,6 +108,50 @@ def fetch_finuts_events() -> list[FinutsEvent]:
     return events
 
 
+def load_seed_events() -> list[FinutsEvent]:
+    if not SEED_PATH.exists():
+        return []
+    payload = json.loads(SEED_PATH.read_text())
+    stocks = payload.get("stocks", [])
+    if not isinstance(stocks, list):
+        return []
+    events: list[FinutsEvent] = []
+    for stock in stocks:
+        if not isinstance(stock, dict):
+            continue
+        company = str(stock.get("company", "")).strip()
+        if not company:
+            continue
+        fundamentals = stock.get("fundamentals", {})
+        if not isinstance(fundamentals, dict):
+            fundamentals = {}
+        market = str(stock.get("market", "")).strip().upper()
+        security_type = "SPAC" if "SPAC" in market or "스팩" in company else "IPO"
+        events.append(
+            FinutsEvent(
+                company=company,
+                key=normalize_company_key(company),
+                security_type=security_type,
+                subscription_start=parse_date(stock.get("subscriptionStart")),
+                subscription_end=parse_date(stock.get("subscriptionEnd")),
+                listing_date=parse_date(stock.get("listingDate")),
+                price_min=_to_int(fundamentals.get("priceBandMin")),
+                price_max=_to_int(fundamentals.get("priceBandMax")),
+                offer_price=_to_int(fundamentals.get("offerPrice")),
+            )
+        )
+    return events
+
+
+def _to_int(value: Any) -> int | None:
+    if value is None:
+        return None
+    try:
+        return int(str(value).replace(",", "").strip())
+    except ValueError:
+        return None
+
+
 def load_feed_items() -> dict[str, dict[str, Any]]:
     items: dict[str, dict[str, Any]] = {}
     for name in ["active.json", "upcoming.json", "index.json"]:
@@ -165,7 +211,14 @@ def main() -> int:
     today = date.today()
     horizon = today + timedelta(days=21)
     imminent_horizon = today + timedelta(days=7)
-    finuts_events = fetch_finuts_events()
+    source_label = "Finuts live"
+    warnings: list[str] = []
+    try:
+        finuts_events = fetch_finuts_events()
+    except (HTTPError, URLError) as exc:
+        finuts_events = load_seed_events()
+        source_label = "local seed fallback"
+        warnings.append(f"Finuts live fetch failed; using local seed fallback ({exc})")
     feed_items = load_feed_items()
 
     missing: list[str] = []
@@ -227,11 +280,15 @@ def main() -> int:
         and not missing_detail
         and not missing_analysis
     ):
-        print("OK: future Finuts schedule is reflected in public feeds.")
+        print(f"OK: future schedule is reflected in public feeds ({source_label}).")
+        for line in warnings:
+            print(f"WARNING: {line}")
         for line in pending_analysis:
             print(f"PENDING: {line}")
         return 0
 
+    for line in warnings:
+        print(f"WARNING: {line}")
     for line in missing:
         print(f"MISSING: {line}")
     for line in mismatched:
