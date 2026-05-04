@@ -658,98 +658,14 @@ class SecondaryVideoOcrIngest:
     ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
         if not self.finuts_id or not self.finuts_password:
             return [], []
-        with suppress(Exception):
-            session_rows = self._fetch_finuts_ajax_rows_via_session(
+        try:
+            return self._fetch_finuts_ajax_rows_via_session(
                 finuts_url,
                 search_deposit_manwon=search_deposit_manwon,
             )
-            if session_rows != ([], []):
-                return session_rows
-        try:
-            from playwright.sync_api import sync_playwright
-        except ImportError as exc:
-            raise RuntimeError("playwright is required for finuts capture") from exc
-
-        parsed = urlparse(finuts_url)
-        return_path = parsed.path
-        if parsed.query:
-            return_path = f"{return_path}?{parsed.query}"
-        login_url = (
-            f"{parsed.scheme}://{parsed.netloc}/html/user/login.php?"
-            f"url={quote(return_path, safe='/?=&')}"
-        )
-
-        try:
-            with sync_playwright() as playwright:
-                browser = playwright.chromium.launch(
-                    headless=True,
-                    args=["--disable-dev-shm-usage", "--disable-blink-features=AutomationControlled"],
-                )
-                page = browser.new_page(viewport={"width": 1600, "height": 2200}, locale="ko-KR")
-                try:
-                    page.goto(login_url, wait_until="domcontentloaded", timeout=45000)
-                    user_input = page.locator("#user_id, input[name='user_id']").first
-                    password_input = page.locator("#user_pwd, input[name='user_pwd']").first
-                    user_input.wait_for(state="visible", timeout=5000)
-                    password_input.wait_for(state="visible", timeout=5000)
-                    user_input.fill(self.finuts_id)
-                    password_input.fill(self.finuts_password)
-                    page.click("#btn_login")
-                    page.wait_for_timeout(2500)
-                    if "login.php" in page.url:
-                        raise RuntimeError("finuts login did not complete")
-                    ipo_sn = self._extract_finuts_ipo_sn(finuts_url)
-                    if not ipo_sn:
-                        raise RuntimeError(f"missing finuts ipo_sn in url: {finuts_url}")
-                    jugansa_text = page.evaluate(
-                        """async (ipoSn) => {
-                            const fd = new URLSearchParams();
-                            fd.set('ipo_sn', ipoSn);
-                            const res = await fetch('/html/task/ipo/ajaxJugansaList.php', {
-                              method: 'POST',
-                              headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                                'X-Requested-With': 'XMLHttpRequest',
-                              },
-                              body: fd.toString(),
-                            });
-                            return await res.text();
-                        }""",
-                        ipo_sn,
-                    )
-                    altmnt_text = page.evaluate(
-                        """async ({ipoSn, amount}) => {
-                            const fd = new URLSearchParams();
-                            fd.set('ipo_sn', ipoSn);
-                            fd.set('search_scscs_wrtm', String(amount));
-                            const res = await fetch('/html/task/ipo/ajaxAltmntList.php', {
-                              method: 'POST',
-                              headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                                'X-Requested-With': 'XMLHttpRequest',
-                              },
-                              body: fd.toString(),
-                            });
-                            return await res.text();
-                        }""",
-                        {"ipoSn": ipo_sn, "amount": search_deposit_manwon},
-                    )
-                finally:
-                    browser.close()
         except Exception as exc:
-            print(f"finuts playwright fallback failed: {finuts_url} ({exc})")
+            print(f"finuts session fetch failed: {finuts_url} ({exc})")
             return [], []
-
-        jugansa_rows = json.loads(jugansa_text) if jugansa_text else []
-        altmnt_rows = json.loads(altmnt_text) if altmnt_text else []
-        if not isinstance(jugansa_rows, list):
-            jugansa_rows = []
-        if not isinstance(altmnt_rows, list):
-            altmnt_rows = []
-        return (
-            [row for row in jugansa_rows if isinstance(row, dict)],
-            [row for row in altmnt_rows if isinstance(row, dict)],
-        )
 
     def _fetch_finuts_ajax_rows_via_session(
         self,
