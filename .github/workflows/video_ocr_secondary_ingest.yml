@@ -11,7 +11,7 @@ permissions:
 
 concurrency:
   group: video-ocr-secondary-ingest
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   ingest-video-ocr-secondary:
@@ -86,6 +86,11 @@ jobs:
 
       - name: Commit generated data
         run: |
+          git fetch origin main
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/main)" ]; then
+            echo "Remote main advanced during this run. Skipping stale commit."
+            exit 0
+          fi
           if git diff --quiet -- data/discovered data/identifiers data/broker_snapshots ipo_competition_data; then
             echo "No data changes."
             exit 0
