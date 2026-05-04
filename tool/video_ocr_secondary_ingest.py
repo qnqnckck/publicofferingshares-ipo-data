@@ -687,11 +687,15 @@ class SecondaryVideoOcrIngest:
                 )
                 page = browser.new_page(viewport={"width": 1600, "height": 2200}, locale="ko-KR")
                 try:
-                    page.goto(login_url, wait_until="domcontentloaded", timeout=120000)
-                    page.fill("#user_id", self.finuts_id)
-                    page.fill("#user_pwd", self.finuts_password)
+                    page.goto(login_url, wait_until="domcontentloaded", timeout=45000)
+                    user_input = page.locator("#user_id, input[name='user_id']").first
+                    password_input = page.locator("#user_pwd, input[name='user_pwd']").first
+                    user_input.wait_for(state="visible", timeout=5000)
+                    password_input.wait_for(state="visible", timeout=5000)
+                    user_input.fill(self.finuts_id)
+                    password_input.fill(self.finuts_password)
                     page.click("#btn_login")
-                    page.wait_for_timeout(4000)
+                    page.wait_for_timeout(2500)
                     if "login.php" in page.url:
                         raise RuntimeError("finuts login did not complete")
                     ipo_sn = self._extract_finuts_ipo_sn(finuts_url)
