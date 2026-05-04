@@ -444,6 +444,7 @@ class SecondaryVideoOcrIngest:
         if finuts_url and self.finuts_id and self.finuts_password:
             finuts_brokers = self._extract_brokers_from_finuts(source, finuts_url)
             if finuts_brokers:
+                print(f"using finuts session data for {source.get('id')}")
                 aggregate_offered = sum(item.offered_shares or 0 for item in finuts_brokers)
                 aggregate_subscribed = sum(
                     int(round((item.offered_shares or 0) * (item.competition_rate or 0)))
@@ -466,6 +467,10 @@ class SecondaryVideoOcrIngest:
                         "competitionRate": aggregate_rate or None,
                     },
                 }
+            print(
+                f"finuts session unavailable for {source.get('id')}; "
+                "falling back to browser/OCR path",
+            )
         if image_path_value:
             image_path = Path(image_path_value)
             if not image_path.is_absolute():
