@@ -10,6 +10,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 from datetime import datetime, timedelta
 from contextlib import suppress
 from http.cookiejar import CookieJar
@@ -678,6 +679,24 @@ class SecondaryVideoOcrIngest:
         *,
         search_deposit_manwon: int,
     ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+        def _open_with_retry(request: str | Request, *, timeout: int = 30) -> str:
+            attempts = 3
+            last_error: Exception | None = None
+            for attempt in range(1, attempts + 1):
+                try:
+                    return opener.open(request, timeout=timeout).read().decode(
+                        "utf-8",
+                        errors="ignore",
+                    )
+                except Exception as exc:
+                    last_error = exc
+                    if attempt >= attempts:
+                        break
+                    time.sleep(1.0 * attempt)
+            if last_error is not None:
+                raise last_error
+            return ""
+
         parsed = urlparse(finuts_url)
         return_path = parsed.path
         if parsed.query:
@@ -691,7 +710,7 @@ class SecondaryVideoOcrIngest:
         opener.addheaders = [
             ("User-Agent", "Mozilla/5.0"),
         ]
-        login_page = opener.open(login_url, timeout=30).read().decode("utf-8", errors="ignore")
+        login_page = _open_with_retry(login_url)
         token_match = re.search(
             r'<input[^>]+name="_token"[^>]+value="([^"]+)"',
             login_page,
@@ -717,10 +736,7 @@ class SecondaryVideoOcrIngest:
                 "Referer": login_url,
             },
         )
-        login_response = opener.open(login_request, timeout=30).read().decode(
-            "utf-8",
-            errors="ignore",
-        )
+        login_response = _open_with_retry(login_request)
         if '"S"' not in login_response and "S" != login_response.strip():
             return [], []
         ipo_sn = self._extract_finuts_ipo_sn(finuts_url)
@@ -749,14 +765,8 @@ class SecondaryVideoOcrIngest:
                 "Referer": finuts_url,
             },
         )
-        jugansa_text = opener.open(jugansa_request, timeout=30).read().decode(
-            "utf-8",
-            errors="ignore",
-        )
-        altmnt_text = opener.open(altmnt_request, timeout=30).read().decode(
-            "utf-8",
-            errors="ignore",
-        )
+        jugansa_text = _open_with_retry(jugansa_request)
+        altmnt_text = _open_with_retry(altmnt_request)
         jugansa_rows = json.loads(jugansa_text) if jugansa_text else []
         altmnt_rows = json.loads(altmnt_text) if altmnt_text else []
         if not isinstance(jugansa_rows, list):
