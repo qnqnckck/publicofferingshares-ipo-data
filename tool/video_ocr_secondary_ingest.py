@@ -370,13 +370,26 @@ class SecondaryVideoOcrIngest:
         finuts_entry: dict[str, Any] | None,
         now_kst: datetime,
     ) -> dict[str, Any] | None:
-        if finuts_entry is None:
-            return None
         stock_id = str(stock.get("id", "")).strip()
         company = str(stock.get("company", "")).strip()
         fundamentals = stock.get("fundamentals", {})
         if not isinstance(fundamentals, dict):
             fundamentals = {}
+        finuts_url = ""
+        if isinstance(finuts_entry, dict):
+            finuts_url = str(finuts_entry.get("finutsUrl", "")).strip()
+        if not finuts_url:
+            snapshots = stock.get("snapshots", [])
+            if isinstance(snapshots, list):
+                for snapshot in snapshots:
+                    if not isinstance(snapshot, dict):
+                        continue
+                    candidate = str(snapshot.get("sourceUrl", "")).strip()
+                    if "finuts.co.kr/html/ipo/ipoView.php?ipo_sn=" in candidate:
+                        finuts_url = candidate
+                        break
+        if not finuts_url:
+            return None
         offer_price = _to_int(fundamentals.get("offerPrice"))
         lead_managers = stock.get("leadManagers", [])
         if not stock_id or not company or not isinstance(lead_managers, list) or not lead_managers:
@@ -410,8 +423,8 @@ class SecondaryVideoOcrIngest:
             "capturedAtKst": now_kst.replace(microsecond=0).isoformat(),
             "source": "finuts_member_secondary",
             "sourceLabel": "finuts",
-            "sourceUrl": finuts_entry["finutsUrl"],
-            "finutsUrl": finuts_entry["finutsUrl"],
+            "sourceUrl": finuts_url,
+            "finutsUrl": finuts_url,
             "finutsSearchDepositManwon": 100,
             "offerPrice": offer_price,
             "brokers": brokers,
