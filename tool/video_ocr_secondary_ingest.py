@@ -226,7 +226,7 @@ class SecondaryVideoOcrIngest:
             if not stock_id or stock_id in existing_ids:
                 continue
             source = catalog_by_id.get(stock_id)
-            if source is None and finuts_entries_by_company:
+            if source is None:
                 source = self._build_finuts_source_from_stock(
                     stock,
                     finuts_entries_by_company.get(
