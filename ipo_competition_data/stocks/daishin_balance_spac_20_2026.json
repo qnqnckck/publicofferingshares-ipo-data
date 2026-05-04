@@ -26,29 +26,75 @@
     "lockupCommitmentRate": null,
     "floatRate": null,
     "marketCapKrw": null,
-    "publicAllocationShares": 135000
+    "publicAllocationShares": 135000,
+    "hasPutbackRight": false,
+    "putbackSummary": null
   },
   "outcome": null,
   "snapshots": [],
   "analysis": {
-    "methodVersion": "manual-fallback-v1",
+    "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": null,
-      "grade": null,
-      "confidence": 0.1,
-      "factors": {}
+      "overall": 23,
+      "grade": "C-",
+      "confidence": 0.45,
+      "factors": {
+        "competition": 0,
+        "institutionDemand": 0,
+        "spacMomentum": 1,
+        "spacVolatility": 3,
+        "market": 5,
+        "leadManagers": 3,
+        "recency": 3,
+        "dataCompleteness": 4
+      }
     },
-    "expectedReturn": {},
+    "expectedReturn": {
+      "expectedListingGainRate": 0.1964,
+      "bearCaseListingGainRate": -0.2,
+      "baseCaseListingGainRate": 0.1964,
+      "bullCaseListingGainRate": 0.5964,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.013,
+        "oneMillionKrw": 0.625,
+        "fiveMillionKrw": 3.125
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 5,
+        "oneMillionKrw": 246,
+        "fiveMillionKrw": 1228
+      },
+      "assumptions": {
+        "offerPrice": 2000,
+        "competitionRate": null,
+        "feeKrw": null,
+        "method": "ipo_score_v4_spac_listing_day_momentum",
+        "spacModel": true,
+        "proportionalCompetitionRate": null,
+        "institutionCompetitionRate": null,
+        "retailTailBoost": 0.0,
+        "proportionalTailBoost": 0.0,
+        "institutionTailBoost": 0.0,
+        "lowLockupVolatility": false,
+        "uncalibratedBaseGainRate": 0.08789999999999999,
+        "calibrationApplied": 0.1085,
+        "calibrationSampleCount": 1,
+        "calibrationCompetitionBucket": null
+      }
+    },
     "decision": {
       "level": "insufficient_data",
-      "label": "정보 보강 필요",
+      "label": "데이터 부족",
       "reasons": [
-        "피너츠 기준 스팩 청약 일정과 고정 공모가를 우선 반영했습니다."
+        "스팩 전용 보정으로 일반 IPO 확약률 대신 상장일 수급 요인을 반영했습니다."
       ],
       "warnings": [
-        "추가 경쟁률 및 상세 수급 데이터는 추후 보강될 수 있습니다."
+        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+        "스팩의 낮은 기관 확약률은 일반 IPO 안정성 감점이 아니라 상장일 변동성 위험으로 해석합니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
+    "brokerScores": [],
     "inputs": {
       "latestCompetitionRate": null,
       "snapshotCount": 0,

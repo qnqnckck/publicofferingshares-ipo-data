@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-01T10:53:26.839166",
+  "generatedAt": "2026-05-04T01:22:32.609081",
   "totals": {
-    "generatedStocks": 199,
-    "activeStocks": 0,
-    "upcomingNext7Days": 0
+    "generatedStocks": 202,
+    "activeStocks": 1,
+    "upcomingNext7Days": 1
   },
   "activeReadiness": {
     "missingLatestSnapshotAt": 0,
@@ -14,17 +14,46 @@
     "missingInstitutionParticipants": 0,
     "missingLockupCommitmentRate": 0,
     "liveLikeSourceCount": 0,
-    "finutsSourceCount": 0,
+    "finutsSourceCount": 1,
     "ocrSourceCount": 0
   },
-  "activeLatestSourceCounts": {},
+  "activeLatestSourceCounts": {
+    "finuts_member_secondary": 1
+  },
   "activeSnapshotFreshness": {
-    "within_1h": 0,
+    "within_1h": 1,
     "within_6h": 0,
     "within_24h": 0,
     "older": 0,
     "missing": 0
   },
-  "activeSamples": [],
-  "upcomingSamples": []
+  "activeSamples": [
+    {
+      "id": "poled_2026",
+      "company": "폴레드",
+      "path": "stocks/poled_2026.json",
+      "subscriptionStart": "2026-05-04",
+      "subscriptionEnd": "2026-05-06",
+      "latestSnapshotAt": "2026-05-04T10:22:27+09:00",
+      "latestSnapshotSource": "finuts_member_secondary",
+      "latestCompetitionRate": 40.74,
+      "institutionCompetitionRate": 1486.66,
+      "institutionParticipants": 1259,
+      "lockupCommitmentRate": 0.6724,
+      "issues": []
+    }
+  ],
+  "upcomingSamples": [
+    {
+      "id": "machinarax_2026",
+      "company": "마키나락스",
+      "path": "stocks/machinarax_2026.json",
+      "subscriptionStart": "2026-05-11",
+      "subscriptionEnd": "2026-05-12",
+      "leadManagers": [
+        "미래에셋증권",
+        "현대차증권"
+      ]
+    }
+  ]
 }

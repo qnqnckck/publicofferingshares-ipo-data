@@ -4,7 +4,7 @@
   "identifiers": {
     "subscriptionKey": "폴레드_20260504_20260506",
     "normalizedCompany": "폴레드",
-    "corpCode": null,
+    "corpCode": "01565364",
     "stockCode": null,
     "kindCode": null,
     "isin": null
@@ -23,10 +23,12 @@
     "topBandConfirmation": true,
     "institutionCompetitionRate": 1486.66,
     "institutionParticipants": 1259,
-    "lockupCommitmentRate": 67.24,
+    "lockupCommitmentRate": 0.6724,
     "floatRate": null,
     "marketCapKrw": null,
-    "publicAllocationShares": 1300000
+    "publicAllocationShares": 1300000,
+    "hasPutbackRight": false,
+    "putbackSummary": null
   },
   "outcome": null,
   "snapshots": [
@@ -56,40 +58,77 @@
         "subscribedShares": 1932658000,
         "competitionRate": 1486.66
       }
+    },
+    {
+      "capturedAt": "2026-05-04T10:22:27+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100535",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 650000,
+          "subscribedShares": 26481000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 40.74,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 44.44444444444444,
+          "equalAllocationShares": 325000,
+          "proportionalAllocationShares": 325000,
+          "expectedEqualShares": 14.46,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 650000,
+        "subscribedShares": 26481000,
+        "competitionRate": 40.74
+      }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 82,
-      "grade": "A-",
-      "confidence": 0.72,
+      "overall": 96,
+      "grade": "A+",
+      "confidence": 0.95,
       "factors": {
-        "competition": 12,
+        "competition": 16,
         "institutionDemand": 24,
         "demandStrength": 10,
         "lockupCommitment": 18,
-        "floatRate": 0,
+        "floatRate": 8,
         "pricing": 10
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 1.1284,
-      "bearCaseListingGainRate": 0.92,
-      "baseCaseListingGainRate": 1.1284,
-      "bullCaseListingGainRate": 1.3684,
+      "expectedListingGainRate": 1.0688,
+      "bearCaseListingGainRate": 0.8888,
+      "baseCaseListingGainRate": 1.0688,
+      "bullCaseListingGainRate": 1.4288,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 14.705,
+        "oneMillionKrw": 19.369,
+        "fiveMillionKrw": 39.006
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 78587,
+        "oneMillionKrw": 103511,
+        "fiveMillionKrw": 208451
+      },
       "assumptions": {
         "offerPrice": 5000,
-        "competitionRate": 1486.66,
-        "feeKrw": 2000,
+        "competitionRate": 40.74,
+        "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.7084,
+        "generalCompetitionBaseline": 0.03,
+        "generalPriorBase": 0.8705119999999998,
         "institutionBoost": 0.09,
         "lockupBoost": 0.1,
-        "participantBoost": 0.05,
+        "participantBoost": 0.025,
         "topBandBoost": 0.06,
-        "scoreBoost": 0.05555555555555555,
+        "scoreBoost": 0.08,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
@@ -100,23 +139,32 @@
       "level": "strong_watch",
       "label": "관심 높음",
       "reasons": [
-        "피너츠 기준 일반청약 경쟁률 1486.66대 1과 확정공모가를 반영했습니다.",
-        "기관 참여 1,259곳과 의무보유확약 67.24%로 수급 지표가 양호합니다.",
-        "희망가 상단 확정으로 가격 수요도 비교적 견조하게 해석됩니다."
+        "최근 확인된 일반청약 경쟁률은 40.74대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
-        "단일 주관사 청약으로 계좌 전략 선택 폭은 제한될 수 있습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
+    "brokerScores": [
+      {
+        "broker": "NH투자증권",
+        "equalScore": 100,
+        "proportionalScore": 100,
+        "expectedEqualShares": 14.46,
+        "estimatedDepositForOneProportionalShare": 111111,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": 1486.66,
-      "snapshotCount": 1,
+      "latestCompetitionRate": 40.74,
+      "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1486.66,
-      "lockupCommitmentRate": 67.24,
+      "lockupCommitmentRate": 0.6724,
       "floatRate": null,
       "hasOutcome": false
     },
