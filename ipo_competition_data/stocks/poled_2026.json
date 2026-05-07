@@ -61,33 +61,6 @@
       }
     },
     {
-      "capturedAt": "2026-05-06T08:03:32.116643",
-      "source": "38_news_live",
-      "sourceUrl": "http://www.38.co.kr/html/news/?o=v&m=nostock&key=&no=1949763&page=1",
-      "brokers": [
-        {
-          "name": "NH투자증권",
-          "offeredShares": 1300000,
-          "subscribedShares": 8242000000,
-          "offerPrice": 5000,
-          "depositRate": 0.5,
-          "feeKrw": null,
-          "competitionRate": 3169.86,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 6340.0,
-          "equalAllocationShares": 650000,
-          "proportionalAllocationShares": 650000,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 1300000,
-        "subscribedShares": 8242000000,
-        "competitionRate": 6340.0
-      }
-    },
-    {
       "capturedAt": "2026-05-06T17:03:27+09:00",
       "source": "finuts_member_secondary",
       "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100535",
@@ -118,32 +91,32 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 93,
-      "grade": "A+",
+      "overall": 84,
+      "grade": "A-",
       "confidence": 0.95,
       "factors": {
         "competition": 14,
         "institutionDemand": 24,
         "demandStrength": 10,
         "lockupCommitment": 18,
-        "floatRate": 8,
+        "floatRate": 0,
         "pricing": 10
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 1.3,
+      "expectedListingGainRate": 1.2917,
       "bearCaseListingGainRate": 1.0,
-      "baseCaseListingGainRate": 1.3,
-      "bullCaseListingGainRate": 1.66,
+      "baseCaseListingGainRate": 1.2917,
+      "bullCaseListingGainRate": 1.6517,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.792,
         "oneMillionKrw": 0.822,
         "fiveMillionKrw": 0.948
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 5145,
-        "oneMillionKrw": 5340,
-        "fiveMillionKrw": 6160
+        "minimumSubscription": 5112,
+        "oneMillionKrw": 5306,
+        "fiveMillionKrw": 6121
       },
       "assumptions": {
         "offerPrice": 5000,
@@ -151,12 +124,12 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.8459119999999999,
+        "generalPriorBase": 0.7721119999999999,
         "institutionBoost": 0.09,
         "lockupBoost": 0.1,
         "participantBoost": 0.025,
         "topBandBoost": 0.06,
-        "scoreBoost": 0.08,
+        "scoreBoost": 0.06666666666666667,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
@@ -188,7 +161,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 6339.72,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
