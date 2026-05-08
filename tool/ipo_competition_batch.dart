@@ -2298,7 +2298,7 @@ List<IpoCompetitionStock> mergeIdentifierRows(
       return stock;
     }
     return IpoCompetitionStock(
-      id: stock.id,
+      id: (row.id != null && row.id!.trim().isNotEmpty) ? row.id! : stock.id,
       company: stock.company,
       market: stock.market,
       industry: stock.industry,
