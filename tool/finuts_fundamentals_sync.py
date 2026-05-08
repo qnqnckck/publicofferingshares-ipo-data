@@ -376,8 +376,9 @@ def main() -> int:
             non_null.setdefault("offerPrice", event.offer_price)
         if not non_null:
             continue
-        merged[event.stock_id] = {
-            "id": event.stock_id,
+        manual_row_id = args.stock_id.strip() if args.mode == "target" and args.stock_id.strip() else event.stock_id
+        merged[safe_id(manual_row_id)] = {
+            "id": manual_row_id,
             "company": event.company,
             "fundamentals": non_null,
         }

@@ -33,6 +33,7 @@ class BatchOptions {
     required this.seedPath,
     required this.liveDir,
     required this.outcomeDir,
+    required this.manualFundamentalsPath,
     required this.brokerSnapshotDir,
     required this.identifierPath,
     required this.discoveredPath,
@@ -55,6 +56,7 @@ class BatchOptions {
   final String seedPath;
   final String liveDir;
   final String outcomeDir;
+  final String manualFundamentalsPath;
   final String brokerSnapshotDir;
   final String identifierPath;
   final String discoveredPath;
@@ -81,6 +83,7 @@ Options:
   --seed <path>               Seed JSON path. Default: data/ipo_competition_seed.json
   --live-dir <dir>            Directory with live snapshot JSON files. Default: data/live_snapshots
   --outcome-dir <dir>         Directory with historical outcome JSON files. Default: data/outcomes
+  --manual-fundamentals-path <path> Manual fundamentals override JSON path. Default: data/manual_fundamentals.json
   --broker-snapshot-dir <dir> Directory with broker-level snapshot JSON files. Default: data/broker_snapshots
   --identifier-path <path>    Identifier crosswalk JSON path. Default: data/identifiers/ipo_identifiers.json
   --discovered <path>         Auto-discovered stock JSON path. Default: data/discovered/ipo_events.json
@@ -120,6 +123,10 @@ Seed from the example file:
       seedPath: valueAfter('--seed', 'data/ipo_competition_seed.json'),
       liveDir: valueAfter('--live-dir', 'data/live_snapshots'),
       outcomeDir: valueAfter('--outcome-dir', 'data/outcomes'),
+      manualFundamentalsPath: valueAfter(
+        '--manual-fundamentals-path',
+        'data/manual_fundamentals.json',
+      ),
       brokerSnapshotDir: valueAfter(
         '--broker-snapshot-dir',
         'data/broker_snapshots',
@@ -207,18 +214,28 @@ class IpoCompetitionBatch {
       ]);
       await _writeIdentifierRows(identifierRows);
       final identifiedStocks = mergeIdentifierRows(stocks, identifierRows);
+      final fundamentalsOverlaidStocks = mergeStocks([
+        ...identifiedStocks,
+        ...await _loadManualFundamentalsStocks(identifiedStocks),
+      ]);
       final brokerSnapshotRows = [
         ...await _loadBrokerSnapshotRows(),
         if (options.includePublicLiveBrokerSnapshots)
           ...await _collectPublicLiveBrokerSnapshots(
-            identifiedStocks,
+            fundamentalsOverlaidStocks,
             generatedAt,
           ),
-        ...buildEstimatedBrokerSnapshotRows(identifiedStocks, generatedAt),
-        ...buildEstimatedBrokerRateOnlyRows(identifiedStocks, generatedAt),
+        ...buildEstimatedBrokerSnapshotRows(
+          fundamentalsOverlaidStocks,
+          generatedAt,
+        ),
+        ...buildEstimatedBrokerRateOnlyRows(
+          fundamentalsOverlaidStocks,
+          generatedAt,
+        ),
       ];
       final enrichedStocks = mergeBrokerSnapshots(
-        identifiedStocks,
+        fundamentalsOverlaidStocks,
         brokerSnapshotRows,
       );
       final cutoff = DateTime(
@@ -426,6 +443,80 @@ class IpoCompetitionBatch {
         .whereType<Map<String, Object?>>()
         .map(IpoIdentifierRow.fromJson)
         .toList();
+  }
+
+  Future<List<IpoCompetitionStock>> _loadManualFundamentalsStocks(
+    List<IpoCompetitionStock> baseStocks,
+  ) async {
+    final file = File(options.manualFundamentalsPath);
+    if (!await file.exists()) {
+      return const [];
+    }
+    final decoded = jsonDecode(await file.readAsString());
+    final rawRows = switch (decoded) {
+      {'stocks': List<Object?> rows} => rows,
+      List<Object?> rows => rows,
+      _ => const <Object?>[],
+    };
+
+    final byId = <String, IpoCompetitionStock>{
+      for (final stock in baseStocks) safeId(stock.id): stock,
+    };
+    final byNormalizedCompany = <String, List<IpoCompetitionStock>>{};
+    for (final stock in baseStocks) {
+      final keys = {
+        normalizeLookup(stock.company),
+        normalizeLookup(stock.identifiers.normalizedCompany),
+      }..removeWhere((key) => key.trim().isEmpty);
+      for (final key in keys) {
+        byNormalizedCompany.putIfAbsent(key, () => <IpoCompetitionStock>[]).add(
+          stock,
+        );
+      }
+    }
+
+    final overlays = <IpoCompetitionStock>[];
+    for (final row in rawRows.whereType<Map<String, Object?>>()) {
+      final fundamentalsJson = row['fundamentals'];
+      if (fundamentalsJson is! Map<String, Object?>) {
+        continue;
+      }
+      final rowId = (readString(row, 'id') ?? '').trim();
+      final rowCompany = (readString(row, 'company') ?? '').trim();
+      IpoCompetitionStock? target;
+      if (rowId.isNotEmpty) {
+        target = byId[safeId(rowId)];
+      }
+      if (target == null) {
+        final candidates = byNormalizedCompany[normalizeLookup(rowCompany)] ?? [];
+        if (candidates.length == 1) {
+          target = candidates.first;
+        }
+      }
+
+      final targetId = target?.id ?? rowId;
+      final targetCompany = target?.company ?? rowCompany;
+      if (targetId.trim().isEmpty || targetCompany.trim().isEmpty) {
+        continue;
+      }
+
+      overlays.add(
+        IpoCompetitionStock(
+          id: targetId,
+          company: targetCompany,
+          market: target?.market ?? '',
+          industry: target?.industry ?? '',
+          subscriptionStart: target?.subscriptionStart,
+          subscriptionEnd: target?.subscriptionEnd,
+          leadManagers: target?.leadManagers ?? const [],
+          sourceIdentifiers: target?.identifiers,
+          fundamentals: IpoFundamentals.fromJson(fundamentalsJson),
+          outcome: target?.outcome,
+          snapshots: const [],
+        ),
+      );
+    }
+    return overlays;
   }
 
   Future<void> _writeIdentifierRows(List<IpoIdentifierRow> rows) async {
