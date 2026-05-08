@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "id": "코스모로보틱스_2026-04-27",
+  "identifiers": {
+    "subscriptionKey": "코스모로보틱스_20260427_20260428",
+    "normalizedCompany": "코스모로보틱스",
+    "corpCode": "01802928",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "코스모로보틱스",
+  "market": "KOSDAQ",
+  "industry": "건강관리장비와용품",
+  "subscriptionStart": "2026-04-27",
+  "subscriptionEnd": "2026-04-28",
+  "leadManagers": [
+    "유진",
+    "NH",
+    "유안타"
+  ],
+  "fundamentals": {
+    "offerPrice": 6000,
+    "priceBandMin": 5300,
+    "priceBandMax": 6000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-29T01:27:58+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100523",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 417000,
+          "subscribedShares": 1383163980,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 3316.94,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 208500,
+          "proportionalAllocationShares": 208500,
+          "expectedEqualShares": 0.64,
+          "applicationCount": null
+        },
+        {
+          "name": "유안타증권",
+          "offeredShares": 208500,
+          "subscribedShares": 293053005,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 3000,
+          "competitionRate": 1405.53,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 104250,
+          "proportionalAllocationShares": 104250,
+          "expectedEqualShares": 2.11,
+          "applicationCount": null
+        },
+        {
+          "name": "유진투자증권",
+          "offeredShares": 417000,
+          "subscribedShares": 2525135160,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 6055.48,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 208500,
+          "proportionalAllocationShares": 208500,
+          "expectedEqualShares": 2.34,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1042500,
+        "subscribedShares": 4201352145,
+        "competitionRate": 4030.074
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 31,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 14,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 8
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.91,
+      "bearCaseListingGainRate": 0.73,
+      "baseCaseListingGainRate": 0.91,
+      "bullCaseListingGainRate": 1.13,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 2.342,
+        "oneMillionKrw": 2.381,
+        "fiveMillionKrw": 2.547
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 12790,
+        "oneMillionKrw": 13002,
+        "fiveMillionKrw": 13905
+      },
+      "assumptions": {
+        "offerPrice": 6000,
+        "competitionRate": 4030.074,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.09196000000000001,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 4030.07대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "유안타증권",
+        "equalScore": 100,
+        "proportionalScore": 24,
+        "expectedEqualShares": 2.11,
+        "estimatedDepositForOneProportionalShare": 4216590,
+        "feeKrw": 3000,
+        "dataQuality": "broker_verified"
+      },
+      {
+        "broker": "유진투자증권",
+        "equalScore": 100,
+        "proportionalScore": 6,
+        "expectedEqualShares": 2.34,
+        "estimatedDepositForOneProportionalShare": 18166440,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      },
+      {
+        "broker": "NH투자증권",
+        "equalScore": 51,
+        "proportionalScore": 10,
+        "expectedEqualShares": 0.64,
+        "estimatedDepositForOneProportionalShare": 9950820,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 4030.074,
+      "snapshotCount": 1,
+      "leadManagerCount": 3,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

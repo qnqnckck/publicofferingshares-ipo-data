@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "id": "에스와이스틸텍_2023-11-01",
+  "identifiers": {
+    "subscriptionKey": "에스와이스틸텍_20231101_20231102",
+    "normalizedCompany": "에스와이스틸텍",
+    "corpCode": "01135084",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "에스와이스틸텍",
+  "market": "KOSDAQ",
+  "industry": "건축자재",
+  "subscriptionStart": "2023-11-01",
+  "subscriptionEnd": "2023-11-02",
+  "leadManagers": [
+    "KB"
+  ],
+  "fundamentals": {
+    "offerPrice": 1800,
+    "priceBandMin": 1200,
+    "priceBandMax": 1500,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100081",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 1750000,
+          "subscribedShares": 3502572500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 1500,
+          "competitionRate": 2001.47,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 875000,
+          "proportionalAllocationShares": 875000,
+          "expectedEqualShares": 5.54,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1750000,
+        "subscribedShares": 3502572500,
+        "competitionRate": 2001.47
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 29,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 16,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 4
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.91,
+      "bearCaseListingGainRate": 0.73,
+      "baseCaseListingGainRate": 0.91,
+      "bullCaseListingGainRate": 1.13,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 5.545,
+        "oneMillionKrw": 5.818,
+        "fiveMillionKrw": 6.928
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 9083,
+        "oneMillionKrw": 9529,
+        "fiveMillionKrw": 11348
+      },
+      "assumptions": {
+        "offerPrice": 1800,
+        "competitionRate": 2001.47,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.07582666666666668,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 2001.47대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "KB증권",
+        "equalScore": 100,
+        "proportionalScore": 56,
+        "expectedEqualShares": 5.54,
+        "estimatedDepositForOneProportionalShare": 1801323,
+        "feeKrw": 1500,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 2001.47,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "id": "그린광학_2025-11-06",
+  "identifiers": {
+    "subscriptionKey": "그린광학_20251106_20251107",
+    "normalizedCompany": "그린광학",
+    "corpCode": "00677486",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "그린광학",
+  "market": "KOSDAQ",
+  "industry": "우주항공과국방",
+  "subscriptionStart": "2025-11-06",
+  "subscriptionEnd": "2025-11-07",
+  "leadManagers": [
+    "신영"
+  ],
+  "fundamentals": {
+    "offerPrice": 16000,
+    "priceBandMin": 14000,
+    "priceBandMax": 16000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-29T01:21:55+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100454",
+      "brokers": [
+        {
+          "name": "신영증권",
+          "offeredShares": 500000,
+          "subscribedShares": 1199905000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 2399.81,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 250000,
+          "proportionalAllocationShares": 250000,
+          "expectedEqualShares": 1.56,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 500000,
+        "subscribedShares": 1199905000,
+        "competitionRate": 2399.81
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 33,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 16,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 8
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.91,
+      "bearCaseListingGainRate": 0.73,
+      "baseCaseListingGainRate": 0.91,
+      "bullCaseListingGainRate": 1.13,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 1.564,
+        "oneMillionKrw": 1.586,
+        "fiveMillionKrw": 1.69
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 22774,
+        "oneMillionKrw": 23093,
+        "fiveMillionKrw": 24610
+      },
+      "assumptions": {
+        "offerPrice": 16000,
+        "competitionRate": 2399.81,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.10809333333333335,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 2399.81대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "신영증권",
+        "equalScore": 100,
+        "proportionalScore": 5,
+        "expectedEqualShares": 1.56,
+        "estimatedDepositForOneProportionalShare": 19198480,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 2399.81,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

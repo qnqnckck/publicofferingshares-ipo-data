@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "id": "캡스톤파트너스_2023-11-06",
+  "identifiers": {
+    "subscriptionKey": "캡스톤파트너스_20231106_20231107",
+    "normalizedCompany": "캡스톤파트너스",
+    "corpCode": "01497124",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "캡스톤파트너스",
+  "market": "KOSDAQ",
+  "industry": "창업투자",
+  "subscriptionStart": "2023-11-06",
+  "subscriptionEnd": "2023-11-07",
+  "leadManagers": [
+    "NH"
+  ],
+  "fundamentals": {
+    "offerPrice": 4000,
+    "priceBandMin": 3200,
+    "priceBandMax": 3600,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100079",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 399000,
+          "subscribedShares": 1073748900,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 2691.1,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 199500,
+          "proportionalAllocationShares": 199500,
+          "expectedEqualShares": 1.71,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 399000,
+        "subscribedShares": 1073748900,
+        "competitionRate": 2691.1
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 27,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 14,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 4
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.91,
+      "bearCaseListingGainRate": 0.73,
+      "baseCaseListingGainRate": 0.91,
+      "bullCaseListingGainRate": 1.13,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 1.714,
+        "oneMillionKrw": 1.803,
+        "fiveMillionKrw": 2.174
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 6238,
+        "oneMillionKrw": 6563,
+        "fiveMillionKrw": 7915
+      },
+      "assumptions": {
+        "offerPrice": 4000,
+        "competitionRate": 2691.1,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.05969333333333332,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 2691.1대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "NH투자증권",
+        "equalScore": 100,
+        "proportionalScore": 19,
+        "expectedEqualShares": 1.71,
+        "estimatedDepositForOneProportionalShare": 5382200,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 2691.1,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

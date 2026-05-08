@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "id": "뷰티스킨_2023-07-13",
+  "identifiers": {
+    "subscriptionKey": "뷰티스킨_20230713_20230714",
+    "normalizedCompany": "뷰티스킨",
+    "corpCode": "01147487",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "뷰티스킨",
+  "market": "KOSDAQ",
+  "industry": "화장품",
+  "subscriptionStart": "2023-07-13",
+  "subscriptionEnd": "2023-07-14",
+  "leadManagers": [
+    "DB"
+  ],
+  "fundamentals": {
+    "offerPrice": 26000,
+    "priceBandMin": 21000,
+    "priceBandMax": 24000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-29T01:28:12+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100155",
+      "brokers": [
+        {
+          "name": "DB금융투자",
+          "offeredShares": 110000,
+          "subscribedShares": 497779700,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 4525.27,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 55000,
+          "proportionalAllocationShares": 55000,
+          "expectedEqualShares": 0.47,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 110000,
+        "subscribedShares": 497779700,
+        "competitionRate": 4525.27
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 27,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 14,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 4
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.91,
+      "bearCaseListingGainRate": 0.73,
+      "baseCaseListingGainRate": 0.91,
+      "bullCaseListingGainRate": 1.13,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.472,
+        "oneMillionKrw": 0.478,
+        "fiveMillionKrw": 0.512
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 11172,
+        "oneMillionKrw": 11321,
+        "fiveMillionKrw": 12126
+      },
+      "assumptions": {
+        "offerPrice": 26000,
+        "competitionRate": 4525.27,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.05969333333333332,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 4525.27대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "DB금융투자",
+        "equalScore": 38,
+        "proportionalScore": 2,
+        "expectedEqualShares": 0.47,
+        "estimatedDepositForOneProportionalShare": 58828510,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 4525.27,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

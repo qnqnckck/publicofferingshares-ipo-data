@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "id": "신한글로벌액티브리츠_2024-06-13",
+  "identifiers": {
+    "subscriptionKey": "신한글로벌액티브리츠_20240613_20240614",
+    "normalizedCompany": "신한글로벌액티브리츠",
+    "corpCode": "01714997",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "신한글로벌액티브리츠",
+  "market": "KOSDAQ",
+  "industry": "",
+  "subscriptionStart": "2024-06-13",
+  "subscriptionEnd": "2024-06-14",
+  "leadManagers": [
+    "신한",
+    "한국"
+  ],
+  "fundamentals": {
+    "offerPrice": 3000,
+    "priceBandMin": 3000,
+    "priceBandMax": 3800,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-29T01:08:07+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100211",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 3500000,
+          "subscribedShares": 403130000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 115.18,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 133.33333333333334,
+          "equalAllocationShares": 1750000,
+          "proportionalAllocationShares": 1750000,
+          "expectedEqualShares": 0.0,
+          "applicationCount": null
+        },
+        {
+          "name": "한국투자증권",
+          "offeredShares": 3500000,
+          "subscribedShares": 439425000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 125.55,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 166.66666666666666,
+          "equalAllocationShares": 1750000,
+          "proportionalAllocationShares": 1750000,
+          "expectedEqualShares": 0.0,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 7000000,
+        "subscribedShares": 842555000,
+        "competitionRate": 120.365
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 13,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 2,
+        "institutionDemand": 0,
+        "demandStrength": 0,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 10
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.2,
+      "bearCaseListingGainRate": 0.02,
+      "baseCaseListingGainRate": 0.2,
+      "bullCaseListingGainRate": 0.42,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.083,
+        "oneMillionKrw": 2.769,
+        "fiveMillionKrw": 13.847
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 50,
+        "oneMillionKrw": 1662,
+        "fiveMillionKrw": 8308
+      },
+      "assumptions": {
+        "offerPrice": 3000,
+        "competitionRate": 120.365,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.24,
+        "generalPriorBase": -0.053239999999999996,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 120.37대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "신한투자증권",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 200000,
+        "feeKrw": 2000,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "한국투자증권",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 250000,
+        "feeKrw": 2000,
+        "dataQuality": "partial"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 120.365,
+      "snapshotCount": 1,
+      "leadManagerCount": 2,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

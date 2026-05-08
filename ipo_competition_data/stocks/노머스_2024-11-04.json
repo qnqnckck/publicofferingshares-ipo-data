@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "id": "노머스_2024-11-04",
+  "identifiers": {
+    "subscriptionKey": "노머스_20241104_20241105",
+    "normalizedCompany": "노머스",
+    "corpCode": "01703849",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "노머스",
+  "market": "KOSDAQ",
+  "industry": "방송과엔터테인먼트",
+  "subscriptionStart": "2024-11-04",
+  "subscriptionEnd": "2024-11-05",
+  "leadManagers": [
+    "대신"
+  ],
+  "fundamentals": {
+    "offerPrice": 30200,
+    "priceBandMin": 27200,
+    "priceBandMax": 30200,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-29T01:16:00+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100275",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 282500,
+          "subscribedShares": 1480300,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 5.24,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 6.020469596628537,
+          "equalAllocationShares": 141250,
+          "proportionalAllocationShares": 141250,
+          "expectedEqualShares": 15.28,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 282500,
+        "subscribedShares": 1480300,
+        "competitionRate": 5.24
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 16,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 0,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 8
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": -0.01,
+      "bearCaseListingGainRate": -0.15,
+      "baseCaseListingGainRate": -0.01,
+      "bullCaseListingGainRate": 0.21,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 17.188,
+        "oneMillionKrw": 21.599,
+        "fiveMillionKrw": 46.876
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -5191,
+        "oneMillionKrw": -6523,
+        "fiveMillionKrw": -14157
+      },
+      "assumptions": {
+        "offerPrice": 30200,
+        "competitionRate": 5.24,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.03,
+        "generalPriorBase": -0.029039999999999976,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 5.24대 1입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "대신증권",
+        "equalScore": 100,
+        "proportionalScore": 100,
+        "expectedEqualShares": 15.28,
+        "estimatedDepositForOneProportionalShare": 90909,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 5.24,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

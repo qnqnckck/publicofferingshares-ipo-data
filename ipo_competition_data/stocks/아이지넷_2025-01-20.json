@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "id": "아이지넷_2025-01-20",
+  "identifiers": {
+    "subscriptionKey": "아이지넷_20250120_20250121",
+    "normalizedCompany": "아이지넷",
+    "corpCode": "01728167",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "아이지넷",
+  "market": "KOSDAQ",
+  "industry": "IT서비스",
+  "subscriptionStart": "2025-01-20",
+  "subscriptionEnd": "2025-01-21",
+  "leadManagers": [
+    "한국"
+  ],
+  "fundamentals": {
+    "offerPrice": 7000,
+    "priceBandMin": 6000,
+    "priceBandMax": 7000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-29T01:02:06+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100310",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 500000,
+          "subscribedShares": 145495000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 290.99,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 250000,
+          "proportionalAllocationShares": 250000,
+          "expectedEqualShares": 2.01,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 500000,
+        "subscribedShares": 145495000,
+        "competitionRate": 290.99
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 21,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 5,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 8
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.34,
+      "bearCaseListingGainRate": 0.16,
+      "baseCaseListingGainRate": 0.34,
+      "bullCaseListingGainRate": 0.56,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 2.044,
+        "oneMillionKrw": 2.501,
+        "fiveMillionKrw": 4.465
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 4866,
+        "oneMillionKrw": 5952,
+        "fiveMillionKrw": 10626
+      },
+      "assumptions": {
+        "offerPrice": 7000,
+        "competitionRate": 290.99,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.38,
+        "generalPriorBase": 0.011293333333333327,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 290.99대 1입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "한국투자증권",
+        "equalScore": 100,
+        "proportionalScore": 98,
+        "expectedEqualShares": 2.01,
+        "estimatedDepositForOneProportionalShare": 1018465,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 290.99,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

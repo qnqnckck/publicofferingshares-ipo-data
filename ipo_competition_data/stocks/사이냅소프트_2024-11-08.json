@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "id": "사이냅소프트_2024-11-08",
+  "identifiers": {
+    "subscriptionKey": "사이냅소프트_20241108_20241111",
+    "normalizedCompany": "사이냅소프트",
+    "corpCode": "01207901",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "사이냅소프트",
+  "market": "KOSDAQ",
+  "industry": "소프트웨어",
+  "subscriptionStart": "2024-11-08",
+  "subscriptionEnd": "2024-11-11",
+  "leadManagers": [
+    "NH"
+  ],
+  "fundamentals": {
+    "offerPrice": 24500,
+    "priceBandMin": 21000,
+    "priceBandMax": 24500,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-11-19",
+    "openReturnRate": -0.1346938775510204,
+    "highReturnRate": null,
+    "closeReturnRate": -0.1653061224489796,
+    "sourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333"
+  },
+  "snapshots": [],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 16,
+      "grade": "C-",
+      "confidence": 0.45,
+      "factors": {
+        "competition": 0,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 8
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.1553,
+      "bearCaseListingGainRate": -0.0447,
+      "baseCaseListingGainRate": 0.1553,
+      "bullCaseListingGainRate": 0.4353,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.013,
+        "oneMillionKrw": 0.051,
+        "fiveMillionKrw": 0.255
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 48,
+        "oneMillionKrw": 194,
+        "fiveMillionKrw": 971
+      },
+      "assumptions": {
+        "offerPrice": 24500,
+        "competitionRate": null,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.0,
+        "generalPriorBase": -0.024719999999999978,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": false,
+        "generalCalibrationApplied": 0.18,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": true
+      }
+    },
+    "decision": {
+      "level": "insufficient_data",
+      "label": "데이터 부족",
+      "reasons": [
+        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+      ],
+      "warnings": [
+        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": null,
+      "snapshotCount": 0,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

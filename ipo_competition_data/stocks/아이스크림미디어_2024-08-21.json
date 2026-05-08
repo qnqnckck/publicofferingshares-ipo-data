@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "id": "아이스크림미디어_2024-08-21",
+  "identifiers": {
+    "subscriptionKey": "아이스크림미디어_20240821_20240822",
+    "normalizedCompany": "아이스크림미디어",
+    "corpCode": "00657224",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "아이스크림미디어",
+  "market": "KOSDAQ",
+  "industry": "출판",
+  "subscriptionStart": "2024-08-21",
+  "subscriptionEnd": "2024-08-22",
+  "leadManagers": [
+    "삼성"
+  ],
+  "fundamentals": {
+    "offerPrice": 32000,
+    "priceBandMin": 32000,
+    "priceBandMax": 40200,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100235",
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 738000,
+          "subscribedShares": 18295020,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 24.79,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 31.25,
+          "equalAllocationShares": 369000,
+          "proportionalAllocationShares": 369000,
+          "expectedEqualShares": 8.23,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 738000,
+        "subscribedShares": 18295020,
+        "competitionRate": 24.79
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 11,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 0,
+        "institutionDemand": 0,
+        "demandStrength": 0,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 10
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": -0.01,
+      "bearCaseListingGainRate": -0.15,
+      "baseCaseListingGainRate": -0.01,
+      "bullCaseListingGainRate": 0.21,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 8.633,
+        "oneMillionKrw": 9.491,
+        "fiveMillionKrw": 14.533
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -2763,
+        "oneMillionKrw": -3037,
+        "fiveMillionKrw": -4651
+      },
+      "assumptions": {
+        "offerPrice": 32000,
+        "competitionRate": 24.79,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.03,
+        "generalPriorBase": -0.06937333333333333,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 24.79대 1입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "삼성증권",
+        "equalScore": 100,
+        "proportionalScore": 100,
+        "expectedEqualShares": 8.23,
+        "estimatedDepositForOneProportionalShare": 500000,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 24.79,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

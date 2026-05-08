@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "id": "전진건설로봇_2024-08-08",
+  "identifiers": {
+    "subscriptionKey": "전진건설로봇_20240808_20240809",
+    "normalizedCompany": "전진건설로봇",
+    "corpCode": "00372129",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "전진건설로봇",
+  "market": "KOSDAQ",
+  "industry": "기계",
+  "subscriptionStart": "2024-08-08",
+  "subscriptionEnd": "2024-08-09",
+  "leadManagers": [
+    "미래"
+  ],
+  "fundamentals": {
+    "offerPrice": 16500,
+    "priceBandMin": 13800,
+    "priceBandMax": 15700,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100233",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 923295,
+          "subscribedShares": 2007723443,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 2174.52,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 461648,
+          "proportionalAllocationShares": 461648,
+          "expectedEqualShares": 1.37,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 923295,
+        "subscribedShares": 2007723443,
+        "competitionRate": 2174.519999566769
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 29,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 16,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 4
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.91,
+      "bearCaseListingGainRate": 0.73,
+      "baseCaseListingGainRate": 0.91,
+      "bullCaseListingGainRate": 1.13,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 1.375,
+        "oneMillionKrw": 1.398,
+        "fiveMillionKrw": 1.509
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 20640,
+        "oneMillionKrw": 20989,
+        "fiveMillionKrw": 22663
+      },
+      "assumptions": {
+        "offerPrice": 16500,
+        "competitionRate": 2174.519999566769,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.07582666666666668,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 2174.52대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 100,
+        "proportionalScore": 6,
+        "expectedEqualShares": 1.37,
+        "estimatedDepositForOneProportionalShare": 17939790,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 2174.519999566769,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

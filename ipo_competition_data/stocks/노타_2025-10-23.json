@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "id": "노타_2025-10-23",
+  "identifiers": {
+    "subscriptionKey": "노타_20251023_20251024",
+    "normalizedCompany": "노타",
+    "corpCode": "00638025",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "노타",
+  "market": "KOSDAQ",
+  "industry": "소프트웨어",
+  "subscriptionStart": "2025-10-23",
+  "subscriptionEnd": "2025-10-24",
+  "leadManagers": [
+    "미래"
+  ],
+  "fundamentals": {
+    "offerPrice": 9100,
+    "priceBandMin": 7600,
+    "priceBandMax": 9100,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-29T01:21:39+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100434",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 729000,
+          "subscribedShares": 4055427000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 5563.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 364500,
+          "proportionalAllocationShares": 364500,
+          "expectedEqualShares": 0.95,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 729000,
+        "subscribedShares": 4055427000,
+        "competitionRate": 5563.0
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 31,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 14,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 8
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.91,
+      "bearCaseListingGainRate": 0.73,
+      "baseCaseListingGainRate": 0.91,
+      "bullCaseListingGainRate": 1.13,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.952,
+        "oneMillionKrw": 0.97,
+        "fiveMillionKrw": 1.049
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 7882,
+        "oneMillionKrw": 8031,
+        "fiveMillionKrw": 8685
+      },
+      "assumptions": {
+        "offerPrice": 9100,
+        "competitionRate": 5563.0,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.09196000000000001,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 5563.0대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 76,
+        "proportionalScore": 4,
+        "expectedEqualShares": 0.95,
+        "estimatedDepositForOneProportionalShare": 25311650,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 5563.0,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "id": "케이엔에스_2023-11-27",
+  "identifiers": {
+    "subscriptionKey": "케이엔에스_20231127_20231128",
+    "normalizedCompany": "케이엔에스",
+    "corpCode": "01373541",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "케이엔에스",
+  "market": "KOSDAQ",
+  "industry": "전기제품",
+  "subscriptionStart": "2023-11-27",
+  "subscriptionEnd": "2023-11-28",
+  "leadManagers": [
+    "신영"
+  ],
+  "fundamentals": {
+    "offerPrice": 23000,
+    "priceBandMin": 19000,
+    "priceBandMax": 22000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2023-12-06",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": 3.0,
+    "sourceUrl": "https://www.mt.co.kr/stock/2023/12/06/2023120616072329426"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-29T01:33:39+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100025",
+      "brokers": [
+        {
+          "name": "신영증권",
+          "offeredShares": 187500,
+          "subscribedShares": 544020000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 2901.44,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 93750,
+          "proportionalAllocationShares": 93750,
+          "expectedEqualShares": 0.65,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 187500,
+        "subscribedShares": 544020000,
+        "competitionRate": 2901.44
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 27,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 14,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 4
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.91,
+      "bearCaseListingGainRate": 0.73,
+      "baseCaseListingGainRate": 0.91,
+      "bullCaseListingGainRate": 1.13,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.653,
+        "oneMillionKrw": 0.665,
+        "fiveMillionKrw": 0.725
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 13677,
+        "oneMillionKrw": 13918,
+        "fiveMillionKrw": 15173
+      },
+      "assumptions": {
+        "offerPrice": 23000,
+        "competitionRate": 2901.44,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.05969333333333332,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 2901.44대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "신영증권",
+        "equalScore": 52,
+        "proportionalScore": 3,
+        "expectedEqualShares": 0.65,
+        "estimatedDepositForOneProportionalShare": 33366560,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 2901.44,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

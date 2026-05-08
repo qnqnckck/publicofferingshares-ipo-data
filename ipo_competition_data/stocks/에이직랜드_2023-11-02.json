@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "id": "에이직랜드_2023-11-02",
+  "identifiers": {
+    "subscriptionKey": "에이직랜드_20231102_20231103",
+    "normalizedCompany": "에이직랜드",
+    "corpCode": "01540453",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "에이직랜드",
+  "market": "KOSDAQ",
+  "industry": "",
+  "subscriptionStart": "2023-11-02",
+  "subscriptionEnd": "2023-11-03",
+  "leadManagers": [
+    "삼성"
+  ],
+  "fundamentals": {
+    "offerPrice": 25000,
+    "priceBandMin": 19100,
+    "priceBandMax": 21400,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100080",
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 659083,
+          "subscribedShares": 1000988897,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 1518.76,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 329542,
+          "proportionalAllocationShares": 329542,
+          "expectedEqualShares": 1.26,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 659083,
+        "subscribedShares": 1000988897,
+        "competitionRate": 1518.7599998786193
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 29,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 16,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 4
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.91,
+      "bearCaseListingGainRate": 0.73,
+      "baseCaseListingGainRate": 0.91,
+      "bullCaseListingGainRate": 1.13,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 1.267,
+        "oneMillionKrw": 1.286,
+        "fiveMillionKrw": 1.392
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 28815,
+        "oneMillionKrw": 29264,
+        "fiveMillionKrw": 31661
+      },
+      "assumptions": {
+        "offerPrice": 25000,
+        "competitionRate": 1518.7599998786193,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.07582666666666668,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1518.76대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "삼성증권",
+        "equalScore": 100,
+        "proportionalScore": 5,
+        "expectedEqualShares": 1.26,
+        "estimatedDepositForOneProportionalShare": 18984500,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 1518.7599998786193,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

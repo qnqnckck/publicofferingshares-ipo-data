@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "id": "코셈_2024-02-13",
+  "identifiers": {
+    "subscriptionKey": "코셈_20240213_20240214",
+    "normalizedCompany": "코셈",
+    "corpCode": "01493793",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "코셈",
+  "market": "KOSDAQ",
+  "industry": "전자장비와기기",
+  "subscriptionStart": "2024-02-13",
+  "subscriptionEnd": "2024-02-14",
+  "leadManagers": [
+    "키움"
+  ],
+  "fundamentals": {
+    "offerPrice": 16000,
+    "priceBandMin": 12000,
+    "priceBandMax": 14000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-02-23",
+    "openReturnRate": 1.625,
+    "highReturnRate": null,
+    "closeReturnRate": 0.596875,
+    "sourceUrl": "https://www.mk.co.kr/news/stock/10949582"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-02-14T16:00:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://news.bizwatch.co.kr/article/market/2024/02/14/0015",
+      "brokers": [
+        {
+          "name": "키움증권",
+          "offeredShares": 150000,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 2518.4,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 5036.8,
+          "equalAllocationShares": 75000,
+          "proportionalAllocationShares": 75000,
+          "expectedEqualShares": null,
+          "applicationCount": 422268
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 150000,
+        "subscribedShares": 0,
+        "competitionRate": 0.0
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 11,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 0,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 4
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": -0.01,
+      "bearCaseListingGainRate": -0.15,
+      "baseCaseListingGainRate": -0.01,
+      "bullCaseListingGainRate": 0.21,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 100.178,
+        "oneMillionKrw": 100.178,
+        "fiveMillionKrw": 100.178
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -16028,
+        "oneMillionKrw": -16028,
+        "fiveMillionKrw": -16028
+      },
+      "assumptions": {
+        "offerPrice": 16000,
+        "competitionRate": 0.0,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.03,
+        "generalPriorBase": -0.06937333333333333,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 0.0대 1입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "키움증권",
+        "equalScore": 14,
+        "proportionalScore": 2,
+        "expectedEqualShares": 0.1776,
+        "estimatedDepositForOneProportionalShare": 40294400,
+        "feeKrw": null,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 0.0,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

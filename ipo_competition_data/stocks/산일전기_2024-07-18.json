@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "id": "산일전기_2024-07-18",
+  "identifiers": {
+    "subscriptionKey": "산일전기_20240718_20240719",
+    "normalizedCompany": "산일전기",
+    "corpCode": "00366438",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "산일전기",
+  "market": "KOSDAQ",
+  "industry": "전기장비",
+  "subscriptionStart": "2024-07-18",
+  "subscriptionEnd": "2024-07-19",
+  "leadManagers": [
+    "미래",
+    "삼성"
+  ],
+  "fundamentals": {
+    "offerPrice": 35000,
+    "priceBandMin": 24000,
+    "priceBandMax": 30000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-07-29",
+    "openReturnRate": 0.28285714285714286,
+    "highReturnRate": null,
+    "closeReturnRate": 0.4342857142857143,
+    "sourceUrl": "https://www.yna.co.kr/view/AKR20240729036251008"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-07-19T16:43:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/11071573",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 2188800,
+          "subscribedShares": 933876552,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 426.79,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 854.0,
+          "equalAllocationShares": 1094400,
+          "proportionalAllocationShares": 1094400,
+          "expectedEqualShares": null,
+          "applicationCount": 465970
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 91200,
+          "subscribedShares": 30487248,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 334.29,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 667.0,
+          "equalAllocationShares": 45600,
+          "proportionalAllocationShares": 45600,
+          "expectedEqualShares": null,
+          "applicationCount": 69300
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 2280000,
+        "subscribedShares": 964363800,
+        "competitionRate": 422.9665789473684
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:01:40+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100226",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 2188800,
+          "subscribedShares": 1868315904,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 853.58,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 1094400,
+          "proportionalAllocationShares": 1094400,
+          "expectedEqualShares": 2.35,
+          "applicationCount": null
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 91200,
+          "subscribedShares": 60882384,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 667.57,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 45600,
+          "proportionalAllocationShares": 45600,
+          "expectedEqualShares": 0.66,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 2280000,
+        "subscribedShares": 1929198288,
+        "competitionRate": 846.1396
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 26,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 13,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 4
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.68,
+      "bearCaseListingGainRate": 0.5,
+      "baseCaseListingGainRate": 0.68,
+      "bullCaseListingGainRate": 0.9,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 2.362,
+        "oneMillionKrw": 2.384,
+        "fiveMillionKrw": 2.519
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 56211,
+        "oneMillionKrw": 56734,
+        "fiveMillionKrw": 59948
+      },
+      "assumptions": {
+        "offerPrice": 35000,
+        "competitionRate": 846.1396,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.05162666666666668,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 846.14대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 100,
+        "proportionalScore": 7,
+        "expectedEqualShares": 2.35,
+        "estimatedDepositForOneProportionalShare": 14937650,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      },
+      {
+        "broker": "삼성증권",
+        "equalScore": 53,
+        "proportionalScore": 9,
+        "expectedEqualShares": 0.66,
+        "estimatedDepositForOneProportionalShare": 11682475,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 846.1396,
+      "snapshotCount": 2,
+      "leadManagerCount": 2,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

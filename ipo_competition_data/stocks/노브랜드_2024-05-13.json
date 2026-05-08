@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "id": "노브랜드_2024-05-13",
+  "identifiers": {
+    "subscriptionKey": "노브랜드_20240513_20240514",
+    "normalizedCompany": "노브랜드",
+    "corpCode": "00305941",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "노브랜드",
+  "market": "KOSDAQ",
+  "industry": "섬유,의류,신발,호화품",
+  "subscriptionStart": "2024-05-13",
+  "subscriptionEnd": "2024-05-14",
+  "leadManagers": [
+    "삼성"
+  ],
+  "fundamentals": {
+    "offerPrice": 14000,
+    "priceBandMin": 8700,
+    "priceBandMax": 11000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-05-23",
+    "openReturnRate": 1.2142857142857142,
+    "highReturnRate": 2.9642857142857144,
+    "closeReturnRate": 2.8785714285714286,
+    "sourceUrl": "https://www.mk.co.kr/news/stock/11023130"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-29T01:00:50+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100167",
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 300000,
+          "subscribedShares": 1242549000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 4141.83,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 150000,
+          "proportionalAllocationShares": 150000,
+          "expectedEqualShares": 0.38,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 300000,
+        "subscribedShares": 1242549000,
+        "competitionRate": 4141.83
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 27,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 14,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 4
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.91,
+      "bearCaseListingGainRate": 0.73,
+      "baseCaseListingGainRate": 0.91,
+      "bullCaseListingGainRate": 1.13,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.382,
+        "oneMillionKrw": 0.397,
+        "fiveMillionKrw": 0.466
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 4872,
+        "oneMillionKrw": 5061,
+        "fiveMillionKrw": 5940
+      },
+      "assumptions": {
+        "offerPrice": 14000,
+        "competitionRate": 4141.83,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.05969333333333332,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 4141.83대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "삼성증권",
+        "equalScore": 30,
+        "proportionalScore": 3,
+        "expectedEqualShares": 0.38,
+        "estimatedDepositForOneProportionalShare": 28992810,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 4141.83,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

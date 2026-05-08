@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "id": "신성에스티_2023-10-10",
+  "identifiers": {
+    "subscriptionKey": "신성에스티_20231010_20231011",
+    "normalizedCompany": "신성에스티",
+    "corpCode": "00761183",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "신성에스티",
+  "market": "KOSDAQ",
+  "industry": "전기제품",
+  "subscriptionStart": "2023-10-10",
+  "subscriptionEnd": "2023-10-11",
+  "leadManagers": [
+    "미래"
+  ],
+  "fundamentals": {
+    "offerPrice": 26000,
+    "priceBandMin": 22000,
+    "priceBandMax": 25000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2023-10-19",
+    "openReturnRate": 0.7711538461538462,
+    "highReturnRate": 0.8134615384615385,
+    "closeReturnRate": 0.5019230769230769,
+    "sourceUrl": "https://www.yna.co.kr/view/AKR20231019040151002"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-29T01:28:58+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100039",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 500000,
+          "subscribedShares": 1891400000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 3782.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 250000,
+          "proportionalAllocationShares": 250000,
+          "expectedEqualShares": 0.48,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 500000,
+        "subscribedShares": 1891400000,
+        "competitionRate": 3782.8
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 27,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 14,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 4
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.91,
+      "bearCaseListingGainRate": 0.73,
+      "baseCaseListingGainRate": 0.91,
+      "bullCaseListingGainRate": 1.13,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.483,
+        "oneMillionKrw": 0.49,
+        "fiveMillionKrw": 0.531
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 11419,
+        "oneMillionKrw": 11597,
+        "fiveMillionKrw": 12560
+      },
+      "assumptions": {
+        "offerPrice": 26000,
+        "competitionRate": 3782.8,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.05969333333333332,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 3782.8대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 38,
+        "proportionalScore": 2,
+        "expectedEqualShares": 0.48,
+        "estimatedDepositForOneProportionalShare": 49176400,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 3782.8,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

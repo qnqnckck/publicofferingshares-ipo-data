@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "id": "더즌_2025-03-12",
+  "identifiers": {
+    "subscriptionKey": "더즌_20250312_20250313",
+    "normalizedCompany": "더즌",
+    "corpCode": "01563667",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "더즌",
+  "market": "KOSDAQ",
+  "industry": "IT서비스",
+  "subscriptionStart": "2025-03-12",
+  "subscriptionEnd": "2025-03-13",
+  "leadManagers": [
+    "한국"
+  ],
+  "fundamentals": {
+    "offerPrice": 9000,
+    "priceBandMin": 10500,
+    "priceBandMax": 12500,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-29T01:07:43+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100347",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 625000,
+          "subscribedShares": 276887500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 443.02,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 312500,
+          "proportionalAllocationShares": 312500,
+          "expectedEqualShares": 4.77,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 625000,
+        "subscribedShares": 276887500,
+        "competitionRate": 443.02
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 21,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 9,
+        "institutionDemand": 0,
+        "demandStrength": 0,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 10
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.48,
+      "bearCaseListingGainRate": 0.3,
+      "baseCaseListingGainRate": 0.48,
+      "bullCaseListingGainRate": 0.7,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 4.793,
+        "oneMillionKrw": 5.021,
+        "fiveMillionKrw": 6.024
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 20704,
+        "oneMillionKrw": 21690,
+        "fiveMillionKrw": 26024
+      },
+      "assumptions": {
+        "offerPrice": 9000,
+        "competitionRate": 443.02,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.52,
+        "generalPriorBase": 0.011293333333333327,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 443.02대 1입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "한국투자증권",
+        "equalScore": 100,
+        "proportionalScore": 50,
+        "expectedEqualShares": 4.77,
+        "estimatedDepositForOneProportionalShare": 1993590,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 443.02,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

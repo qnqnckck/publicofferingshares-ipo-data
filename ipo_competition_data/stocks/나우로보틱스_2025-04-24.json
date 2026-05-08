@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "id": "나우로보틱스_2025-04-24",
+  "identifiers": {
+    "subscriptionKey": "나우로보틱스_20250424_20250425",
+    "normalizedCompany": "나우로보틱스",
+    "corpCode": "01594791",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "나우로보틱스",
+  "market": "KOSDAQ",
+  "industry": "반도체와반도체장비",
+  "subscriptionStart": "2025-04-24",
+  "subscriptionEnd": "2025-04-25",
+  "leadManagers": [
+    "대신",
+    "아이엠"
+  ],
+  "fundamentals": {
+    "offerPrice": 6800,
+    "priceBandMin": 5900,
+    "priceBandMax": 6800,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-29T01:16:27+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100356",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 562500,
+          "subscribedShares": 1841191875,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 3273.23,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 281250,
+          "proportionalAllocationShares": 281250,
+          "expectedEqualShares": 1.67,
+          "applicationCount": null
+        },
+        {
+          "name": "아이엠증권",
+          "offeredShares": 62500,
+          "subscribedShares": 124052500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 1984.84,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 31250,
+          "proportionalAllocationShares": 31250,
+          "expectedEqualShares": 1.47,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 625000,
+        "subscribedShares": 1965244375,
+        "competitionRate": 3144.391
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 31,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 14,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 8
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.91,
+      "bearCaseListingGainRate": 0.73,
+      "baseCaseListingGainRate": 0.91,
+      "bullCaseListingGainRate": 1.13,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 1.673,
+        "oneMillionKrw": 1.717,
+        "fiveMillionKrw": 1.904
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 10354,
+        "oneMillionKrw": 10623,
+        "fiveMillionKrw": 11781
+      },
+      "assumptions": {
+        "offerPrice": 6800,
+        "competitionRate": 3144.391,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.09196000000000001,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 3144.39대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "아이엠증권",
+        "equalScore": 100,
+        "proportionalScore": 15,
+        "expectedEqualShares": 1.47,
+        "estimatedDepositForOneProportionalShare": 6748456,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      },
+      {
+        "broker": "대신증권",
+        "equalScore": 100,
+        "proportionalScore": 9,
+        "expectedEqualShares": 1.67,
+        "estimatedDepositForOneProportionalShare": 11128982,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 3144.391,
+      "snapshotCount": 1,
+      "leadManagerCount": 2,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

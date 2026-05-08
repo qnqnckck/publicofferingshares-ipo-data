@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "id": "닷밀_2024-11-04",
+  "identifiers": {
+    "subscriptionKey": "닷밀_20241104_20241105",
+    "normalizedCompany": "닷밀",
+    "corpCode": "01605282",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "닷밀",
+  "market": "KOSDAQ",
+  "industry": "방송과엔터테인먼트",
+  "subscriptionStart": "2024-11-04",
+  "subscriptionEnd": "2024-11-05",
+  "leadManagers": [
+    "미래"
+  ],
+  "fundamentals": {
+    "offerPrice": 13000,
+    "priceBandMin": 11000,
+    "priceBandMax": 13000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-29T01:16:04+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100269",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 300000,
+          "subscribedShares": 35040000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 116.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 150000,
+          "proportionalAllocationShares": 150000,
+          "expectedEqualShares": 4.27,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 300000,
+        "subscribedShares": 35040000,
+        "competitionRate": 116.8
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 18,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 2,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 8
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.2,
+      "bearCaseListingGainRate": 0.02,
+      "baseCaseListingGainRate": 0.2,
+      "bullCaseListingGainRate": 0.42,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 4.356,
+        "oneMillionKrw": 4.929,
+        "fiveMillionKrw": 7.563
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 11325,
+        "oneMillionKrw": 12814,
+        "fiveMillionKrw": 19664
+      },
+      "assumptions": {
+        "offerPrice": 13000,
+        "competitionRate": 116.8,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.24,
+        "generalPriorBase": -0.012906666666666643,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 116.8대 1입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 100,
+        "proportionalScore": 100,
+        "expectedEqualShares": 4.27,
+        "estimatedDepositForOneProportionalShare": 759200,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 116.8,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

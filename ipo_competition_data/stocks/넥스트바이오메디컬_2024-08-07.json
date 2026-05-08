@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "id": "넥스트바이오메디컬_2024-08-07",
+  "identifiers": {
+    "subscriptionKey": "넥스트바이오메디컬_20240807_20240808",
+    "normalizedCompany": "넥스트바이오메디컬",
+    "corpCode": "01385050",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "넥스트바이오메디컬",
+  "market": "KOSDAQ",
+  "industry": "건강관리장비와용품",
+  "subscriptionStart": "2024-08-07",
+  "subscriptionEnd": "2024-08-08",
+  "leadManagers": [
+    "한국"
+  ],
+  "fundamentals": {
+    "offerPrice": 29000,
+    "priceBandMin": 24000,
+    "priceBandMax": 29000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-08-20",
+    "openReturnRate": 0.006896551724137931,
+    "highReturnRate": null,
+    "closeReturnRate": -0.07586206896551724,
+    "sourceUrl": "https://www.fnnews.com/news/202408200931417270"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2026-05-08T23:09:47.003169",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/11088270",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 29000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 65.83,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 65.83,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 65.83
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 18,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 2,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 8
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.06,
+      "bearCaseListingGainRate": -0.12,
+      "baseCaseListingGainRate": 0.06,
+      "bullCaseListingGainRate": 0.28,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.152,
+        "oneMillionKrw": 0.524,
+        "fiveMillionKrw": 2.619
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 264,
+        "oneMillionKrw": 911,
+        "fiveMillionKrw": 4557
+      },
+      "assumptions": {
+        "offerPrice": 29000,
+        "competitionRate": 65.83,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.1,
+        "generalPriorBase": -0.012906666666666643,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 65.83대 1입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "한국투자증권",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 954535,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 65.83,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "id": "바이오비쥬_2025-05-08",
+  "identifiers": {
+    "subscriptionKey": "바이오비쥬_20250508_20250509",
+    "normalizedCompany": "바이오비쥬",
+    "corpCode": "01657197",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "바이오비쥬",
+  "market": "KOSDAQ",
+  "industry": "생물공학",
+  "subscriptionStart": "2025-05-08",
+  "subscriptionEnd": "2025-05-09",
+  "leadManagers": [
+    "대신"
+  ],
+  "fundamentals": {
+    "offerPrice": 9100,
+    "priceBandMin": 8000,
+    "priceBandMax": 9100,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-29T01:16:44+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100368",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 780000,
+          "subscribedShares": 1768283400,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 2267.03,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 390000,
+          "proportionalAllocationShares": 390000,
+          "expectedEqualShares": 2.13,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 780000,
+        "subscribedShares": 1768283400,
+        "competitionRate": 2267.03
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 33,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 16,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 8
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.91,
+      "bearCaseListingGainRate": 0.73,
+      "baseCaseListingGainRate": 0.91,
+      "bullCaseListingGainRate": 1.13,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 2.134,
+        "oneMillionKrw": 2.178,
+        "fiveMillionKrw": 2.372
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 17675,
+        "oneMillionKrw": 18040,
+        "fiveMillionKrw": 19646
+      },
+      "assumptions": {
+        "offerPrice": 9100,
+        "competitionRate": 2267.03,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.10809333333333335,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 2267.03대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "대신증권",
+        "equalScore": 100,
+        "proportionalScore": 10,
+        "expectedEqualShares": 2.13,
+        "estimatedDepositForOneProportionalShare": 10314987,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 2267.03,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "id": "아이에스티이_2025-02-03",
+  "identifiers": {
+    "subscriptionKey": "아이에스티이_20250203_20250204",
+    "normalizedCompany": "아이에스티이",
+    "corpCode": "01208751",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "아이에스티이",
+  "market": "KOSDAQ",
+  "industry": "디스플레이장비및부품",
+  "subscriptionStart": "2025-02-03",
+  "subscriptionEnd": "2025-02-04",
+  "leadManagers": [
+    "KB"
+  ],
+  "fundamentals": {
+    "offerPrice": 11400,
+    "priceBandMin": 9700,
+    "priceBandMax": 11400,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100341",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 325000,
+          "subscribedShares": 295964500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 1500,
+          "competitionRate": 910.66,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 162500,
+          "proportionalAllocationShares": 162500,
+          "expectedEqualShares": 1.82,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 325000,
+        "subscribedShares": 295964500,
+        "competitionRate": 910.66
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 30,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 13,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 8
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.68,
+      "bearCaseListingGainRate": 0.5,
+      "baseCaseListingGainRate": 0.68,
+      "bullCaseListingGainRate": 0.9,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 1.831,
+        "oneMillionKrw": 1.916,
+        "fiveMillionKrw": 2.302
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 14194,
+        "oneMillionKrw": 14855,
+        "fiveMillionKrw": 17842
+      },
+      "assumptions": {
+        "offerPrice": 11400,
+        "competitionRate": 910.66,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.08389333333333335,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 910.66대 1입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "KB증권",
+        "equalScore": 100,
+        "proportionalScore": 19,
+        "expectedEqualShares": 1.82,
+        "estimatedDepositForOneProportionalShare": 5190762,
+        "feeKrw": 1500,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 910.66,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

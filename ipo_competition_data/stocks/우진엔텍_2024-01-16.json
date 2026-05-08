@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "id": "우진엔텍_2024-01-16",
+  "identifiers": {
+    "subscriptionKey": "우진엔텍_20240116_20240117",
+    "normalizedCompany": "우진엔텍",
+    "corpCode": "01030503",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "우진엔텍",
+  "market": "KOSDAQ",
+  "industry": "전기유틸리티",
+  "subscriptionStart": "2024-01-16",
+  "subscriptionEnd": "2024-01-17",
+  "leadManagers": [
+    "KB"
+  ],
+  "fundamentals": {
+    "offerPrice": 5300,
+    "priceBandMin": 4300,
+    "priceBandMax": 4900,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-01-24",
+    "openReturnRate": 3.0,
+    "highReturnRate": 3.0,
+    "closeReturnRate": 3.0,
+    "sourceUrl": "https://www.fnnews.com/ampNews/202401241556076356"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-01-17T16:00:00+09:00",
+      "source": "public_blog_final",
+      "sourceUrl": "https://weezzle.tistory.com/2137",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 515000,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 2707.18,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 5414.0,
+          "equalAllocationShares": 257500,
+          "proportionalAllocationShares": 257500,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 515000,
+        "subscribedShares": 0,
+        "competitionRate": 0.0
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:00:13+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100007",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 515000,
+          "subscribedShares": 2787880400,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 1500,
+          "competitionRate": 5413.36,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 257500,
+          "proportionalAllocationShares": 257500,
+          "expectedEqualShares": 0.51,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 515000,
+        "subscribedShares": 2787880400,
+        "competitionRate": 5413.36
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 27,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 14,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 4
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.91,
+      "bearCaseListingGainRate": 0.73,
+      "baseCaseListingGainRate": 0.91,
+      "bullCaseListingGainRate": 1.13,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.512,
+        "oneMillionKrw": 0.545,
+        "fiveMillionKrw": 0.684
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 2469,
+        "oneMillionKrw": 2628,
+        "fiveMillionKrw": 3300
+      },
+      "assumptions": {
+        "offerPrice": 5300,
+        "competitionRate": 5413.36,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.05969333333333332,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 5413.36대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "KB증권",
+        "equalScore": 41,
+        "proportionalScore": 7,
+        "expectedEqualShares": 0.51,
+        "estimatedDepositForOneProportionalShare": 14345404,
+        "feeKrw": 1500,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 5413.36,
+      "snapshotCount": 2,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

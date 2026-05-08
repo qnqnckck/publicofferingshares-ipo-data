@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "id": "엑셀세라퓨틱스_2024-07-03",
+  "identifiers": {
+    "subscriptionKey": "엑셀세라퓨틱스_20240703_20240704",
+    "normalizedCompany": "엑셀세라퓨틱스",
+    "corpCode": "01492217",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "엑셀세라퓨틱스",
+  "market": "KOSDAQ",
+  "industry": "생물공학",
+  "subscriptionStart": "2024-07-03",
+  "subscriptionEnd": "2024-07-04",
+  "leadManagers": [
+    "대신"
+  ],
+  "fundamentals": {
+    "offerPrice": 10000,
+    "priceBandMin": 6200,
+    "priceBandMax": 7700,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-07-15",
+    "openReturnRate": null,
+    "highReturnRate": 0.29,
+    "closeReturnRate": -0.167,
+    "sourceUrl": "https://biz.sbs.co.kr/amp/article/20000181710"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-29T01:01:04+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100204",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 404500,
+          "subscribedShares": 418815255,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 1035.39,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 202250,
+          "proportionalAllocationShares": 202250,
+          "expectedEqualShares": 0.95,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 404500,
+        "subscribedShares": 418815255,
+        "competitionRate": 1035.39
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v4",
+    "score": {
+      "overall": 26,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "competition": 13,
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "floatRate": 0,
+        "pricing": 4
+      }
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.68,
+      "bearCaseListingGainRate": 0.5,
+      "baseCaseListingGainRate": 0.68,
+      "bullCaseListingGainRate": 0.9,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.96,
+        "oneMillionKrw": 1.047,
+        "fiveMillionKrw": 1.433
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 6526,
+        "oneMillionKrw": 7117,
+        "fiveMillionKrw": 9744
+      },
+      "assumptions": {
+        "offerPrice": 10000,
+        "competitionRate": 1035.39,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.05162666666666668,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 128,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1035.39대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "대신증권",
+        "equalScore": 76,
+        "proportionalScore": 19,
+        "expectedEqualShares": 0.95,
+        "estimatedDepositForOneProportionalShare": 5176950,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 1035.39,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
