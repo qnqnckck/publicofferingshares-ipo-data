@@ -35,6 +35,9 @@ jobs:
 
       - name: Build Finuts baseline inputs
         run: python tool/finuts_discovery_sync.py --backfill-years 3
+        env:
+          FINUTS_ID: ${{ secrets.FINUTS_ID }}
+          FINUTS_PASSWORD: ${{ secrets.FINUTS_PASSWORD }}
 
       - name: Rebuild derived IPO data
         run: >

@@ -56,6 +56,9 @@ jobs:
           --mode target
           --stock-id "${{ inputs.stock_id }}"
           --company "${{ inputs.company }}"
+        env:
+          FINUTS_ID: ${{ secrets.FINUTS_ID }}
+          FINUTS_PASSWORD: ${{ secrets.FINUTS_PASSWORD }}
 
       - name: Refresh targeted Finuts broker snapshots
         if: ${{ inputs.mode == 'broker' || inputs.mode == 'full' }}

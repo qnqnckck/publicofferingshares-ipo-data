@@ -36,6 +36,9 @@ jobs:
 
       - name: Refresh Finuts fundamentals overrides
         run: python tool/finuts_fundamentals_sync.py --mode demand-today
+        env:
+          FINUTS_ID: ${{ secrets.FINUTS_ID }}
+          FINUTS_PASSWORD: ${{ secrets.FINUTS_PASSWORD }}
 
       - name: Rebuild derived IPO data
         run: >

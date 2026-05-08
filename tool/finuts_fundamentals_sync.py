@@ -12,12 +12,15 @@ from typing import Any
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
+from finuts_auth import build_finuts_authenticated_opener
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MANUAL_FUNDAMENTALS_PATH = ROOT / "data" / "manual_fundamentals.json"
 OUTCOMES_DIR = ROOT / "data" / "outcomes"
 IDENTIFIERS_PATH = ROOT / "data" / "identifiers" / "ipo_identifiers.json"
 FINUTS_URL = "https://www.finuts.co.kr/html/task/ipo/ipoListQuery.php"
+FINUTS_LIST_PAGE_URL = "https://www.finuts.co.kr/html/ipo/ipoList.php?cat=subscribe"
 
 
 def safe_id(value: str) -> str:
@@ -97,6 +100,7 @@ class FinutsEvent:
 
 
 def fetch_finuts_events() -> list[FinutsEvent]:
+    opener = build_finuts_authenticated_opener(target_url=FINUTS_LIST_PAGE_URL)
     req = Request(
         FINUTS_URL,
         data=urlencode({"active": "ipo-011", "search_text": ""}).encode(),
@@ -106,7 +110,8 @@ def fetch_finuts_events() -> list[FinutsEvent]:
             "User-Agent": "Mozilla/5.0",
         },
     )
-    with urlopen(req, timeout=30) as response:
+    open_fn = opener.open if opener is not None else urlopen
+    with open_fn(req, timeout=30) as response:
         payload = json.loads(response.read().decode("utf-8", "ignore"))
 
     grouped: dict[str, list[dict[str, Any]]] = {}
@@ -158,7 +163,9 @@ def fetch_finuts_events() -> list[FinutsEvent]:
 
 def fetch_text(url: str) -> str:
     req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urlopen(req, timeout=30) as response:
+    opener = build_finuts_authenticated_opener(target_url=url)
+    open_fn = opener.open if opener is not None else urlopen
+    with open_fn(req, timeout=30) as response:
         return response.read().decode("utf-8", "ignore")
 
 
