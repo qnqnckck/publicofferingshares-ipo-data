@@ -100,7 +100,11 @@ def parse_detail_industry(detail_html: str) -> str:
             cells = re.findall(r"<td[^>]*>(.*?)</td>", row_html, re.IGNORECASE | re.DOTALL)
             if len(cells) >= 3:
                 industry = plain_text(cells[2])
-                if industry and "기업명 or 업종명" not in industry:
+                if (
+                    industry
+                    and industry != "-"
+                    and "기업명 or 업종명" not in industry
+                ):
                     return industry
 
     major_business_match = re.search(
