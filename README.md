@@ -25,11 +25,11 @@ data/
   broker_snapshots/
   discovered/
     ipo_events.json
-  live_snapshots/
+  manual_fundamentals.json
   ipo_competition_seed.example.json
 .github/
   workflows/
-    ipo_competition_batch.yml
+    finuts_baseline_discovery_sync.yml
 ```
 
 ## App URLs
@@ -58,51 +58,51 @@ Fallback/full sync: index.json
 
 ## Batch
 
-Generate the static JSON once:
+This repository now runs in a Finuts-only scheduled workflow model.
+
+All mutating workflows follow the same pattern:
+
+1. sync Finuts-derived input files
+2. rebuild `ipo_competition_data/` through `tool/ipo_competition_batch.dart`
+3. validate generated data
+4. commit and push to `main`
+
+The shared rebuild step is:
 
 ```bash
-dart run tool/ipo_competition_batch.dart --backfill-years 3
+dart run tool/ipo_competition_batch.dart \
+  --backfill-years 3 \
+  --manual-fundamentals-path data/manual_fundamentals.json \
+  --no-discover \
+  --no-identifier-discover \
+  --no-ipo-korea-supplement \
+  --no-article-lead-manager-discover \
+  --no-public-live-collect
 ```
 
-Merge reviewed historical seed and local live snapshots:
+The active workflows are:
 
-```bash
-dart run tool/ipo_competition_batch.dart --backfill-years 3 --live-dir data/live_snapshots
-```
+- `finuts_baseline_discovery_sync`
+  - weekday 17:30 KST
+  - syncs new IPO baseline rows from Finuts into `data/discovered/ipo_events.json`
+  - refreshes listing-date / offer-price style outcome rows under `data/outcomes/`
+- `finuts_demand_forecast_fundamentals_sync`
+  - weekday 18:00 and 18:20 KST
+  - refreshes institution-demand fundamentals into `data/manual_fundamentals.json`
+- `finuts_subscription_live_competition_sync`
+  - weekday 09:50 to 17:10 KST in repeated runs
+  - refreshes Finuts broker snapshot rows into `data/broker_snapshots/`
+- `finuts_manual_targeted_backfill`
+  - manual only
+  - targeted repair for one stock id / company
 
-Remote discovery is enabled by default. It uses these optional environment
-variables:
+The Finuts helper scripts are:
 
 ```text
-DART_API_KEY
-ITICK_API_KEY
-KIS_APP_KEY
-KIS_APP_SECRET
+tool/finuts_discovery_sync.py
+tool/finuts_fundamentals_sync.py
+tool/video_ocr_secondary_ingest.py
 ```
-
-If no keys are configured, the batch still runs and only normalizes local seed,
-discovered, and live snapshot files.
-
-KIS OpenAPI credentials must be provided only through environment variables or
-GitHub Actions repository secrets. Do not commit the app key or app secret into
-this public repository. The batch currently detects KIS credentials but does not
-call a KIS IPO subscription competition endpoint until a verified endpoint is
-added.
-
-Run continuously for active subscription days:
-
-```bash
-dart run tool/ipo_competition_batch.dart --backfill-years 3 --watch --interval-minutes 10 --live-dir data/live_snapshots
-```
-
-GitHub Actions runs the same generation command every 10 minutes during Korean
-weekday market hours.
-
-The checked-in workflow file is maintained under
-`workflow_templates/ipo_competition_batch.yml`. When this data repository is
-published as a standalone GitHub repository, copy that template to
-`.github/workflows/ipo_competition_batch.yml` and keep the template updated with
-any runtime, secret, or command changes.
 
 ## Documentation upkeep
 
@@ -122,42 +122,31 @@ white/gray "정보 부족" state and grade `-` until enough source fields are pr
 ## Data source policy
 
 Do not fabricate historical competition rates. Seed rows should come from a
-verifiable source such as broker notices, final IPO reports, DART attachments,
-or manually reviewed public disclosures.
+verifiable source such as Finuts, broker notices, or manually reviewed public
+disclosures.
 
-The batch normalizes and republishes source data into app-friendly JSON. Source
-adapters can be added incrementally per broker.
+Scheduled automation should use Finuts as the only live upstream source.
+Non-Finuts public scraping workflows have been removed from this repository.
 
-During active subscription days, the batch also attempts public live snapshot
-collection from Shinhan Securities, Daishin Securities, IPOSTOCK detail pages,
-and 38 Communication news pages. When the current day is inside an IPO's
-subscription window, adapters try to parse public subscription competition
-rates, retail allocation shares, broker allocation tables, offer price, and
-deposit rate, then merge the result into the generated stock JSON. If a public
-page has not published a rate yet, that adapter skips the stock and the rest of
-the batch still succeeds.
+`tool/ipo_competition_batch.dart` is still the shared normalizer and derived
+JSON builder, but Finuts workflows should call it with:
 
-For recently completed IPOs with missing judgement fields, the batch also tries
-an IPO Korea detail-page supplement. It is deliberately capped to a small number
-of recent incomplete rows per run, so scheduled GitHub Actions can fill missing
-institution participant counts, lock-up commitment rates, retail competition
-rates, and public allocation shares incrementally without overloading public
-sources.
+- `--no-discover`
+- `--no-identifier-discover`
+- `--no-ipo-korea-supplement`
+- `--no-article-lead-manager-discover`
+- `--no-public-live-collect`
 
-## Live snapshot input
+## Batch input files
 
-Files under `data/live_snapshots/*.json` may contain either a full stock object
-or `{ "stocks": [...] }`. The batch merges these snapshots by `id`.
-
-This is the bridge before broker-specific adapters are implemented:
+The scheduled Finuts workflows update these mutable inputs before each rebuild:
 
 - manually reviewed final historical rows go into `data/ipo_competition_seed.json`
 - auto-discovered upcoming rows are stored in `data/discovered/ipo_events.json`
-- active subscription snapshots go into `data/live_snapshots/*.json`
+- Finuts demand-forecast overrides go into `data/manual_fundamentals.json`
 - historical listing outcomes go into `data/outcomes/*.json`
-- broker-level allocation and competition rows go into `data/broker_snapshots/*.json`
+- Finuts broker-level allocation and competition rows go into `data/broker_snapshots/*.json`
 - durable corpCode/stockCode/kindCode/isin crosswalk rows go into `data/identifiers/ipo_identifiers.json`
-- future broker adapters can write the same JSON shape
 
 When a completed stock has an aggregate retail competition rate, public
 allocation shares, and lead managers but no broker-level rows yet, the batch
@@ -180,50 +169,22 @@ public DART company search page and caches successful matches in
 
 ## GitHub Actions secrets
 
-For automatic new-IPO discovery, configure either or both repository secrets:
-
-```text
-DART_API_KEY
-ITICK_API_KEY
-```
-
-For future Korea Investment & Securities OpenAPI adapters, configure both:
-
-```text
-KIS_APP_KEY
-KIS_APP_SECRET
-```
-
-The workflow runs every 10 minutes during Korean weekday market hours. It
-discovers upcoming IPO rows, regenerates `ipo_competition_data/`, and commits
-changes when generated JSON changes.
-
-For automatic broker-metric enrichment and end-to-end unattended updates,
-configure these additional repository secrets:
+The Finuts-only workflows require:
 
 ```text
 FINUTS_ID
 FINUTS_PASSWORD
-YOUTUBE_COOKIES_TXT
 ```
 
-With those secrets present, the scheduled `video_ocr_secondary_ingest` workflow
-becomes the primary automation path:
+No scheduled workflow in this repository should depend on:
 
-1. discover and normalize upcoming IPO rows
-2. rebuild baseline generated JSON
-3. ingest public OCR/live fallback broker snapshots
-4. regenerate `ipo_competition_data/`
-5. commit and push changed files to `main`
-
-This scheduled workflow is intended for newly discovered, upcoming, and active
-subscription rows only. It should not perform a full historical Finuts sweep on
-every run.
-
-For one-off historical repair or full repository-wide broker backfills, use the
-manual `finuts_full_backfill` workflow.
-
-The standalone `ipo_competition_batch` workflow is kept as a manual fallback.
+```text
+DART_API_KEY
+ITICK_API_KEY
+KIS_APP_KEY
+KIS_APP_SECRET
+YOUTUBE_COOKIES_TXT
+```
 
 ## Analysis output
 

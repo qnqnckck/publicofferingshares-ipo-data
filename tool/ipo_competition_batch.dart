@@ -41,6 +41,9 @@ class BatchOptions {
     required this.interval,
     required this.discover,
     required this.discoverIdentifiers,
+    required this.includeIpoKoreaSupplement,
+    required this.includeArticleLeadManagerDiscover,
+    required this.includePublicLiveBrokerSnapshots,
     required this.dartApiKeyEnv,
     required this.itickApiKeyEnv,
     required this.kisAppKeyEnv,
@@ -60,6 +63,9 @@ class BatchOptions {
   final Duration interval;
   final bool discover;
   final bool discoverIdentifiers;
+  final bool includeIpoKoreaSupplement;
+  final bool includeArticleLeadManagerDiscover;
+  final bool includePublicLiveBrokerSnapshots;
   final String dartApiKeyEnv;
   final String itickApiKeyEnv;
   final String kisAppKeyEnv;
@@ -87,6 +93,9 @@ Options:
   --kis-app-secret-env <name> Environment variable for KIS app secret. Default: KIS_APP_SECRET
   --no-discover               Skip remote discovery and only normalize local input files.
   --no-identifier-discover    Skip DART company-code backfill and only use local identifier crosswalk.
+  --no-ipo-korea-supplement   Skip IPO Korea supplement parsing for incomplete stocks.
+  --no-article-lead-manager-discover Skip article lead-manager supplementation.
+  --no-public-live-collect    Skip public live broker snapshot collection.
   --watch                     Keep running and refresh active subscriptions.
   --help                      Show this help.
 
@@ -128,6 +137,11 @@ Seed from the example file:
       interval: Duration(minutes: intAfter('--interval-minutes', 10)),
       discover: !args.contains('--no-discover'),
       discoverIdentifiers: !args.contains('--no-identifier-discover'),
+      includeIpoKoreaSupplement: !args.contains('--no-ipo-korea-supplement'),
+      includeArticleLeadManagerDiscover:
+          !args.contains('--no-article-lead-manager-discover'),
+      includePublicLiveBrokerSnapshots:
+          !args.contains('--no-public-live-collect'),
       dartApiKeyEnv: valueAfter('--dart-api-key-env', 'DART_API_KEY'),
       itickApiKeyEnv: valueAfter('--itick-api-key-env', 'ITICK_API_KEY'),
       kisAppKeyEnv: valueAfter('--kis-app-key-env', 'KIS_APP_KEY'),
@@ -164,17 +178,20 @@ class IpoCompetitionBatch {
         ...discoveredStocks,
         ...await _loadLiveStocks(),
       ]);
-      final supplementStocks = mergeStocks([
-        ...stocksWithoutExternalOutcomes,
-        ...await _discoverIpoKoreaSupplementStocks(
-          stocksWithoutExternalOutcomes,
-          generatedAt,
-        ),
-      ]);
+      final supplementStocks = options.includeIpoKoreaSupplement
+          ? mergeStocks([
+              ...stocksWithoutExternalOutcomes,
+              ...await _discoverIpoKoreaSupplementStocks(
+                stocksWithoutExternalOutcomes,
+                generatedAt,
+              ),
+            ])
+          : stocksWithoutExternalOutcomes;
       final sourceEnhancedStocks = mergeStocks([
         ...supplementStocks,
         ...buildKnownLeadManagerOverrideStocks(supplementStocks),
-        ...await _discoverArticleLeadManagerStocks(supplementStocks),
+        if (options.includeArticleLeadManagerDiscover)
+          ...await _discoverArticleLeadManagerStocks(supplementStocks),
       ]);
       final stocks = mergeOutcomes(
         sourceEnhancedStocks,
@@ -192,10 +209,11 @@ class IpoCompetitionBatch {
       final identifiedStocks = mergeIdentifierRows(stocks, identifierRows);
       final brokerSnapshotRows = [
         ...await _loadBrokerSnapshotRows(),
-        ...await _collectPublicLiveBrokerSnapshots(
-          identifiedStocks,
-          generatedAt,
-        ),
+        if (options.includePublicLiveBrokerSnapshots)
+          ...await _collectPublicLiveBrokerSnapshots(
+            identifiedStocks,
+            generatedAt,
+          ),
         ...buildEstimatedBrokerSnapshotRows(identifiedStocks, generatedAt),
         ...buildEstimatedBrokerRateOnlyRows(identifiedStocks, generatedAt),
       ];
