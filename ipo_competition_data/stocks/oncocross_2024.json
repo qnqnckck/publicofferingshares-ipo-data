@@ -11,15 +11,16 @@
   },
   "company": "온코크로스",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "제약",
   "subscriptionStart": "2024-12-09",
   "subscriptionEnd": "2024-12-10",
   "leadManagers": [
-    "미래에셋증권"
+    "미래에셋증권",
+    "미래"
   ],
   "fundamentals": {
     "offerPrice": 7300,
-    "priceBandMin": 10100,
+    "priceBandMin": 10200,
     "priceBandMax": 12300,
     "topBandConfirmation": null,
     "institutionCompetitionRate": 635.0,
@@ -138,7 +139,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 128,
+        "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false
       }
     },
@@ -146,7 +147,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2625.88대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 2625.88대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -167,7 +169,7 @@
     "inputs": {
       "latestCompetitionRate": 2625.88,
       "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 635.0,

@@ -10,13 +10,15 @@
     "isin": null
   },
   "company": "서울보증보험",
-  "market": "KOSPI",
-  "industry": "",
+  "market": "KOSDAQ",
+  "industry": "손해보험",
   "subscriptionStart": "2025-03-05",
   "subscriptionEnd": "2025-03-06",
   "leadManagers": [
     "미래에셋증권",
-    "삼성증권"
+    "삼성증권",
+    "미래",
+    "삼성"
   ],
   "fundamentals": {
     "offerPrice": 26000,
@@ -148,7 +150,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 128,
+        "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false
       }
     },
@@ -186,8 +188,8 @@
     "inputs": {
       "latestCompetitionRate": 13.919999827533179,
       "snapshotCount": 2,
-      "leadManagerCount": 2,
-      "market": "KOSPI",
+      "leadManagerCount": 4,
+      "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 242.78,
       "lockupCommitmentRate": null,

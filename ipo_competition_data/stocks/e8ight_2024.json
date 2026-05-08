@@ -11,11 +11,14 @@
   },
   "company": "이에이트",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "소프트웨어",
   "subscriptionStart": "2024-02-13",
   "subscriptionEnd": "2024-02-14",
   "leadManagers": [
-    "한화투자증권"
+    "한화투자증권",
+    "키움",
+    "한양",
+    "한화"
   ],
   "fundamentals": {
     "offerPrice": 20000,
@@ -138,7 +141,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 128,
+        "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false
       }
     },
@@ -146,7 +149,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 762.32대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 762.32대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -166,7 +170,7 @@
     "inputs": {
       "latestCompetitionRate": 762.32,
       "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "leadManagerCount": 4,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 631.0,

@@ -10,18 +10,20 @@
     "isin": null
   },
   "company": "에이피알",
-  "market": "KOSPI",
-  "industry": "",
+  "market": "KOSDAQ",
+  "industry": "화장품",
   "subscriptionStart": "2024-02-14",
   "subscriptionEnd": "2024-02-15",
   "leadManagers": [
     "신한투자증권",
-    "하나증권"
+    "하나증권",
+    "신한",
+    "하나"
   ],
   "fundamentals": {
     "offerPrice": 250000,
-    "priceBandMin": null,
-    "priceBandMax": null,
+    "priceBandMin": 147000,
+    "priceBandMax": 200000,
     "topBandConfirmation": null,
     "institutionCompetitionRate": 663.0,
     "institutionParticipants": null,
@@ -113,16 +115,16 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 30,
+      "overall": 38,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
         "competition": 16,
         "institutionDemand": 8,
-        "demandStrength": 0,
+        "demandStrength": 6,
         "lockupCommitment": 0,
         "floatRate": 0,
-        "pricing": 3
+        "pricing": 4
       }
     },
     "expectedReturn": {
@@ -146,7 +148,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.11522171428571429,
+        "generalPriorBase": 0.1808217142857143,
         "institutionBoost": 0.020375,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -154,7 +156,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 128,
+        "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false
       }
     },
@@ -193,8 +195,8 @@
     "inputs": {
       "latestCompetitionRate": 2224.867675576258,
       "snapshotCount": 2,
-      "leadManagerCount": 2,
-      "market": "KOSPI",
+      "leadManagerCount": 4,
+      "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 663.0,
       "lockupCommitmentRate": null,

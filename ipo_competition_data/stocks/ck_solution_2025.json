@@ -10,12 +10,13 @@
     "isin": null
   },
   "company": "씨케이솔루션",
-  "market": "KOSPI",
-  "industry": "",
+  "market": "KOSDAQ",
+  "industry": "기계",
   "subscriptionStart": "2025-03-04",
   "subscriptionEnd": "2025-03-05",
   "leadManagers": [
-    "NH투자증권"
+    "NH투자증권",
+    "NH"
   ],
   "fundamentals": {
     "offerPrice": 15000,
@@ -132,7 +133,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 128,
+        "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false
       }
     },
@@ -140,7 +141,8 @@
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2641.36대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 2641.36대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -161,8 +163,8 @@
     "inputs": {
       "latestCompetitionRate": 2641.36,
       "snapshotCount": 2,
-      "leadManagerCount": 1,
-      "market": "KOSPI",
+      "leadManagerCount": 2,
+      "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1020.35,
       "lockupCommitmentRate": null,

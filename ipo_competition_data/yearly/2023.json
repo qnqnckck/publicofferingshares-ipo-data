@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-08T23:09:47.003169",
+  "generatedAt": "2026-05-08T23:12:57.571958",
   "stocks": [
     {
       "id": "엠젠솔루션_2023-12-19",
@@ -439,12 +439,14 @@
       },
       "company": "블루엠텍",
       "market": "KOSDAQ",
-      "industry": "",
+      "industry": "제약",
       "subscriptionStart": "2023-12-04",
       "subscriptionEnd": "2023-12-05",
       "leadManagers": [
         "하나증권",
-        "키움증권"
+        "키움증권",
+        "하나",
+        "키움"
       ],
       "offerPrice": 19000,
       "priceBandMin": 15000,
@@ -459,38 +461,7 @@
       "path": "stocks/blue_mtec_2023.json"
     },
     {
-      "id": "블루엠텍_2023-12-04",
-      "identifiers": {
-        "subscriptionKey": "블루엠텍_20231204_20231205",
-        "normalizedCompany": "블루엠텍",
-        "corpCode": "01559637",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "블루엠텍",
-      "market": "KOSDAQ",
-      "industry": "제약",
-      "subscriptionStart": "2023-12-04",
-      "subscriptionEnd": "2023-12-05",
-      "leadManagers": [
-        "하나",
-        "키움"
-      ],
-      "offerPrice": 19000,
-      "priceBandMin": 15000,
-      "priceBandMax": 19000,
-      "listingDate": "2023-12-13",
-      "latestCompetitionRate": 1599.981,
-      "latestSnapshotAt": "2026-04-29T01:33:46+09:00",
-      "score": 33,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/블루엠텍_2023-12-04.json"
-    },
-    {
-      "id": "ls머트리얼즈_2023-12-01",
+      "id": "ls_materials_2023",
       "identifiers": {
         "subscriptionKey": "ls머트리얼즈_20231201_20231204",
         "normalizedCompany": "ls머트리얼즈",
@@ -505,45 +476,16 @@
       "subscriptionStart": "2023-12-01",
       "subscriptionEnd": "2023-12-04",
       "leadManagers": [
+        "KB증권",
+        "키움증권",
+        "NH투자증권",
+        "이베스트투자증권",
+        "하이투자증권",
         "키움",
         "KB",
         "LS",
         "하이",
         "NH"
-      ],
-      "offerPrice": 6000,
-      "priceBandMin": 4400,
-      "priceBandMax": 5500,
-      "listingDate": "2023-12-12",
-      "latestCompetitionRate": 2403.1078147510375,
-      "latestSnapshotAt": "2026-04-29T01:33:43+09:00",
-      "score": 29,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/ls머트리얼즈_2023-12-01.json"
-    },
-    {
-      "id": "ls_materials_2023",
-      "identifiers": {
-        "subscriptionKey": "ls머트리얼즈_20231201_20231204",
-        "normalizedCompany": "ls머트리얼즈",
-        "corpCode": "01528141",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "LS머트리얼즈",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-12-01",
-      "subscriptionEnd": "2023-12-04",
-      "leadManagers": [
-        "KB증권",
-        "키움증권",
-        "NH투자증권",
-        "이베스트투자증권",
-        "하이투자증권"
       ],
       "offerPrice": 6000,
       "priceBandMin": 4400,
@@ -599,11 +541,12 @@
       },
       "company": "케이엔에스",
       "market": "KOSDAQ",
-      "industry": "",
+      "industry": "전기제품",
       "subscriptionStart": "2023-11-27",
       "subscriptionEnd": "2023-11-28",
       "leadManagers": [
-        "신영증권"
+        "신영증권",
+        "신영"
       ],
       "offerPrice": 23000,
       "priceBandMin": 19000,
@@ -616,36 +559,6 @@
       "decisionLevel": "caution",
       "expectedGainRate": 0.9681025,
       "path": "stocks/kns_2023.json"
-    },
-    {
-      "id": "케이엔에스_2023-11-27",
-      "identifiers": {
-        "subscriptionKey": "케이엔에스_20231127_20231128",
-        "normalizedCompany": "케이엔에스",
-        "corpCode": "01373541",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "케이엔에스",
-      "market": "KOSDAQ",
-      "industry": "전기제품",
-      "subscriptionStart": "2023-11-27",
-      "subscriptionEnd": "2023-11-28",
-      "leadManagers": [
-        "신영"
-      ],
-      "offerPrice": 23000,
-      "priceBandMin": 19000,
-      "priceBandMax": 22000,
-      "listingDate": "2023-12-06",
-      "latestCompetitionRate": 2901.44,
-      "latestSnapshotAt": "2026-04-29T01:33:39+09:00",
-      "score": 27,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/케이엔에스_2023-11-27.json"
     },
     {
       "id": "교보15호스팩_2023-11-23",
@@ -830,7 +743,7 @@
       "path": "stocks/미래에셋글로벌리츠_2023-11-20.json"
     },
     {
-      "id": "에이에스텍_2023-11-16",
+      "id": "astec_2023",
       "identifiers": {
         "subscriptionKey": "에이에스텍_20231116_20231117",
         "normalizedCompany": "에이에스텍",
@@ -845,37 +758,8 @@
       "subscriptionStart": "2023-11-16",
       "subscriptionEnd": "2023-11-17",
       "leadManagers": [
+        "미래에셋증권",
         "미래"
-      ],
-      "offerPrice": 28000,
-      "priceBandMin": 21000,
-      "priceBandMax": 25000,
-      "listingDate": null,
-      "latestCompetitionRate": 2748.98,
-      "latestSnapshotAt": "2026-04-29T01:33:36+09:00",
-      "score": 27,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/에이에스텍_2023-11-16.json"
-    },
-    {
-      "id": "astec_2023",
-      "identifiers": {
-        "subscriptionKey": "에이에스텍_20231116_20231117",
-        "normalizedCompany": "에이에스텍",
-        "corpCode": "01538528",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "에이에스텍",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-11-16",
-      "subscriptionEnd": "2023-11-17",
-      "leadManagers": [
-        "미래에셋증권"
       ],
       "offerPrice": 28000,
       "priceBandMin": 21000,
@@ -890,7 +774,7 @@
       "path": "stocks/astec_2023.json"
     },
     {
-      "id": "그린리소스_2023-11-13",
+      "id": "green_resource_2023",
       "identifiers": {
         "subscriptionKey": "그린리소스_20231113_20231114",
         "normalizedCompany": "그린리소스",
@@ -905,37 +789,8 @@
       "subscriptionStart": "2023-11-13",
       "subscriptionEnd": "2023-11-14",
       "leadManagers": [
+        "NH투자증권",
         "NH"
-      ],
-      "offerPrice": 17000,
-      "priceBandMin": 11000,
-      "priceBandMax": 14000,
-      "listingDate": null,
-      "latestCompetitionRate": 1180.14,
-      "latestSnapshotAt": "2026-04-29T01:33:29+09:00",
-      "score": 26,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.6799999999999999,
-      "path": "stocks/그린리소스_2023-11-13.json"
-    },
-    {
-      "id": "green_resource_2023",
-      "identifiers": {
-        "subscriptionKey": "그린리소스_20231113_20231114",
-        "normalizedCompany": "그린리소스",
-        "corpCode": "01370863",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "그린리소스",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-11-13",
-      "subscriptionEnd": "2023-11-14",
-      "leadManagers": [
-        "NH투자증권"
       ],
       "offerPrice": 17000,
       "priceBandMin": 11000,
@@ -948,66 +803,6 @@
       "decisionLevel": "caution",
       "expectedGainRate": 0.75164875,
       "path": "stocks/green_resource_2023.json"
-    },
-    {
-      "id": "한선엔지니어링_2023-11-13",
-      "identifiers": {
-        "subscriptionKey": "한선엔지니어링_20231113_20231114",
-        "normalizedCompany": "한선엔지니어링",
-        "corpCode": "00958451",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "한선엔지니어링",
-      "market": "KOSDAQ",
-      "industry": "비철금속",
-      "subscriptionStart": "2023-11-13",
-      "subscriptionEnd": "2023-11-14",
-      "leadManagers": [
-        "대신"
-      ],
-      "offerPrice": 7000,
-      "priceBandMin": 5200,
-      "priceBandMax": 6000,
-      "listingDate": null,
-      "latestCompetitionRate": 2282.49,
-      "latestSnapshotAt": "2026-04-29T01:33:33+09:00",
-      "score": 29,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/한선엔지니어링_2023-11-13.json"
-    },
-    {
-      "id": "hansun_engineering_2023",
-      "identifiers": {
-        "subscriptionKey": "한선엔지니어링_20231113_20231114",
-        "normalizedCompany": "한선엔지니어링",
-        "corpCode": "00958451",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "한선엔지니어링",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-11-13",
-      "subscriptionEnd": "2023-11-14",
-      "leadManagers": [
-        "대신증권"
-      ],
-      "offerPrice": 7000,
-      "priceBandMin": 5200,
-      "priceBandMax": 6000,
-      "listingDate": null,
-      "latestCompetitionRate": 2282.49,
-      "latestSnapshotAt": "2026-04-29T01:33:33+09:00",
-      "score": 46,
-      "grade": "C",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9361937499999999,
-      "path": "stocks/hansun_engineering_2023.json"
     },
     {
       "id": "한화오션_2023-11-13",
@@ -1045,37 +840,38 @@
       "path": "stocks/한화오션_2023-11-13.json"
     },
     {
-      "id": "ecoeye_2023",
+      "id": "hansun_engineering_2023",
       "identifiers": {
-        "subscriptionKey": "에코아이_20231110_20231113",
-        "normalizedCompany": "에코아이",
-        "corpCode": "01218299",
+        "subscriptionKey": "한선엔지니어링_20231113_20231114",
+        "normalizedCompany": "한선엔지니어링",
+        "corpCode": "00958451",
         "stockCode": null,
         "kindCode": null,
         "isin": null
       },
-      "company": "에코아이",
+      "company": "한선엔지니어링",
       "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-11-10",
-      "subscriptionEnd": "2023-11-13",
+      "industry": "비철금속",
+      "subscriptionStart": "2023-11-13",
+      "subscriptionEnd": "2023-11-14",
       "leadManagers": [
-        "KB증권"
+        "대신증권",
+        "대신"
       ],
-      "offerPrice": 34700,
-      "priceBandMin": 28500,
-      "priceBandMax": 34700,
+      "offerPrice": 7000,
+      "priceBandMin": 5200,
+      "priceBandMax": 6000,
       "listingDate": null,
-      "latestCompetitionRate": 38.38999903799904,
-      "latestSnapshotAt": "2026-04-27T22:38:45+09:00",
-      "score": 18,
-      "grade": "C-",
+      "latestCompetitionRate": 2282.49,
+      "latestSnapshotAt": "2026-04-29T01:33:33+09:00",
+      "score": 46,
+      "grade": "C",
       "decisionLevel": "caution",
-      "expectedGainRate": 0.0,
-      "path": "stocks/ecoeye_2023.json"
+      "expectedGainRate": 0.9361937499999999,
+      "path": "stocks/hansun_engineering_2023.json"
     },
     {
-      "id": "에코아이_2023-11-10",
+      "id": "ecoeye_2023",
       "identifiers": {
         "subscriptionKey": "에코아이_20231110_20231113",
         "normalizedCompany": "에코아이",
@@ -1090,6 +886,7 @@
       "subscriptionStart": "2023-11-10",
       "subscriptionEnd": "2023-11-13",
       "leadManagers": [
+        "KB증권",
         "KB"
       ],
       "offerPrice": 34700,
@@ -1098,44 +895,14 @@
       "listingDate": null,
       "latestCompetitionRate": 38.38999903799904,
       "latestSnapshotAt": "2026-04-27T22:38:45+09:00",
-      "score": 16,
+      "score": 18,
       "grade": "C-",
       "decisionLevel": "caution",
-      "expectedGainRate": -0.010000000000000002,
-      "path": "stocks/에코아이_2023-11-10.json"
+      "expectedGainRate": 0.0,
+      "path": "stocks/ecoeye_2023.json"
     },
     {
       "id": "dongin_entech_2023",
-      "identifiers": {
-        "subscriptionKey": "동인기연_20231109_20231110",
-        "normalizedCompany": "동인기연",
-        "corpCode": "00367710",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "동인기연",
-      "market": "KOSPI",
-      "industry": "",
-      "subscriptionStart": "2023-11-09",
-      "subscriptionEnd": "2023-11-10",
-      "leadManagers": [
-        "NH투자증권"
-      ],
-      "offerPrice": 30000,
-      "priceBandMin": 33000,
-      "priceBandMax": 37000,
-      "listingDate": null,
-      "latestCompetitionRate": 8.08,
-      "latestSnapshotAt": "2026-04-29T01:33:26+09:00",
-      "score": 12,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": -0.010000000000000002,
-      "path": "stocks/dongin_entech_2023.json"
-    },
-    {
-      "id": "동인기연_2023-11-09",
       "identifiers": {
         "subscriptionKey": "동인기연_20231109_20231110",
         "normalizedCompany": "동인기연",
@@ -1150,6 +917,7 @@
       "subscriptionStart": "2023-11-09",
       "subscriptionEnd": "2023-11-10",
       "leadManagers": [
+        "NH투자증권",
         "NH"
       ],
       "offerPrice": 30000,
@@ -1158,11 +926,11 @@
       "listingDate": null,
       "latestCompetitionRate": 8.08,
       "latestSnapshotAt": "2026-04-29T01:33:26+09:00",
-      "score": 11,
+      "score": 12,
       "grade": "C-",
       "decisionLevel": "caution",
       "expectedGainRate": -0.010000000000000002,
-      "path": "stocks/동인기연_2023-11-09.json"
+      "path": "stocks/dongin_entech_2023.json"
     },
     {
       "id": "미코바이오메드_2023-11-09",
@@ -1206,40 +974,11 @@
       },
       "company": "스톰테크",
       "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-11-09",
-      "subscriptionEnd": "2023-11-10",
-      "leadManagers": [
-        "하이투자증권"
-      ],
-      "offerPrice": 11000,
-      "priceBandMin": 8000,
-      "priceBandMax": 9500,
-      "listingDate": null,
-      "latestCompetitionRate": 499.64,
-      "latestSnapshotAt": "2026-05-08T23:09:47.003169",
-      "score": 39,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.52924625,
-      "path": "stocks/stormtech_2023.json"
-    },
-    {
-      "id": "스톰테크_2023-11-09",
-      "identifiers": {
-        "subscriptionKey": "스톰테크_20231109_20231110",
-        "normalizedCompany": "스톰테크",
-        "corpCode": "01226270",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "스톰테크",
-      "market": "KOSDAQ",
       "industry": "가정용기기와용품",
       "subscriptionStart": "2023-11-09",
       "subscriptionEnd": "2023-11-10",
       "leadManagers": [
+        "하이투자증권",
         "하이"
       ],
       "offerPrice": 11000,
@@ -1247,12 +986,12 @@
       "priceBandMax": 9500,
       "listingDate": null,
       "latestCompetitionRate": 499.64,
-      "latestSnapshotAt": "2026-05-08T23:09:47.003169",
-      "score": 21,
+      "latestSnapshotAt": "2026-05-08T23:12:57.571958",
+      "score": 39,
       "grade": "C-",
       "decisionLevel": "caution",
-      "expectedGainRate": 0.48000000000000004,
-      "path": "stocks/스톰테크_2023-11-09.json"
+      "expectedGainRate": 0.52924625,
+      "path": "stocks/stormtech_2023.json"
     },
     {
       "id": "에코플라스틱_2023-11-09",
@@ -1374,7 +1113,7 @@
       "priceBandMax": 44000,
       "listingDate": null,
       "latestCompetitionRate": 70.04,
-      "latestSnapshotAt": "2026-05-08T23:09:47.003169",
+      "latestSnapshotAt": "2026-05-08T23:12:57.571958",
       "score": 14,
       "grade": "C-",
       "decisionLevel": "caution",
@@ -1454,11 +1193,12 @@
       },
       "company": "캡스톤파트너스",
       "market": "KOSDAQ",
-      "industry": "",
+      "industry": "창업투자",
       "subscriptionStart": "2023-11-06",
       "subscriptionEnd": "2023-11-07",
       "leadManagers": [
-        "NH투자증권"
+        "NH투자증권",
+        "NH"
       ],
       "offerPrice": 4000,
       "priceBandMin": 3200,
@@ -1471,36 +1211,6 @@
       "decisionLevel": "caution",
       "expectedGainRate": 0.9665975,
       "path": "stocks/capstone_partners_2023.json"
-    },
-    {
-      "id": "캡스톤파트너스_2023-11-06",
-      "identifiers": {
-        "subscriptionKey": "캡스톤파트너스_20231106_20231107",
-        "normalizedCompany": "캡스톤파트너스",
-        "corpCode": "01497124",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "캡스톤파트너스",
-      "market": "KOSDAQ",
-      "industry": "창업투자",
-      "subscriptionStart": "2023-11-06",
-      "subscriptionEnd": "2023-11-07",
-      "leadManagers": [
-        "NH"
-      ],
-      "offerPrice": 4000,
-      "priceBandMin": 3200,
-      "priceBandMax": 3600,
-      "listingDate": null,
-      "latestCompetitionRate": 2691.1,
-      "latestSnapshotAt": "2026-04-27T22:38:45+09:00",
-      "score": 27,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/캡스톤파트너스_2023-11-06.json"
     },
     {
       "id": "메디포스트_2023-11-03",
@@ -1579,7 +1289,8 @@
       "subscriptionStart": "2023-11-02",
       "subscriptionEnd": "2023-11-03",
       "leadManagers": [
-        "삼성증권"
+        "삼성증권",
+        "삼성"
       ],
       "offerPrice": 25000,
       "priceBandMin": 19100,
@@ -1592,36 +1303,6 @@
       "decisionLevel": "neutral",
       "expectedGainRate": 0.9684499999999999,
       "path": "stocks/azicland_2023.json"
-    },
-    {
-      "id": "에이직랜드_2023-11-02",
-      "identifiers": {
-        "subscriptionKey": "에이직랜드_20231102_20231103",
-        "normalizedCompany": "에이직랜드",
-        "corpCode": "01540453",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "에이직랜드",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-11-02",
-      "subscriptionEnd": "2023-11-03",
-      "leadManagers": [
-        "삼성"
-      ],
-      "offerPrice": 25000,
-      "priceBandMin": 19100,
-      "priceBandMax": 21400,
-      "listingDate": null,
-      "latestCompetitionRate": 1518.7599998786193,
-      "latestSnapshotAt": "2026-04-27T22:38:45+09:00",
-      "score": 29,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/에이직랜드_2023-11-02.json"
     },
     {
       "id": "강스템바이오텍_2023-11-02",
@@ -1654,7 +1335,7 @@
       "path": "stocks/강스템바이오텍_2023-11-02.json"
     },
     {
-      "id": "에스와이스틸텍_2023-11-01",
+      "id": "sy_steeltech_2023",
       "identifiers": {
         "subscriptionKey": "에스와이스틸텍_20231101_20231102",
         "normalizedCompany": "에스와이스틸텍",
@@ -1669,37 +1350,8 @@
       "subscriptionStart": "2023-11-01",
       "subscriptionEnd": "2023-11-02",
       "leadManagers": [
+        "KB증권",
         "KB"
-      ],
-      "offerPrice": 1800,
-      "priceBandMin": 1200,
-      "priceBandMax": 1500,
-      "listingDate": null,
-      "latestCompetitionRate": 2001.47,
-      "latestSnapshotAt": "2026-04-27T22:38:45+09:00",
-      "score": 29,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/에스와이스틸텍_2023-11-01.json"
-    },
-    {
-      "id": "sy_steeltech_2023",
-      "identifiers": {
-        "subscriptionKey": "에스와이스틸텍_20231101_20231102",
-        "normalizedCompany": "에스와이스틸텍",
-        "corpCode": "01135084",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "에스와이스틸텍",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-11-01",
-      "subscriptionEnd": "2023-11-02",
-      "leadManagers": [
-        "KB증권"
       ],
       "offerPrice": 1800,
       "priceBandMin": 1200,
@@ -1744,7 +1396,7 @@
       "path": "stocks/한국제13호스팩_2023-11-01.json"
     },
     {
-      "id": "메가터치_2023-10-31",
+      "id": "megatouch_2023",
       "identifiers": {
         "subscriptionKey": "메가터치_20231031_20231101",
         "normalizedCompany": "메가터치",
@@ -1759,37 +1411,8 @@
       "subscriptionStart": "2023-10-31",
       "subscriptionEnd": "2023-11-01",
       "leadManagers": [
+        "NH투자증권",
         "NH"
-      ],
-      "offerPrice": 4800,
-      "priceBandMin": 3500,
-      "priceBandMax": 4000,
-      "listingDate": null,
-      "latestCompetitionRate": 1261.58,
-      "latestSnapshotAt": "2026-04-27T22:38:45+09:00",
-      "score": 26,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.6799999999999999,
-      "path": "stocks/메가터치_2023-10-31.json"
-    },
-    {
-      "id": "megatouch_2023",
-      "identifiers": {
-        "subscriptionKey": "메가터치_20231031_20231101",
-        "normalizedCompany": "메가터치",
-        "corpCode": "00923516",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "메가터치",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-10-31",
-      "subscriptionEnd": "2023-11-01",
-      "leadManagers": [
-        "NH투자증권"
       ],
       "offerPrice": 4800,
       "priceBandMin": 3500,
@@ -1815,11 +1438,12 @@
       },
       "company": "비아이매트릭스",
       "market": "KOSDAQ",
-      "industry": "",
+      "industry": "소프트웨어",
       "subscriptionStart": "2023-10-31",
       "subscriptionEnd": "2023-11-01",
       "leadManagers": [
-        "IBK투자증권"
+        "IBK투자증권",
+        "IBK"
       ],
       "offerPrice": 13000,
       "priceBandMin": 9100,
@@ -1834,67 +1458,7 @@
       "path": "stocks/bi_matrix_2023.json"
     },
     {
-      "id": "비아이매트릭스_2023-10-31",
-      "identifiers": {
-        "subscriptionKey": "비아이매트릭스_20231031_20231101",
-        "normalizedCompany": "비아이매트릭스",
-        "corpCode": "01462739",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "비아이매트릭스",
-      "market": "KOSDAQ",
-      "industry": "소프트웨어",
-      "subscriptionStart": "2023-10-31",
-      "subscriptionEnd": "2023-11-01",
-      "leadManagers": [
-        "IBK"
-      ],
-      "offerPrice": 13000,
-      "priceBandMin": 9100,
-      "priceBandMax": 11000,
-      "listingDate": null,
-      "latestCompetitionRate": 1613.5,
-      "latestSnapshotAt": "2026-04-27T22:38:45+09:00",
-      "score": 29,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/비아이매트릭스_2023-10-31.json"
-    },
-    {
       "id": "contec_2023",
-      "identifiers": {
-        "subscriptionKey": "컨텍_20231031_20231101",
-        "normalizedCompany": "컨텍",
-        "corpCode": "00568188",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "컨텍",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-10-31",
-      "subscriptionEnd": "2023-11-01",
-      "leadManagers": [
-        "대신증권"
-      ],
-      "offerPrice": 22500,
-      "priceBandMin": 20300,
-      "priceBandMax": 22500,
-      "listingDate": null,
-      "latestCompetitionRate": 18.19,
-      "latestSnapshotAt": "2026-04-29T01:29:05+09:00",
-      "score": 19,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": -0.010000000000000002,
-      "path": "stocks/contec_2023.json"
-    },
-    {
-      "id": "컨텍_2023-10-31",
       "identifiers": {
         "subscriptionKey": "컨텍_20231031_20231101",
         "normalizedCompany": "컨텍",
@@ -1909,6 +1473,7 @@
       "subscriptionStart": "2023-10-31",
       "subscriptionEnd": "2023-11-01",
       "leadManagers": [
+        "대신증권",
         "대신"
       ],
       "offerPrice": 22500,
@@ -1917,45 +1482,14 @@
       "listingDate": null,
       "latestCompetitionRate": 18.19,
       "latestSnapshotAt": "2026-04-29T01:29:05+09:00",
-      "score": 16,
+      "score": 19,
       "grade": "C-",
       "decisionLevel": "caution",
       "expectedGainRate": -0.010000000000000002,
-      "path": "stocks/컨텍_2023-10-31.json"
+      "path": "stocks/contec_2023.json"
     },
     {
       "id": "curacle_cell_2023",
-      "identifiers": {
-        "subscriptionKey": "큐로셀_20231031_20231101",
-        "normalizedCompany": "큐로셀",
-        "corpCode": "01492651",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "큐로셀",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-10-31",
-      "subscriptionEnd": "2023-11-01",
-      "leadManagers": [
-        "미래에셋증권",
-        "삼성증권"
-      ],
-      "offerPrice": 20000,
-      "priceBandMin": 29800,
-      "priceBandMax": 33500,
-      "listingDate": null,
-      "latestCompetitionRate": 339.405,
-      "latestSnapshotAt": "2026-04-27T22:38:45+09:00",
-      "score": 18,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.34,
-      "path": "stocks/curacle_cell_2023.json"
-    },
-    {
-      "id": "큐로셀_2023-10-31",
       "identifiers": {
         "subscriptionKey": "큐로셀_20231031_20231101",
         "normalizedCompany": "큐로셀",
@@ -1970,6 +1504,8 @@
       "subscriptionStart": "2023-10-31",
       "subscriptionEnd": "2023-11-01",
       "leadManagers": [
+        "미래에셋증권",
+        "삼성증권",
         "미래",
         "삼성"
       ],
@@ -1979,11 +1515,11 @@
       "listingDate": null,
       "latestCompetitionRate": 339.405,
       "latestSnapshotAt": "2026-04-27T22:38:45+09:00",
-      "score": 17,
+      "score": 18,
       "grade": "C-",
       "decisionLevel": "caution",
       "expectedGainRate": 0.34,
-      "path": "stocks/큐로셀_2023-10-31.json"
+      "path": "stocks/curacle_cell_2023.json"
     },
     {
       "id": "쏘닉스_2023-10-26",
@@ -2076,36 +1612,34 @@
       "path": "stocks/kb제27호스팩_2023-10-24.json"
     },
     {
-      "id": "코스모화학_2023-10-23",
+      "id": "유진테크놀로지_2023-10-23",
       "identifiers": {
-        "subscriptionKey": "코스모화학_20231023_20231024",
-        "normalizedCompany": "코스모화학",
+        "subscriptionKey": "유진테크놀로지_20231023_20231024",
+        "normalizedCompany": "유진테크놀로지",
         "corpCode": null,
         "stockCode": null,
         "kindCode": null,
         "isin": null
       },
-      "company": "코스모화학",
+      "company": "유진테크놀로지",
       "market": "KOSDAQ",
-      "industry": "",
+      "industry": "전기제품",
       "subscriptionStart": "2023-10-23",
       "subscriptionEnd": "2023-10-24",
       "leadManagers": [
-        "KB",
-        "하나",
         "NH"
       ],
-      "offerPrice": 32700,
-      "priceBandMin": 0,
-      "priceBandMax": 0,
+      "offerPrice": 17000,
+      "priceBandMin": 12800,
+      "priceBandMax": 14500,
       "listingDate": null,
       "latestCompetitionRate": null,
       "latestSnapshotAt": null,
-      "score": 3,
+      "score": 11,
       "grade": "C-",
       "decisionLevel": "insufficient_data",
-      "expectedGainRate": 0.06601333333333334,
-      "path": "stocks/코스모화학_2023-10-23.json"
+      "expectedGainRate": 0.12094666666666666,
+      "path": "stocks/유진테크놀로지_2023-10-23.json"
     },
     {
       "id": "유투바이오_2023-10-23",
@@ -2138,34 +1672,36 @@
       "path": "stocks/유투바이오_2023-10-23.json"
     },
     {
-      "id": "유진테크놀로지_2023-10-23",
+      "id": "코스모화학_2023-10-23",
       "identifiers": {
-        "subscriptionKey": "유진테크놀로지_20231023_20231024",
-        "normalizedCompany": "유진테크놀로지",
+        "subscriptionKey": "코스모화학_20231023_20231024",
+        "normalizedCompany": "코스모화학",
         "corpCode": null,
         "stockCode": null,
         "kindCode": null,
         "isin": null
       },
-      "company": "유진테크놀로지",
+      "company": "코스모화학",
       "market": "KOSDAQ",
-      "industry": "전기제품",
+      "industry": "",
       "subscriptionStart": "2023-10-23",
       "subscriptionEnd": "2023-10-24",
       "leadManagers": [
+        "KB",
+        "하나",
         "NH"
       ],
-      "offerPrice": 17000,
-      "priceBandMin": 12800,
-      "priceBandMax": 14500,
+      "offerPrice": 32700,
+      "priceBandMin": 0,
+      "priceBandMax": 0,
       "listingDate": null,
       "latestCompetitionRate": null,
       "latestSnapshotAt": null,
-      "score": 11,
+      "score": 3,
       "grade": "C-",
       "decisionLevel": "insufficient_data",
-      "expectedGainRate": 0.12094666666666666,
-      "path": "stocks/유진테크놀로지_2023-10-23.json"
+      "expectedGainRate": 0.06601333333333334,
+      "path": "stocks/코스모화학_2023-10-23.json"
     },
     {
       "id": "딥노이드_2023-10-19",
@@ -2198,36 +1734,6 @@
       "path": "stocks/딥노이드_2023-10-19.json"
     },
     {
-      "id": "퀄리타스반도체_2023-10-18",
-      "identifiers": {
-        "subscriptionKey": "퀄리타스반도체_20231018_20231019",
-        "normalizedCompany": "퀄리타스반도체",
-        "corpCode": "01584183",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "퀄리타스반도체",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-10-18",
-      "subscriptionEnd": "2023-10-19",
-      "leadManagers": [
-        "한국"
-      ],
-      "offerPrice": 17000,
-      "priceBandMin": 13000,
-      "priceBandMax": 15000,
-      "listingDate": null,
-      "latestCompetitionRate": 3263.67,
-      "latestSnapshotAt": "2026-04-29T01:29:01+09:00",
-      "score": 27,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/퀄리타스반도체_2023-10-18.json"
-    },
-    {
       "id": "qualitas_semiconductor_2023",
       "identifiers": {
         "subscriptionKey": "퀄리타스반도체_20231018_20231019",
@@ -2243,7 +1749,9 @@
       "subscriptionStart": "2023-10-18",
       "subscriptionEnd": "2023-10-19",
       "leadManagers": [
-        "한국투자증권"
+        "한국투자증권",
+        "NH",
+        "한국"
       ],
       "offerPrice": 17000,
       "priceBandMin": 13000,
@@ -2348,7 +1856,7 @@
       "path": "stocks/피플바이오_2023-10-16.json"
     },
     {
-      "id": "신성에스티_2023-10-10",
+      "id": "shinsung_st_2023",
       "identifiers": {
         "subscriptionKey": "신성에스티_20231010_20231011",
         "normalizedCompany": "신성에스티",
@@ -2363,37 +1871,8 @@
       "subscriptionStart": "2023-10-10",
       "subscriptionEnd": "2023-10-11",
       "leadManagers": [
+        "미래에셋증권",
         "미래"
-      ],
-      "offerPrice": 26000,
-      "priceBandMin": 22000,
-      "priceBandMax": 25000,
-      "listingDate": "2023-10-19",
-      "latestCompetitionRate": 3782.8,
-      "latestSnapshotAt": "2026-04-29T01:28:58+09:00",
-      "score": 27,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/신성에스티_2023-10-10.json"
-    },
-    {
-      "id": "shinsung_st_2023",
-      "identifiers": {
-        "subscriptionKey": "신성에스티_20231010_20231011",
-        "normalizedCompany": "신성에스티",
-        "corpCode": "00761183",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "신성에스티",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-10-10",
-      "subscriptionEnd": "2023-10-11",
-      "leadManagers": [
-        "미래에셋증권"
       ],
       "offerPrice": 26000,
       "priceBandMin": 22000,
@@ -2449,11 +1928,12 @@
       },
       "company": "퓨릿",
       "market": "KOSDAQ",
-      "industry": "",
+      "industry": "화학",
       "subscriptionStart": "2023-10-05",
       "subscriptionEnd": "2023-10-06",
       "leadManagers": [
-        "미래에셋증권"
+        "미래에셋증권",
+        "미래"
       ],
       "offerPrice": 10700,
       "priceBandMin": 8800,
@@ -2466,36 +1946,6 @@
       "decisionLevel": "caution",
       "expectedGainRate": 0.9141349999999999,
       "path": "stocks/purit_2023.json"
-    },
-    {
-      "id": "퓨릿_2023-10-05",
-      "identifiers": {
-        "subscriptionKey": "퓨릿_20231005_20231006",
-        "normalizedCompany": "퓨릿",
-        "corpCode": "01027828",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "퓨릿",
-      "market": "KOSDAQ",
-      "industry": "화학",
-      "subscriptionStart": "2023-10-05",
-      "subscriptionEnd": "2023-10-06",
-      "leadManagers": [
-        "미래"
-      ],
-      "offerPrice": 10700,
-      "priceBandMin": 8800,
-      "priceBandMax": 10700,
-      "listingDate": null,
-      "latestCompetitionRate": 2831.52,
-      "latestSnapshotAt": "2026-04-29T01:28:55+09:00",
-      "score": 31,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/퓨릿_2023-10-05.json"
     },
     {
       "id": "sk리츠_2023-09-26",
@@ -2571,8 +2021,8 @@
         "isin": null
       },
       "company": "두산로보틱스",
-      "market": "KOSPI",
-      "industry": "",
+      "market": "KOSDAQ",
+      "industry": "기계",
       "subscriptionStart": "2023-09-21",
       "subscriptionEnd": "2023-09-22",
       "leadManagers": [
@@ -2582,36 +2032,7 @@
         "NH투자증권",
         "키움증권",
         "신영증권",
-        "하나증권"
-      ],
-      "offerPrice": 26000,
-      "priceBandMin": 21000,
-      "priceBandMax": 26000,
-      "listingDate": "2023-10-05",
-      "latestCompetitionRate": 1047.608792798354,
-      "latestSnapshotAt": "2026-04-29T01:01:28+09:00",
-      "score": 58,
-      "grade": "B-",
-      "decisionLevel": "neutral",
-      "expectedGainRate": 0.8115,
-      "path": "stocks/doosan_robotics_2023.json"
-    },
-    {
-      "id": "두산로보틱스_2023-09-21",
-      "identifiers": {
-        "subscriptionKey": "두산로보틱스_20230921_20230922",
-        "normalizedCompany": "두산로보틱스",
-        "corpCode": "01105153",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "두산로보틱스",
-      "market": "KOSDAQ",
-      "industry": "기계",
-      "subscriptionStart": "2023-09-21",
-      "subscriptionEnd": "2023-09-22",
-      "leadManagers": [
+        "하나증권",
         "한국",
         "미래",
         "NH",
@@ -2626,11 +2047,11 @@
       "listingDate": "2023-10-05",
       "latestCompetitionRate": 1047.608792798354,
       "latestSnapshotAt": "2026-04-29T01:01:28+09:00",
-      "score": 30,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.6799999999999999,
-      "path": "stocks/두산로보틱스_2023-09-21.json"
+      "score": 58,
+      "grade": "B-",
+      "decisionLevel": "neutral",
+      "expectedGainRate": 0.8115,
+      "path": "stocks/doosan_robotics_2023.json"
     },
     {
       "id": "노을_2023-09-19",
@@ -2674,11 +2095,12 @@
       },
       "company": "레뷰코퍼레이션",
       "market": "KOSDAQ",
-      "industry": "",
+      "industry": "양방향미디어와서비스",
       "subscriptionStart": "2023-09-19",
       "subscriptionEnd": "2023-09-20",
       "leadManagers": [
-        "삼성증권"
+        "삼성증권",
+        "삼성"
       ],
       "offerPrice": 15000,
       "priceBandMin": 11500,
@@ -2691,36 +2113,6 @@
       "decisionLevel": "caution",
       "expectedGainRate": 0.6979624999999999,
       "path": "stocks/revucorporation_2023.json"
-    },
-    {
-      "id": "한싹_2023-09-19",
-      "identifiers": {
-        "subscriptionKey": "한싹_20230919_20230920",
-        "normalizedCompany": "한싹",
-        "corpCode": null,
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "한싹",
-      "market": "KOSDAQ",
-      "industry": "소프트웨어",
-      "subscriptionStart": "2023-09-19",
-      "subscriptionEnd": "2023-09-20",
-      "leadManagers": [
-        "KB"
-      ],
-      "offerPrice": 12500,
-      "priceBandMin": 8900,
-      "priceBandMax": 11000,
-      "listingDate": null,
-      "latestCompetitionRate": null,
-      "latestSnapshotAt": null,
-      "score": 11,
-      "grade": "C-",
-      "decisionLevel": "insufficient_data",
-      "expectedGainRate": 0.12094666666666666,
-      "path": "stocks/한싹_2023-09-19.json"
     },
     {
       "id": "신한제11호스팩_2023-09-19",
@@ -2751,6 +2143,36 @@
       "decisionLevel": "insufficient_data",
       "expectedGainRate": 0.1964,
       "path": "stocks/신한제11호스팩_2023-09-19.json"
+    },
+    {
+      "id": "한싹_2023-09-19",
+      "identifiers": {
+        "subscriptionKey": "한싹_20230919_20230920",
+        "normalizedCompany": "한싹",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "company": "한싹",
+      "market": "KOSDAQ",
+      "industry": "소프트웨어",
+      "subscriptionStart": "2023-09-19",
+      "subscriptionEnd": "2023-09-20",
+      "leadManagers": [
+        "KB"
+      ],
+      "offerPrice": 12500,
+      "priceBandMin": 8900,
+      "priceBandMax": 11000,
+      "listingDate": null,
+      "latestCompetitionRate": null,
+      "latestSnapshotAt": null,
+      "score": 11,
+      "grade": "C-",
+      "decisionLevel": "insufficient_data",
+      "expectedGainRate": 0.12094666666666666,
+      "path": "stocks/한싹_2023-09-19.json"
     },
     {
       "id": "에이스테크_2023-09-19",
@@ -2785,36 +2207,6 @@
       "path": "stocks/에이스테크_2023-09-19.json"
     },
     {
-      "id": "레뷰코퍼레이션_2023-09-19",
-      "identifiers": {
-        "subscriptionKey": "레뷰코퍼레이션_20230919_20230920",
-        "normalizedCompany": "레뷰코퍼레이션",
-        "corpCode": "01468061",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "레뷰코퍼레이션",
-      "market": "KOSDAQ",
-      "industry": "양방향미디어와서비스",
-      "subscriptionStart": "2023-09-19",
-      "subscriptionEnd": "2023-09-20",
-      "leadManagers": [
-        "삼성"
-      ],
-      "offerPrice": 15000,
-      "priceBandMin": 11500,
-      "priceBandMax": 13200,
-      "listingDate": null,
-      "latestCompetitionRate": 1314.57,
-      "latestSnapshotAt": "2026-04-29T01:28:51+09:00",
-      "score": 26,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.6799999999999999,
-      "path": "stocks/레뷰코퍼레이션_2023-09-19.json"
-    },
-    {
       "id": "millie_2023",
       "identifiers": {
         "subscriptionKey": "밀리의서재_20230918_20230919",
@@ -2826,11 +2218,12 @@
       },
       "company": "밀리의서재",
       "market": "KOSDAQ",
-      "industry": "",
+      "industry": "양방향미디어와서비스",
       "subscriptionStart": "2023-09-18",
       "subscriptionEnd": "2023-09-19",
       "leadManagers": [
-        "미래에셋증권"
+        "미래에셋증권",
+        "미래"
       ],
       "offerPrice": 23000,
       "priceBandMin": 20000,
@@ -2845,68 +2238,7 @@
       "path": "stocks/millie_2023.json"
     },
     {
-      "id": "밀리의서재_2023-09-18",
-      "identifiers": {
-        "subscriptionKey": "밀리의서재_20230918_20230919",
-        "normalizedCompany": "밀리의서재",
-        "corpCode": "01467451",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "밀리의서재",
-      "market": "KOSDAQ",
-      "industry": "양방향미디어와서비스",
-      "subscriptionStart": "2023-09-18",
-      "subscriptionEnd": "2023-09-19",
-      "leadManagers": [
-        "미래"
-      ],
-      "offerPrice": 23000,
-      "priceBandMin": 20000,
-      "priceBandMax": 23000,
-      "listingDate": null,
-      "latestCompetitionRate": 899.12,
-      "latestSnapshotAt": "2026-04-29T01:28:45+09:00",
-      "score": 30,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.6799999999999999,
-      "path": "stocks/밀리의서재_2023-09-18.json"
-    },
-    {
       "id": "imt_2023",
-      "identifiers": {
-        "subscriptionKey": "아이엠티_20230918_20230919",
-        "normalizedCompany": "아이엠티",
-        "corpCode": "00345693",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "아이엠티",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-09-18",
-      "subscriptionEnd": "2023-09-19",
-      "leadManagers": [
-        "유안타증권",
-        "유진투자증권"
-      ],
-      "offerPrice": 14000,
-      "priceBandMin": 10500,
-      "priceBandMax": 12000,
-      "listingDate": null,
-      "latestCompetitionRate": 990.889,
-      "latestSnapshotAt": "2026-04-29T01:28:48+09:00",
-      "score": 42,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.711625,
-      "path": "stocks/imt_2023.json"
-    },
-    {
-      "id": "아이엠티_2023-09-18",
       "identifiers": {
         "subscriptionKey": "아이엠티_20230918_20230919",
         "normalizedCompany": "아이엠티",
@@ -2921,6 +2253,8 @@
       "subscriptionStart": "2023-09-18",
       "subscriptionEnd": "2023-09-19",
       "leadManagers": [
+        "유안타증권",
+        "유진투자증권",
         "유안타",
         "유진"
       ],
@@ -2930,11 +2264,11 @@
       "listingDate": null,
       "latestCompetitionRate": 990.889,
       "latestSnapshotAt": "2026-04-29T01:28:48+09:00",
-      "score": 26,
+      "score": 42,
       "grade": "C-",
       "decisionLevel": "caution",
-      "expectedGainRate": 0.6799999999999999,
-      "path": "stocks/아이엠티_2023-09-18.json"
+      "expectedGainRate": 0.711625,
+      "path": "stocks/imt_2023.json"
     },
     {
       "id": "sk이노베이션_2023-09-14",
@@ -2981,11 +2315,12 @@
       },
       "company": "인스웨이브시스템즈",
       "market": "KOSDAQ",
-      "industry": "",
+      "industry": "소프트웨어",
       "subscriptionStart": "2023-09-14",
       "subscriptionEnd": "2023-09-15",
       "leadManagers": [
-        "신영증권"
+        "신영증권",
+        "신영"
       ],
       "offerPrice": 24000,
       "priceBandMin": 20000,
@@ -2998,36 +2333,6 @@
       "decisionLevel": "caution",
       "expectedGainRate": 0.7415525,
       "path": "stocks/inswave_systems_2023.json"
-    },
-    {
-      "id": "인스웨이브시스템즈_2023-09-14",
-      "identifiers": {
-        "subscriptionKey": "인스웨이브시스템즈_20230914_20230915",
-        "normalizedCompany": "인스웨이브시스템즈",
-        "corpCode": "01222113",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "인스웨이브시스템즈",
-      "market": "KOSDAQ",
-      "industry": "소프트웨어",
-      "subscriptionStart": "2023-09-14",
-      "subscriptionEnd": "2023-09-15",
-      "leadManagers": [
-        "신영"
-      ],
-      "offerPrice": 24000,
-      "priceBandMin": 20000,
-      "priceBandMax": 24000,
-      "listingDate": null,
-      "latestCompetitionRate": 1237.81,
-      "latestSnapshotAt": "2026-04-29T01:28:42+09:00",
-      "score": 30,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.6799999999999999,
-      "path": "stocks/인스웨이브시스템즈_2023-09-14.json"
     },
     {
       "id": "cj_cgv_2023-09-11",
@@ -3423,7 +2728,7 @@
       "path": "stocks/cj_바이오사이언스_2023-08-14.json"
     },
     {
-      "id": "시큐레터_2023-08-14",
+      "id": "siscross_2023",
       "identifiers": {
         "subscriptionKey": "시큐레터_20230814_20230816",
         "normalizedCompany": "시큐레터",
@@ -3438,37 +2743,8 @@
       "subscriptionStart": "2023-08-14",
       "subscriptionEnd": "2023-08-16",
       "leadManagers": [
+        "대신증권",
         "대신"
-      ],
-      "offerPrice": 12000,
-      "priceBandMin": 9200,
-      "priceBandMax": 10600,
-      "listingDate": null,
-      "latestCompetitionRate": 3396.8199993402723,
-      "latestSnapshotAt": "2026-04-29T01:28:38+09:00",
-      "score": 27,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/시큐레터_2023-08-14.json"
-    },
-    {
-      "id": "siscross_2023",
-      "identifiers": {
-        "subscriptionKey": "시큐레터_20230814_20230816",
-        "normalizedCompany": "시큐레터",
-        "corpCode": "01579570",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "시큐레터",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-08-14",
-      "subscriptionEnd": "2023-08-16",
-      "leadManagers": [
-        "대신증권"
       ],
       "offerPrice": 12000,
       "priceBandMin": 9200,
@@ -3543,7 +2819,7 @@
       "path": "stocks/kc코트렐_2023-08-10.json"
     },
     {
-      "id": "스마트레이더시스템_2023-08-10",
+      "id": "smart_radar_system_2023",
       "identifiers": {
         "subscriptionKey": "스마트레이더시스템_20230810_20230811",
         "normalizedCompany": "스마트레이더시스템",
@@ -3558,37 +2834,8 @@
       "subscriptionStart": "2023-08-10",
       "subscriptionEnd": "2023-08-11",
       "leadManagers": [
+        "대신증권",
         "대신"
-      ],
-      "offerPrice": 8000,
-      "priceBandMin": 5800,
-      "priceBandMax": 6800,
-      "listingDate": null,
-      "latestCompetitionRate": 2732.68,
-      "latestSnapshotAt": "2026-04-29T01:28:34+09:00",
-      "score": 27,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/스마트레이더시스템_2023-08-10.json"
-    },
-    {
-      "id": "smart_radar_system_2023",
-      "identifiers": {
-        "subscriptionKey": "스마트레이더시스템_20230810_20230811",
-        "normalizedCompany": "스마트레이더시스템",
-        "corpCode": "01555215",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "스마트레이더시스템",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-08-10",
-      "subscriptionEnd": "2023-08-11",
-      "leadManagers": [
-        "대신증권"
       ],
       "offerPrice": 8000,
       "priceBandMin": 5800,
@@ -3613,12 +2860,13 @@
         "isin": null
       },
       "company": "넥스틸",
-      "market": "KOSPI",
-      "industry": "",
+      "market": "KOSDAQ",
+      "industry": "철강",
       "subscriptionStart": "2023-08-09",
       "subscriptionEnd": "2023-08-10",
       "leadManagers": [
-        "하나증권"
+        "하나증권",
+        "하나"
       ],
       "offerPrice": 11500,
       "priceBandMin": 11500,
@@ -3633,67 +2881,7 @@
       "path": "stocks/nexteye_2023.json"
     },
     {
-      "id": "넥스틸_2023-08-09",
-      "identifiers": {
-        "subscriptionKey": "넥스틸_20230809_20230810",
-        "normalizedCompany": "넥스틸",
-        "corpCode": "00220613",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "넥스틸",
-      "market": "KOSDAQ",
-      "industry": "철강",
-      "subscriptionStart": "2023-08-09",
-      "subscriptionEnd": "2023-08-10",
-      "leadManagers": [
-        "하나"
-      ],
-      "offerPrice": 11500,
-      "priceBandMin": 11500,
-      "priceBandMax": 12500,
-      "listingDate": null,
-      "latestCompetitionRate": 8.25,
-      "latestSnapshotAt": "2026-04-29T01:28:31+09:00",
-      "score": 11,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": -0.010000000000000002,
-      "path": "stocks/넥스틸_2023-08-09.json"
-    },
-    {
       "id": "bigtents_2023",
-      "identifiers": {
-        "subscriptionKey": "빅텐츠_20230807_20230808",
-        "normalizedCompany": "빅텐츠",
-        "corpCode": "00550082",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "빅텐츠",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-08-07",
-      "subscriptionEnd": "2023-08-08",
-      "leadManagers": [
-        "NH투자증권"
-      ],
-      "offerPrice": 23000,
-      "priceBandMin": 21000,
-      "priceBandMax": 23000,
-      "listingDate": null,
-      "latestCompetitionRate": 362.66,
-      "latestSnapshotAt": "2026-04-29T01:28:28+09:00",
-      "score": 38,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.36889625,
-      "path": "stocks/bigtents_2023.json"
-    },
-    {
-      "id": "빅텐츠_2023-08-07",
       "identifiers": {
         "subscriptionKey": "빅텐츠_20230807_20230808",
         "normalizedCompany": "빅텐츠",
@@ -3708,6 +2896,7 @@
       "subscriptionStart": "2023-08-07",
       "subscriptionEnd": "2023-08-08",
       "leadManagers": [
+        "NH투자증권",
         "NH"
       ],
       "offerPrice": 23000,
@@ -3716,11 +2905,11 @@
       "listingDate": null,
       "latestCompetitionRate": 362.66,
       "latestSnapshotAt": "2026-04-29T01:28:28+09:00",
-      "score": 21,
+      "score": 38,
       "grade": "C-",
       "decisionLevel": "caution",
-      "expectedGainRate": 0.34,
-      "path": "stocks/빅텐츠_2023-08-07.json"
+      "expectedGainRate": 0.36889625,
+      "path": "stocks/bigtents_2023.json"
     },
     {
       "id": "클리노믹스_2023-08-07",
@@ -3753,34 +2942,34 @@
       "path": "stocks/클리노믹스_2023-08-07.json"
     },
     {
-      "id": "큐리옥스바이오시스템즈_2023-08-01",
+      "id": "하나28호스팩_2023-08-01",
       "identifiers": {
-        "subscriptionKey": "큐리옥스바이오시스템즈_20230801_20230802",
-        "normalizedCompany": "큐리옥스바이오시스템즈",
-        "corpCode": "01498974",
+        "subscriptionKey": "하나28호스팩_20230801_20230802",
+        "normalizedCompany": "하나28호스팩",
+        "corpCode": null,
         "stockCode": null,
         "kindCode": null,
         "isin": null
       },
-      "company": "큐리옥스바이오시스템즈",
+      "company": "하나28호스팩",
       "market": "KOSDAQ",
-      "industry": "생명과학도구및서비스",
+      "industry": "",
       "subscriptionStart": "2023-08-01",
       "subscriptionEnd": "2023-08-02",
       "leadManagers": [
-        "키움"
+        "하나"
       ],
-      "offerPrice": 13000,
-      "priceBandMin": 13000,
-      "priceBandMax": 16000,
+      "offerPrice": 2000,
+      "priceBandMin": 2000,
+      "priceBandMax": 2000,
       "listingDate": null,
-      "latestCompetitionRate": 20.24,
-      "latestSnapshotAt": "2026-04-29T01:28:24+09:00",
-      "score": 11,
+      "latestCompetitionRate": null,
+      "latestSnapshotAt": null,
+      "score": 19,
       "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": -0.010000000000000002,
-      "path": "stocks/큐리옥스바이오시스템즈_2023-08-01.json"
+      "decisionLevel": "insufficient_data",
+      "expectedGainRate": 0.1964,
+      "path": "stocks/하나28호스팩_2023-08-01.json"
     },
     {
       "id": "코츠테크놀로지_2023-08-01",
@@ -3814,6 +3003,37 @@
       "path": "stocks/코츠테크놀로지_2023-08-01.json"
     },
     {
+      "id": "curebio_2023",
+      "identifiers": {
+        "subscriptionKey": "큐리옥스바이오시스템즈_20230801_20230802",
+        "normalizedCompany": "큐리옥스바이오시스템즈",
+        "corpCode": "01498974",
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "company": "큐리옥스바이오시스템즈",
+      "market": "KOSDAQ",
+      "industry": "생명과학도구및서비스",
+      "subscriptionStart": "2023-08-01",
+      "subscriptionEnd": "2023-08-02",
+      "leadManagers": [
+        "키움증권",
+        "키움"
+      ],
+      "offerPrice": 13000,
+      "priceBandMin": 13000,
+      "priceBandMax": 16000,
+      "listingDate": null,
+      "latestCompetitionRate": 20.24,
+      "latestSnapshotAt": "2026-04-29T01:28:24+09:00",
+      "score": 14,
+      "grade": "C-",
+      "decisionLevel": "caution",
+      "expectedGainRate": -0.010000000000000002,
+      "path": "stocks/curebio_2023.json"
+    },
+    {
       "id": "에스케이증권제10호스팩_2023-08-01",
       "identifiers": {
         "subscriptionKey": "에스케이증권제10호스팩_20230801_20230802",
@@ -3842,66 +3062,6 @@
       "decisionLevel": "insufficient_data",
       "expectedGainRate": 0.1964,
       "path": "stocks/에스케이증권제10호스팩_2023-08-01.json"
-    },
-    {
-      "id": "curebio_2023",
-      "identifiers": {
-        "subscriptionKey": "큐리옥스바이오시스템즈_20230801_20230802",
-        "normalizedCompany": "큐리옥스바이오시스템즈",
-        "corpCode": "01498974",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "큐리옥스바이오시스템즈",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-08-01",
-      "subscriptionEnd": "2023-08-02",
-      "leadManagers": [
-        "키움증권"
-      ],
-      "offerPrice": 13000,
-      "priceBandMin": 13000,
-      "priceBandMax": 16000,
-      "listingDate": null,
-      "latestCompetitionRate": 20.24,
-      "latestSnapshotAt": "2026-04-29T01:28:24+09:00",
-      "score": 14,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": -0.010000000000000002,
-      "path": "stocks/curebio_2023.json"
-    },
-    {
-      "id": "하나28호스팩_2023-08-01",
-      "identifiers": {
-        "subscriptionKey": "하나28호스팩_20230801_20230802",
-        "normalizedCompany": "하나28호스팩",
-        "corpCode": null,
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "하나28호스팩",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-08-01",
-      "subscriptionEnd": "2023-08-02",
-      "leadManagers": [
-        "하나"
-      ],
-      "offerPrice": 2000,
-      "priceBandMin": 2000,
-      "priceBandMax": 2000,
-      "listingDate": null,
-      "latestCompetitionRate": null,
-      "latestSnapshotAt": null,
-      "score": 19,
-      "grade": "C-",
-      "decisionLevel": "insufficient_data",
-      "expectedGainRate": 0.1964,
-      "path": "stocks/하나28호스팩_2023-08-01.json"
     },
     {
       "id": "kb제26호스팩_2023-07-31",
@@ -3986,36 +3146,7 @@
         "한화투자증권",
         "현대차증권",
         "유진투자증권",
-        "KB증권"
-      ],
-      "offerPrice": 31000,
-      "priceBandMin": 26000,
-      "priceBandMax": 31000,
-      "listingDate": "2023-08-07",
-      "latestCompetitionRate": 159.18380032,
-      "latestSnapshotAt": "2026-04-29T01:28:21+09:00",
-      "score": 30,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.19999999999999998,
-      "path": "stocks/pado_2023.json"
-    },
-    {
-      "id": "파두_2023-07-27",
-      "identifiers": {
-        "subscriptionKey": "파두_20230727_20230728",
-        "normalizedCompany": "파두",
-        "corpCode": "01292291",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "파두",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-07-27",
-      "subscriptionEnd": "2023-07-28",
-      "leadManagers": [
+        "KB증권",
         "NH",
         "한국",
         "한화",
@@ -4029,11 +3160,11 @@
       "listingDate": "2023-08-07",
       "latestCompetitionRate": 159.18380032,
       "latestSnapshotAt": "2026-04-29T01:28:21+09:00",
-      "score": 21,
+      "score": 30,
       "grade": "C-",
       "decisionLevel": "caution",
       "expectedGainRate": 0.19999999999999998,
-      "path": "stocks/파두_2023-07-27.json"
+      "path": "stocks/pado_2023.json"
     },
     {
       "id": "엔브이에이치코리아_2023-07-26",
@@ -4188,7 +3319,7 @@
       "path": "stocks/엘앤케이바이오_2023-07-24.json"
     },
     {
-      "id": "버넥트_2023-07-17",
+      "id": "buruguru_2023",
       "identifiers": {
         "subscriptionKey": "버넥트_20230717_20230718",
         "normalizedCompany": "버넥트",
@@ -4203,37 +3334,8 @@
       "subscriptionStart": "2023-07-17",
       "subscriptionEnd": "2023-07-18",
       "leadManagers": [
+        "대신증권",
         "대신"
-      ],
-      "offerPrice": 16000,
-      "priceBandMin": 11500,
-      "priceBandMax": 13600,
-      "listingDate": null,
-      "latestCompetitionRate": 2623.29,
-      "latestSnapshotAt": "2026-04-29T01:28:15+09:00",
-      "score": 27,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/버넥트_2023-07-17.json"
-    },
-    {
-      "id": "buruguru_2023",
-      "identifiers": {
-        "subscriptionKey": "버넥트_20230717_20230718",
-        "normalizedCompany": "버넥트",
-        "corpCode": "01605529",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "버넥트",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-07-17",
-      "subscriptionEnd": "2023-07-18",
-      "leadManagers": [
-        "대신증권"
       ],
       "offerPrice": 16000,
       "priceBandMin": 11500,
@@ -4368,7 +3470,7 @@
       "path": "stocks/파로스아이바이오_2023-07-17.json"
     },
     {
-      "id": "뷰티스킨_2023-07-13",
+      "id": "vieworks_2023",
       "identifiers": {
         "subscriptionKey": "뷰티스킨_20230713_20230714",
         "normalizedCompany": "뷰티스킨",
@@ -4383,37 +3485,8 @@
       "subscriptionStart": "2023-07-13",
       "subscriptionEnd": "2023-07-14",
       "leadManagers": [
+        "DB금융투자",
         "DB"
-      ],
-      "offerPrice": 26000,
-      "priceBandMin": 21000,
-      "priceBandMax": 24000,
-      "listingDate": null,
-      "latestCompetitionRate": 4525.27,
-      "latestSnapshotAt": "2026-04-29T01:28:12+09:00",
-      "score": 27,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/뷰티스킨_2023-07-13.json"
-    },
-    {
-      "id": "vieworks_2023",
-      "identifiers": {
-        "subscriptionKey": "뷰티스킨_20230713_20230714",
-        "normalizedCompany": "뷰티스킨",
-        "corpCode": "01147487",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "뷰티스킨",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-07-13",
-      "subscriptionEnd": "2023-07-14",
-      "leadManagers": [
-        "DB금융투자"
       ],
       "offerPrice": 26000,
       "priceBandMin": 21000,
@@ -4473,7 +3546,11 @@
       "subscriptionStart": "2023-07-10",
       "subscriptionEnd": "2023-07-11",
       "leadManagers": [
-        "삼성증권"
+        "삼성증권",
+        "상상인",
+        "SK",
+        "한국",
+        "삼성"
       ],
       "offerPrice": 4500,
       "priceBandMin": 2900,
@@ -4488,67 +3565,7 @@
       "path": "stocks/sensorview_2023.json"
     },
     {
-      "id": "센서뷰_2023-07-10",
-      "identifiers": {
-        "subscriptionKey": "센서뷰_20230710_20230711",
-        "normalizedCompany": "센서뷰",
-        "corpCode": "01593668",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "센서뷰",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-07-10",
-      "subscriptionEnd": "2023-07-11",
-      "leadManagers": [
-        "삼성"
-      ],
-      "offerPrice": 4500,
-      "priceBandMin": 2900,
-      "priceBandMax": 3600,
-      "listingDate": "2023-07-19",
-      "latestCompetitionRate": 3135.07,
-      "latestSnapshotAt": "2026-04-29T01:28:05+09:00",
-      "score": 27,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/센서뷰_2023-07-10.json"
-    },
-    {
       "id": "waiker_2023",
-      "identifiers": {
-        "subscriptionKey": "와이랩_20230710_20230711",
-        "normalizedCompany": "와이랩",
-        "corpCode": "01406265",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "와이랩",
-      "market": "KOSDAQ",
-      "industry": "",
-      "subscriptionStart": "2023-07-10",
-      "subscriptionEnd": "2023-07-11",
-      "leadManagers": [
-        "한국투자증권"
-      ],
-      "offerPrice": 9000,
-      "priceBandMin": 7000,
-      "priceBandMax": 8000,
-      "listingDate": "2023-07-20",
-      "latestCompetitionRate": 3833.31,
-      "latestSnapshotAt": "2026-04-29T01:28:08+09:00",
-      "score": 53,
-      "grade": "C+",
-      "decisionLevel": "neutral",
-      "expectedGainRate": 1.0,
-      "path": "stocks/waiker_2023.json"
-    },
-    {
-      "id": "와이랩_2023-07-10",
       "identifiers": {
         "subscriptionKey": "와이랩_20230710_20230711",
         "normalizedCompany": "와이랩",
@@ -4563,6 +3580,7 @@
       "subscriptionStart": "2023-07-10",
       "subscriptionEnd": "2023-07-11",
       "leadManagers": [
+        "한국투자증권",
         "한국"
       ],
       "offerPrice": 9000,
@@ -4571,11 +3589,11 @@
       "listingDate": "2023-07-20",
       "latestCompetitionRate": 3833.31,
       "latestSnapshotAt": "2026-04-29T01:28:08+09:00",
-      "score": 27,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/와이랩_2023-07-10.json"
+      "score": 53,
+      "grade": "C+",
+      "decisionLevel": "neutral",
+      "expectedGainRate": 1.0,
+      "path": "stocks/waiker_2023.json"
     },
     {
       "id": "인텔리안테크_2023-07-10",
@@ -4619,12 +3637,14 @@
       },
       "company": "필에너지",
       "market": "KOSDAQ",
-      "industry": "",
+      "industry": "전기제품",
       "subscriptionStart": "2023-07-05",
       "subscriptionEnd": "2023-07-06",
       "leadManagers": [
         "미래에셋증권",
-        "삼성증권"
+        "삼성증권",
+        "미래",
+        "삼성"
       ],
       "offerPrice": 34000,
       "priceBandMin": 26300,
@@ -4637,37 +3657,6 @@
       "decisionLevel": "neutral",
       "expectedGainRate": 1.0,
       "path": "stocks/philenergy_2023.json"
-    },
-    {
-      "id": "필에너지_2023-07-05",
-      "identifiers": {
-        "subscriptionKey": "필에너지_20230705_20230706",
-        "normalizedCompany": "필에너지",
-        "corpCode": "01488320",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "필에너지",
-      "market": "KOSDAQ",
-      "industry": "전기제품",
-      "subscriptionStart": "2023-07-05",
-      "subscriptionEnd": "2023-07-06",
-      "leadManagers": [
-        "미래",
-        "삼성"
-      ],
-      "offerPrice": 34000,
-      "priceBandMin": 26300,
-      "priceBandMax": 30000,
-      "listingDate": "2023-07-14",
-      "latestCompetitionRate": 2636.4462136888887,
-      "latestSnapshotAt": "2026-04-29T01:28:02+09:00",
-      "score": 27,
-      "grade": "C-",
-      "decisionLevel": "caution",
-      "expectedGainRate": 0.9099999999999999,
-      "path": "stocks/필에너지_2023-07-05.json"
     },
     {
       "id": "db금융스팩11호_2023-07-03",
@@ -4752,7 +3741,7 @@
       "priceBandMax": 6600,
       "listingDate": "2023-06-16",
       "latestCompetitionRate": 35.43,
-      "latestSnapshotAt": "2026-05-08T23:09:47.003169",
+      "latestSnapshotAt": "2026-05-08T23:12:57.571958",
       "score": 12,
       "grade": "C-",
       "decisionLevel": "caution",
@@ -4783,7 +3772,7 @@
       "priceBandMax": 8000,
       "listingDate": "2023-06-15",
       "latestCompetitionRate": 155.8,
-      "latestSnapshotAt": "2026-05-08T23:09:47.003169",
+      "latestSnapshotAt": "2026-05-08T23:12:57.571958",
       "score": 18,
       "grade": "C-",
       "decisionLevel": "caution",
@@ -4814,7 +3803,7 @@
       "priceBandMax": 14000,
       "listingDate": "2023-06-08",
       "latestCompetitionRate": 1265.33,
-      "latestSnapshotAt": "2026-05-08T23:09:47.003169",
+      "latestSnapshotAt": "2026-05-08T23:12:57.571958",
       "score": 52,
       "grade": "C+",
       "decisionLevel": "neutral",
@@ -4844,7 +3833,7 @@
       "priceBandMax": 24000,
       "listingDate": "2023-06-02",
       "latestCompetitionRate": 4.84,
-      "latestSnapshotAt": "2026-05-08T23:09:47.003169",
+      "latestSnapshotAt": "2026-05-08T23:12:57.571958",
       "score": 14,
       "grade": "C-",
       "decisionLevel": "caution",
@@ -4874,7 +3863,7 @@
       "priceBandMax": 4200,
       "listingDate": "2023-06-01",
       "latestCompetitionRate": 1452.49,
-      "latestSnapshotAt": "2026-05-08T23:09:47.003169",
+      "latestSnapshotAt": "2026-05-08T23:12:57.571958",
       "score": 52,
       "grade": "C+",
       "decisionLevel": "neutral",
@@ -4904,7 +3893,7 @@
       "priceBandMax": 39700,
       "listingDate": "2023-05-24",
       "latestCompetitionRate": 824.13,
-      "latestSnapshotAt": "2026-05-08T23:09:47.003169",
+      "latestSnapshotAt": "2026-05-08T23:12:57.571958",
       "score": 52,
       "grade": "C+",
       "decisionLevel": "neutral",
@@ -4934,7 +3923,7 @@
       "priceBandMax": 12000,
       "listingDate": "2023-05-17",
       "latestCompetitionRate": 1481.84,
-      "latestSnapshotAt": "2026-05-08T23:09:47.003169",
+      "latestSnapshotAt": "2026-05-08T23:12:57.571958",
       "score": 61,
       "grade": "B-",
       "decisionLevel": "neutral",

@@ -10,19 +10,22 @@
     "isin": null
   },
   "company": "시프트업",
-  "market": "KOSPI",
+  "market": "KOSDAQ",
   "industry": "",
   "subscriptionStart": "2024-07-02",
   "subscriptionEnd": "2024-07-03",
   "leadManagers": [
     "한국투자증권",
     "NH투자증권",
-    "신한투자증권"
+    "신한투자증권",
+    "한국",
+    "NH",
+    "신한"
   ],
   "fundamentals": {
     "offerPrice": 60000,
-    "priceBandMin": null,
-    "priceBandMax": null,
+    "priceBandMin": 47000,
+    "priceBandMax": 60000,
     "topBandConfirmation": null,
     "institutionCompetitionRate": 225.94,
     "institutionParticipants": null,
@@ -129,16 +132,16 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 17,
+      "overall": 29,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
         "competition": 9,
         "institutionDemand": 3,
-        "demandStrength": 0,
+        "demandStrength": 6,
         "lockupCommitment": 0,
         "floatRate": 0,
-        "pricing": 3
+        "pricing": 8
       }
     },
     "expectedReturn": {
@@ -162,7 +165,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.52,
-        "generalPriorBase": -0.021320000000000002,
+        "generalPriorBase": 0.07708000000000001,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -170,7 +173,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 128,
+        "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false
       }
     },
@@ -217,8 +220,8 @@
     "inputs": {
       "latestCompetitionRate": 681.9868662068966,
       "snapshotCount": 2,
-      "leadManagerCount": 3,
-      "market": "KOSPI",
+      "leadManagerCount": 6,
+      "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 225.94,
       "lockupCommitmentRate": null,

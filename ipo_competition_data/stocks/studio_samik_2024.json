@@ -11,11 +11,12 @@
   },
   "company": "스튜디오삼익",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "가구",
   "subscriptionStart": "2024-01-25",
   "subscriptionEnd": "2024-01-26",
   "leadManagers": [
-    "DB금융투자"
+    "DB금융투자",
+    "DB"
   ],
   "fundamentals": {
     "offerPrice": 18000,
@@ -138,7 +139,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 128,
+        "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false
       }
     },
@@ -146,7 +147,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 5300.66대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 5300.66대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -167,7 +169,7 @@
     "inputs": {
       "latestCompetitionRate": 5300.66,
       "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 966.9,

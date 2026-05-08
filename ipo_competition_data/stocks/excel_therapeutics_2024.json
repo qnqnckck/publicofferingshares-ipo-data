@@ -11,16 +11,18 @@
   },
   "company": "엑셀세라퓨틱스",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "생물공학",
   "subscriptionStart": "2024-07-03",
   "subscriptionEnd": "2024-07-04",
   "leadManagers": [
-    "대신증권"
+    "대신증권",
+    "한국",
+    "대신"
   ],
   "fundamentals": {
     "offerPrice": 10000,
-    "priceBandMin": null,
-    "priceBandMax": null,
+    "priceBandMin": 6200,
+    "priceBandMax": 7700,
     "topBandConfirmation": null,
     "institutionCompetitionRate": 1233.8,
     "institutionParticipants": null,
@@ -97,16 +99,16 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 44,
-      "grade": "C",
+      "overall": 52,
+      "grade": "C+",
       "confidence": 0.95,
       "factors": {
         "competition": 13,
         "institutionDemand": 24,
-        "demandStrength": 0,
+        "demandStrength": 6,
         "lockupCommitment": 0,
         "floatRate": 0,
-        "pricing": 3
+        "pricing": 4
       }
     },
     "expectedReturn": {
@@ -130,7 +132,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.2788,
+        "generalPriorBase": 0.3444,
         "institutionBoost": 0.09,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -138,15 +140,16 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 128,
+        "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1035.39대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 1035.39대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -167,7 +170,7 @@
     "inputs": {
       "latestCompetitionRate": 1035.39,
       "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "leadManagerCount": 3,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1233.8,

@@ -10,14 +10,17 @@
     "isin": null
   },
   "company": "케이뱅크",
-  "market": "KOSPI",
-  "industry": "",
+  "market": "KOSDAQ",
+  "industry": "은행",
   "subscriptionStart": "2026-02-20",
   "subscriptionEnd": "2026-02-23",
   "leadManagers": [
     "NH투자증권",
     "삼성증권",
-    "신한투자증권"
+    "신한투자증권",
+    "NH",
+    "삼성",
+    "신한"
   ],
   "fundamentals": {
     "offerPrice": 8300,
@@ -170,7 +173,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 128,
+        "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false
       }
     },
@@ -217,8 +220,8 @@
     "inputs": {
       "latestCompetitionRate": 268.6766,
       "snapshotCount": 2,
-      "leadManagerCount": 3,
-      "market": "KOSPI",
+      "leadManagerCount": 6,
+      "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 198.53,
       "lockupCommitmentRate": 0.152,

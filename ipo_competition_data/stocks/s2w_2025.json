@@ -11,11 +11,12 @@
   },
   "company": "에스투더블유",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "소프트웨어",
   "subscriptionStart": "2025-09-10",
   "subscriptionEnd": "2025-09-11",
   "leadManagers": [
-    "대신증권"
+    "대신증권",
+    "대신"
   ],
   "fundamentals": {
     "offerPrice": 13200,
@@ -132,7 +133,7 @@
         "scoreBoost": -0.011111111111111112,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 128,
+        "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false
       }
     },
@@ -141,6 +142,7 @@
       "label": "청약 고려",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 3945.24대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
@@ -162,7 +164,7 @@
     "inputs": {
       "latestCompetitionRate": 3945.24,
       "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1145.4,

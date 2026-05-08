@@ -10,12 +10,13 @@
     "isin": null
   },
   "company": "동인기연",
-  "market": "KOSPI",
-  "industry": "",
+  "market": "KOSDAQ",
+  "industry": "섬유,의류,신발,호화품",
   "subscriptionStart": "2023-11-09",
   "subscriptionEnd": "2023-11-10",
   "leadManagers": [
-    "NH투자증권"
+    "NH투자증권",
+    "NH"
   ],
   "fundamentals": {
     "offerPrice": 30000,
@@ -132,7 +133,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 128,
+        "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false
       }
     },
@@ -140,7 +141,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 8.08대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 8.08대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -160,8 +162,8 @@
     "inputs": {
       "latestCompetitionRate": 8.08,
       "snapshotCount": 2,
-      "leadManagerCount": 1,
-      "market": "KOSPI",
+      "leadManagerCount": 2,
+      "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 26.37,
       "lockupCommitmentRate": null,

@@ -11,11 +11,12 @@
   },
   "company": "씨어스테크놀로지",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "건강관리기술",
   "subscriptionStart": "2024-06-10",
   "subscriptionEnd": "2024-06-11",
   "leadManagers": [
-    "한국투자증권"
+    "한국투자증권",
+    "한국"
   ],
   "fundamentals": {
     "offerPrice": 17000,
@@ -67,10 +68,25 @@
       }
     },
     {
-      "capturedAt": "2026-05-08T23:09:47.003169",
+      "capturedAt": "2026-05-08T23:12:57.571958",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://ckang.tistory.com/115",
       "brokers": [
+        {
+          "name": "한국",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 17000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1436.96,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1436.96,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
         {
           "name": "한국투자증권",
           "offeredShares": 0,
@@ -138,7 +154,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 128,
+        "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false
       }
     },
@@ -146,7 +162,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1436.96대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 1436.96대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -154,6 +171,15 @@
       ]
     },
     "brokerScores": [
+      {
+        "broker": "한국",
+        "equalScore": 30,
+        "proportionalScore": 8,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 12214160,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
       {
         "broker": "한국투자증권",
         "equalScore": 30,
@@ -167,7 +193,7 @@
     "inputs": {
       "latestCompetitionRate": 1436.96,
       "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1084.4,

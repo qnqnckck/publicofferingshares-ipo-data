@@ -10,15 +10,21 @@
     "isin": null
   },
   "company": "HD현대마린솔루션",
-  "market": "KOSPI",
-  "industry": "",
+  "market": "KOSDAQ",
+  "industry": "조선",
   "subscriptionStart": "2024-04-25",
   "subscriptionEnd": "2024-04-26",
-  "leadManagers": [],
+  "leadManagers": [
+    "KB",
+    "신한",
+    "하나",
+    "대신",
+    "삼성"
+  ],
   "fundamentals": {
     "offerPrice": 83400,
-    "priceBandMin": null,
-    "priceBandMax": null,
+    "priceBandMin": 73300,
+    "priceBandMax": 83400,
     "topBandConfirmation": null,
     "institutionCompetitionRate": 201.0,
     "institutionParticipants": 2021,
@@ -155,16 +161,16 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 34,
-      "grade": "C-",
+      "overall": 44,
+      "grade": "C",
       "confidence": 0.95,
       "factors": {
         "competition": 5,
         "institutionDemand": 3,
-        "demandStrength": 6,
+        "demandStrength": 10,
         "lockupCommitment": 14,
         "floatRate": 0,
-        "pricing": 3
+        "pricing": 8
       }
     },
     "expectedReturn": {
@@ -188,7 +194,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.38,
-        "generalPriorBase": 0.22514857142857142,
+        "generalPriorBase": 0.30714857142857144,
         "institutionBoost": 0.0,
         "lockupBoost": 0.07525000000000001,
         "participantBoost": 0.04,
@@ -196,7 +202,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 128,
+        "generalCalibrationSampleCount": 65,
         "generalCompetitionPending": false
       }
     },
@@ -204,7 +210,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 255.78대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 255.78대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -260,8 +267,8 @@
     "inputs": {
       "latestCompetitionRate": 255.7777492611769,
       "snapshotCount": 2,
-      "leadManagerCount": 0,
-      "market": "KOSPI",
+      "leadManagerCount": 5,
+      "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 201.0,
       "lockupCommitmentRate": 0.451,
