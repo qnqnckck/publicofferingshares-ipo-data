@@ -22,12 +22,12 @@
     "priceBandMin": 51000,
     "priceBandMax": 60500,
     "topBandConfirmation": null,
-    "institutionCompetitionRate": 756.0,
-    "institutionParticipants": 2423,
-    "lockupCommitmentRate": 0.9620000000000001,
+    "institutionCompetitionRate": 756.19,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
     "floatRate": null,
-    "marketCapKrw": 560000000000,
-    "publicAllocationShares": 250000,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
     "hasPutbackRight": false,
     "putbackSummary": null
   },
@@ -61,33 +61,6 @@
       }
     },
     {
-      "capturedAt": "2025-11-11T16:00:00+09:00",
-      "source": "ipokorea_supplement",
-      "sourceUrl": "https://ipokorea.kr/ipo/%EC%94%A8%EC%97%A0%ED%8B%B0%EC%97%91%EC%8A%A4",
-      "brokers": [
-        {
-          "name": "통합",
-          "offeredShares": 250000,
-          "subscribedShares": 458250000,
-          "offerPrice": 60500,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1833.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": null,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 250000,
-        "subscribedShares": 458250000,
-        "competitionRate": 1833.0
-      }
-    },
-    {
       "capturedAt": "2026-04-27T22:38:45+09:00",
       "source": "finuts_member_secondary",
       "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100466",
@@ -118,32 +91,32 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 72,
-      "grade": "B+",
+      "overall": 48,
+      "grade": "C",
       "confidence": 0.95,
       "factors": {
         "competition": 14,
         "institutionDemand": 15,
-        "demandStrength": 10,
-        "lockupCommitment": 18,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
         "floatRate": 0,
         "pricing": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 1.132,
-      "bearCaseListingGainRate": 0.952,
-      "baseCaseListingGainRate": 1.132,
-      "bullCaseListingGainRate": 1.432,
+      "expectedListingGainRate": 0.942,
+      "bearCaseListingGainRate": 0.762,
+      "baseCaseListingGainRate": 0.942,
+      "bullCaseListingGainRate": 1.162,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.263,
         "oneMillionKrw": 0.265,
         "fiveMillionKrw": 0.283
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 17993,
-        "oneMillionKrw": 18115,
-        "fiveMillionKrw": 19350
+        "minimumSubscription": 14973,
+        "oneMillionKrw": 15075,
+        "fiveMillionKrw": 16103
       },
       "assumptions": {
         "offerPrice": 60500,
@@ -151,12 +124,12 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.6055348571428572,
-        "institutionBoost": 0.032,
-        "lockupBoost": 0.1,
-        "participantBoost": 0.05,
+        "generalPriorBase": 0.2759215657142858,
+        "institutionBoost": 0.032023750000000004,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
         "topBandBoost": 0.0,
-        "scoreBoost": 0.0,
+        "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
@@ -164,11 +137,10 @@
       }
     },
     "decision": {
-      "level": "consider",
-      "label": "청약 고려",
+      "level": "caution",
+      "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 3666.04대 1입니다.",
-        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+        "최근 확인된 일반청약 경쟁률은 3666.04대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -188,12 +160,12 @@
     ],
     "inputs": {
       "latestCompetitionRate": 3666.04,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": 756.0,
-      "lockupCommitmentRate": 0.9620000000000001,
+      "institutionCompetitionRate": 756.19,
+      "lockupCommitmentRate": null,
       "floatRate": null,
       "hasOutcome": false
     },

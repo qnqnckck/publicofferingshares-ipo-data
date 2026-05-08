@@ -23,11 +23,11 @@
     "priceBandMin": 5900,
     "priceBandMax": 6900,
     "topBandConfirmation": null,
-    "institutionCompetitionRate": 1016.0,
+    "institutionCompetitionRate": 1015.93,
     "institutionParticipants": 2239,
-    "lockupCommitmentRate": 0.7440000000000001,
+    "lockupCommitmentRate": null,
     "floatRate": null,
-    "marketCapKrw": 199000000000,
+    "marketCapKrw": null,
     "publicAllocationShares": 1100000,
     "hasPutbackRight": false,
     "putbackSummary": null
@@ -59,33 +59,6 @@
         "offeredShares": 1100000,
         "subscribedShares": 838452560,
         "competitionRate": 762.23
-      }
-    },
-    {
-      "capturedAt": "2025-11-12T16:00:00+09:00",
-      "source": "ipokorea_supplement",
-      "sourceUrl": "https://ipokorea.kr/ipo/%EB%B9%84%EC%B8%A0%EB%A1%9C%EB%84%A5%EC%8A%A4%ED%85%8D",
-      "brokers": [
-        {
-          "name": "통합",
-          "offeredShares": 1100000,
-          "subscribedShares": 838200000,
-          "offerPrice": 6900,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 762.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": null,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 1100000,
-        "subscribedShares": 838200000,
-        "competitionRate": 762.0
       }
     },
     {
@@ -134,32 +107,32 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 82,
-      "grade": "A-",
+      "overall": 62,
+      "grade": "B-",
       "confidence": 0.95,
       "factors": {
         "competition": 16,
         "institutionDemand": 22,
         "demandStrength": 10,
-        "lockupCommitment": 18,
+        "lockupCommitment": 0,
         "floatRate": 0,
         "pricing": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 1.2201,
-      "bearCaseListingGainRate": 1.0,
-      "baseCaseListingGainRate": 1.2201,
-      "bullCaseListingGainRate": 1.5201,
+      "expectedListingGainRate": 1.0245,
+      "bearCaseListingGainRate": 0.8445,
+      "baseCaseListingGainRate": 1.0245,
+      "bullCaseListingGainRate": 1.2445,
       "expectedAllocatedShares": {
         "minimumSubscription": 2.657,
         "oneMillionKrw": 2.745,
         "fiveMillionKrw": 3.125
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 22364,
-        "oneMillionKrw": 23109,
-        "fiveMillionKrw": 26311
+        "minimumSubscription": 18779,
+        "oneMillionKrw": 19405,
+        "fiveMillionKrw": 22093
       },
       "assumptions": {
         "offerPrice": 6900,
@@ -167,12 +140,12 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.7232400000000001,
-        "institutionBoost": 0.0645,
-        "lockupBoost": 0.1,
+        "generalPriorBase": 0.47068,
+        "institutionBoost": 0.06449125,
+        "lockupBoost": 0.0,
         "participantBoost": 0.05,
         "topBandBoost": 0.0,
-        "scoreBoost": 0.05555555555555555,
+        "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 65,
@@ -180,12 +153,11 @@
       }
     },
     "decision": {
-      "level": "strong_watch",
-      "label": "관심 높음",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 1524.26대 1입니다.",
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
-        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -214,12 +186,12 @@
     ],
     "inputs": {
       "latestCompetitionRate": 1524.256,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": 1016.0,
-      "lockupCommitmentRate": 0.7440000000000001,
+      "institutionCompetitionRate": 1015.93,
+      "lockupCommitmentRate": null,
       "floatRate": null,
       "hasOutcome": false
     },
