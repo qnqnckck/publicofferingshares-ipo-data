@@ -1915,15 +1915,31 @@ Map<String, Object?> buildServiceHealthReport({
 
 List<IpoCompetitionStock> mergeStocks(List<IpoCompetitionStock> stocks) {
   final byId = <String, IpoCompetitionStock>{};
+  final lookupToId = <String, String>{};
   for (final stock in stocks) {
     final id = safeId(stock.id);
-    final existing = byId[id];
+    final subscriptionKey = stock.identifiers.subscriptionKey.trim();
+    final idLookup = 'id:$id';
+    final subscriptionLookup = subscriptionKey.isEmpty
+        ? null
+        : 'sub:$subscriptionKey';
+    final existingId =
+        lookupToId[idLookup] ??
+        (subscriptionLookup == null ? null : lookupToId[subscriptionLookup]);
+    final existing = existingId == null ? null : byId[existingId];
     if (existing == null) {
       byId[id] = stock;
+      lookupToId[idLookup] = id;
+      if (subscriptionLookup != null) {
+        lookupToId[subscriptionLookup] = id;
+      }
       continue;
     }
-    byId[id] = IpoCompetitionStock(
-      id: id,
+    final mergedId =
+        _preferCanonicalStockId(existing.id, stock.id) ?? existing.id;
+    byId.remove(existingId);
+    byId[mergedId] = IpoCompetitionStock(
+      id: mergedId,
       company: stock.company.trim().isEmpty ? existing.company : stock.company,
       market: stock.market.trim().isEmpty ? existing.market : stock.market,
       industry: stock.industry.trim().isEmpty ? existing.industry : stock.industry,
@@ -1935,8 +1951,30 @@ List<IpoCompetitionStock> mergeStocks(List<IpoCompetitionStock> stocks) {
       outcome: stock.outcome ?? existing.outcome,
       snapshots: [...existing.snapshots, ...stock.snapshots],
     );
+    lookupToId[idLookup] = mergedId;
+    final existingSubscriptionKey = existing.identifiers.subscriptionKey.trim();
+    if (existingSubscriptionKey.isNotEmpty) {
+      lookupToId['sub:$existingSubscriptionKey'] = mergedId;
+    }
+    if (subscriptionLookup != null) {
+      lookupToId[subscriptionLookup] = mergedId;
+    }
   }
   return byId.values.toList();
+}
+
+String? _preferCanonicalStockId(String currentId, String incomingId) {
+  final current = safeId(currentId);
+  final incoming = safeId(incomingId);
+  final currentAscii = RegExp(r'^[a-z0-9_-]+$').hasMatch(current);
+  final incomingAscii = RegExp(r'^[a-z0-9_-]+$').hasMatch(incoming);
+  if (currentAscii && !incomingAscii) {
+    return current;
+  }
+  if (incomingAscii && !currentAscii) {
+    return incoming;
+  }
+  return current;
 }
 
 List<IpoCompetitionStock> buildKnownLeadManagerOverrideStocks(
