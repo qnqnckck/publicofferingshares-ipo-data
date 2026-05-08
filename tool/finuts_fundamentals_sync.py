@@ -16,6 +16,7 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[1]
 MANUAL_FUNDAMENTALS_PATH = ROOT / "data" / "manual_fundamentals.json"
 OUTCOMES_DIR = ROOT / "data" / "outcomes"
+IDENTIFIERS_PATH = ROOT / "data" / "identifiers" / "ipo_identifiers.json"
 FINUTS_URL = "https://www.finuts.co.kr/html/task/ipo/ipoListQuery.php"
 
 
@@ -235,6 +236,35 @@ def write_manual_rows(rows: list[dict[str, Any]]) -> None:
     )
 
 
+def load_identifier_aliases() -> dict[str, str]:
+    if not IDENTIFIERS_PATH.exists():
+        return {}
+    payload = json.loads(IDENTIFIERS_PATH.read_text(encoding="utf-8"))
+    rows = []
+    if isinstance(payload, dict):
+        if isinstance(payload.get("identifiers"), list):
+            rows = payload["identifiers"]
+        elif isinstance(payload.get("stocks"), list):
+            rows = payload["stocks"]
+    elif isinstance(payload, list):
+        rows = payload
+    aliases: dict[str, str] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        row_id = str(row.get("id") or "").strip()
+        company = str(row.get("company") or "").strip()
+        identifiers = row.get("identifiers") if isinstance(row.get("identifiers"), dict) else {}
+        subscription_key = str(identifiers.get("subscriptionKey") or "").strip()
+        normalized_company = str(identifiers.get("normalizedCompany") or "").strip()
+        for key in (row_id, subscription_key, normalized_company, company):
+            key = key.strip()
+            if key:
+                aliases[key] = company
+                aliases[safe_id(key)] = company
+    return aliases
+
+
 def load_outcome_rows(path: Path) -> list[dict[str, Any]]:
     if not path.exists():
         return []
@@ -293,14 +323,30 @@ def main() -> int:
 
     today = datetime.now().date().isoformat()
     events = fetch_finuts_events()
+    identifier_aliases = load_identifier_aliases()
 
     if args.mode == "target":
         stock_id = args.stock_id.strip()
         company_key = normalize_company_key(args.company) if args.company.strip() else ""
+        stock_id_company = ""
+        if stock_id:
+            stock_id_company = identifier_aliases.get(stock_id) or identifier_aliases.get(
+                safe_id(stock_id)
+            ) or ""
+        stock_id_company_key = (
+            normalize_company_key(stock_id_company) if stock_id_company else ""
+        )
         targets = [
             event
             for event in events
             if (stock_id and event.stock_id == stock_id)
+            or (stock_id and safe_id(event.stock_id) == safe_id(stock_id))
+            or (
+                stock_id
+                and safe_id(f"{event.company}_{(event.subscription_start or '')[:4]}")
+                == safe_id(stock_id)
+            )
+            or (stock_id_company_key and event.key == stock_id_company_key)
             or (company_key and event.key == company_key)
         ]
     elif args.mode == "all":

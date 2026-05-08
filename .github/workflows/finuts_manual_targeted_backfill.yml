@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       stock_id:
-        description: "Target stock id, e.g. machinarax_2026"
+        description: "Target stock id, e.g. machinarax_2026 or 마키나락스_2026-05-11"
         required: false
         type: string
       company:
