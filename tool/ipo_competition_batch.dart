@@ -2666,8 +2666,20 @@ String canonicalBrokerName(String raw) {
   if (key == normalizeLookup('엔에이치투자증권') || key == normalizeLookup('NH증권')) {
     return 'NH투자증권';
   }
+  if (key == normalizeLookup('엔에이치') || key == normalizeLookup('NH')) {
+    return 'NH투자증권';
+  }
   if (key == normalizeLookup('케이비증권')) {
     return 'KB증권';
+  }
+  if (key == normalizeLookup('케이비') || key == normalizeLookup('KB')) {
+    return 'KB증권';
+  }
+  if (key == normalizeLookup('미래') || key == normalizeLookup('미래에셋')) {
+    return '미래에셋증권';
+  }
+  if (key == normalizeLookup('현대차')) {
+    return '현대차증권';
   }
   for (final broker in knownBrokerNames) {
     if (normalizeLookup(broker) == key) {
