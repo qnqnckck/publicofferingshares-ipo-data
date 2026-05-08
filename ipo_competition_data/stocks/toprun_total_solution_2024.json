@@ -15,7 +15,6 @@
   "subscriptionStart": "2024-10-23",
   "subscriptionEnd": "2024-10-24",
   "leadManagers": [
-    "KB증권",
     "KB"
   ],
   "fundamentals": {
@@ -68,27 +67,12 @@
       }
     },
     {
-      "capturedAt": "2026-05-08T23:12:57.571958",
+      "capturedAt": "2026-05-08T23:16:15.090874",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.mk.co.kr/news/stock/11156542",
       "brokers": [
         {
           "name": "KB",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 18000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 984.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 984.0,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "KB증권",
           "offeredShares": 0,
           "subscribedShares": 0,
           "offerPrice": 18000,
@@ -162,8 +146,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 984.0대 1입니다.",
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "최근 확인된 일반청약 경쟁률은 984.0대 1입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -178,21 +161,12 @@
         "estimatedDepositForOneProportionalShare": 8856000,
         "feeKrw": null,
         "dataQuality": "partial"
-      },
-      {
-        "broker": "KB증권",
-        "equalScore": 30,
-        "proportionalScore": 11,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 8856000,
-        "feeKrw": null,
-        "dataQuality": "partial"
       }
     ],
     "inputs": {
       "latestCompetitionRate": 984.0,
       "snapshotCount": 2,
-      "leadManagerCount": 2,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 841.12,

@@ -15,7 +15,6 @@
   "subscriptionStart": "2024-03-04",
   "subscriptionEnd": "2024-03-05",
   "leadManagers": [
-    "NH투자증권",
     "NH"
   ],
   "fundamentals": {
@@ -68,27 +67,12 @@
       }
     },
     {
-      "capturedAt": "2026-05-08T23:12:57.571958",
+      "capturedAt": "2026-05-08T23:16:15.090874",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.fnnews.com/news/202403130928290644",
       "brokers": [
         {
           "name": "NH",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 20000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 2126.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2126.0,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        },
-        {
-          "name": "NH투자증권",
           "offeredShares": 0,
           "subscribedShares": 0,
           "offerPrice": 20000,
@@ -162,8 +146,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2126.0대 1입니다.",
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "최근 확인된 일반청약 경쟁률은 2126.0대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -179,21 +162,12 @@
         "estimatedDepositForOneProportionalShare": 21260000,
         "feeKrw": null,
         "dataQuality": "partial"
-      },
-      {
-        "broker": "NH투자증권",
-        "equalScore": 30,
-        "proportionalScore": 5,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 21260000,
-        "feeKrw": null,
-        "dataQuality": "partial"
       }
     ],
     "inputs": {
       "latestCompetitionRate": 2126.0,
       "snapshotCount": 2,
-      "leadManagerCount": 2,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 993.0,
