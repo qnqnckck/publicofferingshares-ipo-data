@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import re
 from dataclasses import dataclass
@@ -68,6 +69,50 @@ def split_managers(value: str | None) -> list[str]:
     ]
 
 
+def fetch_text(url: str) -> str:
+    req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    with urlopen(req, timeout=30) as response:
+        return response.read().decode("utf-8", "ignore")
+
+
+def plain_text(raw: str) -> str:
+    text = html.unescape(raw)
+    text = re.sub(r"(?is)<script.*?</script>", " ", text)
+    text = re.sub(r"(?is)<style.*?</style>", " ", text)
+    text = re.sub(r"(?i)<br\\s*/?>", " ", text)
+    text = re.sub(r"(?s)<[^>]+>", " ", text)
+    text = re.sub(r"\\s+", " ", text)
+    return text.strip()
+
+
+def parse_detail_industry(detail_html: str) -> str:
+    table_match = re.search(
+        r'<tbody id="compTableBody">(.*?)</tbody>',
+        detail_html,
+        re.IGNORECASE | re.DOTALL,
+    )
+    if table_match:
+        for row_html in re.findall(
+            r"<tr[^>]*>(.*?)</tr>",
+            table_match.group(1),
+            re.IGNORECASE | re.DOTALL,
+        ):
+            cells = re.findall(r"<td[^>]*>(.*?)</td>", row_html, re.IGNORECASE | re.DOTALL)
+            if len(cells) >= 3:
+                industry = plain_text(cells[2])
+                if industry and "기업명 or 업종명" not in industry:
+                    return industry
+
+    major_business_match = re.search(
+        r"<span>\\s*주요사업\\s*</span>\\s*([^<]+)",
+        detail_html,
+        re.IGNORECASE | re.DOTALL,
+    )
+    if major_business_match:
+        return plain_text(major_business_match.group(1))
+    return ""
+
+
 @dataclass
 class FinutsEvent:
     ipo_sn: str
@@ -82,6 +127,7 @@ class FinutsEvent:
     price_max: int | None
     offer_price: int | None
     lead_managers: list[str]
+    industry: str
 
     @property
     def finuts_url(self) -> str:
@@ -132,12 +178,22 @@ def fetch_finuts_events() -> list[FinutsEvent]:
         )
         lead_managers = split_managers(
             str(
-                primary.get("MNGR_NM")
+                primary.get("INDCT_JUGANSA_NM")
+                or primary.get("MNGR_NM")
                 or primary.get("LEAD_MNGR_NM")
                 or primary.get("CMN_MNGR_NM")
                 or ""
             ).strip()
         )
+        industry = ""
+        try:
+            industry = parse_detail_industry(
+                fetch_text(
+                    f"https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn={str(primary.get('IPO_SN', '')).strip()}"
+                )
+            )
+        except Exception:
+            industry = ""
         events.append(
             FinutsEvent(
                 ipo_sn=str(primary.get("IPO_SN", "")).strip(),
@@ -152,6 +208,7 @@ def fetch_finuts_events() -> list[FinutsEvent]:
                 price_max=to_int(primary.get("BAND_END_AMT")),
                 offer_price=to_int(primary.get("PSS_PRC")),
                 lead_managers=lead_managers,
+                industry=industry,
             )
         )
     return events
@@ -165,7 +222,7 @@ def build_stock(event: FinutsEvent) -> dict[str, Any]:
         "id": event.stock_id,
         "company": event.company,
         "market": market,
-        "industry": "",
+        "industry": event.industry,
         "subscriptionStart": event.subscription_start,
         "subscriptionEnd": event.subscription_end,
         "leadManagers": event.lead_managers,

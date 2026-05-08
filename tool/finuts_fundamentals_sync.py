@@ -84,6 +84,8 @@ class FinutsEvent:
     price_min: int | None
     price_max: int | None
     offer_price: int | None
+    institution_competition_rate: float | None
+    lockup_commitment_rate: float | None
 
     @property
     def finuts_url(self) -> str:
@@ -140,6 +142,15 @@ def fetch_finuts_events() -> list[FinutsEvent]:
                 price_min=to_int(primary.get("BAND_BGNG_AMT")),
                 price_max=to_int(primary.get("BAND_END_AMT")),
                 offer_price=to_int(primary.get("PSS_PRC")),
+                institution_competition_rate=to_float(
+                    str(primary.get("INST_CMPET_RT") or "").strip() or None
+                ),
+                lockup_commitment_rate=parse_labeled_percent(
+                    str(primary.get("DUTY_HOLD_DFPR_RT") or "").strip(),
+                    [""],
+                )
+                if str(primary.get("DUTY_HOLD_DFPR_RT") or "").strip()
+                else None,
             )
         )
     return events
@@ -182,35 +193,77 @@ def parse_labeled_rate(text: str, labels: list[str]) -> float | None:
 
 
 def parse_labeled_percent(text: str, labels: list[str]) -> float | None:
+    if labels == [""]:
+        value = to_float(text)
+        if value is None:
+            return None
+        return value / 100 if value > 1 else value
     value = parse_labeled_rate(text, labels)
     if value is None:
         return None
     return value / 100 if value > 1 else value
 
 
-def parse_detail_fundamentals(text: str) -> dict[str, Any]:
-    normalized = plain_text(text)
-    offer_price = parse_labeled_int(normalized, ["확정공모가", "확정 공모가"])
-    institution_competition = parse_labeled_rate(normalized, ["기관 경쟁률", "기관경쟁률"])
+def extract_section(detail_html: str, section_id: str) -> str:
+    match = re.search(
+        rf'<section id="{re.escape(section_id)}">(.*?)</section>',
+        detail_html,
+        re.IGNORECASE | re.DOTALL,
+    )
+    return match.group(1) if match else detail_html
+
+
+def parse_section_value(detail_html: str, section_id: str, label: str) -> str | None:
+    section = extract_section(detail_html, section_id)
+    match = re.search(
+        rf"<span>\s*{re.escape(label)}\s*</span>\s*(.*?)</li>",
+        section,
+        re.IGNORECASE | re.DOTALL,
+    )
+    if not match:
+        return None
+    value = plain_text(match.group(1))
+    return value or None
+
+
+def parse_detail_fundamentals(detail_html: str) -> dict[str, Any]:
+    normalized = plain_text(detail_html)
+    ipo_info = extract_section(detail_html, "ipo-info")
+    offer_price = parse_labeled_int(
+        plain_text(ipo_info),
+        ["공모가", "확정공모가", "확정 공모가"],
+    )
+    institution_competition = parse_labeled_rate(
+        plain_text(ipo_info),
+        ["기관경쟁률", "기관 경쟁률"],
+    )
     institution_participants = parse_labeled_int(
         normalized,
         ["참여건수", "참여 건수", "참여기관", "참여 기관"],
     )
     lockup_rate = parse_labeled_percent(
-        normalized,
-        ["의무보유확약 비율", "의무보유확약률", "의무보유 확약"],
+        plain_text(ipo_info),
+        ["의무보유확약", "의무보유확약 비율", "의무보유확약률", "의무보유 확약"],
+    )
+    float_rate = parse_labeled_percent(
+        plain_text(ipo_info),
+        ["유통비율(유통금액)", "유통비율", "유통 가능 비율", "유통가능비율"],
     )
     public_allocation = parse_labeled_int(
         normalized,
         ["일반청약자 배정", "일반 투자자 배정", "일반청약 배정"],
     )
-    market_cap = parse_labeled_int(normalized, ["예상 시가총액", "시가총액"])
+    market_cap = parse_labeled_int(
+        plain_text(ipo_info),
+        ["시가총액", "예상 시가총액"],
+    )
 
     return {
         "offerPrice": offer_price,
         "institutionCompetitionRate": institution_competition,
         "institutionParticipants": institution_participants,
         "lockupCommitmentRate": lockup_rate,
+        "floatRate": float_rate,
         "publicAllocationShares": public_allocation,
         "marketCapKrw": market_cap,
     }
@@ -368,6 +421,16 @@ def main() -> int:
         detail = fetch_text(event.finuts_url)
         fundamentals = parse_detail_fundamentals(detail)
         non_null = {key: value for key, value in fundamentals.items() if value is not None}
+        if event.institution_competition_rate is not None:
+            non_null.setdefault(
+                "institutionCompetitionRate",
+                event.institution_competition_rate,
+            )
+        if event.lockup_commitment_rate is not None:
+            non_null.setdefault(
+                "lockupCommitmentRate",
+                event.lockup_commitment_rate,
+            )
         if event.price_min is not None:
             non_null.setdefault("priceBandMin", event.price_min)
         if event.price_max is not None:
