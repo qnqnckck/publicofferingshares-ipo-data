@@ -1945,7 +1945,10 @@ List<IpoCompetitionStock> mergeStocks(List<IpoCompetitionStock> stocks) {
       industry: stock.industry.trim().isEmpty ? existing.industry : stock.industry,
       subscriptionStart: stock.subscriptionStart ?? existing.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd ?? existing.subscriptionEnd,
-      leadManagers: {...existing.leadManagers, ...stock.leadManagers}.toList(),
+      leadManagers: canonicalizeLeadManagers([
+        ...existing.leadManagers,
+        ...stock.leadManagers,
+      ]),
       sourceIdentifiers: existing.identifiers.merge(stock.identifiers),
       fundamentals: existing.fundamentals.merge(stock.fundamentals),
       outcome: stock.outcome ?? existing.outcome,
@@ -5695,9 +5698,20 @@ List<String> readLeadManagers(String? value) {
   if (value == null || value.trim().isEmpty) {
     return const [];
   }
-  return value
-      .split(RegExp(r'[,/·、]|및|,|;'))
+  return canonicalizeLeadManagers(
+    value
+        .split(RegExp(r'[,/·、]|및|,|;'))
+        .map((item) => item.trim())
+        .where((item) => item.isNotEmpty),
+  );
+}
+
+List<String> canonicalizeLeadManagers(Iterable<String> values) {
+  return values
+      .map(canonicalBrokerName)
       .map((item) => item.trim())
       .where((item) => item.isNotEmpty)
-      .toList();
+      .toSet()
+      .toList()
+    ..sort();
 }

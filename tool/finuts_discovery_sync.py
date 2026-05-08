@@ -63,11 +63,26 @@ def to_int(value: Any) -> int | None:
 def split_managers(value: str | None) -> list[str]:
     if not value:
         return []
-    return [
-        item.strip()
-        for item in re.split(r"[,/·|;]", value)
-        if item and item.strip()
-    ]
+    aliases = {
+        "미래": "미래에셋증권",
+        "미래에셋": "미래에셋증권",
+        "현대차": "현대차증권",
+        "엔에이치": "NH투자증권",
+        "엔에이치투자": "NH투자증권",
+        "케이비": "KB증권",
+    }
+    result: list[str] = []
+    seen: set[str] = set()
+    for raw in re.split(r"[,/·|;]", value):
+        item = raw.strip()
+        if not item:
+            continue
+        canonical = aliases.get(item, item)
+        if canonical in seen:
+            continue
+        seen.add(canonical)
+        result.append(canonical)
+    return result
 
 
 def fetch_text(url: str) -> str:
