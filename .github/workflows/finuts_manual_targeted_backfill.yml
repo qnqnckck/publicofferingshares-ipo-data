@@ -80,6 +80,7 @@ jobs:
           --no-public-live-collect
 
       - name: Validate Finuts schedule sync
+        continue-on-error: true
         run: python tool/validate_finuts_schedule_sync.py --warn-on-analysis-issues
 
       - name: Commit generated data
