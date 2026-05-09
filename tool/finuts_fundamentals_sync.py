@@ -240,7 +240,20 @@ def parse_detail_fundamentals(detail_html: str) -> dict[str, Any]:
     )
     institution_participants = parse_labeled_int(
         normalized,
-        ["참여건수", "참여 건수", "참여기관", "참여 기관"],
+        [
+            "참여건수",
+            "참여 건수",
+            "참여기관",
+            "참여 기관",
+            "기관참여건수",
+            "기관 참여건수",
+            "기관참여기관",
+            "기관 참여기관",
+            "기관참여기관수",
+            "기관 참여기관수",
+            "참여기관수",
+            "참여 기관수",
+        ],
     )
     lockup_rate = parse_labeled_percent(
         plain_text(ipo_info),

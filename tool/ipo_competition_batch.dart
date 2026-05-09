@@ -2811,6 +2811,14 @@ IpoCompetitionStock? parseIpoKoreaSupplement({
     '참여 건수',
     '참여기관',
     '참여 기관',
+    '기관참여건수',
+    '기관 참여건수',
+    '기관참여기관',
+    '기관 참여기관',
+    '기관참여기관수',
+    '기관 참여기관수',
+    '참여기관수',
+    '참여 기관수',
   ]);
   final lockupCommitmentRate = parseLabeledPercent(text, [
     '의무보유확약 비율',
