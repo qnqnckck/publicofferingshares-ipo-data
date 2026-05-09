@@ -240,6 +240,14 @@ def keyword_snippets(text: str, keyword: str, *, radius: int = 80, limit: int = 
     return snippets
 
 
+def parse_putback_summary(text: str) -> str | None:
+    for keyword in ["환매청구권", "환매 청구권"]:
+        snippets = keyword_snippets(text, keyword, radius=90, limit=1)
+        if snippets:
+            return snippets[0]
+    return None
+
+
 def parse_detail_fundamentals(detail_html: str) -> dict[str, Any]:
     normalized = plain_text(detail_html)
     ipo_info = extract_section(detail_html, "ipo-info")
@@ -284,6 +292,7 @@ def parse_detail_fundamentals(detail_html: str) -> dict[str, Any]:
         plain_text(ipo_info),
         ["시가총액", "예상 시가총액"],
     )
+    putback_summary = parse_putback_summary(normalized)
 
     return {
         "offerPrice": offer_price,
@@ -293,6 +302,8 @@ def parse_detail_fundamentals(detail_html: str) -> dict[str, Any]:
         "floatRate": float_rate,
         "publicAllocationShares": public_allocation,
         "marketCapKrw": market_cap,
+        "hasPutbackRight": putback_summary is not None,
+        "putbackSummary": putback_summary,
     }
 
 
@@ -450,7 +461,7 @@ def main() -> int:
         if args.mode == "target" and fundamentals.get("institutionParticipants") is None:
             normalized_detail = plain_text(detail)
             print(f"[debug] target={event.company} institutionParticipants missing")
-            for keyword in ["참여", "기관", "수요예측"]:
+            for keyword in ["참여", "기관", "수요예측", "환매", "청구권"]:
                 snippets = keyword_snippets(normalized_detail, keyword)
                 if snippets:
                     print(f"[debug] keyword={keyword}")
