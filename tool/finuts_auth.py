@@ -94,9 +94,6 @@ def fetch_finuts_authenticated_text(
     login_target_url: str | None = None,
     referer: str | None = None,
 ) -> str:
-    opener = build_finuts_authenticated_opener(
-        target_url=login_target_url or request_url,
-    )
     request_headers = {"User-Agent": "Mozilla/5.0", **(headers or {})}
     request = Request(
         request_url,
@@ -104,6 +101,16 @@ def fetch_finuts_authenticated_text(
         headers=request_headers,
         method=method.upper(),
     )
+    opener = None
+    try:
+        opener = build_finuts_authenticated_opener(
+            target_url=login_target_url or request_url,
+        )
+    except HTTPError as exc:
+        if exc.code != 403:
+            raise
+    except Exception:
+        pass
     if opener is not None:
         try:
             with opener.open(request, timeout=30) as response:
