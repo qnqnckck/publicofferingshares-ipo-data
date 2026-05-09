@@ -19,7 +19,9 @@
   "securityType": null,
   "leadManagers": [
     "신한투자증권",
-    "한국투자증권"
+    "한국투자증권",
+    "신한",
+    "한국"
   ],
   "fundamentals": {
     "offerPrice": 3000,
@@ -62,6 +64,48 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 120.37
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:08:07+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100211",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 3500000,
+          "subscribedShares": 403130000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 115.18,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 133.33333333333334,
+          "equalAllocationShares": 1750000,
+          "proportionalAllocationShares": 1750000,
+          "expectedEqualShares": 0.0,
+          "applicationCount": null
+        },
+        {
+          "name": "한국투자증권",
+          "offeredShares": 3500000,
+          "subscribedShares": 439425000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 125.55,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 166.66666666666666,
+          "equalAllocationShares": 1750000,
+          "proportionalAllocationShares": 1750000,
+          "expectedEqualShares": 0.0,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 7000000,
+        "subscribedShares": 842555000,
+        "competitionRate": 120.365
       }
     },
     {
@@ -151,7 +195,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -188,8 +232,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 120.365,
-      "snapshotCount": 2,
-      "leadManagerCount": 2,
+      "snapshotCount": 3,
+      "leadManagerCount": 4,
       "market": "KOSPI",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 38.7,

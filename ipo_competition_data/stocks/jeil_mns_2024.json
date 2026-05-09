@@ -11,14 +11,15 @@
   },
   "company": "제일엠앤에스",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "전기제품",
   "subscriptionStart": "2024-04-18",
   "subscriptionEnd": "2024-04-19",
   "listingDate": "2024-04-30",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "KB증권"
+    "KB증권",
+    "KB"
   ],
   "fundamentals": {
     "offerPrice": 22000,
@@ -97,6 +98,60 @@
       }
     },
     {
+      "capturedAt": "2024-04-19T17:30:00+09:00",
+      "source": "public_ipo_summary",
+      "sourceUrl": "https://listup24.com/%EC%A0%9C%EC%9D%BC%EC%97%A0%EC%95%A4%EC%97%90%EC%8A%A4-%EA%B3%B5%EB%AA%A8%EC%A3%BC-%EC%B2%AD%EC%95%BD-%EC%83%81%EC%9E%A5-%EA%B3%B5%EB%AA%A8%EA%B0%80-%EC%88%98%EC%9A%94%EC%98%88%EC%B8%A1-%EA%B2%BD/",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 600000,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 1500,
+          "competitionRate": 1438.96,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2878.0,
+          "equalAllocationShares": 300000,
+          "proportionalAllocationShares": 300000,
+          "expectedEqualShares": null,
+          "applicationCount": 0
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 600000,
+        "subscribedShares": 0,
+        "competitionRate": 0.0
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:00:39+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100171",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 600000,
+          "subscribedShares": 1726146000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 1500,
+          "competitionRate": 2876.91,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 300000,
+          "proportionalAllocationShares": 300000,
+          "expectedEqualShares": 0.62,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 600000,
+        "subscribedShares": 1726146000,
+        "competitionRate": 2876.91
+      }
+    },
+    {
       "capturedAt": "2026-04-29T01:00:39+09:00",
       "source": "finuts_member_secondary",
       "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100171",
@@ -168,7 +223,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -176,7 +231,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2876.91대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 2876.91대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -196,8 +252,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 2876.91,
-      "snapshotCount": 3,
-      "leadManagerCount": 1,
+      "snapshotCount": 5,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 645.91,

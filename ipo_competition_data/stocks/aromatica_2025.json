@@ -11,14 +11,15 @@
   },
   "company": "아로마티카",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "화장품",
   "subscriptionStart": "2025-11-18",
   "subscriptionEnd": "2025-11-19",
   "listingDate": "2025-11-27",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "신한투자증권"
+    "신한투자증권",
+    "신한"
   ],
   "fundamentals": {
     "offerPrice": 8000,
@@ -61,6 +62,33 @@
         "offeredShares": 750000,
         "subscribedShares": 2148882160,
         "competitionRate": 2865.17
+      }
+    },
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100464",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 750000,
+          "subscribedShares": 4297005000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 5729.34,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 375000,
+          "proportionalAllocationShares": 375000,
+          "expectedEqualShares": 1.25,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 750000,
+        "subscribedShares": 4297005000,
+        "competitionRate": 5729.34
       }
     },
     {
@@ -135,7 +163,7 @@
         "scoreBoost": 0.044444444444444446,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -144,6 +172,7 @@
       "label": "관심 높음",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 5729.34대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
@@ -164,8 +193,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 5729.34,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1153.0,

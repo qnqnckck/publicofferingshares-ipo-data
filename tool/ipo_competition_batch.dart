@@ -219,8 +219,11 @@ class IpoCompetitionBatch {
         generatedAt.month,
         generatedAt.day,
       );
+      final consolidatedStocks = mergeStocksByIdentity(
+        manualFundamentalsPatchedStocks,
+      );
       final selected =
-          manualFundamentalsPatchedStocks.where((stock) {
+          consolidatedStocks.where((stock) {
             final end = parseDate(stock.subscriptionEnd);
             return end == null || !end.isBefore(cutoff);
           }).toList()..sort((a, b) {
@@ -235,8 +238,11 @@ class IpoCompetitionBatch {
 
       _analysisCalibration = buildAnalysisCalibration(selected);
 
-      await Directory('${options.outDir}/stocks').create(recursive: true);
+      final stockDir = Directory('${options.outDir}/stocks');
+      await stockDir.create(recursive: true);
       final indexStocks = <Map<String, Object?>>[];
+      final selectedIds = selected.map((stock) => safeId(stock.id)).toSet();
+      await deleteOrphanedStockFiles(stockDir, selectedIds);
 
       for (final stock in selected) {
         final normalized = stock.normalized();
@@ -283,7 +289,7 @@ class IpoCompetitionBatch {
             generatedAt: generatedAt,
             cutoff: cutoff,
             discoveredStocks: discoveredStocks,
-            mergedStocks: enrichedStocks,
+            mergedStocks: consolidatedStocks,
             selectedStocks: selected,
           ),
         ),
@@ -1923,6 +1929,219 @@ List<IpoCompetitionStock> mergeStocks(List<IpoCompetitionStock> stocks) {
     );
   }
   return byId.values.toList();
+}
+
+List<IpoCompetitionStock> mergeStocksByIdentity(
+  List<IpoCompetitionStock> stocks,
+) {
+  final byKey = <String, IpoCompetitionStock>{};
+  for (final stock in stocks) {
+    final key = stockIdentityKey(stock);
+    final existing = byKey[key];
+    if (existing == null) {
+      byKey[key] = stock;
+      continue;
+    }
+    final preferred = preferStock(existing, stock);
+    final secondary = identical(preferred, existing) ? stock : existing;
+    byKey[key] = mergePreferredStock(preferred, secondary);
+  }
+  return byKey.values.toList();
+}
+
+String stockIdentityKey(IpoCompetitionStock stock) {
+  final subscriptionKey = stock.identifiers.subscriptionKey.trim();
+  if (subscriptionKey.isNotEmpty) {
+    return 'sub:$subscriptionKey';
+  }
+  final company = normalizeLookup(stock.company);
+  final start = normalizeDate(stock.subscriptionStart) ?? stock.subscriptionStart;
+  final end = normalizeDate(stock.subscriptionEnd) ?? stock.subscriptionEnd;
+  if (company.isNotEmpty &&
+      ((start?.isNotEmpty ?? false) || (end?.isNotEmpty ?? false))) {
+    return 'company:$company:${start ?? ''}:${end ?? ''}';
+  }
+  return 'id:${safeId(stock.id)}';
+}
+
+IpoCompetitionStock preferStock(
+  IpoCompetitionStock left,
+  IpoCompetitionStock right,
+) {
+  final leftScore = stockCompletenessScore(left);
+  final rightScore = stockCompletenessScore(right);
+  if (leftScore != rightScore) {
+    return leftScore > rightScore ? left : right;
+  }
+
+  final leftId = safeId(left.id);
+  final rightId = safeId(right.id);
+  final leftHasAsciiOnly = RegExp(r'^[a-z0-9_]+$').hasMatch(leftId);
+  final rightHasAsciiOnly = RegExp(r'^[a-z0-9_]+$').hasMatch(rightId);
+  if (leftHasAsciiOnly != rightHasAsciiOnly) {
+    return leftHasAsciiOnly ? left : right;
+  }
+  return leftId.compareTo(rightId) <= 0 ? left : right;
+}
+
+int stockCompletenessScore(IpoCompetitionStock stock) {
+  var score = 0;
+  if (stock.company.trim().isNotEmpty) {
+    score += 1;
+  }
+  if (stock.market.trim().isNotEmpty) {
+    score += 1;
+  }
+  if (stock.industry.trim().isNotEmpty) {
+    score += 4;
+  }
+  if (stock.subscriptionStart != null) {
+    score += 2;
+  }
+  if (stock.subscriptionEnd != null) {
+    score += 2;
+  }
+  if (stock.listingDate != null || stock.outcome?.listingDate != null) {
+    score += 2;
+  }
+  if (stock.generalSharesDate != null) {
+    score += 3;
+  }
+  if (stock.securityType != null) {
+    score += 3;
+  }
+  if (stock.leadManagers.isNotEmpty) {
+    score += min(stock.leadManagers.length, 3);
+  }
+
+  final identifiers = stock.identifiers;
+  if (identifiers.corpCode != null) {
+    score += 2;
+  }
+  if (identifiers.stockCode != null) {
+    score += 2;
+  }
+  if (identifiers.kindCode != null) {
+    score += 1;
+  }
+  if (identifiers.isin != null) {
+    score += 1;
+  }
+
+  final fundamentals = stock.fundamentals;
+  if (fundamentals.offerPrice != null) {
+    score += 2;
+  }
+  if (fundamentals.priceBandMin != null || fundamentals.priceBandMax != null) {
+    score += 2;
+  }
+  if (fundamentals.topBandConfirmation != null) {
+    score += 1;
+  }
+  if (fundamentals.publicAllocationShares != null) {
+    score += 2;
+  }
+  if (fundamentals.institutionCompetitionRate != null) {
+    score += 6;
+  }
+  if (fundamentals.institutionParticipants != null) {
+    score += 4;
+  }
+  if (fundamentals.lockupCommitmentRate != null) {
+    score += 4;
+  }
+  if (fundamentals.floatRate != null) {
+    score += 2;
+  }
+  if (stock.outcome != null) {
+    score += 2;
+  }
+  if (stock.snapshots.isNotEmpty) {
+    score += 3;
+  }
+  if (hasBrokerLevelSnapshot(stock)) {
+    score += 2;
+  }
+  return score;
+}
+
+IpoCompetitionStock mergePreferredStock(
+  IpoCompetitionStock preferred,
+  IpoCompetitionStock secondary,
+) {
+  final mergedSnapshots = <IpoCompetitionSnapshot>[
+    ...preferred.snapshots,
+    ...secondary.snapshots,
+  ];
+  return IpoCompetitionStock(
+    id: preferred.id,
+    company: preferred.company.trim().isEmpty ? secondary.company : preferred.company,
+    market: preferred.market.trim().isEmpty ? secondary.market : preferred.market,
+    industry: preferred.industry.trim().isEmpty ? secondary.industry : preferred.industry,
+    subscriptionStart: preferred.subscriptionStart ?? secondary.subscriptionStart,
+    subscriptionEnd: preferred.subscriptionEnd ?? secondary.subscriptionEnd,
+    listingDate: preferred.listingDate ?? secondary.listingDate,
+    generalSharesDate: preferred.generalSharesDate ?? secondary.generalSharesDate,
+    securityType: preferred.securityType ?? secondary.securityType,
+    leadManagers: mergeOrderedStrings(preferred.leadManagers, secondary.leadManagers),
+    sourceIdentifiers: secondary.identifiers.merge(preferred.identifiers),
+    fundamentals: secondary.fundamentals.merge(preferred.fundamentals),
+    outcome: mergePreferredOutcome(preferred.outcome, secondary.outcome),
+    snapshots: mergedSnapshots,
+  );
+}
+
+IpoOutcome? mergePreferredOutcome(IpoOutcome? preferred, IpoOutcome? secondary) {
+  if (preferred == null) {
+    return secondary;
+  }
+  if (secondary == null) {
+    return preferred;
+  }
+  return IpoOutcome(
+    listingDate: preferred.listingDate ?? secondary.listingDate,
+    openReturnRate: preferred.openReturnRate ?? secondary.openReturnRate,
+    highReturnRate: preferred.highReturnRate ?? secondary.highReturnRate,
+    closeReturnRate: preferred.closeReturnRate ?? secondary.closeReturnRate,
+    sourceUrl: preferred.sourceUrl ?? secondary.sourceUrl,
+  );
+}
+
+List<String> mergeOrderedStrings(List<String> preferred, List<String> secondary) {
+  final seen = <String>{};
+  final merged = <String>[];
+  for (final value in [...preferred, ...secondary]) {
+    final normalized = canonicalBrokerName(value).trim();
+    if (normalized.isEmpty) {
+      continue;
+    }
+    final key = normalizeLookup(normalized);
+    if (seen.add(key)) {
+      merged.add(normalized);
+    }
+  }
+  return merged;
+}
+
+Future<void> deleteOrphanedStockFiles(
+  Directory stockDir,
+  Set<String> selectedIds,
+) async {
+  if (!await stockDir.exists()) {
+    return;
+  }
+  await for (final entity in stockDir.list()) {
+    if (entity is! File || !entity.path.endsWith('.json')) {
+      continue;
+    }
+    final name = entity.uri.pathSegments.isEmpty
+        ? entity.path
+        : entity.uri.pathSegments.last;
+    final id = name.replaceFirst(RegExp(r'\.json$'), '');
+    if (!selectedIds.contains(id)) {
+      await entity.delete();
+    }
+  }
 }
 
 List<IpoCompetitionStock> mergeManualFundamentalsOverrides(

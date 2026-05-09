@@ -11,19 +11,20 @@
   },
   "company": "포스뱅크",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "컴퓨터와주변기기",
   "subscriptionStart": "2024-01-17",
   "subscriptionEnd": "2024-01-18",
   "listingDate": "2024-01-29",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "하나증권"
+    "하나증권",
+    "하나"
   ],
   "fundamentals": {
     "offerPrice": 18000,
-    "priceBandMin": null,
-    "priceBandMax": null,
+    "priceBandMin": 13000,
+    "priceBandMax": 15000,
     "topBandConfirmation": null,
     "institutionCompetitionRate": 839.03,
     "institutionParticipants": null,
@@ -70,7 +71,34 @@
       }
     },
     {
-      "capturedAt": "2026-05-10T04:31:49.555054",
+      "capturedAt": "2026-05-10T04:43:26.987090",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/10931892",
+      "brokers": [
+        {
+          "name": "하나증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 18000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1397.07,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1397.07,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1397.07
+      }
+    },
+    {
+      "capturedAt": "2026-05-10T04:43:26.987090",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.mk.co.kr/news/stock/10931892",
       "brokers": [
@@ -100,16 +128,16 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 34,
+      "overall": 42,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
         "competition": 13,
         "institutionDemand": 15,
-        "demandStrength": 0,
+        "demandStrength": 6,
         "lockupCommitment": 0,
         "floatRate": 0,
-        "pricing": 3
+        "pricing": 4
       }
     },
     "expectedReturn": {
@@ -133,7 +161,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.17276650285714285,
+        "generalPriorBase": 0.23836650285714286,
         "institutionBoost": 0.04237875,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -141,7 +169,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -149,7 +177,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1397.07대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 1397.07대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -169,8 +198,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 1397.07,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 839.03,

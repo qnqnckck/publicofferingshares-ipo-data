@@ -11,13 +11,15 @@
   },
   "company": "현대힘스",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "조선",
   "subscriptionStart": "2024-01-17",
   "subscriptionEnd": "2024-01-18",
   "listingDate": "2024-01-26",
   "generalSharesDate": null,
   "securityType": null,
-  "leadManagers": [],
+  "leadManagers": [
+    "미래"
+  ],
   "fundamentals": {
     "offerPrice": 7300,
     "priceBandMin": 5000,
@@ -40,6 +42,33 @@
     "sourceUrl": "https://www.fnnews.com/news/202401261540049107"
   },
   "snapshots": [
+    {
+      "capturedAt": "2024-01-18T16:00:00+09:00",
+      "source": "public_blog_final",
+      "sourceUrl": "https://wannabe-fire.tistory.com/entry/%EA%B3%B5%EB%AA%A8%EC%A3%BC-%ED%98%84%EB%8C%80%ED%9E%98%EC%8A%A4",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 2176750,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 2462.41,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2462.41,
+          "equalAllocationShares": 1088375,
+          "proportionalAllocationShares": 1088375,
+          "expectedEqualShares": null,
+          "applicationCount": 495785
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 2176750,
+        "subscribedShares": 0,
+        "competitionRate": 0.0
+      }
+    },
     {
       "capturedAt": "2024-01-18T16:00:00+09:00",
       "source": "public_blog_final",
@@ -100,7 +129,7 @@
     "score": {
       "overall": 34,
       "grade": "C-",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "factors": {
         "competition": 13,
         "institutionDemand": 8,
@@ -131,7 +160,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.14807910857142859,
+        "generalPriorBase": 0.15052669714285716,
         "institutionBoost": 0.022602500000000005,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -139,7 +168,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -167,8 +196,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 1231.2,
-      "snapshotCount": 2,
-      "leadManagerCount": 0,
+      "snapshotCount": 3,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 680.82,

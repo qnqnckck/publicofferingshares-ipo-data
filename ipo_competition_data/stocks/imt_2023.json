@@ -11,7 +11,7 @@
   },
   "company": "아이엠티",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "전자장비와기기",
   "subscriptionStart": "2023-09-18",
   "subscriptionEnd": "2023-09-19",
   "listingDate": "2023-10-10",
@@ -19,7 +19,9 @@
   "securityType": null,
   "leadManagers": [
     "유안타증권",
-    "유진투자증권"
+    "유진투자증권",
+    "유안타",
+    "유진"
   ],
   "fundamentals": {
     "offerPrice": 14000,
@@ -62,6 +64,48 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 495.59
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:28:48+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100058",
+      "brokers": [
+        {
+          "name": "유안타증권",
+          "offeredShares": 276500,
+          "subscribedShares": 263319245,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 3000,
+          "competitionRate": 952.33,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 138250,
+          "proportionalAllocationShares": 138250,
+          "expectedEqualShares": 1.48,
+          "applicationCount": null
+        },
+        {
+          "name": "유진투자증권",
+          "offeredShares": 118500,
+          "subscribedShares": 128081910,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 1080.86,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 59250,
+          "proportionalAllocationShares": 59250,
+          "expectedEqualShares": 1.36,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 395000,
+        "subscribedShares": 391401155,
+        "competitionRate": 990.889
       }
     },
     {
@@ -151,7 +195,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -188,8 +232,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 990.889,
-      "snapshotCount": 2,
-      "leadManagerCount": 2,
+      "snapshotCount": 3,
+      "leadManagerCount": 4,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 753.0,

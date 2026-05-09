@@ -11,7 +11,7 @@
   },
   "company": "큐로셀",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "제약",
   "subscriptionStart": "2023-10-31",
   "subscriptionEnd": "2023-11-01",
   "listingDate": "2023-11-09",
@@ -19,7 +19,9 @@
   "securityType": null,
   "leadManagers": [
     "미래에셋증권",
-    "삼성증권"
+    "삼성증권",
+    "미래",
+    "삼성"
   ],
   "fundamentals": {
     "offerPrice": 20000,
@@ -62,6 +64,48 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 170.1
+      }
+    },
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100084",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 200000,
+          "subscribedShares": 71396000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 356.98,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 100000,
+          "proportionalAllocationShares": 100000,
+          "expectedEqualShares": 1.41,
+          "applicationCount": null
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 200000,
+          "subscribedShares": 64366000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 321.83,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 100000,
+          "proportionalAllocationShares": 100000,
+          "expectedEqualShares": 1.81,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 400000,
+        "subscribedShares": 135762000,
+        "competitionRate": 339.405
       }
     },
     {
@@ -151,7 +195,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -188,8 +232,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 339.405,
-      "snapshotCount": 2,
-      "leadManagerCount": 2,
+      "snapshotCount": 3,
+      "leadManagerCount": 4,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 20.88,

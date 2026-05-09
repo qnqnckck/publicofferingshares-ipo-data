@@ -11,14 +11,15 @@
   },
   "company": "온코크로스",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "제약",
   "subscriptionStart": "2024-12-09",
   "subscriptionEnd": "2024-12-10",
   "listingDate": "2024-12-18",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "미래에셋증권"
+    "미래에셋증권",
+    "미래"
   ],
   "fundamentals": {
     "offerPrice": 7300,
@@ -95,6 +96,33 @@
         "subscribedShares": 934156810,
         "competitionRate": 2625.88
       }
+    },
+    {
+      "capturedAt": "2026-04-29T01:01:24+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100300",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 355750,
+          "subscribedShares": 934156810,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 2625.88,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 177875,
+          "proportionalAllocationShares": 177875,
+          "expectedEqualShares": 2.9,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 355750,
+        "subscribedShares": 934156810,
+        "competitionRate": 2625.88
+      }
     }
   ],
   "analysis": {
@@ -141,7 +169,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -149,7 +177,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2625.88대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 2625.88대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -169,8 +198,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 2625.88,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 635.0,

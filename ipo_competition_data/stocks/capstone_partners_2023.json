@@ -11,14 +11,15 @@
   },
   "company": "캡스톤파트너스",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "창업투자",
   "subscriptionStart": "2023-11-06",
   "subscriptionEnd": "2023-11-07",
   "listingDate": "2023-11-15",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "NH투자증권"
+    "NH투자증권",
+    "NH"
   ],
   "fundamentals": {
     "offerPrice": 4000,
@@ -61,6 +62,33 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 1345.6
+      }
+    },
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100079",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 399000,
+          "subscribedShares": 1073748900,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 2691.1,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 199500,
+          "proportionalAllocationShares": 199500,
+          "expectedEqualShares": 1.71,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 399000,
+        "subscribedShares": 1073748900,
+        "competitionRate": 2691.1
       }
     },
     {
@@ -135,7 +163,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -143,7 +171,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2691.1대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 2691.1대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -163,8 +192,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 2691.1,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 952.78,

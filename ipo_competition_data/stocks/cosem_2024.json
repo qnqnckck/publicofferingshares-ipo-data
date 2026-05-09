@@ -11,13 +11,15 @@
   },
   "company": "코셈",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "전자장비와기기",
   "subscriptionStart": "2024-02-13",
   "subscriptionEnd": "2024-02-14",
   "listingDate": "2024-02-23",
   "generalSharesDate": null,
   "securityType": null,
-  "leadManagers": [],
+  "leadManagers": [
+    "키움"
+  ],
   "fundamentals": {
     "offerPrice": 16000,
     "priceBandMin": 12000,
@@ -40,6 +42,33 @@
     "sourceUrl": "https://www.mk.co.kr/news/stock/10949582"
   },
   "snapshots": [
+    {
+      "capturedAt": "2024-02-14T16:00:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://news.bizwatch.co.kr/article/market/2024/02/14/0015",
+      "brokers": [
+        {
+          "name": "키움증권",
+          "offeredShares": 150000,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 2518.4,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 5036.8,
+          "equalAllocationShares": 75000,
+          "proportionalAllocationShares": 75000,
+          "expectedEqualShares": null,
+          "applicationCount": 422268
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 150000,
+        "subscribedShares": 0,
+        "competitionRate": 0.0
+      }
+    },
     {
       "capturedAt": "2024-02-14T16:00:00+09:00",
       "source": "article_final",
@@ -100,7 +129,7 @@
     "score": {
       "overall": 53,
       "grade": "C+",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "factors": {
         "competition": 14,
         "institutionDemand": 24,
@@ -131,7 +160,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.3468666666666667,
+        "generalPriorBase": 0.3526,
         "institutionBoost": 0.09,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -139,7 +168,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -167,8 +196,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 2518.4,
-      "snapshotCount": 2,
-      "leadManagerCount": 0,
+      "snapshotCount": 3,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1267.6,

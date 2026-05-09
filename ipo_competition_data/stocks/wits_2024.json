@@ -11,14 +11,15 @@
   },
   "company": "위츠",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "전자장비와기기",
   "subscriptionStart": "2024-11-07",
   "subscriptionEnd": "2024-11-08",
   "listingDate": "2024-11-20",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "신한투자증권"
+    "신한투자증권",
+    "신한"
   ],
   "fundamentals": {
     "offerPrice": 6400,
@@ -70,7 +71,34 @@
       }
     },
     {
-      "capturedAt": "2026-05-10T04:31:49.555054",
+      "capturedAt": "2026-05-10T04:43:26.987090",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.ajunews.com/view/20241120093635200",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 6400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 233.16,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 233.16,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 233.16
+      }
+    },
+    {
+      "capturedAt": "2026-05-10T04:43:26.987090",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.ajunews.com/view/20241120093635200",
       "brokers": [
@@ -141,7 +169,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -149,7 +177,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 233.16대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 233.16대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -168,8 +197,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 233.16,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 997.37,

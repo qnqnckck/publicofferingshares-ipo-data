@@ -11,13 +11,15 @@
   },
   "company": "사이냅소프트",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "소프트웨어",
   "subscriptionStart": "2024-11-08",
   "subscriptionEnd": "2024-11-11",
   "listingDate": "2024-11-19",
   "generalSharesDate": null,
   "securityType": null,
-  "leadManagers": [],
+  "leadManagers": [
+    "NH"
+  ],
   "fundamentals": {
     "offerPrice": 24500,
     "priceBandMin": 21000,
@@ -73,7 +75,7 @@
     "score": {
       "overall": 42,
       "grade": "C-",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "factors": {
         "competition": 2,
         "institutionDemand": 22,
@@ -84,19 +86,19 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.2546,
-      "bearCaseListingGainRate": 0.0746,
-      "baseCaseListingGainRate": 0.2546,
-      "bullCaseListingGainRate": 0.4746,
+      "expectedListingGainRate": 0.2581,
+      "bearCaseListingGainRate": 0.0781,
+      "baseCaseListingGainRate": 0.2581,
+      "bullCaseListingGainRate": 0.4781,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.165,
         "oneMillionKrw": 0.675,
         "fiveMillionKrw": 3.375
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 1031,
-        "oneMillionKrw": 4210,
-        "fiveMillionKrw": 21051
+        "minimumSubscription": 1046,
+        "oneMillionKrw": 4268,
+        "fiveMillionKrw": 21340
       },
       "assumptions": {
         "offerPrice": 24500,
@@ -104,7 +106,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.1,
-        "generalPriorBase": 0.2581333333333333,
+        "generalPriorBase": 0.26239999999999997,
         "institutionBoost": 0.0829,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -112,7 +114,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -130,7 +132,7 @@
     "inputs": {
       "latestCompetitionRate": 60.466,
       "snapshotCount": 1,
-      "leadManagerCount": 0,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1163.2,

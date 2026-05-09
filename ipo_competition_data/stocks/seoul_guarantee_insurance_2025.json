@@ -11,7 +11,7 @@
   },
   "company": "서울보증보험",
   "market": "KOSPI",
-  "industry": "",
+  "industry": "손해보험",
   "subscriptionStart": "2025-03-05",
   "subscriptionEnd": "2025-03-06",
   "listingDate": "2025-03-14",
@@ -19,7 +19,9 @@
   "securityType": null,
   "leadManagers": [
     "미래에셋증권",
-    "삼성증권"
+    "삼성증권",
+    "미래",
+    "삼성"
   ],
   "fundamentals": {
     "offerPrice": 26000,
@@ -62,6 +64,48 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 7.0
+      }
+    },
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100349",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 1043679,
+          "subscribedShares": 18932337,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 18.14,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 25.64102564102564,
+          "equalAllocationShares": 521840,
+          "proportionalAllocationShares": 521840,
+          "expectedEqualShares": 15.63,
+          "applicationCount": null
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 1043679,
+          "subscribedShares": 10123686,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 9.7,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 10.98901098901099,
+          "equalAllocationShares": 521840,
+          "proportionalAllocationShares": 521840,
+          "expectedEqualShares": 28.66,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 2087358,
+        "subscribedShares": 29056023,
+        "competitionRate": 13.919999827533179
       }
     },
     {
@@ -151,7 +195,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -188,8 +232,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 13.919999827533179,
-      "snapshotCount": 2,
-      "leadManagerCount": 2,
+      "snapshotCount": 3,
+      "leadManagerCount": 4,
       "market": "KOSPI",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 242.78,

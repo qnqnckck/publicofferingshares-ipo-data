@@ -11,14 +11,15 @@
   },
   "company": "스톰테크",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "가정용기기와용품",
   "subscriptionStart": "2023-11-09",
   "subscriptionEnd": "2023-11-10",
   "listingDate": "2023-11-20",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "하이투자증권"
+    "하이투자증권",
+    "하이"
   ],
   "fundamentals": {
     "offerPrice": 11000,
@@ -64,7 +65,34 @@
       }
     },
     {
-      "capturedAt": "2026-05-10T04:31:49.555054",
+      "capturedAt": "2026-05-10T04:43:26.987090",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.etoday.co.kr/news/view/2301331",
+      "brokers": [
+        {
+          "name": "하이투자증권",
+          "offeredShares": 849800,
+          "subscribedShares": 424594072,
+          "offerPrice": 11000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 499.64,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 499.64,
+          "equalAllocationShares": 424900,
+          "proportionalAllocationShares": 424900,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 849800,
+        "subscribedShares": 424594072,
+        "competitionRate": 499.64
+      }
+    },
+    {
+      "capturedAt": "2026-05-10T04:43:26.987090",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.etoday.co.kr/news/view/2301331",
       "brokers": [
@@ -135,7 +163,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -143,7 +171,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 499.64대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 499.64대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -162,8 +191,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 499.64,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 573.97,

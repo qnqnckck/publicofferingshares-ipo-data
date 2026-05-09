@@ -11,14 +11,17 @@
   },
   "company": "이에이트",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "소프트웨어",
   "subscriptionStart": "2024-02-13",
   "subscriptionEnd": "2024-02-14",
   "listingDate": "2024-02-23",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "한화투자증권"
+    "한화투자증권",
+    "키움",
+    "한양",
+    "한화"
   ],
   "fundamentals": {
     "offerPrice": 20000,
@@ -95,6 +98,60 @@
         "subscribedShares": 215355400,
         "competitionRate": 762.32
       }
+    },
+    {
+      "capturedAt": "2026-04-29T01:00:33+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100103",
+      "brokers": [
+        {
+          "name": "한화투자증권",
+          "offeredShares": 282500,
+          "subscribedShares": 215355400,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 762.32,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 141250,
+          "proportionalAllocationShares": 141250,
+          "expectedEqualShares": 0.92,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 282500,
+        "subscribedShares": 215355400,
+        "competitionRate": 762.32
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:00:33+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100103",
+      "brokers": [
+        {
+          "name": "한화투자증권",
+          "offeredShares": 282500,
+          "subscribedShares": 215355400,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 762.32,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 141250,
+          "proportionalAllocationShares": 141250,
+          "expectedEqualShares": 0.92,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 282500,
+        "subscribedShares": 215355400,
+        "competitionRate": 762.32
+      }
     }
   ],
   "analysis": {
@@ -141,7 +198,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -149,7 +206,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 762.32대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 762.32대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -168,8 +226,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 762.32,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 4,
+      "leadManagerCount": 4,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 631.0,

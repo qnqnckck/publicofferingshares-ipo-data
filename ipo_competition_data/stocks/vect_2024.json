@@ -11,14 +11,15 @@
   },
   "company": "벡트",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "컴퓨터와주변기기",
   "subscriptionStart": "2024-12-04",
   "subscriptionEnd": "2024-12-05",
   "listingDate": "2024-12-16",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "신한투자증권"
+    "신한투자증권",
+    "신한"
   ],
   "fundamentals": {
     "offerPrice": 3900,
@@ -70,7 +71,34 @@
       }
     },
     {
-      "capturedAt": "2026-05-10T04:31:49.555054",
+      "capturedAt": "2026-05-10T04:43:26.987090",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.fnnews.com/news/202412051759082907",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 1187500,
+          "subscribedShares": 1389778750,
+          "offerPrice": 3900,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1170.34,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1170.34,
+          "equalAllocationShares": 593750,
+          "proportionalAllocationShares": 593750,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1187500,
+        "subscribedShares": 1389778750,
+        "competitionRate": 1170.34
+      }
+    },
+    {
+      "capturedAt": "2026-05-10T04:43:26.987090",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.fnnews.com/news/202412051759082907",
       "brokers": [
@@ -141,7 +169,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -149,7 +177,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1170.34대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 1170.34대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -169,8 +198,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 1170.34,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 963.77,

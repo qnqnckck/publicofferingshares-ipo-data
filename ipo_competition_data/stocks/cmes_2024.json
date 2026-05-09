@@ -11,7 +11,7 @@
   },
   "company": "씨메스",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "반도체와반도체장비",
   "subscriptionStart": "2024-10-15",
   "subscriptionEnd": "2024-10-16",
   "listingDate": "2024-10-24",
@@ -20,7 +20,10 @@
   "leadManagers": [
     "삼성증권",
     "유진투자증권",
-    "유안타증권"
+    "유안타증권",
+    "삼성",
+    "유진",
+    "유안타"
   ],
   "fundamentals": {
     "offerPrice": 30000,
@@ -63,6 +66,63 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 425.77
+      }
+    },
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100252",
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 500500,
+          "subscribedShares": 439824385,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 878.77,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 250250,
+          "proportionalAllocationShares": 250250,
+          "expectedEqualShares": 1.32,
+          "applicationCount": null
+        },
+        {
+          "name": "유안타증권",
+          "offeredShares": 32500,
+          "subscribedShares": 14252550,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 3000,
+          "competitionRate": 438.54,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 16250,
+          "proportionalAllocationShares": 16250,
+          "expectedEqualShares": 1.13,
+          "applicationCount": null
+        },
+        {
+          "name": "유진투자증권",
+          "offeredShares": 117000,
+          "subscribedShares": 98807670,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 844.51,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 58500,
+          "proportionalAllocationShares": 58500,
+          "expectedEqualShares": 1.4,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 650000,
+        "subscribedShares": 552884605,
+        "competitionRate": 850.5917
       }
     },
     {
@@ -167,7 +227,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -213,8 +273,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 850.5917,
-      "snapshotCount": 2,
-      "leadManagerCount": 3,
+      "snapshotCount": 3,
+      "leadManagerCount": 6,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 577.59,

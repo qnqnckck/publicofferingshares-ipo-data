@@ -11,7 +11,7 @@
   },
   "company": "엠앤씨솔루션",
   "market": "KOSPI",
-  "industry": "",
+  "industry": "우주항공과국방",
   "subscriptionStart": "2024-12-05",
   "subscriptionEnd": "2024-12-06",
   "listingDate": "2024-12-16",
@@ -20,7 +20,10 @@
   "leadManagers": [
     "KB증권",
     "삼성증권",
-    "키움증권"
+    "키움증권",
+    "KB",
+    "삼성",
+    "키움"
   ],
   "fundamentals": {
     "offerPrice": 65000,
@@ -72,7 +75,64 @@
       }
     },
     {
-      "capturedAt": "2026-05-10T04:31:49.555054",
+      "capturedAt": "2026-05-10T04:43:26.987090",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.g-enews.com/article/Securities/2024/12/202412161306336362edf69f862c_1",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 65000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2.4,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2.4,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 65000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2.4,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2.4,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "키움증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 65000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2.4,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2.4,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 2.4
+      }
+    },
+    {
+      "capturedAt": "2026-05-10T04:43:26.987090",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.g-enews.com/article/Securities/2024/12/202412161306336362edf69f862c_1",
       "brokers": [
@@ -173,7 +233,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -219,8 +279,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 2.4,
-      "snapshotCount": 2,
-      "leadManagerCount": 3,
+      "snapshotCount": 3,
+      "leadManagerCount": 6,
       "market": "KOSPI",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 8.184,

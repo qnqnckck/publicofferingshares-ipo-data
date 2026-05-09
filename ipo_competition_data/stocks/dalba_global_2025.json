@@ -11,14 +11,15 @@
   },
   "company": "달바글로벌",
   "market": "KOSPI",
-  "industry": "",
+  "industry": "화장품",
   "subscriptionStart": "2025-05-09",
   "subscriptionEnd": "2025-05-12",
   "listingDate": "2025-05-22",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "미래에셋증권"
+    "미래에셋증권",
+    "미래"
   ],
   "fundamentals": {
     "offerPrice": 66300,
@@ -61,6 +62,33 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 1112.02
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:16:47+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100370",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 163500,
+          "subscribedShares": 363630540,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 2224.04,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 81750,
+          "proportionalAllocationShares": 81750,
+          "expectedEqualShares": 0.4,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 163500,
+        "subscribedShares": 363630540,
+        "competitionRate": 2224.04
       }
     },
     {
@@ -135,7 +163,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -143,7 +171,8 @@
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2224.04대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 2224.04대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -163,8 +192,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 2224.04,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSPI",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1140.88,

@@ -11,14 +11,15 @@
   },
   "company": "에어레인",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "화학",
   "subscriptionStart": "2024-10-24",
   "subscriptionEnd": "2024-10-25",
   "listingDate": "2024-11-08",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "신영증권"
+    "신영증권",
+    "신영"
   ],
   "fundamentals": {
     "offerPrice": 23000,
@@ -61,6 +62,33 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 418.31
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:15:57+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100282",
+      "brokers": [
+        {
+          "name": "신영증권",
+          "offeredShares": 300000,
+          "subscribedShares": 250986000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 836.62,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 150000,
+          "proportionalAllocationShares": 150000,
+          "expectedEqualShares": 1.25,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 300000,
+        "subscribedShares": 250986000,
+        "competitionRate": 836.62
       }
     },
     {
@@ -135,7 +163,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -143,7 +171,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 836.62대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 836.62대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -162,8 +191,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 836.62,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1000.1,

@@ -11,14 +11,15 @@
   },
   "company": "큐리옥스바이오시스템즈",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "생명과학도구및서비스",
   "subscriptionStart": "2023-08-01",
   "subscriptionEnd": "2023-08-02",
   "listingDate": "2023-08-10",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "키움증권"
+    "키움증권",
+    "키움"
   ],
   "fundamentals": {
     "offerPrice": 13000,
@@ -61,6 +62,33 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 10.12
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:28:24+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100133",
+      "brokers": [
+        {
+          "name": "키움증권",
+          "offeredShares": 350000,
+          "subscribedShares": 7084000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 20.24,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 21.97802197802198,
+          "equalAllocationShares": 175000,
+          "proportionalAllocationShares": 175000,
+          "expectedEqualShares": 11.97,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 350000,
+        "subscribedShares": 7084000,
+        "competitionRate": 20.24
       }
     },
     {
@@ -135,7 +163,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -143,7 +171,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 20.24대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 20.24대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -162,8 +191,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 20.24,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 191.61,

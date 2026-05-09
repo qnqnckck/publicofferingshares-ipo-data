@@ -11,14 +11,15 @@
   },
   "company": "카나프테라퓨틱스",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "제약",
   "subscriptionStart": "2026-03-05",
   "subscriptionEnd": "2026-03-06",
   "listingDate": "2026-03-17",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "한국투자증권"
+    "한국투자증권",
+    "한국"
   ],
   "fundamentals": {
     "offerPrice": 20000,
@@ -61,6 +62,33 @@
         "offeredShares": 500000,
         "subscribedShares": 949500000,
         "competitionRate": 1899.0
+      }
+    },
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100511",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 500000,
+          "subscribedShares": 1898790000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 3797.58,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 250000,
+          "proportionalAllocationShares": 250000,
+          "expectedEqualShares": 0.54,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 500000,
+        "subscribedShares": 1898790000,
+        "competitionRate": 3797.58
       }
     },
     {
@@ -135,7 +163,7 @@
         "scoreBoost": 0.0,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -144,6 +172,7 @@
       "label": "청약 고려",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 3797.58대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
@@ -164,8 +193,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 3797.58,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 962.1,

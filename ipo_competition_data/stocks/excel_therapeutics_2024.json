@@ -11,19 +11,21 @@
   },
   "company": "엑셀세라퓨틱스",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "생물공학",
   "subscriptionStart": "2024-07-03",
   "subscriptionEnd": "2024-07-04",
   "listingDate": "2024-07-15",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "대신증권"
+    "대신증권",
+    "한국",
+    "대신"
   ],
   "fundamentals": {
     "offerPrice": 10000,
-    "priceBandMin": null,
-    "priceBandMax": null,
+    "priceBandMin": 0,
+    "priceBandMax": 0,
     "topBandConfirmation": null,
     "institutionCompetitionRate": 1233.8,
     "institutionParticipants": null,
@@ -67,6 +69,60 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 517.7
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:01:04+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100204",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 404500,
+          "subscribedShares": 418815255,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 1035.39,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 202250,
+          "proportionalAllocationShares": 202250,
+          "expectedEqualShares": 0.95,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 404500,
+        "subscribedShares": 418815255,
+        "competitionRate": 1035.39
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:01:04+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100204",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 404500,
+          "subscribedShares": 418815255,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 1035.39,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 202250,
+          "proportionalAllocationShares": 202250,
+          "expectedEqualShares": 0.95,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 404500,
+        "subscribedShares": 418815255,
+        "competitionRate": 1035.39
       }
     },
     {
@@ -141,7 +197,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -149,7 +205,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1035.39대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 1035.39대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -169,8 +226,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 1035.39,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 4,
+      "leadManagerCount": 3,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1233.8,

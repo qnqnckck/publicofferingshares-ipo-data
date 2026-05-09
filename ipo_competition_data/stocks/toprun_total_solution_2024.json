@@ -11,14 +11,15 @@
   },
   "company": "탑런토탈솔루션",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "핸드셋",
   "subscriptionStart": "2024-10-23",
   "subscriptionEnd": "2024-10-24",
   "listingDate": "2024-11-01",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "KB증권"
+    "KB증권",
+    "KB"
   ],
   "fundamentals": {
     "offerPrice": 18000,
@@ -70,7 +71,34 @@
       }
     },
     {
-      "capturedAt": "2026-05-10T04:31:49.555054",
+      "capturedAt": "2026-05-10T04:43:26.987090",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/11156542",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 18000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 984.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 984.0,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 984.0
+      }
+    },
+    {
+      "capturedAt": "2026-05-10T04:43:26.987090",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.mk.co.kr/news/stock/11156542",
       "brokers": [
@@ -141,7 +169,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -149,7 +177,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 984.0대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 984.0대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -168,8 +197,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 984.0,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 841.12,

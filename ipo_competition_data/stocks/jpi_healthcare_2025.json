@@ -11,14 +11,15 @@
   },
   "company": "제이피아이헬스케어",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "건강관리장비와용품",
   "subscriptionStart": "2025-08-11",
   "subscriptionEnd": "2025-08-12",
   "listingDate": "2025-08-21",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "키움증권"
+    "키움증권",
+    "키움"
   ],
   "fundamentals": {
     "offerPrice": 20000,
@@ -61,6 +62,33 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 1154.54
+      }
+    },
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100418",
+      "brokers": [
+        {
+          "name": "키움증권",
+          "offeredShares": 395000,
+          "subscribedShares": 912086600,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 2309.08,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 197500,
+          "proportionalAllocationShares": 197500,
+          "expectedEqualShares": 0.96,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 395000,
+        "subscribedShares": 912086600,
+        "competitionRate": 2309.08
       }
     },
     {
@@ -135,7 +163,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -143,7 +171,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2309.08대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 2309.08대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -163,8 +192,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 2309.08,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 942.71,

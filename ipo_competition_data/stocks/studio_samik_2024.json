@@ -11,14 +11,15 @@
   },
   "company": "스튜디오삼익",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "가구",
   "subscriptionStart": "2024-01-25",
   "subscriptionEnd": "2024-01-26",
   "listingDate": "2024-02-06",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "DB금융투자"
+    "DB금융투자",
+    "DB"
   ],
   "fundamentals": {
     "offerPrice": 18000,
@@ -95,6 +96,33 @@
         "subscribedShares": 1126390250,
         "competitionRate": 5300.66
       }
+    },
+    {
+      "capturedAt": "2026-04-29T01:00:25+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100009",
+      "brokers": [
+        {
+          "name": "DB금융투자",
+          "offeredShares": 212500,
+          "subscribedShares": 1126390250,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 5300.66,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 106250,
+          "proportionalAllocationShares": 106250,
+          "expectedEqualShares": 0.67,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 212500,
+        "subscribedShares": 1126390250,
+        "competitionRate": 5300.66
+      }
     }
   ],
   "analysis": {
@@ -141,7 +169,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -149,7 +177,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 5300.66대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 5300.66대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -169,8 +198,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 5300.66,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 966.9,

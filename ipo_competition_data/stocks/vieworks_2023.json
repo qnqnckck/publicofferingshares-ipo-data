@@ -11,14 +11,15 @@
   },
   "company": "뷰티스킨",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "화장품",
   "subscriptionStart": "2023-07-13",
   "subscriptionEnd": "2023-07-14",
   "listingDate": "2023-07-24",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "DB금융투자"
+    "DB금융투자",
+    "DB"
   ],
   "fundamentals": {
     "offerPrice": 26000,
@@ -61,6 +62,33 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 2316.13
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:28:12+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100155",
+      "brokers": [
+        {
+          "name": "DB금융투자",
+          "offeredShares": 110000,
+          "subscribedShares": 497779700,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 4525.27,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 55000,
+          "proportionalAllocationShares": 55000,
+          "expectedEqualShares": 0.47,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 110000,
+        "subscribedShares": 497779700,
+        "competitionRate": 4525.27
       }
     },
     {
@@ -135,7 +163,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -143,7 +171,8 @@
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 4525.27대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 4525.27대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -163,8 +192,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 4525.27,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1819.72,

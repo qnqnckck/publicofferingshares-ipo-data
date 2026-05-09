@@ -14,10 +14,11 @@
   "industry": "제약",
   "subscriptionStart": "2025-05-07",
   "subscriptionEnd": "2025-05-08",
-  "listingDate": null,
-  "generalSharesDate": null,
-  "securityType": null,
+  "listingDate": "2025-05-19",
+  "generalSharesDate": "2025-05-19",
+  "securityType": "GENERAL_SHARES",
   "leadManagers": [
+    "한국투자증권",
     "한국"
   ],
   "fundamentals": {
@@ -25,7 +26,7 @@
     "priceBandMin": 3000,
     "priceBandMax": 3600,
     "topBandConfirmation": null,
-    "institutionCompetitionRate": null,
+    "institutionCompetitionRate": 897.45,
     "institutionParticipants": null,
     "lockupCommitmentRate": null,
     "floatRate": null,
@@ -36,6 +37,60 @@
   },
   "outcome": null,
   "snapshots": [
+    {
+      "capturedAt": "2025-05-08T16:00:00+09:00",
+      "source": "public_monthly_ipo_schedule",
+      "sourceUrl": "https://honda31.tistory.com/298",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 913.24,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 913.24
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:16:40+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100361",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 2285121,
+          "subscribedShares": 4171442683,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 1825.48,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 1142560,
+          "proportionalAllocationShares": 1142560,
+          "expectedEqualShares": 6.75,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 2285121,
+        "subscribedShares": 4171442683,
+        "competitionRate": 1825.4799999649908
+      }
+    },
     {
       "capturedAt": "2026-04-29T01:16:40+09:00",
       "source": "finuts_member_secondary",
@@ -67,12 +122,12 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 33,
-      "grade": "C-",
-      "confidence": 0.9,
+      "overall": 50,
+      "grade": "C",
+      "confidence": 0.95,
       "factors": {
         "competition": 16,
-        "institutionDemand": 0,
+        "institutionDemand": 15,
         "demandStrength": 6,
         "lockupCommitment": 0,
         "floatRate": 0,
@@ -80,19 +135,19 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.91,
-      "bearCaseListingGainRate": 0.73,
-      "baseCaseListingGainRate": 0.91,
-      "bullCaseListingGainRate": 1.13,
+      "expectedListingGainRate": 0.9597,
+      "bearCaseListingGainRate": 0.7797,
+      "baseCaseListingGainRate": 0.9597,
+      "bullCaseListingGainRate": 1.1797,
       "expectedAllocatedShares": {
         "minimumSubscription": 6.755,
         "oneMillionKrw": 6.902,
         "fiveMillionKrw": 7.511
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 22131,
-        "oneMillionKrw": 22611,
-        "fiveMillionKrw": 24605
+        "minimumSubscription": 23339,
+        "oneMillionKrw": 23846,
+        "fiveMillionKrw": 25949
       },
       "assumptions": {
         "offerPrice": 3600,
@@ -100,15 +155,15 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.10809333333333335,
-        "institutionBoost": 0.0,
+        "generalPriorBase": 0.31217868571428575,
+        "institutionBoost": 0.04968125,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
         "topBandBoost": 0.0,
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -116,7 +171,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1825.48대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 1825.48대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -136,11 +192,11 @@
     ],
     "inputs": {
       "latestCompetitionRate": 1825.4799999649908,
-      "snapshotCount": 1,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": null,
+      "institutionCompetitionRate": 897.45,
       "lockupCommitmentRate": null,
       "floatRate": null,
       "hasOutcome": false

@@ -11,7 +11,7 @@
   },
   "company": "동국생명과학",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "제약",
   "subscriptionStart": "2025-02-05",
   "subscriptionEnd": "2025-02-06",
   "listingDate": "2025-02-17",
@@ -19,7 +19,9 @@
   "securityType": null,
   "leadManagers": [
     "NH투자증권",
-    "KB증권"
+    "KB증권",
+    "NH",
+    "KB"
   ],
   "fundamentals": {
     "offerPrice": 9000,
@@ -62,6 +64,48 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 15.2
+      }
+    },
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100334",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 75000,
+          "subscribedShares": 5764500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 1500,
+          "competitionRate": 76.86,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 111.11111111111111,
+          "equalAllocationShares": 37500,
+          "proportionalAllocationShares": 37500,
+          "expectedEqualShares": 3.15,
+          "applicationCount": null
+        },
+        {
+          "name": "NH투자증권",
+          "offeredShares": 425000,
+          "subscribedShares": 9401000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 22.12,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 24.691358024691358,
+          "equalAllocationShares": 212500,
+          "proportionalAllocationShares": 212500,
+          "expectedEqualShares": 25.4,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 500000,
+        "subscribedShares": 15165500,
+        "competitionRate": 30.331
       }
     },
     {
@@ -151,7 +195,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -188,8 +232,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 30.331,
-      "snapshotCount": 2,
-      "leadManagerCount": 2,
+      "snapshotCount": 3,
+      "leadManagerCount": 4,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 117.83,

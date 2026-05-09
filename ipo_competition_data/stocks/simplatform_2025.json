@@ -11,14 +11,15 @@
   },
   "company": "심플랫폼",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "IT서비스",
   "subscriptionStart": "2025-03-11",
   "subscriptionEnd": "2025-03-12",
   "listingDate": "2025-03-21",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "KB증권"
+    "KB증권",
+    "KB"
   ],
   "fundamentals": {
     "offerPrice": 15000,
@@ -61,6 +62,33 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 913.05
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:07:40+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100344",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 230000,
+          "subscribedShares": 419770700,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 1500,
+          "competitionRate": 1825.09,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 115000,
+          "proportionalAllocationShares": 115000,
+          "expectedEqualShares": 0.8,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 230000,
+        "subscribedShares": 419770700,
+        "competitionRate": 1825.09
       }
     },
     {
@@ -135,7 +163,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -143,7 +171,8 @@
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1825.09대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 1825.09대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -163,8 +192,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 1825.09,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1213.84,

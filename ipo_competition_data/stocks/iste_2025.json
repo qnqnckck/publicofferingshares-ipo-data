@@ -11,14 +11,15 @@
   },
   "company": "아이에스티이",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "디스플레이장비및부품",
   "subscriptionStart": "2025-02-03",
   "subscriptionEnd": "2025-02-04",
   "listingDate": "2025-02-13",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "KB증권"
+    "KB증권",
+    "KB"
   ],
   "fundamentals": {
     "offerPrice": 11400,
@@ -61,6 +62,33 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 455.83
+      }
+    },
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100341",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 325000,
+          "subscribedShares": 295964500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 1500,
+          "competitionRate": 910.66,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 162500,
+          "proportionalAllocationShares": 162500,
+          "expectedEqualShares": 1.82,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 325000,
+        "subscribedShares": 295964500,
+        "competitionRate": 910.66
       }
     },
     {
@@ -135,7 +163,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -143,7 +171,8 @@
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 910.66대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 910.66대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -162,8 +191,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 910.66,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1148.0,

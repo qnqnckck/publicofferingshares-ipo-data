@@ -11,14 +11,15 @@
   },
   "company": "컨텍",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "우주항공과국방",
   "subscriptionStart": "2023-10-31",
   "subscriptionEnd": "2023-11-01",
   "listingDate": "2023-11-09",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "대신증권"
+    "대신증권",
+    "대신"
   ],
   "fundamentals": {
     "offerPrice": 22500,
@@ -61,6 +62,33 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 9.09
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:29:05+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100085",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 515000,
+          "subscribedShares": 9367850,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 18.19,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 22.22222222222222,
+          "equalAllocationShares": 257500,
+          "proportionalAllocationShares": 257500,
+          "expectedEqualShares": 8.04,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 515000,
+        "subscribedShares": 9367850,
+        "competitionRate": 18.19
       }
     },
     {
@@ -135,7 +163,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -143,7 +171,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 18.19대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 18.19대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -162,8 +191,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 18.19,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 198.93,

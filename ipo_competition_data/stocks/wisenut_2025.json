@@ -11,14 +11,15 @@
   },
   "company": "와이즈넛",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "소프트웨어",
   "subscriptionStart": "2025-01-15",
   "subscriptionEnd": "2025-01-16",
   "listingDate": "2025-01-24",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "삼성증권"
+    "삼성증권",
+    "삼성"
   ],
   "fundamentals": {
     "offerPrice": 17000,
@@ -61,6 +62,33 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 10.17
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:01:53+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100324",
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 225000,
+          "subscribedShares": 4351500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 19.34,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 23.529411764705884,
+          "equalAllocationShares": 112500,
+          "proportionalAllocationShares": 112500,
+          "expectedEqualShares": 10.18,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 225000,
+        "subscribedShares": 4351500,
+        "competitionRate": 19.34
       }
     },
     {
@@ -135,7 +163,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -143,7 +171,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 19.34대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 19.34대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -162,8 +191,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 19.34,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 64.85,

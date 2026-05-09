@@ -11,7 +11,7 @@
   },
   "company": "에이피알",
   "market": "KOSPI",
-  "industry": "",
+  "industry": "화장품",
   "subscriptionStart": "2024-02-14",
   "subscriptionEnd": "2024-02-15",
   "listingDate": "2024-02-27",
@@ -19,12 +19,14 @@
   "securityType": null,
   "leadManagers": [
     "신한투자증권",
-    "하나증권"
+    "하나증권",
+    "신한",
+    "하나"
   ],
   "fundamentals": {
     "offerPrice": 250000,
-    "priceBandMin": null,
-    "priceBandMax": null,
+    "priceBandMin": 147000,
+    "priceBandMax": 200000,
     "topBandConfirmation": null,
     "institutionCompetitionRate": 663.0,
     "institutionParticipants": null,
@@ -111,21 +113,63 @@
         "subscribedShares": 222580212,
         "competitionRate": 2224.867675576258
       }
+    },
+    {
+      "capturedAt": "2026-04-29T01:00:29+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100095",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 80034,
+          "subscribedShares": 184753687,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 2308.44,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 40017,
+          "proportionalAllocationShares": 40017,
+          "expectedEqualShares": 0.06,
+          "applicationCount": null
+        },
+        {
+          "name": "하나증권",
+          "offeredShares": 20008,
+          "subscribedShares": 37826525,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 1890.57,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 10004,
+          "proportionalAllocationShares": 10004,
+          "expectedEqualShares": 0.06,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 100042,
+        "subscribedShares": 222580212,
+        "competitionRate": 2224.867675576258
+      }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 30,
+      "overall": 38,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
         "competition": 16,
         "institutionDemand": 8,
-        "demandStrength": 0,
+        "demandStrength": 6,
         "lockupCommitment": 0,
         "floatRate": 0,
-        "pricing": 3
+        "pricing": 4
       }
     },
     "expectedReturn": {
@@ -149,7 +193,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.11522171428571429,
+        "generalPriorBase": 0.1808217142857143,
         "institutionBoost": 0.020375,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -157,7 +201,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -195,8 +239,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 2224.867675576258,
-      "snapshotCount": 2,
-      "leadManagerCount": 2,
+      "snapshotCount": 3,
+      "leadManagerCount": 4,
       "market": "KOSPI",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 663.0,

@@ -20,12 +20,15 @@
   "leadManagers": [
     "한국투자증권",
     "NH투자증권",
-    "신한투자증권"
+    "신한투자증권",
+    "한국",
+    "NH",
+    "신한"
   ],
   "fundamentals": {
     "offerPrice": 60000,
-    "priceBandMin": null,
-    "priceBandMax": null,
+    "priceBandMin": 47000,
+    "priceBandMax": 60000,
     "topBandConfirmation": null,
     "institutionCompetitionRate": 225.94,
     "institutionParticipants": null,
@@ -127,21 +130,78 @@
         "subscribedShares": 1236101195,
         "competitionRate": 681.9868662068966
       }
+    },
+    {
+      "capturedAt": "2026-04-29T01:01:36+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100209",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 811567,
+          "subscribedShares": 549382165,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 676.94,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 405784,
+          "proportionalAllocationShares": 405784,
+          "expectedEqualShares": 1.36,
+          "applicationCount": null
+        },
+        {
+          "name": "신한투자증권",
+          "offeredShares": 108209,
+          "subscribedShares": 70346671,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 650.1,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 54104,
+          "proportionalAllocationShares": 54104,
+          "expectedEqualShares": 0.88,
+          "applicationCount": null
+        },
+        {
+          "name": "한국투자증권",
+          "offeredShares": 892724,
+          "subscribedShares": 616372359,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 690.44,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 446362,
+          "proportionalAllocationShares": 446362,
+          "expectedEqualShares": 1.34,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1812500,
+        "subscribedShares": 1236101195,
+        "competitionRate": 681.9868662068966
+      }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 17,
+      "overall": 29,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
         "competition": 9,
         "institutionDemand": 3,
-        "demandStrength": 0,
+        "demandStrength": 6,
         "lockupCommitment": 0,
         "floatRate": 0,
-        "pricing": 3
+        "pricing": 8
       }
     },
     "expectedReturn": {
@@ -165,7 +225,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.52,
-        "generalPriorBase": -0.021320000000000002,
+        "generalPriorBase": 0.07708000000000001,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -173,7 +233,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -219,8 +279,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 681.9868662068966,
-      "snapshotCount": 2,
-      "leadManagerCount": 3,
+      "snapshotCount": 3,
+      "leadManagerCount": 6,
       "market": "KOSPI",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 225.94,

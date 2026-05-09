@@ -11,14 +11,15 @@
   },
   "company": "시큐레터",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "소프트웨어",
   "subscriptionStart": "2023-08-14",
   "subscriptionEnd": "2023-08-16",
   "listingDate": "2023-08-24",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "대신증권"
+    "대신증권",
+    "대신"
   ],
   "fundamentals": {
     "offerPrice": 12000,
@@ -61,6 +62,33 @@
         "offeredShares": 0,
         "subscribedShares": 0,
         "competitionRate": 1698.41
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:28:38+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100122",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 333471,
+          "subscribedShares": 1132740962,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 3396.82,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 166736,
+          "proportionalAllocationShares": 166736,
+          "expectedEqualShares": 0.88,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 333471,
+        "subscribedShares": 1132740962,
+        "competitionRate": 3396.8199993402723
       }
     },
     {
@@ -135,7 +163,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -143,7 +171,8 @@
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 3396.82대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 3396.82대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -163,8 +192,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 3396.8199993402723,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1544.73,

@@ -11,7 +11,7 @@
   },
   "company": "케이뱅크",
   "market": "KOSPI",
-  "industry": "",
+  "industry": "은행",
   "subscriptionStart": "2026-02-20",
   "subscriptionEnd": "2026-02-23",
   "listingDate": "2026-03-05",
@@ -20,7 +20,10 @@
   "leadManagers": [
     "NH투자증권",
     "삼성증권",
-    "신한투자증권"
+    "신한투자증권",
+    "NH",
+    "삼성",
+    "신한"
   ],
   "fundamentals": {
     "offerPrice": 8300,
@@ -127,6 +130,63 @@
         "subscribedShares": 4739455224,
         "competitionRate": 268.6766
       }
+    },
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100514",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 8820000,
+          "subscribedShares": 2366053200,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 268.26,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 4410000,
+          "proportionalAllocationShares": 4410000,
+          "expectedEqualShares": 11.25,
+          "applicationCount": null
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 8114400,
+          "subscribedShares": 2177174664,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 268.31,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 4057200,
+          "proportionalAllocationShares": 4057200,
+          "expectedEqualShares": 11.59,
+          "applicationCount": null
+        },
+        {
+          "name": "신한투자증권",
+          "offeredShares": 705600,
+          "subscribedShares": 196227360,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 278.1,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 352800,
+          "proportionalAllocationShares": 352800,
+          "expectedEqualShares": 3.74,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 17640000,
+        "subscribedShares": 4739455224,
+        "competitionRate": 268.6766
+      }
     }
   ],
   "analysis": {
@@ -173,7 +233,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -219,8 +279,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 268.6766,
-      "snapshotCount": 2,
-      "leadManagerCount": 3,
+      "snapshotCount": 3,
+      "leadManagerCount": 6,
       "market": "KOSPI",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 198.53,

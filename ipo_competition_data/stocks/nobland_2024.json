@@ -11,14 +11,15 @@
   },
   "company": "노브랜드",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "섬유,의류,신발,호화품",
   "subscriptionStart": "2024-05-13",
   "subscriptionEnd": "2024-05-14",
   "listingDate": "2024-05-23",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "삼성증권"
+    "삼성증권",
+    "삼성"
   ],
   "fundamentals": {
     "offerPrice": 14000,
@@ -95,6 +96,33 @@
         "subscribedShares": 1242549000,
         "competitionRate": 4141.83
       }
+    },
+    {
+      "capturedAt": "2026-04-29T01:00:50+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100167",
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 300000,
+          "subscribedShares": 1242549000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 4141.83,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 150000,
+          "proportionalAllocationShares": 150000,
+          "expectedEqualShares": 0.38,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 300000,
+        "subscribedShares": 1242549000,
+        "competitionRate": 4141.83
+      }
     }
   ],
   "analysis": {
@@ -141,7 +169,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -149,7 +177,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 4141.83대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 4141.83대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -169,8 +198,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 4141.83,
-      "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1075.61,

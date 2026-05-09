@@ -11,7 +11,7 @@
   },
   "company": "클로봇",
   "market": "KOSDAQ",
-  "industry": "",
+  "industry": "기계",
   "subscriptionStart": "2024-10-16",
   "subscriptionEnd": "2024-10-17",
   "listingDate": "2024-10-28",
@@ -19,7 +19,12 @@
   "securityType": null,
   "leadManagers": [
     "미래에셋증권",
-    "신영증권"
+    "신영증권",
+    "한국",
+    "NH",
+    "삼성",
+    "미래",
+    "신영"
   ],
   "fundamentals": {
     "offerPrice": 13000,
@@ -111,6 +116,90 @@
         "subscribedShares": 1556108250,
         "competitionRate": 2074.811
       }
+    },
+    {
+      "capturedAt": "2026-04-29T01:01:11+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100255",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 675000,
+          "subscribedShares": 1477561500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 2188.98,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 337500,
+          "proportionalAllocationShares": 337500,
+          "expectedEqualShares": 1.24,
+          "applicationCount": null
+        },
+        {
+          "name": "신영증권",
+          "offeredShares": 75000,
+          "subscribedShares": 78546750,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 1047.29,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 37500,
+          "proportionalAllocationShares": 37500,
+          "expectedEqualShares": 1.0,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 750000,
+        "subscribedShares": 1556108250,
+        "competitionRate": 2074.811
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:01:11+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100255",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 675000,
+          "subscribedShares": 1477561500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 2188.98,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 337500,
+          "proportionalAllocationShares": 337500,
+          "expectedEqualShares": 1.24,
+          "applicationCount": null
+        },
+        {
+          "name": "신영증권",
+          "offeredShares": 75000,
+          "subscribedShares": 78546750,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 1047.29,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 37500,
+          "proportionalAllocationShares": 37500,
+          "expectedEqualShares": 1.0,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 750000,
+        "subscribedShares": 1556108250,
+        "competitionRate": 2074.811
+      }
     }
   ],
   "analysis": {
@@ -157,7 +246,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 127,
+        "generalCalibrationSampleCount": 64,
         "generalCompetitionPending": false
       }
     },
@@ -195,8 +284,8 @@
     ],
     "inputs": {
       "latestCompetitionRate": 2074.811,
-      "snapshotCount": 2,
-      "leadManagerCount": 2,
+      "snapshotCount": 4,
+      "leadManagerCount": 7,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 933.85,
