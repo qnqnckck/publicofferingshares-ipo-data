@@ -34,6 +34,24 @@ def _write_json(path: Path, payload: dict[str, Any]) -> None:
     )
 
 
+def _is_valid_company_name(value: str | None) -> bool:
+    text = str(value or "").strip()
+    if not text:
+        return False
+    lowered = text.lower()
+    if "://" in lowered or lowered.startswith("file:"):
+        return False
+    if lowered.startswith("/mnt/") or lowered.startswith("\\\\") or re.match(r"^[a-z]:[/\\\\]", lowered):
+        return False
+    if "/" in text or "\\" in text:
+        return False
+    if re.search(r"\.(jpg|jpeg|png|webp|gif|bmp|heic|svg|mp4|webm)$", lowered):
+        return False
+    if "harness/static" in lowered:
+        return False
+    return True
+
+
 def _to_int(value: Any) -> int | None:
     if value is None:
         return None
@@ -403,7 +421,13 @@ class SecondaryVideoOcrIngest:
             return None
         offer_price = _to_int(fundamentals.get("offerPrice"))
         lead_managers = stock.get("leadManagers", [])
-        if not stock_id or not company or not isinstance(lead_managers, list) or not lead_managers:
+        if (
+            not stock_id
+            or not company
+            or not _is_valid_company_name(company)
+            or not isinstance(lead_managers, list)
+            or not lead_managers
+        ):
             return None
         brokers: list[dict[str, Any]] = []
         for manager in lead_managers:
@@ -463,6 +487,9 @@ class SecondaryVideoOcrIngest:
         timestamp_seconds = int(source.get("timestampSeconds", 0) or 0)
         live_stream = bool(source.get("liveStream"))
         company = str(source.get("company", "")).strip() or None
+        if company and not _is_valid_company_name(company):
+            print(f"skip suspicious company source {source.get('id')}: {company}")
+            return None
         source_label = str(source.get("sourceLabel", "")).strip() or None
         image_path_value = str(source.get("imagePath", "")).strip()
         frame_path = tmpdir / f"{source['id']}.png"

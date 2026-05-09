@@ -38,6 +38,24 @@ def normalize_company_key(company: str) -> str:
     return "".join(ch for ch in compact if ch.isalnum() or ("가" <= ch <= "힣"))
 
 
+def is_valid_company_name(value: str) -> bool:
+    text = value.strip()
+    if not text:
+        return False
+    lowered = text.lower()
+    if "://" in lowered or lowered.startswith("file:"):
+        return False
+    if lowered.startswith("/mnt/") or lowered.startswith("\\\\") or re.match(r"^[a-z]:[/\\\\]", lowered):
+        return False
+    if "/" in text or "\\" in text:
+        return False
+    if re.search(r"\.(jpg|jpeg|png|webp|gif|bmp|heic|svg|mp4|webm)$", lowered):
+        return False
+    if "harness/static" in lowered:
+        return False
+    return True
+
+
 def parse_date(value: Any) -> str | None:
     text = str(value or "").strip()
     if not text or text == "9999-99-99":
@@ -177,7 +195,7 @@ def fetch_finuts_events() -> list[FinutsEvent]:
             continue
         ipo_sn = str(row.get("IPO_SN", "")).strip()
         company = str(row.get("ENT_NM", "")).strip()
-        if not ipo_sn or not company:
+        if not ipo_sn or not company or not is_valid_company_name(company):
             continue
         grouped.setdefault(ipo_sn, []).append(row)
 
@@ -188,7 +206,7 @@ def fetch_finuts_events() -> list[FinutsEvent]:
         }
         primary = by_code.get("S") or by_code.get("D") or by_code.get("L") or rows[0]
         company = str(primary.get("ENT_NM", "")).strip()
-        if not company:
+        if not company or not is_valid_company_name(company):
             continue
         subscription_start = parse_date((by_code.get("S") or {}).get("BGNG_YMD"))
         subscription_end = parse_date((by_code.get("S") or {}).get("END_YMD")) or subscription_start

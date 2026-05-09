@@ -172,19 +172,25 @@ class IpoCompetitionBatch {
     _running = true;
     try {
       final generatedAt = DateTime.now();
-      final discoveredStocks = options.discover
+      final discoveredStocks = filterSuspiciousStocks(
+        options.discover
           ? mergeStocks([
               ...await _loadDiscoveredStocks(),
               ...await _discoverRemoteStocks(generatedAt),
             ])
-          : await _loadDiscoveredStocks();
+          : await _loadDiscoveredStocks(),
+        context: 'discovered',
+      );
       await _writeDiscoveredStocks(discoveredStocks);
 
-      final stocksWithoutExternalOutcomes = mergeStocks([
-        ...await _loadSeedStocks(),
-        ...discoveredStocks,
-        ...await _loadLiveStocks(),
-      ]);
+      final stocksWithoutExternalOutcomes = filterSuspiciousStocks(
+        mergeStocks([
+          ...await _loadSeedStocks(),
+          ...discoveredStocks,
+          ...await _loadLiveStocks(),
+        ]),
+        context: 'baseline_merge',
+      );
       final supplementStocks = options.includeIpoKoreaSupplement
           ? mergeStocks([
               ...stocksWithoutExternalOutcomes,
@@ -213,11 +219,17 @@ class IpoCompetitionBatch {
           ),
       ]);
       await _writeIdentifierRows(identifierRows);
-      final identifiedStocks = mergeIdentifierRows(stocks, identifierRows);
-      final fundamentalsOverlaidStocks = mergeStocks([
-        ...identifiedStocks,
-        ...await _loadManualFundamentalsStocks(identifiedStocks),
-      ]);
+      final identifiedStocks = filterSuspiciousStocks(
+        mergeIdentifierRows(stocks, identifierRows),
+        context: 'identified',
+      );
+      final fundamentalsOverlaidStocks = filterSuspiciousStocks(
+        mergeStocks([
+          ...identifiedStocks,
+          ...await _loadManualFundamentalsStocks(identifiedStocks),
+        ]),
+        context: 'manual_fundamentals_merge',
+      );
       final brokerSnapshotRows = [
         ...await _loadBrokerSnapshotRows(),
         if (options.includePublicLiveBrokerSnapshots)
@@ -3403,6 +3415,52 @@ String safeId(String value) {
       .replaceAll(RegExp(r'[^a-z0-9가-힣_-]+'), '_')
       .replaceAll(RegExp(r'_+'), '_')
       .replaceAll(RegExp(r'^_|_$'), '');
+}
+
+bool looksLikeSuspiciousStockValue(String value) {
+  final text = value.trim();
+  if (text.isEmpty) {
+    return true;
+  }
+  final lowered = text.toLowerCase();
+  if (lowered.contains('://') || lowered.startsWith('file:')) {
+    return true;
+  }
+  if (lowered.startsWith('/mnt/') ||
+      lowered.startsWith(r'\\') ||
+      RegExp(r'^[a-z]:[/\\]').hasMatch(lowered)) {
+    return true;
+  }
+  if (text.contains('/') || text.contains('\\')) {
+    return true;
+  }
+  if (RegExp(r'\.(jpg|jpeg|png|webp|gif|bmp|heic|svg|mp4|webm)$')
+      .hasMatch(lowered)) {
+    return true;
+  }
+  if (lowered.contains('harness/static')) {
+    return true;
+  }
+  return false;
+}
+
+List<IpoCompetitionStock> filterSuspiciousStocks(
+  Iterable<IpoCompetitionStock> stocks, {
+  String? context,
+}) {
+  final filtered = <IpoCompetitionStock>[];
+  for (final stock in stocks) {
+    if (looksLikeSuspiciousStockValue(stock.company) ||
+        looksLikeSuspiciousStockValue(stock.id)) {
+      stderr.writeln(
+        '[filter-suspicious-stock] ${context ?? 'unknown'}: '
+        'drop id="${stock.id}" company="${stock.company}"',
+      );
+      continue;
+    }
+    filtered.add(stock);
+  }
+  return filtered;
 }
 
 DateTime? parseDate(String? value) {
