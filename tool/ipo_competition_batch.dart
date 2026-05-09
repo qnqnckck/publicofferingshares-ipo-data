@@ -219,8 +219,8 @@ class IpoCompetitionBatch {
         generatedAt.month,
         generatedAt.day,
       );
-      final consolidatedStocks = mergeStocksByIdentity(
-        manualFundamentalsPatchedStocks,
+      final consolidatedStocks = applyGeneralSharesBackfill(
+        mergeStocksByIdentity(manualFundamentalsPatchedStocks),
       );
       final selected =
           consolidatedStocks.where((stock) {
@@ -1946,13 +1946,100 @@ List<IpoCompetitionStock> mergeStocksByIdentity(
   return byKey.values.toList();
 }
 
+List<IpoCompetitionStock> applyGeneralSharesBackfill(
+  List<IpoCompetitionStock> stocks,
+) {
+  return stocks.map(backfillGeneralSharesStock).toList();
+}
+
+IpoCompetitionStock backfillGeneralSharesStock(IpoCompetitionStock stock) {
+  final inferredDate = inferGeneralSharesDate(stock);
+  final inferredType = inferGeneralSharesSecurityType(stock, inferredDate);
+  if (inferredDate == null && inferredType == null) {
+    return stock;
+  }
+  return IpoCompetitionStock(
+    id: stock.id,
+    company: stock.company,
+    market: stock.market,
+    industry: stock.industry,
+    subscriptionStart: stock.subscriptionStart,
+    subscriptionEnd: stock.subscriptionEnd,
+    listingDate: stock.listingDate,
+    generalSharesDate: stock.generalSharesDate ?? inferredDate,
+    securityType: stock.securityType ?? inferredType,
+    leadManagers: stock.leadManagers,
+    sourceIdentifiers: stock.sourceIdentifiers,
+    fundamentals: stock.fundamentals,
+    outcome: stock.outcome,
+    snapshots: stock.snapshots,
+  );
+}
+
+String? inferGeneralSharesSecurityType(
+  IpoCompetitionStock stock,
+  String? inferredDate,
+) {
+  if (stock.normalizedSecurityType != null) {
+    return null;
+  }
+  if (stock.normalizedGeneralSharesDate != null || inferredDate != null) {
+    return 'GENERAL_SHARES';
+  }
+  return null;
+}
+
+String? inferGeneralSharesDate(IpoCompetitionStock stock) {
+  if (stock.normalizedGeneralSharesDate != null) {
+    return null;
+  }
+  if (!isLikelyGeneralSharesStock(stock)) {
+    return null;
+  }
+  final start =
+      normalizeDate(stock.subscriptionStart) ?? stock.subscriptionStart;
+  final end = normalizeDate(stock.subscriptionEnd) ?? stock.subscriptionEnd;
+  if (start != null && end != null) {
+    return start.compareTo(end) <= 0 ? end : start;
+  }
+  return end ?? start;
+}
+
+bool isLikelyGeneralSharesStock(IpoCompetitionStock stock) {
+  if (isSpacStock(stock)) {
+    return false;
+  }
+  if (stock.resolvedListingDate != null) {
+    return false;
+  }
+  final identifiers = stock.identifiers;
+  if (identifiers.corpCode != null || identifiers.stockCode != null) {
+    return false;
+  }
+  if (stock.industry.trim().isNotEmpty) {
+    return false;
+  }
+
+  final offerPrice = stock.fundamentals.offerPrice;
+  if (offerPrice == null || offerPrice <= 0) {
+    return false;
+  }
+  final priceBandMin = stock.fundamentals.priceBandMin ?? 0;
+  final priceBandMax = stock.fundamentals.priceBandMax ?? 0;
+  if (priceBandMin != 0 || priceBandMax != 0) {
+    return false;
+  }
+  return true;
+}
+
 String stockIdentityKey(IpoCompetitionStock stock) {
   final subscriptionKey = stock.identifiers.subscriptionKey.trim();
   if (subscriptionKey.isNotEmpty) {
     return 'sub:$subscriptionKey';
   }
   final company = normalizeLookup(stock.company);
-  final start = normalizeDate(stock.subscriptionStart) ?? stock.subscriptionStart;
+  final start =
+      normalizeDate(stock.subscriptionStart) ?? stock.subscriptionStart;
   final end = normalizeDate(stock.subscriptionEnd) ?? stock.subscriptionEnd;
   if (company.isNotEmpty &&
       ((start?.isNotEmpty ?? false) || (end?.isNotEmpty ?? false))) {
@@ -2072,15 +2159,26 @@ IpoCompetitionStock mergePreferredStock(
   ];
   return IpoCompetitionStock(
     id: preferred.id,
-    company: preferred.company.trim().isEmpty ? secondary.company : preferred.company,
-    market: preferred.market.trim().isEmpty ? secondary.market : preferred.market,
-    industry: preferred.industry.trim().isEmpty ? secondary.industry : preferred.industry,
-    subscriptionStart: preferred.subscriptionStart ?? secondary.subscriptionStart,
+    company: preferred.company.trim().isEmpty
+        ? secondary.company
+        : preferred.company,
+    market: preferred.market.trim().isEmpty
+        ? secondary.market
+        : preferred.market,
+    industry: preferred.industry.trim().isEmpty
+        ? secondary.industry
+        : preferred.industry,
+    subscriptionStart:
+        preferred.subscriptionStart ?? secondary.subscriptionStart,
     subscriptionEnd: preferred.subscriptionEnd ?? secondary.subscriptionEnd,
     listingDate: preferred.listingDate ?? secondary.listingDate,
-    generalSharesDate: preferred.generalSharesDate ?? secondary.generalSharesDate,
+    generalSharesDate:
+        preferred.generalSharesDate ?? secondary.generalSharesDate,
     securityType: preferred.securityType ?? secondary.securityType,
-    leadManagers: mergeOrderedStrings(preferred.leadManagers, secondary.leadManagers),
+    leadManagers: mergeOrderedStrings(
+      preferred.leadManagers,
+      secondary.leadManagers,
+    ),
     sourceIdentifiers: secondary.identifiers.merge(preferred.identifiers),
     fundamentals: secondary.fundamentals.merge(preferred.fundamentals),
     outcome: mergePreferredOutcome(preferred.outcome, secondary.outcome),
@@ -2088,7 +2186,10 @@ IpoCompetitionStock mergePreferredStock(
   );
 }
 
-IpoOutcome? mergePreferredOutcome(IpoOutcome? preferred, IpoOutcome? secondary) {
+IpoOutcome? mergePreferredOutcome(
+  IpoOutcome? preferred,
+  IpoOutcome? secondary,
+) {
   if (preferred == null) {
     return secondary;
   }
@@ -2104,7 +2205,10 @@ IpoOutcome? mergePreferredOutcome(IpoOutcome? preferred, IpoOutcome? secondary) 
   );
 }
 
-List<String> mergeOrderedStrings(List<String> preferred, List<String> secondary) {
+List<String> mergeOrderedStrings(
+  List<String> preferred,
+  List<String> secondary,
+) {
   final seen = <String>{};
   final merged = <String>[];
   for (final value in [...preferred, ...secondary]) {
@@ -2906,8 +3010,7 @@ String canonicalBrokerName(String raw) {
       key == normalizeLookup('NH')) {
     return 'NH투자증권';
   }
-  if (key == normalizeLookup('케이비증권') ||
-      key == normalizeLookup('KB')) {
+  if (key == normalizeLookup('케이비증권') || key == normalizeLookup('KB')) {
     return 'KB증권';
   }
   if (key == normalizeLookup('한국')) {
