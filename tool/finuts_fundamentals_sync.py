@@ -227,6 +227,19 @@ def parse_section_value(detail_html: str, section_id: str, label: str) -> str | 
     return value or None
 
 
+def keyword_snippets(text: str, keyword: str, *, radius: int = 80, limit: int = 8) -> list[str]:
+    snippets: list[str] = []
+    for match in re.finditer(re.escape(keyword), text, re.IGNORECASE):
+        start = max(0, match.start() - radius)
+        end = min(len(text), match.end() + radius)
+        snippet = text[start:end].strip()
+        if snippet and snippet not in snippets:
+            snippets.append(snippet)
+        if len(snippets) >= limit:
+            break
+    return snippets
+
+
 def parse_detail_fundamentals(detail_html: str) -> dict[str, Any]:
     normalized = plain_text(detail_html)
     ipo_info = extract_section(detail_html, "ipo-info")
@@ -434,6 +447,15 @@ def main() -> int:
     for event in targets:
         detail = fetch_text(event.finuts_url)
         fundamentals = parse_detail_fundamentals(detail)
+        if args.mode == "target" and fundamentals.get("institutionParticipants") is None:
+            normalized_detail = plain_text(detail)
+            print(f"[debug] target={event.company} institutionParticipants missing")
+            for keyword in ["참여", "기관", "수요예측"]:
+                snippets = keyword_snippets(normalized_detail, keyword)
+                if snippets:
+                    print(f"[debug] keyword={keyword}")
+                    for snippet in snippets:
+                        print(f"[debug]   {snippet}")
         non_null = {key: value for key, value in fundamentals.items() if value is not None}
         if event.institution_competition_rate is not None:
             non_null.setdefault(
