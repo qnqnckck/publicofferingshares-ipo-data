@@ -11,9 +11,12 @@
   },
   "company": "마키나락스",
   "market": "KOSDAQ",
-  "industry": "소프트웨어",
+  "industry": "",
   "subscriptionStart": "2026-05-11",
   "subscriptionEnd": "2026-05-12",
+  "listingDate": "2026-05-12",
+  "generalSharesDate": null,
+  "securityType": null,
   "leadManagers": [
     "미래에셋증권",
     "현대차증권"
@@ -23,11 +26,11 @@
     "priceBandMin": 12500,
     "priceBandMax": 15000,
     "topBandConfirmation": null,
-    "institutionCompetitionRate": 1196.08,
+    "institutionCompetitionRate": null,
     "institutionParticipants": null,
-    "lockupCommitmentRate": 0.7817000000000001,
-    "floatRate": 0.3848,
-    "marketCapKrw": 2633,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
     "publicAllocationShares": 2194000,
     "hasPutbackRight": false,
     "putbackSummary": null
@@ -43,32 +46,32 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 80,
-      "grade": "A-",
-      "confidence": 0.65,
+      "overall": 24,
+      "grade": "C-",
+      "confidence": 0.45,
       "factors": {
-        "competition": 12,
-        "institutionDemand": 22,
+        "competition": 0,
+        "institutionDemand": 0,
         "demandStrength": 6,
-        "lockupCommitment": 18,
-        "floatRate": 6,
+        "lockupCommitment": 0,
+        "floatRate": 8,
         "pricing": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.7779,
-      "bearCaseListingGainRate": 0.5779,
-      "baseCaseListingGainRate": 0.7779,
-      "bullCaseListingGainRate": 1.1379,
+      "expectedListingGainRate": 0.2102,
+      "bearCaseListingGainRate": 0.0102,
+      "baseCaseListingGainRate": 0.2102,
+      "bullCaseListingGainRate": 0.4902,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
         "oneMillionKrw": 0.083,
         "fiveMillionKrw": 0.417
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 146,
-        "oneMillionKrw": 972,
-        "fiveMillionKrw": 4862
+        "minimumSubscription": 39,
+        "oneMillionKrw": 263,
+        "fiveMillionKrw": 1314
       },
       "assumptions": {
         "offerPrice": 15000,
@@ -76,26 +79,26 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": 0.5979200000000001,
-        "institutionBoost": 0.08700999999999999,
-        "lockupBoost": 0.1,
+        "generalPriorBase": 0.03021333333333335,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
         "participantBoost": 0.0,
         "topBandBoost": 0.0,
-        "scoreBoost": 0.044444444444444446,
+        "scoreBoost": -0.04,
         "competitionPresent": false,
         "generalCalibrationApplied": 0.18,
-        "generalCalibrationSampleCount": 65,
+        "generalCalibrationSampleCount": 127,
         "generalCompetitionPending": true
       }
     },
     "decision": {
-      "level": "strong_watch",
-      "label": "관심 높음",
+      "level": "insufficient_data",
+      "label": "데이터 부족",
       "reasons": [
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
-        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
+        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
@@ -106,9 +109,9 @@
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": 1196.08,
-      "lockupCommitmentRate": 0.7817000000000001,
-      "floatRate": 0.3848,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
       "hasOutcome": true
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."

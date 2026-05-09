@@ -14,6 +14,9 @@
   "industry": "컴퓨터와주변기기",
   "subscriptionStart": "2024-12-04",
   "subscriptionEnd": "2024-12-05",
+  "listingDate": "2024-12-16",
+  "generalSharesDate": null,
+  "securityType": null,
   "leadManagers": [
     "신한"
   ],
@@ -38,15 +41,43 @@
     "closeReturnRate": 0.982051282051282,
     "sourceUrl": "https://www.hankyung.com/article/2024121604681"
   },
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-05-10T04:31:49.555054",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.fnnews.com/news/202412051759082907",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 1187500,
+          "subscribedShares": 1389778750,
+          "offerPrice": 3900,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1170.34,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1170.34,
+          "equalAllocationShares": 593750,
+          "proportionalAllocationShares": 593750,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1187500,
+        "subscribedShares": 1389778750,
+        "competitionRate": 1170.34
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 16,
+      "overall": 30,
       "grade": "C-",
-      "confidence": 0.45,
+      "confidence": 0.9,
       "factors": {
-        "competition": 0,
+        "competition": 13,
         "institutionDemand": 0,
         "demandStrength": 6,
         "lockupCommitment": 0,
@@ -55,53 +86,63 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.1553,
-      "bearCaseListingGainRate": -0.0447,
-      "baseCaseListingGainRate": 0.1553,
-      "bullCaseListingGainRate": 0.4353,
+      "expectedListingGainRate": 0.68,
+      "bearCaseListingGainRate": 0.5,
+      "baseCaseListingGainRate": 0.68,
+      "bullCaseListingGainRate": 0.9,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.321,
-        "fiveMillionKrw": 1.603
+        "minimumSubscription": 0.009,
+        "oneMillionKrw": 0.219,
+        "fiveMillionKrw": 1.095
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 8,
-        "oneMillionKrw": 194,
-        "fiveMillionKrw": 971
+        "minimumSubscription": 23,
+        "oneMillionKrw": 581,
+        "fiveMillionKrw": 2905
       },
       "assumptions": {
         "offerPrice": 3900,
-        "competitionRate": null,
+        "competitionRate": 1170.34,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": -0.024719999999999978,
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.08389333333333335,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
         "topBandBoost": 0.0,
         "scoreBoost": -0.04,
-        "competitionPresent": false,
-        "generalCalibrationApplied": 0.18,
-        "generalCalibrationSampleCount": 128,
-        "generalCompetitionPending": true
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 127,
+        "generalCompetitionPending": false
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "caution",
+      "label": "주의",
       "reasons": [
-        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+        "최근 확인된 일반청약 경쟁률은 1170.34대 1입니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "신한투자증권",
+        "equalScore": 30,
+        "proportionalScore": 44,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 2282163,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 1170.34,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

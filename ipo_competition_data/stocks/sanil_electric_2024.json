@@ -10,19 +10,21 @@
     "isin": null
   },
   "company": "산일전기",
-  "market": "KOSDAQ",
-  "industry": "전기장비",
+  "market": "KOSPI",
+  "industry": "",
   "subscriptionStart": "2024-07-18",
   "subscriptionEnd": "2024-07-19",
+  "listingDate": "2024-07-29",
+  "generalSharesDate": null,
+  "securityType": null,
   "leadManagers": [
     "미래에셋증권",
-    "삼성",
     "삼성증권"
   ],
   "fundamentals": {
     "offerPrice": 35000,
-    "priceBandMin": 24000,
-    "priceBandMax": 30000,
+    "priceBandMin": null,
+    "priceBandMax": null,
     "topBandConfirmation": null,
     "institutionCompetitionRate": 413.86,
     "institutionParticipants": 2205,
@@ -156,16 +158,16 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 64,
+      "overall": 60,
       "grade": "B-",
       "confidence": 0.95,
       "factors": {
         "competition": 13,
         "institutionDemand": 8,
-        "demandStrength": 10,
+        "demandStrength": 7,
         "lockupCommitment": 14,
         "floatRate": 9,
-        "pricing": 4
+        "pricing": 3
       }
     },
     "expectedReturn": {
@@ -189,7 +191,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.4795125714285714,
+        "generalPriorBase": 0.4467125714285714,
         "institutionBoost": 0.0,
         "lockupBoost": 0.06842500000000001,
         "participantBoost": 0.05,
@@ -197,7 +199,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 65,
+        "generalCalibrationSampleCount": 127,
         "generalCompetitionPending": false
       }
     },
@@ -235,8 +237,8 @@
     "inputs": {
       "latestCompetitionRate": 846.1396,
       "snapshotCount": 3,
-      "leadManagerCount": 3,
-      "market": "KOSDAQ",
+      "leadManagerCount": 2,
+      "market": "KOSPI",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 413.86,
       "lockupCommitmentRate": 0.4237,

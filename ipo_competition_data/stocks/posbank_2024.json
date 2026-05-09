@@ -11,16 +11,19 @@
   },
   "company": "포스뱅크",
   "market": "KOSDAQ",
-  "industry": "컴퓨터와주변기기",
+  "industry": "",
   "subscriptionStart": "2024-01-17",
   "subscriptionEnd": "2024-01-18",
+  "listingDate": "2024-01-29",
+  "generalSharesDate": null,
+  "securityType": null,
   "leadManagers": [
-    "하나"
+    "하나증권"
   ],
   "fundamentals": {
     "offerPrice": 18000,
-    "priceBandMin": 13000,
-    "priceBandMax": 15000,
+    "priceBandMin": null,
+    "priceBandMax": null,
     "topBandConfirmation": null,
     "institutionCompetitionRate": 839.03,
     "institutionParticipants": null,
@@ -67,12 +70,12 @@
       }
     },
     {
-      "capturedAt": "2026-05-09T01:15:14.018653",
+      "capturedAt": "2026-05-10T04:31:49.555054",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.mk.co.kr/news/stock/10931892",
       "brokers": [
         {
-          "name": "하나",
+          "name": "하나증권",
           "offeredShares": 0,
           "subscribedShares": 0,
           "offerPrice": 18000,
@@ -97,16 +100,16 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 42,
+      "overall": 34,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
         "competition": 13,
         "institutionDemand": 15,
-        "demandStrength": 6,
+        "demandStrength": 0,
         "lockupCommitment": 0,
         "floatRate": 0,
-        "pricing": 4
+        "pricing": 3
       }
     },
     "expectedReturn": {
@@ -130,7 +133,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.23836650285714286,
+        "generalPriorBase": 0.17276650285714285,
         "institutionBoost": 0.04237875,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -138,7 +141,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 65,
+        "generalCalibrationSampleCount": 127,
         "generalCompetitionPending": false
       }
     },
@@ -155,7 +158,7 @@
     },
     "brokerScores": [
       {
-        "broker": "하나",
+        "broker": "하나증권",
         "equalScore": 30,
         "proportionalScore": 8,
         "expectedEqualShares": null,

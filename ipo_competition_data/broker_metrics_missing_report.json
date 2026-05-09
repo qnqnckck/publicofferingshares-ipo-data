@@ -1,11 +1,25 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-09T01:15:14.018653",
-  "totalMissing": 312,
+  "generatedAt": "2026-05-10T04:31:49.555054",
+  "totalMissing": 316,
   "reasonCounts": {
-    "no_snapshot+no_retail_competition_rate+no_public_allocation": 312
+    "no_snapshot+no_retail_competition_rate+no_public_allocation+no_lead_manager": 2,
+    "no_snapshot+no_retail_competition_rate+no_public_allocation": 313,
+    "no_public_allocation+no_lead_manager": 1
   },
   "missingBrokerMetrics": [
+    {
+      "id": "lunit_2026",
+      "company": "루닛",
+      "subscriptionStart": "2026-04-27",
+      "subscriptionEnd": "2026-04-28",
+      "leadManagers": [],
+      "reason": "no_snapshot+no_retail_competition_rate+no_public_allocation+no_lead_manager",
+      "retailCompetitionRate": null,
+      "publicAllocationShares": null,
+      "latestSnapshotSource": null,
+      "latestSnapshotSourceUrl": null
+    },
     {
       "id": "루닛_2026-04-27",
       "company": "루닛",
@@ -15,6 +29,18 @@
         "한국"
       ],
       "reason": "no_snapshot+no_retail_competition_rate+no_public_allocation",
+      "retailCompetitionRate": null,
+      "publicAllocationShares": null,
+      "latestSnapshotSource": null,
+      "latestSnapshotSourceUrl": null
+    },
+    {
+      "id": "atom_2026",
+      "company": "에이텀",
+      "subscriptionStart": "2026-04-27",
+      "subscriptionEnd": "2026-04-28",
+      "leadManagers": [],
+      "reason": "no_snapshot+no_retail_competition_rate+no_public_allocation+no_lead_manager",
       "retailCompetitionRate": null,
       "publicAllocationShares": null,
       "latestSnapshotSource": null,
@@ -2234,6 +2260,32 @@
       "publicAllocationShares": null,
       "latestSnapshotSource": null,
       "latestSnapshotSourceUrl": null
+    },
+    {
+      "id": "사이냅소프트_2024-11-08",
+      "company": "사이냅소프트",
+      "subscriptionStart": "2024-11-08",
+      "subscriptionEnd": "2024-11-11",
+      "leadManagers": [
+        "NH"
+      ],
+      "reason": "no_snapshot+no_retail_competition_rate+no_public_allocation",
+      "retailCompetitionRate": null,
+      "publicAllocationShares": null,
+      "latestSnapshotSource": null,
+      "latestSnapshotSourceUrl": null
+    },
+    {
+      "id": "synapsoft_2024",
+      "company": "사이냅소프트",
+      "subscriptionStart": "2024-11-08",
+      "subscriptionEnd": "2024-11-11",
+      "leadManagers": [],
+      "reason": "no_public_allocation+no_lead_manager",
+      "retailCompetitionRate": 60.466,
+      "publicAllocationShares": null,
+      "latestSnapshotSource": "article_final",
+      "latestSnapshotSourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333"
     },
     {
       "id": "롯데리츠_2024-11-07",

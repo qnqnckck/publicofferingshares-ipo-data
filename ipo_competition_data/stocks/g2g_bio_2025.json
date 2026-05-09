@@ -11,16 +11,19 @@
   },
   "company": "지투지바이오",
   "market": "KOSDAQ",
-  "industry": "제약",
+  "industry": "",
   "subscriptionStart": "2025-08-05",
   "subscriptionEnd": "2025-08-06",
+  "listingDate": "2025-08-14",
+  "generalSharesDate": null,
+  "securityType": null,
   "leadManagers": [
     "미래에셋증권"
   ],
   "fundamentals": {
     "offerPrice": 58000,
-    "priceBandMin": 48000,
-    "priceBandMax": 58000,
+    "priceBandMin": null,
+    "priceBandMax": null,
     "topBandConfirmation": null,
     "institutionCompetitionRate": 810.6,
     "institutionParticipants": null,
@@ -124,32 +127,32 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 77,
-      "grade": "B+",
+      "overall": 64,
+      "grade": "B-",
       "confidence": 0.95,
       "factors": {
         "competition": 13,
         "institutionDemand": 15,
-        "demandStrength": 6,
+        "demandStrength": 0,
         "lockupCommitment": 18,
         "floatRate": 9,
-        "pricing": 8
+        "pricing": 3
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.8866,
-      "bearCaseListingGainRate": 0.7066,
-      "baseCaseListingGainRate": 0.8866,
-      "bullCaseListingGainRate": 1.1066,
+      "expectedListingGainRate": 0.8188,
+      "bearCaseListingGainRate": 0.6388,
+      "baseCaseListingGainRate": 0.8188,
+      "bullCaseListingGainRate": 1.0388,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.383,
         "oneMillionKrw": 0.39,
         "fiveMillionKrw": 0.464
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 19677,
-        "oneMillionKrw": 20073,
-        "fiveMillionKrw": 23845
+        "minimumSubscription": 18173,
+        "oneMillionKrw": 18538,
+        "fiveMillionKrw": 22022
       },
       "assumptions": {
         "offerPrice": 58000,
@@ -157,24 +160,23 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.6099300571428571,
+        "generalPriorBase": 0.5033300571428573,
         "institutionBoost": 0.038825000000000005,
         "lockupBoost": 0.1,
         "participantBoost": 0.0,
         "topBandBoost": 0.0,
-        "scoreBoost": 0.027777777777777776,
+        "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 65,
+        "generalCalibrationSampleCount": 127,
         "generalCompetitionPending": false
       }
     },
     "decision": {
-      "level": "consider",
-      "label": "청약 고려",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 940.22대 1입니다.",
-        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+        "최근 확인된 일반청약 경쟁률은 940.22대 1입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."

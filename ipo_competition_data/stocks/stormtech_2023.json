@@ -11,11 +11,13 @@
   },
   "company": "스톰테크",
   "market": "KOSDAQ",
-  "industry": "가정용기기와용품",
+  "industry": "",
   "subscriptionStart": "2023-11-09",
   "subscriptionEnd": "2023-11-10",
+  "listingDate": "2023-11-20",
+  "generalSharesDate": null,
+  "securityType": null,
   "leadManagers": [
-    "하이",
     "하이투자증권"
   ],
   "fundamentals": {
@@ -62,37 +64,22 @@
       }
     },
     {
-      "capturedAt": "2026-05-09T01:15:14.018653",
+      "capturedAt": "2026-05-10T04:31:49.555054",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.etoday.co.kr/news/view/2301331",
       "brokers": [
         {
-          "name": "하이",
-          "offeredShares": 424900,
-          "subscribedShares": 212297036,
-          "offerPrice": 11000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 499.64,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 499.64,
-          "equalAllocationShares": 212450,
-          "proportionalAllocationShares": 212450,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        },
-        {
           "name": "하이투자증권",
-          "offeredShares": 424900,
-          "subscribedShares": 212297036,
+          "offeredShares": 849800,
+          "subscribedShares": 424594072,
           "offerPrice": 11000,
           "depositRate": null,
           "feeKrw": null,
           "competitionRate": 499.64,
           "equalCompetitionRate": null,
           "proportionalCompetitionRate": 499.64,
-          "equalAllocationShares": 212450,
-          "proportionalAllocationShares": 212450,
+          "equalAllocationShares": 424900,
+          "proportionalAllocationShares": 424900,
           "expectedEqualShares": null,
           "applicationCount": null
         }
@@ -148,7 +135,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 65,
+        "generalCalibrationSampleCount": 127,
         "generalCompetitionPending": false
       }
     },
@@ -156,23 +143,13 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 499.64대 1입니다.",
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "최근 확인된 일반청약 경쟁률은 499.64대 1입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
     "brokerScores": [
-      {
-        "broker": "하이",
-        "equalScore": 30,
-        "proportionalScore": 36,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 2748020,
-        "feeKrw": null,
-        "dataQuality": "partial"
-      },
       {
         "broker": "하이투자증권",
         "equalScore": 30,
@@ -186,7 +163,7 @@
     "inputs": {
       "latestCompetitionRate": 499.64,
       "snapshotCount": 2,
-      "leadManagerCount": 2,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 573.97,

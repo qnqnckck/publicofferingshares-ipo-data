@@ -11,32 +11,60 @@
   },
   "company": "코스모로보틱스",
   "market": "KOSDAQ",
-  "industry": "건강관리장비와용품",
+  "industry": "",
   "subscriptionStart": "2026-04-27",
   "subscriptionEnd": "2026-04-28",
+  "listingDate": "2026-05-11",
+  "generalSharesDate": null,
+  "securityType": null,
   "leadManagers": [
+    "유진투자증권",
     "NH투자증권",
-    "유안타",
-    "유안타증권",
-    "유진",
-    "유진투자증권"
+    "유안타증권"
   ],
   "fundamentals": {
     "offerPrice": 6000,
     "priceBandMin": 5300,
     "priceBandMax": 6000,
     "topBandConfirmation": true,
-    "institutionCompetitionRate": 1140.11,
+    "institutionCompetitionRate": 1140.0,
     "institutionParticipants": 2257,
-    "lockupCommitmentRate": 0.7303,
+    "lockupCommitmentRate": 0.976,
     "floatRate": null,
-    "marketCapKrw": null,
+    "marketCapKrw": 191900000000,
     "publicAllocationShares": 1042500,
     "hasPutbackRight": false,
     "putbackSummary": null
   },
   "outcome": null,
   "snapshots": [
+    {
+      "capturedAt": "2026-04-28T16:00:00+09:00",
+      "source": "ipokorea_supplement",
+      "sourceUrl": "https://ipokorea.kr/ipo/%EC%BD%94%EC%8A%A4%EB%AA%A8%EB%A1%9C%EB%B3%B4%ED%8B%B1%EC%8A%A4",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 1042500,
+          "subscribedShares": 2099595000,
+          "offerPrice": 6000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2014.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1042500,
+        "subscribedShares": 2099595000,
+        "competitionRate": 2014.0
+      }
+    },
     {
       "capturedAt": "2026-04-29T01:27:58+09:00",
       "source": "finuts_member_secondary",
@@ -132,14 +160,14 @@
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
         "generalPriorBase": 0.7822799999999999,
-        "institutionBoost": 0.08001374999999998,
+        "institutionBoost": 0.08,
         "lockupBoost": 0.1,
         "participantBoost": 0.05,
         "topBandBoost": 0.06,
         "scoreBoost": 0.05555555555555555,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 65,
+        "generalCalibrationSampleCount": 127,
         "generalCompetitionPending": false
       }
     },
@@ -187,12 +215,12 @@
     ],
     "inputs": {
       "latestCompetitionRate": 4030.074,
-      "snapshotCount": 1,
-      "leadManagerCount": 5,
+      "snapshotCount": 2,
+      "leadManagerCount": 3,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": 1140.11,
-      "lockupCommitmentRate": 0.7303,
+      "institutionCompetitionRate": 1140.0,
+      "lockupCommitmentRate": 0.976,
       "floatRate": null,
       "hasOutcome": false
     },

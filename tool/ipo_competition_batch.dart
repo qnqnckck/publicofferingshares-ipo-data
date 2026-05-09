@@ -33,18 +33,15 @@ class BatchOptions {
     required this.seedPath,
     required this.liveDir,
     required this.outcomeDir,
-    required this.manualFundamentalsPath,
     required this.brokerSnapshotDir,
     required this.identifierPath,
     required this.discoveredPath,
     required this.outDir,
     required this.backfillYears,
+    required this.manualFundamentalsPath,
     required this.interval,
     required this.discover,
     required this.discoverIdentifiers,
-    required this.includeIpoKoreaSupplement,
-    required this.includeArticleLeadManagerDiscover,
-    required this.includePublicLiveBrokerSnapshots,
     required this.dartApiKeyEnv,
     required this.itickApiKeyEnv,
     required this.kisAppKeyEnv,
@@ -56,18 +53,15 @@ class BatchOptions {
   final String seedPath;
   final String liveDir;
   final String outcomeDir;
-  final String manualFundamentalsPath;
   final String brokerSnapshotDir;
   final String identifierPath;
   final String discoveredPath;
   final String outDir;
   final int backfillYears;
+  final String manualFundamentalsPath;
   final Duration interval;
   final bool discover;
   final bool discoverIdentifiers;
-  final bool includeIpoKoreaSupplement;
-  final bool includeArticleLeadManagerDiscover;
-  final bool includePublicLiveBrokerSnapshots;
   final String dartApiKeyEnv;
   final String itickApiKeyEnv;
   final String kisAppKeyEnv;
@@ -83,11 +77,11 @@ Options:
   --seed <path>               Seed JSON path. Default: data/ipo_competition_seed.json
   --live-dir <dir>            Directory with live snapshot JSON files. Default: data/live_snapshots
   --outcome-dir <dir>         Directory with historical outcome JSON files. Default: data/outcomes
-  --manual-fundamentals-path <path> Manual fundamentals override JSON path. Default: data/manual_fundamentals.json
   --broker-snapshot-dir <dir> Directory with broker-level snapshot JSON files. Default: data/broker_snapshots
   --identifier-path <path>    Identifier crosswalk JSON path. Default: data/identifiers/ipo_identifiers.json
   --discovered <path>         Auto-discovered stock JSON path. Default: data/discovered/ipo_events.json
   --out <dir>                 Output directory. Default: ipo_competition_data
+  --manual-fundamentals-path <path> Optional JSON override file path for manual fundamentals patching.
   --backfill-years <years>    Include IPOs from the last N years. Default: 3
   --interval-minutes <min>    Watch interval. Default: 10
   --dart-api-key-env <name>   Environment variable for DART API key. Default: DART_API_KEY
@@ -96,9 +90,6 @@ Options:
   --kis-app-secret-env <name> Environment variable for KIS app secret. Default: KIS_APP_SECRET
   --no-discover               Skip remote discovery and only normalize local input files.
   --no-identifier-discover    Skip DART company-code backfill and only use local identifier crosswalk.
-  --no-ipo-korea-supplement   Skip IPO Korea supplement parsing for incomplete stocks.
-  --no-article-lead-manager-discover Skip article lead-manager supplementation.
-  --no-public-live-collect    Skip public live broker snapshot collection.
   --watch                     Keep running and refresh active subscriptions.
   --help                      Show this help.
 
@@ -123,10 +114,6 @@ Seed from the example file:
       seedPath: valueAfter('--seed', 'data/ipo_competition_seed.json'),
       liveDir: valueAfter('--live-dir', 'data/live_snapshots'),
       outcomeDir: valueAfter('--outcome-dir', 'data/outcomes'),
-      manualFundamentalsPath: valueAfter(
-        '--manual-fundamentals-path',
-        'data/manual_fundamentals.json',
-      ),
       brokerSnapshotDir: valueAfter(
         '--broker-snapshot-dir',
         'data/broker_snapshots',
@@ -140,15 +127,11 @@ Seed from the example file:
         'data/discovered/ipo_events.json',
       ),
       outDir: valueAfter('--out', 'ipo_competition_data'),
+      manualFundamentalsPath: valueAfter('--manual-fundamentals-path', ''),
       backfillYears: intAfter('--backfill-years', 3),
       interval: Duration(minutes: intAfter('--interval-minutes', 10)),
       discover: !args.contains('--no-discover'),
       discoverIdentifiers: !args.contains('--no-identifier-discover'),
-      includeIpoKoreaSupplement: !args.contains('--no-ipo-korea-supplement'),
-      includeArticleLeadManagerDiscover:
-          !args.contains('--no-article-lead-manager-discover'),
-      includePublicLiveBrokerSnapshots:
-          !args.contains('--no-public-live-collect'),
       dartApiKeyEnv: valueAfter('--dart-api-key-env', 'DART_API_KEY'),
       itickApiKeyEnv: valueAfter('--itick-api-key-env', 'ITICK_API_KEY'),
       kisAppKeyEnv: valueAfter('--kis-app-key-env', 'KIS_APP_KEY'),
@@ -172,39 +155,30 @@ class IpoCompetitionBatch {
     _running = true;
     try {
       final generatedAt = DateTime.now();
-      final discoveredStocks = filterSuspiciousStocks(
-        options.discover
+      final discoveredStocks = options.discover
           ? mergeStocks([
               ...await _loadDiscoveredStocks(),
               ...await _discoverRemoteStocks(generatedAt),
             ])
-          : await _loadDiscoveredStocks(),
-        context: 'discovered',
-      );
+          : await _loadDiscoveredStocks();
       await _writeDiscoveredStocks(discoveredStocks);
 
-      final stocksWithoutExternalOutcomes = filterSuspiciousStocks(
-        mergeStocks([
-          ...await _loadSeedStocks(),
-          ...discoveredStocks,
-          ...await _loadLiveStocks(),
-        ]),
-        context: 'baseline_merge',
-      );
-      final supplementStocks = options.includeIpoKoreaSupplement
-          ? mergeStocks([
-              ...stocksWithoutExternalOutcomes,
-              ...await _discoverIpoKoreaSupplementStocks(
-                stocksWithoutExternalOutcomes,
-                generatedAt,
-              ),
-            ])
-          : stocksWithoutExternalOutcomes;
+      final stocksWithoutExternalOutcomes = mergeStocks([
+        ...await _loadSeedStocks(),
+        ...discoveredStocks,
+        ...await _loadLiveStocks(),
+      ]);
+      final supplementStocks = mergeStocks([
+        ...stocksWithoutExternalOutcomes,
+        ...await _discoverIpoKoreaSupplementStocks(
+          stocksWithoutExternalOutcomes,
+          generatedAt,
+        ),
+      ]);
       final sourceEnhancedStocks = mergeStocks([
         ...supplementStocks,
         ...buildKnownLeadManagerOverrideStocks(supplementStocks),
-        if (options.includeArticleLeadManagerDiscover)
-          ...await _discoverArticleLeadManagerStocks(supplementStocks),
+        ...await _discoverArticleLeadManagerStocks(supplementStocks),
       ]);
       final stocks = mergeOutcomes(
         sourceEnhancedStocks,
@@ -219,36 +193,26 @@ class IpoCompetitionBatch {
           ),
       ]);
       await _writeIdentifierRows(identifierRows);
-      final identifiedStocks = filterSuspiciousStocks(
-        mergeIdentifierRows(stocks, identifierRows),
-        context: 'identified',
-      );
-      final fundamentalsOverlaidStocks = filterSuspiciousStocks(
-        mergeStocks([
-          ...identifiedStocks,
-          ...await _loadManualFundamentalsStocks(identifiedStocks),
-        ]),
-        context: 'manual_fundamentals_merge',
-      );
+      final identifiedStocks = mergeIdentifierRows(stocks, identifierRows);
       final brokerSnapshotRows = [
         ...await _loadBrokerSnapshotRows(),
-        if (options.includePublicLiveBrokerSnapshots)
-          ...await _collectPublicLiveBrokerSnapshots(
-            fundamentalsOverlaidStocks,
-            generatedAt,
-          ),
-        ...buildEstimatedBrokerSnapshotRows(
-          fundamentalsOverlaidStocks,
+        ...await _collectPublicLiveBrokerSnapshots(
+          identifiedStocks,
           generatedAt,
         ),
-        ...buildEstimatedBrokerRateOnlyRows(
-          fundamentalsOverlaidStocks,
-          generatedAt,
-        ),
+        ...buildEstimatedBrokerSnapshotRows(identifiedStocks, generatedAt),
+        ...buildEstimatedBrokerRateOnlyRows(identifiedStocks, generatedAt),
       ];
       final enrichedStocks = mergeBrokerSnapshots(
-        fundamentalsOverlaidStocks,
+        identifiedStocks,
         brokerSnapshotRows,
+      );
+      final manualFundamentalsRows = await _loadManualFundamentalsRows(
+        options.manualFundamentalsPath,
+      );
+      final manualFundamentalsPatchedStocks = mergeManualFundamentalsOverrides(
+        enrichedStocks,
+        manualFundamentalsRows,
       );
       final cutoff = DateTime(
         generatedAt.year - options.backfillYears,
@@ -256,7 +220,7 @@ class IpoCompetitionBatch {
         generatedAt.day,
       );
       final selected =
-          enrichedStocks.where((stock) {
+          manualFundamentalsPatchedStocks.where((stock) {
             final end = parseDate(stock.subscriptionEnd);
             return end == null || !end.isBefore(cutoff);
           }).toList()..sort((a, b) {
@@ -455,80 +419,6 @@ class IpoCompetitionBatch {
         .whereType<Map<String, Object?>>()
         .map(IpoIdentifierRow.fromJson)
         .toList();
-  }
-
-  Future<List<IpoCompetitionStock>> _loadManualFundamentalsStocks(
-    List<IpoCompetitionStock> baseStocks,
-  ) async {
-    final file = File(options.manualFundamentalsPath);
-    if (!await file.exists()) {
-      return const [];
-    }
-    final decoded = jsonDecode(await file.readAsString());
-    final rawRows = switch (decoded) {
-      {'stocks': List<Object?> rows} => rows,
-      List<Object?> rows => rows,
-      _ => const <Object?>[],
-    };
-
-    final byId = <String, IpoCompetitionStock>{
-      for (final stock in baseStocks) safeId(stock.id): stock,
-    };
-    final byNormalizedCompany = <String, List<IpoCompetitionStock>>{};
-    for (final stock in baseStocks) {
-      final keys = {
-        normalizeLookup(stock.company),
-        normalizeLookup(stock.identifiers.normalizedCompany),
-      }..removeWhere((key) => key.trim().isEmpty);
-      for (final key in keys) {
-        byNormalizedCompany.putIfAbsent(key, () => <IpoCompetitionStock>[]).add(
-          stock,
-        );
-      }
-    }
-
-    final overlays = <IpoCompetitionStock>[];
-    for (final row in rawRows.whereType<Map<String, Object?>>()) {
-      final fundamentalsJson = row['fundamentals'];
-      if (fundamentalsJson is! Map<String, Object?>) {
-        continue;
-      }
-      final rowId = (readString(row, 'id') ?? '').trim();
-      final rowCompany = (readString(row, 'company') ?? '').trim();
-      IpoCompetitionStock? target;
-      if (rowId.isNotEmpty) {
-        target = byId[safeId(rowId)];
-      }
-      if (target == null) {
-        final candidates = byNormalizedCompany[normalizeLookup(rowCompany)] ?? [];
-        if (candidates.length == 1) {
-          target = candidates.first;
-        }
-      }
-
-      final targetId = target?.id ?? rowId;
-      final targetCompany = target?.company ?? rowCompany;
-      if (targetId.trim().isEmpty || targetCompany.trim().isEmpty) {
-        continue;
-      }
-
-      overlays.add(
-        IpoCompetitionStock(
-          id: targetId,
-          company: targetCompany,
-          market: target?.market ?? '',
-          industry: target?.industry ?? '',
-          subscriptionStart: target?.subscriptionStart,
-          subscriptionEnd: target?.subscriptionEnd,
-          leadManagers: target?.leadManagers ?? const [],
-          sourceIdentifiers: target?.identifiers,
-          fundamentals: IpoFundamentals.fromJson(fundamentalsJson),
-          outcome: target?.outcome,
-          snapshots: const [],
-        ),
-      );
-    }
-    return overlays;
   }
 
   Future<void> _writeIdentifierRows(List<IpoIdentifierRow> rows) async {
@@ -740,6 +630,9 @@ class IpoCompetitionBatch {
           industry: stock.industry,
           subscriptionStart: stock.subscriptionStart,
           subscriptionEnd: stock.subscriptionEnd,
+          listingDate: stock.listingDate,
+          generalSharesDate: stock.generalSharesDate,
+          securityType: stock.securityType,
           leadManagers: leadManagers,
           sourceIdentifiers: stock.identifiers,
           fundamentals: const IpoFundamentals(
@@ -1127,6 +1020,9 @@ class IpoCompetitionStock {
     required this.industry,
     required this.subscriptionStart,
     required this.subscriptionEnd,
+    this.listingDate,
+    this.generalSharesDate,
+    this.securityType,
     required this.leadManagers,
     required this.sourceIdentifiers,
     required this.fundamentals,
@@ -1140,6 +1036,9 @@ class IpoCompetitionStock {
   final String industry;
   final String? subscriptionStart;
   final String? subscriptionEnd;
+  final String? listingDate;
+  final String? generalSharesDate;
+  final String? securityType;
   final List<String> leadManagers;
   final IpoStockIdentifiers? sourceIdentifiers;
   final IpoFundamentals fundamentals;
@@ -1154,6 +1053,9 @@ class IpoCompetitionStock {
       industry: readString(json, 'industry') ?? '',
       subscriptionStart: readString(json, 'subscriptionStart'),
       subscriptionEnd: readString(json, 'subscriptionEnd'),
+      listingDate: readString(json, 'listingDate'),
+      generalSharesDate: readString(json, 'generalSharesDate'),
+      securityType: readString(json, 'securityType'),
       leadManagers: readStringList(json['leadManagers']),
       sourceIdentifiers: json['identifiers'] is Map<String, Object?>
           ? IpoStockIdentifiers.fromJson(
@@ -1182,6 +1084,9 @@ class IpoCompetitionStock {
       industry: industry.trim(),
       subscriptionStart: subscriptionStart,
       subscriptionEnd: subscriptionEnd,
+      listingDate: normalizeDate(listingDate) ?? listingDate,
+      generalSharesDate: normalizeDate(generalSharesDate) ?? generalSharesDate,
+      securityType: securityType?.trim(),
       leadManagers: leadManagers
           .map((item) => item.trim())
           .where((item) => item.isNotEmpty)
@@ -1219,6 +1124,9 @@ class IpoCompetitionStock {
       'industry': industry,
       'subscriptionStart': subscriptionStart,
       'subscriptionEnd': subscriptionEnd,
+      'listingDate': resolvedListingDate,
+      'generalSharesDate': normalizedGeneralSharesDate,
+      'securityType': normalizedSecurityType,
       'leadManagers': leadManagers,
       'fundamentals': fundamentals.toJson(),
       'outcome': outcome?.toJson(),
@@ -1242,7 +1150,9 @@ class IpoCompetitionStock {
       'offerPrice': fundamentals.offerPrice,
       'priceBandMin': fundamentals.priceBandMin,
       'priceBandMax': fundamentals.priceBandMax,
-      'listingDate': outcome?.listingDate,
+      'listingDate': resolvedListingDate,
+      'generalSharesDate': normalizedGeneralSharesDate,
+      'securityType': normalizedSecurityType,
       'latestCompetitionRate': latest?.aggregate.competitionRate,
       'latestSnapshotAt': latest?.capturedAt,
       'score': analysis.score.overall,
@@ -1267,6 +1177,62 @@ class IpoCompetitionStock {
       isin: null,
     );
     return fallback.merge(sourceIdentifiers);
+  }
+
+  String? get resolvedListingDate {
+    return normalizeDate(listingDate) ??
+        normalizeDate(outcome?.listingDate) ??
+        listingDate ??
+        outcome?.listingDate;
+  }
+
+  String? get normalizedGeneralSharesDate {
+    return normalizeDate(generalSharesDate) ?? generalSharesDate;
+  }
+
+  String? get normalizedSecurityType {
+    final normalized = securityType?.trim();
+    if (normalized == null || normalized.isEmpty) {
+      return null;
+    }
+    return normalized;
+  }
+}
+
+class IpoManualFundamentalsOverride {
+  const IpoManualFundamentalsOverride({
+    required this.id,
+    required this.company,
+    required this.fundamentals,
+  });
+
+  final String id;
+  final String company;
+  final IpoFundamentals fundamentals;
+
+  factory IpoManualFundamentalsOverride.fromJson(Map<String, Object?> json) {
+    final id = readString(json, 'id') ?? '';
+    final company = readString(json, 'company') ?? '';
+    if (id.trim().isEmpty && company.trim().isEmpty) {
+      throw const FormatException(
+        'Manual override entry requires "id" or "company".',
+      );
+    }
+
+    final nested = json['fundamentals'];
+    final fundamentalsSource = nested == null
+        ? json
+        : nested is Map<String, Object?>
+        ? nested
+        : throw const FormatException(
+            'Invalid manual override fundamentals: "fundamentals" must be an object.',
+          );
+
+    return IpoManualFundamentalsOverride(
+      id: id.trim(),
+      company: company.trim(),
+      fundamentals: IpoFundamentals.fromJson(fundamentalsSource),
+    );
   }
 }
 
@@ -1372,7 +1338,8 @@ Future<void> writeLightweightFeeds({
   bool isRecent(IpoCompetitionStock stock) {
     final end =
         parseDate(stock.subscriptionEnd) ??
-        parseDate(stock.outcome?.listingDate) ??
+        parseDate(stock.resolvedListingDate) ??
+        parseDate(stock.normalizedGeneralSharesDate) ??
         parseDate(stock.subscriptionStart);
     return end != null && !end.isAfter(today);
   }
@@ -1533,7 +1500,9 @@ Map<String, Object?> buildDashboardFeedItem(
     'industry': stock.industry,
     'subscriptionStart': stock.subscriptionStart,
     'subscriptionEnd': stock.subscriptionEnd,
-    'listingDate': stock.outcome?.listingDate,
+    'listingDate': stock.resolvedListingDate,
+    'generalSharesDate': stock.normalizedGeneralSharesDate,
+    'securityType': stock.normalizedSecurityType,
     'latestSnapshotAt': latest?.capturedAt,
     'latestCompetitionRate': latest?.aggregate.competitionRate,
     'score': analysis.score.overall,
@@ -1927,69 +1896,73 @@ Map<String, Object?> buildServiceHealthReport({
 
 List<IpoCompetitionStock> mergeStocks(List<IpoCompetitionStock> stocks) {
   final byId = <String, IpoCompetitionStock>{};
-  final lookupToId = <String, String>{};
   for (final stock in stocks) {
     final id = safeId(stock.id);
-    final subscriptionKey = stock.identifiers.subscriptionKey.trim();
-    final idLookup = 'id:$id';
-    final subscriptionLookup = subscriptionKey.isEmpty
-        ? null
-        : 'sub:$subscriptionKey';
-    final existingId =
-        lookupToId[idLookup] ??
-        (subscriptionLookup == null ? null : lookupToId[subscriptionLookup]);
-    final existing = existingId == null ? null : byId[existingId];
+    final existing = byId[id];
     if (existing == null) {
       byId[id] = stock;
-      lookupToId[idLookup] = id;
-      if (subscriptionLookup != null) {
-        lookupToId[subscriptionLookup] = id;
-      }
       continue;
     }
-    final mergedId =
-        _preferCanonicalStockId(existing.id, stock.id) ?? existing.id;
-    byId.remove(existingId);
-    byId[mergedId] = IpoCompetitionStock(
-      id: mergedId,
+    byId[id] = IpoCompetitionStock(
+      id: id,
       company: stock.company.trim().isEmpty ? existing.company : stock.company,
       market: stock.market.trim().isEmpty ? existing.market : stock.market,
-      industry: stock.industry.trim().isEmpty ? existing.industry : stock.industry,
+      industry: stock.industry.trim().isEmpty
+          ? existing.industry
+          : stock.industry,
       subscriptionStart: stock.subscriptionStart ?? existing.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd ?? existing.subscriptionEnd,
-      leadManagers: canonicalizeLeadManagers([
-        ...existing.leadManagers,
-        ...stock.leadManagers,
-      ]),
+      listingDate: stock.listingDate ?? existing.listingDate,
+      generalSharesDate: stock.generalSharesDate ?? existing.generalSharesDate,
+      securityType: stock.securityType ?? existing.securityType,
+      leadManagers: {...existing.leadManagers, ...stock.leadManagers}.toList(),
       sourceIdentifiers: existing.identifiers.merge(stock.identifiers),
       fundamentals: existing.fundamentals.merge(stock.fundamentals),
       outcome: stock.outcome ?? existing.outcome,
       snapshots: [...existing.snapshots, ...stock.snapshots],
     );
-    lookupToId[idLookup] = mergedId;
-    final existingSubscriptionKey = existing.identifiers.subscriptionKey.trim();
-    if (existingSubscriptionKey.isNotEmpty) {
-      lookupToId['sub:$existingSubscriptionKey'] = mergedId;
-    }
-    if (subscriptionLookup != null) {
-      lookupToId[subscriptionLookup] = mergedId;
-    }
   }
   return byId.values.toList();
 }
 
-String? _preferCanonicalStockId(String currentId, String incomingId) {
-  final current = safeId(currentId);
-  final incoming = safeId(incomingId);
-  final currentAscii = RegExp(r'^[a-z0-9_-]+$').hasMatch(current);
-  final incomingAscii = RegExp(r'^[a-z0-9_-]+$').hasMatch(incoming);
-  if (currentAscii && !incomingAscii) {
-    return current;
+List<IpoCompetitionStock> mergeManualFundamentalsOverrides(
+  List<IpoCompetitionStock> stocks,
+  List<IpoManualFundamentalsOverride> overrides,
+) {
+  final byId = <String, IpoManualFundamentalsOverride>{};
+  final byCompany = <String, IpoManualFundamentalsOverride>{};
+  for (final override in overrides) {
+    if (override.id.isNotEmpty) {
+      byId[safeId(override.id)] = override;
+    }
+    if (override.company.isNotEmpty) {
+      byCompany[normalizeLookup(override.company)] = override;
+    }
   }
-  if (incomingAscii && !currentAscii) {
-    return incoming;
-  }
-  return current;
+
+  return stocks.map((stock) {
+    final override =
+        byId[safeId(stock.id)] ?? byCompany[normalizeLookup(stock.company)];
+    if (override == null) {
+      return stock;
+    }
+    return IpoCompetitionStock(
+      id: stock.id,
+      company: stock.company,
+      market: stock.market,
+      industry: stock.industry,
+      subscriptionStart: stock.subscriptionStart,
+      subscriptionEnd: stock.subscriptionEnd,
+      listingDate: stock.listingDate,
+      generalSharesDate: stock.generalSharesDate,
+      securityType: stock.securityType,
+      leadManagers: stock.leadManagers,
+      sourceIdentifiers: stock.sourceIdentifiers,
+      fundamentals: stock.fundamentals.merge(override.fundamentals),
+      outcome: stock.outcome,
+      snapshots: stock.snapshots,
+    );
+  }).toList();
 }
 
 List<IpoCompetitionStock> buildKnownLeadManagerOverrideStocks(
@@ -2022,6 +1995,9 @@ List<IpoCompetitionStock> buildKnownLeadManagerOverrideStocks(
           industry: stock.industry,
           subscriptionStart: stock.subscriptionStart,
           subscriptionEnd: stock.subscriptionEnd,
+          listingDate: stock.listingDate,
+          generalSharesDate: stock.generalSharesDate,
+          securityType: stock.securityType,
           leadManagers: overrides[safeId(stock.id)]!,
           sourceIdentifiers: stock.identifiers,
           fundamentals: const IpoFundamentals(
@@ -2073,6 +2049,9 @@ List<IpoCompetitionStock> mergeOutcomes(
       industry: stock.industry,
       subscriptionStart: stock.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd,
+      listingDate: stock.listingDate,
+      generalSharesDate: stock.generalSharesDate,
+      securityType: stock.securityType,
       leadManagers: stock.leadManagers,
       sourceIdentifiers: stock.identifiers,
       fundamentals: stock.fundamentals.merge(
@@ -2152,6 +2131,9 @@ List<IpoCompetitionStock> mergeBrokerSnapshots(
       industry: stock.industry,
       subscriptionStart: stock.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd,
+      listingDate: stock.listingDate,
+      generalSharesDate: stock.generalSharesDate,
+      securityType: stock.securityType,
       leadManagers: stock.leadManagers,
       sourceIdentifiers: stock.identifiers,
       fundamentals: stock.fundamentals,
@@ -2242,6 +2224,31 @@ List<IpoBrokerSnapshotRow> buildEstimatedBrokerSnapshotRows(
     );
   }
   return rows;
+}
+
+Future<List<IpoManualFundamentalsOverride>> _loadManualFundamentalsRows(
+  String path,
+) async {
+  if (path.trim().isEmpty) {
+    return const [];
+  }
+  final file = File(path);
+  if (!await file.exists()) {
+    stderr.writeln('Manual fundamentals file not found: $path.');
+    return const [];
+  }
+  final decoded = jsonDecode(await file.readAsString());
+  final rawRows = decoded is Map<String, Object?> && decoded['stocks'] is List
+      ? decoded['stocks'] as List
+      : decoded is List
+      ? decoded
+      : throw const FormatException(
+          'Manual fundamentals file must be a JSON array or an object with "stocks".',
+        );
+  return rawRows
+      .whereType<Map<String, Object?>>()
+      .map(IpoManualFundamentalsOverride.fromJson)
+      .toList();
 }
 
 List<IpoBrokerSnapshotRow> buildEstimatedBrokerRateOnlyRows(
@@ -2351,12 +2358,15 @@ List<IpoCompetitionStock> mergeIdentifierRows(
       return stock;
     }
     return IpoCompetitionStock(
-      id: (row.id != null && row.id!.trim().isNotEmpty) ? row.id! : stock.id,
+      id: stock.id,
       company: stock.company,
       market: stock.market,
       industry: stock.industry,
       subscriptionStart: stock.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd,
+      listingDate: stock.listingDate,
+      generalSharesDate: stock.generalSharesDate,
+      securityType: stock.securityType,
       leadManagers: stock.leadManagers,
       sourceIdentifiers: stock.identifiers.merge(row.identifiers),
       fundamentals: stock.fundamentals,
@@ -2678,20 +2688,8 @@ String canonicalBrokerName(String raw) {
   if (key == normalizeLookup('엔에이치투자증권') || key == normalizeLookup('NH증권')) {
     return 'NH투자증권';
   }
-  if (key == normalizeLookup('엔에이치') || key == normalizeLookup('NH')) {
-    return 'NH투자증권';
-  }
   if (key == normalizeLookup('케이비증권')) {
     return 'KB증권';
-  }
-  if (key == normalizeLookup('케이비') || key == normalizeLookup('KB')) {
-    return 'KB증권';
-  }
-  if (key == normalizeLookup('미래') || key == normalizeLookup('미래에셋')) {
-    return '미래에셋증권';
-  }
-  if (key == normalizeLookup('현대차')) {
-    return '현대차증권';
   }
   for (final broker in knownBrokerNames) {
     if (normalizeLookup(broker) == key) {
@@ -2811,14 +2809,6 @@ IpoCompetitionStock? parseIpoKoreaSupplement({
     '참여 건수',
     '참여기관',
     '참여 기관',
-    '기관참여건수',
-    '기관 참여건수',
-    '기관참여기관',
-    '기관 참여기관',
-    '기관참여기관수',
-    '기관 참여기관수',
-    '참여기관수',
-    '참여 기관수',
   ]);
   final lockupCommitmentRate = parseLabeledPercent(text, [
     '의무보유확약 비율',
@@ -2886,6 +2876,9 @@ IpoCompetitionStock? parseIpoKoreaSupplement({
     industry: stock.industry,
     subscriptionStart: stock.subscriptionStart,
     subscriptionEnd: stock.subscriptionEnd,
+    listingDate: stock.listingDate,
+    generalSharesDate: stock.generalSharesDate,
+    securityType: stock.securityType,
     leadManagers: const [],
     sourceIdentifiers: stock.identifiers,
     fundamentals: IpoFundamentals(
@@ -3423,52 +3416,6 @@ String safeId(String value) {
       .replaceAll(RegExp(r'[^a-z0-9가-힣_-]+'), '_')
       .replaceAll(RegExp(r'_+'), '_')
       .replaceAll(RegExp(r'^_|_$'), '');
-}
-
-bool looksLikeSuspiciousStockValue(String value) {
-  final text = value.trim();
-  if (text.isEmpty) {
-    return true;
-  }
-  final lowered = text.toLowerCase();
-  if (lowered.contains('://') || lowered.startsWith('file:')) {
-    return true;
-  }
-  if (lowered.startsWith('/mnt/') ||
-      lowered.startsWith(r'\\') ||
-      RegExp(r'^[a-z]:[/\\]').hasMatch(lowered)) {
-    return true;
-  }
-  if (text.contains('/') || text.contains('\\')) {
-    return true;
-  }
-  if (RegExp(r'\.(jpg|jpeg|png|webp|gif|bmp|heic|svg|mp4|webm)$')
-      .hasMatch(lowered)) {
-    return true;
-  }
-  if (lowered.contains('harness/static')) {
-    return true;
-  }
-  return false;
-}
-
-List<IpoCompetitionStock> filterSuspiciousStocks(
-  Iterable<IpoCompetitionStock> stocks, {
-  String? context,
-}) {
-  final filtered = <IpoCompetitionStock>[];
-  for (final stock in stocks) {
-    if (looksLikeSuspiciousStockValue(stock.company) ||
-        looksLikeSuspiciousStockValue(stock.id)) {
-      stderr.writeln(
-        '[filter-suspicious-stock] ${context ?? 'unknown'}: '
-        'drop id="${stock.id}" company="${stock.company}"',
-      );
-      continue;
-    }
-    filtered.add(stock);
-  }
-  return filtered;
 }
 
 DateTime? parseDate(String? value) {
@@ -5630,15 +5577,39 @@ IpoCompetitionStock? stockFromDartRow(Map<String, Object?> row) {
     firstNonEmptyString(row, ['pymd', 'subscrpt_endde', 'subscriptionEnd']) ??
         subscriptionStart,
   );
+  final listingDate = normalizeDate(
+    firstNonEmptyString(row, ['list_dt', 'lstg_dt', 'listingDate']),
+  );
+  final generalSharesDate = normalizeDate(
+    firstNonEmptyString(row, [
+      'gnrl_sb_dt',
+      'rights_offer_dt',
+      'general_shares_date',
+      'generalSharesDate',
+    ]),
+  );
   return IpoCompetitionStock(
     id: safeId('${company}_${subscriptionStart ?? ''}'),
     company: company,
     market: '',
     industry:
-        firstNonEmptyString(row, ['induty', 'industry', 'sector', 'induty_nm']) ??
+        firstNonEmptyString(row, [
+          'induty',
+          'industry',
+          'sector',
+          'induty_nm',
+        ]) ??
         '',
     subscriptionStart: subscriptionStart,
     subscriptionEnd: subscriptionEnd,
+    listingDate: listingDate,
+    generalSharesDate: generalSharesDate,
+    securityType: firstNonEmptyString(row, [
+      'securityType',
+      'security_type',
+      'offerType',
+      'kind',
+    ]),
     leadManagers: readLeadManagers(
       firstNonEmptyString(row, ['lead_mgr', 'rprsntv_mngr', 'underwriter']),
     ),
@@ -5699,6 +5670,17 @@ IpoCompetitionStock? stockFromItickRow(Map<String, Object?> row) {
         ]) ??
         subscriptionStart,
   );
+  final listingDate = normalizeDate(
+    firstNonEmptyString(row, ['ipoDate', 'listingDate', 'listing_date']),
+  );
+  final generalSharesDate = normalizeDate(
+    firstNonEmptyString(row, [
+      'generalSharesDate',
+      'general_shares_date',
+      'rightsOfferDate',
+      'rights_offer_date',
+    ]),
+  );
   return IpoCompetitionStock(
     id: safeId('${company}_${subscriptionStart ?? ''}'),
     company: company,
@@ -5706,6 +5688,15 @@ IpoCompetitionStock? stockFromItickRow(Map<String, Object?> row) {
     industry: firstNonEmptyString(row, ['industry', 'sector']) ?? '',
     subscriptionStart: subscriptionStart,
     subscriptionEnd: subscriptionEnd,
+    listingDate: listingDate,
+    generalSharesDate: generalSharesDate,
+    securityType: firstNonEmptyString(row, [
+      'securityType',
+      'security_type',
+      'offerType',
+      'kind',
+      'type',
+    ]),
     leadManagers: readLeadManagers(
       firstNonEmptyString(row, ['leadManager', 'lead_manager', 'underwriter']),
     ),
@@ -5776,20 +5767,9 @@ List<String> readLeadManagers(String? value) {
   if (value == null || value.trim().isEmpty) {
     return const [];
   }
-  return canonicalizeLeadManagers(
-    value
-        .split(RegExp(r'[,/·、]|및|,|;'))
-        .map((item) => item.trim())
-        .where((item) => item.isNotEmpty),
-  );
-}
-
-List<String> canonicalizeLeadManagers(Iterable<String> values) {
-  return values
-      .map(canonicalBrokerName)
+  return value
+      .split(RegExp(r'[,/·、]|및|,|;'))
       .map((item) => item.trim())
       .where((item) => item.isNotEmpty)
-      .toSet()
-      .toList()
-    ..sort();
+      .toList();
 }

@@ -14,8 +14,10 @@
   "industry": "",
   "subscriptionStart": "2026-05-22",
   "subscriptionEnd": "2026-05-26",
+  "listingDate": "2026-05-26",
+  "generalSharesDate": null,
+  "securityType": null,
   "leadManagers": [
-    "대신",
     "대신증권"
   ],
   "fundamentals": {
@@ -37,7 +39,7 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 25,
+      "overall": 23,
       "grade": "C-",
       "confidence": 0.45,
       "factors": {
@@ -46,7 +48,7 @@
         "spacMomentum": 1,
         "spacVolatility": 3,
         "market": 5,
-        "leadManagers": 5,
+        "leadManagers": 3,
         "recency": 3,
         "dataCompleteness": 4
       }
@@ -88,7 +90,6 @@
       "level": "insufficient_data",
       "label": "데이터 부족",
       "reasons": [
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
         "스팩 전용 보정으로 일반 IPO 확약률 대신 상장일 수급 요인을 반영했습니다."
       ],
       "warnings": [
@@ -101,7 +102,7 @@
     "inputs": {
       "latestCompetitionRate": null,
       "snapshotCount": 0,
-      "leadManagerCount": 2,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": null,

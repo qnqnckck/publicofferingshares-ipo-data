@@ -11,18 +11,19 @@
   },
   "company": "엑셀세라퓨틱스",
   "market": "KOSDAQ",
-  "industry": "생물공학",
+  "industry": "",
   "subscriptionStart": "2024-07-03",
   "subscriptionEnd": "2024-07-04",
+  "listingDate": "2024-07-15",
+  "generalSharesDate": null,
+  "securityType": null,
   "leadManagers": [
-    "대신",
-    "대신증권",
-    "한국"
+    "대신증권"
   ],
   "fundamentals": {
     "offerPrice": 10000,
-    "priceBandMin": 6200,
-    "priceBandMax": 7700,
+    "priceBandMin": null,
+    "priceBandMax": null,
     "topBandConfirmation": null,
     "institutionCompetitionRate": 1233.8,
     "institutionParticipants": null,
@@ -99,16 +100,16 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 52,
-      "grade": "C+",
+      "overall": 44,
+      "grade": "C",
       "confidence": 0.95,
       "factors": {
         "competition": 13,
         "institutionDemand": 24,
-        "demandStrength": 6,
+        "demandStrength": 0,
         "lockupCommitment": 0,
         "floatRate": 0,
-        "pricing": 4
+        "pricing": 3
       }
     },
     "expectedReturn": {
@@ -132,7 +133,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.3444,
+        "generalPriorBase": 0.2788,
         "institutionBoost": 0.09,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -140,16 +141,15 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 65,
+        "generalCalibrationSampleCount": 127,
         "generalCompetitionPending": false
       }
     },
     "decision": {
-      "level": "neutral",
-      "label": "중립",
+      "level": "caution",
+      "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1035.39대 1입니다.",
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "최근 확인된 일반청약 경쟁률은 1035.39대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -170,7 +170,7 @@
     "inputs": {
       "latestCompetitionRate": 1035.39,
       "snapshotCount": 2,
-      "leadManagerCount": 3,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1233.8,

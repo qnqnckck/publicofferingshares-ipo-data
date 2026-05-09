@@ -11,11 +11,13 @@
   },
   "company": "케이쓰리아이",
   "market": "KOSDAQ",
-  "industry": "IT서비스",
+  "industry": "",
   "subscriptionStart": "2024-08-07",
   "subscriptionEnd": "2024-08-08",
+  "listingDate": "2024-08-20",
+  "generalSharesDate": null,
+  "securityType": null,
   "leadManagers": [
-    "하나",
     "하나증권"
   ],
   "fundamentals": {
@@ -68,37 +70,22 @@
       }
     },
     {
-      "capturedAt": "2026-05-09T01:15:14.018653",
+      "capturedAt": "2026-05-10T04:31:49.555054",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.hankyung.com/article/2024082027786",
       "brokers": [
         {
-          "name": "하나",
-          "offeredShares": 175000,
-          "subscribedShares": 5999000,
-          "offerPrice": 15500,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 34.28,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 34.28,
-          "equalAllocationShares": 87500,
-          "proportionalAllocationShares": 87500,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        },
-        {
           "name": "하나증권",
-          "offeredShares": 175000,
-          "subscribedShares": 5999000,
+          "offeredShares": 350000,
+          "subscribedShares": 11998000,
           "offerPrice": 15500,
           "depositRate": null,
           "feeKrw": null,
           "competitionRate": 34.28,
           "equalCompetitionRate": null,
           "proportionalCompetitionRate": 34.28,
-          "equalAllocationShares": 87500,
-          "proportionalAllocationShares": 87500,
+          "equalAllocationShares": 175000,
+          "proportionalAllocationShares": 175000,
           "expectedEqualShares": null,
           "applicationCount": null
         }
@@ -154,7 +141,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 65,
+        "generalCalibrationSampleCount": 127,
         "generalCompetitionPending": false
       }
     },
@@ -162,23 +149,13 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 34.28대 1입니다.",
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "최근 확인된 일반청약 경쟁률은 34.28대 1입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
     "brokerScores": [
-      {
-        "broker": "하나",
-        "equalScore": 30,
-        "proportionalScore": 100,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 265670,
-        "feeKrw": null,
-        "dataQuality": "partial"
-      },
       {
         "broker": "하나증권",
         "equalScore": 30,
@@ -192,7 +169,7 @@
     "inputs": {
       "latestCompetitionRate": 34.28,
       "snapshotCount": 2,
-      "leadManagerCount": 2,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 239.23,

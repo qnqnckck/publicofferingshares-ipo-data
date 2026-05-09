@@ -11,17 +11,19 @@
   },
   "company": "라메디텍",
   "market": "KOSDAQ",
-  "industry": "건강관리장비와용품",
+  "industry": "",
   "subscriptionStart": "2024-06-05",
   "subscriptionEnd": "2024-06-07",
+  "listingDate": "2024-06-17",
+  "generalSharesDate": null,
+  "securityType": null,
   "leadManagers": [
-    "대신",
     "대신증권"
   ],
   "fundamentals": {
     "offerPrice": 16000,
-    "priceBandMin": 10400,
-    "priceBandMax": 12700,
+    "priceBandMin": null,
+    "priceBandMax": null,
     "topBandConfirmation": null,
     "institutionCompetitionRate": 1115.44,
     "institutionParticipants": null,
@@ -98,16 +100,16 @@
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 51,
-      "grade": "C+",
+      "overall": 43,
+      "grade": "C-",
       "confidence": 0.95,
       "factors": {
         "competition": 14,
         "institutionDemand": 22,
-        "demandStrength": 6,
+        "demandStrength": 0,
         "lockupCommitment": 0,
         "floatRate": 0,
-        "pricing": 4
+        "pricing": 3
       }
     },
     "expectedReturn": {
@@ -131,7 +133,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.3362,
+        "generalPriorBase": 0.2706,
         "institutionBoost": 0.07693000000000001,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -139,7 +141,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 65,
+        "generalCalibrationSampleCount": 127,
         "generalCompetitionPending": false
       }
     },
@@ -147,8 +149,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 4280.77대 1입니다.",
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "최근 확인된 일반청약 경쟁률은 4280.77대 1입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -169,7 +170,7 @@
     "inputs": {
       "latestCompetitionRate": 4280.77,
       "snapshotCount": 2,
-      "leadManagerCount": 2,
+      "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1115.44,
