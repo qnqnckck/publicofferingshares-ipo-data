@@ -1093,10 +1093,7 @@ class IpoCompetitionStock {
       listingDate: normalizeDate(listingDate) ?? listingDate,
       generalSharesDate: normalizeDate(generalSharesDate) ?? generalSharesDate,
       securityType: securityType?.trim(),
-      leadManagers: leadManagers
-          .map((item) => item.trim())
-          .where((item) => item.isNotEmpty)
-          .toList(),
+      leadManagers: mergeOrderedStrings(leadManagers, const []),
       sourceIdentifiers: identifiers,
       fundamentals: fundamentals.normalized(),
       outcome: outcome?.normalized(),
@@ -2904,11 +2901,38 @@ double? parseDepositRate(String text) {
 
 String canonicalBrokerName(String raw) {
   final key = normalizeLookup(raw);
-  if (key == normalizeLookup('엔에이치투자증권') || key == normalizeLookup('NH증권')) {
+  if (key == normalizeLookup('엔에이치투자증권') ||
+      key == normalizeLookup('NH증권') ||
+      key == normalizeLookup('NH')) {
     return 'NH투자증권';
   }
-  if (key == normalizeLookup('케이비증권')) {
+  if (key == normalizeLookup('케이비증권') ||
+      key == normalizeLookup('KB')) {
     return 'KB증권';
+  }
+  if (key == normalizeLookup('한국')) {
+    return '한국투자증권';
+  }
+  if (key == normalizeLookup('미래')) {
+    return '미래에셋증권';
+  }
+  if (key == normalizeLookup('현대차')) {
+    return '현대차증권';
+  }
+  if (key == normalizeLookup('신한')) {
+    return '신한투자증권';
+  }
+  if (key == normalizeLookup('대신')) {
+    return '대신증권';
+  }
+  if (key == normalizeLookup('하나')) {
+    return '하나증권';
+  }
+  if (key == normalizeLookup('삼성')) {
+    return '삼성증권';
+  }
+  if (key == normalizeLookup('SK')) {
+    return 'SK증권';
   }
   for (final broker in knownBrokerNames) {
     if (normalizeLookup(broker) == key) {
