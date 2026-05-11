@@ -127,19 +127,20 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 96,
-      "grade": "A+",
+      "overall": 90,
+      "grade": "A",
       "confidence": 0.95,
       "factors": {
-        "institutionDemand": 24,
+        "institutionDemand": 22,
         "demandStrength": 10,
         "lockupCommitment": 18,
         "pricing": 10,
-        "marketCap": 10,
-        "publicAllocation": 4
+        "marketCap": 8,
+        "publicAllocation": 4,
+        "leadManagerCoverage": 0
       },
-      "demand": 100,
-      "value": 78,
+      "demand": 97,
+      "value": 60,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
@@ -163,7 +164,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.8705119999999998,
+        "generalPriorBase": 0.821312,
         "institutionBoost": 0.09,
         "lockupBoost": 0.1,
         "participantBoost": 0.025,
@@ -209,8 +210,8 @@
       "floatRate": null,
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 100,
-      "valueScore": 78
+      "demandScore": 97,
+      "valueScore": 60
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

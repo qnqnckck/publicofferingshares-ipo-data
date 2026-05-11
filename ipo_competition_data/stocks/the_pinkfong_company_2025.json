@@ -116,7 +116,7 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 66,
+      "overall": 67,
       "grade": "B",
       "confidence": 0.95,
       "factors": {
@@ -125,26 +125,27 @@
         "lockupCommitment": 14,
         "pricing": 8,
         "marketCap": 5,
-        "publicAllocation": 8
+        "publicAllocation": 8,
+        "leadManagerCoverage": 2
       },
       "demand": 65,
-      "value": 72,
+      "value": 75,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.7897,
-      "bearCaseListingGainRate": 0.6097,
-      "baseCaseListingGainRate": 0.7897,
-      "bullCaseListingGainRate": 1.0097,
+      "expectedListingGainRate": 0.7953,
+      "bearCaseListingGainRate": 0.6153,
+      "baseCaseListingGainRate": 0.7953,
+      "bullCaseListingGainRate": 1.0153,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.553,
         "oneMillionKrw": 0.573,
         "fiveMillionKrw": 0.697
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 16607,
-        "oneMillionKrw": 17185,
-        "fiveMillionKrw": 20915
+        "minimumSubscription": 16724,
+        "oneMillionKrw": 17306,
+        "fiveMillionKrw": 21062
       },
       "assumptions": {
         "offerPrice": 38000,
@@ -152,12 +153,12 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.49123622857142857,
+        "generalPriorBase": 0.49943622857142855,
         "institutionBoost": 0.014487499999999997,
         "lockupBoost": 0.03855000000000001,
         "participantBoost": 0.05,
         "topBandBoost": 0.0,
-        "scoreBoost": -0.03333333333333333,
+        "scoreBoost": -0.027777777777777776,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 64,
@@ -207,7 +208,7 @@
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 65,
-      "valueScore": 72
+      "valueScore": 75
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

@@ -70,7 +70,7 @@
       }
     },
     {
-      "capturedAt": "2026-05-12T03:21:00.385885",
+      "capturedAt": "2026-05-12T03:36:06.247512",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://happy-cleanup.com/962",
       "brokers": [
@@ -100,17 +100,18 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 55,
-      "grade": "C+",
+      "overall": 45,
+      "grade": "C",
       "confidence": 0.95,
       "factors": {
         "institutionDemand": 24,
         "demandStrength": 6,
         "lockupCommitment": 0,
-        "pricing": 4
+        "pricing": 4,
+        "leadManagerCoverage": 0
       },
       "demand": 55,
-      "value": 55,
+      "value": 0,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
@@ -134,7 +135,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.369,
+        "generalPriorBase": 0.28700000000000003,
         "institutionBoost": 0.09,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -147,8 +148,8 @@
       }
     },
     "decision": {
-      "level": "neutral",
-      "label": "중립",
+      "level": "caution",
+      "label": "주의",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 824.13대 1입니다."
       ],
@@ -179,7 +180,7 @@
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 55,
-      "valueScore": 55
+      "valueScore": 0
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

@@ -70,7 +70,7 @@
       }
     },
     {
-      "capturedAt": "2026-05-12T03:21:00.385885",
+      "capturedAt": "2026-05-12T03:36:06.247512",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.yna.co.kr/view/AKR20240321042251008",
       "brokers": [
@@ -100,17 +100,18 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 29,
+      "overall": 24,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
         "institutionDemand": 8,
         "demandStrength": 6,
         "lockupCommitment": 0,
-        "pricing": 4
+        "pricing": 4,
+        "leadManagerCoverage": 0
       },
       "demand": 29,
-      "value": 29,
+      "value": 0,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
@@ -134,7 +135,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.10506917714285714,
+        "generalPriorBase": 0.06406917714285716,
         "institutionBoost": 0.018638750000000003,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -180,7 +181,7 @@
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 29,
-      "valueScore": 29
+      "valueScore": 0
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

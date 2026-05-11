@@ -71,7 +71,7 @@
       }
     },
     {
-      "capturedAt": "2026-05-12T03:21:00.385885",
+      "capturedAt": "2026-05-12T03:36:06.247512",
       "source": "estimated_broker_split",
       "sourceUrl": "https://ipokorea.kr/ipo/%EB%8D%95%EC%96%91%EC%97%90%EB%84%88%EC%A0%A0",
       "brokers": [
@@ -116,7 +116,7 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 70,
+      "overall": 71,
       "grade": "B",
       "confidence": 0.95,
       "factors": {
@@ -125,17 +125,18 @@
         "lockupCommitment": 18,
         "pricing": 8,
         "marketCap": 8,
-        "publicAllocation": 4
+        "publicAllocation": 4,
+        "leadManagerCoverage": 2
       },
       "demand": 71,
-      "value": 67,
+      "value": 70,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.8776,
-      "bearCaseListingGainRate": 0.6976,
-      "baseCaseListingGainRate": 0.8776,
-      "bullCaseListingGainRate": 1.1776,
+      "expectedListingGainRate": 0.8832,
+      "bearCaseListingGainRate": 0.7032,
+      "baseCaseListingGainRate": 0.8832,
+      "bullCaseListingGainRate": 1.1832,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.007,
         "oneMillionKrw": 0.074,
@@ -143,8 +144,8 @@
       },
       "expectedProfitKrw": {
         "minimumSubscription": 65,
-        "oneMillionKrw": 649,
-        "fiveMillionKrw": 3243
+        "oneMillionKrw": 653,
+        "fiveMillionKrw": 3264
       },
       "assumptions": {
         "offerPrice": 10000,
@@ -152,12 +153,12 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.5742342857142857,
+        "generalPriorBase": 0.5824342857142857,
         "institutionBoost": 0.01875,
         "lockupBoost": 0.1,
         "participantBoost": 0.05,
         "topBandBoost": 0.0,
-        "scoreBoost": -0.011111111111111112,
+        "scoreBoost": -0.005555555555555556,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 64,
@@ -209,7 +210,7 @@
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 71,
-      "valueScore": 67
+      "valueScore": 70
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

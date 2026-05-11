@@ -127,7 +127,7 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 83,
+      "overall": 82,
       "grade": "A-",
       "confidence": 0.95,
       "factors": {
@@ -136,26 +136,27 @@
         "lockupCommitment": 18,
         "pricing": 8,
         "marketCap": 8,
-        "publicAllocation": 8
+        "publicAllocation": 8,
+        "leadManagerCoverage": 0
       },
       "demand": 82,
-      "value": 89,
+      "value": 80,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 1.2189,
+      "expectedListingGainRate": 1.2133,
       "bearCaseListingGainRate": 1.0,
-      "baseCaseListingGainRate": 1.2189,
-      "bullCaseListingGainRate": 1.5189,
+      "baseCaseListingGainRate": 1.2133,
+      "bullCaseListingGainRate": 1.5133,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.543,
         "oneMillionKrw": 0.553,
         "fiveMillionKrw": 0.606
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 13228,
-        "oneMillionKrw": 13485,
-        "fiveMillionKrw": 14769
+        "minimumSubscription": 13168,
+        "oneMillionKrw": 13423,
+        "fiveMillionKrw": 14701
       },
       "assumptions": {
         "offerPrice": 20000,
@@ -163,12 +164,12 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.7247066285714286,
+        "generalPriorBase": 0.7165066285714287,
         "institutionBoost": 0.0577625,
         "lockupBoost": 0.1,
         "participantBoost": 0.05,
         "topBandBoost": 0.0,
-        "scoreBoost": 0.06111111111111111,
+        "scoreBoost": 0.05555555555555555,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 64,
@@ -210,7 +211,7 @@
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 82,
-      "valueScore": 89
+      "valueScore": 80
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

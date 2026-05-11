@@ -70,7 +70,7 @@
       }
     },
     {
-      "capturedAt": "2026-05-12T03:21:00.385885",
+      "capturedAt": "2026-05-12T03:36:06.247512",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://finfreedom.tistory.com",
       "brokers": [
@@ -100,17 +100,18 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 18,
+      "overall": 15,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
         "institutionDemand": 1,
         "demandStrength": 0,
         "lockupCommitment": 0,
-        "pricing": 10
+        "pricing": 10,
+        "leadManagerCoverage": 0
       },
       "demand": 18,
-      "value": 18,
+      "value": 0,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
@@ -134,7 +135,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
-        "generalPriorBase": -0.013119999999999975,
+        "generalPriorBase": -0.03772,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -179,7 +180,7 @@
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 18,
-      "valueScore": 18
+      "valueScore": 0
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

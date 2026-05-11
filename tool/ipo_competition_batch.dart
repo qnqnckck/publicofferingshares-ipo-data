@@ -5361,6 +5361,11 @@ IpoAnalysis analyzeStock(
     if (stock.fundamentals.publicAllocationShares != null) {
       valueFactors['publicAllocation'] = scorePublicAllocationForStock(stock);
     }
+    if (stock.leadManagers.isNotEmpty) {
+      valueFactors['leadManagerCoverage'] = scoreLeadManagerCoverageForStock(
+        stock,
+      );
+    }
     if (stock.fundamentals.hasPutbackRight) {
       valueFactors['putbackRight'] = scorePutbackRightForStock(stock);
     }
@@ -5743,9 +5748,6 @@ int scoreInstitutionDemand(IpoFundamentals fundamentals) {
   if (rate == null) {
     return 0;
   }
-  if (rate >= 1200) {
-    return 24;
-  }
   if (rate >= 1500) {
     return 24;
   }
@@ -5831,9 +5833,6 @@ int scoreMarketCapForStock(IpoCompetitionStock stock) {
   if (marketCap == null || marketCap <= 0) {
     return 0;
   }
-  if (marketCap <= 150000000000) {
-    return 10;
-  }
   if (marketCap <= 300000000000) {
     return 8;
   }
@@ -5844,6 +5843,17 @@ int scoreMarketCapForStock(IpoCompetitionStock stock) {
     return 3;
   }
   return 1;
+}
+
+int scoreLeadManagerCoverageForStock(IpoCompetitionStock stock) {
+  final count = stock.leadManagers.length;
+  if (count >= 2) {
+    return 2;
+  }
+  if (count == 1) {
+    return 0;
+  }
+  return 0;
 }
 
 int scorePublicAllocationForStock(IpoCompetitionStock stock) {
@@ -6592,6 +6602,7 @@ int maxScoreForFactors(Map<String, int> factors) {
     'pricing': 10,
     'marketCap': 10,
     'publicAllocation': 8,
+    'leadManagerCoverage': 2,
     'putbackRight': 4,
     'market': 6,
     'leadManagers': 6,

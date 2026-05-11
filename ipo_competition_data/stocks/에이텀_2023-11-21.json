@@ -43,7 +43,7 @@
   },
   "snapshots": [
     {
-      "capturedAt": "2026-05-12T03:21:00.385885",
+      "capturedAt": "2026-05-12T03:36:06.247512",
       "source": "estimated_broker_split",
       "sourceUrl": "https://ipokorea.kr/ipo/%EC%97%90%EC%9D%B4%ED%85%80",
       "brokers": [
@@ -73,17 +73,18 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 16,
+      "overall": 13,
       "grade": "C-",
       "confidence": 0.9,
       "factors": {
         "institutionDemand": 0,
         "demandStrength": 0,
         "lockupCommitment": 0,
-        "pricing": 10
+        "pricing": 10,
+        "leadManagerCoverage": 0
       },
       "demand": 16,
-      "value": 16,
+      "value": 0,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
@@ -107,7 +108,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": -0.029039999999999976,
+        "generalPriorBase": -0.053239999999999996,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -153,7 +154,7 @@
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 16,
-      "valueScore": 16
+      "valueScore": 0
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

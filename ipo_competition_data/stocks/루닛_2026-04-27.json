@@ -70,7 +70,7 @@
       }
     },
     {
-      "capturedAt": "2026-05-12T03:21:00.385885",
+      "capturedAt": "2026-05-12T03:36:06.247512",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://ipokorea.kr/ipo/%EB%A3%A8%EB%8B%9B",
       "brokers": [
@@ -100,7 +100,7 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 38,
+      "overall": 32,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
@@ -108,26 +108,27 @@
         "demandStrength": 0,
         "lockupCommitment": 4,
         "pricing": 3,
-        "marketCap": 10
+        "marketCap": 8,
+        "leadManagerCoverage": 0
       },
       "demand": 24,
-      "value": 100,
+      "value": 67,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.1223,
-      "bearCaseListingGainRate": -0.0577,
-      "baseCaseListingGainRate": 0.1223,
-      "bullCaseListingGainRate": 0.3423,
+      "expectedListingGainRate": 0.0819,
+      "bearCaseListingGainRate": -0.0981,
+      "baseCaseListingGainRate": 0.0819,
+      "bullCaseListingGainRate": 0.3019,
       "expectedAllocatedShares": {
         "minimumSubscription": 1.111,
         "oneMillionKrw": 4.154,
         "fiveMillionKrw": 20.768
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 3634,
-        "oneMillionKrw": 13585,
-        "fiveMillionKrw": 67926
+        "minimumSubscription": 2435,
+        "oneMillionKrw": 9103,
+        "fiveMillionKrw": 45513
       },
       "assumptions": {
         "offerPrice": 26750,
@@ -135,7 +136,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
-        "generalPriorBase": 0.17708813714285715,
+        "generalPriorBase": 0.12788813714285716,
         "institutionBoost": 0.017055000000000008,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -180,7 +181,7 @@
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 24,
-      "valueScore": 100
+      "valueScore": 67
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }
