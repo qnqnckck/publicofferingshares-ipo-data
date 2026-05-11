@@ -11,7 +11,7 @@
   },
   "company": "에스와이스틸텍",
   "market": "KOSDAQ",
-  "industry": "건축자재",
+  "industry": "",
   "subscriptionStart": "2023-11-01",
   "subscriptionEnd": "2023-11-02",
   "listingDate": "2023-11-13",
@@ -21,7 +21,7 @@
     "KB증권"
   ],
   "fundamentals": {
-    "offerPrice": 1800,
+    "offerPrice": 3345,
     "priceBandMin": 1200,
     "priceBandMax": 1500,
     "topBandConfirmation": null,
@@ -34,7 +34,13 @@
     "hasPutbackRight": false,
     "putbackSummary": null
   },
-  "outcome": null,
+  "outcome": {
+    "listingDate": "2025-09-09",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100421"
+  },
   "snapshots": [
     {
       "capturedAt": "2023-11-02T16:00:00+09:00",
@@ -167,16 +173,16 @@
       "bullCaseListingGainRate": 1.2466,
       "expectedAllocatedShares": {
         "minimumSubscription": 5.545,
-        "oneMillionKrw": 5.818,
-        "fiveMillionKrw": 6.928
+        "oneMillionKrw": 5.689,
+        "fiveMillionKrw": 6.287
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 10247,
-        "oneMillionKrw": 10750,
-        "fiveMillionKrw": 12802
+        "minimumSubscription": 19042,
+        "oneMillionKrw": 19538,
+        "fiveMillionKrw": 21589
       },
       "assumptions": {
-        "offerPrice": 1800,
+        "offerPrice": 3345,
         "competitionRate": 2001.47,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
@@ -208,9 +214,9 @@
       {
         "broker": "KB증권",
         "equalScore": 100,
-        "proportionalScore": 56,
+        "proportionalScore": 30,
         "expectedEqualShares": 5.54,
-        "estimatedDepositForOneProportionalShare": 1801323,
+        "estimatedDepositForOneProportionalShare": 3347459,
         "feeKrw": 1500,
         "dataQuality": "broker_verified"
       }
@@ -224,7 +230,7 @@
       "institutionCompetitionRate": 1113.0,
       "lockupCommitmentRate": 0.0669,
       "floatRate": null,
-      "hasOutcome": false
+      "hasOutcome": true
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

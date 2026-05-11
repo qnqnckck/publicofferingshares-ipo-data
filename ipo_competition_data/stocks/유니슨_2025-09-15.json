@@ -14,9 +14,9 @@
   "industry": "",
   "subscriptionStart": "2025-09-15",
   "subscriptionEnd": "2025-09-16",
-  "listingDate": null,
-  "generalSharesDate": "2025-09-16",
-  "securityType": "GENERAL_SHARES",
+  "listingDate": "2025-09-16",
+  "generalSharesDate": null,
+  "securityType": null,
   "leadManagers": [
     "SK증권",
     "LS",
@@ -36,7 +36,13 @@
     "hasPutbackRight": false,
     "putbackSummary": null
   },
-  "outcome": null,
+  "outcome": {
+    "listingDate": "2025-09-16",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100424"
+  },
   "snapshots": [],
   "analysis": {
     "methodVersion": "ipo-score-v4",
@@ -107,7 +113,7 @@
       "institutionCompetitionRate": null,
       "lockupCommitmentRate": null,
       "floatRate": null,
-      "hasOutcome": false
+      "hasOutcome": true
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

@@ -11,13 +11,14 @@
   },
   "company": "사이냅소프트",
   "market": "KOSDAQ",
-  "industry": "소프트웨어",
+  "industry": "",
   "subscriptionStart": "2024-11-08",
   "subscriptionEnd": "2024-11-11",
   "listingDate": "2024-11-19",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
+    "키움증권",
     "NH투자증권"
   ],
   "fundamentals": {
@@ -57,6 +58,60 @@
           "competitionRate": 60.466,
           "equalCompetitionRate": null,
           "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 60.466
+      }
+    },
+    {
+      "capturedAt": "2026-05-11T12:31:22.506402",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
+      "brokers": [
+        {
+          "name": "키움증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 24500,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 60.466,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 60.466,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 60.466
+      }
+    },
+    {
+      "capturedAt": "2026-05-11T12:31:22.506402",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
+      "brokers": [
+        {
+          "name": "키움증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 24500,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 60.466,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 60.466,
           "equalAllocationShares": null,
           "proportionalAllocationShares": null,
           "expectedEqualShares": null,
@@ -122,17 +177,28 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 60.47대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 60.47대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "키움증권",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 740709,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 60.466,
-      "snapshotCount": 1,
-      "leadManagerCount": 1,
+      "snapshotCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1163.2,

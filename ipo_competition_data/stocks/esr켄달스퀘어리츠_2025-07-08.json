@@ -14,9 +14,9 @@
   "industry": "",
   "subscriptionStart": "2025-07-08",
   "subscriptionEnd": "2025-07-09",
-  "listingDate": null,
-  "generalSharesDate": "2025-07-09",
-  "securityType": "GENERAL_SHARES",
+  "listingDate": "2025-07-09",
+  "generalSharesDate": null,
+  "securityType": null,
   "leadManagers": [
     "삼성증권",
     "NH투자증권",
@@ -37,7 +37,13 @@
     "hasPutbackRight": false,
     "putbackSummary": null
   },
-  "outcome": null,
+  "outcome": {
+    "listingDate": "2025-07-09",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100396"
+  },
   "snapshots": [],
   "analysis": {
     "methodVersion": "ipo-score-v4",
@@ -108,7 +114,7 @@
       "institutionCompetitionRate": null,
       "lockupCommitmentRate": null,
       "floatRate": null,
-      "hasOutcome": false
+      "hasOutcome": true
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

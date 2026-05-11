@@ -11,14 +11,16 @@
   },
   "company": "포스뱅크",
   "market": "KOSDAQ",
-  "industry": "컴퓨터와주변기기",
+  "industry": "",
   "subscriptionStart": "2024-01-17",
   "subscriptionEnd": "2024-01-18",
   "listingDate": "2024-01-29",
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "하나증권"
+    "하나증권",
+    "메리츠증권",
+    "삼성증권"
   ],
   "fundamentals": {
     "offerPrice": 18000,
@@ -70,10 +72,40 @@
       }
     },
     {
-      "capturedAt": "2026-05-10T05:25:57.149806",
+      "capturedAt": "2026-05-11T12:31:22.506402",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.mk.co.kr/news/stock/10931892",
       "brokers": [
+        {
+          "name": "메리츠증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 18000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1397.07,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1397.07,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 18000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1397.07,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1397.07,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
         {
           "name": "하나증권",
           "offeredShares": 0,
@@ -97,10 +129,40 @@
       }
     },
     {
-      "capturedAt": "2026-05-10T05:25:57.149806",
+      "capturedAt": "2026-05-11T12:31:22.506402",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.mk.co.kr/news/stock/10931892",
       "brokers": [
+        {
+          "name": "메리츠증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 18000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1397.07,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1397.07,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 18000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1397.07,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1397.07,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
         {
           "name": "하나증권",
           "offeredShares": 0,
@@ -176,7 +238,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1397.07대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 1397.07대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -184,6 +247,24 @@
       ]
     },
     "brokerScores": [
+      {
+        "broker": "메리츠증권",
+        "equalScore": 30,
+        "proportionalScore": 8,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 12573630,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "삼성증권",
+        "equalScore": 30,
+        "proportionalScore": 8,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 12573630,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
       {
         "broker": "하나증권",
         "equalScore": 30,
@@ -197,7 +278,7 @@
     "inputs": {
       "latestCompetitionRate": 1397.07,
       "snapshotCount": 3,
-      "leadManagerCount": 1,
+      "leadManagerCount": 3,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 839.03,

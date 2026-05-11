@@ -14,9 +14,9 @@
   "industry": "",
   "subscriptionStart": "2026-04-20",
   "subscriptionEnd": "2026-04-21",
-  "listingDate": null,
-  "generalSharesDate": "2026-04-21",
-  "securityType": "GENERAL_SHARES",
+  "listingDate": "2026-04-21",
+  "generalSharesDate": null,
+  "securityType": null,
   "leadManagers": [
     "한국투자증권",
     "신한투자증권",
@@ -24,20 +24,26 @@
     "현대차증권"
   ],
   "fundamentals": {
-    "offerPrice": 6000,
+    "offerPrice": 2135,
     "priceBandMin": 0,
     "priceBandMax": 0,
     "topBandConfirmation": null,
-    "institutionCompetitionRate": 643.29,
+    "institutionCompetitionRate": 636.44,
     "institutionParticipants": null,
     "lockupCommitmentRate": null,
     "floatRate": null,
-    "marketCapKrw": 191902836000,
+    "marketCapKrw": 125524305000,
     "publicAllocationShares": null,
     "hasPutbackRight": false,
     "putbackSummary": null
   },
-  "outcome": null,
+  "outcome": {
+    "listingDate": "2026-04-21",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100549"
+  },
   "snapshots": [],
   "analysis": {
     "methodVersion": "ipo-score-v4",
@@ -55,28 +61,28 @@
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.1494,
-      "bearCaseListingGainRate": -0.0506,
-      "baseCaseListingGainRate": 0.1494,
-      "bullCaseListingGainRate": 0.4294,
+      "expectedListingGainRate": 0.1486,
+      "bearCaseListingGainRate": -0.0514,
+      "baseCaseListingGainRate": 0.1486,
+      "bullCaseListingGainRate": 0.4286,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.208,
-        "fiveMillionKrw": 1.042
+        "oneMillionKrw": 0.585,
+        "fiveMillionKrw": 2.927
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 11,
-        "oneMillionKrw": 187,
-        "fiveMillionKrw": 934
+        "minimumSubscription": 4,
+        "oneMillionKrw": 186,
+        "fiveMillionKrw": 929
       },
       "assumptions": {
-        "offerPrice": 6000,
+        "offerPrice": 2135,
         "competitionRate": null,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": -0.030576727619047648,
-        "institutionBoost": 0.017911249999999997,
+        "generalPriorBase": -0.03141438476190478,
+        "institutionBoost": 0.017055000000000008,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
         "topBandBoost": 0.0,
@@ -105,10 +111,10 @@
       "leadManagerCount": 4,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": 643.29,
+      "institutionCompetitionRate": 636.44,
       "lockupCommitmentRate": null,
       "floatRate": null,
-      "hasOutcome": false
+      "hasOutcome": true
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

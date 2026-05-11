@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-10T05:25:57.149806",
+  "generatedAt": "2026-05-11T12:31:22.506402",
   "totals": {
     "generatedStocks": 536,
-    "activeStocks": 0,
-    "upcomingNext7Days": 1
+    "activeStocks": 1,
+    "upcomingNext7Days": 0
   },
   "activeReadiness": {
     "missingLatestSnapshotAt": 0,
@@ -13,30 +13,35 @@
     "missingInstitutionCompetitionRate": 0,
     "missingInstitutionParticipants": 0,
     "missingLockupCommitmentRate": 0,
-    "liveLikeSourceCount": 0,
+    "liveLikeSourceCount": 1,
     "finutsSourceCount": 0,
     "ocrSourceCount": 0
   },
-  "activeLatestSourceCounts": {},
+  "activeLatestSourceCounts": {
+    "38_news_live": 1
+  },
   "activeSnapshotFreshness": {
-    "within_1h": 0,
+    "within_1h": 1,
     "within_6h": 0,
     "within_24h": 0,
     "older": 0,
     "missing": 0
   },
-  "activeSamples": [],
-  "upcomingSamples": [
+  "activeSamples": [
     {
       "id": "마키나락스_2026-05-11",
       "company": "마키나락스",
       "path": "stocks/마키나락스_2026-05-11.json",
       "subscriptionStart": "2026-05-11",
       "subscriptionEnd": "2026-05-12",
-      "leadManagers": [
-        "미래에셋증권",
-        "현대차증권"
-      ]
+      "latestSnapshotAt": "2026-05-11T12:31:22.506402",
+      "latestSnapshotSource": "38_news_live",
+      "latestCompetitionRate": 2217.6666666666665,
+      "institutionCompetitionRate": 1196.08,
+      "institutionParticipants": 2427,
+      "lockupCommitmentRate": 0.7817000000000001,
+      "issues": []
     }
-  ]
+  ],
+  "upcomingSamples": []
 }
