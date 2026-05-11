@@ -70,7 +70,7 @@
       }
     },
     {
-      "capturedAt": "2026-05-12T01:27:40.759012",
+      "capturedAt": "2026-05-12T02:15:52.077866",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.hankyung.com/article/2024082027786",
       "brokers": [
@@ -98,34 +98,37 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v4",
+    "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 27,
+      "overall": 42,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
-        "competition": 0,
         "institutionDemand": 3,
         "demandStrength": 7,
         "lockupCommitment": 0,
-        "floatRate": 6,
-        "pricing": 8
-      }
+        "pricing": 8,
+        "marketCap": 10,
+        "publicAllocation": 8
+      },
+      "demand": 29,
+      "value": 100,
+      "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.0098,
-      "bearCaseListingGainRate": -0.15,
-      "baseCaseListingGainRate": 0.0098,
-      "bullCaseListingGainRate": 0.2298,
+      "expectedListingGainRate": 0.1106,
+      "bearCaseListingGainRate": -0.0694,
+      "baseCaseListingGainRate": 0.1106,
+      "bullCaseListingGainRate": 0.3306,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.292,
         "oneMillionKrw": 1.882,
         "fiveMillionKrw": 9.41
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 44,
-        "oneMillionKrw": 285,
-        "fiveMillionKrw": 1423
+        "minimumSubscription": 500,
+        "oneMillionKrw": 3227,
+        "fiveMillionKrw": 16134
       },
       "assumptions": {
         "offerPrice": 15500,
@@ -133,7 +136,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
-        "generalPriorBase": 0.06067999999999998,
+        "generalPriorBase": 0.18368,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -175,7 +178,10 @@
       "institutionCompetitionRate": 239.23,
       "lockupCommitmentRate": 0.0103,
       "floatRate": 0.3705,
-      "hasOutcome": true
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 29,
+      "valueScore": 100
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

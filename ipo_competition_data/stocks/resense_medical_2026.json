@@ -141,34 +141,37 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v4",
+    "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 82,
-      "grade": "A-",
+      "overall": 98,
+      "grade": "S",
       "confidence": 0.95,
       "factors": {
-        "competition": 14,
         "institutionDemand": 24,
         "demandStrength": 10,
         "lockupCommitment": 18,
-        "floatRate": 0,
-        "pricing": 8
-      }
+        "pricing": 8,
+        "marketCap": 10,
+        "publicAllocation": 8
+      },
+      "demand": 97,
+      "value": 100,
+      "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 1.2456,
+      "expectedListingGainRate": 1.27,
       "bearCaseListingGainRate": 1.0,
-      "baseCaseListingGainRate": 1.2456,
-      "bullCaseListingGainRate": 1.5456,
+      "baseCaseListingGainRate": 1.27,
+      "bullCaseListingGainRate": 1.57,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.352,
         "oneMillionKrw": 0.372,
         "fiveMillionKrw": 0.458
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 4828,
-        "oneMillionKrw": 5092,
-        "fiveMillionKrw": 6280
+        "minimumSubscription": 4923,
+        "oneMillionKrw": 5192,
+        "fiveMillionKrw": 6403
       },
       "assumptions": {
         "offerPrice": 11000,
@@ -176,12 +179,12 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.7232400000000001,
+        "generalPriorBase": 0.8544400000000001,
         "institutionBoost": 0.09,
         "lockupBoost": 0.1,
         "participantBoost": 0.05,
         "topBandBoost": 0.0,
-        "scoreBoost": 0.05555555555555555,
+        "scoreBoost": 0.08,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 64,
@@ -230,7 +233,10 @@
       "institutionCompetitionRate": 1352.63,
       "lockupCommitmentRate": 0.6392,
       "floatRate": null,
-      "hasOutcome": true
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 97,
+      "valueScore": 100
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

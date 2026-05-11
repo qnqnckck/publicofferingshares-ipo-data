@@ -44,34 +44,35 @@
   },
   "snapshots": [],
   "analysis": {
-    "methodVersion": "ipo-score-v4",
+    "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 16,
+      "overall": 23,
       "grade": "C-",
       "confidence": 0.45,
       "factors": {
-        "competition": 0,
         "institutionDemand": 0,
         "demandStrength": 6,
         "lockupCommitment": 0,
-        "floatRate": 0,
         "pricing": 8
-      }
+      },
+      "demand": 23,
+      "value": 23,
+      "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.1553,
-      "bearCaseListingGainRate": -0.0447,
-      "baseCaseListingGainRate": 0.1553,
-      "bullCaseListingGainRate": 0.4353,
+      "expectedListingGainRate": 0.2033,
+      "bearCaseListingGainRate": 0.0033,
+      "baseCaseListingGainRate": 0.2033,
+      "bullCaseListingGainRate": 0.4833,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
         "oneMillionKrw": 0.023,
         "fiveMillionKrw": 0.114
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 107,
-        "oneMillionKrw": 194,
-        "fiveMillionKrw": 971
+        "minimumSubscription": 140,
+        "oneMillionKrw": 254,
+        "fiveMillionKrw": 1271
       },
       "assumptions": {
         "offerPrice": 55000,
@@ -79,7 +80,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": -0.024719999999999978,
+        "generalPriorBase": 0.023346666666666658,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -112,7 +113,10 @@
       "institutionCompetitionRate": null,
       "lockupCommitmentRate": null,
       "floatRate": null,
-      "hasOutcome": true
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 23,
+      "valueScore": 23
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

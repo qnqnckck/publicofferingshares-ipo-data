@@ -5219,10 +5219,6 @@ IpoAnalysis analyzeStock(
   final latestRate = ignoreLiveCompetitionForReturn
       ? null
       : stock.latestSnapshot?.aggregate.competitionRate;
-  final competitionScore = scoreCompetitionForStock(
-    stock,
-    ignoreLiveCompetition: ignoreLiveCompetitionForScoring,
-  );
   final institutionScore = scoreInstitutionDemand(stock.fundamentals);
   final demandStrengthScore = isSpac ? 0 : scoreDemandStrengthForStock(stock);
   final spacMomentumScore = isSpac ? scoreSpacMomentum(stock) : 0;
@@ -5230,37 +5226,69 @@ IpoAnalysis analyzeStock(
   final lockupScore = isSpac
       ? 0
       : scoreLockup(stock.fundamentals.lockupCommitmentRate);
-  final floatScore = isSpac ? 0 : scoreFloatForStock(stock);
   final pricingScore = scorePricing(stock.fundamentals);
   final marketScore = isSpac ? scoreMarket(stock.market) : 0;
   final managerScore = isSpac ? scoreLeadManagers(stock.leadManagers) : 0;
   final recencyScore = isSpac ? scoreRecency(stock.subscriptionEnd) : 0;
   final dataScore = isSpac ? scoreDataCompleteness(stock) : 0;
-  final factors = <String, int>{
-    'competition': competitionScore,
-    'institutionDemand': institutionScore,
-    if (isSpac) ...{
+  final competitionScore = scoreCompetitionForStock(
+    stock,
+    ignoreLiveCompetition: ignoreLiveCompetitionForScoring,
+  );
+  late final Map<String, int> factors;
+  late final int total;
+  late final int demandScore;
+  late final int valueScore;
+  late final String scoreMode;
+  if (isSpac) {
+    factors = <String, int>{
+      'competition': competitionScore,
+      'institutionDemand': institutionScore,
       'spacMomentum': spacMomentumScore,
       'spacVolatility': spacVolatilityScore,
       'market': marketScore,
       'leadManagers': managerScore,
       'recency': recencyScore,
       'dataCompleteness': dataScore,
-    } else ...{
+    };
+    final normalizedTotal = normalizedFactorScore(factors);
+    total = clampInt(normalizedTotal, 0, spacScoreCeilingFor(stock));
+    demandScore = total;
+    valueScore = total;
+    scoreMode = 'spac_live_balanced';
+  } else {
+    final demandFactors = <String, int>{
+      'institutionDemand': institutionScore,
       'demandStrength': demandStrengthScore,
       'lockupCommitment': lockupScore,
-      'floatRate': floatScore,
       'pricing': pricingScore,
-    },
-  };
-  final rawTotal = factors.values.fold<int>(0, (sum, value) => sum + value);
-  final maxPossible = maxScoreForFactors(factors);
-  final normalizedTotal = maxPossible <= 0
-      ? 0
-      : clampInt(((rawTotal / maxPossible) * 100).round(), 0, 100);
-  final total = isSpac
-      ? clampInt(normalizedTotal, 0, spacScoreCeilingFor(stock))
-      : normalizedTotal;
+    };
+    final valueFactors = <String, int>{};
+    if (stock.fundamentals.marketCapKrw != null) {
+      valueFactors['marketCap'] = scoreMarketCapForStock(stock);
+    }
+    if (stock.fundamentals.publicAllocationShares != null) {
+      valueFactors['publicAllocation'] = scorePublicAllocationForStock(stock);
+    }
+    if (stock.fundamentals.hasPutbackRight ||
+        (stock.fundamentals.putbackSummary?.trim().isNotEmpty ?? false)) {
+      valueFactors['putbackRight'] = scorePutbackRightForStock(stock);
+    }
+    demandScore = normalizedFactorScore(demandFactors);
+    valueScore = valueFactors.isEmpty
+        ? demandScore
+        : normalizedFactorScore(valueFactors);
+    factors = <String, int>{
+      ...demandFactors,
+      ...valueFactors,
+    };
+    total = clampInt(
+      (demandScore * 0.82 + valueScore * 0.18).round(),
+      0,
+      100,
+    );
+    scoreMode = 'general_pre_subscription_demand_value';
+  }
   final confidence = confidenceFor(stock);
   final expectedReturnProfile = expectedReturnProfileFor(
     stock: stock,
@@ -5290,6 +5318,9 @@ IpoAnalysis analyzeStock(
       grade: grade,
       confidence: confidence,
       factors: factors,
+      demand: demandScore,
+      value: valueScore,
+      mode: scoreMode,
     ),
     expectedReturn: IpoExpectedReturn(
       expectedListingGainRate: expectedGainRate,
@@ -5323,8 +5354,11 @@ IpoAnalysis analyzeStock(
       'lockupCommitmentRate': stock.fundamentals.lockupCommitmentRate,
       'floatRate': stock.fundamentals.floatRate,
       'hasOutcome': stock.outcome != null,
+      'scoreMode': scoreMode,
+      'demandScore': demandScore,
+      'valueScore': valueScore,
     },
-    methodVersion: 'ipo-score-v4',
+    methodVersion: 'ipo-score-v5-demand-value',
   );
 }
 
@@ -5506,12 +5540,18 @@ class IpoScore {
     required this.grade,
     required this.confidence,
     required this.factors,
+    required this.demand,
+    required this.value,
+    required this.mode,
   });
 
   final int overall;
   final String grade;
   final double confidence;
   final Map<String, int> factors;
+  final int demand;
+  final int value;
+  final String mode;
 
   Map<String, Object?> toJson() {
     return {
@@ -5519,6 +5559,9 @@ class IpoScore {
       'grade': grade,
       'confidence': roundDouble(confidence, 2),
       'factors': factors,
+      'demand': demand,
+      'value': value,
+      'mode': mode,
     };
   }
 }
@@ -5698,6 +5741,53 @@ int scoreFloatForStock(IpoCompetitionStock stock) {
     return 8;
   }
   return 0;
+}
+
+int scoreMarketCapForStock(IpoCompetitionStock stock) {
+  final marketCap = stock.fundamentals.marketCapKrw;
+  if (marketCap == null || marketCap <= 0) {
+    return 0;
+  }
+  if (marketCap <= 150000000000) {
+    return 10;
+  }
+  if (marketCap <= 300000000000) {
+    return 8;
+  }
+  if (marketCap <= 600000000000) {
+    return 5;
+  }
+  if (marketCap <= 1000000000000) {
+    return 3;
+  }
+  return 1;
+}
+
+int scorePublicAllocationForStock(IpoCompetitionStock stock) {
+  final shares = stock.fundamentals.publicAllocationShares;
+  if (shares == null || shares <= 0) {
+    return 0;
+  }
+  if (shares <= 700000) {
+    return 8;
+  }
+  if (shares <= 1200000) {
+    return 6;
+  }
+  if (shares <= 2000000) {
+    return 4;
+  }
+  if (shares <= 3000000) {
+    return 2;
+  }
+  return 1;
+}
+
+int scorePutbackRightForStock(IpoCompetitionStock stock) {
+  return stock.fundamentals.hasPutbackRight ||
+          (stock.fundamentals.putbackSummary?.trim().isNotEmpty ?? false)
+      ? 4
+      : 0;
 }
 
 int scoreDemandStrengthForStock(IpoCompetitionStock stock) {
@@ -6398,12 +6488,24 @@ int maxScoreForFactors(Map<String, int> factors) {
     'lockupCommitment': 18,
     'floatRate': 12,
     'pricing': 10,
+    'marketCap': 10,
+    'publicAllocation': 8,
+    'putbackRight': 4,
     'market': 6,
     'leadManagers': 6,
     'recency': 4,
     'dataCompleteness': 8,
   };
   return factors.keys.fold<int>(0, (sum, key) => sum + (maxByFactor[key] ?? 0));
+}
+
+int normalizedFactorScore(Map<String, int> factors) {
+  final maxPossible = maxScoreForFactors(factors);
+  if (maxPossible <= 0) {
+    return 0;
+  }
+  final rawTotal = factors.values.fold<int>(0, (sum, value) => sum + value);
+  return clampInt(((rawTotal / maxPossible) * 100).round(), 0, 100);
 }
 
 String decisionLevelFor(int score, double confidence) {

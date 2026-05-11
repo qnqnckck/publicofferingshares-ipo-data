@@ -71,7 +71,7 @@
       }
     },
     {
-      "capturedAt": "2026-05-12T01:27:40.759012",
+      "capturedAt": "2026-05-12T02:15:52.077866",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://ipokorea.kr/ipo/%EB%A3%A8%EB%8B%9B",
       "brokers": [
@@ -99,34 +99,36 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v4",
+    "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 17,
+      "overall": 38,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
-        "competition": 0,
         "institutionDemand": 8,
         "demandStrength": 0,
         "lockupCommitment": 4,
-        "floatRate": 0,
-        "pricing": 3
-      }
+        "pricing": 3,
+        "marketCap": 10
+      },
+      "demand": 24,
+      "value": 100,
+      "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.0071,
-      "bearCaseListingGainRate": -0.15,
-      "baseCaseListingGainRate": 0.0071,
-      "bullCaseListingGainRate": 0.2271,
+      "expectedListingGainRate": 0.1223,
+      "bearCaseListingGainRate": -0.0577,
+      "baseCaseListingGainRate": 0.1223,
+      "bullCaseListingGainRate": 0.3423,
       "expectedAllocatedShares": {
         "minimumSubscription": 1.111,
         "oneMillionKrw": 4.154,
         "fiveMillionKrw": 20.768
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 210,
-        "oneMillionKrw": 784,
-        "fiveMillionKrw": 3919
+        "minimumSubscription": 3634,
+        "oneMillionKrw": 13585,
+        "fiveMillionKrw": 67926
       },
       "assumptions": {
         "offerPrice": 26750,
@@ -134,7 +136,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
-        "generalPriorBase": 0.004888137142857149,
+        "generalPriorBase": 0.17708813714285715,
         "institutionBoost": 0.017055000000000008,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -177,7 +179,10 @@
       "institutionCompetitionRate": 636.44,
       "lockupCommitmentRate": 0.10800000000000001,
       "floatRate": null,
-      "hasOutcome": true
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 24,
+      "valueScore": 100
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

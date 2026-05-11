@@ -70,7 +70,7 @@
       }
     },
     {
-      "capturedAt": "2026-05-12T01:27:40.759012",
+      "capturedAt": "2026-05-12T02:15:52.077866",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.g-enews.com/article/Securities/2024/10/202410180922135614288320b10e_1",
       "brokers": [
@@ -98,19 +98,20 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v4",
+    "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 42,
+      "overall": 40,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
-        "competition": 13,
         "institutionDemand": 15,
         "demandStrength": 6,
         "lockupCommitment": 0,
-        "floatRate": 0,
         "pricing": 4
-      }
+      },
+      "demand": 40,
+      "value": 40,
+      "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
       "expectedListingGainRate": 0.7176,
@@ -133,7 +134,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.23296012571428573,
+        "generalPriorBase": 0.21656012571428573,
         "institutionBoost": 0.03757125000000001,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -175,7 +176,10 @@
       "institutionCompetitionRate": 800.57,
       "lockupCommitmentRate": null,
       "floatRate": null,
-      "hasOutcome": true
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 40,
+      "valueScore": 40
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

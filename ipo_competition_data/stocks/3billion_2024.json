@@ -98,34 +98,36 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v4",
+    "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 14,
+      "overall": 35,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
-        "competition": 0,
         "institutionDemand": 3,
         "demandStrength": 0,
         "lockupCommitment": 0,
-        "floatRate": 0,
-        "pricing": 10
-      }
+        "pricing": 10,
+        "marketCap": 10
+      },
+      "demand": 21,
+      "value": 100,
+      "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": -0.01,
-      "bearCaseListingGainRate": -0.15,
-      "baseCaseListingGainRate": -0.01,
-      "bullCaseListingGainRate": 0.21,
+      "expectedListingGainRate": 0.0635,
+      "bearCaseListingGainRate": -0.1165,
+      "baseCaseListingGainRate": 0.0635,
+      "bullCaseListingGainRate": 0.2835,
       "expectedAllocatedShares": {
         "minimumSubscription": 20.829,
         "oneMillionKrw": 25.479,
         "fiveMillionKrw": 44.955
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -937,
-        "oneMillionKrw": -1147,
-        "fiveMillionKrw": -2023
+        "minimumSubscription": 5957,
+        "oneMillionKrw": 7286,
+        "fiveMillionKrw": 12856
       },
       "assumptions": {
         "offerPrice": 4500,
@@ -133,7 +135,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
-        "generalPriorBase": -0.04591999999999997,
+        "generalPriorBase": 0.12628,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -175,7 +177,10 @@
       "institutionCompetitionRate": 254.6,
       "lockupCommitmentRate": null,
       "floatRate": null,
-      "hasOutcome": true
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 21,
+      "valueScore": 100
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

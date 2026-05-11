@@ -45,34 +45,35 @@
   },
   "snapshots": [],
   "analysis": {
-    "methodVersion": "ipo-score-v4",
+    "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 12,
+      "overall": 5,
       "grade": "C-",
       "confidence": 0.45,
       "factors": {
-        "competition": 0,
         "institutionDemand": 0,
         "demandStrength": 0,
         "lockupCommitment": 0,
-        "floatRate": 8,
         "pricing": 3
-      }
+      },
+      "demand": 5,
+      "value": 5,
+      "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.1278,
-      "bearCaseListingGainRate": -0.0722,
-      "baseCaseListingGainRate": 0.1278,
-      "bullCaseListingGainRate": 0.4078,
+      "expectedListingGainRate": 0.0797,
+      "bearCaseListingGainRate": -0.1203,
+      "baseCaseListingGainRate": 0.0797,
+      "bullCaseListingGainRate": 0.3597,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
         "oneMillionKrw": 0.022,
         "fiveMillionKrw": 0.111
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 90,
-        "oneMillionKrw": 160,
-        "fiveMillionKrw": 799
+        "minimumSubscription": 56,
+        "oneMillionKrw": 100,
+        "fiveMillionKrw": 498
       },
       "assumptions": {
         "offerPrice": 56300,
@@ -80,7 +81,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": -0.05218666666666669,
+        "generalPriorBase": -0.10025333333333332,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -113,7 +114,10 @@
       "institutionCompetitionRate": null,
       "lockupCommitmentRate": null,
       "floatRate": null,
-      "hasOutcome": true
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 5,
+      "valueScore": 5
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

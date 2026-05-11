@@ -72,7 +72,7 @@
       }
     },
     {
-      "capturedAt": "2026-05-12T01:27:40.759012",
+      "capturedAt": "2026-05-12T02:15:52.077866",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.mk.co.kr/news/stock/11088270",
       "brokers": [
@@ -130,34 +130,35 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v4",
+    "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 27,
+      "overall": 35,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
-        "competition": 2,
         "institutionDemand": 8,
         "demandStrength": 6,
         "lockupCommitment": 0,
-        "floatRate": 0,
         "pricing": 8
-      }
+      },
+      "demand": 35,
+      "value": 35,
+      "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.06,
-      "bearCaseListingGainRate": -0.12,
-      "baseCaseListingGainRate": 0.06,
-      "bullCaseListingGainRate": 0.28,
+      "expectedListingGainRate": 0.0635,
+      "bearCaseListingGainRate": -0.1165,
+      "baseCaseListingGainRate": 0.0635,
+      "bullCaseListingGainRate": 0.2835,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.152,
         "oneMillionKrw": 0.524,
         "fiveMillionKrw": 2.619
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 264,
-        "oneMillionKrw": 911,
-        "fiveMillionKrw": 4557
+        "minimumSubscription": 280,
+        "oneMillionKrw": 965,
+        "fiveMillionKrw": 4827
       },
       "assumptions": {
         "offerPrice": 29000,
@@ -165,7 +166,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.1,
-        "generalPriorBase": 0.06067999999999998,
+        "generalPriorBase": 0.12628,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -226,7 +227,10 @@
       "institutionCompetitionRate": 356.9,
       "lockupCommitmentRate": null,
       "floatRate": null,
-      "hasOutcome": true
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 35,
+      "valueScore": 35
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

@@ -70,7 +70,7 @@
       }
     },
     {
-      "capturedAt": "2026-05-12T01:27:40.759012",
+      "capturedAt": "2026-05-12T02:15:52.077866",
       "source": "estimated_broker_split",
       "sourceUrl": "https://www.fnnews.com/news/202412051759082907",
       "brokers": [
@@ -98,19 +98,22 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v4",
+    "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 51,
-      "grade": "C+",
+      "overall": 59,
+      "grade": "B-",
       "confidence": 0.95,
       "factors": {
-        "competition": 13,
         "institutionDemand": 15,
         "demandStrength": 10,
         "lockupCommitment": 0,
-        "floatRate": 0,
-        "pricing": 8
-      }
+        "pricing": 8,
+        "marketCap": 10,
+        "publicAllocation": 6
+      },
+      "demand": 53,
+      "value": 89,
+      "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
       "expectedListingGainRate": 0.778,
@@ -133,7 +136,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.3592213828571429,
+        "generalPriorBase": 0.4248213828571429,
         "institutionBoost": 0.057971249999999995,
         "lockupBoost": 0.0,
         "participantBoost": 0.04,
@@ -146,8 +149,8 @@
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 1170.34대 1입니다."
       ],
@@ -176,7 +179,10 @@
       "institutionCompetitionRate": 963.77,
       "lockupCommitmentRate": 0.0312,
       "floatRate": null,
-      "hasOutcome": true
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 53,
+      "valueScore": 89
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

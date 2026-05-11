@@ -115,34 +115,36 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v4",
+    "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 62,
-      "grade": "B-",
+      "overall": 67,
+      "grade": "B",
       "confidence": 0.95,
       "factors": {
-        "competition": 16,
         "institutionDemand": 22,
         "demandStrength": 10,
         "lockupCommitment": 0,
-        "floatRate": 0,
-        "pricing": 8
-      }
+        "pricing": 8,
+        "publicAllocation": 6
+      },
+      "demand": 65,
+      "value": 75,
+      "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 1.0245,
-      "bearCaseListingGainRate": 0.8445,
-      "baseCaseListingGainRate": 1.0245,
-      "bullCaseListingGainRate": 1.2445,
+      "expectedListingGainRate": 1.0367,
+      "bearCaseListingGainRate": 0.8567,
+      "baseCaseListingGainRate": 1.0367,
+      "bullCaseListingGainRate": 1.2567,
       "expectedAllocatedShares": {
         "minimumSubscription": 2.657,
         "oneMillionKrw": 2.745,
         "fiveMillionKrw": 3.125
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 18779,
-        "oneMillionKrw": 19405,
-        "fiveMillionKrw": 22093
+        "minimumSubscription": 19003,
+        "oneMillionKrw": 19636,
+        "fiveMillionKrw": 22357
       },
       "assumptions": {
         "offerPrice": 6900,
@@ -150,12 +152,12 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.47068,
+        "generalPriorBase": 0.51168,
         "institutionBoost": 0.06449125,
         "lockupBoost": 0.0,
         "participantBoost": 0.05,
         "topBandBoost": 0.0,
-        "scoreBoost": -0.04,
+        "scoreBoost": -0.027777777777777776,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 64,
@@ -163,8 +165,8 @@
       }
     },
     "decision": {
-      "level": "neutral",
-      "label": "중립",
+      "level": "consider",
+      "label": "청약 고려",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 1524.26대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
@@ -203,7 +205,10 @@
       "institutionCompetitionRate": 1015.93,
       "lockupCommitmentRate": null,
       "floatRate": null,
-      "hasOutcome": true
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 65,
+      "valueScore": 75
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

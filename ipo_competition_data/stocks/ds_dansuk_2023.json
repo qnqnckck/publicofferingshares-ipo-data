@@ -102,19 +102,21 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v4",
+    "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 43,
-      "grade": "C-",
+      "overall": 52,
+      "grade": "C+",
       "confidence": 0.95,
       "factors": {
-        "competition": 13,
         "institutionDemand": 8,
         "demandStrength": 10,
         "lockupCommitment": 4,
-        "floatRate": 0,
-        "pricing": 4
-      }
+        "pricing": 4,
+        "publicAllocation": 8
+      },
+      "demand": 42,
+      "value": 100,
+      "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
       "expectedListingGainRate": 0.72,
@@ -137,7 +139,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.2214,
+        "generalPriorBase": 0.29519999999999996,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.04,
@@ -150,8 +152,8 @@
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 984.0대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
@@ -189,7 +191,10 @@
       "institutionCompetitionRate": 341.84,
       "lockupCommitmentRate": 0.0855,
       "floatRate": null,
-      "hasOutcome": true
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 42,
+      "valueScore": 100
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

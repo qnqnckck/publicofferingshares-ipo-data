@@ -69,7 +69,7 @@
       }
     },
     {
-      "capturedAt": "2026-05-12T01:27:40.759012",
+      "capturedAt": "2026-05-12T02:15:52.077866",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://honda31.tistory.com/288",
       "brokers": [
@@ -172,19 +172,20 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v4",
+    "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 21,
+      "overall": 27,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
-        "competition": 2,
         "institutionDemand": 3,
         "demandStrength": 6,
         "lockupCommitment": 0,
-        "floatRate": 0,
         "pricing": 8
-      }
+      },
+      "demand": 27,
+      "value": 27,
+      "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
       "expectedListingGainRate": 0.2,
@@ -207,7 +208,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.24,
-        "generalPriorBase": 0.011479999999999992,
+        "generalPriorBase": 0.06067999999999998,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -295,7 +296,10 @@
       "institutionCompetitionRate": 114.38,
       "lockupCommitmentRate": null,
       "floatRate": null,
-      "hasOutcome": false
+      "hasOutcome": false,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 27,
+      "valueScore": 27
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

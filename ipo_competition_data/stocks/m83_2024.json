@@ -65,7 +65,7 @@
       }
     },
     {
-      "capturedAt": "2026-05-12T01:27:40.759012",
+      "capturedAt": "2026-05-12T02:15:52.077866",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.fntimes.com/html/view.php?ud=20240813172608496322f8e8c22c_18",
       "brokers": [
@@ -108,19 +108,20 @@
     }
   ],
   "analysis": {
-    "methodVersion": "ipo-score-v4",
+    "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 46,
-      "grade": "C",
+      "overall": 52,
+      "grade": "C+",
       "confidence": 0.95,
       "factors": {
-        "competition": 9,
         "institutionDemand": 22,
         "demandStrength": 6,
         "lockupCommitment": 0,
-        "floatRate": 0,
         "pricing": 4
-      }
+      },
+      "demand": 52,
+      "value": 52,
+      "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
       "expectedListingGainRate": 0.5456,
@@ -143,7 +144,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.52,
-        "generalPriorBase": 0.29519999999999996,
+        "generalPriorBase": 0.3444,
         "institutionBoost": 0.06559000000000001,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -156,8 +157,8 @@
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 638.05대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
@@ -195,7 +196,10 @@
       "institutionCompetitionRate": 1024.72,
       "lockupCommitmentRate": null,
       "floatRate": null,
-      "hasOutcome": false
+      "hasOutcome": false,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 52,
+      "valueScore": 52
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }
