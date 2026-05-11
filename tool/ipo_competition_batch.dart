@@ -2699,8 +2699,7 @@ Map<String, Object?> buildDashboardFeedItem(
       stock.fundamentals.putbackSummary?.trim().isNotEmpty == true
       ? stock.fundamentals.putbackSummary!.trim()
       : null;
-  final hasPutbackRight =
-      stock.fundamentals.hasPutbackRight || putbackSummary != null;
+  final hasPutbackRight = stock.fundamentals.hasPutbackRight;
   return {
     'id': safeId(stock.id),
     'path': path,
@@ -4862,6 +4861,13 @@ class IpoFundamentals {
   final String? putbackSummary;
 
   factory IpoFundamentals.fromJson(Map<String, Object?> json) {
+    final putbackSummary =
+        readString(json, 'putbackSummary') ??
+        readString(json, 'putbackRightSummary') ??
+        readString(json, 'putbackNote');
+    final explicitPutbackRight =
+        json['hasPutbackRight'] as bool? ?? json['putbackRight'] as bool?;
+    final inferredPutbackRight = inferPutbackRightFromSummary(putbackSummary);
     return IpoFundamentals(
       offerPrice: readOptionalInt(json['offerPrice']),
       priceBandMin: readOptionalInt(json['priceBandMin']),
@@ -4875,14 +4881,8 @@ class IpoFundamentals {
       floatRate: readRatio(json['floatRate']),
       marketCapKrw: readOptionalInt(json['marketCapKrw']),
       publicAllocationShares: readOptionalInt(json['publicAllocationShares']),
-      hasPutbackRight:
-          json['hasPutbackRight'] as bool? ??
-          json['putbackRight'] as bool? ??
-          false,
-      putbackSummary:
-          readString(json, 'putbackSummary') ??
-          readString(json, 'putbackRightSummary') ??
-          readString(json, 'putbackNote'),
+      hasPutbackRight: explicitPutbackRight ?? inferredPutbackRight ?? false,
+      putbackSummary: putbackSummary,
     );
   }
 
@@ -5868,10 +5868,29 @@ int scorePublicAllocationForStock(IpoCompetitionStock stock) {
 }
 
 int scorePutbackRightForStock(IpoCompetitionStock stock) {
-  return stock.fundamentals.hasPutbackRight ||
-          (stock.fundamentals.putbackSummary?.trim().isNotEmpty ?? false)
-      ? 4
-      : 0;
+  return stock.fundamentals.hasPutbackRight ? 4 : 0;
+}
+
+bool? inferPutbackRightFromSummary(String? rawSummary) {
+  final summary = rawSummary?.trim();
+  if (summary == null || summary.isEmpty) {
+    return null;
+  }
+  final normalized = summary.replaceAll(' ', '');
+  if (normalized.contains('환매청구권없') ||
+      normalized.contains('환매청구권미부여') ||
+      normalized.contains('환매청구권해당없') ||
+      normalized.contains('풋백없') ||
+      normalized.contains('풋백미부여')) {
+    return false;
+  }
+  if (normalized.contains('환매청구권부여') ||
+      normalized.contains('환매청구권있') ||
+      normalized.contains('풋백부여') ||
+      normalized.contains('풋백옵션부여')) {
+    return true;
+  }
+  return null;
 }
 
 int scoreDemandStrengthForStock(IpoCompetitionStock stock) {
