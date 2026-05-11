@@ -81,7 +81,7 @@ Options:
   --identifier-path <path>    Identifier crosswalk JSON path. Default: data/identifiers/ipo_identifiers.json
   --discovered <path>         Auto-discovered stock JSON path. Default: data/discovered/ipo_events.json
   --out <dir>                 Output directory. Default: ipo_competition_data
-  --manual-fundamentals-path <path> Optional JSON override file path for manual fundamentals patching.
+  --manual-fundamentals-path <path> Optional JSON override file path for manual fundamentals patching. Default: data/manual_fundamentals.json
   --backfill-years <years>    Include IPOs from the last N years. Default: 3
   --interval-minutes <min>    Watch interval. Default: 10
   --dart-api-key-env <name>   Environment variable for DART API key. Default: DART_API_KEY
@@ -127,7 +127,10 @@ Seed from the example file:
         'data/discovered/ipo_events.json',
       ),
       outDir: valueAfter('--out', 'ipo_competition_data'),
-      manualFundamentalsPath: valueAfter('--manual-fundamentals-path', ''),
+      manualFundamentalsPath: valueAfter(
+        '--manual-fundamentals-path',
+        'data/manual_fundamentals.json',
+      ),
       backfillYears: intAfter('--backfill-years', 3),
       interval: Duration(minutes: intAfter('--interval-minutes', 10)),
       discover: !args.contains('--no-discover'),
@@ -155,18 +158,32 @@ class IpoCompetitionBatch {
     _running = true;
     try {
       final generatedAt = DateTime.now();
-      final discoveredStocks = options.discover
-          ? mergeStocks([
-              ...await _loadDiscoveredStocks(),
-              ...await _discoverRemoteStocks(generatedAt),
-            ])
-          : await _loadDiscoveredStocks();
-      await _writeDiscoveredStocks(discoveredStocks);
+      final cachedDiscoveredStocks = await _loadDiscoveredStocks();
+      final remotelyDiscoveredStocks = options.discover
+          ? await _discoverRemoteStocks(generatedAt)
+          : const <IpoCompetitionStock>[];
+      final discoveredStocks = mergeStocks([
+        ...cachedDiscoveredStocks,
+        ...remotelyDiscoveredStocks,
+      ]);
+      await _writeDiscoveredStocks(discoveredStocks, generatedAt: generatedAt);
+      await _writeDiscoveredDeltaReport(
+        generatedAt: generatedAt,
+        cachedStocks: cachedDiscoveredStocks,
+        remoteStocks: remotelyDiscoveredStocks,
+        mergedStocks: discoveredStocks,
+      );
+      final seedStocks = await _loadSeedStocks();
+      final liveStocks = await _loadLiveStocks();
+      final autoCoreBaseStocks = mergeStocks([
+        ...discoveredStocks,
+        ...liveStocks,
+      ]);
 
       final stocksWithoutExternalOutcomes = mergeStocks([
-        ...await _loadSeedStocks(),
+        ...seedStocks,
         ...discoveredStocks,
-        ...await _loadLiveStocks(),
+        ...liveStocks,
       ]);
       final supplementStocks = mergeStocks([
         ...stocksWithoutExternalOutcomes,
@@ -180,10 +197,8 @@ class IpoCompetitionBatch {
         ...buildKnownLeadManagerOverrideStocks(supplementStocks),
         ...await _discoverArticleLeadManagerStocks(supplementStocks),
       ]);
-      final stocks = mergeOutcomes(
-        sourceEnhancedStocks,
-        await _loadOutcomeRows(),
-      );
+      final outcomeRows = await _loadOutcomeRows();
+      final stocks = mergeOutcomes(sourceEnhancedStocks, outcomeRows);
       final localIdentifierRows = await _loadIdentifierRows();
       final identifierRows = mergeIdentifierRowsByKey([
         ...localIdentifierRows,
@@ -207,9 +222,35 @@ class IpoCompetitionBatch {
         identifiedStocks,
         brokerSnapshotRows,
       );
+      final autoSupplementStocks = mergeStocks([
+        ...autoCoreBaseStocks,
+        ...await _discoverIpoKoreaSupplementStocks(
+          autoCoreBaseStocks,
+          generatedAt,
+        ),
+      ]);
+      final autoSourceEnhancedStocks = mergeStocks([
+        ...autoSupplementStocks,
+        ...buildKnownLeadManagerOverrideStocks(autoSupplementStocks),
+        ...await _discoverArticleLeadManagerStocks(autoSupplementStocks),
+      ]);
+      final autoStocks = mergeOutcomes(autoSourceEnhancedStocks, outcomeRows);
+      final autoIdentifiedStocks = mergeIdentifierRows(
+        autoStocks,
+        identifierRows,
+      );
+      final autoEnrichedStocks = mergeBrokerSnapshots(
+        autoIdentifiedStocks,
+        brokerSnapshotRows,
+      );
       final manualFundamentalsRows = await _loadManualFundamentalsRows(
         options.manualFundamentalsPath,
       );
+      final autoManualFundamentalsPatchedStocks =
+          mergeManualFundamentalsOverrides(
+            autoEnrichedStocks,
+            manualFundamentalsRows,
+          );
       final manualFundamentalsPatchedStocks = mergeManualFundamentalsOverrides(
         enrichedStocks,
         manualFundamentalsRows,
@@ -219,8 +260,30 @@ class IpoCompetitionBatch {
         generatedAt.month,
         generatedAt.day,
       );
+      final autoMergedByIdentityStocks = mergeStocksByIdentity(
+        autoManualFundamentalsPatchedStocks,
+      );
+      final autoConsolidatedStocks = applyGeneralSharesBackfill(
+        autoMergedByIdentityStocks,
+      );
+      final autoSelected =
+          autoConsolidatedStocks.where((stock) {
+            final end = parseDate(stock.subscriptionEnd);
+            return end == null || !end.isBefore(cutoff);
+          }).toList()..sort((a, b) {
+            final byDate = (b.subscriptionStart ?? '').compareTo(
+              a.subscriptionStart ?? '',
+            );
+            if (byDate != 0) {
+              return byDate;
+            }
+            return a.company.compareTo(b.company);
+          });
+      final mergedByIdentityStocks = mergeStocksByIdentity(
+        manualFundamentalsPatchedStocks,
+      );
       final consolidatedStocks = applyGeneralSharesBackfill(
-        mergeStocksByIdentity(manualFundamentalsPatchedStocks),
+        mergedByIdentityStocks,
       );
       final selected =
           consolidatedStocks.where((stock) {
@@ -235,6 +298,28 @@ class IpoCompetitionBatch {
             }
             return a.company.compareTo(b.company);
           });
+      final previousGeneratedStocks = await _loadGeneratedIndexStocks();
+      await _writeScheduleChangesReport(
+        generatedAt: generatedAt,
+        previousStocks: previousGeneratedStocks,
+        currentStocks: selected,
+      );
+      await _writeSeedDependencyReport(
+        generatedAt: generatedAt,
+        seedStocks: seedStocks,
+        autoCoreStocks: autoSelected,
+        finalStocks: selected,
+      );
+      await _writeAutoCoreReconciliationReport(
+        generatedAt: generatedAt,
+        seedStocks: seedStocks,
+        autoCoreStocks: autoSelected,
+      );
+      await _writeHeuristicGeneralSharesReport(
+        generatedAt: generatedAt,
+        preBackfillStocks: mergedByIdentityStocks,
+        finalStocks: selected,
+      );
 
       _analysisCalibration = buildAnalysisCalibration(selected);
 
@@ -293,6 +378,10 @@ class IpoCompetitionBatch {
             selectedStocks: selected,
           ),
         ),
+      );
+      await _writeFieldCoverageReports(
+        generatedAt: generatedAt,
+        stocks: selected,
       );
       await File(
         '${options.outDir}/broker_metrics_missing_report.json',
@@ -521,13 +610,31 @@ class IpoCompetitionBatch {
         .toList();
   }
 
-  Future<void> _writeDiscoveredStocks(List<IpoCompetitionStock> stocks) async {
+  Future<List<IpoCompetitionStock>> _loadGeneratedIndexStocks() async {
+    final file = File('${options.outDir}/index.json');
+    if (!await file.exists()) {
+      return const [];
+    }
+    final decoded = jsonDecode(await file.readAsString());
+    if (decoded is! Map<String, Object?> || decoded['stocks'] is! List) {
+      return const [];
+    }
+    return (decoded['stocks'] as List)
+        .whereType<Map<String, Object?>>()
+        .map(IpoCompetitionStock.fromJson)
+        .toList();
+  }
+
+  Future<void> _writeDiscoveredStocks(
+    List<IpoCompetitionStock> stocks, {
+    required DateTime generatedAt,
+  }) async {
     final file = File(options.discoveredPath);
     await file.parent.create(recursive: true);
     await file.writeAsString(
       prettyJson({
         'schemaVersion': schemaVersion,
-        'generatedAt': DateTime.now().toIso8601String(),
+        'generatedAt': generatedAt.toIso8601String(),
         'stocks': stocks.map((stock) => stock.normalized().toJson()).toList()
           ..sort((a, b) {
             final aDate = '${a['subscriptionStart'] ?? ''}';
@@ -542,18 +649,952 @@ class IpoCompetitionBatch {
     );
   }
 
+  Future<void> _writeDiscoveredDeltaReport({
+    required DateTime generatedAt,
+    required List<IpoCompetitionStock> cachedStocks,
+    required List<IpoCompetitionStock> remoteStocks,
+    required List<IpoCompetitionStock> mergedStocks,
+  }) async {
+    final reportDir = Directory('${options.outDir}/reports');
+    await reportDir.create(recursive: true);
+
+    final normalizedCached = cachedStocks
+        .map((stock) => stock.normalized())
+        .toList();
+    final normalizedRemote = remoteStocks
+        .map((stock) => stock.normalized())
+        .toList();
+    final normalizedMerged = mergedStocks
+        .map((stock) => stock.normalized())
+        .toList();
+
+    final cachedByKey = {
+      for (final stock in normalizedCached) _discoveredReportKey(stock): stock,
+    };
+    final remoteByKey = {
+      for (final stock in normalizedRemote) _discoveredReportKey(stock): stock,
+    };
+    final mergedByKey = {
+      for (final stock in normalizedMerged) _discoveredReportKey(stock): stock,
+    };
+
+    List<Map<String, Object?>> stockRows(Iterable<IpoCompetitionStock> stocks) {
+      final rows = stocks.map(_discoveredReportRow).toList()
+        ..sort((a, b) {
+          final byDate = '${b['subscriptionStart'] ?? ''}'.compareTo(
+            '${a['subscriptionStart'] ?? ''}',
+          );
+          if (byDate != 0) {
+            return byDate;
+          }
+          return '${a['company'] ?? ''}'.compareTo('${b['company'] ?? ''}');
+        });
+      return rows;
+    }
+
+    final remoteOnlyKeys = remoteByKey.keys
+        .where((key) => !cachedByKey.containsKey(key))
+        .toList();
+    final cachedOnlyKeys = cachedByKey.keys
+        .where((key) => !remoteByKey.containsKey(key))
+        .toList();
+
+    final refreshedByRemote =
+        remoteByKey.entries
+            .where((entry) {
+              final cached = cachedByKey[entry.key];
+              return cached != null &&
+                  cached.toJson().toString() != entry.value.toJson().toString();
+            })
+            .map((entry) {
+              final previous = cachedByKey[entry.key]!;
+              final current = entry.value;
+              return {
+                'id': safeId(current.id),
+                'company': current.company,
+                'subscriptionStart': current.subscriptionStart,
+                'subscriptionEnd': current.subscriptionEnd,
+                'previous': _discoveredReportRow(previous),
+                'current': _discoveredReportRow(current),
+              };
+            })
+            .toList()
+          ..sort((a, b) {
+            return '${b['subscriptionStart'] ?? ''}'.compareTo(
+              '${a['subscriptionStart'] ?? ''}',
+            );
+          });
+
+    final report = {
+      'schemaVersion': schemaVersion,
+      'generatedAt': generatedAt.toIso8601String(),
+      'paths': {
+        'discoveredInput': options.discoveredPath,
+        'report': '${options.outDir}/reports/discovered_delta.json',
+      },
+      'sourceCounts': {
+        'cachedFinuts': _countFinutsDiscoveredStocks(normalizedCached),
+        'remoteFinuts': _countFinutsDiscoveredStocks(normalizedRemote),
+        'mergedFinuts': _countFinutsDiscoveredStocks(normalizedMerged),
+      },
+      'totals': {
+        'cached': normalizedCached.length,
+        'remote': normalizedRemote.length,
+        'merged': normalizedMerged.length,
+        'remoteOnly': remoteOnlyKeys.length,
+        'cachedOnly': cachedOnlyKeys.length,
+        'refreshedByRemote': refreshedByRemote.length,
+      },
+      'remoteOnly': stockRows(
+        remoteOnlyKeys
+            .map((key) => remoteByKey[key]!)
+            .whereType<IpoCompetitionStock>(),
+      ),
+      'cachedOnly': stockRows(
+        cachedOnlyKeys
+            .map((key) => cachedByKey[key]!)
+            .whereType<IpoCompetitionStock>(),
+      ),
+      'refreshedByRemote': refreshedByRemote,
+      'merged': stockRows(mergedByKey.values),
+    };
+
+    await File(
+      '${options.outDir}/reports/discovered_delta.json',
+    ).writeAsString(prettyJson(report));
+  }
+
+  int _countFinutsDiscoveredStocks(List<IpoCompetitionStock> stocks) {
+    return stocks
+        .where((stock) => safeId(stock.id).startsWith('finuts_'))
+        .length;
+  }
+
+  Future<void> _writeScheduleChangesReport({
+    required DateTime generatedAt,
+    required List<IpoCompetitionStock> previousStocks,
+    required List<IpoCompetitionStock> currentStocks,
+  }) async {
+    final reportDir = Directory('${options.outDir}/reports');
+    await reportDir.create(recursive: true);
+
+    final previousByKey = {
+      for (final stock in previousStocks.map((stock) => stock.normalized()))
+        _scheduleReportKey(stock): stock,
+    };
+    final currentByKey = {
+      for (final stock in currentStocks.map((stock) => stock.normalized()))
+        _scheduleReportKey(stock): stock,
+    };
+
+    final previousKeys = previousByKey.keys.toSet();
+    final currentKeys = currentByKey.keys.toSet();
+
+    List<Map<String, Object?>> stockRows(Iterable<IpoCompetitionStock> stocks) {
+      final rows = stocks.map(_scheduleReportRow).toList()
+        ..sort((a, b) {
+          final byDate = '${b['subscriptionStart'] ?? ''}'.compareTo(
+            '${a['subscriptionStart'] ?? ''}',
+          );
+          if (byDate != 0) {
+            return byDate;
+          }
+          return '${a['company'] ?? ''}'.compareTo('${b['company'] ?? ''}');
+        });
+      return rows;
+    }
+
+    final added = stockRows(
+      currentKeys.difference(previousKeys).map((key) => currentByKey[key]!),
+    );
+    final removed = stockRows(
+      previousKeys.difference(currentKeys).map((key) => previousByKey[key]!),
+    );
+
+    final changed = <Map<String, Object?>>[];
+    final typeChanged = <Map<String, Object?>>[];
+    for (final key in currentKeys.intersection(previousKeys)) {
+      final previous = previousByKey[key]!;
+      final current = currentByKey[key]!;
+      final fieldChanges = _scheduleFieldChanges(previous, current);
+      if (fieldChanges.isEmpty) {
+        continue;
+      }
+      final row = {
+        'id': safeId(current.id),
+        'company': current.company,
+        'subscriptionStart': current.subscriptionStart,
+        'subscriptionEnd': current.subscriptionEnd,
+        'changes': fieldChanges,
+        'previous': _scheduleReportRow(previous),
+        'current': _scheduleReportRow(current),
+      };
+      changed.add(row);
+      if (fieldChanges.any((change) => change['field'] == 'securityType')) {
+        typeChanged.add(row);
+      }
+    }
+    changed.sort((a, b) {
+      final byDate = '${b['subscriptionStart'] ?? ''}'.compareTo(
+        '${a['subscriptionStart'] ?? ''}',
+      );
+      if (byDate != 0) {
+        return byDate;
+      }
+      return '${a['company'] ?? ''}'.compareTo('${b['company'] ?? ''}');
+    });
+
+    final report = {
+      'schemaVersion': schemaVersion,
+      'generatedAt': generatedAt.toIso8601String(),
+      'paths': {
+        'previousIndex': '${options.outDir}/index.json',
+        'report': '${options.outDir}/reports/schedule_changes.json',
+      },
+      'totals': {
+        'previous': previousByKey.length,
+        'current': currentByKey.length,
+        'added': added.length,
+        'removed': removed.length,
+        'changed': changed.length,
+        'typeChanged': typeChanged.length,
+      },
+      'added': added,
+      'removed': removed,
+      'changed': changed,
+      'typeChanged': typeChanged,
+    };
+
+    await File(
+      '${options.outDir}/reports/schedule_changes.json',
+    ).writeAsString(prettyJson(report));
+  }
+
+  Future<void> _writeFieldCoverageReports({
+    required DateTime generatedAt,
+    required List<IpoCompetitionStock> stocks,
+  }) async {
+    final reportDir = Directory('${options.outDir}/reports');
+    await reportDir.create(recursive: true);
+
+    final normalizedStocks = stocks.map((stock) => stock.normalized()).toList();
+    final fieldExtractors = <String, Object? Function(IpoCompetitionStock)>{
+      'industry': (stock) => stock.industry,
+      'listingDate': (stock) => stock.resolvedListingDate,
+      'leadManagers': (stock) => stock.leadManagers,
+      'institutionCompetitionRate': (stock) =>
+          stock.fundamentals.institutionCompetitionRate,
+      'institutionParticipants': (stock) =>
+          stock.fundamentals.institutionParticipants,
+      'lockupCommitmentRate': (stock) =>
+          stock.fundamentals.lockupCommitmentRate,
+      'floatRate': (stock) => stock.fundamentals.floatRate,
+      'marketCapKrw': (stock) => stock.fundamentals.marketCapKrw,
+      'publicAllocationShares': (stock) =>
+          stock.fundamentals.publicAllocationShares,
+      'generalSharesDate': (stock) => stock.normalizedGeneralSharesDate,
+      'securityType': (stock) => stock.normalizedSecurityType,
+      'corpCode': (stock) => stock.identifiers.corpCode,
+      'stockCode': (stock) => stock.identifiers.stockCode,
+      'latestSnapshotAt': (stock) => stock.latestSnapshot?.capturedAt,
+    };
+
+    bool hasValue(Object? value) {
+      if (value == null) {
+        return false;
+      }
+      if (value is String) {
+        return value.trim().isNotEmpty;
+      }
+      if (value is List) {
+        return value.isNotEmpty;
+      }
+      return true;
+    }
+
+    final fieldCoverage = <String, Object?>{};
+    final missingByField = <String, List<Map<String, Object?>>>{};
+    for (final entry in fieldExtractors.entries) {
+      final missing =
+          normalizedStocks
+              .where((stock) => !hasValue(entry.value(stock)))
+              .map(
+                (stock) => {
+                  ..._scheduleReportRow(stock),
+                  'market': stock.market,
+                  'missingField': entry.key,
+                },
+              )
+              .toList()
+            ..sort((a, b) {
+              final byDate = '${b['subscriptionStart'] ?? ''}'.compareTo(
+                '${a['subscriptionStart'] ?? ''}',
+              );
+              if (byDate != 0) {
+                return byDate;
+              }
+              return '${a['company'] ?? ''}'.compareTo('${b['company'] ?? ''}');
+            });
+      final presentCount = normalizedStocks.length - missing.length;
+      fieldCoverage[entry.key] = {
+        'present': presentCount,
+        'missing': missing.length,
+        'coverageRate': normalizedStocks.isEmpty
+            ? 0
+            : double.parse(
+                ((presentCount / normalizedStocks.length) * 100)
+                    .toStringAsFixed(1),
+              ),
+      };
+      missingByField[entry.key] = missing;
+    }
+
+    final fieldCoverageReport = {
+      'schemaVersion': schemaVersion,
+      'generatedAt': generatedAt.toIso8601String(),
+      'totalStocks': normalizedStocks.length,
+      'fields': fieldCoverage,
+    };
+    final missingAppFieldsReport = {
+      'schemaVersion': schemaVersion,
+      'generatedAt': generatedAt.toIso8601String(),
+      'totalStocks': normalizedStocks.length,
+      'missingByField': missingByField,
+    };
+
+    await File(
+      '${options.outDir}/reports/field_coverage.json',
+    ).writeAsString(prettyJson(fieldCoverageReport));
+    await File(
+      '${options.outDir}/reports/missing_app_fields.json',
+    ).writeAsString(prettyJson(missingAppFieldsReport));
+  }
+
+  Future<void> _writeSeedDependencyReport({
+    required DateTime generatedAt,
+    required List<IpoCompetitionStock> seedStocks,
+    required List<IpoCompetitionStock> autoCoreStocks,
+    required List<IpoCompetitionStock> finalStocks,
+  }) async {
+    final reportDir = Directory('${options.outDir}/reports');
+    await reportDir.create(recursive: true);
+
+    final seedByKey = {
+      for (final stock in seedStocks.map((stock) => stock.normalized()))
+        _scheduleReportKey(stock): stock,
+    };
+    final autoCoreByKey = {
+      for (final stock in autoCoreStocks.map((stock) => stock.normalized()))
+        _scheduleReportKey(stock): stock,
+    };
+    final finalNormalized = finalStocks
+        .map((stock) => stock.normalized())
+        .toList();
+
+    final presenceDependent = <Map<String, Object?>>[];
+    final fieldDependent = <Map<String, Object?>>[];
+
+    for (final stock in finalNormalized) {
+      final key = _scheduleReportKey(stock);
+      final autoCore = autoCoreByKey[key];
+      final seed = seedByKey[key];
+      if (seed == null) {
+        continue;
+      }
+      if (autoCore == null) {
+        presenceDependent.add({
+          ..._scheduleReportRow(stock),
+          'dependency': 'presence',
+          'category': classifySeedOnlyGap(stock, generatedAt),
+        });
+        continue;
+      }
+
+      final missingFields = _appFieldDependencyDiff(autoCore, stock);
+      if (missingFields.isEmpty) {
+        continue;
+      }
+      fieldDependent.add({
+        ..._scheduleReportRow(stock),
+        'dependency': 'fields',
+        'category': classifySeedOnlyGap(stock, generatedAt),
+        'fieldsRecoveredOutsideAutoCore': missingFields,
+      });
+    }
+
+    presenceDependent.sort((a, b) {
+      final byDate = '${b['subscriptionStart'] ?? ''}'.compareTo(
+        '${a['subscriptionStart'] ?? ''}',
+      );
+      if (byDate != 0) {
+        return byDate;
+      }
+      return '${a['company'] ?? ''}'.compareTo('${b['company'] ?? ''}');
+    });
+    fieldDependent.sort((a, b) {
+      final byDate = '${b['subscriptionStart'] ?? ''}'.compareTo(
+        '${a['subscriptionStart'] ?? ''}',
+      );
+      if (byDate != 0) {
+        return byDate;
+      }
+      return '${a['company'] ?? ''}'.compareTo('${b['company'] ?? ''}');
+    });
+
+    final report = {
+      'schemaVersion': schemaVersion,
+      'generatedAt': generatedAt.toIso8601String(),
+      'totals': {
+        'seedStocks': seedByKey.length,
+        'autoCoreStocks': autoCoreByKey.length,
+        'finalStocks': finalNormalized.length,
+        'presenceDependent': presenceDependent.length,
+        'fieldDependent': fieldDependent.length,
+        'presenceByCategory': _categoryCounts(presenceDependent),
+        'fieldByCategory': _categoryCounts(fieldDependent),
+        'presenceByYear': _yearCounts(presenceDependent),
+        'fieldByYear': _yearCounts(fieldDependent),
+        'fieldRecoveredFrequency': _fieldRecoveredCounts(fieldDependent),
+      },
+      'presenceDependent': presenceDependent,
+      'fieldDependent': fieldDependent,
+    };
+
+    await File(
+      '${options.outDir}/reports/seed_dependent_stocks.json',
+    ).writeAsString(prettyJson(report));
+  }
+
+  Future<void> _writeHeuristicGeneralSharesReport({
+    required DateTime generatedAt,
+    required List<IpoCompetitionStock> preBackfillStocks,
+    required List<IpoCompetitionStock> finalStocks,
+  }) async {
+    final reportDir = Directory('${options.outDir}/reports');
+    await reportDir.create(recursive: true);
+
+    final preBackfillByKey = {
+      for (final stock in preBackfillStocks.map((stock) => stock.normalized()))
+        _scheduleReportKey(stock): stock,
+    };
+
+    final heuristicRows = <Map<String, Object?>>[];
+    for (final stock in finalStocks.map((stock) => stock.normalized())) {
+      if (stock.normalizedSecurityType != 'GENERAL_SHARES') {
+        continue;
+      }
+      final previous = preBackfillByKey[_scheduleReportKey(stock)];
+      if (previous == null) {
+        continue;
+      }
+      final inferredFields = <String>[];
+      if (previous.normalizedGeneralSharesDate == null &&
+          stock.normalizedGeneralSharesDate != null) {
+        inferredFields.add('generalSharesDate');
+      }
+      if (previous.normalizedSecurityType == null &&
+          stock.normalizedSecurityType != null) {
+        inferredFields.add('securityType');
+      }
+      if (inferredFields.isEmpty) {
+        continue;
+      }
+      heuristicRows.add({
+        ..._scheduleReportRow(stock),
+        'inferredFields': inferredFields,
+        'beforeBackfill': _scheduleReportRow(previous),
+      });
+    }
+
+    heuristicRows.sort((a, b) {
+      final byDate = '${b['subscriptionStart'] ?? ''}'.compareTo(
+        '${a['subscriptionStart'] ?? ''}',
+      );
+      if (byDate != 0) {
+        return byDate;
+      }
+      return '${a['company'] ?? ''}'.compareTo('${b['company'] ?? ''}');
+    });
+
+    final report = {
+      'schemaVersion': schemaVersion,
+      'generatedAt': generatedAt.toIso8601String(),
+      'totals': {
+        'generalSharesInFinal': finalStocks
+            .map((stock) => stock.normalized())
+            .where((stock) => stock.normalizedSecurityType == 'GENERAL_SHARES')
+            .length,
+        'heuristicRows': heuristicRows.length,
+      },
+      'heuristicRows': heuristicRows,
+    };
+
+    await File(
+      '${options.outDir}/reports/heuristic_general_shares.json',
+    ).writeAsString(prettyJson(report));
+  }
+
+  Future<void> _writeAutoCoreReconciliationReport({
+    required DateTime generatedAt,
+    required List<IpoCompetitionStock> seedStocks,
+    required List<IpoCompetitionStock> autoCoreStocks,
+  }) async {
+    final reportDir = Directory('${options.outDir}/reports');
+    await reportDir.create(recursive: true);
+
+    final seedByKey = {
+      for (final stock in seedStocks.map((stock) => stock.normalized()))
+        _scheduleReportKey(stock): stock,
+    };
+    final autoCoreByKey = {
+      for (final stock in autoCoreStocks.map((stock) => stock.normalized()))
+        _scheduleReportKey(stock): stock,
+    };
+
+    List<Map<String, Object?>> stockRows(Iterable<IpoCompetitionStock> stocks) {
+      final rows = stocks.map(_scheduleReportRow).toList()
+        ..sort((a, b) {
+          final byDate = '${b['subscriptionStart'] ?? ''}'.compareTo(
+            '${a['subscriptionStart'] ?? ''}',
+          );
+          if (byDate != 0) {
+            return byDate;
+          }
+          return '${a['company'] ?? ''}'.compareTo('${b['company'] ?? ''}');
+        });
+      return rows;
+    }
+
+    final seedOnly =
+        stockRows(
+          seedByKey.keys
+              .where((key) => !autoCoreByKey.containsKey(key))
+              .map((key) => seedByKey[key]!),
+        ).map((row) {
+          final key = 'subscription:${row['subscriptionKey'] ?? ''}';
+          final stock =
+              seedByKey[key] ?? seedByKey['id:${safeId('${row['id'] ?? ''}')}'];
+          return {
+            ...row,
+            'category': stock == null
+                ? 'unknown'
+                : classifySeedOnlyGap(stock, generatedAt),
+          };
+        }).toList();
+    final autoOnly = stockRows(
+      autoCoreByKey.keys
+          .where((key) => !seedByKey.containsKey(key))
+          .map((key) => autoCoreByKey[key]!),
+    );
+
+    final sharedWithDifferences = <Map<String, Object?>>[];
+    for (final key in seedByKey.keys.where(autoCoreByKey.containsKey)) {
+      final seed = seedByKey[key]!;
+      final auto = autoCoreByKey[key]!;
+      final differences = _autoCoreReconciliationDiff(seed, auto);
+      if (differences.isEmpty) {
+        continue;
+      }
+      sharedWithDifferences.add({
+        'id': safeId(seed.id),
+        'company': seed.company,
+        'subscriptionStart': seed.subscriptionStart,
+        'subscriptionEnd': seed.subscriptionEnd,
+        'differences': differences,
+        'seed': _scheduleReportRow(seed),
+        'autoCore': _scheduleReportRow(auto),
+      });
+    }
+    sharedWithDifferences.sort((a, b) {
+      final byDate = '${b['subscriptionStart'] ?? ''}'.compareTo(
+        '${a['subscriptionStart'] ?? ''}',
+      );
+      if (byDate != 0) {
+        return byDate;
+      }
+      return '${a['company'] ?? ''}'.compareTo('${b['company'] ?? ''}');
+    });
+
+    final report = {
+      'schemaVersion': schemaVersion,
+      'generatedAt': generatedAt.toIso8601String(),
+      'totals': {
+        'seed': seedByKey.length,
+        'autoCore': autoCoreByKey.length,
+        'seedOnly': seedOnly.length,
+        'autoOnly': autoOnly.length,
+        'sharedWithDifferences': sharedWithDifferences.length,
+        'seedOnlyByCategory': _categoryCounts(seedOnly),
+      },
+      'seedOnly': seedOnly,
+      'autoOnly': autoOnly,
+      'sharedWithDifferences': sharedWithDifferences,
+    };
+
+    await File(
+      '${options.outDir}/reports/auto_core_reconciliation.json',
+    ).writeAsString(prettyJson(report));
+  }
+
+  String _discoveredReportKey(IpoCompetitionStock stock) {
+    final subscriptionKey = canonicalSubscriptionKey(
+      stock.identifiers.subscriptionKey,
+    );
+    if (subscriptionKey.isNotEmpty) {
+      return 'subscription:$subscriptionKey';
+    }
+    final identifierKey = preferredIdentifierKey(stock.identifiers);
+    if (identifierKey != null) {
+      return identifierKey;
+    }
+    final company = normalizeCompanyIdentity(stock.company);
+    final start = stock.subscriptionStart ?? '';
+    final end = stock.subscriptionEnd ?? '';
+    return 'company:$company|$start|$end';
+  }
+
+  Map<String, Object?> _discoveredReportRow(IpoCompetitionStock stock) {
+    final normalized = stock.normalized();
+    return {
+      'id': safeId(normalized.id),
+      'company': normalized.company,
+      'subscriptionStart': normalized.subscriptionStart,
+      'subscriptionEnd': normalized.subscriptionEnd,
+      'listingDate': normalized.listingDate,
+      'generalSharesDate': normalized.generalSharesDate,
+      'securityType': normalized.securityType,
+      'market': normalized.market,
+      'leadManagers': normalized.leadManagers,
+      'subscriptionKey': normalized.identifiers.subscriptionKey,
+      'path': 'stocks/${safeId(normalized.id)}.json',
+    };
+  }
+
+  String _scheduleReportKey(IpoCompetitionStock stock) {
+    final subscriptionKey = canonicalSubscriptionKey(
+      stock.identifiers.subscriptionKey,
+    );
+    if (subscriptionKey.isNotEmpty) {
+      return 'subscription:$subscriptionKey';
+    }
+    final identifierKey = preferredIdentifierKey(stock.identifiers);
+    if (identifierKey != null) {
+      return identifierKey;
+    }
+    return 'id:${safeId(stock.id)}';
+  }
+
+  Map<String, Object?> _scheduleReportRow(IpoCompetitionStock stock) {
+    final normalized = stock.normalized();
+    return {
+      'id': safeId(normalized.id),
+      'company': normalized.company,
+      'subscriptionStart': normalized.subscriptionStart,
+      'subscriptionEnd': normalized.subscriptionEnd,
+      'listingDate': normalized.resolvedListingDate,
+      'generalSharesDate': normalized.normalizedGeneralSharesDate,
+      'securityType': normalized.normalizedSecurityType,
+      'subscriptionKey': normalized.identifiers.subscriptionKey,
+      'path': 'stocks/${safeId(normalized.id)}.json',
+    };
+  }
+
+  List<Map<String, Object?>> _scheduleFieldChanges(
+    IpoCompetitionStock previous,
+    IpoCompetitionStock current,
+  ) {
+    final changes = <Map<String, Object?>>[];
+
+    void addChange(String field, Object? before, Object? after) {
+      final normalizedBefore = before is String ? before.trim() : before;
+      final normalizedAfter = after is String ? after.trim() : after;
+      if (normalizedBefore == normalizedAfter) {
+        return;
+      }
+      changes.add({
+        'field': field,
+        'before': normalizedBefore,
+        'after': normalizedAfter,
+      });
+    }
+
+    addChange(
+      'subscriptionStart',
+      previous.subscriptionStart,
+      current.subscriptionStart,
+    );
+    addChange(
+      'subscriptionEnd',
+      previous.subscriptionEnd,
+      current.subscriptionEnd,
+    );
+    addChange(
+      'listingDate',
+      previous.resolvedListingDate,
+      current.resolvedListingDate,
+    );
+    addChange(
+      'generalSharesDate',
+      previous.normalizedGeneralSharesDate,
+      current.normalizedGeneralSharesDate,
+    );
+    addChange(
+      'securityType',
+      previous.normalizedSecurityType,
+      current.normalizedSecurityType,
+    );
+    return changes;
+  }
+
+  List<String> _appFieldDependencyDiff(
+    IpoCompetitionStock autoCore,
+    IpoCompetitionStock current,
+  ) {
+    final missingFields = <String>[];
+
+    bool hasValue(Object? value) {
+      if (value == null) {
+        return false;
+      }
+      if (value is String) {
+        return value.trim().isNotEmpty;
+      }
+      if (value is List) {
+        return value.isNotEmpty;
+      }
+      return true;
+    }
+
+    void addIfRecovered(String field, Object? before, Object? after) {
+      if (!hasValue(before) && hasValue(after)) {
+        missingFields.add(field);
+      }
+    }
+
+    addIfRecovered('industry', autoCore.industry, current.industry);
+    addIfRecovered(
+      'listingDate',
+      autoCore.resolvedListingDate,
+      current.resolvedListingDate,
+    );
+    addIfRecovered('leadManagers', autoCore.leadManagers, current.leadManagers);
+    addIfRecovered(
+      'institutionCompetitionRate',
+      autoCore.fundamentals.institutionCompetitionRate,
+      current.fundamentals.institutionCompetitionRate,
+    );
+    addIfRecovered(
+      'institutionParticipants',
+      autoCore.fundamentals.institutionParticipants,
+      current.fundamentals.institutionParticipants,
+    );
+    addIfRecovered(
+      'lockupCommitmentRate',
+      autoCore.fundamentals.lockupCommitmentRate,
+      current.fundamentals.lockupCommitmentRate,
+    );
+    addIfRecovered(
+      'floatRate',
+      autoCore.fundamentals.floatRate,
+      current.fundamentals.floatRate,
+    );
+    addIfRecovered(
+      'marketCapKrw',
+      autoCore.fundamentals.marketCapKrw,
+      current.fundamentals.marketCapKrw,
+    );
+    addIfRecovered(
+      'publicAllocationShares',
+      autoCore.fundamentals.publicAllocationShares,
+      current.fundamentals.publicAllocationShares,
+    );
+    addIfRecovered(
+      'generalSharesDate',
+      autoCore.normalizedGeneralSharesDate,
+      current.normalizedGeneralSharesDate,
+    );
+    addIfRecovered(
+      'securityType',
+      autoCore.normalizedSecurityType,
+      current.normalizedSecurityType,
+    );
+    addIfRecovered(
+      'corpCode',
+      autoCore.identifiers.corpCode,
+      current.identifiers.corpCode,
+    );
+    addIfRecovered(
+      'stockCode',
+      autoCore.identifiers.stockCode,
+      current.identifiers.stockCode,
+    );
+    return missingFields;
+  }
+
+  List<Map<String, Object?>> _autoCoreReconciliationDiff(
+    IpoCompetitionStock seed,
+    IpoCompetitionStock autoCore,
+  ) {
+    final differences = <Map<String, Object?>>[];
+
+    void addDifference(String field, Object? seedValue, Object? autoValue) {
+      final normalizedSeed = seedValue is String ? seedValue.trim() : seedValue;
+      final normalizedAuto = autoValue is String ? autoValue.trim() : autoValue;
+      if (normalizedSeed == normalizedAuto) {
+        return;
+      }
+      differences.add({
+        'field': field,
+        'seed': normalizedSeed,
+        'autoCore': normalizedAuto,
+      });
+    }
+
+    addDifference('market', seed.market, autoCore.market);
+    addDifference('industry', seed.industry, autoCore.industry);
+    addDifference(
+      'subscriptionStart',
+      seed.subscriptionStart,
+      autoCore.subscriptionStart,
+    );
+    addDifference(
+      'subscriptionEnd',
+      seed.subscriptionEnd,
+      autoCore.subscriptionEnd,
+    );
+    addDifference(
+      'listingDate',
+      seed.resolvedListingDate,
+      autoCore.resolvedListingDate,
+    );
+    addDifference(
+      'generalSharesDate',
+      seed.normalizedGeneralSharesDate,
+      autoCore.normalizedGeneralSharesDate,
+    );
+    addDifference(
+      'securityType',
+      seed.normalizedSecurityType,
+      autoCore.normalizedSecurityType,
+    );
+    addDifference(
+      'institutionCompetitionRate',
+      seed.fundamentals.institutionCompetitionRate,
+      autoCore.fundamentals.institutionCompetitionRate,
+    );
+    return differences;
+  }
+
+  String classifySeedOnlyGap(IpoCompetitionStock stock, DateTime generatedAt) {
+    if (stock.normalizedSecurityType == 'GENERAL_SHARES' ||
+        stock.normalizedGeneralSharesDate != null) {
+      return 'general_shares';
+    }
+    final today = DateTime(
+      generatedAt.year,
+      generatedAt.month,
+      generatedAt.day,
+    );
+    final end =
+        parseDate(stock.subscriptionEnd) ??
+        parseDate(stock.subscriptionStart) ??
+        parseDate(stock.resolvedListingDate);
+    if (end != null && end.isBefore(today)) {
+      return 'historical';
+    }
+    final company = stock.company;
+    if (company.contains('스팩') || stock.normalizedSecurityType == 'SPAC') {
+      return 'spac_gap';
+    }
+    return 'current_finuts_gap';
+  }
+
+  Map<String, int> _categoryCounts(List<Map<String, Object?>> rows) {
+    final counts = <String, int>{};
+    for (final row in rows) {
+      final category = '${row['category'] ?? 'unknown'}';
+      counts[category] = (counts[category] ?? 0) + 1;
+    }
+    return counts;
+  }
+
+  Map<String, int> _yearCounts(List<Map<String, Object?>> rows) {
+    final counts = <String, int>{};
+    for (final row in rows) {
+      final raw =
+          '${row['subscriptionStart'] ?? row['listingDate'] ?? row['generalSharesDate'] ?? ''}'
+              .trim();
+      final year = raw.length >= 4 ? raw.substring(0, 4) : 'unknown';
+      counts[year] = (counts[year] ?? 0) + 1;
+    }
+    return counts;
+  }
+
+  Map<String, int> _fieldRecoveredCounts(List<Map<String, Object?>> rows) {
+    final counts = <String, int>{};
+    for (final row in rows) {
+      final fields = row['fieldsRecoveredOutsideAutoCore'] is List
+          ? row['fieldsRecoveredOutsideAutoCore'] as List
+          : const [];
+      for (final field in fields) {
+        final key = '$field'.trim();
+        if (key.isEmpty) {
+          continue;
+        }
+        counts[key] = (counts[key] ?? 0) + 1;
+      }
+    }
+    return counts;
+  }
+
   Future<List<IpoCompetitionStock>> _discoverRemoteStocks(DateTime now) async {
     final discovered = <IpoCompetitionStock>[];
+    discovered.addAll(await _discoverFinutsStocks());
     discovered.addAll(await _discoverDartStocks(now));
     discovered.addAll(await _discoverItickStocks());
     _noteKisCredentialsIfConfigured();
     return discovered;
   }
 
+  Future<List<IpoCompetitionStock>> _discoverFinutsStocks() async {
+    final uri = Uri.parse(
+      'https://www.finuts.co.kr/html/task/ipo/ipoListQuery.php',
+    );
+    try {
+      final response = await httpPostJson(uri, {
+        'active': 'ipo-011',
+        'search_text': '',
+      });
+      final rows = response['data'];
+      if (rows is! List) {
+        return const [];
+      }
+
+      final byIpoSn = <String, List<Map<String, Object?>>>{};
+      for (final row in rows.whereType<Map<String, Object?>>()) {
+        final ipoSn = (row['IPO_SN'] ?? '').toString().trim();
+        final company = (row['ENT_NM'] ?? '').toString().trim();
+        if (ipoSn.isEmpty || company.isEmpty) {
+          continue;
+        }
+        byIpoSn.putIfAbsent(ipoSn, () => <Map<String, Object?>>[]).add(row);
+      }
+
+      return byIpoSn.values
+          .map(stockFromFinutsRows)
+          .whereType<IpoCompetitionStock>()
+          .toList();
+    } catch (error) {
+      stderr.writeln('Finuts discovery failed: $error');
+      return const [];
+    }
+  }
+
   Future<List<IpoCompetitionStock>> _discoverIpoKoreaSupplementStocks(
     List<IpoCompetitionStock> stocks,
     DateTime now,
   ) async {
+    const supplementCandidateLimit = 48;
     final today = DateTime(now.year, now.month, now.day);
 
     bool isCompleted(IpoCompetitionStock stock) {
@@ -578,7 +1619,7 @@ class IpoCompetitionBatch {
       );
 
     final supplements = <IpoCompetitionStock>[];
-    for (final stock in candidates.take(12)) {
+    for (final stock in candidates.take(supplementCandidateLimit)) {
       final sourceUrl =
           'https://ipokorea.kr/ipo/${Uri.encodeComponent(stock.company)}';
       final body = await httpGetFirstText([sourceUrl]);
@@ -750,17 +1791,34 @@ class IpoCompetitionBatch {
       return const [];
     }
 
+    final naverCalculatorCodes = await _fetchNaverCalculatorActiveCodes();
     final rows = <IpoBrokerSnapshotRow>[];
     for (final stock in active) {
-      rows.addAll(await _fetchPublicLiveSnapshots(stock, now));
+      rows.addAll(
+        await _fetchPublicLiveSnapshots(
+          stock,
+          now,
+          naverCalculatorCodes: naverCalculatorCodes,
+        ),
+      );
     }
     return rows;
   }
 
   Future<List<IpoBrokerSnapshotRow>> _fetchPublicLiveSnapshots(
     IpoCompetitionStock stock,
-    DateTime now,
-  ) async {
+    DateTime now, {
+    Map<String, String> naverCalculatorCodes = const <String, String>{},
+  }) async {
+    final naverSnapshot = await _fetchNaverCalculatorSnapshot(
+      stock,
+      now,
+      activeCodes: naverCalculatorCodes,
+    );
+    if (naverSnapshot != null) {
+      return [naverSnapshot];
+    }
+
     final rows = <IpoBrokerSnapshotRow>[];
     final collectors = [
       () => _fetchShinhanLiveSnapshot(stock, now),
@@ -781,6 +1839,139 @@ class IpoCompetitionBatch {
       }
     }
     return rows;
+  }
+
+  Future<Map<String, String>> _fetchNaverCalculatorActiveCodes() async {
+    try {
+      final response = await httpGetJson(
+        Uri.parse(
+          'https://m.stock.naver.com/front-api/ipo/calculator/activeItems',
+        ),
+      );
+      final rawItems = response['result'];
+      if (rawItems is! List) {
+        return const <String, String>{};
+      }
+      final result = <String, String>{};
+      for (final item in rawItems.whereType<Map<String, Object?>>()) {
+        final company = readString(item, 'compName');
+        final code = _normalizeNaverIpoCode(readString(item, 'ipoCode'));
+        if (company == null || code == null) {
+          continue;
+        }
+        result[normalizeCompanyIdentity(company)] = code;
+      }
+      return result;
+    } catch (error) {
+      stderr.writeln('Naver calculator activeItems fetch failed: $error');
+      return const <String, String>{};
+    }
+  }
+
+  Future<IpoBrokerSnapshotRow?> _fetchNaverCalculatorSnapshot(
+    IpoCompetitionStock stock,
+    DateTime now, {
+    required Map<String, String> activeCodes,
+  }) async {
+    final code =
+        _normalizeNaverIpoCode(stock.identifiers.stockCode) ??
+        activeCodes[normalizeCompanyIdentity(stock.company)];
+    if (code == null) {
+      return null;
+    }
+
+    final uri = Uri.parse(
+      'https://m.stock.naver.com/front-api/ipo/calculator/operands?code=$code',
+    );
+    final response = await httpGetJson(uri);
+    final payload = response['result'];
+    if (payload is! Map<String, Object?>) {
+      return null;
+    }
+
+    final fixPubPrice = readOptionalInt(payload['fixPubPrice']);
+    final rawDepositRate = readDouble(payload['sbscMrgnRatio']);
+    final depositRate = rawDepositRate == null || rawDepositRate <= 0
+        ? null
+        : rawDepositRate / 100;
+    final capturedAt = readString(payload, 'baseTime') ?? now.toIso8601String();
+    final rawManagers = payload['joinManagers'];
+    if (rawManagers is! List) {
+      return null;
+    }
+
+    final brokers = <IpoBrokerCompetition>[];
+    for (final manager in rawManagers.whereType<Map<String, Object?>>()) {
+      final brokerName = canonicalBrokerName(
+        readString(manager, 'orgNm') ?? '',
+      );
+      if (brokerName.trim().isEmpty) {
+        continue;
+      }
+
+      final offeredShares = readOptionalInt(manager['orgAllcShares']) ?? 0;
+      final equalAllocationShares = readOptionalInt(manager['orgEqlShares']);
+      final proportionalAllocationShares = readOptionalInt(
+        manager['orgPrtShares'],
+      );
+      final totalRate = readDouble(manager['ttlCmptRatio']);
+      final proportionalRate = readDouble(manager['prtCmptRatio']);
+      final applicationCount = readOptionalInt(manager['sbscNum']);
+      final expectedEqualShares =
+          equalAllocationShares != null &&
+              applicationCount != null &&
+              applicationCount > 0
+          ? equalAllocationShares / applicationCount
+          : null;
+
+      if (offeredShares <= 0 &&
+          equalAllocationShares == null &&
+          proportionalAllocationShares == null &&
+          totalRate == null &&
+          proportionalRate == null &&
+          applicationCount == null) {
+        continue;
+      }
+
+      final subscribedShares = totalRate != null && offeredShares > 0
+          ? (offeredShares * totalRate).round()
+          : proportionalRate != null &&
+                proportionalAllocationShares != null &&
+                proportionalAllocationShares > 0
+          ? (proportionalAllocationShares * proportionalRate).round()
+          : 0;
+
+      brokers.add(
+        IpoBrokerCompetition(
+          name: brokerName,
+          offeredShares: offeredShares,
+          subscribedShares: subscribedShares,
+          offerPrice: fixPubPrice,
+          depositRate: depositRate,
+          feeKrw: null,
+          competitionRate: totalRate,
+          equalCompetitionRate: null,
+          proportionalCompetitionRate: proportionalRate ?? totalRate,
+          equalAllocationShares: equalAllocationShares,
+          proportionalAllocationShares: proportionalAllocationShares,
+          expectedEqualShares: expectedEqualShares,
+          applicationCount: applicationCount,
+        ),
+      );
+    }
+
+    if (brokers.isEmpty) {
+      return null;
+    }
+
+    return IpoBrokerSnapshotRow(
+      id: stock.id,
+      company: stock.company,
+      capturedAt: capturedAt,
+      source: 'naver_calculator_live',
+      sourceUrl: uri.toString(),
+      brokers: brokers,
+    );
   }
 
   Future<IpoBrokerSnapshotRow?> _fetchShinhanLiveSnapshot(
@@ -1083,6 +2274,17 @@ class IpoCompetitionStock {
   }
 
   IpoCompetitionStock normalized() {
+    final normalizedSnapshots =
+        snapshots.map((snapshot) => snapshot.normalized()).toList()
+          ..sort((a, b) => a.capturedAt.compareTo(b.capturedAt));
+    final seenSnapshotKeys = <String>{};
+    final dedupedSnapshots = <IpoCompetitionSnapshot>[];
+    for (final snapshot in normalizedSnapshots) {
+      final key = _competitionSnapshotKey(snapshot);
+      if (seenSnapshotKeys.add(key)) {
+        dedupedSnapshots.add(snapshot);
+      }
+    }
     return IpoCompetitionStock(
       id: safeId(id),
       company: company.trim(),
@@ -1097,8 +2299,7 @@ class IpoCompetitionStock {
       sourceIdentifiers: identifiers,
       fundamentals: fundamentals.normalized(),
       outcome: outcome?.normalized(),
-      snapshots: snapshots.map((snapshot) => snapshot.normalized()).toList()
-        ..sort((a, b) => a.capturedAt.compareTo(b.capturedAt)),
+      snapshots: dedupedSnapshots,
     );
   }
 
@@ -1206,11 +2407,13 @@ class IpoManualFundamentalsOverride {
   const IpoManualFundamentalsOverride({
     required this.id,
     required this.company,
+    required this.industry,
     required this.fundamentals,
   });
 
   final String id;
   final String company;
+  final String industry;
   final IpoFundamentals fundamentals;
 
   factory IpoManualFundamentalsOverride.fromJson(Map<String, Object?> json) {
@@ -1234,6 +2437,7 @@ class IpoManualFundamentalsOverride {
     return IpoManualFundamentalsOverride(
       id: id.trim(),
       company: company.trim(),
+      industry: (readString(json, 'industry') ?? '').trim(),
       fundamentals: IpoFundamentals.fromJson(fundamentalsSource),
     );
   }
@@ -2033,11 +3237,17 @@ bool isLikelyGeneralSharesStock(IpoCompetitionStock stock) {
 }
 
 String stockIdentityKey(IpoCompetitionStock stock) {
-  final subscriptionKey = stock.identifiers.subscriptionKey.trim();
+  final subscriptionKey = canonicalSubscriptionKey(
+    stock.identifiers.subscriptionKey,
+  );
   if (subscriptionKey.isNotEmpty) {
     return 'sub:$subscriptionKey';
   }
-  final company = normalizeLookup(stock.company);
+  final identifierKey = preferredIdentifierKey(stock.identifiers);
+  if (identifierKey != null) {
+    return identifierKey;
+  }
+  final company = normalizeCompanyIdentity(stock.company);
   final start =
       normalizeDate(stock.subscriptionStart) ?? stock.subscriptionStart;
   final end = normalizeDate(stock.subscriptionEnd) ?? stock.subscriptionEnd;
@@ -2046,6 +3256,60 @@ String stockIdentityKey(IpoCompetitionStock stock) {
     return 'company:$company:${start ?? ''}:${end ?? ''}';
   }
   return 'id:${safeId(stock.id)}';
+}
+
+String? preferredIdentifierKey(IpoStockIdentifiers identifiers) {
+  String? clean(String? value) {
+    final trimmed = value?.trim();
+    return trimmed == null || trimmed.isEmpty ? null : trimmed;
+  }
+
+  final kindCode = clean(identifiers.kindCode);
+  if (kindCode != null) {
+    return 'kind:$kindCode';
+  }
+  final corpCode = clean(identifiers.corpCode);
+  if (corpCode != null) {
+    return 'corp:$corpCode';
+  }
+  final stockCode = clean(identifiers.stockCode);
+  if (stockCode != null) {
+    return 'stock:$stockCode';
+  }
+  final isin = clean(identifiers.isin);
+  if (isin != null) {
+    return 'isin:$isin';
+  }
+  return null;
+}
+
+String canonicalSubscriptionKey(String? raw) {
+  final value = (raw ?? '').trim();
+  if (value.isEmpty) {
+    return '';
+  }
+  final match = RegExp(r'^(.*)_(\d{8})_(\d{8})$').firstMatch(value);
+  if (match == null) {
+    return value;
+  }
+  final company = normalizeCompanyIdentity(match.group(1) ?? '');
+  final start = match.group(2) ?? '';
+  final end = match.group(3) ?? '';
+  if (company.isEmpty) {
+    return value;
+  }
+  return '${company}_${start}_$end';
+}
+
+String normalizeCompanyIdentity(String value) {
+  var normalized = normalizeLookup(value);
+  final spacMatch = RegExp(r'^(.*?)(?:제)?(\d+)호스팩$').firstMatch(normalized);
+  if (spacMatch != null) {
+    final prefix = spacMatch.group(1) ?? '';
+    final number = spacMatch.group(2) ?? '';
+    return '${prefix}스팩${number}호';
+  }
+  return normalized;
 }
 
 IpoCompetitionStock preferStock(
@@ -2270,7 +3534,9 @@ List<IpoCompetitionStock> mergeManualFundamentalsOverrides(
       id: stock.id,
       company: stock.company,
       market: stock.market,
-      industry: stock.industry,
+      industry: stock.industry.trim().isEmpty
+          ? override.industry
+          : stock.industry,
       subscriptionStart: stock.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd,
       listingDate: stock.listingDate,
@@ -2414,13 +3680,14 @@ List<IpoCompetitionStock> mergeBrokerSnapshots(
     }
   }
   return stocks.map((stock) {
-    final seen = <IpoBrokerSnapshotRow>{};
+    final seen = <String>{};
     final matches = <IpoBrokerSnapshotRow>[];
     for (final row in [
       ...?byId[safeId(stock.id)],
       ...?byCompany[normalizeLookup(stock.company)],
     ]) {
-      if (seen.add(row)) {
+      final key = _brokerSnapshotRowMergeKey(row);
+      if (seen.add(key)) {
         matches.add(row);
       }
     }
@@ -2461,6 +3728,63 @@ List<IpoCompetitionStock> mergeBrokerSnapshots(
       snapshots: [...stock.snapshots, ...extraSnapshots],
     );
   }).toList();
+}
+
+String _brokerSnapshotRowMergeKey(IpoBrokerSnapshotRow row) {
+  final brokerKey = row.brokers
+      .map(
+        (broker) => [
+          normalizeLookup(broker.name),
+          broker.offeredShares,
+          broker.subscribedShares,
+          broker.offerPrice ?? '',
+          broker.depositRate ?? '',
+          broker.competitionRate ?? '',
+          broker.proportionalCompetitionRate ?? '',
+          broker.equalAllocationShares ?? '',
+          broker.proportionalAllocationShares ?? '',
+          broker.expectedEqualShares ?? '',
+          broker.applicationCount ?? '',
+        ].join(':'),
+      )
+      .join('|');
+  return [
+    safeId(row.id ?? ''),
+    normalizeLookup(row.company ?? ''),
+    row.capturedAt,
+    row.source,
+    row.sourceUrl ?? '',
+    brokerKey,
+  ].join('||');
+}
+
+String _competitionSnapshotKey(IpoCompetitionSnapshot snapshot) {
+  final brokerKey = snapshot.brokers
+      .map(
+        (broker) => [
+          normalizeLookup(broker.name),
+          broker.offeredShares,
+          broker.subscribedShares,
+          broker.offerPrice ?? '',
+          broker.depositRate ?? '',
+          broker.feeKrw ?? '',
+          broker.competitionRate ?? '',
+          broker.equalCompetitionRate ?? '',
+          broker.proportionalCompetitionRate ?? '',
+          broker.equalAllocationShares ?? '',
+          broker.proportionalAllocationShares ?? '',
+          broker.expectedEqualShares ?? '',
+          broker.applicationCount ?? '',
+        ].join(':'),
+      )
+      .join('|');
+  return [
+    snapshot.capturedAt,
+    snapshot.source,
+    snapshot.sourceUrl ?? '',
+    snapshot.aggregateCompetitionRate ?? '',
+    brokerKey,
+  ].join('||');
 }
 
 List<IpoBrokerSnapshotRow> buildEstimatedBrokerSnapshotRows(
@@ -2554,6 +3878,12 @@ Future<List<IpoManualFundamentalsOverride>> _loadManualFundamentalsRows(
   }
   final file = File(path);
   if (!await file.exists()) {
+    final normalizedPath = path.replaceAll('\\', '/');
+    if (normalizedPath.endsWith('/manual_fundamentals.json') ||
+        normalizedPath == 'data/manual_fundamentals.json' ||
+        normalizedPath == 'manual_fundamentals.json') {
+      return const [];
+    }
     stderr.writeln('Manual fundamentals file not found: $path.');
     return const [];
   }
@@ -3001,6 +4331,20 @@ double? parseDepositRate(String text) {
     return 0.5;
   }
   return percent / 100;
+}
+
+String? _normalizeNaverIpoCode(String? raw) {
+  final value = raw?.trim().toUpperCase() ?? '';
+  if (value.isEmpty) {
+    return null;
+  }
+  if (RegExp(r'^A\d{6}$').hasMatch(value)) {
+    return value;
+  }
+  if (RegExp(r'^\d{6}$').hasMatch(value)) {
+    return 'A$value';
+  }
+  return null;
 }
 
 String canonicalBrokerName(String raw) {
@@ -3791,6 +5135,9 @@ int snapshotSourcePriority(String source) {
   final normalized = source.trim().toLowerCase();
   if (normalized.contains('finuts')) {
     return 100;
+  }
+  if (normalized.contains('naver_calculator')) {
+    return 90;
   }
   if (normalized.contains('ipostock')) {
     return 80;
@@ -5816,6 +7163,7 @@ Future<Map<String, Object?>> httpPostJson(
       'application/x-www-form-urlencoded; charset=UTF-8',
     );
     request.headers.set(HttpHeaders.userAgentHeader, 'Mozilla/5.0');
+    request.headers.set('X-Requested-With', 'XMLHttpRequest');
     request.write(
       body.entries
           .map(
@@ -6077,6 +7425,141 @@ IpoCompetitionStock? stockFromItickRow(Map<String, Object?> row) {
   );
 }
 
+IpoCompetitionStock? stockFromFinutsRows(List<Map<String, Object?>> rows) {
+  if (rows.isEmpty) {
+    return null;
+  }
+
+  Map<String, Object?>? rowForCode(String code) {
+    for (final row in rows) {
+      final scheduleCode = (row['SCHDL_SE_CD'] ?? '')
+          .toString()
+          .trim()
+          .toUpperCase();
+      if (scheduleCode == code) {
+        return row;
+      }
+    }
+    return null;
+  }
+
+  final primary =
+      rowForCode('S') ?? rowForCode('L') ?? rowForCode('D') ?? rows.first;
+  final company = (primary['ENT_NM'] ?? '').toString().trim();
+  final ipoSn = (primary['IPO_SN'] ?? '').toString().trim();
+  final finutsType = (primary['SE_CD'] ?? '').toString().trim().toUpperCase();
+  if (company.isEmpty || ipoSn.isEmpty) {
+    return null;
+  }
+  if (finutsType != 'IPO' && finutsType != 'SPAC' && finutsType != 'FORF') {
+    return null;
+  }
+
+  final rowS = rowForCode('S');
+  final rowL = rowForCode('L');
+  final rowD = rowForCode('D');
+
+  final subscriptionStart = normalizeDate((rowS?['BGNG_YMD'] ?? '').toString());
+  final subscriptionEnd =
+      normalizeDate((rowS?['END_YMD'] ?? '').toString()) ?? subscriptionStart;
+  final listingDate =
+      normalizeDate((rowL?['BGNG_YMD'] ?? '').toString()) ??
+      normalizeDate((rowL?['IPO_DATE'] ?? '').toString()) ??
+      normalizeDate((primary['IPO_DATE'] ?? '').toString());
+  final generalSharesDate = finutsType == 'FORF'
+      ? (listingDate ?? subscriptionEnd ?? subscriptionStart)
+      : null;
+  final demandForecastDate = normalizeDate(
+    (rowD?['BGNG_YMD'] ?? '').toString(),
+  );
+
+  if (subscriptionStart == null &&
+      subscriptionEnd == null &&
+      listingDate == null &&
+      demandForecastDate == null) {
+    return null;
+  }
+
+  final confirmedPrice = readDouble(primary['PSS_PRC']);
+  final bandMin = readDouble(primary['BAND_BGNG_AMT']);
+  final bandMax = readDouble(primary['BAND_END_AMT']);
+  final institutionCompetitionRate = readDouble(primary['INST_CMPET_RT']);
+  final lockupCommitmentRate = readRatio(primary['DUTY_HOLD_DFPR_RT']);
+  final publicAllocationShares = inferFinutsPublicAllocationShares(
+    finutsType: finutsType,
+    row: primary,
+  );
+  final offerPrice = confirmedPrice != null && confirmedPrice > 0
+      ? confirmedPrice.round()
+      : null;
+  final priceBandMin = bandMin != null && bandMin > 0
+      ? bandMin.round()
+      : offerPrice;
+  final priceBandMax = bandMax != null && bandMax > 0
+      ? bandMax.round()
+      : offerPrice;
+  final topBandConfirmation =
+      offerPrice != null &&
+          priceBandMin != null &&
+          priceBandMax != null &&
+          priceBandMax > priceBandMin
+      ? offerPrice >= priceBandMax
+      : null;
+
+  return IpoCompetitionStock(
+    id: safeId('finuts_${ipoSn}_${subscriptionStart ?? listingDate ?? ''}'),
+    company: company,
+    market: 'KOSDAQ',
+    industry: '',
+    subscriptionStart: subscriptionStart,
+    subscriptionEnd: subscriptionEnd,
+    listingDate: finutsType == 'FORF' ? null : listingDate,
+    generalSharesDate: generalSharesDate,
+    securityType: finutsType == 'FORF' ? 'GENERAL_SHARES' : finutsType,
+    leadManagers: readLeadManagers(
+      firstNonEmptyString(primary, ['INDCT_JUGANSA_NM']),
+    ),
+    sourceIdentifiers: IpoStockIdentifiers(
+      subscriptionKey: '',
+      normalizedCompany: '',
+      corpCode: null,
+      stockCode: null,
+      kindCode: ipoSn,
+      isin: null,
+    ),
+    fundamentals: IpoFundamentals(
+      offerPrice: offerPrice,
+      priceBandMin: priceBandMin,
+      priceBandMax: priceBandMax,
+      topBandConfirmation: topBandConfirmation,
+      institutionCompetitionRate: institutionCompetitionRate,
+      institutionParticipants: null,
+      lockupCommitmentRate: lockupCommitmentRate,
+      floatRate: null,
+      marketCapKrw: null,
+      publicAllocationShares: publicAllocationShares,
+      hasPutbackRight: false,
+      putbackSummary: null,
+    ),
+    outcome: null,
+    snapshots: const [],
+  );
+}
+
+int? inferFinutsPublicAllocationShares({
+  required String finutsType,
+  required Map<String, Object?> row,
+}) {
+  final raw = readDouble(row['PSS_GRAMT']);
+  if (raw == null || raw <= 0) {
+    return null;
+  }
+  if (finutsType == 'SPAC') {
+    return (raw * 1000).round();
+  }
+  return null;
+}
+
 String compactDate(DateTime value) {
   final year = value.year.toString().padLeft(4, '0');
   final month = value.month.toString().padLeft(2, '0');
@@ -6089,6 +7572,9 @@ String? normalizeDate(String? value) {
     return null;
   }
   final digits = value.replaceAll(RegExp(r'[^0-9]'), '');
+  if (digits.isEmpty || digits == '99999999') {
+    return null;
+  }
   if (digits.length >= 8) {
     return '${digits.substring(0, 4)}-${digits.substring(4, 6)}-${digits.substring(6, 8)}';
   }

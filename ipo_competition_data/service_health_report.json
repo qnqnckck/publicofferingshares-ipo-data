@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-11T12:31:22.506402",
+  "generatedAt": "2026-05-12T01:27:40.759012",
   "totals": {
-    "generatedStocks": 536,
+    "generatedStocks": 524,
     "activeStocks": 1,
-    "upcomingNext7Days": 0
+    "upcomingNext7Days": 1
   },
   "activeReadiness": {
     "missingLatestSnapshotAt": 0,
@@ -18,12 +18,12 @@
     "ocrSourceCount": 0
   },
   "activeLatestSourceCounts": {
-    "38_news_live": 1
+    "naver_calculator_live": 1
   },
   "activeSnapshotFreshness": {
-    "within_1h": 1,
+    "within_1h": 0,
     "within_6h": 0,
-    "within_24h": 0,
+    "within_24h": 1,
     "older": 0,
     "missing": 0
   },
@@ -34,14 +34,29 @@
       "path": "stocks/마키나락스_2026-05-11.json",
       "subscriptionStart": "2026-05-11",
       "subscriptionEnd": "2026-05-12",
-      "latestSnapshotAt": "2026-05-11T12:31:22.506402",
-      "latestSnapshotSource": "38_news_live",
-      "latestCompetitionRate": 2217.6666666666665,
+      "latestSnapshotAt": "2026-05-11T16:09:31",
+      "latestSnapshotSource": "naver_calculator_live",
+      "latestCompetitionRate": 111.13450018975333,
       "institutionCompetitionRate": 1196.08,
       "institutionParticipants": 2427,
       "lockupCommitmentRate": 0.7817000000000001,
       "issues": []
     }
   ],
-  "upcomingSamples": []
+  "upcomingSamples": [
+    {
+      "id": "skc_2026-05-19",
+      "company": "SKC",
+      "path": "stocks/skc_2026-05-19.json",
+      "subscriptionStart": "2026-05-19",
+      "subscriptionEnd": "2026-05-20",
+      "leadManagers": [
+        "한국투자증권",
+        "NH투자증권",
+        "삼성증권",
+        "신한투자증권",
+        "KB증권"
+      ]
+    }
+  ]
 }

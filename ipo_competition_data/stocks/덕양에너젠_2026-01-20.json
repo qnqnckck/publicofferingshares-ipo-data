@@ -4,7 +4,7 @@
   "identifiers": {
     "subscriptionKey": "덕양에너젠_20260120_20260121",
     "normalizedCompany": "덕양에너젠",
-    "corpCode": null,
+    "corpCode": "01516933",
     "stockCode": null,
     "kindCode": null,
     "isin": null
@@ -26,12 +26,12 @@
     "priceBandMin": 8500,
     "priceBandMax": 10000,
     "topBandConfirmation": null,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "institutionCompetitionRate": 650.0,
+    "institutionParticipants": 2324,
+    "lockupCommitmentRate": 0.6829999999999999,
     "floatRate": null,
-    "marketCapKrw": null,
-    "publicAllocationShares": null,
+    "marketCapKrw": 254400000000,
+    "publicAllocationShares": 1875000,
     "hasPutbackRight": false,
     "putbackSummary": null
   },
@@ -42,75 +42,165 @@
     "closeReturnRate": null,
     "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100500"
   },
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-01-21T16:00:00+09:00",
+      "source": "ipokorea_supplement",
+      "sourceUrl": "https://ipokorea.kr/ipo/%EB%8D%95%EC%96%91%EC%97%90%EB%84%88%EC%A0%A0",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 1875000,
+          "subscribedShares": 2536875000,
+          "offerPrice": 10000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1353.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1875000,
+        "subscribedShares": 2536875000,
+        "competitionRate": 1353.0
+      }
+    },
+    {
+      "capturedAt": "2026-05-12T01:27:40.759012",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://ipokorea.kr/ipo/%EB%8D%95%EC%96%91%EC%97%90%EB%84%88%EC%A0%A0",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 937500,
+          "subscribedShares": 1268437500,
+          "offerPrice": 10000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1353.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1353.0,
+          "equalAllocationShares": 468750,
+          "proportionalAllocationShares": 468750,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 937500,
+          "subscribedShares": 1268437500,
+          "offerPrice": 10000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1353.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1353.0,
+          "equalAllocationShares": 468750,
+          "proportionalAllocationShares": 468750,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1875000,
+        "subscribedShares": 2536875000,
+        "competitionRate": 1353.0
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v4",
     "score": {
-      "overall": 16,
-      "grade": "C-",
-      "confidence": 0.45,
+      "overall": 63,
+      "grade": "B-",
+      "confidence": 0.95,
       "factors": {
-        "competition": 0,
-        "institutionDemand": 0,
-        "demandStrength": 6,
-        "lockupCommitment": 0,
+        "competition": 13,
+        "institutionDemand": 8,
+        "demandStrength": 10,
+        "lockupCommitment": 18,
         "floatRate": 0,
         "pricing": 8
       }
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.1553,
-      "bearCaseListingGainRate": -0.0447,
-      "baseCaseListingGainRate": 0.1553,
-      "bullCaseListingGainRate": 0.4353,
+      "expectedListingGainRate": 0.8488,
+      "bearCaseListingGainRate": 0.6688,
+      "baseCaseListingGainRate": 0.8488,
+      "bullCaseListingGainRate": 1.1488,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.125,
-        "fiveMillionKrw": 0.625
+        "minimumSubscription": 0.007,
+        "oneMillionKrw": 0.074,
+        "fiveMillionKrw": 0.37
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 19,
-        "oneMillionKrw": 194,
-        "fiveMillionKrw": 971
+        "minimumSubscription": 63,
+        "oneMillionKrw": 627,
+        "fiveMillionKrw": 3137
       },
       "assumptions": {
         "offerPrice": 10000,
-        "competitionRate": null,
+        "competitionRate": 1353.0,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": -0.024719999999999978,
-        "institutionBoost": 0.0,
-        "lockupBoost": 0.0,
-        "participantBoost": 0.0,
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.5168342857142858,
+        "institutionBoost": 0.01875,
+        "lockupBoost": 0.1,
+        "participantBoost": 0.05,
         "topBandBoost": 0.0,
         "scoreBoost": -0.04,
-        "competitionPresent": false,
-        "generalCalibrationApplied": 0.18,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 64,
-        "generalCompetitionPending": true
+        "generalCompetitionPending": false
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1353.0대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "NH투자증권",
+        "equalScore": 30,
+        "proportionalScore": 15,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 6765000,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 30,
+        "proportionalScore": 15,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 6765000,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 1353.0,
+      "snapshotCount": 2,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "institutionCompetitionRate": 650.0,
+      "lockupCommitmentRate": 0.6829999999999999,
       "floatRate": null,
       "hasOutcome": true
     },
