@@ -5361,8 +5361,7 @@ IpoAnalysis analyzeStock(
     if (stock.fundamentals.publicAllocationShares != null) {
       valueFactors['publicAllocation'] = scorePublicAllocationForStock(stock);
     }
-    if (stock.fundamentals.hasPutbackRight ||
-        (stock.fundamentals.putbackSummary?.trim().isNotEmpty ?? false)) {
+    if (stock.fundamentals.hasPutbackRight) {
       valueFactors['putbackRight'] = scorePutbackRightForStock(stock);
     }
     demandScore = normalizedFactorScore(demandFactors);
