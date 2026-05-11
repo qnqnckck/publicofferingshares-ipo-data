@@ -199,7 +199,10 @@ class IpoCompetitionBatch {
       ]);
       final outcomeRows = await _loadOutcomeRows();
       final stocks = mergeOutcomes(sourceEnhancedStocks, outcomeRows);
-      final localIdentifierRows = await _loadIdentifierRows();
+      final localIdentifierRows = alignIdentifierRowsToStocks(
+        stocks,
+        await _loadIdentifierRows(),
+      );
       final identifierRows = mergeIdentifierRowsByKey([
         ...localIdentifierRows,
         if (options.discoverIdentifiers)
@@ -2766,7 +2769,10 @@ Map<String, Object?> buildCoverageReport({
       .map((stock) => stock.normalized())
       .toList();
   final selectedKeys = normalizedSelected
-      .map((stock) => stock.identifiers.subscriptionKey)
+      .map(
+        (stock) => canonicalSubscriptionKey(stock.identifiers.subscriptionKey),
+      )
+      .where((key) => key.isNotEmpty)
       .where((key) => key.isNotEmpty)
       .toSet();
   final selectedIds = normalizedSelected.map((stock) => stock.id).toSet();
@@ -2798,7 +2804,7 @@ Map<String, Object?> buildCoverageReport({
   final discoveredMissingFromGenerated = normalizedDiscovered
       .where(isWithinBackfill)
       .where((stock) {
-        final key = stock.identifiers.subscriptionKey;
+        final key = canonicalSubscriptionKey(stock.identifiers.subscriptionKey);
         return !selectedIds.contains(stock.id) &&
             (key.isEmpty || !selectedKeys.contains(key));
       })
@@ -3978,6 +3984,34 @@ List<IpoBrokerSnapshotRow> buildEstimatedBrokerRateOnlyRows(
   return rows;
 }
 
+List<IpoIdentifierRow> alignIdentifierRowsToStocks(
+  List<IpoCompetitionStock> stocks,
+  List<IpoIdentifierRow> rows,
+) {
+  if (stocks.isEmpty || rows.isEmpty) {
+    return rows;
+  }
+  final byId = <String, IpoCompetitionStock>{
+    for (final stock in stocks) safeId(stock.id): stock,
+  };
+  return rows.map((row) {
+    final rowId = row.id == null ? null : safeId(row.id!);
+    final stock = rowId == null ? null : byId[rowId];
+    if (stock == null) {
+      return row;
+    }
+    return IpoIdentifierRow(
+      id: row.id,
+      company: row.company ?? stock.company,
+      identifiers: scopeIdentifiersForMatchedStock(
+        stock: stock,
+        identifiers: row.identifiers,
+        matchType: 'id',
+      ),
+    );
+  }).toList();
+}
+
 List<IpoCompetitionStock> mergeIdentifierRows(
   List<IpoCompetitionStock> stocks,
   List<IpoIdentifierRow> rows,
@@ -4000,13 +4034,31 @@ List<IpoCompetitionStock> mergeIdentifierRows(
   };
 
   return stocks.map((stock) {
-    final row =
-        byId[safeId(stock.id)] ??
-        bySubscriptionKey[stock.identifiers.subscriptionKey] ??
-        byCompany[normalizeLookup(stock.company)];
+    IpoIdentifierRow? row;
+    String? matchType;
+    row = byId[safeId(stock.id)];
+    if (row != null) {
+      matchType = 'id';
+    } else {
+      final subscriptionKey = stock.identifiers.subscriptionKey;
+      row = bySubscriptionKey[subscriptionKey];
+      if (row != null) {
+        matchType = 'subscription';
+      } else {
+        row = byCompany[normalizeLookup(stock.company)];
+        if (row != null) {
+          matchType = 'company';
+        }
+      }
+    }
     if (row == null) {
       return stock;
     }
+    final scopedIdentifiers = scopeIdentifiersForMatchedStock(
+      stock: stock,
+      identifiers: row.identifiers,
+      matchType: matchType ?? 'unknown',
+    );
     return IpoCompetitionStock(
       id: stock.id,
       company: stock.company,
@@ -4018,12 +4070,51 @@ List<IpoCompetitionStock> mergeIdentifierRows(
       generalSharesDate: stock.generalSharesDate,
       securityType: stock.securityType,
       leadManagers: stock.leadManagers,
-      sourceIdentifiers: stock.identifiers.merge(row.identifiers),
+      sourceIdentifiers: stock.identifiers.merge(scopedIdentifiers),
       fundamentals: stock.fundamentals,
       outcome: stock.outcome,
       snapshots: stock.snapshots,
     );
   }).toList();
+}
+
+IpoStockIdentifiers scopeIdentifiersForMatchedStock({
+  required IpoCompetitionStock stock,
+  required IpoStockIdentifiers identifiers,
+  required String matchType,
+}) {
+  final hasEventDates =
+      (stock.subscriptionStart?.trim().isNotEmpty ?? false) ||
+      (stock.subscriptionEnd?.trim().isNotEmpty ?? false);
+  var subscriptionKey = identifiers.subscriptionKey.trim();
+  if (hasEventDates && (matchType == 'id' || matchType == 'company')) {
+    subscriptionKey = subscriptionKeyFor(
+      company: stock.company,
+      subscriptionStart: stock.subscriptionStart,
+      subscriptionEnd: stock.subscriptionEnd,
+    );
+  }
+
+  final finutsKindCode = RegExp(r'^finuts_(\d+)_').firstMatch(safeId(stock.id));
+  final eventKindCode =
+      stock.sourceIdentifiers?.kindCode?.trim().isNotEmpty ?? false
+      ? stock.sourceIdentifiers!.kindCode!.trim()
+      : finutsKindCode?.group(1);
+  var kindCode = identifiers.kindCode?.trim();
+  if (eventKindCode != null &&
+      eventKindCode.isNotEmpty &&
+      (matchType == 'id' || matchType == 'company')) {
+    kindCode = eventKindCode;
+  }
+
+  return IpoStockIdentifiers(
+    subscriptionKey: subscriptionKey,
+    normalizedCompany: identifiers.normalizedCompany,
+    corpCode: identifiers.corpCode,
+    stockCode: identifiers.stockCode,
+    kindCode: kindCode,
+    isin: identifiers.isin,
+  );
 }
 
 List<IpoIdentifierRow> mergeIdentifierRowsByKey(List<IpoIdentifierRow> rows) {
@@ -5278,15 +5369,8 @@ IpoAnalysis analyzeStock(
     valueScore = valueFactors.isEmpty
         ? demandScore
         : normalizedFactorScore(valueFactors);
-    factors = <String, int>{
-      ...demandFactors,
-      ...valueFactors,
-    };
-    total = clampInt(
-      (demandScore * 0.82 + valueScore * 0.18).round(),
-      0,
-      100,
-    );
+    factors = <String, int>{...demandFactors, ...valueFactors};
+    total = clampInt((demandScore * 0.82 + valueScore * 0.18).round(), 0, 100);
     scoreMode = 'general_pre_subscription_demand_value';
   }
   final confidence = confidenceFor(stock);

@@ -1,40 +1,40 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-12T02:15:52.077866",
+  "generatedAt": "2026-05-12T02:32:02.823520",
   "totals": {
     "seedStocks": 207,
-    "autoCoreStocks": 510,
-    "finalStocks": 524,
-    "presenceDependent": 14,
-    "fieldDependent": 179,
+    "autoCoreStocks": 531,
+    "finalStocks": 547,
+    "presenceDependent": 16,
+    "fieldDependent": 177,
     "presenceByCategory": {
-      "historical": 14
+      "historical": 16
     },
     "fieldByCategory": {
       "spac_gap": 1,
       "general_shares": 4,
-      "historical": 174
+      "historical": 172
     },
     "presenceByYear": {
-      "2025": 4,
-      "2024": 2,
+      "2025": 5,
+      "2024": 3,
       "2023": 8
     },
     "fieldByYear": {
       "2026": 8,
-      "2025": 60,
-      "2024": 76,
+      "2025": 59,
+      "2024": 75,
       "2023": 35
     },
     "fieldRecoveredFrequency": {
-      "publicAllocationShares": 21,
+      "publicAllocationShares": 20,
       "generalSharesDate": 4,
       "securityType": 4,
-      "institutionCompetitionRate": 172,
-      "institutionParticipants": 19,
-      "lockupCommitmentRate": 18,
-      "floatRate": 8,
-      "marketCapKrw": 18
+      "institutionCompetitionRate": 170,
+      "institutionParticipants": 18,
+      "lockupCommitmentRate": 17,
+      "floatRate": 7,
+      "marketCapKrw": 17
     }
   },
   "presenceDependent": [
@@ -48,6 +48,19 @@
       "securityType": null,
       "subscriptionKey": "뉴엔에이아이_20250623_20250624",
       "path": "stocks/newen_ai_2025.json",
+      "dependency": "presence",
+      "category": "historical"
+    },
+    {
+      "id": "gfc_life_science_2025",
+      "company": "지에프씨생명과학",
+      "subscriptionStart": "2025-06-12",
+      "subscriptionEnd": "2025-06-13",
+      "listingDate": "2025-06-30",
+      "generalSharesDate": null,
+      "securityType": null,
+      "subscriptionKey": "지에프씨생명과학_20250612_20250613",
+      "path": "stocks/gfc_life_science_2025.json",
       "dependency": "presence",
       "category": "historical"
     },
@@ -100,6 +113,19 @@
       "securityType": null,
       "subscriptionKey": "엠83_20240812_20240813",
       "path": "stocks/m83_2024.json",
+      "dependency": "presence",
+      "category": "historical"
+    },
+    {
+      "id": "k3i_2024",
+      "company": "케이쓰리아이",
+      "subscriptionStart": "2024-08-07",
+      "subscriptionEnd": "2024-08-08",
+      "listingDate": "2024-08-20",
+      "generalSharesDate": null,
+      "securityType": null,
+      "subscriptionKey": "케이쓰리아이_20240807_20240808",
+      "path": "stocks/k3i_2024.json",
       "dependency": "presence",
       "category": "historical"
     },
@@ -246,7 +272,7 @@
       "listingDate": "2026-05-20",
       "generalSharesDate": "2026-05-20",
       "securityType": "GENERAL_SHARES",
-      "subscriptionKey": "SKC_20260519_20260520",
+      "subscriptionKey": "skc_20260519_20260520",
       "path": "stocks/skc_2026-05-19.json",
       "dependency": "fields",
       "category": "general_shares",
@@ -776,22 +802,6 @@
       "securityType": null,
       "subscriptionKey": "싸이닉솔루션_20250625_20250626",
       "path": "stocks/cynic_solution_2025.json",
-      "dependency": "fields",
-      "category": "historical",
-      "fieldsRecoveredOutsideAutoCore": [
-        "institutionCompetitionRate"
-      ]
-    },
-    {
-      "id": "gfc_life_science_2025",
-      "company": "지에프씨생명과학",
-      "subscriptionStart": "2025-06-12",
-      "subscriptionEnd": "2025-06-13",
-      "listingDate": "2025-06-30",
-      "generalSharesDate": null,
-      "securityType": null,
-      "subscriptionKey": "지에프씨생명과학_20250612_20250613",
-      "path": "stocks/gfc_life_science_2025.json",
       "dependency": "fields",
       "category": "historical",
       "fieldsRecoveredOutsideAutoCore": [
@@ -1943,27 +1953,6 @@
       "category": "historical",
       "fieldsRecoveredOutsideAutoCore": [
         "institutionCompetitionRate"
-      ]
-    },
-    {
-      "id": "k3i_2024",
-      "company": "케이쓰리아이",
-      "subscriptionStart": "2024-08-07",
-      "subscriptionEnd": "2024-08-08",
-      "listingDate": "2024-08-20",
-      "generalSharesDate": null,
-      "securityType": null,
-      "subscriptionKey": "케이쓰리아이_20240807_20240808",
-      "path": "stocks/k3i_2024.json",
-      "dependency": "fields",
-      "category": "historical",
-      "fieldsRecoveredOutsideAutoCore": [
-        "institutionCompetitionRate",
-        "institutionParticipants",
-        "lockupCommitmentRate",
-        "floatRate",
-        "marketCapKrw",
-        "publicAllocationShares"
       ]
     },
     {

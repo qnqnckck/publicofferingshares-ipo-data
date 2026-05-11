@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "id": "지에프씨생명과학_2025-06-19",
+  "identifiers": {
+    "subscriptionKey": "지에프씨생명과학_20250619_20250620",
+    "normalizedCompany": "지에프씨생명과학",
+    "corpCode": "01221752",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "지에프씨생명과학",
+  "market": "KOSDAQ",
+  "industry": "",
+  "subscriptionStart": "2025-06-19",
+  "subscriptionEnd": "2025-06-20",
+  "listingDate": "2025-06-30",
+  "generalSharesDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "대신증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 15300,
+    "priceBandMin": 12300,
+    "priceBandMax": 15300,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2025-06-30",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100388"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2026-04-29T01:17:00+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100388",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 196000,
+          "subscribedShares": 847243320,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 4322.67,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 98000,
+          "proportionalAllocationShares": 98000,
+          "expectedEqualShares": 0.49,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 196000,
+        "subscribedShares": 847243320,
+        "competitionRate": 4322.67
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 23,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 8
+      },
+      "demand": 23,
+      "value": 23,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.91,
+      "bearCaseListingGainRate": 0.73,
+      "baseCaseListingGainRate": 0.91,
+      "bullCaseListingGainRate": 1.13,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.492,
+        "oneMillionKrw": 0.505,
+        "fiveMillionKrw": 0.566
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 6854,
+        "oneMillionKrw": 7033,
+        "fiveMillionKrw": 7875
+      },
+      "assumptions": {
+        "offerPrice": 15300,
+        "competitionRate": 4322.67,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.027426666666666658,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 64,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 4322.67대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "대신증권",
+        "equalScore": 39,
+        "proportionalScore": 3,
+        "expectedEqualShares": 0.49,
+        "estimatedDepositForOneProportionalShare": 33068426,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 4322.67,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 23,
+      "valueScore": 23
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

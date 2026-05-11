@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "id": "루닛_2023-11-06",
+  "identifiers": {
+    "subscriptionKey": "루닛_20231106_20231107",
+    "normalizedCompany": "루닛",
+    "corpCode": "01397620",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "루닛",
+  "market": "KOSDAQ",
+  "industry": "",
+  "subscriptionStart": "2023-11-06",
+  "subscriptionEnd": "2023-11-07",
+  "listingDate": "2023-11-07",
+  "generalSharesDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "NH투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 107800,
+    "priceBandMin": 0,
+    "priceBandMax": 0,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2023-11-07",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100088"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2026-05-12T02:32:02.823520",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://ipokorea.kr/ipo/%EB%A3%A8%EB%8B%9B",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 26750,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 9.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 9.0,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 9.0
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 5,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "institutionDemand": 0,
+        "demandStrength": 0,
+        "lockupCommitment": 0,
+        "pricing": 3
+      },
+      "demand": 5,
+      "value": 5,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": -0.01,
+      "bearCaseListingGainRate": -0.15,
+      "baseCaseListingGainRate": -0.01,
+      "bullCaseListingGainRate": 0.21,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 1.111,
+        "oneMillionKrw": 1.031,
+        "fiveMillionKrw": 5.154
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -1198,
+        "oneMillionKrw": -1111,
+        "fiveMillionKrw": -5556
+      },
+      "assumptions": {
+        "offerPrice": 107800,
+        "competitionRate": 9.0,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.03,
+        "generalPriorBase": -0.11777333333333333,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 64,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 9.0대 1입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "한국투자증권",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 120375,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 9.0,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 5,
+      "valueScore": 5
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "id": "에이텀_2023-11-21",
+  "identifiers": {
+    "subscriptionKey": "에이텀_20231121_20231122",
+    "normalizedCompany": "에이텀",
+    "corpCode": "01444380",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "에이텀",
+  "market": "KOSDAQ",
+  "industry": "",
+  "subscriptionStart": "2023-11-21",
+  "subscriptionEnd": "2023-11-22",
+  "listingDate": "2023-12-01",
+  "generalSharesDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "하나증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 18000,
+    "priceBandMin": 23000,
+    "priceBandMax": 30000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2023-12-01",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100030"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2026-05-12T02:32:02.823520",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://ipokorea.kr/ipo/%EC%97%90%EC%9D%B4%ED%85%80",
+      "brokers": [
+        {
+          "name": "SK증권",
+          "offeredShares": 50,
+          "subscribedShares": 81100,
+          "offerPrice": 3490,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1622.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1622.0,
+          "equalAllocationShares": 25,
+          "proportionalAllocationShares": 25,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 50,
+        "subscribedShares": 81100,
+        "competitionRate": 1622.0
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 16,
+      "grade": "C-",
+      "confidence": 0.9,
+      "factors": {
+        "institutionDemand": 0,
+        "demandStrength": 0,
+        "lockupCommitment": 0,
+        "pricing": 10
+      },
+      "demand": 16,
+      "value": 16,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.91,
+      "bearCaseListingGainRate": 0.73,
+      "baseCaseListingGainRate": 0.91,
+      "bullCaseListingGainRate": 1.13,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.006,
+        "oneMillionKrw": 0.034,
+        "fiveMillionKrw": 0.171
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 101,
+        "oneMillionKrw": 561,
+        "fiveMillionKrw": 2805
+      },
+      "assumptions": {
+        "offerPrice": 18000,
+        "competitionRate": 1622.0,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": -0.029039999999999976,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 64,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1622.0대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "SK증권",
+        "equalScore": 30,
+        "proportionalScore": 35,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 2830390,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 1622.0,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 16,
+      "valueScore": 16
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

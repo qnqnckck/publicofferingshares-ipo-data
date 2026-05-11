@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-12T02:15:52.077866",
+  "generatedAt": "2026-05-12T02:32:02.823520",
   "methodVersion": "ipo-score-v4",
   "sampleCount": 59,
   "summary": {
@@ -35,14 +35,14 @@
       "medianCloseReturnRate": 0.848
     },
     "C+": {
-      "sampleCount": 18,
-      "averageCloseReturnRate": 1.4184,
-      "medianCloseReturnRate": 1.0713
+      "sampleCount": 19,
+      "averageCloseReturnRate": 1.3349,
+      "medianCloseReturnRate": 0.9769
     },
     "C": {
-      "sampleCount": 3,
-      "averageCloseReturnRate": 0.1902,
-      "medianCloseReturnRate": -0.167
+      "sampleCount": 2,
+      "averageCloseReturnRate": 0.3688,
+      "medianCloseReturnRate": 0.3688
     },
     "C-": {
       "sampleCount": 32,
@@ -73,18 +73,18 @@
       "averageErrorReferenceVsExpected": -0.6963
     },
     "50-59": {
-      "sampleCount": 21,
-      "averageCloseReturnRate": 1.295,
-      "medianCloseReturnRate": 0.9769,
-      "averageErrorCloseVsExpected": 0.4397,
-      "averageErrorReferenceVsExpected": 0.4397
+      "sampleCount": 22,
+      "averageCloseReturnRate": 1.2286,
+      "medianCloseReturnRate": 0.9125,
+      "averageErrorCloseVsExpected": 0.3771,
+      "averageErrorReferenceVsExpected": 0.3771
     },
     "40-49": {
-      "sampleCount": 15,
-      "averageCloseReturnRate": 0.5958,
-      "medianCloseReturnRate": 0.2972,
-      "averageErrorCloseVsExpected": -0.1926,
-      "averageErrorReferenceVsExpected": -0.1926
+      "sampleCount": 14,
+      "averageCloseReturnRate": 0.6503,
+      "medianCloseReturnRate": 0.3824,
+      "averageErrorCloseVsExpected": -0.1394,
+      "averageErrorReferenceVsExpected": -0.1394
     },
     "30-39": {
       "sampleCount": 6,
@@ -252,6 +252,22 @@
       "outcomeSourceUrl": "https://www.hankyung.com/article/2024082168291",
       "errorCloseVsExpected": 2.0,
       "errorReferenceVsExpected": 2.0
+    },
+    {
+      "id": "excel_therapeutics_2024",
+      "company": "엑셀세라퓨틱스",
+      "isSpac": false,
+      "score": 55,
+      "grade": "C+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.77,
+      "openReturnRate": null,
+      "highReturnRate": 0.29,
+      "closeReturnRate": -0.167,
+      "referenceReturnRate": -0.167,
+      "outcomeSourceUrl": "https://biz.sbs.co.kr/amp/article/20000181710",
+      "errorCloseVsExpected": -0.937,
+      "errorReferenceVsExpected": -0.937
     },
     {
       "id": "philenergy_2023",
@@ -524,22 +540,6 @@
       "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=article_view&num=370460",
       "errorCloseVsExpected": -1.1919,
       "errorReferenceVsExpected": -1.1919
-    },
-    {
-      "id": "excel_therapeutics_2024",
-      "company": "엑셀세라퓨틱스",
-      "isSpac": false,
-      "score": 44,
-      "grade": "C",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.77,
-      "openReturnRate": null,
-      "highReturnRate": 0.29,
-      "closeReturnRate": -0.167,
-      "referenceReturnRate": -0.167,
-      "outcomeSourceUrl": "https://biz.sbs.co.kr/amp/article/20000181710",
-      "errorCloseVsExpected": -0.937,
-      "errorReferenceVsExpected": -0.937
     },
     {
       "id": "k3i_2024",
