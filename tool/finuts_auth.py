@@ -175,6 +175,7 @@ def _fetch_finuts_text_via_browser(
         page = context.new_page()
         try:
             page.goto(login_url, wait_until="domcontentloaded", timeout=30000)
+            page.wait_for_timeout(1500)
             html = page.content()
             token = _extract_login_token_from_html(html)
             if not token:
@@ -196,27 +197,38 @@ def _fetch_finuts_text_via_browser(
                 except Exception:
                     token = ""
             if not token:
-                raise RuntimeError("Failed to extract Finuts login token in browser fallback.")
-            login_payload = (
-                f"user_id={quote(user_id)}&user_pwd={quote(user_password)}&save_id=&_token={quote(token)}"
-            )
-            login_result = page.evaluate(
-                """async ({url, body, referer}) => {
-                    const response = await fetch(url, {
-                      method: 'POST',
-                      headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                        'X-Requested-With': 'XMLHttpRequest',
-                        'Referer': referer,
-                      },
-                      body,
-                      credentials: 'include',
-                    });
-                    return await response.text();
-                }""",
-                {"url": login_ajax_url, "body": login_payload, "referer": login_url},
-            )
-            if '"S"' not in login_result and str(login_result).strip() != "S":
+                login_result = _login_finuts_via_form(
+                    page=page,
+                    user_id=user_id,
+                    user_password=user_password,
+                )
+            else:
+                login_payload = (
+                    f"user_id={quote(user_id)}&user_pwd={quote(user_password)}&save_id=&_token={quote(token)}"
+                )
+                login_result = page.evaluate(
+                    """async ({url, body, referer}) => {
+                        const response = await fetch(url, {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'Referer': referer,
+                          },
+                          body,
+                          credentials: 'include',
+                        });
+                        return await response.text();
+                    }""",
+                    {"url": login_ajax_url, "body": login_payload, "referer": login_url},
+                )
+                if '"S"' not in login_result and str(login_result).strip() != "S":
+                    login_result = _login_finuts_via_form(
+                        page=page,
+                        user_id=user_id,
+                        user_password=user_password,
+                    )
+            if '"S"' not in str(login_result) and str(login_result).strip() != "S":
                 raise RuntimeError("Finuts browser login failed.")
             return page.evaluate(
                 """async ({url, method, body, headers, referer}) => {
@@ -241,3 +253,37 @@ def _fetch_finuts_text_via_browser(
             )
         finally:
             browser.close()
+
+
+def _login_finuts_via_form(*, page: Any, user_id: str, user_password: str) -> str:
+    try:
+        page.locator('input[name="user_id"]').first.fill(user_id, timeout=5000)
+        page.locator('input[name="user_pwd"]').first.fill(user_password, timeout=5000)
+    except Exception as exc:
+        raise RuntimeError("Failed to locate Finuts login form in browser fallback.") from exc
+
+    submitted = False
+    submit_selectors = [
+        'button[type="submit"]',
+        'input[type="submit"]',
+        'button:has-text("로그인")',
+        'a:has-text("로그인")',
+    ]
+    for selector in submit_selectors:
+        try:
+            locator = page.locator(selector).first
+            if locator.count() > 0:
+                locator.click(timeout=3000)
+                submitted = True
+                break
+        except Exception:
+            continue
+    if not submitted:
+        page.locator('input[name="user_pwd"]').first.press("Enter")
+    page.wait_for_timeout(2500)
+    try:
+        if page.locator('input[name="user_id"]').first.is_visible(timeout=1000):
+            return "FORM_LOGIN_UNKNOWN"
+    except Exception:
+        pass
+    return "S"
