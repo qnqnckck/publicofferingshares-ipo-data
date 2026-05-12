@@ -19,7 +19,6 @@
   "securityType": null,
   "leadManagers": [
     "한국투자증권",
-    "메리츠증권",
     "삼성증권"
   ],
   "fundamentals": {
@@ -72,25 +71,10 @@
       }
     },
     {
-      "capturedAt": "2026-05-12T03:36:06.247512",
+      "capturedAt": "2026-05-12T02:51:16.433447",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.mk.co.kr/news/stock/11088270",
       "brokers": [
-        {
-          "name": "메리츠증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 29000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 65.83,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 65.83,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        },
         {
           "name": "삼성증권",
           "offeredShares": 0,
@@ -192,15 +176,6 @@
     },
     "brokerScores": [
       {
-        "broker": "메리츠증권",
-        "equalScore": 30,
-        "proportionalScore": 100,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 954535,
-        "feeKrw": null,
-        "dataQuality": "partial"
-      },
-      {
         "broker": "삼성증권",
         "equalScore": 30,
         "proportionalScore": 100,
@@ -222,7 +197,7 @@
     "inputs": {
       "latestCompetitionRate": 65.83,
       "snapshotCount": 2,
-      "leadManagerCount": 3,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 356.9,

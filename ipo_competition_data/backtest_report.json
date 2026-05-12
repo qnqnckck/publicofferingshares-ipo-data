@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-12T03:36:06.247512",
+  "generatedAt": "2026-05-12T02:51:16.433447",
   "methodVersion": "ipo-score-v4",
   "sampleCount": 59,
   "summary": {
@@ -35,9 +35,9 @@
       "medianCloseReturnRate": 1.9853
     },
     "C+": {
-      "sampleCount": 10,
-      "averageCloseReturnRate": 1.2461,
-      "medianCloseReturnRate": 0.9795
+      "sampleCount": 9,
+      "averageCloseReturnRate": 1.4011,
+      "medianCloseReturnRate": 0.9821
     },
     "C": {
       "sampleCount": 10,
@@ -45,9 +45,9 @@
       "medianCloseReturnRate": 0.3339
     },
     "C-": {
-      "sampleCount": 32,
-      "averageCloseReturnRate": 0.8073,
-      "medianCloseReturnRate": 0.3663
+      "sampleCount": 33,
+      "averageCloseReturnRate": 0.7784,
+      "medianCloseReturnRate": 0.27
     }
   },
   "byScoreBucket": {
@@ -66,11 +66,11 @@
       "averageErrorReferenceVsExpected": 0.2548
     },
     "50-59": {
-      "sampleCount": 11,
-      "averageCloseReturnRate": 1.2206,
-      "medianCloseReturnRate": 0.9769,
-      "averageErrorCloseVsExpected": 0.4154,
-      "averageErrorReferenceVsExpected": 0.4154
+      "sampleCount": 10,
+      "averageCloseReturnRate": 1.3575,
+      "medianCloseReturnRate": 0.9795,
+      "averageErrorCloseVsExpected": 0.5441,
+      "averageErrorReferenceVsExpected": 0.5441
     },
     "40-49": {
       "sampleCount": 22,
@@ -80,11 +80,11 @@
       "averageErrorReferenceVsExpected": 0.1507
     },
     "30-39": {
-      "sampleCount": 7,
-      "averageCloseReturnRate": 0.2515,
-      "medianCloseReturnRate": 0.2267,
-      "averageErrorCloseVsExpected": -0.3974,
-      "averageErrorReferenceVsExpected": -0.3974
+      "sampleCount": 8,
+      "averageCloseReturnRate": 0.2015,
+      "medianCloseReturnRate": 0.1664,
+      "averageErrorCloseVsExpected": -0.4566,
+      "averageErrorReferenceVsExpected": -0.4566
     },
     "20-29": {
       "sampleCount": 10,
@@ -279,22 +279,6 @@
       "errorReferenceVsExpected": 2.28
     },
     {
-      "id": "toprun_total_solution_2024",
-      "company": "탑런토탈솔루션",
-      "isSpac": false,
-      "score": 51,
-      "grade": "C+",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.7226,
-      "openReturnRate": -0.16,
-      "highReturnRate": null,
-      "closeReturnRate": -0.14833333333333334,
-      "referenceReturnRate": -0.14833333333333334,
-      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/11156542",
-      "errorCloseVsExpected": -0.871,
-      "errorReferenceVsExpected": -0.871
-    },
-    {
       "id": "imbdx_2024",
       "company": "아이엠비디엑스",
       "isSpac": false,
@@ -471,22 +455,6 @@
       "errorReferenceVsExpected": 0.7639
     },
     {
-      "id": "jinyoung_2023",
-      "company": "진영",
-      "isSpac": false,
-      "score": 45,
-      "grade": "C",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.77,
-      "openReturnRate": 1.0,
-      "highReturnRate": 1.6,
-      "closeReturnRate": 0.736,
-      "referenceReturnRate": 0.736,
-      "outcomeSourceUrl": "https://www.hankyung.com/article/202306014028Y",
-      "errorCloseVsExpected": -0.034,
-      "errorReferenceVsExpected": -0.034
-    },
-    {
       "id": "waiker_2023",
       "company": "와이랩",
       "isSpac": false,
@@ -533,6 +501,38 @@
       "outcomeSourceUrl": "https://www.sedaily.com/NewsView/29PPDLXDRA",
       "errorCloseVsExpected": 0.0672,
       "errorReferenceVsExpected": 0.0672
+    },
+    {
+      "id": "jinyoung_2023",
+      "company": "진영",
+      "isSpac": false,
+      "score": 45,
+      "grade": "C",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.77,
+      "openReturnRate": 1.0,
+      "highReturnRate": 1.6,
+      "closeReturnRate": 0.736,
+      "referenceReturnRate": 0.736,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/202306014028Y",
+      "errorCloseVsExpected": -0.034,
+      "errorReferenceVsExpected": -0.034
+    },
+    {
+      "id": "excel_therapeutics_2024",
+      "company": "엑셀세라퓨틱스",
+      "isSpac": false,
+      "score": 43,
+      "grade": "C-",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.77,
+      "openReturnRate": null,
+      "highReturnRate": 0.29,
+      "closeReturnRate": -0.167,
+      "referenceReturnRate": -0.167,
+      "outcomeSourceUrl": "https://biz.sbs.co.kr/amp/article/20000181710",
+      "errorCloseVsExpected": -0.937,
+      "errorReferenceVsExpected": -0.937
     },
     {
       "id": "higen_rnm_2024",
@@ -615,22 +615,6 @@
       "errorReferenceVsExpected": -0.4345
     },
     {
-      "id": "tds_pharm_2024",
-      "company": "티디에스팜",
-      "isSpac": false,
-      "score": 43,
-      "grade": "C-",
-      "confidence": 0.95,
-      "expectedListingGainRate": 1.0,
-      "openReturnRate": 1.8076923076923077,
-      "highReturnRate": 3.0,
-      "closeReturnRate": 3.0,
-      "referenceReturnRate": 3.0,
-      "outcomeSourceUrl": "https://www.hankyung.com/article/2024082168291",
-      "errorCloseVsExpected": 2.0,
-      "errorReferenceVsExpected": 2.0
-    },
-    {
       "id": "kweather_2024",
       "company": "케이웨더",
       "isSpac": false,
@@ -663,6 +647,22 @@
       "errorReferenceVsExpected": -0.4031
     },
     {
+      "id": "tds_pharm_2024",
+      "company": "티디에스팜",
+      "isSpac": false,
+      "score": 43,
+      "grade": "C-",
+      "confidence": 0.95,
+      "expectedListingGainRate": 1.0,
+      "openReturnRate": 1.8076923076923077,
+      "highReturnRate": 3.0,
+      "closeReturnRate": 3.0,
+      "referenceReturnRate": 3.0,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/2024082168291",
+      "errorCloseVsExpected": 2.0,
+      "errorReferenceVsExpected": 2.0
+    },
+    {
       "id": "woojin_entec_2024",
       "company": "우진엔텍",
       "isSpac": false,
@@ -677,22 +677,6 @@
       "outcomeSourceUrl": "https://www.fnnews.com/ampNews/202401241556076356",
       "errorCloseVsExpected": 2.0,
       "errorReferenceVsExpected": 2.0
-    },
-    {
-      "id": "excel_therapeutics_2024",
-      "company": "엑셀세라퓨틱스",
-      "isSpac": false,
-      "score": 43,
-      "grade": "C-",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.77,
-      "openReturnRate": null,
-      "highReturnRate": 0.29,
-      "closeReturnRate": -0.167,
-      "referenceReturnRate": -0.167,
-      "outcomeSourceUrl": "https://biz.sbs.co.kr/amp/article/20000181710",
-      "errorCloseVsExpected": -0.937,
-      "errorReferenceVsExpected": -0.937
     },
     {
       "id": "e8ight_2024",
@@ -759,20 +743,20 @@
       "errorReferenceVsExpected": -0.0803
     },
     {
-      "id": "curatis_2023",
-      "company": "큐라티스",
+      "id": "toprun_total_solution_2024",
+      "company": "탑런토탈솔루션",
       "isSpac": false,
       "score": 33,
       "grade": "C-",
       "confidence": 0.95,
-      "expectedListingGainRate": 0.2,
-      "openReturnRate": 0.125,
-      "highReturnRate": 0.4625,
-      "closeReturnRate": 0.4625,
-      "referenceReturnRate": 0.4625,
-      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20230615042751002",
-      "errorCloseVsExpected": 0.2625,
-      "errorReferenceVsExpected": 0.2625
+      "expectedListingGainRate": 0.7226,
+      "openReturnRate": -0.16,
+      "highReturnRate": null,
+      "closeReturnRate": -0.14833333333333334,
+      "referenceReturnRate": -0.14833333333333334,
+      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/11156542",
+      "errorCloseVsExpected": -0.871,
+      "errorReferenceVsExpected": -0.871
     },
     {
       "id": "mintech_2024",
@@ -805,6 +789,22 @@
       "outcomeSourceUrl": "https://www.hankyung.com/article/2024050229661",
       "errorCloseVsExpected": -0.8475,
       "errorReferenceVsExpected": -0.8475
+    },
+    {
+      "id": "curatis_2023",
+      "company": "큐라티스",
+      "isSpac": false,
+      "score": 33,
+      "grade": "C-",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.2,
+      "openReturnRate": 0.125,
+      "highReturnRate": 0.4625,
+      "closeReturnRate": 0.4625,
+      "referenceReturnRate": 0.4625,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20230615042751002",
+      "errorCloseVsExpected": 0.2625,
+      "errorReferenceVsExpected": 0.2625
     },
     {
       "id": "osang_healthcare_2024",

@@ -44,45 +44,45 @@
   },
   "snapshots": [
     {
-      "capturedAt": "2026-05-11T16:09:31",
+      "capturedAt": "2026-05-12T11:48:58",
       "source": "naver_calculator_live",
       "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A477850",
       "brokers": [
         {
           "name": "미래에셋증권",
           "offeredShares": 2239750,
-          "subscribedShares": 280282315,
+          "subscribedShares": 3028881118,
           "offerPrice": 15000,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 125.14,
+          "competitionRate": 1352.33,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 250.28,
+          "proportionalCompetitionRate": 2704.66,
           "equalAllocationShares": 279970,
           "proportionalAllocationShares": 279970,
-          "expectedEqualShares": 1.3774,
-          "applicationCount": 203265
+          "expectedEqualShares": 0.8908,
+          "applicationCount": 314287
         },
         {
           "name": "현대차증권",
           "offeredShares": 395250,
-          "subscribedShares": 12557093,
+          "subscribedShares": 143531085,
           "offerPrice": 15000,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 31.77,
+          "competitionRate": 363.14,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 63.53,
+          "proportionalCompetitionRate": 726.29,
           "equalAllocationShares": 49405,
           "proportionalAllocationShares": 49405,
-          "expectedEqualShares": 2.9662,
-          "applicationCount": 16656
+          "expectedEqualShares": 1.3517,
+          "applicationCount": 36550
         }
       ],
       "aggregate": {
         "offeredShares": 2635000,
-        "subscribedShares": 292839408,
-        "competitionRate": 111.13450018975333
+        "subscribedShares": 3172412203,
+        "competitionRate": 1203.9515001897532
       }
     }
   ],
@@ -111,21 +111,21 @@
       "baseCaseListingGainRate": 1.1126,
       "bullCaseListingGainRate": 1.4726,
       "expectedAllocatedShares": {
-        "minimumSubscription": 3.056,
-        "oneMillionKrw": 3.566,
-        "fiveMillionKrw": 5.966
+        "minimumSubscription": 1.36,
+        "oneMillionKrw": 1.407,
+        "fiveMillionKrw": 1.629
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 51005,
-        "oneMillionKrw": 59514,
-        "fiveMillionKrw": 99560
+        "minimumSubscription": 22697,
+        "oneMillionKrw": 23483,
+        "fiveMillionKrw": 27179
       },
       "assumptions": {
         "offerPrice": 15000,
-        "competitionRate": 111.13450018975333,
+        "competitionRate": 1203.9515001897532,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.24,
+        "generalCompetitionBaseline": 0.72,
         "generalPriorBase": 0.89708,
         "institutionBoost": 0.087,
         "lockupBoost": 0.1,
@@ -142,11 +142,12 @@
       "level": "strong_watch",
       "label": "관심 높음",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 111.13대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 1203.95대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
@@ -154,24 +155,24 @@
       {
         "broker": "현대차증권",
         "equalScore": 100,
-        "proportionalScore": 100,
-        "expectedEqualShares": 2.9662,
-        "estimatedDepositForOneProportionalShare": 476475,
+        "proportionalScore": 18,
+        "expectedEqualShares": 1.3517,
+        "estimatedDepositForOneProportionalShare": 5447175,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       },
       {
         "broker": "미래에셋증권",
-        "equalScore": 100,
-        "proportionalScore": 53,
-        "expectedEqualShares": 1.3774,
-        "estimatedDepositForOneProportionalShare": 1877100,
+        "equalScore": 71,
+        "proportionalScore": 5,
+        "expectedEqualShares": 0.8908,
+        "estimatedDepositForOneProportionalShare": 20284950,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 111.13450018975333,
+      "latestCompetitionRate": 1203.9515001897532,
       "snapshotCount": 1,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
