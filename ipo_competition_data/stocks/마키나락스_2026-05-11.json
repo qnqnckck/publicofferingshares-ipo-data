@@ -44,45 +44,87 @@
   },
   "snapshots": [
     {
-      "capturedAt": "2026-05-12T11:48:58",
+      "capturedAt": "2026-05-12T12:27:31+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100530",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 559940,
+          "subscribedShares": 1736788296,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 3101.74,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 279970,
+          "proportionalAllocationShares": 279970,
+          "expectedEqualShares": 0.82,
+          "applicationCount": null
+        },
+        {
+          "name": "현대차증권",
+          "offeredShares": 98810,
+          "subscribedShares": 89095001,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 901.68,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 49405,
+          "proportionalAllocationShares": 49405,
+          "expectedEqualShares": 1.21,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 658750,
+        "subscribedShares": 1825883297,
+        "competitionRate": 2771.73935028463
+      }
+    },
+    {
+      "capturedAt": "2026-05-12T12:28:21",
       "source": "naver_calculator_live",
       "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A477850",
       "brokers": [
         {
           "name": "미래에셋증권",
           "offeredShares": 2239750,
-          "subscribedShares": 3028881118,
+          "subscribedShares": 3473583480,
           "offerPrice": 15000,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 1352.33,
+          "competitionRate": 1550.88,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2704.66,
+          "proportionalCompetitionRate": 3101.76,
           "equalAllocationShares": 279970,
           "proportionalAllocationShares": 279970,
-          "expectedEqualShares": 0.8908,
-          "applicationCount": 314287
+          "expectedEqualShares": 0.8203,
+          "applicationCount": 341321
         },
         {
           "name": "현대차증권",
           "offeredShares": 395250,
-          "subscribedShares": 143531085,
+          "subscribedShares": 178194510,
           "offerPrice": 15000,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 363.14,
+          "competitionRate": 450.84,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 726.29,
+          "proportionalCompetitionRate": 901.68,
           "equalAllocationShares": 49405,
           "proportionalAllocationShares": 49405,
-          "expectedEqualShares": 1.3517,
-          "applicationCount": 36550
+          "expectedEqualShares": 1.2106,
+          "applicationCount": 40811
         }
       ],
       "aggregate": {
         "offeredShares": 2635000,
-        "subscribedShares": 3172412203,
-        "competitionRate": 1203.9515001897532
+        "subscribedShares": 3651777990,
+        "competitionRate": 1385.874
       }
     }
   ],
@@ -106,26 +148,26 @@
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 1.1126,
-      "bearCaseListingGainRate": 0.9326,
-      "baseCaseListingGainRate": 1.1126,
-      "bullCaseListingGainRate": 1.4726,
+      "expectedListingGainRate": 1.3,
+      "bearCaseListingGainRate": 1.0,
+      "baseCaseListingGainRate": 1.3,
+      "bullCaseListingGainRate": 1.66,
       "expectedAllocatedShares": {
-        "minimumSubscription": 1.36,
-        "oneMillionKrw": 1.407,
-        "fiveMillionKrw": 1.629
+        "minimumSubscription": 1.214,
+        "oneMillionKrw": 1.235,
+        "fiveMillionKrw": 1.331
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 22697,
-        "oneMillionKrw": 23483,
-        "fiveMillionKrw": 27179
+        "minimumSubscription": 23677,
+        "oneMillionKrw": 24075,
+        "fiveMillionKrw": 25951
       },
       "assumptions": {
         "offerPrice": 15000,
-        "competitionRate": 1203.9515001897532,
+        "competitionRate": 2771.73935028463,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.72,
+        "generalCompetitionBaseline": 0.95,
         "generalPriorBase": 0.89708,
         "institutionBoost": 0.087,
         "lockupBoost": 0.1,
@@ -142,7 +184,7 @@
       "level": "strong_watch",
       "label": "관심 높음",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1203.95대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 2771.74대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
@@ -154,26 +196,26 @@
     "brokerScores": [
       {
         "broker": "현대차증권",
-        "equalScore": 100,
-        "proportionalScore": 18,
-        "expectedEqualShares": 1.3517,
-        "estimatedDepositForOneProportionalShare": 5447175,
-        "feeKrw": null,
+        "equalScore": 97,
+        "proportionalScore": 15,
+        "expectedEqualShares": 1.21,
+        "estimatedDepositForOneProportionalShare": 6762600,
+        "feeKrw": 2000,
         "dataQuality": "broker_verified"
       },
       {
         "broker": "미래에셋증권",
-        "equalScore": 71,
-        "proportionalScore": 5,
-        "expectedEqualShares": 0.8908,
-        "estimatedDepositForOneProportionalShare": 20284950,
-        "feeKrw": null,
+        "equalScore": 66,
+        "proportionalScore": 4,
+        "expectedEqualShares": 0.82,
+        "estimatedDepositForOneProportionalShare": 23263050,
+        "feeKrw": 2000,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 1203.9515001897532,
-      "snapshotCount": 1,
+      "latestCompetitionRate": 2771.73935028463,
+      "snapshotCount": 2,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
