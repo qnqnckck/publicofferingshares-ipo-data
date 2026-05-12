@@ -133,12 +133,18 @@ class SecondaryVideoOcrIngest:
         dry_run: bool,
         include_all_stocks: bool = False,
         debug_frame_dir: Path | None = None,
+        today_only: bool = False,
+        ignore_market_hours: bool = False,
+        source_id: str | None = None,
     ) -> None:
         self.config_path = config_path
         self.broker_snapshot_dir = broker_snapshot_dir
         self.dry_run = dry_run
         self.include_all_stocks = include_all_stocks
         self.debug_frame_dir = debug_frame_dir
+        self.today_only = today_only
+        self.ignore_market_hours = ignore_market_hours
+        self.source_id = source_id.strip() if source_id else None
         cookies_path_value = os.environ.get("YOUTUBE_COOKIES_PATH", "").strip()
         self.youtube_cookies_path = Path(cookies_path_value) if cookies_path_value else None
         self.finuts_id = os.environ.get("FINUTS_ID", "").strip()
@@ -147,6 +153,12 @@ class SecondaryVideoOcrIngest:
     def run(self) -> int:
         config = _read_json(self.config_path)
         sources = self._resolve_sources(config)
+        if self.source_id:
+            sources = [
+                source
+                for source in sources
+                if str(source.get("id", "")).strip() == self.source_id
+            ]
         if not isinstance(sources, list) or not sources:
             print("No video OCR sources configured.")
             return 0
@@ -215,6 +227,9 @@ class SecondaryVideoOcrIngest:
 
         days_before_start = _to_int(schedule_autoload.get("daysBeforeStart")) or 2
         days_after_end = _to_int(schedule_autoload.get("daysAfterEnd")) or 0
+        if self.today_only:
+            days_before_start = 0
+            days_after_end = 0
 
         seed_payload = _read_json(seed_path)
         stocks = seed_payload.get("stocks", [])
@@ -284,7 +299,11 @@ class SecondaryVideoOcrIngest:
                     open_hour = schedule_open_hour
                 if close_hour is None:
                     close_hour = schedule_close_hour
-                if open_hour is not None and close_hour is not None:
+                if (
+                    not self.ignore_market_hours
+                    and open_hour is not None
+                    and close_hour is not None
+                ):
                     current_hour = (
                         now_kst.hour + (now_kst.minute / 60) + (now_kst.second / 3600)
                     )
@@ -1425,6 +1444,21 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         help="Attempt Finuts matching for every stock in the seed file, ignoring the active subscription window",
     )
     parser.add_argument(
+        "--today-only",
+        action="store_true",
+        help="Restrict schedule autoload to stocks active on the current KST date",
+    )
+    parser.add_argument(
+        "--ignore-market-hours",
+        action="store_true",
+        help="Bypass the schedule autoload market-hour gate",
+    )
+    parser.add_argument(
+        "--source-id",
+        default="",
+        help="Restrict extraction to one configured or autoloaded source id",
+    )
+    parser.add_argument(
         "--debug-frame-dir",
         default="",
         help="Optional directory to write captured OCR debug frames and text",
@@ -1447,6 +1481,9 @@ def main(argv: list[str]) -> int:
         dry_run=args.dry_run,
         include_all_stocks=args.all_stocks,
         debug_frame_dir=Path(args.debug_frame_dir) if args.debug_frame_dir else None,
+        today_only=args.today_only,
+        ignore_market_hours=args.ignore_market_hours,
+        source_id=args.source_id,
     )
     return runner.run()
 

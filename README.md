@@ -92,9 +92,11 @@ The active workflows are:
 - `finuts_subscription_live_competition_sync`
   - weekday 09:50 to 17:10 KST in repeated runs
   - refreshes Finuts broker snapshot rows into `data/broker_snapshots/`
+  - runs `tool/video_ocr_secondary_ingest.py` with `--today-only --ignore-market-hours`
 - `finuts_manual_targeted_backfill`
   - manual only
   - targeted repair for one stock id / company
+  - can target one broker snapshot source through `tool/video_ocr_secondary_ingest.py --source-id`
 
 The Finuts helper scripts are:
 
