@@ -43,6 +43,12 @@ scripts/local/run_ipo_data_batch.sh demand
 scripts/local/run_ipo_data_batch.sh live
 ```
 
+피너츠 없이 네이버 IPO 계산기 기반으로 청약일 균등/비례 경쟁률 갱신:
+
+```sh
+scripts/local/run_ipo_data_batch.sh naver-live
+```
+
 repo 데이터만으로 파생 JSON 재생성:
 
 ```sh
@@ -87,8 +93,8 @@ scripts/local/uninstall_ipo_data_scheduler.sh
 All times are KST.
 
 - `live`: every scheduler tick between `09:00` and `17:30` on weekdays.
-  The batch itself uses `--today-only`, so only current subscription stocks are
-  processed.
+  Defaults to `naver-live`, which does not require Finuts credentials and uses
+  Naver IPO calculator data for current subscription stocks.
 - `demand`: weekdays at `18:00` and `18:20`.
 - `baseline`: weekdays at `17:30`.
 

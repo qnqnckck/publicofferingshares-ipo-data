@@ -90,6 +90,7 @@ Usage:
   scripts/local/run_ipo_data_batch.sh baseline
   scripts/local/run_ipo_data_batch.sh demand
   scripts/local/run_ipo_data_batch.sh live
+  scripts/local/run_ipo_data_batch.sh naver-live
   scripts/local/run_ipo_data_batch.sh rebuild
   scripts/local/run_ipo_data_batch.sh targeted --stock-id <id> [--company <name>] [--mode fundamentals|broker|full]
 
@@ -97,6 +98,7 @@ Batch mapping:
   baseline  신규 종목/기본 일정 발굴 + 파생 JSON 재생성
   demand    수요예측일 fundamentals 갱신 + 파생 JSON 재생성
   live      청약일 균등/비례 경쟁률 스냅샷 갱신 + 파생 JSON 재생성
+  naver-live 피너츠 없이 네이버 IPO 계산기 기반 청약 경쟁률 갱신
   rebuild   repo 데이터만으로 ipo_competition_data 재생성
   targeted  특정 종목 수동 backfill
 EOF
@@ -145,10 +147,10 @@ case "$BATCH" in
       data/manual_fundamentals.json data/outcomes ipo_competition_data
     ;;
 
-  live)
-    require_var FINUTS_ID
-    require_var FINUTS_PASSWORD
-    log "Running live subscription competition sync"
+	  live)
+	    require_var FINUTS_ID
+	    require_var FINUTS_PASSWORD
+	    log "Running live subscription competition sync"
     "$PYTHON_BIN" tool/video_ocr_secondary_ingest.py \
       --config data/finuts_sources.json \
       --today-only \
@@ -156,12 +158,19 @@ case "$BATCH" in
     "$PYTHON_BIN" tool/finuts_fundamentals_sync.py --mode all
     rebuild_derived_data
     validate_data 1
-    commit_if_changed "Sync Finuts live subscription competition data" \
-      data/broker_snapshots data/manual_fundamentals.json data/outcomes ipo_competition_data
-    ;;
+	    commit_if_changed "Sync Finuts live subscription competition data" \
+	      data/broker_snapshots data/manual_fundamentals.json data/outcomes ipo_competition_data
+	    ;;
 
-  rebuild)
-    log "Rebuilding derived IPO data from repo data"
+	  naver-live)
+	    log "Running Naver-only live subscription competition sync"
+	    rebuild_derived_data
+	    commit_if_changed "Sync Naver live subscription competition data" \
+	      ipo_competition_data
+	    ;;
+	
+	  rebuild)
+	    log "Rebuilding derived IPO data from repo data"
     rebuild_derived_data
     validate_data 0
     commit_if_changed "Rebuild Finuts derived IPO data" ipo_competition_data

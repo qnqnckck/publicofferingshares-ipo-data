@@ -58,10 +58,10 @@ live_start="$(minute_of_day "${IPO_DATA_LIVE_START:-09:00}")"
 live_end="$(minute_of_day "${IPO_DATA_LIVE_END:-17:30}")"
 
 # 청약일 균등/비례 경쟁률. 실행 자체는 10분마다 허용하고,
-# tool/video_ocr_secondary_ingest.py --today-only 가 오늘 청약 종목만 처리한다.
+# 기본값은 피너츠 계정 없이 네이버 IPO 계산기 기반으로 갱신한다.
 if [[ "$now_min" -ge "$live_start" && "$now_min" -le "$live_end" ]]; then
   slot="${date_key}_$(now_key '+%H%M')"
-  run_once_per_slot live "$slot"
+  run_once_per_slot "${IPO_DATA_LIVE_BATCH:-naver-live}" "$slot"
 fi
 
 # 수요예측 fundamentals 갱신: GitHub Actions의 18:00, 18:20 KST 대응.
