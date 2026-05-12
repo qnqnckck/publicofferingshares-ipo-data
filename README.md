@@ -93,6 +93,7 @@ The active workflows are:
   - weekday 09:50 to 17:10 KST in repeated runs
   - refreshes Finuts broker snapshot rows into `data/broker_snapshots/`
   - runs `tool/video_ocr_secondary_ingest.py` with `--today-only --ignore-market-hours`
+  - broker snapshot rebuild should continue even if the fundamentals refresh step fails
 - `finuts_manual_targeted_backfill`
   - manual only
   - targeted repair for one stock id / company
