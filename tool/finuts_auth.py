@@ -10,6 +10,21 @@ from urllib.request import HTTPCookieProcessor, Request, build_opener
 from urllib.error import HTTPError
 
 
+def _extract_login_token_from_html(raw_html: str) -> str:
+    patterns = [
+        r"""<input[^>]*name=['"]_token['"][^>]*value=['"]([^'"]+)['"]""",
+        r"""<input[^>]*value=['"]([^'"]+)['"][^>]*name=['"]_token['"]""",
+        r"""<meta[^>]*name=['"]csrf-token['"][^>]*content=['"]([^'"]+)['"]""",
+        r"""<meta[^>]*content=['"]([^'"]+)['"][^>]*name=['"]csrf-token['"]""",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, raw_html, flags=re.IGNORECASE)
+        token = match.group(1).strip() if match else ""
+        if token:
+            return token
+    return ""
+
+
 def build_finuts_authenticated_opener(
     *,
     target_url: str,
@@ -53,12 +68,7 @@ def build_finuts_authenticated_opener(
         return ""
 
     login_page = _open_with_retry(login_url)
-    token_match = re.search(
-        r'<input[^>]+name="_token"[^>]+value="([^"]+)"',
-        login_page,
-        flags=re.IGNORECASE,
-    )
-    token = token_match.group(1).strip() if token_match else ""
+    token = _extract_login_token_from_html(login_page)
     if not token:
         return None
 
@@ -166,12 +176,25 @@ def _fetch_finuts_text_via_browser(
         try:
             page.goto(login_url, wait_until="domcontentloaded", timeout=30000)
             html = page.content()
-            token_match = re.search(
-                r'<input[^>]+name="_token"[^>]+value="([^"]+)"',
-                html,
-                flags=re.IGNORECASE,
-            )
-            token = token_match.group(1).strip() if token_match else ""
+            token = _extract_login_token_from_html(html)
+            if not token:
+                try:
+                    token = (
+                        page.locator('input[name="_token"]').first.get_attribute("value")
+                        or ""
+                    ).strip()
+                except Exception:
+                    token = ""
+            if not token:
+                try:
+                    token = (
+                        page.locator('meta[name="csrf-token"]').first.get_attribute(
+                            "content"
+                        )
+                        or ""
+                    ).strip()
+                except Exception:
+                    token = ""
             if not token:
                 raise RuntimeError("Failed to extract Finuts login token in browser fallback.")
             login_payload = (
