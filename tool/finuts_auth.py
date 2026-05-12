@@ -6,8 +6,8 @@ import time
 from http.cookiejar import CookieJar
 from typing import Any
 from urllib.parse import quote, urlparse, urlencode
-from urllib.request import HTTPCookieProcessor, Request, build_opener
-from urllib.error import HTTPError
+from urllib.request import HTTPCookieProcessor, Request, build_opener, urlopen
+from urllib.error import HTTPError, URLError
 
 
 def _extract_login_token_from_html(raw_html: str) -> str:
@@ -23,6 +23,44 @@ def _extract_login_token_from_html(raw_html: str) -> str:
         if token:
             return token
     return ""
+
+
+def _looks_like_finuts_auth_wall(raw_text: str) -> bool:
+    text = raw_text.lower()
+    markers = [
+        'name="user_id"',
+        "name='user_id'",
+        'name="user_pwd"',
+        "name='user_pwd'",
+        "ajaxmemberlogincheck.php",
+        "/html/user/login.php",
+        'name="_token"',
+        "name='_token'",
+    ]
+    return any(marker in text for marker in markers)
+
+
+def _fetch_text_without_auth(
+    *,
+    request_url: str,
+    method: str,
+    data: bytes | None,
+    headers: dict[str, str],
+) -> str | None:
+    request = Request(
+        request_url,
+        data=data if method.upper() == "POST" else None,
+        headers=headers,
+        method=method.upper(),
+    )
+    try:
+        with urlopen(request, timeout=30) as response:
+            payload = response.read().decode("utf-8", "ignore")
+    except (HTTPError, URLError, TimeoutError, ValueError):
+        return None
+    if not payload or _looks_like_finuts_auth_wall(payload):
+        return None
+    return payload
 
 
 def build_finuts_authenticated_opener(
@@ -105,6 +143,14 @@ def fetch_finuts_authenticated_text(
     referer: str | None = None,
 ) -> str:
     request_headers = {"User-Agent": "Mozilla/5.0", **(headers or {})}
+    public_payload = _fetch_text_without_auth(
+        request_url=request_url,
+        method=method,
+        data=data,
+        headers=request_headers,
+    )
+    if public_payload is not None:
+        return public_payload
     request = Request(
         request_url,
         data=data if method.upper() == "POST" else None,
