@@ -10,7 +10,8 @@ cd /Users/jerome/project/publicofferingshares-ipo-data
 cp scripts/local/ipo_data_batch.env.example scripts/local/ipo_data_batch.env
 ```
 
-Fill `scripts/local/ipo_data_batch.env`:
+Fill `scripts/local/ipo_data_batch.env` only if Finuts-based jobs are needed.
+The default local scheduler does not require Finuts credentials.
 
 ```sh
 FINUTS_ID=...
@@ -29,6 +30,12 @@ scripts/local/setup_local_dependencies.sh
 
 ```sh
 scripts/local/run_ipo_data_batch.sh baseline
+```
+
+피너츠 없이 공개 소스 기반 신규 종목/일정/파생 데이터 갱신:
+
+```sh
+scripts/local/run_ipo_data_batch.sh public-refresh
 ```
 
 수요예측 fundamentals 갱신:
@@ -98,9 +105,12 @@ All times are KST.
 - `demand`: weekdays at `18:00` and `18:20`, only when
   `IPO_DATA_DEMAND_ENABLED=1`.
 - `baseline`: weekdays at `17:30`, only when `IPO_DATA_BASELINE_ENABLED=1`.
+  Defaults to `public-refresh`, which skips Finuts and uses configured public
+  sources such as DART/iTick/IPOKorea/articles/Naver.
 
-For Naver-only local operation, keep `IPO_DATA_LIVE_BATCH=naver-live`,
-`IPO_DATA_DEMAND_ENABLED=0`, and `IPO_DATA_BASELINE_ENABLED=0`.
+For Finuts-free local operation, keep `IPO_DATA_LIVE_BATCH=naver-live`,
+`IPO_DATA_BASELINE_BATCH=public-refresh`, `IPO_DATA_DEMAND_ENABLED=0`, and
+`IPO_DATA_BASELINE_ENABLED=1`.
 
 The scheduler keeps marker files under `scripts/local/.state/` to avoid running
 the same slot twice.

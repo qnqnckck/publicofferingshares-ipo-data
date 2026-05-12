@@ -47,6 +47,23 @@ rebuild_derived_data() {
     --no-public-live-collect
 }
 
+public_refresh_data() {
+  "$DART_BIN" run tool/ipo_competition_batch.dart \
+    --backfill-years 3 \
+    --manual-fundamentals-path data/manual_fundamentals.json \
+    --no-finuts-discover
+}
+
+naver_live_data() {
+  "$DART_BIN" run tool/ipo_competition_batch.dart \
+    --backfill-years 3 \
+    --manual-fundamentals-path data/manual_fundamentals.json \
+    --no-discover \
+    --no-identifier-discover \
+    --no-ipo-korea-supplement \
+    --no-article-lead-manager-discover
+}
+
 validate_data() {
   local required="${1:-0}"
   if [[ "$required" == "1" ]]; then
@@ -91,6 +108,7 @@ Usage:
   scripts/local/run_ipo_data_batch.sh demand
   scripts/local/run_ipo_data_batch.sh live
   scripts/local/run_ipo_data_batch.sh naver-live
+  scripts/local/run_ipo_data_batch.sh public-refresh
   scripts/local/run_ipo_data_batch.sh rebuild
   scripts/local/run_ipo_data_batch.sh targeted --stock-id <id> [--company <name>] [--mode fundamentals|broker|full]
 
@@ -99,6 +117,7 @@ Batch mapping:
   demand    수요예측일 fundamentals 갱신 + 파생 JSON 재생성
   live      청약일 균등/비례 경쟁률 스냅샷 갱신 + 파생 JSON 재생성
   naver-live 피너츠 없이 네이버 IPO 계산기 기반 청약 경쟁률 갱신
+  public-refresh 피너츠 없이 DART/iTick/IPOKorea/기사/네이버 등 공개 소스 갱신
   rebuild   repo 데이터만으로 ipo_competition_data 재생성
   targeted  특정 종목 수동 backfill
 EOF
@@ -164,11 +183,18 @@ case "$BATCH" in
 
 	  naver-live)
 	    log "Running Naver-only live subscription competition sync"
-	    rebuild_derived_data
+	    naver_live_data
 	    git restore -- data/discovered/ipo_events.json data/identifiers/ipo_identifiers.json
 	    commit_if_changed "Sync Naver live subscription competition data" \
 	      ipo_competition_data
 	    ;;
+
+  public-refresh)
+    log "Running public-source IPO data refresh without Finuts"
+    public_refresh_data
+    commit_if_changed "Sync public-source IPO data" \
+      data/discovered data/identifiers ipo_competition_data
+    ;;
 	
 	  rebuild)
 	    log "Rebuilding derived IPO data from repo data"

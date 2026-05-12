@@ -71,5 +71,5 @@ fi
 
 # 신규 종목/기본 일정 발굴: GitHub Actions의 17:30 KST 대응.
 if [[ "${IPO_DATA_BASELINE_ENABLED:-0}" == "1" && "$time_hm" == "17:30" ]]; then
-  run_once_per_slot baseline "$date_key"
+  run_once_per_slot "${IPO_DATA_BASELINE_BATCH:-public-refresh}" "$date_key"
 fi

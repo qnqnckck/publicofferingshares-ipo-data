@@ -41,7 +41,11 @@ class BatchOptions {
     required this.manualFundamentalsPath,
     required this.interval,
     required this.discover,
+    required this.discoverFinuts,
     required this.discoverIdentifiers,
+    required this.discoverIpoKoreaSupplement,
+    required this.discoverArticleLeadManagers,
+    required this.collectPublicLive,
     required this.dartApiKeyEnv,
     required this.itickApiKeyEnv,
     required this.kisAppKeyEnv,
@@ -61,7 +65,11 @@ class BatchOptions {
   final String manualFundamentalsPath;
   final Duration interval;
   final bool discover;
+  final bool discoverFinuts;
   final bool discoverIdentifiers;
+  final bool discoverIpoKoreaSupplement;
+  final bool discoverArticleLeadManagers;
+  final bool collectPublicLive;
   final String dartApiKeyEnv;
   final String itickApiKeyEnv;
   final String kisAppKeyEnv;
@@ -89,7 +97,11 @@ Options:
   --kis-app-key-env <name>    Environment variable for KIS app key. Default: KIS_APP_KEY
   --kis-app-secret-env <name> Environment variable for KIS app secret. Default: KIS_APP_SECRET
   --no-discover               Skip remote discovery and only normalize local input files.
+  --no-finuts-discover        Skip Finuts discovery while keeping other configured discovery sources.
   --no-identifier-discover    Skip DART company-code backfill and only use local identifier crosswalk.
+  --no-ipo-korea-supplement   Skip IPOKorea supplement scraping.
+  --no-article-lead-manager-discover Skip article lead-manager scraping.
+  --no-public-live-collect    Skip public live competition collectors such as Naver/Shinhan/Daishin/IPOSTOCK/38.
   --watch                     Keep running and refresh active subscriptions.
   --help                      Show this help.
 
@@ -134,7 +146,13 @@ Seed from the example file:
       backfillYears: intAfter('--backfill-years', 3),
       interval: Duration(minutes: intAfter('--interval-minutes', 10)),
       discover: !args.contains('--no-discover'),
+      discoverFinuts: !args.contains('--no-finuts-discover'),
       discoverIdentifiers: !args.contains('--no-identifier-discover'),
+      discoverIpoKoreaSupplement: !args.contains('--no-ipo-korea-supplement'),
+      discoverArticleLeadManagers: !args.contains(
+        '--no-article-lead-manager-discover',
+      ),
+      collectPublicLive: !args.contains('--no-public-live-collect'),
       dartApiKeyEnv: valueAfter('--dart-api-key-env', 'DART_API_KEY'),
       itickApiKeyEnv: valueAfter('--itick-api-key-env', 'ITICK_API_KEY'),
       kisAppKeyEnv: valueAfter('--kis-app-key-env', 'KIS_APP_KEY'),
@@ -187,15 +205,17 @@ class IpoCompetitionBatch {
       ]);
       final supplementStocks = mergeStocks([
         ...stocksWithoutExternalOutcomes,
-        ...await _discoverIpoKoreaSupplementStocks(
-          stocksWithoutExternalOutcomes,
-          generatedAt,
-        ),
+        if (options.discoverIpoKoreaSupplement)
+          ...await _discoverIpoKoreaSupplementStocks(
+            stocksWithoutExternalOutcomes,
+            generatedAt,
+          ),
       ]);
       final sourceEnhancedStocks = mergeStocks([
         ...supplementStocks,
         ...buildKnownLeadManagerOverrideStocks(supplementStocks),
-        ...await _discoverArticleLeadManagerStocks(supplementStocks),
+        if (options.discoverArticleLeadManagers)
+          ...await _discoverArticleLeadManagerStocks(supplementStocks),
       ]);
       final outcomeRows = await _loadOutcomeRows();
       final stocks = mergeOutcomes(sourceEnhancedStocks, outcomeRows);
@@ -214,10 +234,11 @@ class IpoCompetitionBatch {
       final identifiedStocks = mergeIdentifierRows(stocks, identifierRows);
       final brokerSnapshotRows = [
         ...await _loadBrokerSnapshotRows(),
-        ...await _collectPublicLiveBrokerSnapshots(
-          identifiedStocks,
-          generatedAt,
-        ),
+        if (options.collectPublicLive)
+          ...await _collectPublicLiveBrokerSnapshots(
+            identifiedStocks,
+            generatedAt,
+          ),
         ...buildEstimatedBrokerSnapshotRows(identifiedStocks, generatedAt),
         ...buildEstimatedBrokerRateOnlyRows(identifiedStocks, generatedAt),
       ];
@@ -227,15 +248,17 @@ class IpoCompetitionBatch {
       );
       final autoSupplementStocks = mergeStocks([
         ...autoCoreBaseStocks,
-        ...await _discoverIpoKoreaSupplementStocks(
-          autoCoreBaseStocks,
-          generatedAt,
-        ),
+        if (options.discoverIpoKoreaSupplement)
+          ...await _discoverIpoKoreaSupplementStocks(
+            autoCoreBaseStocks,
+            generatedAt,
+          ),
       ]);
       final autoSourceEnhancedStocks = mergeStocks([
         ...autoSupplementStocks,
         ...buildKnownLeadManagerOverrideStocks(autoSupplementStocks),
-        ...await _discoverArticleLeadManagerStocks(autoSupplementStocks),
+        if (options.discoverArticleLeadManagers)
+          ...await _discoverArticleLeadManagerStocks(autoSupplementStocks),
       ]);
       final autoStocks = mergeOutcomes(autoSourceEnhancedStocks, outcomeRows);
       final autoIdentifiedStocks = mergeIdentifierRows(
@@ -1552,7 +1575,9 @@ class IpoCompetitionBatch {
 
   Future<List<IpoCompetitionStock>> _discoverRemoteStocks(DateTime now) async {
     final discovered = <IpoCompetitionStock>[];
-    discovered.addAll(await _discoverFinutsStocks());
+    if (options.discoverFinuts) {
+      discovered.addAll(await _discoverFinutsStocks());
+    }
     discovered.addAll(await _discoverDartStocks(now));
     discovered.addAll(await _discoverItickStocks());
     _noteKisCredentialsIfConfigured();
