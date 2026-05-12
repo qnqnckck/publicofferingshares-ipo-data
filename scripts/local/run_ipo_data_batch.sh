@@ -165,6 +165,7 @@ case "$BATCH" in
 	  naver-live)
 	    log "Running Naver-only live subscription competition sync"
 	    rebuild_derived_data
+	    git restore -- data/discovered/ipo_events.json data/identifiers/ipo_identifiers.json
 	    commit_if_changed "Sync Naver live subscription competition data" \
 	      ipo_competition_data
 	    ;;
