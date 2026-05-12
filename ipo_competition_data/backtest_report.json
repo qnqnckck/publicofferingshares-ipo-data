@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-12T04:32:01.713560",
+  "generatedAt": "2026-05-12T16:03:42.700413",
   "methodVersion": "ipo-score-v4",
   "sampleCount": 59,
   "summary": {
     "averageCloseReturnRate": 0.859,
     "medianCloseReturnRate": 0.5019,
-    "averageErrorCloseVsExpected": 0.1188,
+    "averageErrorCloseVsExpected": 0.1166,
     "medianErrorCloseVsExpected": -0.115,
     "averageReferenceReturnRate": 0.8811,
     "medianReferenceReturnRate": 0.5178,
-    "averageErrorReferenceVsExpected": 0.1409,
+    "averageErrorReferenceVsExpected": 0.1387,
     "medianErrorReferenceVsExpected": -0.0803
   },
   "byGrade": {
@@ -25,9 +25,9 @@
       "medianCloseReturnRate": 0.3675
     },
     "B": {
-      "sampleCount": 2,
-      "averageCloseReturnRate": 0.4707,
-      "medianCloseReturnRate": 0.4707
+      "sampleCount": 3,
+      "averageCloseReturnRate": 0.2587,
+      "medianCloseReturnRate": 0.0934
     },
     "B-": {
       "sampleCount": 2,
@@ -40,9 +40,9 @@
       "medianCloseReturnRate": 0.9821
     },
     "C": {
-      "sampleCount": 11,
-      "averageCloseReturnRate": 0.3734,
-      "medianCloseReturnRate": 0.15
+      "sampleCount": 10,
+      "averageCloseReturnRate": 0.4273,
+      "medianCloseReturnRate": 0.3339
     },
     "C-": {
       "sampleCount": 33,
@@ -59,11 +59,11 @@
       "averageErrorReferenceVsExpected": 1.1509
     },
     "60-69": {
-      "sampleCount": 4,
-      "averageCloseReturnRate": 1.228,
-      "medianCloseReturnRate": 1.224,
-      "averageErrorCloseVsExpected": 0.43,
-      "averageErrorReferenceVsExpected": 0.43
+      "sampleCount": 5,
+      "averageCloseReturnRate": 0.9493,
+      "medianCloseReturnRate": 0.848,
+      "averageErrorCloseVsExpected": 0.2548,
+      "averageErrorReferenceVsExpected": 0.2548
     },
     "50-59": {
       "sampleCount": 10,
@@ -73,11 +73,11 @@
       "averageErrorReferenceVsExpected": 0.5441
     },
     "40-49": {
-      "sampleCount": 23,
-      "averageCloseReturnRate": 0.9138,
-      "medianCloseReturnRate": 0.5571,
-      "averageErrorCloseVsExpected": 0.1303,
-      "averageErrorReferenceVsExpected": 0.1303
+      "sampleCount": 22,
+      "averageCloseReturnRate": 0.9628,
+      "medianCloseReturnRate": 0.577,
+      "averageErrorCloseVsExpected": 0.1507,
+      "averageErrorReferenceVsExpected": 0.1507
     },
     "30-39": {
       "sampleCount": 8,
@@ -165,6 +165,22 @@
       "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20250801048751008",
       "errorCloseVsExpected": 0.2213,
       "errorReferenceVsExpected": 0.2213
+    },
+    {
+      "id": "synapsoft_2024",
+      "company": "사이냅소프트",
+      "isSpac": false,
+      "score": 66,
+      "grade": "B",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.2809,
+      "openReturnRate": -0.1346938775510204,
+      "highReturnRate": null,
+      "closeReturnRate": -0.1653061224489796,
+      "referenceReturnRate": -0.1653061224489796,
+      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
+      "errorCloseVsExpected": -0.4462,
+      "errorReferenceVsExpected": -0.4462
     },
     {
       "id": "manyo_factory_2023",
@@ -357,22 +373,6 @@
       "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240508041000008",
       "errorCloseVsExpected": 0.51,
       "errorReferenceVsExpected": 0.51
-    },
-    {
-      "id": "synapsoft_2024",
-      "company": "사이냅소프트",
-      "isSpac": false,
-      "score": 48,
-      "grade": "C",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.1532,
-      "openReturnRate": -0.1346938775510204,
-      "highReturnRate": null,
-      "closeReturnRate": -0.1653061224489796,
-      "referenceReturnRate": -0.1653061224489796,
-      "outcomeSourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
-      "errorCloseVsExpected": -0.3185,
-      "errorReferenceVsExpected": -0.3185
     },
     {
       "id": "pado_2023",
