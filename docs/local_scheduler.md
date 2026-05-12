@@ -1,0 +1,96 @@
+# Local IPO Data Scheduler
+
+This replaces the scheduled GitHub Actions in this repository with local
+`launchd` jobs.
+
+## One-time setup
+
+```sh
+cd /Users/jerome/project/publicofferingshares-ipo-data
+cp scripts/local/ipo_data_batch.env.example scripts/local/ipo_data_batch.env
+```
+
+Fill `scripts/local/ipo_data_batch.env`:
+
+```sh
+FINUTS_ID=...
+FINUTS_PASSWORD=...
+```
+
+Install local dependencies:
+
+```sh
+scripts/local/setup_local_dependencies.sh
+```
+
+## Manual batch commands
+
+신규 종목/기본 일정 발굴:
+
+```sh
+scripts/local/run_ipo_data_batch.sh baseline
+```
+
+수요예측 fundamentals 갱신:
+
+```sh
+scripts/local/run_ipo_data_batch.sh demand
+```
+
+청약일 균등/비례 경쟁률 갱신:
+
+```sh
+scripts/local/run_ipo_data_batch.sh live
+```
+
+repo 데이터만으로 파생 JSON 재생성:
+
+```sh
+scripts/local/run_ipo_data_batch.sh rebuild
+```
+
+특정 종목 수동 backfill:
+
+```sh
+scripts/local/run_ipo_data_batch.sh targeted --stock-id machinarax_2026 --mode full
+```
+
+## Scheduler
+
+Install a 10-minute local scheduler:
+
+```sh
+scripts/local/install_ipo_data_scheduler.sh 600
+```
+
+Run it immediately:
+
+```sh
+launchctl kickstart -k gui/$(id -u)/com.yellowrocket.publicofferingshares.ipo-data-batches
+```
+
+Logs:
+
+```sh
+tail -f build/local_scheduler/logs/ipo-data-scheduler.out.log
+tail -f build/local_scheduler/logs/ipo-data-scheduler.err.log
+```
+
+Uninstall:
+
+```sh
+scripts/local/uninstall_ipo_data_scheduler.sh
+```
+
+## Local schedule
+
+All times are KST.
+
+- `live`: every scheduler tick between `09:00` and `17:30` on weekdays.
+  The batch itself uses `--today-only`, so only current subscription stocks are
+  processed.
+- `demand`: weekdays at `18:00` and `18:20`.
+- `baseline`: weekdays at `17:30`.
+
+The scheduler keeps marker files under `scripts/local/.state/` to avoid running
+the same slot twice.
