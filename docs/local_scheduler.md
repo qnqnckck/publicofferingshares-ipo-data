@@ -95,8 +95,12 @@ All times are KST.
 - `live`: every scheduler tick between `09:00` and `17:30` on weekdays.
   Defaults to `naver-live`, which does not require Finuts credentials and uses
   Naver IPO calculator data for current subscription stocks.
-- `demand`: weekdays at `18:00` and `18:20`.
-- `baseline`: weekdays at `17:30`.
+- `demand`: weekdays at `18:00` and `18:20`, only when
+  `IPO_DATA_DEMAND_ENABLED=1`.
+- `baseline`: weekdays at `17:30`, only when `IPO_DATA_BASELINE_ENABLED=1`.
+
+For Naver-only local operation, keep `IPO_DATA_LIVE_BATCH=naver-live`,
+`IPO_DATA_DEMAND_ENABLED=0`, and `IPO_DATA_BASELINE_ENABLED=0`.
 
 The scheduler keeps marker files under `scripts/local/.state/` to avoid running
 the same slot twice.

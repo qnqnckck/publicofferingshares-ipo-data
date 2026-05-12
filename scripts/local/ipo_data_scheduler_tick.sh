@@ -65,11 +65,11 @@ if [[ "$now_min" -ge "$live_start" && "$now_min" -le "$live_end" ]]; then
 fi
 
 # 수요예측 fundamentals 갱신: GitHub Actions의 18:00, 18:20 KST 대응.
-if [[ "$time_hm" == "18:00" || "$time_hm" == "18:20" ]]; then
+if [[ "${IPO_DATA_DEMAND_ENABLED:-0}" == "1" && ( "$time_hm" == "18:00" || "$time_hm" == "18:20" ) ]]; then
   run_once_per_slot demand "${date_key}_${time_hm/:/}"
 fi
 
 # 신규 종목/기본 일정 발굴: GitHub Actions의 17:30 KST 대응.
-if [[ "$time_hm" == "17:30" ]]; then
+if [[ "${IPO_DATA_BASELINE_ENABLED:-0}" == "1" && "$time_hm" == "17:30" ]]; then
   run_once_per_slot baseline "$date_key"
 fi
