@@ -66,6 +66,12 @@ commit_if_changed() {
     return 0
   fi
 
+  if [[ "${IPO_DATA_GIT_COMMIT:-1}" != "1" ]]; then
+    log "Skipping git commit because IPO_DATA_GIT_COMMIT=${IPO_DATA_GIT_COMMIT:-}"
+    git diff --stat -- "${paths[@]}"
+    return 0
+  fi
+
   git config user.name "${IPO_DATA_GIT_USER_NAME:-ipo-competition-local-bot}"
   git config user.email "${IPO_DATA_GIT_USER_EMAIL:-ipo-competition-local-bot@users.noreply.github.com}"
   git add "${paths[@]}"
