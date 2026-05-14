@@ -25,11 +25,11 @@
     "priceBandMin": 0,
     "priceBandMax": 0,
     "topBandConfirmation": null,
-    "institutionCompetitionRate": 636.44,
+    "institutionCompetitionRate": null,
     "institutionParticipants": null,
     "lockupCommitmentRate": null,
     "floatRate": null,
-    "marketCapKrw": 125524305000,
+    "marketCapKrw": null,
     "publicAllocationShares": null,
     "hasPutbackRight": false,
     "putbackSummary": null
@@ -45,35 +45,34 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 27,
+      "overall": 4,
       "grade": "C-",
-      "confidence": 0.55,
+      "confidence": 0.45,
       "factors": {
-        "institutionDemand": 8,
+        "institutionDemand": 0,
         "demandStrength": 0,
         "lockupCommitment": 0,
         "pricing": 3,
-        "marketCap": 8,
         "leadManagerCoverage": 0
       },
-      "demand": 18,
-      "value": 67,
+      "demand": 5,
+      "value": 0,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.2556,
-      "bearCaseListingGainRate": 0.0556,
-      "baseCaseListingGainRate": 0.2556,
-      "bullCaseListingGainRate": 0.5356,
+      "expectedListingGainRate": 0.0729,
+      "bearCaseListingGainRate": -0.1271,
+      "baseCaseListingGainRate": 0.0729,
+      "bullCaseListingGainRate": 0.3529,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
         "oneMillionKrw": 0.895,
         "fiveMillionKrw": 4.477
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 4,
-        "oneMillionKrw": 319,
-        "fiveMillionKrw": 1597
+        "minimumSubscription": 1,
+        "oneMillionKrw": 91,
+        "fiveMillionKrw": 455
       },
       "assumptions": {
         "offerPrice": 1396,
@@ -81,8 +80,8 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": 0.07558561523809523,
-        "institutionBoost": 0.017055000000000008,
+        "generalPriorBase": -0.10712,
+        "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
         "topBandBoost": 0.0,
@@ -94,8 +93,8 @@
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "insufficient_data",
+      "label": "데이터 부족",
       "reasons": [
         "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
       ],
@@ -111,13 +110,13 @@
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": 636.44,
+      "institutionCompetitionRate": null,
       "lockupCommitmentRate": null,
       "floatRate": null,
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 18,
-      "valueScore": 67
+      "demandScore": 5,
+      "valueScore": 0
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }
