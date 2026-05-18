@@ -1,42 +1,53 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-15T13:02:51.409253",
+  "generatedAt": "2026-05-18T05:01:48.794179",
   "totals": {
-    "generatedStocks": 550,
-    "activeStocks": 0,
-    "upcomingNext7Days": 3
+    "generatedStocks": 549,
+    "activeStocks": 1,
+    "upcomingNext7Days": 2
   },
   "activeReadiness": {
     "missingLatestSnapshotAt": 0,
     "missingLatestCompetitionRate": 0,
     "missingBrokerLevelCompetition": 0,
-    "missingInstitutionCompetitionRate": 0,
-    "missingInstitutionParticipants": 0,
-    "missingLockupCommitmentRate": 0,
+    "missingInstitutionCompetitionRate": 1,
+    "missingInstitutionParticipants": 1,
+    "missingLockupCommitmentRate": 1,
     "liveLikeSourceCount": 0,
-    "finutsSourceCount": 0,
+    "finutsSourceCount": 1,
     "ocrSourceCount": 0
   },
-  "activeLatestSourceCounts": {},
+  "activeLatestSourceCounts": {
+    "finuts_member_secondary": 1
+  },
   "activeSnapshotFreshness": {
-    "within_1h": 0,
+    "within_1h": 1,
     "within_6h": 0,
     "within_24h": 0,
     "older": 0,
     "missing": 0
   },
-  "activeSamples": [],
-  "upcomingSamples": [
+  "activeSamples": [
     {
       "id": "이뮨온시아_2026-05-18",
       "company": "이뮨온시아",
       "path": "stocks/이뮨온시아_2026-05-18.json",
       "subscriptionStart": "2026-05-18",
       "subscriptionEnd": "2026-05-19",
-      "leadManagers": [
-        "한국투자증권"
+      "latestSnapshotAt": "2026-05-18T13:59:52+09:00",
+      "latestSnapshotSource": "finuts_member_secondary",
+      "latestCompetitionRate": 1825.4799999649908,
+      "institutionCompetitionRate": null,
+      "institutionParticipants": null,
+      "lockupCommitmentRate": null,
+      "issues": [
+        "missing_institution_competition_rate",
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
       ]
-    },
+    }
+  ],
+  "upcomingSamples": [
     {
       "id": "skc_2026-05-19",
       "company": "SKC",
