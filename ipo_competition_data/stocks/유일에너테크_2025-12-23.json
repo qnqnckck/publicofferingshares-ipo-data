@@ -26,12 +26,12 @@
     "priceBandMin": 0,
     "priceBandMax": 0,
     "topBandConfirmation": null,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "institutionCompetitionRate": 1428.0,
+    "institutionParticipants": 1499,
+    "lockupCommitmentRate": 0.611,
     "floatRate": null,
-    "marketCapKrw": null,
-    "publicAllocationShares": null,
+    "marketCapKrw": 141900000000,
+    "publicAllocationShares": 483040,
     "hasPutbackRight": false,
     "putbackSummary": null
   },
@@ -42,82 +42,174 @@
     "closeReturnRate": null,
     "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100469"
   },
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2025-12-24T16:00:00+09:00",
+      "source": "ipokorea_supplement",
+      "sourceUrl": "https://ipokorea.kr/ipo/%EC%9C%A0%EC%9D%BC%EC%97%90%EB%84%88%ED%85%8C%ED%81%AC",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 483040,
+          "subscribedShares": 330399360,
+          "offerPrice": 16000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 684.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 483040,
+        "subscribedShares": 330399360,
+        "competitionRate": 684.0
+      }
+    },
+    {
+      "capturedAt": "2026-05-19T09:44:11.974125",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://ipokorea.kr/ipo/%EC%9C%A0%EC%9D%BC%EC%97%90%EB%84%88%ED%85%8C%ED%81%AC",
+      "brokers": [
+        {
+          "name": "BNK",
+          "offeredShares": 241520,
+          "subscribedShares": 165199680,
+          "offerPrice": 1475,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 684.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 684.0,
+          "equalAllocationShares": 120760,
+          "proportionalAllocationShares": 120760,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "한양",
+          "offeredShares": 241520,
+          "subscribedShares": 165199680,
+          "offerPrice": 1475,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 684.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 684.0,
+          "equalAllocationShares": 120760,
+          "proportionalAllocationShares": 120760,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 483040,
+        "subscribedShares": 330399360,
+        "competitionRate": 684.0
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 22,
-      "grade": "C-",
-      "confidence": 0.45,
+      "overall": 77,
+      "grade": "B+",
+      "confidence": 0.95,
       "factors": {
-        "institutionDemand": 0,
-        "demandStrength": 0,
-        "lockupCommitment": 0,
+        "institutionDemand": 22,
+        "demandStrength": 3,
+        "lockupCommitment": 18,
         "pricing": 3,
+        "marketCap": 8,
+        "publicAllocation": 8,
         "leadManagerCoverage": 2
       },
-      "demand": 5,
-      "value": 100,
+      "demand": 74,
+      "value": 90,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.1965,
-      "bearCaseListingGainRate": -0.0035,
-      "baseCaseListingGainRate": 0.1965,
-      "bullCaseListingGainRate": 0.4765,
+      "expectedListingGainRate": 0.7804,
+      "bearCaseListingGainRate": 0.6004,
+      "baseCaseListingGainRate": 0.7804,
+      "bullCaseListingGainRate": 1.0804,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.847,
-        "fiveMillionKrw": 4.237
+        "minimumSubscription": 0.015,
+        "oneMillionKrw": 0.991,
+        "fiveMillionKrw": 4.956
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 4,
-        "oneMillionKrw": 246,
-        "fiveMillionKrw": 1228
+        "minimumSubscription": 17,
+        "oneMillionKrw": 1141,
+        "fiveMillionKrw": 5705
       },
       "assumptions": {
         "offerPrice": 1475,
-        "competitionRate": null,
+        "competitionRate": 684.0,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": 0.016480000000000015,
-        "institutionBoost": 0.0,
-        "lockupBoost": 0.0,
-        "participantBoost": 0.0,
+        "generalCompetitionBaseline": 0.52,
+        "generalPriorBase": 0.6556720000000001,
+        "institutionBoost": 0.09,
+        "lockupBoost": 0.1,
+        "participantBoost": 0.025,
         "topBandBoost": 0.0,
-        "scoreBoost": -0.04,
-        "competitionPresent": false,
-        "generalCalibrationApplied": 0.18,
+        "scoreBoost": 0.027777777777777776,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 63,
-        "generalCompetitionPending": true
+        "generalCompetitionPending": false
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "consider",
+      "label": "청약 고려",
       "reasons": [
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "최근 확인된 일반청약 경쟁률은 684.0대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "BNK",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 504450,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "한양",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 504450,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 684.0,
+      "snapshotCount": 2,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "institutionCompetitionRate": 1428.0,
+      "lockupCommitmentRate": 0.611,
       "floatRate": null,
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 5,
-      "valueScore": 100
+      "demandScore": 74,
+      "valueScore": 90
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }
