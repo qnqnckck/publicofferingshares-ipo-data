@@ -45,13 +45,41 @@
     "closeReturnRate": null,
     "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100526"
   },
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-05-19T09:35:30.319284",
+      "source": "shinhan_live",
+      "sourceUrl": "https://www.shinhansec.com/siw/banking-lending/subscribe/596001/view.do",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 1185,
+          "subscribedShares": 0,
+          "offerPrice": 99500,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": null,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 593,
+          "proportionalAllocationShares": 593,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1185,
+        "subscribedShares": 0,
+        "competitionRate": 0.0
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
       "overall": 22,
       "grade": "C-",
-      "confidence": 0.45,
+      "confidence": 0.9,
       "factors": {
         "institutionDemand": 0,
         "demandStrength": 0,
@@ -64,53 +92,63 @@
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.1965,
-      "bearCaseListingGainRate": -0.0035,
-      "baseCaseListingGainRate": 0.1965,
-      "bullCaseListingGainRate": 0.4765,
+      "expectedListingGainRate": -0.01,
+      "bearCaseListingGainRate": -0.15,
+      "baseCaseListingGainRate": -0.01,
+      "bullCaseListingGainRate": 0.21,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.013,
-        "fiveMillionKrw": 0.063
+        "minimumSubscription": 100.0,
+        "oneMillionKrw": 100.0,
+        "fiveMillionKrw": 100.0
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 244,
-        "oneMillionKrw": 246,
-        "fiveMillionKrw": 1228
+        "minimumSubscription": -99500,
+        "oneMillionKrw": -99500,
+        "fiveMillionKrw": -99500
       },
       "assumptions": {
         "offerPrice": 99500,
-        "competitionRate": null,
+        "competitionRate": 0.0,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": 0.016480000000000015,
+        "generalCompetitionBaseline": 0.03,
+        "generalPriorBase": 0.01936000000000002,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
         "topBandBoost": 0.0,
         "scoreBoost": -0.04,
-        "competitionPresent": false,
-        "generalCalibrationApplied": 0.18,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 63,
-        "generalCompetitionPending": true
+        "generalCompetitionPending": false
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "caution",
+      "label": "주의",
       "reasons": [
+        "최근 확인된 일반청약 경쟁률은 0.0대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "신한투자증권",
+        "equalScore": 30,
+        "proportionalScore": 30,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": null,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 0.0,
+      "snapshotCount": 1,
       "leadManagerCount": 5,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

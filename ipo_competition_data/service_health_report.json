@@ -1,29 +1,30 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-18T12:49:08.169108",
+  "generatedAt": "2026-05-19T09:35:30.319284",
   "totals": {
     "generatedStocks": 549,
-    "activeStocks": 1,
+    "activeStocks": 2,
     "upcomingNext7Days": 2
   },
   "activeReadiness": {
     "missingLatestSnapshotAt": 0,
     "missingLatestCompetitionRate": 0,
     "missingBrokerLevelCompetition": 0,
-    "missingInstitutionCompetitionRate": 1,
-    "missingInstitutionParticipants": 1,
-    "missingLockupCommitmentRate": 1,
-    "liveLikeSourceCount": 0,
+    "missingInstitutionCompetitionRate": 2,
+    "missingInstitutionParticipants": 2,
+    "missingLockupCommitmentRate": 2,
+    "liveLikeSourceCount": 1,
     "finutsSourceCount": 1,
     "ocrSourceCount": 0
   },
   "activeLatestSourceCounts": {
-    "finuts_member_secondary": 1
+    "finuts_member_secondary": 1,
+    "shinhan_live": 1
   },
   "activeSnapshotFreshness": {
     "within_1h": 1,
     "within_6h": 0,
-    "within_24h": 0,
+    "within_24h": 1,
     "older": 0,
     "missing": 0
   },
@@ -45,23 +46,27 @@
         "missing_institution_participants",
         "missing_lockup_commitment_rate"
       ]
-    }
-  ],
-  "upcomingSamples": [
+    },
     {
       "id": "skc_2026-05-19",
       "company": "SKC",
       "path": "stocks/skc_2026-05-19.json",
       "subscriptionStart": "2026-05-19",
       "subscriptionEnd": "2026-05-20",
-      "leadManagers": [
-        "한국투자증권",
-        "NH투자증권",
-        "삼성증권",
-        "신한투자증권",
-        "KB증권"
+      "latestSnapshotAt": "2026-05-19T09:35:30.319284",
+      "latestSnapshotSource": "shinhan_live",
+      "latestCompetitionRate": 0.0,
+      "institutionCompetitionRate": null,
+      "institutionParticipants": null,
+      "lockupCommitmentRate": null,
+      "issues": [
+        "missing_institution_competition_rate",
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
       ]
-    },
+    }
+  ],
+  "upcomingSamples": [
     {
       "id": "daishin_balance_spac_20_2026",
       "company": "대신밸런스제20호스팩",
@@ -70,6 +75,17 @@
       "subscriptionEnd": "2026-05-26",
       "leadManagers": [
         "대신증권"
+      ]
+    },
+    {
+      "id": "피스피스스튜디오_2026-05-26",
+      "company": "피스피스스튜디오",
+      "path": "stocks/피스피스스튜디오_2026-05-26.json",
+      "subscriptionStart": "2026-05-26",
+      "subscriptionEnd": "2026-05-27",
+      "leadManagers": [
+        "NH투자증권",
+        "미래에셋증권"
       ]
     }
   ]
