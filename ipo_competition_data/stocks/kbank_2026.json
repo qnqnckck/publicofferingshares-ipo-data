@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "케이뱅크_2026-02-20",
+  "id": "kbank_2026",
   "identifiers": {
     "subscriptionKey": "케이뱅크_20260220_20260223",
     "normalizedCompany": "케이뱅크",
@@ -10,7 +10,7 @@
     "isin": null
   },
   "company": "케이뱅크",
-  "market": "KOSDAQ",
+  "market": "KOSPI",
   "industry": "은행",
   "subscriptionStart": "2026-02-20",
   "subscriptionEnd": "2026-02-23",
@@ -27,12 +27,12 @@
     "priceBandMin": 8300,
     "priceBandMax": 9500,
     "topBandConfirmation": null,
-    "institutionCompetitionRate": 199.0,
+    "institutionCompetitionRate": 198.53,
     "institutionParticipants": 2007,
-    "lockupCommitmentRate": 0.51,
+    "lockupCommitmentRate": 0.152,
     "floatRate": 0.351,
-    "marketCapKrw": 4348103934500,
-    "publicAllocationShares": 15000000,
+    "marketCapKrw": 3400000000000,
+    "publicAllocationShares": 17640000,
     "hasPutbackRight": false,
     "putbackSummary": null
   },
@@ -41,36 +41,9 @@
     "openReturnRate": 0.024096385542168676,
     "highReturnRate": null,
     "closeReturnRate": 0.0036144578313253013,
-    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100514"
+    "sourceUrl": "https://glasswallet.com/blog/kbank-ipo-analysis/"
   },
   "snapshots": [
-    {
-      "capturedAt": "2026-02-23T16:00:00+09:00",
-      "source": "ipokorea_supplement",
-      "sourceUrl": "https://ipokorea.kr/ipo/%EC%BC%80%EC%9D%B4%EB%B1%85%ED%81%AC",
-      "brokers": [
-        {
-          "name": "통합",
-          "offeredShares": 15000000,
-          "subscribedShares": 2370000000,
-          "offerPrice": 8300,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 158.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": null,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 15000000,
-        "subscribedShares": 2370000000,
-        "competitionRate": 158.0
-      }
-    },
     {
       "capturedAt": "2026-02-23T16:00:00+09:00",
       "source": "public_ipo_result",
@@ -159,36 +132,36 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 53,
-      "grade": "C+",
+      "overall": 41,
+      "grade": "C-",
       "confidence": 0.95,
       "factors": {
         "institutionDemand": 3,
         "demandStrength": 6,
-        "lockupCommitment": 18,
+        "lockupCommitment": 9,
         "pricing": 10,
         "marketCap": 1,
         "publicAllocation": 1,
         "leadManagerCoverage": 2
       },
-      "demand": 60,
+      "demand": 45,
       "value": 20,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.47,
-      "bearCaseListingGainRate": 0.29,
-      "baseCaseListingGainRate": 0.47,
-      "bullCaseListingGainRate": 0.69,
+      "expectedListingGainRate": 0.3805,
+      "bearCaseListingGainRate": 0.2005,
+      "baseCaseListingGainRate": 0.3805,
+      "bullCaseListingGainRate": 0.6005,
       "expectedAllocatedShares": {
         "minimumSubscription": 11.627,
         "oneMillionKrw": 12.038,
         "fiveMillionKrw": 13.832
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 45358,
-        "oneMillionKrw": 46962,
-        "fiveMillionKrw": 53959
+        "minimumSubscription": 36721,
+        "oneMillionKrw": 38019,
+        "fiveMillionKrw": 43684
       },
       "assumptions": {
         "offerPrice": 8300,
@@ -196,9 +169,9 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.38,
-        "generalPriorBase": 0.39196,
+        "generalPriorBase": 0.21249714285714286,
         "institutionBoost": 0.0,
-        "lockupBoost": 0.09,
+        "lockupBoost": 0.0005000000000000004,
         "participantBoost": 0.04,
         "topBandBoost": 0.0,
         "scoreBoost": -0.04,
@@ -209,8 +182,8 @@
       }
     },
     "decision": {
-      "level": "neutral",
-      "label": "중립",
+      "level": "caution",
+      "label": "주의",
       "reasons": [
         "최근 확인된 일반청약 경쟁률은 268.68대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
@@ -250,16 +223,16 @@
     ],
     "inputs": {
       "latestCompetitionRate": 268.6766,
-      "snapshotCount": 3,
+      "snapshotCount": 2,
       "leadManagerCount": 3,
-      "market": "KOSDAQ",
+      "market": "KOSPI",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": 199.0,
-      "lockupCommitmentRate": 0.51,
+      "institutionCompetitionRate": 198.53,
+      "lockupCommitmentRate": 0.152,
       "floatRate": 0.351,
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 60,
+      "demandScore": 45,
       "valueScore": 20
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
