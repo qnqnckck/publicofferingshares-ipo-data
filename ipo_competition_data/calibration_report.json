@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-19T17:30:49.091441",
+  "generatedAt": "2026-05-19T17:31:08.092164",
   "methodVersion": "ipo-score-v4",
   "calibration": {
     "spac": {
@@ -21,10 +21,10 @@
     },
     "general": {
       "sampleCount": 63,
-      "averageReferenceError": 0.8113,
+      "averageReferenceError": 0.8006,
       "medianReferenceError": 0.4958,
-      "recencyWeightedReferenceError": 0.7537,
-      "dampedAdjustment": 0.4145,
+      "recencyWeightedReferenceError": 0.7367,
+      "dampedAdjustment": 0.4052,
       "maxAdjustment": 0.18
     }
   },
@@ -40,6 +40,26 @@
     }
   ],
   "generalHistoricalRows": [
+    {
+      "id": "케이뱅크_2026-02-20",
+      "company": "케이뱅크",
+      "institutionCompetitionRate": 199.0,
+      "lockupCommitmentRate": 0.51,
+      "recencyWeight": 0.8672,
+      "expectedListingGainRateRaw": 0.2148,
+      "referenceReturnRate": 0.0036144578313253013,
+      "referenceError": -0.2112
+    },
+    {
+      "id": "에스팀_2026-02-23",
+      "company": "에스팀",
+      "institutionCompetitionRate": 1335.0,
+      "lockupCommitmentRate": 0.8290000000000001,
+      "recencyWeight": 0.8688,
+      "expectedListingGainRateRaw": 0.6199,
+      "referenceReturnRate": 3.0,
+      "referenceError": 2.3801
+    },
     {
       "id": "대한조선_2025-07-22",
       "company": "대한조선",
@@ -106,9 +126,9 @@
       "institutionCompetitionRate": 841.12,
       "lockupCommitmentRate": null,
       "recencyWeight": 0.3424,
-      "expectedListingGainRateRaw": -0.0123,
+      "expectedListingGainRateRaw": 0.1353,
       "referenceReturnRate": -0.14833333333333334,
-      "referenceError": -0.1361
+      "referenceError": -0.2837
     },
     {
       "id": "the_pinkfong_company_2025",
@@ -296,9 +316,9 @@
       "institutionCompetitionRate": 356.9,
       "lockupCommitmentRate": null,
       "recencyWeight": 0.2981,
-      "expectedListingGainRateRaw": -0.1,
+      "expectedListingGainRateRaw": 0.0476,
       "referenceReturnRate": -0.07586206896551724,
-      "referenceError": 0.0241
+      "referenceError": -0.1234
     },
     {
       "id": "nara_cellar_2023",
@@ -391,16 +411,6 @@
       "referenceError": 0.7935
     },
     {
-      "id": "kbank_2026",
-      "company": "케이뱅크",
-      "institutionCompetitionRate": 198.53,
-      "lockupCommitmentRate": 0.152,
-      "recencyWeight": 0.8672,
-      "expectedListingGainRateRaw": 0.0354,
-      "referenceReturnRate": 0.0036144578313253013,
-      "referenceError": -0.0318
-    },
-    {
       "id": "k3i_2024",
       "company": "케이쓰리아이",
       "institutionCompetitionRate": 239.23,
@@ -466,9 +476,9 @@
       "institutionCompetitionRate": 865.73,
       "lockupCommitmentRate": null,
       "recencyWeight": 0.25,
-      "expectedListingGainRateRaw": -0.0088,
+      "expectedListingGainRateRaw": 0.1388,
       "referenceReturnRate": 1.7692307692307692,
-      "referenceError": 1.778
+      "referenceError": 1.6304
     },
     {
       "id": "hyundai_hyms_2024",
@@ -539,16 +549,6 @@
       "expectedListingGainRateRaw": 0.0935,
       "referenceReturnRate": -0.167,
       "referenceError": -0.2605
-    },
-    {
-      "id": "esteem_2026",
-      "company": "에스팀",
-      "institutionCompetitionRate": 1334.91,
-      "lockupCommitmentRate": 0.4419,
-      "recencyWeight": 0.8688,
-      "expectedListingGainRateRaw": 0.5658,
-      "referenceReturnRate": 3.0,
-      "referenceError": 2.4342
     },
     {
       "id": "e8ight_2024",

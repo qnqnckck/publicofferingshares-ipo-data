@@ -18,7 +18,8 @@
   "generalSharesDate": null,
   "securityType": null,
   "leadManagers": [
-    "KB증권"
+    "KB증권",
+    "하나증권"
   ],
   "fundamentals": {
     "offerPrice": 18000,
@@ -70,12 +71,27 @@
       }
     },
     {
-      "capturedAt": "2026-05-19T17:30:49.091441",
+      "capturedAt": "2026-05-19T17:31:08.092164",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.mk.co.kr/news/stock/11156542",
       "brokers": [
         {
           "name": "KB증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 18000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 984.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 984.0,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "하나증권",
           "offeredShares": 0,
           "subscribedShares": 0,
           "offerPrice": 18000,
@@ -100,18 +116,18 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 33,
-      "grade": "C-",
+      "overall": 51,
+      "grade": "C+",
       "confidence": 0.95,
       "factors": {
         "institutionDemand": 15,
         "demandStrength": 6,
         "lockupCommitment": 0,
         "pricing": 4,
-        "leadManagerCoverage": 0
+        "leadManagerCoverage": 2
       },
       "demand": 40,
-      "value": 0,
+      "value": 100,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
@@ -135,7 +151,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
-        "generalPriorBase": 0.16486029714285713,
+        "generalPriorBase": 0.3124602971428571,
         "institutionBoost": 0.04264,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -151,7 +167,8 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 984.0대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 984.0대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -166,12 +183,21 @@
         "estimatedDepositForOneProportionalShare": 8856000,
         "feeKrw": null,
         "dataQuality": "partial"
+      },
+      {
+        "broker": "하나증권",
+        "equalScore": 30,
+        "proportionalScore": 11,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 8856000,
+        "feeKrw": null,
+        "dataQuality": "partial"
       }
     ],
     "inputs": {
       "latestCompetitionRate": 984.0,
       "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 841.12,
@@ -180,7 +206,7 @@
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 40,
-      "valueScore": 0
+      "valueScore": 100
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }
