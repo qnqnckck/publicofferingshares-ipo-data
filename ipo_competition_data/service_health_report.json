@@ -1,51 +1,33 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-19T12:21:51.059812",
+  "generatedAt": "2026-05-20T09:03:12.195597",
   "totals": {
     "generatedStocks": 549,
-    "activeStocks": 2,
+    "activeStocks": 1,
     "upcomingNext7Days": 2
   },
   "activeReadiness": {
     "missingLatestSnapshotAt": 0,
     "missingLatestCompetitionRate": 1,
     "missingBrokerLevelCompetition": 0,
-    "missingInstitutionCompetitionRate": 2,
-    "missingInstitutionParticipants": 2,
-    "missingLockupCommitmentRate": 2,
+    "missingInstitutionCompetitionRate": 1,
+    "missingInstitutionParticipants": 1,
+    "missingLockupCommitmentRate": 1,
     "liveLikeSourceCount": 0,
-    "finutsSourceCount": 2,
+    "finutsSourceCount": 1,
     "ocrSourceCount": 0
   },
   "activeLatestSourceCounts": {
-    "finuts_member_secondary": 2
+    "finuts_member_secondary": 1
   },
   "activeSnapshotFreshness": {
-    "within_1h": 2,
+    "within_1h": 0,
     "within_6h": 0,
-    "within_24h": 0,
+    "within_24h": 1,
     "older": 0,
     "missing": 0
   },
   "activeSamples": [
-    {
-      "id": "이뮨온시아_2026-05-18",
-      "company": "이뮨온시아",
-      "path": "stocks/이뮨온시아_2026-05-18.json",
-      "subscriptionStart": "2026-05-18",
-      "subscriptionEnd": "2026-05-19",
-      "latestSnapshotAt": "2026-05-19T20:32:29+09:00",
-      "latestSnapshotSource": "finuts_member_secondary",
-      "latestCompetitionRate": 1825.4799999649908,
-      "institutionCompetitionRate": null,
-      "institutionParticipants": null,
-      "lockupCommitmentRate": null,
-      "issues": [
-        "missing_institution_competition_rate",
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate"
-      ]
-    },
     {
       "id": "skc_2026-05-19",
       "company": "SKC",
@@ -61,7 +43,8 @@
       "issues": [
         "missing_institution_competition_rate",
         "missing_institution_participants",
-        "missing_lockup_commitment_rate"
+        "missing_lockup_commitment_rate",
+        "missing_retail_competition_rate"
       ]
     }
   ],
