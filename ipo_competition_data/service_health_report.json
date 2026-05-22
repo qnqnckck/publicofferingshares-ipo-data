@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-22T17:27:32.547513",
+  "generatedAt": "2026-05-22T08:44:58.050409",
   "totals": {
     "generatedStocks": 549,
     "activeStocks": 1,
     "upcomingNext7Days": 1
   },
   "activeReadiness": {
-    "missingLatestSnapshotAt": 1,
-    "missingLatestCompetitionRate": 1,
-    "missingBrokerLevelCompetition": 1,
+    "missingLatestSnapshotAt": 0,
+    "missingLatestCompetitionRate": 0,
+    "missingBrokerLevelCompetition": 0,
     "missingInstitutionCompetitionRate": 1,
     "missingInstitutionParticipants": 1,
     "missingLockupCommitmentRate": 1,
     "liveLikeSourceCount": 0,
-    "finutsSourceCount": 0,
+    "finutsSourceCount": 1,
     "ocrSourceCount": 0
   },
   "activeLatestSourceCounts": {
-    "missing": 1
+    "finuts_member_secondary": 1
   },
   "activeSnapshotFreshness": {
-    "within_1h": 0,
+    "within_1h": 1,
     "within_6h": 0,
     "within_24h": 0,
     "older": 0,
-    "missing": 1
+    "missing": 0
   },
   "activeSamples": [
     {
@@ -34,9 +34,9 @@
       "path": "stocks/daishin_balance_spac_20_2026.json",
       "subscriptionStart": "2026-05-22",
       "subscriptionEnd": "2026-05-26",
-      "latestSnapshotAt": null,
-      "latestSnapshotSource": null,
-      "latestCompetitionRate": null,
+      "latestSnapshotAt": "2026-05-22T17:42:23+09:00",
+      "latestSnapshotSource": "finuts_member_secondary",
+      "latestCompetitionRate": 22.19,
       "institutionCompetitionRate": null,
       "institutionParticipants": null,
       "lockupCommitmentRate": null,
