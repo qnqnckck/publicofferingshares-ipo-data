@@ -1,42 +1,54 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-21T12:27:34.689952",
+  "generatedAt": "2026-05-22T09:09:32.869429",
   "totals": {
     "generatedStocks": 549,
-    "activeStocks": 0,
-    "upcomingNext7Days": 2
+    "activeStocks": 1,
+    "upcomingNext7Days": 1
   },
   "activeReadiness": {
-    "missingLatestSnapshotAt": 0,
-    "missingLatestCompetitionRate": 0,
-    "missingBrokerLevelCompetition": 0,
-    "missingInstitutionCompetitionRate": 0,
-    "missingInstitutionParticipants": 0,
-    "missingLockupCommitmentRate": 0,
+    "missingLatestSnapshotAt": 1,
+    "missingLatestCompetitionRate": 1,
+    "missingBrokerLevelCompetition": 1,
+    "missingInstitutionCompetitionRate": 1,
+    "missingInstitutionParticipants": 1,
+    "missingLockupCommitmentRate": 1,
     "liveLikeSourceCount": 0,
     "finutsSourceCount": 0,
     "ocrSourceCount": 0
   },
-  "activeLatestSourceCounts": {},
+  "activeLatestSourceCounts": {
+    "missing": 1
+  },
   "activeSnapshotFreshness": {
     "within_1h": 0,
     "within_6h": 0,
     "within_24h": 0,
     "older": 0,
-    "missing": 0
+    "missing": 1
   },
-  "activeSamples": [],
-  "upcomingSamples": [
+  "activeSamples": [
     {
       "id": "daishin_balance_spac_20_2026",
       "company": "대신밸런스제20호스팩",
       "path": "stocks/daishin_balance_spac_20_2026.json",
       "subscriptionStart": "2026-05-22",
       "subscriptionEnd": "2026-05-26",
-      "leadManagers": [
-        "대신증권"
+      "latestSnapshotAt": null,
+      "latestSnapshotSource": null,
+      "latestCompetitionRate": null,
+      "institutionCompetitionRate": null,
+      "institutionParticipants": null,
+      "lockupCommitmentRate": null,
+      "issues": [
+        "missing_institution_competition_rate",
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate",
+        "missing_external_identifier"
       ]
-    },
+    }
+  ],
+  "upcomingSamples": [
     {
       "id": "피스피스스튜디오_2026-05-26",
       "company": "피스피스스튜디오",
