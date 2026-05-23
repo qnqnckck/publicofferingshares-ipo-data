@@ -22,16 +22,16 @@
     "미래에셋증권"
   ],
   "fundamentals": {
-    "offerPrice": null,
+    "offerPrice": 21500,
     "priceBandMin": 19000,
     "priceBandMax": 21500,
-    "topBandConfirmation": null,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "topBandConfirmation": true,
+    "institutionCompetitionRate": 847.76,
+    "institutionParticipants": 2329,
+    "lockupCommitmentRate": 0.0557,
     "floatRate": null,
     "marketCapKrw": null,
-    "publicAllocationShares": null,
+    "publicAllocationShares": 568160,
     "hasPutbackRight": false,
     "putbackSummary": null
   },
@@ -46,47 +46,48 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 22,
-      "grade": "C-",
-      "confidence": 0.35,
+      "overall": 70,
+      "grade": "B",
+      "confidence": 0.6,
       "factors": {
-        "institutionDemand": 0,
-        "demandStrength": 0,
-        "lockupCommitment": 0,
-        "pricing": 3,
+        "institutionDemand": 15,
+        "demandStrength": 10,
+        "lockupCommitment": 4,
+        "pricing": 10,
+        "publicAllocation": 8,
         "leadManagerCoverage": 2
       },
-      "demand": 5,
+      "demand": 63,
       "value": 100,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.1958,
-      "bearCaseListingGainRate": -0.0042,
-      "baseCaseListingGainRate": 0.1958,
-      "bullCaseListingGainRate": 0.4758,
+      "expectedListingGainRate": 0.6873,
+      "bearCaseListingGainRate": 0.4873,
+      "baseCaseListingGainRate": 0.6873,
+      "bullCaseListingGainRate": 1.0273,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.042,
-        "fiveMillionKrw": 0.208
+        "oneMillionKrw": 0.058,
+        "fiveMillionKrw": 0.291
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 73,
-        "oneMillionKrw": 245,
-        "fiveMillionKrw": 1224
+        "minimumSubscription": 185,
+        "oneMillionKrw": 859,
+        "fiveMillionKrw": 4296
       },
       "assumptions": {
-        "offerPrice": null,
+        "offerPrice": 21500,
         "competitionRate": null,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": 0.015840000000000014,
-        "institutionBoost": 0.0,
+        "generalPriorBase": 0.5073495314285715,
+        "institutionBoost": 0.04347,
         "lockupBoost": 0.0,
-        "participantBoost": 0.0,
-        "topBandBoost": 0.0,
-        "scoreBoost": -0.04,
+        "participantBoost": 0.05,
+        "topBandBoost": 0.06,
+        "scoreBoost": -0.011111111111111112,
         "competitionPresent": false,
         "generalCalibrationApplied": 0.18,
         "generalCalibrationSampleCount": 63,
@@ -94,14 +95,13 @@
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "consider",
+      "label": "청약 고려",
       "reasons": [
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
-        "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
@@ -111,13 +111,13 @@
       "snapshotCount": 0,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
-      "hasOfferPrice": false,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 847.76,
+      "lockupCommitmentRate": 0.0557,
       "floatRate": null,
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 5,
+      "demandScore": 63,
       "valueScore": 100
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."

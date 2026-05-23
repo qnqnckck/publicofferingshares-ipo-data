@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-22T12:02:08.121139",
+  "generatedAt": "2026-05-23T23:52:10.042840",
   "totals": {
     "generatedStocks": 549,
     "activeStocks": 1,
@@ -10,9 +10,9 @@
     "missingLatestSnapshotAt": 0,
     "missingLatestCompetitionRate": 0,
     "missingBrokerLevelCompetition": 0,
-    "missingInstitutionCompetitionRate": 1,
-    "missingInstitutionParticipants": 1,
-    "missingLockupCommitmentRate": 1,
+    "missingInstitutionCompetitionRate": 0,
+    "missingInstitutionParticipants": 0,
+    "missingLockupCommitmentRate": 0,
     "liveLikeSourceCount": 0,
     "finutsSourceCount": 1,
     "ocrSourceCount": 0
@@ -22,9 +22,9 @@
   },
   "activeSnapshotFreshness": {
     "within_1h": 0,
-    "within_6h": 1,
+    "within_6h": 0,
     "within_24h": 0,
-    "older": 0,
+    "older": 1,
     "missing": 0
   },
   "activeSamples": [
@@ -37,13 +37,10 @@
       "latestSnapshotAt": "2026-05-22T17:42:23+09:00",
       "latestSnapshotSource": "finuts_member_secondary",
       "latestCompetitionRate": 22.19,
-      "institutionCompetitionRate": null,
-      "institutionParticipants": null,
-      "lockupCommitmentRate": null,
+      "institutionCompetitionRate": 1327.13,
+      "institutionParticipants": 2194,
+      "lockupCommitmentRate": 0.0047,
       "issues": [
-        "missing_institution_competition_rate",
-        "missing_institution_participants",
-        "missing_lockup_commitment_rate",
         "missing_external_identifier"
       ]
     }
