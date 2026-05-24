@@ -2806,10 +2806,6 @@ Map<String, Object?> buildCoverageReport({
     return end == null || !end.isBefore(cutoff);
   }
 
-  bool isCompleted(IpoCompetitionStock stock) {
-    return isCompletedOnOrBefore(stock, today);
-  }
-
   Map<String, Object?> stockIssueJson(
     IpoCompetitionStock stock,
     List<String> issues,
@@ -3337,7 +3333,7 @@ String normalizeCompanyIdentity(String value) {
   if (spacMatch != null) {
     final prefix = spacMatch.group(1) ?? '';
     final number = spacMatch.group(2) ?? '';
-    return '${prefix}스팩${number}호';
+    return '$prefix스팩$number호';
   }
   return normalized;
 }
