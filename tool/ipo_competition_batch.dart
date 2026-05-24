@@ -5422,8 +5422,8 @@ IpoAnalysis analyzeStock(
     expectedGainRate: expectedGainRate,
     expectedAllocatedShares: expectedAllocatedShares,
   );
-  final grade = gradeFor(total);
   final level = decisionLevelFor(total, confidence);
+  final grade = level == 'insufficient_data' ? '-' : gradeFor(total);
 
   return IpoAnalysis(
     score: IpoScore(
