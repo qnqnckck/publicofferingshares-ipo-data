@@ -35,7 +35,7 @@
     "putbackSummary": "일반청약자 환매청구권 없음"
   },
   "outcome": {
-    "listingDate": "2026-06-05",
+    "listingDate": "2026-05-26",
     "openReturnRate": null,
     "highReturnRate": null,
     "closeReturnRate": null,
@@ -43,30 +43,30 @@
   },
   "snapshots": [
     {
-      "capturedAt": "2026-05-22T17:42:23+09:00",
+      "capturedAt": "2026-05-25T18:41:24+09:00",
       "source": "finuts_member_secondary",
       "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100540",
       "brokers": [
         {
           "name": "대신증권",
           "offeredShares": 1625000,
-          "subscribedShares": 18029375,
+          "subscribedShares": 36058750,
           "offerPrice": null,
           "depositRate": 0.5,
           "feeKrw": 2000,
-          "competitionRate": 11.1,
+          "competitionRate": 22.19,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 22.19,
+          "proportionalCompetitionRate": null,
           "equalAllocationShares": 812500,
           "proportionalAllocationShares": 812500,
           "expectedEqualShares": 23.32,
-          "applicationCount": 34844
+          "applicationCount": null
         }
       ],
       "aggregate": {
         "offeredShares": 1625000,
-        "subscribedShares": 18029375,
-        "competitionRate": 11.1
+        "subscribedShares": 36058750,
+        "competitionRate": 22.19
       }
     }
   ],
@@ -96,22 +96,22 @@
       "baseCaseListingGainRate": 0.548,
       "bullCaseListingGainRate": 1.248,
       "expectedAllocatedShares": {
-        "minimumSubscription": 24.221,
-        "oneMillionKrw": 68.365,
+        "minimumSubscription": 23.771,
+        "oneMillionKrw": 45.853,
         "fiveMillionKrw": 123.32
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 26545,
-        "oneMillionKrw": 74926,
+        "minimumSubscription": 26052,
+        "oneMillionKrw": 50253,
         "fiveMillionKrw": 135155
       },
       "assumptions": {
         "offerPrice": 2000,
-        "competitionRate": 11.1,
+        "competitionRate": 22.19,
         "feeKrw": null,
         "method": "ipo_score_v4_spac_listing_day_momentum",
         "spacModel": true,
-        "proportionalCompetitionRate": 22.19,
+        "proportionalCompetitionRate": null,
         "institutionCompetitionRate": 1327.13,
         "retailTailBoost": 0.0,
         "proportionalTailBoost": 0.0,
@@ -127,8 +127,8 @@
       "level": "consider",
       "label": "청약 고려",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 11.1대 1입니다.",
-        "스팩 전용 보정으로 비례 경쟁률 22.19대 1을 상장일 수급 요인에 반영했습니다."
+        "최근 확인된 일반청약 경쟁률은 22.19대 1입니다.",
+        "스팩 전용 보정으로 일반 IPO 확약률 대신 상장일 수급 요인을 반영했습니다."
       ],
       "warnings": [
         "스팩의 낮은 기관 확약률은 일반 IPO 안정성 감점이 아니라 상장일 변동성 위험으로 해석합니다.",
@@ -147,7 +147,7 @@
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 11.1,
+      "latestCompetitionRate": 22.19,
       "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

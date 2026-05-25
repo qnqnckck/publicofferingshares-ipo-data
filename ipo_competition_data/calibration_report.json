@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-25T17:30:39.206531",
+  "generatedAt": "2026-05-25T09:45:06.643103",
   "methodVersion": "ipo-score-v4",
   "calibration": {
     "spac": {
@@ -21,10 +21,10 @@
     },
     "general": {
       "sampleCount": 61,
-      "averageReferenceError": 0.8242,
+      "averageReferenceError": 0.8281,
       "medianReferenceError": 0.4958,
-      "recencyWeightedReferenceError": 0.7569,
-      "dampedAdjustment": 0.4163,
+      "recencyWeightedReferenceError": 0.7674,
+      "dampedAdjustment": 0.4221,
       "maxAdjustment": 0.18
     }
   },
@@ -40,26 +40,6 @@
     }
   ],
   "generalHistoricalRows": [
-    {
-      "id": "케이뱅크_2026-02-20",
-      "company": "케이뱅크",
-      "institutionCompetitionRate": 199.0,
-      "lockupCommitmentRate": 0.51,
-      "recencyWeight": 0.8574,
-      "expectedListingGainRateRaw": 0.2148,
-      "referenceReturnRate": 0.0036144578313253013,
-      "referenceError": -0.2112
-    },
-    {
-      "id": "에스팀_2026-02-23",
-      "company": "에스팀",
-      "institutionCompetitionRate": 1335.0,
-      "lockupCommitmentRate": 0.8290000000000001,
-      "recencyWeight": 0.859,
-      "expectedListingGainRateRaw": 0.6199,
-      "referenceReturnRate": 3.0,
-      "referenceError": 2.3801
-    },
     {
       "id": "대한조선_2025-07-22",
       "company": "대한조선",
@@ -401,6 +381,16 @@
       "referenceError": 0.7935
     },
     {
+      "id": "kbank_2026",
+      "company": "케이뱅크",
+      "institutionCompetitionRate": 198.53,
+      "lockupCommitmentRate": 0.152,
+      "recencyWeight": 0.8574,
+      "expectedListingGainRateRaw": 0.0354,
+      "referenceReturnRate": 0.0036144578313253013,
+      "referenceError": -0.0318
+    },
+    {
       "id": "k3i_2024",
       "company": "케이쓰리아이",
       "institutionCompetitionRate": 239.23,
@@ -529,6 +519,16 @@
       "expectedListingGainRateRaw": 0.0935,
       "referenceReturnRate": -0.167,
       "referenceError": -0.2605
+    },
+    {
+      "id": "esteem_2026",
+      "company": "에스팀",
+      "institutionCompetitionRate": 1334.91,
+      "lockupCommitmentRate": 0.4419,
+      "recencyWeight": 0.859,
+      "expectedListingGainRateRaw": 0.5658,
+      "referenceReturnRate": 3.0,
+      "referenceError": 2.4342
     },
     {
       "id": "e8ight_2024",

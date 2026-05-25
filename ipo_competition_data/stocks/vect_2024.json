@@ -68,33 +68,6 @@
         "subscribedShares": 1389786600,
         "competitionRate": 1170.34
       }
-    },
-    {
-      "capturedAt": "2026-05-25T17:30:39.206531",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://www.fnnews.com/news/202412051759082907",
-      "brokers": [
-        {
-          "name": "신한투자증권",
-          "offeredShares": 1187500,
-          "subscribedShares": 1389778750,
-          "offerPrice": 3900,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1170.34,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1170.34,
-          "equalAllocationShares": 593750,
-          "proportionalAllocationShares": 593750,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 1187500,
-        "subscribedShares": 1389778750,
-        "competitionRate": 1170.34
-      }
     }
   ],
   "analysis": {
@@ -160,20 +133,10 @@
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [
-      {
-        "broker": "신한투자증권",
-        "equalScore": 30,
-        "proportionalScore": 44,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 2282163,
-        "feeKrw": null,
-        "dataQuality": "partial"
-      }
-    ],
+    "brokerScores": [],
     "inputs": {
       "latestCompetitionRate": 1170.34,
-      "snapshotCount": 2,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
