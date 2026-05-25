@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "im_biologics_2026",
+  "id": "아이엠바이오로직스_2026-03-11",
   "identifiers": {
     "subscriptionKey": "아이엠바이오로직스_20260311_20260312",
     "normalizedCompany": "아이엠바이오로직스",
@@ -26,7 +26,7 @@
     "priceBandMin": 19000,
     "priceBandMax": 26000,
     "topBandConfirmation": null,
-    "institutionCompetitionRate": 839.23,
+    "institutionCompetitionRate": 839.0,
     "institutionParticipants": 2333,
     "lockupCommitmentRate": 0.965,
     "floatRate": null,
@@ -43,6 +43,33 @@
     "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100515"
   },
   "snapshots": [
+    {
+      "capturedAt": "2026-03-12T16:00:00+09:00",
+      "source": "ipokorea_supplement",
+      "sourceUrl": "https://ipokorea.kr/ipo/%EC%95%84%EC%9D%B4%EC%97%A0%EB%B0%94%EC%9D%B4%EC%98%A4%EB%A1%9C%EC%A7%81%EC%8A%A4",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 500000,
+          "subscribedShares": 903000000,
+          "offerPrice": 26000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1806.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 500000,
+        "subscribedShares": 903000000,
+        "competitionRate": 1806.0
+      }
+    },
     {
       "capturedAt": "2026-03-12T17:09:00+09:00",
       "source": "public_ipo_result",
@@ -183,8 +210,8 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.6910346171428573,
-        "institutionBoost": 0.042403750000000004,
+        "generalPriorBase": 0.6910022857142858,
+        "institutionBoost": 0.042375,
         "lockupBoost": 0.1,
         "participantBoost": 0.05,
         "topBandBoost": 0.0,
@@ -230,11 +257,11 @@
     ],
     "inputs": {
       "latestCompetitionRate": 3610.601,
-      "snapshotCount": 2,
+      "snapshotCount": 3,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": 839.23,
+      "institutionCompetitionRate": 839.0,
       "lockupCommitmentRate": 0.965,
       "floatRate": null,
       "hasOutcome": true,

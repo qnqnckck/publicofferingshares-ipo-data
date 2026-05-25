@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-25T17:30:20.462106",
+  "generatedAt": "2026-05-25T17:30:39.206531",
   "methodVersion": "ipo-score-v4",
   "sampleCount": 56,
   "summary": {
     "averageCloseReturnRate": 0.8792,
     "medianCloseReturnRate": 0.4847,
-    "averageErrorCloseVsExpected": 0.1266,
+    "averageErrorCloseVsExpected": 0.1245,
     "medianErrorCloseVsExpected": -0.1645,
     "averageReferenceReturnRate": 0.9024,
     "medianReferenceReturnRate": 0.5099,
-    "averageErrorReferenceVsExpected": 0.1499,
+    "averageErrorReferenceVsExpected": 0.1478,
     "medianErrorReferenceVsExpected": -0.1081
   },
   "byGrade": {
@@ -35,9 +35,9 @@
       "medianCloseReturnRate": 1.9853
     },
     "C+": {
-      "sampleCount": 7,
-      "averageCloseReturnRate": 1.5062,
-      "medianCloseReturnRate": 0.9821
+      "sampleCount": 8,
+      "averageCloseReturnRate": 1.3184,
+      "medianCloseReturnRate": 0.9795
     },
     "C": {
       "sampleCount": 8,
@@ -45,18 +45,25 @@
       "medianCloseReturnRate": 0.0202
     },
     "C-": {
-      "sampleCount": 35,
-      "averageCloseReturnRate": 0.7943,
-      "medianCloseReturnRate": 0.2972
+      "sampleCount": 34,
+      "averageCloseReturnRate": 0.8176,
+      "medianCloseReturnRate": 0.3799
     }
   },
   "byScoreBucket": {
+    "90-99": {
+      "sampleCount": 1,
+      "averageCloseReturnRate": 3.0,
+      "medianCloseReturnRate": 3.0,
+      "averageErrorCloseVsExpected": 1.73,
+      "averageErrorReferenceVsExpected": 1.73
+    },
     "80-89": {
-      "sampleCount": 2,
-      "averageCloseReturnRate": 1.6838,
-      "medianCloseReturnRate": 1.6838,
-      "averageErrorCloseVsExpected": 0.5002,
-      "averageErrorReferenceVsExpected": 1.1509
+      "sampleCount": 1,
+      "averageCloseReturnRate": 0.3675,
+      "medianCloseReturnRate": 0.3675,
+      "averageErrorCloseVsExpected": -0.7589,
+      "averageErrorReferenceVsExpected": 0.5426
     },
     "60-69": {
       "sampleCount": 4,
@@ -66,18 +73,18 @@
       "averageErrorReferenceVsExpected": 0.43
     },
     "50-59": {
-      "sampleCount": 8,
-      "averageCloseReturnRate": 1.4386,
-      "medianCloseReturnRate": 0.9795,
-      "averageErrorCloseVsExpected": 0.6315,
-      "averageErrorReferenceVsExpected": 0.6315
+      "sampleCount": 9,
+      "averageCloseReturnRate": 1.2791,
+      "medianCloseReturnRate": 0.9769,
+      "averageErrorCloseVsExpected": 0.5095,
+      "averageErrorReferenceVsExpected": 0.5095
     },
     "40-49": {
-      "sampleCount": 20,
-      "averageCloseReturnRate": 0.976,
-      "medianCloseReturnRate": 0.5375,
-      "averageErrorCloseVsExpected": 0.1549,
-      "averageErrorReferenceVsExpected": 0.1549
+      "sampleCount": 19,
+      "averageCloseReturnRate": 1.0272,
+      "medianCloseReturnRate": 0.5571,
+      "averageErrorCloseVsExpected": 0.1829,
+      "averageErrorReferenceVsExpected": 0.1829
     },
     "30-39": {
       "sampleCount": 10,
@@ -103,20 +110,20 @@
   },
   "rows": [
     {
-      "id": "esteem_2026",
+      "id": "에스팀_2026-02-23",
       "company": "에스팀",
       "isSpac": false,
-      "score": 86,
+      "score": 91,
       "grade": "A",
       "confidence": 0.95,
-      "expectedListingGainRate": 1.2408,
+      "expectedListingGainRate": 1.27,
       "openReturnRate": 2.6058823529411765,
       "highReturnRate": 3.9823529411764707,
       "closeReturnRate": 3.0,
       "referenceReturnRate": 3.0,
-      "outcomeSourceUrl": "https://ipokorea.kr/ipo/%EC%97%90%EC%8A%A4%ED%8C%80",
-      "errorCloseVsExpected": 1.7592,
-      "errorReferenceVsExpected": 1.7592
+      "outcomeSourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100516",
+      "errorCloseVsExpected": 1.73,
+      "errorReferenceVsExpected": 1.73
     },
     {
       "id": "kiwoom_hero_spac_2_2026",
@@ -245,6 +252,22 @@
       "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240729036251008",
       "errorCloseVsExpected": -0.3641,
       "errorReferenceVsExpected": -0.3641
+    },
+    {
+      "id": "케이뱅크_2026-02-20",
+      "company": "케이뱅크",
+      "isSpac": false,
+      "score": 53,
+      "grade": "C+",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.47,
+      "openReturnRate": 0.024096385542168676,
+      "highReturnRate": null,
+      "closeReturnRate": 0.0036144578313253013,
+      "referenceReturnRate": 0.0036144578313253013,
+      "outcomeSourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100514",
+      "errorCloseVsExpected": -0.4664,
+      "errorReferenceVsExpected": -0.4664
     },
     {
       "id": "ds_dansuk_2023",
@@ -455,22 +478,6 @@
       "errorReferenceVsExpected": -0.4031
     },
     {
-      "id": "seers_technology_2024",
-      "company": "씨어스테크놀로지",
-      "isSpac": false,
-      "score": 43,
-      "grade": "C-",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.7531,
-      "openReturnRate": 1.026470588235294,
-      "highReturnRate": 1.1176470588235294,
-      "closeReturnRate": 0.08823529411764706,
-      "referenceReturnRate": 0.08823529411764706,
-      "outcomeSourceUrl": "https://ckang.tistory.com/115",
-      "errorCloseVsExpected": -0.6648,
-      "errorReferenceVsExpected": -0.6648
-    },
-    {
       "id": "nobland_2024",
       "company": "노브랜드",
       "isSpac": false,
@@ -519,22 +526,6 @@
       "errorReferenceVsExpected": 1.2579
     },
     {
-      "id": "kweather_2024",
-      "company": "케이웨더",
-      "isSpac": false,
-      "score": 43,
-      "grade": "C-",
-      "confidence": 0.95,
-      "expectedListingGainRate": 1.0,
-      "openReturnRate": null,
-      "highReturnRate": null,
-      "closeReturnRate": 1.3714285714285714,
-      "referenceReturnRate": 1.3714285714285714,
-      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10948743",
-      "errorCloseVsExpected": 0.3714,
-      "errorReferenceVsExpected": 0.3714
-    },
-    {
       "id": "iron_device_2024",
       "company": "아이언디바이스",
       "isSpac": false,
@@ -549,6 +540,22 @@
       "outcomeSourceUrl": "https://www.hankyung.com/article/2024092324111",
       "errorCloseVsExpected": -0.4345,
       "errorReferenceVsExpected": -0.4345
+    },
+    {
+      "id": "kweather_2024",
+      "company": "케이웨더",
+      "isSpac": false,
+      "score": 43,
+      "grade": "C-",
+      "confidence": 0.95,
+      "expectedListingGainRate": 1.0,
+      "openReturnRate": null,
+      "highReturnRate": null,
+      "closeReturnRate": 1.3714285714285714,
+      "referenceReturnRate": 1.3714285714285714,
+      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10948743",
+      "errorCloseVsExpected": 0.3714,
+      "errorReferenceVsExpected": 0.3714
     },
     {
       "id": "tds_pharm_2024",
@@ -581,6 +588,22 @@
       "outcomeSourceUrl": "https://www.hankyung.com/article/202406276414Y",
       "errorCloseVsExpected": 0.1808,
       "errorReferenceVsExpected": 0.1808
+    },
+    {
+      "id": "seers_technology_2024",
+      "company": "씨어스테크놀로지",
+      "isSpac": false,
+      "score": 43,
+      "grade": "C-",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.7531,
+      "openReturnRate": 1.026470588235294,
+      "highReturnRate": 1.1176470588235294,
+      "closeReturnRate": 0.08823529411764706,
+      "referenceReturnRate": 0.08823529411764706,
+      "outcomeSourceUrl": "https://ckang.tistory.com/115",
+      "errorCloseVsExpected": -0.6648,
+      "errorReferenceVsExpected": -0.6648
     },
     {
       "id": "woojin_entec_2024",
@@ -631,22 +654,6 @@
       "errorReferenceVsExpected": -0.3664
     },
     {
-      "id": "kbank_2026",
-      "company": "케이뱅크",
-      "isSpac": false,
-      "score": 41,
-      "grade": "C-",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.3805,
-      "openReturnRate": 0.024096385542168676,
-      "highReturnRate": null,
-      "closeReturnRate": 0.0036144578313253013,
-      "referenceReturnRate": 0.0036144578313253013,
-      "outcomeSourceUrl": "https://glasswallet.com/blog/kbank-ipo-analysis/",
-      "errorCloseVsExpected": -0.3769,
-      "errorReferenceVsExpected": -0.3769
-    },
-    {
       "id": "k3i_2024",
       "company": "케이쓰리아이",
       "isSpac": false,
@@ -661,22 +668,6 @@
       "outcomeSourceUrl": "https://www.hankyung.com/article/2024082027786",
       "errorCloseVsExpected": -0.0803,
       "errorReferenceVsExpected": -0.0803
-    },
-    {
-      "id": "toprun_total_solution_2024",
-      "company": "탑런토탈솔루션",
-      "isSpac": false,
-      "score": 33,
-      "grade": "C-",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.7226,
-      "openReturnRate": -0.16,
-      "highReturnRate": null,
-      "closeReturnRate": -0.14833333333333334,
-      "referenceReturnRate": -0.14833333333333334,
-      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/11156542",
-      "errorCloseVsExpected": -0.871,
-      "errorReferenceVsExpected": -0.871
     },
     {
       "id": "mintech_2024",
@@ -725,6 +716,22 @@
       "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10981715",
       "errorCloseVsExpected": 0.8135,
       "errorReferenceVsExpected": 0.8135
+    },
+    {
+      "id": "toprun_total_solution_2024",
+      "company": "탑런토탈솔루션",
+      "isSpac": false,
+      "score": 33,
+      "grade": "C-",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.7226,
+      "openReturnRate": -0.16,
+      "highReturnRate": null,
+      "closeReturnRate": -0.14833333333333334,
+      "referenceReturnRate": -0.14833333333333334,
+      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/11156542",
+      "errorCloseVsExpected": -0.871,
+      "errorReferenceVsExpected": -0.871
     },
     {
       "id": "osang_healthcare_2024",

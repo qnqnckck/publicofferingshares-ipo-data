@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "kanaf_therapeutics_2026",
+  "id": "카나프테라퓨틱스_2026-03-05",
   "identifiers": {
     "subscriptionKey": "카나프테라퓨틱스_20260305_20260306",
     "normalizedCompany": "카나프테라퓨틱스",
@@ -25,11 +25,11 @@
     "priceBandMin": 16000,
     "priceBandMax": 20000,
     "topBandConfirmation": null,
-    "institutionCompetitionRate": 962.1,
+    "institutionCompetitionRate": 962.0,
     "institutionParticipants": 2327,
-    "lockupCommitmentRate": 0.761,
+    "lockupCommitmentRate": 0.9540000000000001,
     "floatRate": null,
-    "marketCapKrw": 259100000000,
+    "marketCapKrw": 258100000000,
     "publicAllocationShares": 500000,
     "hasPutbackRight": false,
     "putbackSummary": null
@@ -42,6 +42,33 @@
     "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100511"
   },
   "snapshots": [
+    {
+      "capturedAt": "2026-03-06T16:00:00+09:00",
+      "source": "ipokorea_supplement",
+      "sourceUrl": "https://ipokorea.kr/ipo/%EC%B9%B4%EB%82%98%ED%94%84%ED%85%8C%EB%9D%BC%ED%93%A8%ED%8B%B1%EC%8A%A4",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 500000,
+          "subscribedShares": 949500000,
+          "offerPrice": 20000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1899.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 500000,
+        "subscribedShares": 949500000,
+        "competitionRate": 1899.0
+      }
+    },
     {
       "capturedAt": "2026-03-06T16:00:00+09:00",
       "source": "public_ipo_result",
@@ -137,8 +164,8 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.7165066285714287,
-        "institutionBoost": 0.0577625,
+        "generalPriorBase": 0.7164925714285715,
+        "institutionBoost": 0.05775,
         "lockupBoost": 0.1,
         "participantBoost": 0.05,
         "topBandBoost": 0.0,
@@ -174,12 +201,12 @@
     ],
     "inputs": {
       "latestCompetitionRate": 3797.58,
-      "snapshotCount": 2,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": 962.1,
-      "lockupCommitmentRate": 0.761,
+      "institutionCompetitionRate": 962.0,
+      "lockupCommitmentRate": 0.9540000000000001,
       "floatRate": null,
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
