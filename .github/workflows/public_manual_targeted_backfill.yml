@@ -1,0 +1,70 @@
+name: Public manual targeted backfill
+
+on:
+  workflow_dispatch:
+    inputs:
+      stock_id:
+        description: "Target stock id, e.g. machinarax_2026 or 마키나락스_2026-05-11"
+        required: false
+        type: string
+      company:
+        description: "Target company name"
+        required: false
+        type: string
+      mode:
+        description: "Backfill mode"
+        required: true
+        default: full
+        type: choice
+        options:
+          - fundamentals
+          - broker
+          - full
+
+permissions:
+  contents: write
+
+concurrency:
+  group: public-manual-targeted-backfill
+  cancel-in-progress: false
+
+jobs:
+  public-manual-targeted-backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+
+      - name: Ensure manual fundamentals file exists
+        run: |
+          if [ ! -f data/manual_fundamentals.json ]; then
+            printf '{\n  "stocks": []\n}\n' > data/manual_fundamentals.json
+          fi
+
+      - name: Refresh public targeted data
+        run: >
+          dart run tool/ipo_competition_batch.dart
+          --backfill-years 3
+          --manual-fundamentals-path data/manual_fundamentals.json
+          --no-finuts-discover
+          --no-identifier-discover
+          ${{ inputs.mode == 'fundamentals' && '--no-public-live-collect' || '' }}
+
+      - name: Validate public schedule sync
+        continue-on-error: true
+        run: python tool/validate_finuts_schedule_sync.py --warn-on-analysis-issues
+
+      - name: Commit generated data
+        run: |
+          if git diff --quiet -- data/discovered data/identifiers ipo_competition_data; then
+            echo "No data changes."
+            exit 0
+          fi
+          git config user.name "ipo-competition-bot"
+          git config user.email "ipo-competition-bot@users.noreply.github.com"
+          git add data/discovered data/identifiers ipo_competition_data
+          git commit -m "Run public manual targeted backfill"
+          git push

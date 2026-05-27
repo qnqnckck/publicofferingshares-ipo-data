@@ -29,7 +29,7 @@ data/
   ipo_competition_seed.example.json
 .github/
   workflows/
-    finuts_baseline_discovery_sync.yml
+    public_baseline_discovery_sync.yml
 ```
 
 ## App URLs
@@ -75,48 +75,44 @@ Fallback/full sync: index.json
 
 ## Batch
 
-This repository now runs in a Finuts-only scheduled workflow model.
+This repository now runs in a public-source scheduled workflow model. Finuts
+scripts remain in the repository as optional legacy repair tools, but scheduled
+and local default batches must not require `FINUTS_ID` or `FINUTS_PASSWORD`.
 
 All mutating workflows follow the same pattern:
 
-1. sync Finuts-derived input files
+1. sync public-source input files
 2. rebuild `ipo_competition_data/` through `tool/ipo_competition_batch.dart`
 3. validate generated data
 4. commit and push to `main`
 
-The shared rebuild step is:
+The shared public refresh step is:
 
 ```bash
 dart run tool/ipo_competition_batch.dart \
   --backfill-years 3 \
   --manual-fundamentals-path data/manual_fundamentals.json \
-  --no-discover \
-  --no-identifier-discover \
-  --no-ipo-korea-supplement \
-  --no-article-lead-manager-discover \
+  --no-finuts-discover \
   --no-public-live-collect
 ```
 
 The active workflows are:
 
-- `finuts_baseline_discovery_sync`
+- `public_baseline_discovery_sync`
   - weekday 17:30 KST
-  - syncs new IPO baseline rows from Finuts into `data/discovered/ipo_events.json`
-  - refreshes listing-date / offer-price style outcome rows under `data/outcomes/`
-- `finuts_demand_forecast_fundamentals_sync`
+  - syncs new IPO baseline rows from public configured sources into `data/discovered/ipo_events.json`
+- `public_demand_forecast_fundamentals_sync`
   - weekday 18:00 and 18:20 KST
-  - refreshes institution-demand fundamentals into `data/manual_fundamentals.json`
-- `finuts_subscription_live_competition_sync`
+  - refreshes public fundamentals/schedule supplements when available
+- `public_subscription_live_competition_sync`
   - weekday 09:50 to 17:10 KST in repeated runs
-  - refreshes Finuts broker snapshot rows into `data/broker_snapshots/`
-  - runs `tool/video_ocr_secondary_ingest.py` with `--today-only --ignore-market-hours`
-  - broker snapshot rebuild should continue even if the fundamentals refresh step fails
-- `finuts_manual_targeted_backfill`
+  - refreshes active subscription equal/proportional rows from public live collectors
+  - source order is Naver IPO calculator first, then public broker/community pages such as Shinhan, Daishin, IPOSTOCK, and 38
+- `public_manual_targeted_backfill`
   - manual only
   - targeted repair for one stock id / company
-  - can target one broker snapshot source through `tool/video_ocr_secondary_ingest.py --source-id`
 
-The Finuts helper scripts are:
+The optional legacy Finuts helper scripts are:
 
 ```text
 tool/finuts_discovery_sync.py
@@ -145,27 +141,37 @@ Do not fabricate historical competition rates. Seed rows should come from a
 verifiable source such as Finuts, broker notices, or manually reviewed public
 disclosures.
 
-Scheduled automation should use Finuts as the only live upstream source.
-Non-Finuts public scraping workflows have been removed from this repository.
+Scheduled automation should use public sources by default and must remain able
+to run without authenticated upstream credentials. Public source data should be
+preferred in this order for active subscription competition rows:
 
-`tool/ipo_competition_batch.dart` is still the shared normalizer and derived
-JSON builder, but Finuts workflows should call it with:
+1. Naver IPO calculator
+2. public broker pages
+3. IPOSTOCK / 38 community or news pages
+4. deterministic estimates from already-confirmed aggregate data
+
+`tool/ipo_competition_batch.dart` is the shared normalizer and derived JSON
+builder. Public baseline/fundamentals workflows should call it with:
+
+- `--no-finuts-discover`
+- `--no-public-live-collect`
+
+Public live workflows should call it with:
 
 - `--no-discover`
 - `--no-identifier-discover`
 - `--no-ipo-korea-supplement`
 - `--no-article-lead-manager-discover`
-- `--no-public-live-collect`
 
 ## Batch input files
 
-The scheduled Finuts workflows update these mutable inputs before each rebuild:
+The scheduled public workflows update these mutable inputs before each rebuild:
 
 - manually reviewed final historical rows go into `data/ipo_competition_seed.json`
 - auto-discovered upcoming rows are stored in `data/discovered/ipo_events.json`
-- Finuts demand-forecast overrides go into `data/manual_fundamentals.json`
+- public or manually reviewed demand-forecast overrides go into `data/manual_fundamentals.json`
 - historical listing outcomes go into `data/outcomes/*.json`
-- Finuts broker-level allocation and competition rows go into `data/broker_snapshots/*.json`
+- broker-level allocation and competition rows go into `data/broker_snapshots/*.json` when a durable source-specific adapter persists them
 - durable corpCode/stockCode/kindCode/isin crosswalk rows go into `data/identifiers/ipo_identifiers.json`
 
 When a completed stock has an aggregate retail competition rate, public
@@ -189,16 +195,12 @@ public DART company search page and caches successful matches in
 
 ## GitHub Actions secrets
 
-The Finuts-only workflows require:
+No scheduled workflow in this repository should depend on authenticated upstream
+credentials. In particular, scheduled workflows must not require:
 
 ```text
 FINUTS_ID
 FINUTS_PASSWORD
-```
-
-No scheduled workflow in this repository should depend on:
-
-```text
 DART_API_KEY
 ITICK_API_KEY
 KIS_APP_KEY

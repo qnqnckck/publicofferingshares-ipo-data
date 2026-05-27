@@ -54,7 +54,7 @@ public_refresh_data() {
     --no-finuts-discover
 }
 
-naver_live_data() {
+public_live_data() {
   "$DART_BIN" run tool/ipo_competition_batch.dart \
     --backfill-years 3 \
     --manual-fundamentals-path data/manual_fundamentals.json \
@@ -113,10 +113,10 @@ Usage:
   scripts/local/run_ipo_data_batch.sh targeted --stock-id <id> [--company <name>] [--mode fundamentals|broker|full]
 
 Batch mapping:
-  baseline  신규 종목/기본 일정 발굴 + 파생 JSON 재생성
-  demand    수요예측일 fundamentals 갱신 + 파생 JSON 재생성
-  live      청약일 균등/비례 경쟁률 스냅샷 갱신 + 파생 JSON 재생성
-  naver-live 피너츠 없이 네이버 IPO 계산기 기반 청약 경쟁률 갱신
+  baseline  공개소스 신규 종목/기본 일정 발굴 + 파생 JSON 재생성
+  demand    공개소스 수요예측/fundamentals 갱신 + 파생 JSON 재생성
+  live      공개소스 청약일 균등/비례 경쟁률 갱신
+  naver-live live와 동일. 네이버 우선, 이후 공개 증권사/커뮤니티 소스 조회
   public-refresh 피너츠 없이 DART/iTick/IPOKorea/기사/네이버 등 공개 소스 갱신
   rebuild   repo 데이터만으로 ipo_competition_data 재생성
   targeted  특정 종목 수동 backfill
@@ -145,47 +145,34 @@ ensure_manual_fundamentals_file
 
 case "$BATCH" in
   baseline)
-    require_var FINUTS_ID
-    require_var FINUTS_PASSWORD
-    log "Running baseline discovery sync"
-    "$PYTHON_BIN" tool/finuts_discovery_sync.py --backfill-years 3
-    rebuild_derived_data
+    log "Running public baseline discovery sync"
+    public_refresh_data
     validate_data 0
-    commit_if_changed "Sync Finuts baseline discovery data" \
-      data/discovered data/outcomes ipo_competition_data
+    commit_if_changed "Sync public IPO baseline data" \
+      data/discovered data/identifiers ipo_competition_data
     ;;
 
   demand)
-    require_var FINUTS_ID
-    require_var FINUTS_PASSWORD
-    log "Running demand forecast fundamentals sync"
-    "$PYTHON_BIN" tool/finuts_fundamentals_sync.py --mode demand-today
-    rebuild_derived_data
+    log "Running public demand and fundamentals refresh"
+    public_refresh_data
     validate_data 0
-    commit_if_changed "Sync Finuts demand forecast fundamentals" \
-      data/manual_fundamentals.json data/outcomes ipo_competition_data
+    commit_if_changed "Sync public demand and fundamentals data" \
+      data/discovered data/identifiers ipo_competition_data
     ;;
 
 	  live)
-	    require_var FINUTS_ID
-	    require_var FINUTS_PASSWORD
-	    log "Running live subscription competition sync"
-    "$PYTHON_BIN" tool/video_ocr_secondary_ingest.py \
-      --config data/finuts_sources.json \
-      --today-only \
-      --ignore-market-hours
-    "$PYTHON_BIN" tool/finuts_fundamentals_sync.py --mode all
-    rebuild_derived_data
+	    log "Running public live subscription competition sync"
+    public_live_data
     validate_data 1
-	    commit_if_changed "Sync Finuts live subscription competition data" \
-	      data/broker_snapshots data/manual_fundamentals.json data/outcomes ipo_competition_data
+	    commit_if_changed "Sync public live subscription competition data" \
+	      ipo_competition_data
 	    ;;
 
 	  naver-live)
-	    log "Running Naver-only live subscription competition sync"
-	    naver_live_data
+	    log "Running public live subscription competition sync"
+	    public_live_data
 	    git restore -- data/discovered/ipo_events.json data/identifiers/ipo_identifiers.json
-	    commit_if_changed "Sync Naver live subscription competition data" \
+	    commit_if_changed "Sync public live subscription competition data" \
 	      ipo_competition_data
 	    ;;
 
@@ -200,12 +187,10 @@ case "$BATCH" in
 	    log "Rebuilding derived IPO data from repo data"
     rebuild_derived_data
     validate_data 0
-    commit_if_changed "Rebuild Finuts derived IPO data" ipo_competition_data
+    commit_if_changed "Rebuild public derived IPO data" ipo_competition_data
     ;;
 
   targeted)
-    require_var FINUTS_ID
-    require_var FINUTS_PASSWORD
     MODE="full"
     STOCK_ID=""
     COMPANY=""
@@ -240,23 +225,15 @@ case "$BATCH" in
         exit 1
         ;;
     esac
-    log "Running targeted backfill mode=$MODE stock_id=$STOCK_ID company=$COMPANY"
-    if [[ "$MODE" == "fundamentals" || "$MODE" == "full" ]]; then
-      "$PYTHON_BIN" tool/finuts_fundamentals_sync.py \
-        --mode target \
-        --stock-id "$STOCK_ID" \
-        --company "$COMPANY"
+    log "Running public targeted backfill mode=$MODE stock_id=$STOCK_ID company=$COMPANY"
+    if [[ "$MODE" == "fundamentals" ]]; then
+      public_refresh_data
+    else
+      public_live_data
     fi
-    if [[ "$MODE" == "broker" || "$MODE" == "full" ]]; then
-      "$PYTHON_BIN" tool/video_ocr_secondary_ingest.py \
-        --config data/finuts_sources.json \
-        --source-id "$STOCK_ID" \
-        --ignore-market-hours
-    fi
-    rebuild_derived_data
     validate_data 0
-    commit_if_changed "Run Finuts manual targeted backfill" \
-      data/broker_snapshots data/manual_fundamentals.json data/outcomes ipo_competition_data
+    commit_if_changed "Run public manual targeted backfill" \
+      data/discovered data/identifiers ipo_competition_data
     ;;
 
   *)
