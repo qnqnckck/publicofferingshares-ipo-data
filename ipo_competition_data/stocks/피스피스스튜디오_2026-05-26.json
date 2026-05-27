@@ -163,7 +163,7 @@
       },
       "assumptions": {
         "offerPrice": 21500,
-        "competitionRate": 42.485,
+        "competitionRate": 334.91,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
@@ -176,14 +176,16 @@
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 60,
-        "generalCompetitionPending": false
+        "generalCompetitionPending": false,
+        "brokerCompetitionRateSource": "38_news_live",
+        "equalAllocationSource": "naver_calculator_live"
       }
     },
     "decision": {
       "level": "consider",
       "label": "청약 고려",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 42.49대 1입니다.",
+        "최근 확인된 NH투자증권 비례 경쟁률은 670.00대 1, 미래에셋증권은 937.00대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
@@ -197,22 +199,26 @@
         "equalScore": 100,
         "proportionalScore": 100,
         "expectedEqualShares": 1.721,
-        "estimatedDepositForOneProportionalShare": 699825,
+        "estimatedDepositForOneProportionalShare": 7202500,
         "feeKrw": null,
-        "dataQuality": "broker_verified"
+        "dataQuality": "broker_verified_mixed_sources",
+        "proportionalCompetitionRateSource": "38_news_live",
+        "equalAllocationSource": "naver_calculator_live"
       },
       {
         "broker": "미래에셋증권",
         "equalScore": 100,
-        "proportionalScore": 89,
+        "proportionalScore": 72,
         "expectedEqualShares": 1.735,
-        "estimatedDepositForOneProportionalShare": 1127030,
+        "estimatedDepositForOneProportionalShare": 10072750,
         "feeKrw": null,
-        "dataQuality": "broker_verified"
+        "dataQuality": "broker_verified_mixed_sources",
+        "proportionalCompetitionRateSource": "38_news_live",
+        "equalAllocationSource": "naver_calculator_live"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 42.485,
+      "latestCompetitionRate": 334.91,
       "snapshotCount": 2,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
@@ -223,8 +229,13 @@
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 63,
-      "valueScore": 100
+      "valueScore": 100,
+      "latestBrokerCompetitionRateSource": "38_news_live"
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
-  }
+  },
+  "latestSnapshotAt": "2026-05-27T13:24:11.726607",
+  "latestCompetitionRate": 334.91,
+  "bestBrokerName": "NH투자증권",
+  "bestBrokerCompetitionRate": 670.0
 }
