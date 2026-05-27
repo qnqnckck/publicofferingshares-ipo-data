@@ -2302,8 +2302,32 @@ class IpoCompetitionStock {
   }
 
   IpoCompetitionStock normalized() {
+    final normalizedLeadManagers = mergeOrderedStrings(leadManagers, const []);
+    final allowedBrokerNames = normalizedLeadManagers
+        .map(canonicalBrokerName)
+        .where((name) => name.isNotEmpty)
+        .toSet();
     final normalizedSnapshots =
-        snapshots.map((snapshot) => snapshot.normalized()).toList()
+        snapshots
+            .map((snapshot) => snapshot.normalized())
+            .map((snapshot) {
+              if (allowedBrokerNames.isEmpty) {
+                return snapshot;
+              }
+              final brokers = snapshot.brokers.where((broker) {
+                final name = canonicalBrokerName(broker.name);
+                return name == '통합' || allowedBrokerNames.contains(name);
+              }).toList();
+              return IpoCompetitionSnapshot(
+                capturedAt: snapshot.capturedAt,
+                source: snapshot.source,
+                sourceUrl: snapshot.sourceUrl,
+                aggregateCompetitionRate: snapshot.aggregateCompetitionRate,
+                brokers: brokers,
+              );
+            })
+            .where((snapshot) => snapshot.brokers.isNotEmpty)
+            .toList()
           ..sort((a, b) => a.capturedAt.compareTo(b.capturedAt));
     final seenSnapshotKeys = <String>{};
     final dedupedSnapshots = <IpoCompetitionSnapshot>[];
@@ -2323,7 +2347,7 @@ class IpoCompetitionStock {
       listingDate: normalizeDate(listingDate) ?? listingDate,
       generalSharesDate: normalizeDate(generalSharesDate) ?? generalSharesDate,
       securityType: securityType?.trim(),
-      leadManagers: mergeOrderedStrings(leadManagers, const []),
+      leadManagers: normalizedLeadManagers,
       sourceIdentifiers: identifiers,
       fundamentals: fundamentals.normalized(),
       outcome: outcome?.normalized(),
@@ -2770,7 +2794,7 @@ IpoBrokerCompetition? bestDashboardBrokerMetric(
   candidates.sort((a, b) {
     final aRate = a.proportionalCompetitionRate ?? a.competitionRate ?? 0;
     final bRate = b.proportionalCompetitionRate ?? b.competitionRate ?? 0;
-    return bRate.compareTo(aRate);
+    return aRate.compareTo(bRate);
   });
   return candidates.first;
 }
