@@ -1,59 +1,42 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-26T08:59:56.888953",
+  "generatedAt": "2026-05-27T09:02:38.140340",
   "totals": {
-    "generatedStocks": 547,
-    "activeStocks": 2,
+    "generatedStocks": 546,
+    "activeStocks": 1,
     "upcomingNext7Days": 1
   },
   "activeReadiness": {
-    "missingLatestSnapshotAt": 1,
-    "missingLatestCompetitionRate": 1,
-    "missingBrokerLevelCompetition": 1,
+    "missingLatestSnapshotAt": 0,
+    "missingLatestCompetitionRate": 0,
+    "missingBrokerLevelCompetition": 0,
     "missingInstitutionCompetitionRate": 0,
     "missingInstitutionParticipants": 0,
     "missingLockupCommitmentRate": 0,
-    "liveLikeSourceCount": 0,
-    "finutsSourceCount": 1,
+    "liveLikeSourceCount": 1,
+    "finutsSourceCount": 0,
     "ocrSourceCount": 0
   },
   "activeLatestSourceCounts": {
-    "finuts_member_secondary": 1,
-    "missing": 1
+    "naver_calculator_live": 1
   },
   "activeSnapshotFreshness": {
     "within_1h": 0,
     "within_6h": 0,
     "within_24h": 1,
     "older": 0,
-    "missing": 1
+    "missing": 0
   },
   "activeSamples": [
-    {
-      "id": "daishin_balance_spac_20_2026",
-      "company": "대신밸런스제20호스팩",
-      "path": "stocks/daishin_balance_spac_20_2026.json",
-      "subscriptionStart": "2026-05-22",
-      "subscriptionEnd": "2026-05-26",
-      "latestSnapshotAt": "2026-05-25T20:59:45+09:00",
-      "latestSnapshotSource": "finuts_member_secondary",
-      "latestCompetitionRate": 22.19,
-      "institutionCompetitionRate": 1327.13,
-      "institutionParticipants": 2194,
-      "lockupCommitmentRate": 0.0047,
-      "issues": [
-        "missing_external_identifier"
-      ]
-    },
     {
       "id": "피스피스스튜디오_2026-05-26",
       "company": "피스피스스튜디오",
       "path": "stocks/피스피스스튜디오_2026-05-26.json",
       "subscriptionStart": "2026-05-26",
       "subscriptionEnd": "2026-05-27",
-      "latestSnapshotAt": null,
-      "latestSnapshotSource": null,
-      "latestCompetitionRate": null,
+      "latestSnapshotAt": "2026-05-26T16:03:15",
+      "latestSnapshotSource": "naver_calculator_live",
+      "latestCompetitionRate": 42.485,
       "institutionCompetitionRate": 847.76,
       "institutionParticipants": 2329,
       "lockupCommitmentRate": 0.0557,

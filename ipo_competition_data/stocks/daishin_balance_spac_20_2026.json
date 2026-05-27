@@ -35,7 +35,7 @@
     "putbackSummary": "일반청약자 환매청구권 없음"
   },
   "outcome": {
-    "listingDate": "2026-06-05",
+    "listingDate": "2026-05-26",
     "openReturnRate": null,
     "highReturnRate": null,
     "closeReturnRate": null,
@@ -73,8 +73,8 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 87,
-      "grade": "A",
+      "overall": 85,
+      "grade": "A-",
       "confidence": 0.86,
       "factors": {
         "competition": 13,
@@ -83,27 +83,27 @@
         "spacVolatility": 4,
         "market": 5,
         "leadManagers": 3,
-        "recency": 4,
+        "recency": 2,
         "dataCompleteness": 8
       },
-      "demand": 87,
-      "value": 87,
+      "demand": 85,
+      "value": 85,
       "mode": "spac_live_balanced"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 1.2145,
-      "bearCaseListingGainRate": 0.5645,
-      "baseCaseListingGainRate": 1.2145,
-      "bullCaseListingGainRate": 1.9145,
+      "expectedListingGainRate": 1.2137,
+      "bearCaseListingGainRate": 0.5637,
+      "baseCaseListingGainRate": 1.2137,
+      "bullCaseListingGainRate": 1.9137,
       "expectedAllocatedShares": {
         "minimumSubscription": 5.094,
         "oneMillionKrw": 5.427,
         "fiveMillionKrw": 6.789
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 12373,
-        "oneMillionKrw": 13184,
-        "fiveMillionKrw": 16491
+        "minimumSubscription": 12364,
+        "oneMillionKrw": 13174,
+        "fiveMillionKrw": 16479
       },
       "assumptions": {
         "offerPrice": 2000,
@@ -113,11 +113,11 @@
         "spacModel": true,
         "proportionalCompetitionRate": 2937.76,
         "institutionCompetitionRate": 1327.13,
-        "retailTailBoost": 0,
-        "proportionalTailBoost": 0,
+        "retailTailBoost": 0.0,
+        "proportionalTailBoost": 0.0,
         "institutionTailBoost": 0.02118833333333335,
         "lowLockupVolatility": true,
-        "uncalibratedBaseGainRate": 1.1060397326666669,
+        "uncalibratedBaseGainRate": 1.1051586417575758,
         "calibrationApplied": 0.1085,
         "calibrationSampleCount": 1,
         "calibrationCompetitionBucket": null
@@ -159,8 +159,8 @@
       "floatRate": null,
       "hasOutcome": true,
       "scoreMode": "spac_live_balanced",
-      "demandScore": 87,
-      "valueScore": 87
+      "demandScore": 85,
+      "valueScore": 85
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

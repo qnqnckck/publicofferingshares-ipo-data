@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-26T08:59:56.888953",
+  "generatedAt": "2026-05-27T09:02:38.140340",
   "methodVersion": "ipo-score-v4",
-  "sampleCount": 56,
+  "sampleCount": 55,
   "summary": {
-    "averageCloseReturnRate": 0.8792,
-    "medianCloseReturnRate": 0.4847,
-    "averageErrorCloseVsExpected": 0.1266,
-    "medianErrorCloseVsExpected": -0.1645,
-    "averageReferenceReturnRate": 0.9024,
-    "medianReferenceReturnRate": 0.5099,
-    "averageErrorReferenceVsExpected": 0.1499,
-    "medianErrorReferenceVsExpected": -0.1081
+    "averageCloseReturnRate": 0.8661,
+    "medianCloseReturnRate": 0.4675,
+    "averageErrorCloseVsExpected": 0.1138,
+    "medianErrorCloseVsExpected": -0.1931,
+    "averageReferenceReturnRate": 0.8897,
+    "medianReferenceReturnRate": 0.5019,
+    "averageErrorReferenceVsExpected": 0.1375,
+    "medianErrorReferenceVsExpected": -0.1359
   },
   "byGrade": {
     "A": {
@@ -30,9 +30,9 @@
       "medianCloseReturnRate": 0.4707
     },
     "B-": {
-      "sampleCount": 2,
-      "averageCloseReturnRate": 1.9853,
-      "medianCloseReturnRate": 1.9853
+      "sampleCount": 1,
+      "averageCloseReturnRate": 2.3706,
+      "medianCloseReturnRate": 2.3706
     },
     "C+": {
       "sampleCount": 7,
@@ -59,11 +59,11 @@
       "averageErrorReferenceVsExpected": 1.1509
     },
     "60-69": {
-      "sampleCount": 4,
-      "averageCloseReturnRate": 1.228,
-      "medianCloseReturnRate": 1.224,
-      "averageErrorCloseVsExpected": 0.43,
-      "averageErrorReferenceVsExpected": 0.43
+      "sampleCount": 3,
+      "averageCloseReturnRate": 1.104,
+      "medianCloseReturnRate": 0.848,
+      "averageErrorCloseVsExpected": 0.2967,
+      "averageErrorReferenceVsExpected": 0.2967
     },
     "50-59": {
       "sampleCount": 8,
@@ -181,22 +181,6 @@
       "outcomeSourceUrl": "https://www.hankyung.com/amp/202307147135Y",
       "errorCloseVsExpected": 1.3706,
       "errorReferenceVsExpected": 1.3706
-    },
-    {
-      "id": "manyo_factory_2023",
-      "company": "마녀공장",
-      "isSpac": false,
-      "score": 63,
-      "grade": "B-",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.77,
-      "openReturnRate": 1.0,
-      "highReturnRate": 1.6,
-      "closeReturnRate": 1.6,
-      "referenceReturnRate": 1.6,
-      "outcomeSourceUrl": "https://www.hankyung.com/article/202306087185Y",
-      "errorCloseVsExpected": 0.83,
-      "errorReferenceVsExpected": 0.83
     },
     {
       "id": "vect_2024",
@@ -455,6 +439,22 @@
       "errorReferenceVsExpected": -0.4031
     },
     {
+      "id": "higen_rnm_2024",
+      "company": "하이젠알앤엠",
+      "isSpac": false,
+      "score": 43,
+      "grade": "C-",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.9849,
+      "openReturnRate": null,
+      "highReturnRate": 2.0428571428571427,
+      "closeReturnRate": 1.1657142857142857,
+      "referenceReturnRate": 1.1657142857142857,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/202406276414Y",
+      "errorCloseVsExpected": 0.1808,
+      "errorReferenceVsExpected": 0.1808
+    },
+    {
       "id": "seers_technology_2024",
       "company": "씨어스테크놀로지",
       "isSpac": false,
@@ -487,22 +487,6 @@
       "errorReferenceVsExpected": 1.8966
     },
     {
-      "id": "excel_therapeutics_2024",
-      "company": "엑셀세라퓨틱스",
-      "isSpac": false,
-      "score": 43,
-      "grade": "C-",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.77,
-      "openReturnRate": null,
-      "highReturnRate": 0.29,
-      "closeReturnRate": -0.167,
-      "referenceReturnRate": -0.167,
-      "outcomeSourceUrl": "https://biz.sbs.co.kr/amp/article/20000181710",
-      "errorCloseVsExpected": -0.937,
-      "errorReferenceVsExpected": -0.937
-    },
-    {
       "id": "angel_robotics_2024",
       "company": "엔젤로보틱스",
       "isSpac": false,
@@ -517,6 +501,22 @@
       "outcomeSourceUrl": "https://www.newsway.co.kr/news/view?ud=2024032615543108321",
       "errorCloseVsExpected": 1.2579,
       "errorReferenceVsExpected": 1.2579
+    },
+    {
+      "id": "excel_therapeutics_2024",
+      "company": "엑셀세라퓨틱스",
+      "isSpac": false,
+      "score": 43,
+      "grade": "C-",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.77,
+      "openReturnRate": null,
+      "highReturnRate": 0.29,
+      "closeReturnRate": -0.167,
+      "referenceReturnRate": -0.167,
+      "outcomeSourceUrl": "https://biz.sbs.co.kr/amp/article/20000181710",
+      "errorCloseVsExpected": -0.937,
+      "errorReferenceVsExpected": -0.937
     },
     {
       "id": "kweather_2024",
@@ -565,22 +565,6 @@
       "outcomeSourceUrl": "https://www.hankyung.com/article/2024082168291",
       "errorCloseVsExpected": 2.0,
       "errorReferenceVsExpected": 2.0
-    },
-    {
-      "id": "higen_rnm_2024",
-      "company": "하이젠알앤엠",
-      "isSpac": false,
-      "score": 43,
-      "grade": "C-",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.9849,
-      "openReturnRate": null,
-      "highReturnRate": 2.0428571428571427,
-      "closeReturnRate": 1.1657142857142857,
-      "referenceReturnRate": 1.1657142857142857,
-      "outcomeSourceUrl": "https://www.hankyung.com/article/202406276414Y",
-      "errorCloseVsExpected": 0.1808,
-      "errorReferenceVsExpected": 0.1808
     },
     {
       "id": "woojin_entec_2024",
@@ -919,22 +903,6 @@
       "errorReferenceVsExpected": -0.701
     },
     {
-      "id": "shinsung_st_2023",
-      "company": "신성에스티",
-      "isSpac": false,
-      "score": 24,
-      "grade": "C-",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.9204,
-      "openReturnRate": 0.7711538461538462,
-      "highReturnRate": 0.8134615384615385,
-      "closeReturnRate": 0.5019230769230769,
-      "referenceReturnRate": 0.5019230769230769,
-      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20231019040151002",
-      "errorCloseVsExpected": -0.4185,
-      "errorReferenceVsExpected": -0.4185
-    },
-    {
       "id": "samhyun_2024",
       "company": "삼현",
       "isSpac": false,
@@ -949,6 +917,22 @@
       "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20240321042251008",
       "errorCloseVsExpected": -0.362,
       "errorReferenceVsExpected": -0.362
+    },
+    {
+      "id": "shinsung_st_2023",
+      "company": "신성에스티",
+      "isSpac": false,
+      "score": 24,
+      "grade": "C-",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.9204,
+      "openReturnRate": 0.7711538461538462,
+      "highReturnRate": 0.8134615384615385,
+      "closeReturnRate": 0.5019230769230769,
+      "referenceReturnRate": 0.5019230769230769,
+      "outcomeSourceUrl": "https://www.yna.co.kr/view/AKR20231019040151002",
+      "errorCloseVsExpected": -0.4185,
+      "errorReferenceVsExpected": -0.4185
     },
     {
       "id": "sungwoo_2024",
