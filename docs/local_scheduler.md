@@ -1,7 +1,7 @@
 # Local IPO Data Scheduler
 
 This replaces the scheduled GitHub Actions in this repository with local
-`launchd` jobs.
+jobs. macOS uses `launchd`; Windows/WSL uses Windows Task Scheduler.
 
 ## One-time setup
 
@@ -93,6 +93,33 @@ Uninstall:
 
 ```sh
 scripts/local/uninstall_ipo_data_scheduler.sh
+```
+
+## Windows/WSL Scheduler
+
+Install a 10-minute Windows Task Scheduler job from Windows:
+
+```bat
+scripts\local\install_ipo_data_scheduler_windows.cmd 10
+```
+
+Run it immediately:
+
+```bat
+schtasks /Run /TN PublicOfferingSharesIpoDataScheduler
+```
+
+Logs are written to the same local scheduler log directory:
+
+```sh
+tail -f build/local_scheduler/logs/ipo-data-scheduler.out.log
+tail -f build/local_scheduler/logs/ipo-data-scheduler.err.log
+```
+
+Uninstall:
+
+```bat
+scripts\local\uninstall_ipo_data_scheduler_windows.cmd
 ```
 
 ## Local schedule
