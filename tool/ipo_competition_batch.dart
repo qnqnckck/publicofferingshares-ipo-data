@@ -1705,8 +1705,13 @@ class IpoCompetitionBatch {
           industry: stock.industry,
           subscriptionStart: stock.subscriptionStart,
           subscriptionEnd: stock.subscriptionEnd,
+          demandForecastStart: stock.demandForecastStart,
+          demandForecastEnd: stock.demandForecastEnd,
+          refundDate: stock.refundDate,
           listingDate: stock.listingDate,
+          lockupReleaseDate: stock.lockupReleaseDate,
           generalSharesDate: stock.generalSharesDate,
+          cbBwDate: stock.cbBwDate,
           securityType: stock.securityType,
           leadManagers: leadManagers,
           sourceIdentifiers: stock.identifiers,
@@ -2245,8 +2250,13 @@ class IpoCompetitionStock {
     required this.industry,
     required this.subscriptionStart,
     required this.subscriptionEnd,
+    this.demandForecastStart,
+    this.demandForecastEnd,
+    this.refundDate,
     this.listingDate,
+    this.lockupReleaseDate,
     this.generalSharesDate,
+    this.cbBwDate,
     this.securityType,
     required this.leadManagers,
     required this.sourceIdentifiers,
@@ -2261,8 +2271,13 @@ class IpoCompetitionStock {
   final String industry;
   final String? subscriptionStart;
   final String? subscriptionEnd;
+  final String? demandForecastStart;
+  final String? demandForecastEnd;
+  final String? refundDate;
   final String? listingDate;
+  final String? lockupReleaseDate;
   final String? generalSharesDate;
+  final String? cbBwDate;
   final String? securityType;
   final List<String> leadManagers;
   final IpoStockIdentifiers? sourceIdentifiers;
@@ -2278,8 +2293,17 @@ class IpoCompetitionStock {
       industry: readString(json, 'industry') ?? '',
       subscriptionStart: readString(json, 'subscriptionStart'),
       subscriptionEnd: readString(json, 'subscriptionEnd'),
+      demandForecastStart:
+          readString(json, 'demandForecastStart') ??
+          readString(json, 'demandForecastDate'),
+      demandForecastEnd:
+          readString(json, 'demandForecastEnd') ??
+          readString(json, 'demandForecastDate'),
+      refundDate: readString(json, 'refundDate'),
       listingDate: readString(json, 'listingDate'),
+      lockupReleaseDate: readString(json, 'lockupReleaseDate'),
       generalSharesDate: readString(json, 'generalSharesDate'),
+      cbBwDate: readString(json, 'cbBwDate'),
       securityType: readString(json, 'securityType'),
       leadManagers: readStringList(json['leadManagers']),
       sourceIdentifiers: json['identifiers'] is Map<String, Object?>
@@ -2344,8 +2368,14 @@ class IpoCompetitionStock {
       industry: industry.trim(),
       subscriptionStart: subscriptionStart,
       subscriptionEnd: subscriptionEnd,
+      demandForecastStart:
+          normalizeDate(demandForecastStart) ?? demandForecastStart,
+      demandForecastEnd: normalizeDate(demandForecastEnd) ?? demandForecastEnd,
+      refundDate: normalizeDate(refundDate) ?? refundDate,
       listingDate: normalizeDate(listingDate) ?? listingDate,
+      lockupReleaseDate: normalizeDate(lockupReleaseDate) ?? lockupReleaseDate,
       generalSharesDate: normalizeDate(generalSharesDate) ?? generalSharesDate,
+      cbBwDate: normalizeDate(cbBwDate) ?? cbBwDate,
       securityType: securityType?.trim(),
       leadManagers: normalizedLeadManagers,
       sourceIdentifiers: identifiers,
@@ -2378,10 +2408,16 @@ class IpoCompetitionStock {
       'company': company,
       'market': market,
       'industry': industry,
+      'demandForecastDate': normalizedDemandForecastStart,
+      'demandForecastStart': normalizedDemandForecastStart,
+      'demandForecastEnd': normalizedDemandForecastEnd,
       'subscriptionStart': subscriptionStart,
       'subscriptionEnd': subscriptionEnd,
+      'refundDate': normalizedRefundDate,
       'listingDate': resolvedListingDate,
+      'lockupReleaseDate': normalizedLockupReleaseDate,
       'generalSharesDate': normalizedGeneralSharesDate,
+      'cbBwDate': normalizedCbBwDate,
       'securityType': normalizedSecurityType,
       'leadManagers': leadManagers,
       'fundamentals': fundamentals.toJson(),
@@ -2400,14 +2436,20 @@ class IpoCompetitionStock {
       'company': company,
       'market': market,
       'industry': industry,
+      'demandForecastDate': normalizedDemandForecastStart,
+      'demandForecastStart': normalizedDemandForecastStart,
+      'demandForecastEnd': normalizedDemandForecastEnd,
       'subscriptionStart': subscriptionStart,
       'subscriptionEnd': subscriptionEnd,
       'leadManagers': leadManagers,
       'offerPrice': fundamentals.offerPrice,
       'priceBandMin': fundamentals.priceBandMin,
       'priceBandMax': fundamentals.priceBandMax,
+      'refundDate': normalizedRefundDate,
       'listingDate': resolvedListingDate,
+      'lockupReleaseDate': normalizedLockupReleaseDate,
       'generalSharesDate': normalizedGeneralSharesDate,
+      'cbBwDate': normalizedCbBwDate,
       'securityType': normalizedSecurityType,
       'latestCompetitionRate': latest?.aggregate.competitionRate,
       'latestSnapshotAt': latest?.capturedAt,
@@ -2444,6 +2486,29 @@ class IpoCompetitionStock {
 
   String? get normalizedGeneralSharesDate {
     return normalizeDate(generalSharesDate) ?? generalSharesDate;
+  }
+
+  String? get normalizedDemandForecastStart {
+    return normalizeDate(demandForecastStart) ?? demandForecastStart;
+  }
+
+  String? get normalizedDemandForecastEnd {
+    return normalizeDate(demandForecastEnd) ??
+        normalizeDate(demandForecastStart) ??
+        demandForecastEnd ??
+        demandForecastStart;
+  }
+
+  String? get normalizedRefundDate {
+    return normalizeDate(refundDate) ?? refundDate;
+  }
+
+  String? get normalizedLockupReleaseDate {
+    return normalizeDate(lockupReleaseDate) ?? lockupReleaseDate;
+  }
+
+  String? get normalizedCbBwDate {
+    return normalizeDate(cbBwDate) ?? cbBwDate;
   }
 
   String? get normalizedSecurityType {
@@ -2756,10 +2821,16 @@ Map<String, Object?> buildDashboardFeedItem(
     'company': stock.company,
     'market': stock.market,
     'industry': stock.industry,
+    'demandForecastDate': stock.normalizedDemandForecastStart,
+    'demandForecastStart': stock.normalizedDemandForecastStart,
+    'demandForecastEnd': stock.normalizedDemandForecastEnd,
     'subscriptionStart': stock.subscriptionStart,
     'subscriptionEnd': stock.subscriptionEnd,
+    'refundDate': stock.normalizedRefundDate,
     'listingDate': stock.resolvedListingDate,
+    'lockupReleaseDate': stock.normalizedLockupReleaseDate,
     'generalSharesDate': stock.normalizedGeneralSharesDate,
+    'cbBwDate': stock.normalizedCbBwDate,
     'securityType': stock.normalizedSecurityType,
     'latestSnapshotAt': latest?.capturedAt,
     'latestCompetitionRate': latest?.aggregate.competitionRate,
@@ -3169,8 +3240,14 @@ List<IpoCompetitionStock> mergeStocks(List<IpoCompetitionStock> stocks) {
           : stock.industry,
       subscriptionStart: stock.subscriptionStart ?? existing.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd ?? existing.subscriptionEnd,
+      demandForecastStart:
+          stock.demandForecastStart ?? existing.demandForecastStart,
+      demandForecastEnd: stock.demandForecastEnd ?? existing.demandForecastEnd,
+      refundDate: stock.refundDate ?? existing.refundDate,
       listingDate: stock.listingDate ?? existing.listingDate,
+      lockupReleaseDate: stock.lockupReleaseDate ?? existing.lockupReleaseDate,
       generalSharesDate: stock.generalSharesDate ?? existing.generalSharesDate,
+      cbBwDate: stock.cbBwDate ?? existing.cbBwDate,
       securityType: stock.securityType ?? existing.securityType,
       leadManagers: {...existing.leadManagers, ...stock.leadManagers}.toList(),
       sourceIdentifiers: existing.identifiers.merge(stock.identifiers),
@@ -3219,8 +3296,13 @@ IpoCompetitionStock backfillGeneralSharesStock(IpoCompetitionStock stock) {
     industry: stock.industry,
     subscriptionStart: stock.subscriptionStart,
     subscriptionEnd: stock.subscriptionEnd,
+    demandForecastStart: stock.demandForecastStart,
+    demandForecastEnd: stock.demandForecastEnd,
+    refundDate: stock.refundDate,
     listingDate: stock.listingDate,
+    lockupReleaseDate: stock.lockupReleaseDate,
     generalSharesDate: stock.generalSharesDate ?? inferredDate,
+    cbBwDate: stock.cbBwDate,
     securityType: stock.securityType ?? inferredType,
     leadManagers: stock.leadManagers,
     sourceIdentifiers: stock.sourceIdentifiers,
@@ -3485,9 +3567,17 @@ IpoCompetitionStock mergePreferredStock(
     subscriptionStart:
         preferred.subscriptionStart ?? secondary.subscriptionStart,
     subscriptionEnd: preferred.subscriptionEnd ?? secondary.subscriptionEnd,
+    demandForecastStart:
+        preferred.demandForecastStart ?? secondary.demandForecastStart,
+    demandForecastEnd:
+        preferred.demandForecastEnd ?? secondary.demandForecastEnd,
+    refundDate: preferred.refundDate ?? secondary.refundDate,
     listingDate: preferred.listingDate ?? secondary.listingDate,
+    lockupReleaseDate:
+        preferred.lockupReleaseDate ?? secondary.lockupReleaseDate,
     generalSharesDate:
         preferred.generalSharesDate ?? secondary.generalSharesDate,
+    cbBwDate: preferred.cbBwDate ?? secondary.cbBwDate,
     securityType: preferred.securityType ?? secondary.securityType,
     leadManagers: mergeOrderedStrings(
       preferred.leadManagers,
@@ -3589,8 +3679,13 @@ List<IpoCompetitionStock> mergeManualFundamentalsOverrides(
           : stock.industry,
       subscriptionStart: stock.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd,
+      demandForecastStart: stock.demandForecastStart,
+      demandForecastEnd: stock.demandForecastEnd,
+      refundDate: stock.refundDate,
       listingDate: stock.listingDate,
+      lockupReleaseDate: stock.lockupReleaseDate,
       generalSharesDate: stock.generalSharesDate,
+      cbBwDate: stock.cbBwDate,
       securityType: stock.securityType,
       leadManagers: stock.leadManagers,
       sourceIdentifiers: stock.sourceIdentifiers,
@@ -3631,8 +3726,13 @@ List<IpoCompetitionStock> buildKnownLeadManagerOverrideStocks(
           industry: stock.industry,
           subscriptionStart: stock.subscriptionStart,
           subscriptionEnd: stock.subscriptionEnd,
+          demandForecastStart: stock.demandForecastStart,
+          demandForecastEnd: stock.demandForecastEnd,
+          refundDate: stock.refundDate,
           listingDate: stock.listingDate,
+          lockupReleaseDate: stock.lockupReleaseDate,
           generalSharesDate: stock.generalSharesDate,
+          cbBwDate: stock.cbBwDate,
           securityType: stock.securityType,
           leadManagers: overrides[safeId(stock.id)]!,
           sourceIdentifiers: stock.identifiers,
@@ -3685,8 +3785,13 @@ List<IpoCompetitionStock> mergeOutcomes(
       industry: stock.industry,
       subscriptionStart: stock.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd,
+      demandForecastStart: stock.demandForecastStart,
+      demandForecastEnd: stock.demandForecastEnd,
+      refundDate: stock.refundDate,
       listingDate: stock.listingDate,
+      lockupReleaseDate: stock.lockupReleaseDate,
       generalSharesDate: stock.generalSharesDate,
+      cbBwDate: stock.cbBwDate,
       securityType: stock.securityType,
       leadManagers: stock.leadManagers,
       sourceIdentifiers: stock.identifiers,
@@ -3768,8 +3873,13 @@ List<IpoCompetitionStock> mergeBrokerSnapshots(
       industry: stock.industry,
       subscriptionStart: stock.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd,
+      demandForecastStart: stock.demandForecastStart,
+      demandForecastEnd: stock.demandForecastEnd,
+      refundDate: stock.refundDate,
       listingDate: stock.listingDate,
+      lockupReleaseDate: stock.lockupReleaseDate,
       generalSharesDate: stock.generalSharesDate,
+      cbBwDate: stock.cbBwDate,
       securityType: stock.securityType,
       leadManagers: stock.leadManagers,
       sourceIdentifiers: stock.identifiers,
@@ -4110,8 +4220,13 @@ List<IpoCompetitionStock> mergeIdentifierRows(
       industry: stock.industry,
       subscriptionStart: stock.subscriptionStart,
       subscriptionEnd: stock.subscriptionEnd,
+      demandForecastStart: stock.demandForecastStart,
+      demandForecastEnd: stock.demandForecastEnd,
+      refundDate: stock.refundDate,
       listingDate: stock.listingDate,
+      lockupReleaseDate: stock.lockupReleaseDate,
       generalSharesDate: stock.generalSharesDate,
+      cbBwDate: stock.cbBwDate,
       securityType: stock.securityType,
       leadManagers: stock.leadManagers,
       sourceIdentifiers: stock.identifiers.merge(scopedIdentifiers),
@@ -4701,8 +4816,13 @@ IpoCompetitionStock? parseIpoKoreaSupplement({
     industry: stock.industry,
     subscriptionStart: stock.subscriptionStart,
     subscriptionEnd: stock.subscriptionEnd,
+    demandForecastStart: stock.demandForecastStart,
+    demandForecastEnd: stock.demandForecastEnd,
+    refundDate: stock.refundDate,
     listingDate: stock.listingDate,
+    lockupReleaseDate: stock.lockupReleaseDate,
     generalSharesDate: stock.generalSharesDate,
+    cbBwDate: stock.cbBwDate,
     securityType: stock.securityType,
     leadManagers: const [],
     sourceIdentifiers: stock.identifiers,
@@ -7531,8 +7651,37 @@ IpoCompetitionStock? stockFromDartRow(Map<String, Object?> row) {
     firstNonEmptyString(row, ['pymd', 'subscrpt_endde', 'subscriptionEnd']) ??
         subscriptionStart,
   );
+  final demandForecastStart = normalizeDate(
+    firstNonEmptyString(row, [
+      'dmdfcast_bgng_dt',
+      'demandForecastStart',
+      'demand_forecast_start',
+      'demandForecastDate',
+      'demand_forecast_date',
+    ]),
+  );
+  final demandForecastEnd =
+      normalizeDate(
+        firstNonEmptyString(row, [
+          'dmdfcast_end_dt',
+          'demandForecastEnd',
+          'demand_forecast_end',
+        ]),
+      ) ??
+      demandForecastStart;
+  final refundDate = normalizeDate(
+    firstNonEmptyString(row, ['pay_dt', 'rfnd_dt', 'refundDate']),
+  );
   final listingDate = normalizeDate(
     firstNonEmptyString(row, ['list_dt', 'lstg_dt', 'listingDate']),
+  );
+  final lockupReleaseDate = normalizeDate(
+    firstNonEmptyString(row, [
+      'lckup_rlse_dt',
+      'lockupReleaseDate',
+      'lockup_release_date',
+      'protect_end_dt',
+    ]),
   );
   final generalSharesDate = normalizeDate(
     firstNonEmptyString(row, [
@@ -7541,6 +7690,9 @@ IpoCompetitionStock? stockFromDartRow(Map<String, Object?> row) {
       'general_shares_date',
       'generalSharesDate',
     ]),
+  );
+  final cbBwDate = normalizeDate(
+    firstNonEmptyString(row, ['cb_bw_dt', 'cb_dt', 'bw_dt', 'cbBwDate']),
   );
   return IpoCompetitionStock(
     id: safeId('${company}_${subscriptionStart ?? ''}'),
@@ -7556,8 +7708,13 @@ IpoCompetitionStock? stockFromDartRow(Map<String, Object?> row) {
         '',
     subscriptionStart: subscriptionStart,
     subscriptionEnd: subscriptionEnd,
+    demandForecastStart: demandForecastStart,
+    demandForecastEnd: demandForecastEnd,
+    refundDate: refundDate,
     listingDate: listingDate,
+    lockupReleaseDate: lockupReleaseDate,
     generalSharesDate: generalSharesDate,
+    cbBwDate: cbBwDate,
     securityType: firstNonEmptyString(row, [
       'securityType',
       'security_type',
@@ -7624,8 +7781,27 @@ IpoCompetitionStock? stockFromItickRow(Map<String, Object?> row) {
         ]) ??
         subscriptionStart,
   );
+  final demandForecastStart = normalizeDate(
+    firstNonEmptyString(row, [
+      'demandForecastStart',
+      'demand_forecast_start',
+      'demandForecastDate',
+      'demand_forecast_date',
+    ]),
+  );
+  final demandForecastEnd =
+      normalizeDate(
+        firstNonEmptyString(row, ['demandForecastEnd', 'demand_forecast_end']),
+      ) ??
+      demandForecastStart;
+  final refundDate = normalizeDate(
+    firstNonEmptyString(row, ['refundDate', 'refund_date', 'paymentDate']),
+  );
   final listingDate = normalizeDate(
     firstNonEmptyString(row, ['ipoDate', 'listingDate', 'listing_date']),
+  );
+  final lockupReleaseDate = normalizeDate(
+    firstNonEmptyString(row, ['lockupReleaseDate', 'lockup_release_date']),
   );
   final generalSharesDate = normalizeDate(
     firstNonEmptyString(row, [
@@ -7635,6 +7811,9 @@ IpoCompetitionStock? stockFromItickRow(Map<String, Object?> row) {
       'rights_offer_date',
     ]),
   );
+  final cbBwDate = normalizeDate(
+    firstNonEmptyString(row, ['cbBwDate', 'cb_bw_date', 'cb_bw_dt']),
+  );
   return IpoCompetitionStock(
     id: safeId('${company}_${subscriptionStart ?? ''}'),
     company: company,
@@ -7642,8 +7821,13 @@ IpoCompetitionStock? stockFromItickRow(Map<String, Object?> row) {
     industry: firstNonEmptyString(row, ['industry', 'sector']) ?? '',
     subscriptionStart: subscriptionStart,
     subscriptionEnd: subscriptionEnd,
+    demandForecastStart: demandForecastStart,
+    demandForecastEnd: demandForecastEnd,
+    refundDate: refundDate,
     listingDate: listingDate,
+    lockupReleaseDate: lockupReleaseDate,
     generalSharesDate: generalSharesDate,
+    cbBwDate: cbBwDate,
     securityType: firstNonEmptyString(row, [
       'securityType',
       'security_type',
@@ -7729,14 +7913,16 @@ IpoCompetitionStock? stockFromFinutsRows(List<Map<String, Object?>> rows) {
   final generalSharesDate = finutsType == 'FORF'
       ? (listingDate ?? subscriptionEnd ?? subscriptionStart)
       : null;
-  final demandForecastDate = normalizeDate(
+  final demandForecastStart = normalizeDate(
     (rowD?['BGNG_YMD'] ?? '').toString(),
   );
+  final demandForecastEnd =
+      normalizeDate((rowD?['END_YMD'] ?? '').toString()) ?? demandForecastStart;
 
   if (subscriptionStart == null &&
       subscriptionEnd == null &&
       listingDate == null &&
-      demandForecastDate == null) {
+      demandForecastStart == null) {
     return null;
   }
 
@@ -7773,6 +7959,8 @@ IpoCompetitionStock? stockFromFinutsRows(List<Map<String, Object?>> rows) {
     industry: '',
     subscriptionStart: subscriptionStart,
     subscriptionEnd: subscriptionEnd,
+    demandForecastStart: demandForecastStart,
+    demandForecastEnd: demandForecastEnd,
     listingDate: finutsType == 'FORF' ? null : listingDate,
     generalSharesDate: generalSharesDate,
     securityType: finutsType == 'FORF' ? 'GENERAL_SHARES' : finutsType,

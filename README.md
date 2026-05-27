@@ -47,6 +47,23 @@ https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/backt
 https://raw.githubusercontent.com/<owner>/<repo>/main/ipo_competition_data/coverage_report.json
 ```
 
+## Generated schedule fields
+
+Stock detail files and feed rows include app-facing schedule fields when the
+upstream input provides them:
+
+- `demandForecastDate`, `demandForecastStart`, `demandForecastEnd`
+- `subscriptionStart`, `subscriptionEnd`
+- `refundDate`
+- `listingDate`
+- `lockupReleaseDate`
+- `generalSharesDate`
+- `cbBwDate`
+
+`demandForecastDate` is the representative start date kept for current app
+compatibility; consumers that need a range should read `demandForecastStart`
+and `demandForecastEnd`.
+
 Recommended app access pattern:
 
 ```text

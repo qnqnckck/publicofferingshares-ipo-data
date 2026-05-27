@@ -157,7 +157,8 @@ class FinutsEvent:
     security_type: str
     subscription_start: str | None
     subscription_end: str | None
-    demand_forecast_date: str | None
+    demand_forecast_start: str | None
+    demand_forecast_end: str | None
     listing_date: str | None
     price_min: int | None
     price_max: int | None
@@ -210,7 +211,8 @@ def fetch_finuts_events() -> list[FinutsEvent]:
             continue
         subscription_start = parse_date((by_code.get("S") or {}).get("BGNG_YMD"))
         subscription_end = parse_date((by_code.get("S") or {}).get("END_YMD")) or subscription_start
-        demand_forecast_date = parse_date((by_code.get("D") or {}).get("BGNG_YMD"))
+        demand_forecast_start = parse_date((by_code.get("D") or {}).get("BGNG_YMD"))
+        demand_forecast_end = parse_date((by_code.get("D") or {}).get("END_YMD")) or demand_forecast_start
         listing_date = parse_date((by_code.get("L") or {}).get("BGNG_YMD")) or parse_date(
             primary.get("IPO_DATE")
         )
@@ -240,7 +242,8 @@ def fetch_finuts_events() -> list[FinutsEvent]:
                 security_type=str(primary.get("SE_CD", "")).strip().upper(),
                 subscription_start=subscription_start,
                 subscription_end=subscription_end,
-                demand_forecast_date=demand_forecast_date,
+                demand_forecast_start=demand_forecast_start,
+                demand_forecast_end=demand_forecast_end,
                 listing_date=listing_date,
                 price_min=to_int(primary.get("BAND_BGNG_AMT")),
                 price_max=to_int(primary.get("BAND_END_AMT")),
@@ -261,6 +264,9 @@ def build_stock(event: FinutsEvent) -> dict[str, Any]:
         "company": event.company,
         "market": market,
         "industry": event.industry,
+        "demandForecastDate": event.demand_forecast_start,
+        "demandForecastStart": event.demand_forecast_start,
+        "demandForecastEnd": event.demand_forecast_end,
         "subscriptionStart": event.subscription_start,
         "subscriptionEnd": event.subscription_end,
         "leadManagers": event.lead_managers,
