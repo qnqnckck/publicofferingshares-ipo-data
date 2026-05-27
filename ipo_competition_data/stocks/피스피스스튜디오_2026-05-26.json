@@ -44,45 +44,41 @@
   },
   "snapshots": [
     {
-      "capturedAt": "2026-05-26T16:03:15",
+      "capturedAt": "2026-05-27T13:40:19",
       "source": "naver_calculator_live",
       "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0117P0",
       "brokers": [
         {
-          "name": "NH투자증권",
-          "offeredShares": 1136318,
-          "subscribedShares": 36987151,
-          "offerPrice": null,
-          "depositRate": 0.5,
-          "feeKrw": null,
-          "competitionRate": 32.55,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 65.1,
-          "equalAllocationShares": 142040,
-          "proportionalAllocationShares": 142040,
-          "expectedEqualShares": 1.721,
-          "applicationCount": 82525
-        },
-        {
           "name": "미래에셋증권",
           "offeredShares": 1136319,
-          "subscribedShares": 59565842,
-          "offerPrice": null,
-          "depositRate": 0.5,
-          "feeKrw": null,
-          "competitionRate": 52.42,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 104.84,
           "equalAllocationShares": 142040,
           "proportionalAllocationShares": 142040,
-          "expectedEqualShares": 1.735,
-          "applicationCount": 81856
+          "expectedEqualShares": 0.937,
+          "applicationCount": 151544,
+          "subscribedShares": 845716778,
+          "competitionRate": 744.26,
+          "proportionalCompetitionRate": 1488.52,
+          "depositRate": 0.5,
+          "feeKrw": null
+        },
+        {
+          "name": "NH투자증권",
+          "offeredShares": 1136318,
+          "equalAllocationShares": 142040,
+          "proportionalAllocationShares": 142040,
+          "expectedEqualShares": 0.878,
+          "applicationCount": 161739,
+          "subscribedShares": 621440951,
+          "competitionRate": 546.89,
+          "proportionalCompetitionRate": 1093.78,
+          "depositRate": 0.5,
+          "feeKrw": null
         }
       ],
       "aggregate": {
         "offeredShares": 2272637,
-        "subscribedShares": 96552993,
-        "competitionRate": 42.485
+        "subscribedShares": 1467157729,
+        "competitionRate": 645.575
       }
     },
     {
@@ -163,7 +159,7 @@
       },
       "assumptions": {
         "offerPrice": 21500,
-        "competitionRate": 334.91,
+        "competitionRate": 645.575,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
@@ -177,7 +173,7 @@
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 60,
         "generalCompetitionPending": false,
-        "brokerCompetitionRateSource": "38_news_live",
+        "brokerCompetitionRateSource": "naver_calculator_live",
         "equalAllocationSource": "naver_calculator_live"
       }
     },
@@ -185,7 +181,7 @@
       "level": "consider",
       "label": "청약 고려",
       "reasons": [
-        "최근 확인된 NH투자증권 비례 경쟁률은 670.00대 1, 미래에셋증권은 937.00대 1입니다.",
+        "현재 Naver 기준 NH투자증권 비례 경쟁률은 1093.78대 1, 미래에셋증권은 1488.52대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
@@ -196,29 +192,29 @@
     "brokerScores": [
       {
         "broker": "NH투자증권",
-        "equalScore": 100,
+        "equalScore": 94,
         "proportionalScore": 100,
-        "expectedEqualShares": 1.721,
-        "estimatedDepositForOneProportionalShare": 7202500,
+        "expectedEqualShares": 0.878,
+        "estimatedDepositForOneProportionalShare": 11758135,
         "feeKrw": null,
-        "dataQuality": "broker_verified_mixed_sources",
-        "proportionalCompetitionRateSource": "38_news_live",
+        "dataQuality": "broker_verified",
+        "proportionalCompetitionRateSource": "naver_calculator_live",
         "equalAllocationSource": "naver_calculator_live"
       },
       {
         "broker": "미래에셋증권",
         "equalScore": 100,
-        "proportionalScore": 72,
-        "expectedEqualShares": 1.735,
-        "estimatedDepositForOneProportionalShare": 10072750,
+        "proportionalScore": 74,
+        "expectedEqualShares": 0.937,
+        "estimatedDepositForOneProportionalShare": 16001590,
         "feeKrw": null,
-        "dataQuality": "broker_verified_mixed_sources",
-        "proportionalCompetitionRateSource": "38_news_live",
+        "dataQuality": "broker_verified",
+        "proportionalCompetitionRateSource": "naver_calculator_live",
         "equalAllocationSource": "naver_calculator_live"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 334.91,
+      "latestCompetitionRate": 645.575,
       "snapshotCount": 2,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
@@ -230,12 +226,12 @@
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 63,
       "valueScore": 100,
-      "latestBrokerCompetitionRateSource": "38_news_live"
+      "latestBrokerCompetitionRateSource": "naver_calculator_live"
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   },
-  "latestSnapshotAt": "2026-05-27T13:24:11.726607",
-  "latestCompetitionRate": 334.91,
+  "latestSnapshotAt": "2026-05-27T13:40:19",
+  "latestCompetitionRate": 645.575,
   "bestBrokerName": "NH투자증권",
-  "bestBrokerCompetitionRate": 670.0
+  "bestBrokerCompetitionRate": 1093.78
 }
