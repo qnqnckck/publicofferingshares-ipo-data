@@ -24,7 +24,8 @@
   "cbBwDate": null,
   "securityType": null,
   "leadManagers": [
-    "한국투자증권"
+    "한국투자증권",
+    "키움증권"
   ],
   "fundamentals": {
     "offerPrice": 7000,
@@ -76,10 +77,25 @@
       }
     },
     {
-      "capturedAt": "2026-05-28T11:50:20.481712",
+      "capturedAt": "2026-05-28T11:56:19.999327",
       "source": "estimated_broker_rate_only",
       "sourceUrl": "https://www.hankyung.com/article/202406276414Y",
       "brokers": [
+        {
+          "name": "키움증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 7000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2549.13,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2549.13,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
         {
           "name": "한국투자증권",
           "offeredShares": 0,
@@ -106,18 +122,18 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 43,
-      "grade": "C-",
+      "overall": 61,
+      "grade": "B-",
       "confidence": 0.95,
       "factors": {
         "institutionDemand": 22,
         "demandStrength": 6,
         "lockupCommitment": 0,
         "pricing": 4,
-        "leadManagerCoverage": 0
+        "leadManagerCoverage": 2
       },
       "demand": 52,
-      "value": 0,
+      "value": 100,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
@@ -141,7 +157,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.2706,
+        "generalPriorBase": 0.41819999999999996,
         "institutionBoost": 0.07490000000000001,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -154,10 +170,11 @@
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2549.13대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 2549.13대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -165,6 +182,15 @@
       ]
     },
     "brokerScores": [
+      {
+        "broker": "키움증권",
+        "equalScore": 30,
+        "proportionalScore": 11,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 8921955,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
       {
         "broker": "한국투자증권",
         "equalScore": 30,
@@ -178,7 +204,7 @@
     "inputs": {
       "latestCompetitionRate": 2549.13,
       "snapshotCount": 2,
-      "leadManagerCount": 1,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1099.2,
@@ -187,7 +213,7 @@
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 52,
-      "valueScore": 0
+      "valueScore": 100
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }
