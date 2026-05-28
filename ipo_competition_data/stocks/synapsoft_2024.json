@@ -24,6 +24,7 @@
   "cbBwDate": null,
   "securityType": null,
   "leadManagers": [
+    "현대차증권",
     "NH투자증권"
   ],
   "fundamentals": {
@@ -74,39 +75,66 @@
         "subscribedShares": 0,
         "competitionRate": 60.466
       }
+    },
+    {
+      "capturedAt": "2026-05-28T12:47:21.304932",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=373333",
+      "brokers": [
+        {
+          "name": "현대차증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 24500,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 60.466,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 60.466,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 60.466
+      }
     }
   ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 48,
-      "grade": "C",
+      "overall": 66,
+      "grade": "B",
       "confidence": 0.95,
       "factors": {
         "institutionDemand": 22,
         "demandStrength": 6,
         "lockupCommitment": 0,
         "pricing": 8,
-        "leadManagerCoverage": 0
+        "leadManagerCoverage": 2
       },
       "demand": 58,
-      "value": 0,
+      "value": 100,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.2984,
-      "bearCaseListingGainRate": 0.1184,
-      "baseCaseListingGainRate": 0.2984,
-      "bullCaseListingGainRate": 0.5184,
+      "expectedListingGainRate": 0.4261,
+      "bearCaseListingGainRate": 0.2461,
+      "baseCaseListingGainRate": 0.4261,
+      "bullCaseListingGainRate": 0.6461,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.165,
         "oneMillionKrw": 0.675,
         "fiveMillionKrw": 3.375
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 1209,
-        "oneMillionKrw": 4935,
-        "fiveMillionKrw": 24676
+        "minimumSubscription": 1727,
+        "oneMillionKrw": 7047,
+        "fiveMillionKrw": 35236
       },
       "assumptions": {
         "offerPrice": 24500,
@@ -114,12 +142,12 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.1,
-        "generalPriorBase": 0.3116,
+        "generalPriorBase": 0.4592,
         "institutionBoost": 0.0829,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
         "topBandBoost": 0.0,
-        "scoreBoost": -0.04,
+        "scoreBoost": -0.03333333333333333,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 60,
@@ -127,20 +155,31 @@
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "consider",
+      "label": "청약 고려",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 60.47대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 60.47대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "현대차증권",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 740709,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
       "latestCompetitionRate": 60.466,
-      "snapshotCount": 1,
-      "leadManagerCount": 1,
+      "snapshotCount": 2,
+      "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1163.2,
@@ -149,7 +188,7 @@
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 58,
-      "valueScore": 0
+      "valueScore": 100
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }
