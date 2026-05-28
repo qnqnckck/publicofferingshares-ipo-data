@@ -31,9 +31,9 @@
     "priceBandMin": 0,
     "priceBandMax": 0,
     "topBandConfirmation": null,
-    "institutionCompetitionRate": 622.74,
+    "institutionCompetitionRate": null,
     "institutionParticipants": null,
-    "lockupCommitmentRate": 0.10800000000000001,
+    "lockupCommitmentRate": null,
     "floatRate": null,
     "marketCapKrw": 659248641200,
     "publicAllocationShares": null,
@@ -47,146 +47,82 @@
     "closeReturnRate": null,
     "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100519"
   },
-  "snapshots": [
-    {
-      "capturedAt": "2026-04-28T16:00:00+09:00",
-      "source": "ipokorea_supplement",
-      "sourceUrl": "https://ipokorea.kr/ipo/%EB%A3%A8%EB%8B%9B",
-      "brokers": [
-        {
-          "name": "통합",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": null,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 9.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": null,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 9.0
-      }
-    },
-    {
-      "capturedAt": "2026-05-28T11:56:19.999327",
-      "source": "estimated_broker_rate_only",
-      "sourceUrl": "https://ipokorea.kr/ipo/%EB%A3%A8%EB%8B%9B",
-      "brokers": [
-        {
-          "name": "한국투자증권",
-          "offeredShares": 0,
-          "subscribedShares": 0,
-          "offerPrice": 26750,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 9.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 9.0,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 0,
-        "subscribedShares": 0,
-        "competitionRate": 9.0
-      }
-    }
-  ],
+  "snapshots": [],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 24,
-      "grade": "C-",
-      "confidence": 0.95,
+      "overall": 9,
+      "grade": "-",
+      "confidence": 0.45,
       "factors": {
-        "institutionDemand": 8,
+        "institutionDemand": 0,
         "demandStrength": 0,
-        "lockupCommitment": 4,
+        "lockupCommitment": 0,
         "pricing": 3,
         "marketCap": 3,
         "leadManagerCoverage": 0
       },
-      "demand": 24,
+      "demand": 5,
       "value": 25,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.0248,
-      "bearCaseListingGainRate": -0.15,
-      "baseCaseListingGainRate": 0.0248,
-      "bullCaseListingGainRate": 0.2448,
+      "expectedListingGainRate": 0.1072,
+      "bearCaseListingGainRate": -0.0928,
+      "baseCaseListingGainRate": 0.1072,
+      "bullCaseListingGainRate": 0.3872,
       "expectedAllocatedShares": {
-        "minimumSubscription": 1.111,
-        "oneMillionKrw": 4.154,
-        "fiveMillionKrw": 20.768
+        "minimumSubscription": 0.013,
+        "oneMillionKrw": 0.047,
+        "fiveMillionKrw": 0.234
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 738,
-        "oneMillionKrw": 2760,
-        "fiveMillionKrw": 13800
+        "minimumSubscription": 36,
+        "oneMillionKrw": 134,
+        "fiveMillionKrw": 670
       },
       "assumptions": {
         "offerPrice": 26750,
-        "competitionRate": 9.0,
+        "competitionRate": null,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.03,
-        "generalPriorBase": 0.06036230857142858,
-        "institutionBoost": 0.015342500000000002,
+        "generalCompetitionBaseline": 0.0,
+        "generalPriorBase": -0.07278666666666667,
+        "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
         "topBandBoost": 0.0,
         "scoreBoost": -0.04,
-        "competitionPresent": true,
-        "generalCalibrationApplied": 0.0,
+        "competitionPresent": false,
+        "generalCalibrationApplied": 0.18,
         "generalCalibrationSampleCount": 60,
-        "generalCompetitionPending": false
+        "generalCompetitionPending": true
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "insufficient_data",
+      "label": "데이터 부족",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 9.0대 1입니다."
+        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
       ],
       "warnings": [
+        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [
-      {
-        "broker": "한국투자증권",
-        "equalScore": 30,
-        "proportionalScore": 100,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 120375,
-        "feeKrw": null,
-        "dataQuality": "partial"
-      }
-    ],
+    "brokerScores": [],
     "inputs": {
-      "latestCompetitionRate": 9.0,
-      "snapshotCount": 2,
+      "latestCompetitionRate": null,
+      "snapshotCount": 0,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": 622.74,
-      "lockupCommitmentRate": 0.10800000000000001,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
       "floatRate": null,
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 24,
+      "demandScore": 5,
       "valueScore": 25
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
