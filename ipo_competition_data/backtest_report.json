@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-27T12:33:58.516540",
+  "generatedAt": "2026-05-28T05:01:07.221847",
   "methodVersion": "ipo-score-v4",
   "sampleCount": 55,
   "summary": {
@@ -35,9 +35,9 @@
       "medianCloseReturnRate": 2.3706
     },
     "C+": {
-      "sampleCount": 8,
-      "averageCloseReturnRate": 1.2994,
-      "medianCloseReturnRate": 0.9795
+      "sampleCount": 7,
+      "averageCloseReturnRate": 1.5062,
+      "medianCloseReturnRate": 0.9821
     },
     "C": {
       "sampleCount": 8,
@@ -45,9 +45,9 @@
       "medianCloseReturnRate": 0.0202
     },
     "C-": {
-      "sampleCount": 34,
-      "averageCloseReturnRate": 0.8221,
-      "medianCloseReturnRate": 0.3799
+      "sampleCount": 35,
+      "averageCloseReturnRate": 0.7943,
+      "medianCloseReturnRate": 0.2972
     }
   },
   "byScoreBucket": {
@@ -66,11 +66,11 @@
       "averageErrorReferenceVsExpected": 0.2967
     },
     "50-59": {
-      "sampleCount": 9,
-      "averageCloseReturnRate": 1.2622,
-      "medianCloseReturnRate": 0.9769,
-      "averageErrorCloseVsExpected": 0.4646,
-      "averageErrorReferenceVsExpected": 0.4646
+      "sampleCount": 8,
+      "averageCloseReturnRate": 1.4386,
+      "medianCloseReturnRate": 0.9795,
+      "averageErrorCloseVsExpected": 0.6315,
+      "averageErrorReferenceVsExpected": 0.6315
     },
     "40-49": {
       "sampleCount": 20,
@@ -80,11 +80,11 @@
       "averageErrorReferenceVsExpected": 0.1549
     },
     "30-39": {
-      "sampleCount": 9,
-      "averageCloseReturnRate": 0.4252,
-      "medianCloseReturnRate": 0.2972,
-      "averageErrorCloseVsExpected": -0.266,
-      "averageErrorReferenceVsExpected": -0.266
+      "sampleCount": 10,
+      "averageCloseReturnRate": 0.3679,
+      "medianCloseReturnRate": 0.2619,
+      "averageErrorCloseVsExpected": -0.3265,
+      "averageErrorReferenceVsExpected": -0.3265
     },
     "20-29": {
       "sampleCount": 11,
@@ -245,22 +245,6 @@
       "outcomeSourceUrl": "https://news.bizwatch.co.kr/article/market/2023/12/22/0035",
       "errorCloseVsExpected": 2.28,
       "errorReferenceVsExpected": 2.28
-    },
-    {
-      "id": "toprun_total_solution_2024",
-      "company": "탑런토탈솔루션",
-      "isSpac": false,
-      "score": 51,
-      "grade": "C+",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.7226,
-      "openReturnRate": -0.16,
-      "highReturnRate": null,
-      "closeReturnRate": -0.14833333333333334,
-      "referenceReturnRate": -0.14833333333333334,
-      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/11156542",
-      "errorCloseVsExpected": -0.871,
-      "errorReferenceVsExpected": -0.871
     },
     {
       "id": "kns_2023",
@@ -455,6 +439,22 @@
       "errorReferenceVsExpected": -0.4031
     },
     {
+      "id": "higen_rnm_2024",
+      "company": "하이젠알앤엠",
+      "isSpac": false,
+      "score": 43,
+      "grade": "C-",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.9849,
+      "openReturnRate": null,
+      "highReturnRate": 2.0428571428571427,
+      "closeReturnRate": 1.1657142857142857,
+      "referenceReturnRate": 1.1657142857142857,
+      "outcomeSourceUrl": "https://www.hankyung.com/article/202406276414Y",
+      "errorCloseVsExpected": 0.1808,
+      "errorReferenceVsExpected": 0.1808
+    },
+    {
       "id": "seers_technology_2024",
       "company": "씨어스테크놀로지",
       "isSpac": false,
@@ -503,6 +503,38 @@
       "errorReferenceVsExpected": 1.2579
     },
     {
+      "id": "excel_therapeutics_2024",
+      "company": "엑셀세라퓨틱스",
+      "isSpac": false,
+      "score": 43,
+      "grade": "C-",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.77,
+      "openReturnRate": null,
+      "highReturnRate": 0.29,
+      "closeReturnRate": -0.167,
+      "referenceReturnRate": -0.167,
+      "outcomeSourceUrl": "https://biz.sbs.co.kr/amp/article/20000181710",
+      "errorCloseVsExpected": -0.937,
+      "errorReferenceVsExpected": -0.937
+    },
+    {
+      "id": "kweather_2024",
+      "company": "케이웨더",
+      "isSpac": false,
+      "score": 43,
+      "grade": "C-",
+      "confidence": 0.95,
+      "expectedListingGainRate": 1.0,
+      "openReturnRate": null,
+      "highReturnRate": null,
+      "closeReturnRate": 1.3714285714285714,
+      "referenceReturnRate": 1.3714285714285714,
+      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10948743",
+      "errorCloseVsExpected": 0.3714,
+      "errorReferenceVsExpected": 0.3714
+    },
+    {
       "id": "iron_device_2024",
       "company": "아이언디바이스",
       "isSpac": false,
@@ -533,54 +565,6 @@
       "outcomeSourceUrl": "https://www.hankyung.com/article/2024082168291",
       "errorCloseVsExpected": 2.0,
       "errorReferenceVsExpected": 2.0
-    },
-    {
-      "id": "kweather_2024",
-      "company": "케이웨더",
-      "isSpac": false,
-      "score": 43,
-      "grade": "C-",
-      "confidence": 0.95,
-      "expectedListingGainRate": 1.0,
-      "openReturnRate": null,
-      "highReturnRate": null,
-      "closeReturnRate": 1.3714285714285714,
-      "referenceReturnRate": 1.3714285714285714,
-      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/10948743",
-      "errorCloseVsExpected": 0.3714,
-      "errorReferenceVsExpected": 0.3714
-    },
-    {
-      "id": "excel_therapeutics_2024",
-      "company": "엑셀세라퓨틱스",
-      "isSpac": false,
-      "score": 43,
-      "grade": "C-",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.77,
-      "openReturnRate": null,
-      "highReturnRate": 0.29,
-      "closeReturnRate": -0.167,
-      "referenceReturnRate": -0.167,
-      "outcomeSourceUrl": "https://biz.sbs.co.kr/amp/article/20000181710",
-      "errorCloseVsExpected": -0.937,
-      "errorReferenceVsExpected": -0.937
-    },
-    {
-      "id": "higen_rnm_2024",
-      "company": "하이젠알앤엠",
-      "isSpac": false,
-      "score": 43,
-      "grade": "C-",
-      "confidence": 0.95,
-      "expectedListingGainRate": 0.9849,
-      "openReturnRate": null,
-      "highReturnRate": 2.0428571428571427,
-      "closeReturnRate": 1.1657142857142857,
-      "referenceReturnRate": 1.1657142857142857,
-      "outcomeSourceUrl": "https://www.hankyung.com/article/202406276414Y",
-      "errorCloseVsExpected": 0.1808,
-      "errorReferenceVsExpected": 0.1808
     },
     {
       "id": "woojin_entec_2024",
@@ -661,6 +645,22 @@
       "outcomeSourceUrl": "https://www.hankyung.com/article/2024082027786",
       "errorCloseVsExpected": -0.0803,
       "errorReferenceVsExpected": -0.0803
+    },
+    {
+      "id": "toprun_total_solution_2024",
+      "company": "탑런토탈솔루션",
+      "isSpac": false,
+      "score": 33,
+      "grade": "C-",
+      "confidence": 0.95,
+      "expectedListingGainRate": 0.7226,
+      "openReturnRate": -0.16,
+      "highReturnRate": null,
+      "closeReturnRate": -0.14833333333333334,
+      "referenceReturnRate": -0.14833333333333334,
+      "outcomeSourceUrl": "https://www.mk.co.kr/news/stock/11156542",
+      "errorCloseVsExpected": -0.871,
+      "errorReferenceVsExpected": -0.871
     },
     {
       "id": "mintech_2024",
