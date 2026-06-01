@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-01T05:31:49.630350",
+  "generatedAt": "2026-06-01T14:34:22.601655",
   "totals": {
     "seedStocks": 207,
     "autoCoreStocks": 539,
     "finalStocks": 551,
     "presenceDependent": 12,
-    "fieldDependent": 187,
+    "fieldDependent": 174,
     "presenceByCategory": {
       "historical": 12
     },
     "fieldByCategory": {
       "general_shares": 4,
-      "historical": 183
+      "historical": 170
     },
     "presenceByYear": {
       "2025": 5,
@@ -20,7 +20,7 @@
       "2023": 4
     },
     "fieldByYear": {
-      "2026": 18,
+      "2026": 5,
       "2025": 59,
       "2024": 75,
       "2023": 35
@@ -28,11 +28,9 @@
     "fieldRecoveredFrequency": {
       "generalSharesDate": 4,
       "securityType": 4,
-      "institutionCompetitionRate": 183,
-      "lockupCommitmentRate": 29,
-      "institutionParticipants": 12,
-      "publicAllocationShares": 13,
-      "marketCapKrw": 8
+      "institutionCompetitionRate": 170,
+      "lockupCommitmentRate": 17,
+      "publicAllocationShares": 2
     }
   },
   "presenceDependent": [
@@ -212,42 +210,6 @@
       ]
     },
     {
-      "id": "마키나락스_2026-05-11",
-      "company": "마키나락스",
-      "subscriptionStart": "2026-05-11",
-      "subscriptionEnd": "2026-05-12",
-      "listingDate": "2026-05-20",
-      "generalSharesDate": null,
-      "securityType": null,
-      "subscriptionKey": "마키나락스_20260511_20260512",
-      "path": "stocks/마키나락스_2026-05-11.json",
-      "dependency": "fields",
-      "category": "historical",
-      "fieldsRecoveredOutsideAutoCore": [
-        "institutionCompetitionRate",
-        "lockupCommitmentRate"
-      ]
-    },
-    {
-      "id": "poled_2026",
-      "company": "폴레드",
-      "subscriptionStart": "2026-05-04",
-      "subscriptionEnd": "2026-05-06",
-      "listingDate": "2026-05-14",
-      "generalSharesDate": null,
-      "securityType": null,
-      "subscriptionKey": "폴레드_20260504_20260506",
-      "path": "stocks/poled_2026.json",
-      "dependency": "fields",
-      "category": "historical",
-      "fieldsRecoveredOutsideAutoCore": [
-        "institutionCompetitionRate",
-        "institutionParticipants",
-        "lockupCommitmentRate",
-        "publicAllocationShares"
-      ]
-    },
-    {
       "id": "루닛_2026-04-27",
       "company": "루닛",
       "subscriptionStart": "2026-04-27",
@@ -282,25 +244,6 @@
       ]
     },
     {
-      "id": "cosmo_robotics_2026",
-      "company": "코스모로보틱스",
-      "subscriptionStart": "2026-04-27",
-      "subscriptionEnd": "2026-04-28",
-      "listingDate": "2026-05-11",
-      "generalSharesDate": null,
-      "securityType": null,
-      "subscriptionKey": "코스모로보틱스_20260427_20260428",
-      "path": "stocks/cosmo_robotics_2026.json",
-      "dependency": "fields",
-      "category": "historical",
-      "fieldsRecoveredOutsideAutoCore": [
-        "institutionCompetitionRate",
-        "institutionParticipants",
-        "lockupCommitmentRate",
-        "publicAllocationShares"
-      ]
-    },
-    {
       "id": "shinhan_spac_18_2026",
       "company": "신한제18호스팩",
       "subscriptionStart": "2026-04-20",
@@ -319,26 +262,6 @@
       ]
     },
     {
-      "id": "chaevi_2026",
-      "company": "채비",
-      "subscriptionStart": "2026-04-20",
-      "subscriptionEnd": "2026-04-21",
-      "listingDate": "2026-04-29",
-      "generalSharesDate": null,
-      "securityType": null,
-      "subscriptionKey": "채비_20260420_20260421",
-      "path": "stocks/chaevi_2026.json",
-      "dependency": "fields",
-      "category": "historical",
-      "fieldsRecoveredOutsideAutoCore": [
-        "institutionCompetitionRate",
-        "institutionParticipants",
-        "lockupCommitmentRate",
-        "marketCapKrw",
-        "publicAllocationShares"
-      ]
-    },
-    {
       "id": "kiwoom_hero_spac_2_2026",
       "company": "키움히어로스팩2호",
       "subscriptionStart": "2026-04-14",
@@ -353,182 +276,6 @@
       "fieldsRecoveredOutsideAutoCore": [
         "institutionCompetitionRate",
         "lockupCommitmentRate",
-        "publicAllocationShares"
-      ]
-    },
-    {
-      "id": "inventera_2026",
-      "company": "인벤테라",
-      "subscriptionStart": "2026-03-23",
-      "subscriptionEnd": "2026-03-24",
-      "listingDate": "2026-04-02",
-      "generalSharesDate": null,
-      "securityType": null,
-      "subscriptionKey": "인벤테라_20260323_20260324",
-      "path": "stocks/inventera_2026.json",
-      "dependency": "fields",
-      "category": "historical",
-      "fieldsRecoveredOutsideAutoCore": [
-        "institutionCompetitionRate",
-        "institutionParticipants",
-        "lockupCommitmentRate",
-        "marketCapKrw",
-        "publicAllocationShares"
-      ]
-    },
-    {
-      "id": "resense_medical_2026",
-      "company": "리센스메디컬",
-      "subscriptionStart": "2026-03-19",
-      "subscriptionEnd": "2026-03-20",
-      "listingDate": "2026-03-31",
-      "generalSharesDate": null,
-      "securityType": null,
-      "subscriptionKey": "리센스메디컬_20260319_20260320",
-      "path": "stocks/resense_medical_2026.json",
-      "dependency": "fields",
-      "category": "historical",
-      "fieldsRecoveredOutsideAutoCore": [
-        "institutionCompetitionRate",
-        "institutionParticipants",
-        "lockupCommitmentRate",
-        "marketCapKrw",
-        "publicAllocationShares"
-      ]
-    },
-    {
-      "id": "meju_2026",
-      "company": "메쥬",
-      "subscriptionStart": "2026-03-16",
-      "subscriptionEnd": "2026-03-17",
-      "listingDate": "2026-03-26",
-      "generalSharesDate": null,
-      "securityType": null,
-      "subscriptionKey": "메쥬_20260316_20260317",
-      "path": "stocks/meju_2026.json",
-      "dependency": "fields",
-      "category": "historical",
-      "fieldsRecoveredOutsideAutoCore": [
-        "institutionCompetitionRate",
-        "institutionParticipants",
-        "lockupCommitmentRate"
-      ]
-    },
-    {
-      "id": "hanpass_2026",
-      "company": "한패스",
-      "subscriptionStart": "2026-03-16",
-      "subscriptionEnd": "2026-03-17",
-      "listingDate": "2026-03-25",
-      "generalSharesDate": null,
-      "securityType": null,
-      "subscriptionKey": "한패스_20260316_20260317",
-      "path": "stocks/hanpass_2026.json",
-      "dependency": "fields",
-      "category": "historical",
-      "fieldsRecoveredOutsideAutoCore": [
-        "institutionCompetitionRate",
-        "institutionParticipants",
-        "marketCapKrw",
-        "publicAllocationShares"
-      ]
-    },
-    {
-      "id": "im_biologics_2026",
-      "company": "아이엠바이오로직스",
-      "subscriptionStart": "2026-03-11",
-      "subscriptionEnd": "2026-03-12",
-      "listingDate": "2026-03-20",
-      "generalSharesDate": null,
-      "securityType": null,
-      "subscriptionKey": "아이엠바이오로직스_20260311_20260312",
-      "path": "stocks/im_biologics_2026.json",
-      "dependency": "fields",
-      "category": "historical",
-      "fieldsRecoveredOutsideAutoCore": [
-        "institutionCompetitionRate",
-        "institutionParticipants",
-        "lockupCommitmentRate",
-        "marketCapKrw",
-        "publicAllocationShares"
-      ]
-    },
-    {
-      "id": "kanaf_therapeutics_2026",
-      "company": "카나프테라퓨틱스",
-      "subscriptionStart": "2026-03-05",
-      "subscriptionEnd": "2026-03-06",
-      "listingDate": "2026-03-17",
-      "generalSharesDate": null,
-      "securityType": null,
-      "subscriptionKey": "카나프테라퓨틱스_20260305_20260306",
-      "path": "stocks/kanaf_therapeutics_2026.json",
-      "dependency": "fields",
-      "category": "historical",
-      "fieldsRecoveredOutsideAutoCore": [
-        "institutionCompetitionRate",
-        "institutionParticipants",
-        "lockupCommitmentRate",
-        "marketCapKrw",
-        "publicAllocationShares"
-      ]
-    },
-    {
-      "id": "axvis_2026",
-      "company": "액스비스",
-      "subscriptionStart": "2026-02-23",
-      "subscriptionEnd": "2026-02-24",
-      "listingDate": "2026-03-09",
-      "generalSharesDate": null,
-      "securityType": null,
-      "subscriptionKey": "액스비스_20260223_20260224",
-      "path": "stocks/axvis_2026.json",
-      "dependency": "fields",
-      "category": "historical",
-      "fieldsRecoveredOutsideAutoCore": [
-        "institutionCompetitionRate",
-        "institutionParticipants",
-        "lockupCommitmentRate",
-        "publicAllocationShares"
-      ]
-    },
-    {
-      "id": "esteem_2026",
-      "company": "에스팀",
-      "subscriptionStart": "2026-02-23",
-      "subscriptionEnd": "2026-02-24",
-      "listingDate": "2026-03-06",
-      "generalSharesDate": null,
-      "securityType": null,
-      "subscriptionKey": "에스팀_20260223_20260224",
-      "path": "stocks/esteem_2026.json",
-      "dependency": "fields",
-      "category": "historical",
-      "fieldsRecoveredOutsideAutoCore": [
-        "institutionCompetitionRate",
-        "institutionParticipants",
-        "lockupCommitmentRate",
-        "marketCapKrw",
-        "publicAllocationShares"
-      ]
-    },
-    {
-      "id": "kbank_2026",
-      "company": "케이뱅크",
-      "subscriptionStart": "2026-02-20",
-      "subscriptionEnd": "2026-02-23",
-      "listingDate": "2026-03-05",
-      "generalSharesDate": null,
-      "securityType": null,
-      "subscriptionKey": "케이뱅크_20260220_20260223",
-      "path": "stocks/kbank_2026.json",
-      "dependency": "fields",
-      "category": "historical",
-      "fieldsRecoveredOutsideAutoCore": [
-        "institutionCompetitionRate",
-        "institutionParticipants",
-        "lockupCommitmentRate",
-        "marketCapKrw",
         "publicAllocationShares"
       ]
     },
