@@ -31,12 +31,12 @@
     "priceBandMin": 0,
     "priceBandMax": 0,
     "topBandConfirmation": null,
-    "institutionCompetitionRate": 622.74,
-    "institutionParticipants": 705,
-    "lockupCommitmentRate": 4843.8,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
     "floatRate": null,
-    "marketCapKrw": 95900000000,
-    "publicAllocationShares": 50,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
     "hasPutbackRight": false,
     "putbackSummary": null
   },
@@ -47,149 +47,82 @@
     "closeReturnRate": null,
     "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100509"
   },
-  "snapshots": [
-    {
-      "capturedAt": "2026-04-28T16:00:00+09:00",
-      "source": "ipokorea_supplement",
-      "sourceUrl": "https://ipokorea.kr/ipo/%EC%97%90%EC%9D%B4%ED%85%80",
-      "brokers": [
-        {
-          "name": "통합",
-          "offeredShares": 50,
-          "subscribedShares": 81100,
-          "offerPrice": 18000,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1622.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": null,
-          "equalAllocationShares": null,
-          "proportionalAllocationShares": null,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 50,
-        "subscribedShares": 81100,
-        "competitionRate": 1622.0
-      }
-    },
-    {
-      "capturedAt": "2026-05-29T12:29:27.689455",
-      "source": "estimated_broker_split",
-      "sourceUrl": "https://ipokorea.kr/ipo/%EC%97%90%EC%9D%B4%ED%85%80",
-      "brokers": [
-        {
-          "name": "SK증권",
-          "offeredShares": 50,
-          "subscribedShares": 81100,
-          "offerPrice": 3490,
-          "depositRate": null,
-          "feeKrw": null,
-          "competitionRate": 1622.0,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1622.0,
-          "equalAllocationShares": 25,
-          "proportionalAllocationShares": 25,
-          "expectedEqualShares": null,
-          "applicationCount": null
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 50,
-        "subscribedShares": 81100,
-        "competitionRate": 1622.0
-      }
-    }
-  ],
+  "snapshots": [],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 54,
-      "grade": "C+",
-      "confidence": 0.95,
+      "overall": 4,
+      "grade": "-",
+      "confidence": 0.45,
       "factors": {
-        "institutionDemand": 8,
-        "demandStrength": 1,
-        "lockupCommitment": 18,
+        "institutionDemand": 0,
+        "demandStrength": 0,
+        "lockupCommitment": 0,
         "pricing": 3,
-        "marketCap": 8,
-        "publicAllocation": 8,
         "leadManagerCoverage": 0
       },
-      "demand": 48,
-      "value": 80,
+      "demand": 5,
+      "value": 0,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 1.0253,
-      "bearCaseListingGainRate": 0.8453,
-      "baseCaseListingGainRate": 1.0253,
-      "bullCaseListingGainRate": 1.3253,
+      "expectedListingGainRate": 0.0729,
+      "bearCaseListingGainRate": -0.1271,
+      "baseCaseListingGainRate": 0.0729,
+      "bullCaseListingGainRate": 0.3529,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.006,
-        "oneMillionKrw": 0.177,
-        "fiveMillionKrw": 0.883
+        "minimumSubscription": 0.013,
+        "oneMillionKrw": 0.358,
+        "fiveMillionKrw": 1.791
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 22,
-        "oneMillionKrw": 632,
-        "fiveMillionKrw": 3161
+        "minimumSubscription": 3,
+        "oneMillionKrw": 91,
+        "fiveMillionKrw": 455
       },
       "assumptions": {
         "offerPrice": 3490,
-        "competitionRate": 1622.0,
+        "competitionRate": null,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": 0.39492230857142857,
-        "institutionBoost": 0.015342500000000002,
-        "lockupBoost": 0.1,
+        "generalCompetitionBaseline": 0.0,
+        "generalPriorBase": -0.10712,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
         "participantBoost": 0.0,
         "topBandBoost": 0.0,
         "scoreBoost": -0.04,
-        "competitionPresent": true,
-        "generalCalibrationApplied": 0.0,
+        "competitionPresent": false,
+        "generalCalibrationApplied": 0.18,
         "generalCalibrationSampleCount": 60,
-        "generalCompetitionPending": false
+        "generalCompetitionPending": true
       }
     },
     "decision": {
-      "level": "neutral",
-      "label": "중립",
+      "level": "insufficient_data",
+      "label": "데이터 부족",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1622.0대 1입니다."
+        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
       ],
       "warnings": [
-        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [
-      {
-        "broker": "SK증권",
-        "equalScore": 30,
-        "proportionalScore": 35,
-        "expectedEqualShares": null,
-        "estimatedDepositForOneProportionalShare": 2830390,
-        "feeKrw": null,
-        "dataQuality": "partial"
-      }
-    ],
+    "brokerScores": [],
     "inputs": {
-      "latestCompetitionRate": 1622.0,
-      "snapshotCount": 2,
+      "latestCompetitionRate": null,
+      "snapshotCount": 0,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": 622.74,
-      "lockupCommitmentRate": 4843.8,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
       "floatRate": null,
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 48,
-      "valueScore": 80
+      "demandScore": 5,
+      "valueScore": 0
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }
