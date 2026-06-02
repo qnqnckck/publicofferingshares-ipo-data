@@ -39,6 +39,7 @@ class BatchOptions {
     required this.outDir,
     required this.backfillYears,
     required this.manualFundamentalsPath,
+    required this.listedCompanyExclusionsPath,
     required this.interval,
     required this.discover,
     required this.discoverFinuts,
@@ -63,6 +64,7 @@ class BatchOptions {
   final String outDir;
   final int backfillYears;
   final String manualFundamentalsPath;
+  final String listedCompanyExclusionsPath;
   final Duration interval;
   final bool discover;
   final bool discoverFinuts;
@@ -90,6 +92,7 @@ Options:
   --discovered <path>         Auto-discovered stock JSON path. Default: data/discovered/ipo_events.json
   --out <dir>                 Output directory. Default: ipo_competition_data
   --manual-fundamentals-path <path> Optional JSON override file path for manual fundamentals patching. Default: data/manual_fundamentals.json
+  --listed-company-exclusions <path> Existing listed-company exclusion JSON path. Default: data/listed_company_exclusions.json
   --backfill-years <years>    Include IPOs from the last N years. Default: 3
   --interval-minutes <min>    Watch interval. Default: 10
   --dart-api-key-env <name>   Environment variable for DART API key. Default: DART_API_KEY
@@ -143,6 +146,10 @@ Seed from the example file:
         '--manual-fundamentals-path',
         'data/manual_fundamentals.json',
       ),
+      listedCompanyExclusionsPath: valueAfter(
+        '--listed-company-exclusions',
+        'data/listed_company_exclusions.json',
+      ),
       backfillYears: intAfter('--backfill-years', 3),
       interval: Duration(minutes: intAfter('--interval-minutes', 10)),
       discover: !args.contains('--no-discover'),
@@ -176,14 +183,33 @@ class IpoCompetitionBatch {
     _running = true;
     try {
       final generatedAt = DateTime.now();
+      final today = DateTime(
+        generatedAt.year,
+        generatedAt.month,
+        generatedAt.day,
+      );
+      final seedStocks = await _loadSeedStocks();
+      final outcomeRows = await _loadOutcomeRows();
+      final listedCompanyExclusions = await _loadListedCompanyExclusions();
+      final newListingGuard = NewListingGuard.fromHistoricalSources(
+        seedStocks: seedStocks,
+        outcomeRows: outcomeRows,
+        listedCompanyExclusions: listedCompanyExclusions,
+        today: today,
+      );
       final cachedDiscoveredStocks = await _loadDiscoveredStocks();
       final remotelyDiscoveredStocks = options.discover
           ? await _discoverRemoteStocks(generatedAt)
           : const <IpoCompetitionStock>[];
-      final discoveredStocks = mergeStocks([
+      final discoveredCandidates = mergeStocks([
         ...cachedDiscoveredStocks,
         ...remotelyDiscoveredStocks,
       ]);
+      final guardedDiscovered = newListingGuard.filter(
+        discoveredCandidates,
+        stage: 'discovered',
+      );
+      final discoveredStocks = guardedDiscovered.accepted;
       await _writeDiscoveredStocks(discoveredStocks, generatedAt: generatedAt);
       await _writeDiscoveredDeltaReport(
         generatedAt: generatedAt,
@@ -191,7 +217,6 @@ class IpoCompetitionBatch {
         remoteStocks: remotelyDiscoveredStocks,
         mergedStocks: discoveredStocks,
       );
-      final seedStocks = await _loadSeedStocks();
       final liveStocks = await _loadLiveStocks();
       final autoCoreBaseStocks = mergeStocks([
         ...discoveredStocks,
@@ -217,7 +242,6 @@ class IpoCompetitionBatch {
         if (options.discoverArticleLeadManagers)
           ...await _discoverArticleLeadManagerStocks(supplementStocks),
       ]);
-      final outcomeRows = await _loadOutcomeRows();
       final stocks = mergeOutcomes(sourceEnhancedStocks, outcomeRows);
       final localIdentifierRows = alignIdentifierRowsToStocks(
         stocks,
@@ -289,9 +313,16 @@ class IpoCompetitionBatch {
       final autoMergedByIdentityStocks = mergeStocksByIdentity(
         autoManualFundamentalsPatchedStocks,
       );
-      final autoConsolidatedStocks = applyGeneralSharesBackfill(
+      final autoConsolidatedCandidates = applyGeneralSharesBackfill(
         autoMergedByIdentityStocks,
       );
+      final guardedAutoConsolidated = newListingGuard.filter(
+        autoConsolidatedCandidates,
+        stage: 'auto_core',
+      );
+      final autoConsolidatedStocks = guardedAutoConsolidated.accepted
+          .where(isIpoFeedStock)
+          .toList();
       final autoSelected =
           autoConsolidatedStocks.where((stock) {
             final end = parseDate(stock.subscriptionEnd);
@@ -308,9 +339,16 @@ class IpoCompetitionBatch {
       final mergedByIdentityStocks = mergeStocksByIdentity(
         manualFundamentalsPatchedStocks,
       );
-      final consolidatedStocks = applyGeneralSharesBackfill(
+      final consolidatedCandidates = applyGeneralSharesBackfill(
         mergedByIdentityStocks,
       );
+      final guardedFinalConsolidated = newListingGuard.filter(
+        consolidatedCandidates,
+        stage: 'final',
+      );
+      final consolidatedStocks = guardedFinalConsolidated.accepted
+          .where(isIpoFeedStock)
+          .toList();
       final selected =
           consolidatedStocks.where((stock) {
             final end = parseDate(stock.subscriptionEnd);
@@ -345,6 +383,15 @@ class IpoCompetitionBatch {
         generatedAt: generatedAt,
         preBackfillStocks: mergedByIdentityStocks,
         finalStocks: selected,
+      );
+      await _writeNewListingGuardReport(
+        generatedAt: generatedAt,
+        guard: newListingGuard,
+        blocked: [
+          ...guardedDiscovered.blocked,
+          ...guardedAutoConsolidated.blocked,
+          ...guardedFinalConsolidated.blocked,
+        ],
       );
 
       _analysisCalibration = buildAnalysisCalibration(selected);
@@ -501,6 +548,43 @@ class IpoCompetitionBatch {
       }
     }
     return rows;
+  }
+
+  Future<List<HistoricalListingReference>>
+  _loadListedCompanyExclusions() async {
+    final file = File(options.listedCompanyExclusionsPath);
+    if (!await file.exists()) {
+      return const [];
+    }
+    final decoded = jsonDecode(await file.readAsString());
+    if (decoded is! Map<String, Object?> || decoded['companies'] is! List) {
+      return const [];
+    }
+    final references = <HistoricalListingReference>[];
+    for (final row
+        in (decoded['companies'] as List).whereType<Map<String, Object?>>()) {
+      final company = (readString(row, 'company') ?? '').trim();
+      final normalizedCompany = (readString(row, 'normalizedCompany') ?? '')
+          .trim();
+      final companyKey = normalizedCompany.isNotEmpty
+          ? normalizeLookup(normalizedCompany)
+          : normalizeLookup(company);
+      final listingDate = parseDate(readString(row, 'listingDate'));
+      if (companyKey.isEmpty || listingDate == null) {
+        continue;
+      }
+      references.add(
+        HistoricalListingReference(
+          companyKey: companyKey,
+          company: company.isNotEmpty ? company : companyKey,
+          id: null,
+          referenceDate: listingDate,
+          source: 'listed_company_exclusion',
+          subscriptionKey: null,
+        ),
+      );
+    }
+    return references;
   }
 
   Future<List<IpoBrokerSnapshotRow>> _loadBrokerSnapshotRows() async {
@@ -788,6 +872,58 @@ class IpoCompetitionBatch {
     await File(
       '${options.outDir}/reports/discovered_delta.json',
     ).writeAsString(prettyJson(report));
+  }
+
+  Future<void> _writeNewListingGuardReport({
+    required DateTime generatedAt,
+    required NewListingGuard guard,
+    required List<BlockedNewListingCandidate> blocked,
+  }) async {
+    final reportDir = Directory('${options.outDir}/reports');
+    await reportDir.create(recursive: true);
+
+    final uniqueBlocked = <String, BlockedNewListingCandidate>{};
+    for (final item in blocked) {
+      uniqueBlocked['${item.stage}:${safeId(item.stock.id)}:${item.reference.companyKey}'] =
+          item;
+    }
+    final blockedRows =
+        uniqueBlocked.values.map((item) => item.toJson()).toList()
+          ..sort((a, b) {
+            final byStage = '${a['stage'] ?? ''}'.compareTo(
+              '${b['stage'] ?? ''}',
+            );
+            if (byStage != 0) {
+              return byStage;
+            }
+            final byDate = '${b['subscriptionStart'] ?? ''}'.compareTo(
+              '${a['subscriptionStart'] ?? ''}',
+            );
+            if (byDate != 0) {
+              return byDate;
+            }
+            return '${a['company'] ?? ''}'.compareTo('${b['company'] ?? ''}');
+          });
+
+    await File(
+      '${options.outDir}/reports/new_listing_guard.json',
+    ).writeAsString(
+      prettyJson({
+        'schemaVersion': schemaVersion,
+        'generatedAt': generatedAt.toIso8601String(),
+        'paths': {
+          'seed': options.seedPath,
+          'outcomes': options.outcomeDir,
+          'listedCompanyExclusions': options.listedCompanyExclusionsPath,
+          'report': '${options.outDir}/reports/new_listing_guard.json',
+        },
+        'totals': {
+          'historicalCompanies': guard.references.length,
+          'blocked': blockedRows.length,
+        },
+        'blocked': blockedRows,
+      }),
+    );
   }
 
   int _countFinutsDiscoveredStocks(List<IpoCompetitionStock> stocks) {
@@ -3283,6 +3419,21 @@ List<IpoCompetitionStock> applyGeneralSharesBackfill(
   return stocks.map(backfillGeneralSharesStock).toList();
 }
 
+bool isIpoFeedStock(IpoCompetitionStock stock) {
+  return !isNonIpoOfferingStock(stock);
+}
+
+bool isNonIpoOfferingStock(IpoCompetitionStock stock) {
+  final securityType = stock.normalizedSecurityType?.toUpperCase();
+  if (securityType == 'GENERAL_SHARES' ||
+      securityType == 'RIGHTS_OFFERING' ||
+      securityType == 'RIGHTS') {
+    return true;
+  }
+  return stock.normalizedGeneralSharesDate != null ||
+      stock.normalizedCbBwDate != null;
+}
+
 IpoCompetitionStock backfillGeneralSharesStock(IpoCompetitionStock stock) {
   final inferredDate = inferGeneralSharesDate(stock);
   final inferredType = inferGeneralSharesSecurityType(stock, inferredDate);
@@ -4943,6 +5094,10 @@ String normalizeSourceText(String value) {
   return value.replaceAll('&nbsp;', ' ').replaceAll(RegExp(r'\s+'), ' ').trim();
 }
 
+String isoDate(DateTime date) {
+  return '${date.year.toString().padLeft(4, '0')}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+}
+
 class IpoOutcomeRow {
   const IpoOutcomeRow({
     required this.id,
@@ -4993,6 +5148,208 @@ class IpoOutcomeRow {
       return null;
     }
     return (price - offer) / offer;
+  }
+}
+
+class HistoricalListingReference {
+  const HistoricalListingReference({
+    required this.companyKey,
+    required this.company,
+    required this.id,
+    required this.referenceDate,
+    required this.source,
+    required this.subscriptionKey,
+  });
+
+  final String companyKey;
+  final String company;
+  final String? id;
+  final DateTime referenceDate;
+  final String source;
+  final String? subscriptionKey;
+
+  Map<String, Object?> toJson() {
+    return {
+      'companyKey': companyKey,
+      'company': company,
+      'id': id,
+      'referenceDate': isoDate(referenceDate),
+      'source': source,
+      'subscriptionKey': subscriptionKey,
+    };
+  }
+}
+
+class BlockedNewListingCandidate {
+  const BlockedNewListingCandidate({
+    required this.stage,
+    required this.reason,
+    required this.stock,
+    required this.reference,
+  });
+
+  final String stage;
+  final String reason;
+  final IpoCompetitionStock stock;
+  final HistoricalListingReference reference;
+
+  Map<String, Object?> toJson() {
+    return {
+      'stage': stage,
+      'reason': reason,
+      'id': safeId(stock.id),
+      'company': stock.company,
+      'subscriptionStart': stock.subscriptionStart,
+      'subscriptionEnd': stock.subscriptionEnd,
+      'listingDate': stock.resolvedListingDate,
+      'identifiers': stock.identifiers.toJson(),
+      'matchedHistorical': reference.toJson(),
+    };
+  }
+}
+
+class NewListingGuardResult {
+  const NewListingGuardResult({required this.accepted, required this.blocked});
+
+  final List<IpoCompetitionStock> accepted;
+  final List<BlockedNewListingCandidate> blocked;
+}
+
+class NewListingGuard {
+  const NewListingGuard._(this.references, this.today);
+
+  final Map<String, HistoricalListingReference> references;
+  final DateTime today;
+
+  static NewListingGuard fromHistoricalSources({
+    required List<IpoCompetitionStock> seedStocks,
+    required List<IpoOutcomeRow> outcomeRows,
+    required List<HistoricalListingReference> listedCompanyExclusions,
+    required DateTime today,
+  }) {
+    final references = <String, HistoricalListingReference>{};
+
+    void addReference(HistoricalListingReference reference) {
+      final existing = references[reference.companyKey];
+      if (existing == null ||
+          reference.referenceDate.isBefore(existing.referenceDate)) {
+        references[reference.companyKey] = reference;
+      }
+    }
+
+    for (final stock in seedStocks.map((stock) => stock.normalized())) {
+      final companyKey = stock.identifiers.normalizedCompany.trim().isNotEmpty
+          ? stock.identifiers.normalizedCompany
+          : normalizeLookup(stock.company);
+      if (companyKey.isEmpty) {
+        continue;
+      }
+      final referenceDate =
+          parseDate(stock.resolvedListingDate) ??
+          parseDate(stock.subscriptionEnd) ??
+          parseDate(stock.subscriptionStart);
+      if (referenceDate == null || !referenceDate.isBefore(today)) {
+        continue;
+      }
+      addReference(
+        HistoricalListingReference(
+          companyKey: companyKey,
+          company: stock.company,
+          id: safeId(stock.id),
+          referenceDate: referenceDate,
+          source: 'seed',
+          subscriptionKey: stock.identifiers.subscriptionKey,
+        ),
+      );
+    }
+
+    for (final outcome in outcomeRows) {
+      final company = outcome.company?.trim() ?? '';
+      final companyKey = normalizeLookup(company);
+      final referenceDate = parseDate(outcome.listingDate);
+      if (companyKey.isEmpty ||
+          referenceDate == null ||
+          !referenceDate.isBefore(today)) {
+        continue;
+      }
+      addReference(
+        HistoricalListingReference(
+          companyKey: companyKey,
+          company: company,
+          id: outcome.id == null ? null : safeId(outcome.id!),
+          referenceDate: referenceDate,
+          source: 'outcome',
+          subscriptionKey: null,
+        ),
+      );
+    }
+
+    for (final reference in listedCompanyExclusions) {
+      if (!reference.referenceDate.isBefore(today)) {
+        continue;
+      }
+      addReference(reference);
+    }
+
+    return NewListingGuard._(references, today);
+  }
+
+  NewListingGuardResult filter(
+    List<IpoCompetitionStock> stocks, {
+    required String stage,
+  }) {
+    final accepted = <IpoCompetitionStock>[];
+    final blocked = <BlockedNewListingCandidate>[];
+    for (final stock in stocks) {
+      final normalized = stock.normalized();
+      final reference = _referenceFor(normalized);
+      if (reference == null || !_shouldBlock(normalized, reference)) {
+        accepted.add(stock);
+        continue;
+      }
+      blocked.add(
+        BlockedNewListingCandidate(
+          stage: stage,
+          reason: 'company_already_has_historical_listing',
+          stock: normalized,
+          reference: reference,
+        ),
+      );
+    }
+    return NewListingGuardResult(accepted: accepted, blocked: blocked);
+  }
+
+  HistoricalListingReference? _referenceFor(IpoCompetitionStock stock) {
+    final companyKey = stock.identifiers.normalizedCompany.trim().isNotEmpty
+        ? stock.identifiers.normalizedCompany
+        : normalizeLookup(stock.company);
+    if (companyKey.isEmpty) {
+      return null;
+    }
+    return references[companyKey];
+  }
+
+  bool _shouldBlock(
+    IpoCompetitionStock stock,
+    HistoricalListingReference reference,
+  ) {
+    if (reference.id != null && safeId(stock.id) == reference.id) {
+      return false;
+    }
+    if (reference.subscriptionKey != null &&
+        reference.subscriptionKey == stock.identifiers.subscriptionKey) {
+      return false;
+    }
+
+    final candidateDate =
+        parseDate(stock.subscriptionStart) ??
+        parseDate(stock.resolvedListingDate) ??
+        parseDate(stock.subscriptionEnd);
+    if (candidateDate == null) {
+      return false;
+    }
+
+    return candidateDate.difference(reference.referenceDate).inDays > 45;
   }
 }
 
@@ -7895,7 +8252,7 @@ IpoCompetitionStock? stockFromFinutsRows(List<Map<String, Object?>> rows) {
   if (company.isEmpty || ipoSn.isEmpty) {
     return null;
   }
-  if (finutsType != 'IPO' && finutsType != 'SPAC' && finutsType != 'FORF') {
+  if (finutsType != 'IPO' && finutsType != 'SPAC') {
     return null;
   }
 
@@ -7910,9 +8267,14 @@ IpoCompetitionStock? stockFromFinutsRows(List<Map<String, Object?>> rows) {
       normalizeDate((rowL?['BGNG_YMD'] ?? '').toString()) ??
       normalizeDate((rowL?['IPO_DATE'] ?? '').toString()) ??
       normalizeDate((primary['IPO_DATE'] ?? '').toString());
-  final generalSharesDate = finutsType == 'FORF'
-      ? (listingDate ?? subscriptionEnd ?? subscriptionStart)
-      : null;
+  final generalSharesDate = normalizeDate(
+    firstNonEmptyString(primary, [
+      'generalSharesDate',
+      'general_shares_date',
+      'rightsOfferDate',
+      'rights_offer_date',
+    ]),
+  );
   final demandForecastStart = normalizeDate(
     (rowD?['BGNG_YMD'] ?? '').toString(),
   );
@@ -7961,9 +8323,9 @@ IpoCompetitionStock? stockFromFinutsRows(List<Map<String, Object?>> rows) {
     subscriptionEnd: subscriptionEnd,
     demandForecastStart: demandForecastStart,
     demandForecastEnd: demandForecastEnd,
-    listingDate: finutsType == 'FORF' ? null : listingDate,
+    listingDate: listingDate,
     generalSharesDate: generalSharesDate,
-    securityType: finutsType == 'FORF' ? 'GENERAL_SHARES' : finutsType,
+    securityType: finutsType,
     leadManagers: readLeadManagers(
       firstNonEmptyString(primary, ['INDCT_JUGANSA_NM']),
     ),
