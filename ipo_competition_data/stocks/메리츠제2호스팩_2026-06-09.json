@@ -36,7 +36,7 @@
     "lockupCommitmentRate": null,
     "floatRate": null,
     "marketCapKrw": null,
-    "publicAllocationShares": null,
+    "publicAllocationShares": 1750000,
     "hasPutbackRight": false,
     "putbackSummary": null
   },
@@ -47,7 +47,35 @@
     "closeReturnRate": null,
     "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100558"
   },
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-06-09T09:00:00+09:00",
+      "source": "estimate_article",
+      "sourceUrl": "https://m.datatooza.com/article/20260608141545544852ef3b0ad6_80",
+      "brokers": [
+        {
+          "name": "메리츠증권",
+          "offeredShares": 875000,
+          "subscribedShares": 437500000,
+          "offerPrice": 2000,
+          "depositRate": 1,
+          "feeKrw": null,
+          "competitionRate": 500,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 500,
+          "equalAllocationShares": 875000,
+          "proportionalAllocationShares": 875000,
+          "expectedEqualShares": 15.09,
+          "applicationCount": 58000
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1750000,
+        "subscribedShares": 875000000,
+        "competitionRate": 500
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
@@ -115,8 +143,8 @@
     },
     "brokerScores": [],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 500,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
