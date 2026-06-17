@@ -34,7 +34,7 @@
     "institutionCompetitionRate": 381.3,
     "institutionParticipants": null,
     "lockupCommitmentRate": 0.0277,
-    "floatRate": null,
+    "floatRate": 0.4897,
     "marketCapKrw": null,
     "publicAllocationShares": 1750000,
     "hasPutbackRight": false,
@@ -51,18 +51,19 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 4,
-      "grade": "-",
-      "confidence": 0.35,
+      "overall": 31,
+      "grade": "C-",
+      "confidence": 0.65,
       "factors": {
-        "institutionDemand": 0,
+        "institutionDemand": 8,
         "demandStrength": 0,
         "lockupCommitment": 0,
-        "pricing": 3,
+        "pricing": 10,
+        "publicAllocation": 4,
         "leadManagerCoverage": 0
       },
-      "demand": 5,
-      "value": 0,
+      "demand": 29,
+      "value": 40,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
@@ -99,14 +100,15 @@
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "caution",
+      "label": "주의",
       "reasons": [
-        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+        "기관 수요예측 경쟁률은 381.3:1로 강한 구간은 아닙니다.",
+        "의무보유확약률은 2.77%로 낮아 상장 초기 매도 물량 부담을 확인해야 합니다.",
+        "공모가는 희망밴드 하단 12,000원으로 확정됐습니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
-        "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
+        "청약 경쟁률 확정 전에는 배정 및 기대수익 추정 신뢰도가 제한됩니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
@@ -119,11 +121,11 @@
       "hasOfferPrice": true,
       "institutionCompetitionRate": 381.3,
       "lockupCommitmentRate": 0.0277,
-      "floatRate": null,
+      "floatRate": 0.4897,
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 5,
-      "valueScore": 0
+      "demandScore": 29,
+      "valueScore": 40
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   },
@@ -136,5 +138,8 @@
   "publicAllocationShares": 1750000,
   "lockupCommitmentRate": 0.0277,
   "hasPutbackRight": false,
-  "putbackSummary": "일반청약자 환매청구권 없음"
+  "putbackSummary": "일반청약자 환매청구권 없음",
+  "score": 31,
+  "grade": "C-",
+  "decisionLevel": "caution"
 }
