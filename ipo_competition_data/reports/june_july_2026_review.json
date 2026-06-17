@@ -6,7 +6,7 @@
     "endExclusive": "2026-08-01"
   },
   "summary": {
-    "appFeedCount": 10,
+    "appFeedCount": 9,
     "blockedExistingListingCount": 17,
     "justekDemandFieldsPromoted": true
   },
@@ -24,20 +24,6 @@
       "grade": "-",
       "decisionLevel": "insufficient_data",
       "path": "stocks/메리츠제2호스팩_2026-06-09.json"
-    },
-    {
-      "id": "빅웨이브로보틱스_2026-06-18",
-      "company": "빅웨이브로보틱스",
-      "subscriptionStart": "2026-06-18",
-      "subscriptionEnd": "2026-06-19",
-      "listingDate": null,
-      "offerPrice": null,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
-      "score": 22,
-      "grade": "-",
-      "decisionLevel": "insufficient_data",
-      "path": "stocks/빅웨이브로보틱스_2026-06-18.json"
     },
     {
       "id": "스트라드비젼_2026-06-18",
@@ -265,5 +251,19 @@
     "appFeed contains records shipped through index/upcoming/yearly/dashboard outputs.",
     "blockedCandidates are excluded by new_listing_guard and should not be treated as missing IPO rows unless the guard reason is intentionally changed.",
     "져스텍 demand forecast fields are promoted to summary/root fields for app consumers that do not inspect fundamentals or analysis.inputs."
+  ],
+  "manuallyExcludedCandidates": [
+    {
+      "id": "빅웨이브로보틱스_2026-06-18",
+      "company": "빅웨이브로보틱스",
+      "previousSubscriptionStart": "2026-06-18",
+      "previousSubscriptionEnd": "2026-06-19",
+      "reason": "unverified_ipo_candidate_not_found_in_naver_ipo_or_dart_filings",
+      "evidence": [
+        "Naver Pay Securities IPO page on 2026-06-17 lists only 져스텍 and 스트라드비젼 as D-1 subscription candidates.",
+        "DART disclosure search returned 0 results for 빅웨이브로보틱스, 빅웨이브, 로보틱스, and corpCode 01722066 for 2026 filings.",
+        "Existing local Finuts source URL ipo_sn=100557 could not be confirmed during review."
+      ]
+    }
   ]
 }
