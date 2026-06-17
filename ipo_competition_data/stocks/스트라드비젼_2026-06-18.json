@@ -27,16 +27,16 @@
     "KB증권"
   ],
   "fundamentals": {
-    "offerPrice": null,
-    "priceBandMin": 12400,
-    "priceBandMax": 14800,
-    "topBandConfirmation": null,
-    "institutionCompetitionRate": null,
+    "offerPrice": 12000,
+    "priceBandMin": 12000,
+    "priceBandMax": 14000,
+    "topBandConfirmation": false,
+    "institutionCompetitionRate": 381.3,
     "institutionParticipants": null,
     "lockupCommitmentRate": null,
     "floatRate": null,
     "marketCapKrw": null,
-    "publicAllocationShares": null,
+    "publicAllocationShares": 1750000,
     "hasPutbackRight": false,
     "putbackSummary": null
   },
@@ -81,7 +81,7 @@
         "fiveMillionKrw": 481
       },
       "assumptions": {
-        "offerPrice": null,
+        "offerPrice": 12000,
         "competitionRate": null,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
@@ -95,7 +95,7 @@
         "competitionPresent": false,
         "generalCalibrationApplied": 0.18,
         "generalCalibrationSampleCount": 60,
-        "generalCompetitionPending": true
+        "generalCompetitionPending": false
       }
     },
     "decision": {
@@ -116,8 +116,8 @@
       "snapshotCount": 0,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
-      "hasOfferPrice": false,
-      "institutionCompetitionRate": null,
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 381.3,
       "lockupCommitmentRate": null,
       "floatRate": null,
       "hasOutcome": true,
