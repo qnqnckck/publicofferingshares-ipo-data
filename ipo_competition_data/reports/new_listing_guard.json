@@ -1,364 +1,225 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-02T11:05:28.581357",
+  "generatedAt": "2026-06-17T23:07:49.105121",
   "paths": {
+    "seed": "data/ipo_competition_seed.json",
+    "outcomes": "data/outcomes",
     "listedCompanyExclusions": "data/listed_company_exclusions.json",
     "report": "ipo_competition_data/reports/new_listing_guard.json"
   },
   "totals": {
-    "blocked": 23
+    "historicalCompanies": 523,
+    "blocked": 53
   },
   "blocked": [
     {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "hlb제약_2026-08-13",
-      "company": "HLB제약",
-      "subscriptionStart": "2026-08-13",
-      "subscriptionEnd": "2026-08-14",
-      "listingDate": "2026-08-14",
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "엔젠바이오_2026-08-19",
+      "company": "엔젠바이오",
+      "subscriptionStart": "2026-08-19",
+      "subscriptionEnd": "2026-08-20",
+      "listingDate": null,
       "identifiers": {
-        "subscriptionKey": "hlb제약_20260813_20260814",
-        "normalizedCompany": "hlb제약",
-        "corpCode": "00336817",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "path": "stocks/hlb제약_2026-08-13.json"
-    },
-    {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "하이퍼코퍼레이션_2026-08-06",
-      "company": "하이퍼코퍼레이션",
-      "subscriptionStart": "2026-08-06",
-      "subscriptionEnd": "2026-08-07",
-      "listingDate": "2026-08-07",
-      "identifiers": {
-        "subscriptionKey": "하이퍼코퍼레이션_20260806_20260807",
-        "normalizedCompany": "하이퍼코퍼레이션",
-        "corpCode": "00391197",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "path": "stocks/하이퍼코퍼레이션_2026-08-06.json"
-    },
-    {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "툴젠_2026-08-06",
-      "company": "툴젠",
-      "subscriptionStart": "2026-08-06",
-      "subscriptionEnd": "2026-08-07",
-      "listingDate": "2026-08-07",
-      "identifiers": {
-        "subscriptionKey": "툴젠_20260806_20260807",
-        "normalizedCompany": "툴젠",
-        "corpCode": "00547510",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "path": "stocks/툴젠_2026-08-06.json"
-    },
-    {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "아모텍_2026-08-06",
-      "company": "아모텍",
-      "subscriptionStart": "2026-08-06",
-      "subscriptionEnd": "2026-08-07",
-      "listingDate": "2026-08-07",
-      "identifiers": {
-        "subscriptionKey": "아모텍_20260806_20260807",
-        "normalizedCompany": "아모텍",
-        "corpCode": "00298447",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "path": "stocks/아모텍_2026-08-06.json"
-    },
-    {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "썸에이지_2026-08-06",
-      "company": "썸에이지",
-      "subscriptionStart": "2026-08-06",
-      "subscriptionEnd": "2026-08-07",
-      "listingDate": "2026-08-07",
-      "identifiers": {
-        "subscriptionKey": "썸에이지_20260806_20260807",
-        "normalizedCompany": "썸에이지",
-        "corpCode": "01049422",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "path": "stocks/썸에이지_2026-08-06.json"
-    },
-    {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "lb세미콘_2026-08-03",
-      "company": "LB세미콘",
-      "subscriptionStart": "2026-08-03",
-      "subscriptionEnd": "2026-08-04",
-      "listingDate": "2026-08-04",
-      "identifiers": {
-        "subscriptionKey": "lb세미콘_20260803_20260804",
-        "normalizedCompany": "lb세미콘",
-        "corpCode": "00412348",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "path": "stocks/lb세미콘_2026-08-03.json"
-    },
-    {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "계양전기_2026-07-28",
-      "company": "계양전기",
-      "subscriptionStart": "2026-07-28",
-      "subscriptionEnd": "2026-07-29",
-      "listingDate": "2026-07-29",
-      "identifiers": {
-        "subscriptionKey": "계양전기_20260728_20260729",
-        "normalizedCompany": "계양전기",
-        "corpCode": "00102618",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "path": "stocks/계양전기_2026-07-28.json"
-    },
-    {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "한화솔루션_2026-07-27",
-      "company": "한화솔루션",
-      "subscriptionStart": "2026-07-27",
-      "subscriptionEnd": "2026-07-28",
-      "listingDate": "2026-07-28",
-      "identifiers": {
-        "subscriptionKey": "한화솔루션_20260727_20260728",
-        "normalizedCompany": "한화솔루션",
-        "corpCode": "00162461",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "path": "stocks/한화솔루션_2026-07-27.json"
-    },
-    {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "뉴로메카_2026-07-27",
-      "company": "뉴로메카",
-      "subscriptionStart": "2026-07-27",
-      "subscriptionEnd": "2026-07-28",
-      "listingDate": "2026-07-28",
-      "identifiers": {
-        "subscriptionKey": "뉴로메카_20260727_20260728",
-        "normalizedCompany": "뉴로메카",
-        "corpCode": "01336461",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "path": "stocks/뉴로메카_2026-07-27.json"
-    },
-    {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "대동기어_2026-07-23",
-      "company": "대동기어",
-      "subscriptionStart": "2026-07-23",
-      "subscriptionEnd": "2026-07-24",
-      "listingDate": "2026-07-24",
-      "identifiers": {
-        "subscriptionKey": "대동기어_20260723_20260724",
-        "normalizedCompany": "대동기어",
-        "corpCode": "00109310",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "path": "stocks/대동기어_2026-07-23.json"
-    },
-    {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "한솔테크닉스_2026-07-16",
-      "company": "한솔테크닉스",
-      "subscriptionStart": "2026-07-16",
-      "subscriptionEnd": "2026-07-20",
-      "listingDate": "2026-07-20",
-      "identifiers": {
-        "subscriptionKey": "한솔테크닉스_20260716_20260720",
-        "normalizedCompany": "한솔테크닉스",
-        "corpCode": "00157399",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "path": "stocks/한솔테크닉스_2026-07-16.json"
-    },
-    {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "티엘비_2026-07-09",
-      "company": "티엘비",
-      "subscriptionStart": "2026-07-09",
-      "subscriptionEnd": "2026-07-10",
-      "listingDate": "2026-07-10",
-      "identifiers": {
-        "subscriptionKey": "티엘비_20260709_20260710",
-        "normalizedCompany": "티엘비",
-        "corpCode": "00920379",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "path": "stocks/티엘비_2026-07-09.json"
-    },
-    {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "디모아_2026-07-09",
-      "company": "디모아",
-      "subscriptionStart": "2026-07-09",
-      "subscriptionEnd": "2026-07-10",
-      "listingDate": "2026-07-10",
-      "identifiers": {
-        "subscriptionKey": "디모아_20260709_20260710",
-        "normalizedCompany": "디모아",
-        "corpCode": "00125725",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "path": "stocks/디모아_2026-07-09.json"
-    },
-    {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "휴림에이텍_2026-07-06",
-      "company": "휴림에이텍",
-      "subscriptionStart": "2026-07-06",
-      "subscriptionEnd": "2026-07-07",
-      "listingDate": "2026-07-07",
-      "identifiers": {
-        "subscriptionKey": "휴림에이텍_20260706_20260707",
-        "normalizedCompany": "휴림에이텍",
-        "corpCode": "00230814",
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "path": "stocks/휴림에이텍_2026-07-06.json"
-    },
-    {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "형지i_amp_c_2026-07-14",
-      "company": "형지I&amp;C",
-      "subscriptionStart": "2026-07-14",
-      "subscriptionEnd": "2026-07-15",
-      "listingDate": "2026-07-15",
-      "identifiers": {
-        "subscriptionKey": "형지I&amp;C_20260714_20260715",
-        "normalizedCompany": "형지iampc",
+        "subscriptionKey": "엔젠바이오_20260819_20260820",
+        "normalizedCompany": "엔젠바이오",
         "corpCode": null,
         "stockCode": null,
         "kindCode": null,
         "isin": null
       },
-      "path": "stocks/형지i_amp_c_2026-07-14.json"
+      "matchedHistorical": {
+        "companyKey": "엔젠바이오",
+        "company": "엔젠바이오",
+        "id": null,
+        "referenceDate": "2020-12-10",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
     },
     {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "한울반도체_2026-07-14",
-      "company": "한울반도체",
-      "subscriptionStart": "2026-07-14",
-      "subscriptionEnd": "2026-07-15",
-      "listingDate": "2026-07-15",
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "hlb제약_2026-08-13",
+      "company": "HLB제약",
+      "subscriptionStart": "2026-08-13",
+      "subscriptionEnd": "2026-08-14",
+      "listingDate": null,
       "identifiers": {
-        "subscriptionKey": "한울반도체_20260714_20260715",
-        "normalizedCompany": "한울반도체",
-        "corpCode": "01359815",
+        "subscriptionKey": "HLB제약_20260813_20260814",
+        "normalizedCompany": "hlb제약",
+        "corpCode": null,
         "stockCode": null,
         "kindCode": null,
         "isin": null
       },
-      "path": "stocks/한울반도체_2026-07-14.json"
+      "matchedHistorical": {
+        "companyKey": "hlb제약",
+        "company": "HLB제약",
+        "id": null,
+        "referenceDate": "2015-12-21",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
     },
     {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
       "id": "경남제약_2026-08-06",
       "company": "경남제약",
       "subscriptionStart": "2026-08-06",
       "subscriptionEnd": "2026-08-07",
-      "listingDate": "2026-08-07",
+      "listingDate": null,
       "identifiers": {
         "subscriptionKey": "경남제약_20260806_20260807",
         "normalizedCompany": "경남제약",
-        "corpCode": "00307028",
+        "corpCode": null,
         "stockCode": null,
         "kindCode": null,
         "isin": null
       },
-      "path": "stocks/경남제약_2026-08-06.json"
+      "matchedHistorical": {
+        "companyKey": "경남제약",
+        "company": "경남제약",
+        "id": null,
+        "referenceDate": "2001-11-06",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
     },
     {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "상지건설_2026-07-23",
-      "company": "상지건설",
-      "subscriptionStart": "2026-07-23",
-      "subscriptionEnd": "2026-07-24",
-      "listingDate": "2026-07-24",
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "썸에이지_2026-08-06",
+      "company": "썸에이지",
+      "subscriptionStart": "2026-08-06",
+      "subscriptionEnd": "2026-08-07",
+      "listingDate": null,
       "identifiers": {
-        "subscriptionKey": "상지건설_20260723_20260724",
-        "normalizedCompany": "상지건설",
-        "corpCode": "00232007",
+        "subscriptionKey": "썸에이지_20260806_20260807",
+        "normalizedCompany": "썸에이지",
+        "corpCode": null,
         "stockCode": null,
         "kindCode": null,
         "isin": null
       },
-      "path": "stocks/상지건설_2026-07-23.json"
+      "matchedHistorical": {
+        "companyKey": "썸에이지",
+        "company": "썸에이지",
+        "id": null,
+        "referenceDate": "2014-12-29",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
     },
     {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "센서뷰_2026-07-20",
-      "company": "센서뷰",
-      "subscriptionStart": "2026-07-20",
-      "subscriptionEnd": "2026-07-21",
-      "listingDate": "2026-07-21",
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "아모텍_2026-08-06",
+      "company": "아모텍",
+      "subscriptionStart": "2026-08-06",
+      "subscriptionEnd": "2026-08-07",
+      "listingDate": null,
       "identifiers": {
-        "subscriptionKey": "센서뷰_20260720_20260721",
-        "normalizedCompany": "센서뷰",
-        "corpCode": "01593668",
+        "subscriptionKey": "아모텍_20260806_20260807",
+        "normalizedCompany": "아모텍",
+        "corpCode": null,
         "stockCode": null,
         "kindCode": null,
         "isin": null
       },
-      "path": "stocks/센서뷰_2026-07-20.json"
+      "matchedHistorical": {
+        "companyKey": "아모텍",
+        "company": "아모텍",
+        "id": null,
+        "referenceDate": "2003-08-01",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
     },
     {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "툴젠_2026-08-06",
+      "company": "툴젠",
+      "subscriptionStart": "2026-08-06",
+      "subscriptionEnd": "2026-08-07",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "툴젠_20260806_20260807",
+        "normalizedCompany": "툴젠",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "툴젠",
+        "company": "툴젠",
+        "id": null,
+        "referenceDate": "2021-12-10",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "하이퍼코퍼레이션_2026-08-06",
+      "company": "하이퍼코퍼레이션",
+      "subscriptionStart": "2026-08-06",
+      "subscriptionEnd": "2026-08-07",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "하이퍼코퍼레이션_20260806_20260807",
+        "normalizedCompany": "하이퍼코퍼레이션",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "하이퍼코퍼레이션",
+        "company": "하이퍼코퍼레이션",
+        "id": null,
+        "referenceDate": "2003-01-01",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "lb세미콘_2026-08-03",
+      "company": "LB세미콘",
+      "subscriptionStart": "2026-08-03",
+      "subscriptionEnd": "2026-08-04",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "LB세미콘_20260803_20260804",
+        "normalizedCompany": "lb세미콘",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "lb세미콘",
+        "company": "LB세미콘",
+        "id": null,
+        "referenceDate": "2011-01-31",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
       "id": "에이전트에이아이_2026-08-03",
       "company": "에이전트에이아이",
       "subscriptionStart": "2026-08-03",
       "subscriptionEnd": "2026-08-04",
-      "listingDate": "2026-08-04",
+      "listingDate": null,
       "identifiers": {
         "subscriptionKey": "에이전트에이아이_20260803_20260804",
         "normalizedCompany": "에이전트에이아이",
@@ -367,61 +228,1114 @@
         "kindCode": null,
         "isin": null
       },
-      "path": "stocks/에이전트에이아이_2026-08-03.json"
+      "matchedHistorical": {
+        "companyKey": "에이전트에이아이",
+        "company": "에이전트에이아이",
+        "id": null,
+        "referenceDate": "2002-09-17",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
     },
     {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
-      "id": "엔젠바이오_2026-08-19",
-      "company": "엔젠바이오",
-      "subscriptionStart": "2026-08-19",
-      "subscriptionEnd": "2026-08-20",
-      "listingDate": "2026-08-20",
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "계양전기_2026-07-28",
+      "company": "계양전기",
+      "subscriptionStart": "2026-07-28",
+      "subscriptionEnd": "2026-07-29",
+      "listingDate": null,
       "identifiers": {
-        "subscriptionKey": "엔젠바이오_20260819_20260820",
-        "normalizedCompany": "엔젠바이오",
-        "corpCode": "01397903",
+        "subscriptionKey": "계양전기_20260728_20260729",
+        "normalizedCompany": "계양전기",
+        "corpCode": null,
         "stockCode": null,
         "kindCode": null,
         "isin": null
       },
-      "path": "stocks/엔젠바이오_2026-08-19.json"
+      "matchedHistorical": {
+        "companyKey": "계양전기",
+        "company": "계양전기",
+        "id": null,
+        "referenceDate": "1988-07-06",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
     },
     {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "뉴로메카_2026-07-27",
+      "company": "뉴로메카",
+      "subscriptionStart": "2026-07-27",
+      "subscriptionEnd": "2026-07-28",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "뉴로메카_20260727_20260728",
+        "normalizedCompany": "뉴로메카",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "뉴로메카",
+        "company": "뉴로메카",
+        "id": null,
+        "referenceDate": "2022-11-04",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "한화솔루션_2026-07-27",
+      "company": "한화솔루션",
+      "subscriptionStart": "2026-07-27",
+      "subscriptionEnd": "2026-07-28",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "한화솔루션_20260727_20260728",
+        "normalizedCompany": "한화솔루션",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "한화솔루션",
+        "company": "한화솔루션",
+        "id": null,
+        "referenceDate": "1974-06-19",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "대동기어_2026-07-23",
+      "company": "대동기어",
+      "subscriptionStart": "2026-07-23",
+      "subscriptionEnd": "2026-07-24",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "대동기어_20260723_20260724",
+        "normalizedCompany": "대동기어",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "대동기어",
+        "company": "대동기어",
+        "id": null,
+        "referenceDate": "1991-05-17",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "상지건설_2026-07-23",
+      "company": "상지건설",
+      "subscriptionStart": "2026-07-23",
+      "subscriptionEnd": "2026-07-24",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "상지건설_20260723_20260724",
+        "normalizedCompany": "상지건설",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "상지건설",
+        "company": "상지건설",
+        "id": null,
+        "referenceDate": "2000-10-19",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
       "id": "클로봇_2026-07-21",
       "company": "클로봇",
       "subscriptionStart": "2026-07-21",
       "subscriptionEnd": "2026-07-22",
-      "listingDate": "2026-07-22",
+      "listingDate": null,
       "identifiers": {
         "subscriptionKey": "클로봇_20260721_20260722",
         "normalizedCompany": "클로봇",
-        "corpCode": "01784914",
+        "corpCode": null,
         "stockCode": null,
         "kindCode": null,
         "isin": null
       },
-      "path": "stocks/클로봇_2026-07-21.json"
+      "matchedHistorical": {
+        "companyKey": "클로봇",
+        "company": "클로봇",
+        "id": "clobot_2024",
+        "referenceDate": "2024-10-17",
+        "source": "seed",
+        "subscriptionKey": "클로봇_20241016_20241017"
+      }
     },
     {
-      "stage": "manual_feed_filter",
-      "reason": "company_already_listed_exclusion",
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "센서뷰_2026-07-20",
+      "company": "센서뷰",
+      "subscriptionStart": "2026-07-20",
+      "subscriptionEnd": "2026-07-21",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "센서뷰_20260720_20260721",
+        "normalizedCompany": "센서뷰",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "센서뷰",
+        "company": "센서뷰",
+        "id": "sensorview_2023",
+        "referenceDate": "2023-07-19",
+        "source": "seed",
+        "subscriptionKey": "센서뷰_20230710_20230711"
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "한솔테크닉스_2026-07-16",
+      "company": "한솔테크닉스",
+      "subscriptionStart": "2026-07-16",
+      "subscriptionEnd": "2026-07-20",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "한솔테크닉스_20260716_20260720",
+        "normalizedCompany": "한솔테크닉스",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "한솔테크닉스",
+        "company": "한솔테크닉스",
+        "id": null,
+        "referenceDate": "1988-07-01",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
       "id": "페니트리움바이오_2026-07-14",
       "company": "페니트리움바이오",
       "subscriptionStart": "2026-07-14",
       "subscriptionEnd": "2026-07-15",
-      "listingDate": "2026-07-15",
+      "listingDate": null,
       "identifiers": {
         "subscriptionKey": "페니트리움바이오_20260714_20260715",
         "normalizedCompany": "페니트리움바이오",
-        "corpCode": "01409022",
+        "corpCode": null,
         "stockCode": null,
         "kindCode": null,
         "isin": null
       },
-      "path": "stocks/페니트리움바이오_2026-07-14.json"
+      "matchedHistorical": {
+        "companyKey": "페니트리움바이오",
+        "company": "페니트리움바이오",
+        "id": null,
+        "referenceDate": "2021-06-03",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "한울반도체_2026-07-14",
+      "company": "한울반도체",
+      "subscriptionStart": "2026-07-14",
+      "subscriptionEnd": "2026-07-15",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "한울반도체_20260714_20260715",
+        "normalizedCompany": "한울반도체",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "한울반도체",
+        "company": "한울반도체",
+        "id": null,
+        "referenceDate": "2019-09-18",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "형지i_amp_c_2026-07-14",
+      "company": "형지I&amp;C",
+      "subscriptionStart": "2026-07-14",
+      "subscriptionEnd": "2026-07-15",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "형지I&amp;C_20260714_20260715",
+        "normalizedCompany": "형지iampc",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "형지iampc",
+        "company": "형지I&C",
+        "id": null,
+        "referenceDate": "2004-07-02",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "디모아_2026-07-09",
+      "company": "디모아",
+      "subscriptionStart": "2026-07-09",
+      "subscriptionEnd": "2026-07-10",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "디모아_20260709_20260710",
+        "normalizedCompany": "디모아",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "디모아",
+        "company": "디모아",
+        "id": null,
+        "referenceDate": "1993-04-21",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "티엘비_2026-07-09",
+      "company": "티엘비",
+      "subscriptionStart": "2026-07-09",
+      "subscriptionEnd": "2026-07-10",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "티엘비_20260709_20260710",
+        "normalizedCompany": "티엘비",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "티엘비",
+        "company": "티엘비",
+        "id": null,
+        "referenceDate": "2020-12-14",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "휴림에이텍_2026-07-06",
+      "company": "휴림에이텍",
+      "subscriptionStart": "2026-07-06",
+      "subscriptionEnd": "2026-07-07",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "휴림에이텍_20260706_20260707",
+        "normalizedCompany": "휴림에이텍",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "휴림에이텍",
+        "company": "휴림에이텍",
+        "id": null,
+        "referenceDate": "2005-10-27",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "뉴인텍_2026-06-25",
+      "company": "뉴인텍",
+      "subscriptionStart": "2026-06-25",
+      "subscriptionEnd": "2026-06-26",
+      "listingDate": "2026-07-10",
+      "identifiers": {
+        "subscriptionKey": "뉴인텍_20260625_20260626",
+        "normalizedCompany": "뉴인텍",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "뉴인텍",
+        "company": "뉴인텍",
+        "id": "뉴인텍_2023-08-11",
+        "referenceDate": "2023-08-14",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "피엠티_2026-06-24",
+      "company": "피엠티",
+      "subscriptionStart": "2026-06-24",
+      "subscriptionEnd": "2026-06-25",
+      "listingDate": "2026-07-10",
+      "identifiers": {
+        "subscriptionKey": "피엠티_20260624_20260625",
+        "normalizedCompany": "피엠티",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "피엠티",
+        "company": "피엠티",
+        "id": null,
+        "referenceDate": "2016-12-12",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "rf머트리얼즈_2026-06-23",
+      "company": "RF머트리얼즈",
+      "subscriptionStart": "2026-06-23",
+      "subscriptionEnd": "2026-06-24",
+      "listingDate": "2026-07-09",
+      "identifiers": {
+        "subscriptionKey": "rf머트리얼즈_20260623_20260624",
+        "normalizedCompany": "rf머트리얼즈",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "rf머트리얼즈",
+        "company": "RF머트리얼즈",
+        "id": null,
+        "referenceDate": "2019-12-24",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "이뮨온시아_2026-05-18",
+      "company": "이뮨온시아",
+      "subscriptionStart": "2026-05-18",
+      "subscriptionEnd": "2026-05-19",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "이뮨온시아_20260518_20260519",
+        "normalizedCompany": "이뮨온시아",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "이뮨온시아",
+        "company": "이뮨온시아",
+        "id": "이뮨온시아_2025-05-07",
+        "referenceDate": "2025-05-19",
+        "source": "seed",
+        "subscriptionKey": "이뮨온시아_20250507_20250508"
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "루닛_2026-04-27",
+      "company": "루닛",
+      "subscriptionStart": "2026-04-27",
+      "subscriptionEnd": "2026-04-28",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "루닛_20260427_20260428",
+        "normalizedCompany": "루닛",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "루닛",
+        "company": "루닛",
+        "id": "루닛_2023-11-06",
+        "referenceDate": "2023-11-07",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "에이텀_2026-04-27",
+      "company": "에이텀",
+      "subscriptionStart": "2026-04-27",
+      "subscriptionEnd": "2026-04-28",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "에이텀_20260427_20260428",
+        "normalizedCompany": "에이텀",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "에이텀",
+        "company": "에이텀",
+        "id": "에이텀_2023-11-21",
+        "referenceDate": "2023-12-01",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "한국첨단소재_2026-03-16",
+      "company": "한국첨단소재",
+      "subscriptionStart": "2026-03-16",
+      "subscriptionEnd": "2026-03-17",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "한국첨단소재_20260316_20260317",
+        "normalizedCompany": "한국첨단소재",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "한국첨단소재",
+        "company": "한국첨단소재",
+        "id": "한국첨단소재_2024-12-23",
+        "referenceDate": "2024-12-24",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "대한광통신_2026-03-03",
+      "company": "대한광통신",
+      "subscriptionStart": "2026-03-03",
+      "subscriptionEnd": "2026-03-04",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "대한광통신_20260303_20260304",
+        "normalizedCompany": "대한광통신",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "대한광통신",
+        "company": "대한광통신",
+        "id": "대한광통신_2025-02-13",
+        "referenceDate": "2025-02-14",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "아미코젠_2026-02-06",
+      "company": "아미코젠",
+      "subscriptionStart": "2026-02-06",
+      "subscriptionEnd": "2026-02-09",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "아미코젠_20260206_20260209",
+        "normalizedCompany": "아미코젠",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "아미코젠",
+        "company": "아미코젠",
+        "id": "아미코젠_2023-12-07",
+        "referenceDate": "2023-12-08",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "오텍_2026-01-07",
+      "company": "오텍",
+      "subscriptionStart": "2026-01-07",
+      "subscriptionEnd": "2026-01-08",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "오텍_20260107_20260108",
+        "normalizedCompany": "오텍",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "오텍",
+        "company": "오텍",
+        "id": "오텍_2025-08-07",
+        "referenceDate": "2025-08-08",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "딥노이드_2025-12-11",
+      "company": "딥노이드",
+      "subscriptionStart": "2025-12-11",
+      "subscriptionEnd": "2025-12-12",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "딥노이드_20251211_20251212",
+        "normalizedCompany": "딥노이드",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "딥노이드",
+        "company": "딥노이드",
+        "id": "딥노이드_2023-10-19",
+        "referenceDate": "2023-10-20",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "노을_2025-12-09",
+      "company": "노을",
+      "subscriptionStart": "2025-12-09",
+      "subscriptionEnd": "2025-12-10",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "노을_20251209_20251210",
+        "normalizedCompany": "노을",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "노을",
+        "company": "노을",
+        "id": "노을_2023-09-19",
+        "referenceDate": "2023-09-20",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "넥스트칩_2025-12-08",
+      "company": "넥스트칩",
+      "subscriptionStart": "2025-12-08",
+      "subscriptionEnd": "2025-12-09",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "넥스트칩_20251208_20251209",
+        "normalizedCompany": "넥스트칩",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "넥스트칩",
+        "company": "넥스트칩",
+        "id": "넥스트칩_2025-08-04",
+        "referenceDate": "2025-08-05",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "엑셀세라퓨틱스_2025-11-17",
+      "company": "엑셀세라퓨틱스",
+      "subscriptionStart": "2025-11-17",
+      "subscriptionEnd": "2025-11-18",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "엑셀세라퓨틱스_20251117_20251118",
+        "normalizedCompany": "엑셀세라퓨틱스",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "엑셀세라퓨틱스",
+        "company": "엑셀세라퓨틱스",
+        "id": "excel_therapeutics_2024",
+        "referenceDate": "2024-07-04",
+        "source": "seed",
+        "subscriptionKey": "엑셀세라퓨틱스_20240703_20240704"
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "샤페론_2025-11-06",
+      "company": "샤페론",
+      "subscriptionStart": "2025-11-06",
+      "subscriptionEnd": "2025-11-07",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "샤페론_20251106_20251107",
+        "normalizedCompany": "샤페론",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "샤페론",
+        "company": "샤페론",
+        "id": "샤페론_2024-06-10",
+        "referenceDate": "2024-06-11",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "유니슨_2025-09-15",
+      "company": "유니슨",
+      "subscriptionStart": "2025-09-15",
+      "subscriptionEnd": "2025-09-16",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "유니슨_20250915_20250916",
+        "normalizedCompany": "유니슨",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "유니슨",
+        "company": "유니슨",
+        "id": "유니슨_2024-04-29",
+        "referenceDate": "2024-04-30",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "에스와이스틸텍_2025-09-08",
+      "company": "에스와이스틸텍",
+      "subscriptionStart": "2025-09-08",
+      "subscriptionEnd": "2025-09-09",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "에스와이스틸텍_20250908_20250909",
+        "normalizedCompany": "에스와이스틸텍",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "에스와이스틸텍",
+        "company": "에스와이스틸텍",
+        "id": "sy_steeltech_2023",
+        "referenceDate": "2023-11-13",
+        "source": "seed",
+        "subscriptionKey": "에스와이스틸텍_20231101_20231102"
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "강스템바이오텍_2025-08-20",
+      "company": "강스템바이오텍",
+      "subscriptionStart": "2025-08-20",
+      "subscriptionEnd": "2025-08-21",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "강스템바이오텍_20250820_20250821",
+        "normalizedCompany": "강스템바이오텍",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "강스템바이오텍",
+        "company": "강스템바이오텍",
+        "id": "강스템바이오텍_2023-11-02",
+        "referenceDate": "2023-11-03",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "셀리드_2025-06-19",
+      "company": "셀리드",
+      "subscriptionStart": "2025-06-19",
+      "subscriptionEnd": "2025-06-20",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "셀리드_20250619_20250620",
+        "normalizedCompany": "셀리드",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "셀리드",
+        "company": "셀리드",
+        "id": "셀리드_2023-09-05",
+        "referenceDate": "2023-09-06",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "상지건설_2025-05-07",
+      "company": "상지건설",
+      "subscriptionStart": "2025-05-07",
+      "subscriptionEnd": "2025-05-08",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "상지건설_20250507_20250508",
+        "normalizedCompany": "상지건설",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "상지건설",
+        "company": "상지건설",
+        "id": null,
+        "referenceDate": "2000-10-19",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "이수페타시스_2025-04-14",
+      "company": "이수페타시스",
+      "subscriptionStart": "2025-04-14",
+      "subscriptionEnd": "2025-04-15",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "이수페타시스_20250414_20250415",
+        "normalizedCompany": "이수페타시스",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "이수페타시스",
+        "company": "이수페타시스",
+        "id": "이수페타시스_2025-02-11",
+        "referenceDate": "2025-02-12",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "이에이트_2025-03-18",
+      "company": "이에이트",
+      "subscriptionStart": "2025-03-18",
+      "subscriptionEnd": "2025-03-19",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "이에이트_20250318_20250319",
+        "normalizedCompany": "이에이트",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "이에이트",
+        "company": "이에이트",
+        "id": "e8ight_2024",
+        "referenceDate": "2024-02-14",
+        "source": "seed",
+        "subscriptionKey": "이에이트_20240213_20240214"
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "센서뷰_2024-12-18",
+      "company": "센서뷰",
+      "subscriptionStart": "2024-12-18",
+      "subscriptionEnd": "2024-12-19",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "센서뷰_20241218_20241219",
+        "normalizedCompany": "센서뷰",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "센서뷰",
+        "company": "센서뷰",
+        "id": "sensorview_2023",
+        "referenceDate": "2023-07-19",
+        "source": "seed",
+        "subscriptionKey": "센서뷰_20230710_20230711"
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "엔젠바이오_2024-12-12",
+      "company": "엔젠바이오",
+      "subscriptionStart": "2024-12-12",
+      "subscriptionEnd": "2024-12-13",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "엔젠바이오_20241212_20241213",
+        "normalizedCompany": "엔젠바이오",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "엔젠바이오",
+        "company": "엔젠바이오",
+        "id": null,
+        "referenceDate": "2020-12-10",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "경남제약_2024-10-17",
+      "company": "경남제약",
+      "subscriptionStart": "2024-10-17",
+      "subscriptionEnd": "2024-10-18",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "경남제약_20241017_20241018",
+        "normalizedCompany": "경남제약",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "경남제약",
+        "company": "경남제약",
+        "id": null,
+        "referenceDate": "2001-11-06",
+        "source": "listed_company_exclusion",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "삼성fn리츠_2024-09-12",
+      "company": "삼성FN리츠",
+      "subscriptionStart": "2024-09-12",
+      "subscriptionEnd": "2024-09-13",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "삼성FN리츠_20240912_20240913",
+        "normalizedCompany": "삼성fn리츠",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "삼성fn리츠",
+        "company": "삼성FN리츠",
+        "id": "삼성fn리츠_2023-03-27",
+        "referenceDate": "2023-04-10",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "셀리드_2024-08-06",
+      "company": "셀리드",
+      "subscriptionStart": "2024-08-06",
+      "subscriptionEnd": "2024-08-07",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "셀리드_20240806_20240807",
+        "normalizedCompany": "셀리드",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "셀리드",
+        "company": "셀리드",
+        "id": "셀리드_2023-09-05",
+        "referenceDate": "2023-09-06",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "discovered",
+      "reason": "company_already_has_historical_listing",
+      "id": "퀄리타스반도체_2024-07-18",
+      "company": "퀄리타스반도체",
+      "subscriptionStart": "2024-07-18",
+      "subscriptionEnd": "2024-07-19",
+      "listingDate": null,
+      "identifiers": {
+        "subscriptionKey": "퀄리타스반도체_20240718_20240719",
+        "normalizedCompany": "퀄리타스반도체",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "퀄리타스반도체",
+        "company": "퀄리타스반도체",
+        "id": "qualitas_semiconductor_2023",
+        "referenceDate": "2023-10-27",
+        "source": "seed",
+        "subscriptionKey": "퀄리타스반도체_20231018_20231019"
+      }
+    },
+    {
+      "stage": "final",
+      "reason": "company_already_has_historical_listing",
+      "id": "루닛_2026-04-27",
+      "company": "루닛",
+      "subscriptionStart": "2026-04-27",
+      "subscriptionEnd": "2026-04-28",
+      "listingDate": "2026-04-28",
+      "identifiers": {
+        "subscriptionKey": "루닛_20260427_20260428",
+        "normalizedCompany": "루닛",
+        "corpCode": "01397620",
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "루닛",
+        "company": "루닛",
+        "id": "루닛_2023-11-06",
+        "referenceDate": "2023-11-07",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "final",
+      "reason": "company_already_has_historical_listing",
+      "id": "에이텀_2026-04-27",
+      "company": "에이텀",
+      "subscriptionStart": "2026-04-27",
+      "subscriptionEnd": "2026-04-28",
+      "listingDate": "2026-04-28",
+      "identifiers": {
+        "subscriptionKey": "에이텀_20260427_20260428",
+        "normalizedCompany": "에이텀",
+        "corpCode": "01444380",
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "에이텀",
+        "company": "에이텀",
+        "id": "에이텀_2023-11-21",
+        "referenceDate": "2023-12-01",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
     }
   ]
 }
