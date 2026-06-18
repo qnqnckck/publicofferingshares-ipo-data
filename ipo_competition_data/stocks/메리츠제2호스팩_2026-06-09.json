@@ -36,9 +36,9 @@
     "lockupCommitmentRate": null,
     "floatRate": null,
     "marketCapKrw": null,
-    "publicAllocationShares": 1750000,
+    "publicAllocationShares": null,
     "hasPutbackRight": false,
-    "putbackSummary": "일반청약자 환매청구권 없음"
+    "putbackSummary": null
   },
   "outcome": {
     "listingDate": "2026-06-18",
@@ -47,39 +47,11 @@
     "closeReturnRate": null,
     "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100558"
   },
-  "snapshots": [
-    {
-      "capturedAt": "2026-06-09T09:00:00+09:00",
-      "source": "estimate_article",
-      "sourceUrl": "https://m.datatooza.com/article/20260608141545544852ef3b0ad6_80",
-      "brokers": [
-        {
-          "name": "메리츠증권",
-          "offeredShares": 875000,
-          "subscribedShares": 437500000,
-          "offerPrice": 2000,
-          "depositRate": 1,
-          "feeKrw": null,
-          "competitionRate": 500,
-          "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 500,
-          "equalAllocationShares": 875000,
-          "proportionalAllocationShares": 875000,
-          "expectedEqualShares": 15.09,
-          "applicationCount": 58000
-        }
-      ],
-      "aggregate": {
-        "offeredShares": 1750000,
-        "subscribedShares": 875000000,
-        "competitionRate": 500
-      }
-    }
-  ],
+  "snapshots": [],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 24,
+      "overall": 21,
       "grade": "-",
       "confidence": 0.45,
       "factors": {
@@ -89,11 +61,11 @@
         "spacVolatility": 3,
         "market": 5,
         "leadManagers": 3,
-        "recency": 4,
+        "recency": 2,
         "dataCompleteness": 4
       },
-      "demand": 24,
-      "value": 24,
+      "demand": 21,
+      "value": 21,
       "mode": "spac_live_balanced"
     },
     "expectedReturn": {
@@ -143,8 +115,8 @@
     },
     "brokerScores": [],
     "inputs": {
-      "latestCompetitionRate": 500,
-      "snapshotCount": 1,
+      "latestCompetitionRate": null,
+      "snapshotCount": 0,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
@@ -153,11 +125,9 @@
       "floatRate": null,
       "hasOutcome": true,
       "scoreMode": "spac_live_balanced",
-      "demandScore": 24,
-      "valueScore": 24
+      "demandScore": 21,
+      "valueScore": 21
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
-  },
-  "hasPutbackRight": false,
-  "putbackSummary": "일반청약자 환매청구권 없음"
+  }
 }

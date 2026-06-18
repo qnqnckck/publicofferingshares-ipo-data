@@ -35,7 +35,7 @@
     "institutionParticipants": null,
     "lockupCommitmentRate": null,
     "floatRate": null,
-    "marketCapKrw": 307343295500,
+    "marketCapKrw": null,
     "publicAllocationShares": null,
     "hasPutbackRight": false,
     "putbackSummary": null
@@ -51,7 +51,7 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 12,
+      "overall": 4,
       "grade": "-",
       "confidence": 0.45,
       "factors": {
@@ -59,27 +59,26 @@
         "demandStrength": 0,
         "lockupCommitment": 0,
         "pricing": 3,
-        "marketCap": 5,
         "leadManagerCoverage": 0
       },
       "demand": 5,
-      "value": 42,
+      "value": 0,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.1278,
-      "bearCaseListingGainRate": -0.0722,
-      "baseCaseListingGainRate": 0.1278,
-      "bullCaseListingGainRate": 0.4078,
+      "expectedListingGainRate": 0.0729,
+      "bearCaseListingGainRate": -0.1271,
+      "baseCaseListingGainRate": 0.0729,
+      "bullCaseListingGainRate": 0.3529,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
         "oneMillionKrw": 0.408,
         "fiveMillionKrw": 2.039
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 5,
-        "oneMillionKrw": 160,
-        "fiveMillionKrw": 799
+        "minimumSubscription": 3,
+        "oneMillionKrw": 91,
+        "fiveMillionKrw": 455
       },
       "assumptions": {
         "offerPrice": 3065,
@@ -87,7 +86,7 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": -0.05218666666666669,
+        "generalPriorBase": -0.10712,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -95,7 +94,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": false,
         "generalCalibrationApplied": 0.18,
-        "generalCalibrationSampleCount": 60,
+        "generalCalibrationSampleCount": 58,
         "generalCompetitionPending": true
       }
     },
@@ -123,7 +122,7 @@
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 5,
-      "valueScore": 42
+      "valueScore": 0
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

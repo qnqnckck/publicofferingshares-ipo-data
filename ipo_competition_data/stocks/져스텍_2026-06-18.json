@@ -38,7 +38,7 @@
     "marketCapKrw": 150600000000,
     "publicAllocationShares": 400000,
     "hasPutbackRight": false,
-    "putbackSummary": "일반청약자 환매청구권 없음"
+    "putbackSummary": null
   },
   "outcome": {
     "listingDate": "2026-06-29",
@@ -47,13 +47,41 @@
     "closeReturnRate": null,
     "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100548"
   },
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-06-18T18:56:43",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A153890",
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 1600000,
+          "subscribedShares": 214720000,
+          "offerPrice": 12500,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 134.2,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 267.39,
+          "equalAllocationShares": 200000,
+          "proportionalAllocationShares": 200000,
+          "expectedEqualShares": 1.1432,
+          "applicationCount": 174949
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1600000,
+        "subscribedShares": 214720000,
+        "competitionRate": 134.2
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
       "overall": 86,
       "grade": "A",
-      "confidence": 0.65,
+      "confidence": 0.95,
       "factors": {
         "institutionDemand": 22,
         "demandStrength": 8,
@@ -68,52 +96,63 @@
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.8701,
-      "bearCaseListingGainRate": 0.6701,
-      "baseCaseListingGainRate": 0.8701,
-      "bullCaseListingGainRate": 1.2101,
+      "expectedListingGainRate": 0.9353,
+      "bearCaseListingGainRate": 0.7553,
+      "baseCaseListingGainRate": 0.9353,
+      "bullCaseListingGainRate": 1.2153,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.1,
-        "fiveMillionKrw": 0.5
+        "minimumSubscription": 1.218,
+        "oneMillionKrw": 1.739,
+        "fiveMillionKrw": 4.124
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 136,
-        "oneMillionKrw": 1088,
-        "fiveMillionKrw": 5438
+        "minimumSubscription": 14237,
+        "oneMillionKrw": 20336,
+        "fiveMillionKrw": 48215
       },
       "assumptions": {
         "offerPrice": 12500,
-        "competitionRate": null,
+        "competitionRate": 134.2,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": 0.6901028571428572,
+        "generalCompetitionBaseline": 0.24,
+        "generalPriorBase": 0.7647085714285714,
         "institutionBoost": 0.09,
         "lockupBoost": 0.08049999999999999,
         "participantBoost": 0.0,
         "topBandBoost": 0.06,
         "scoreBoost": 0.07777777777777778,
-        "competitionPresent": false,
-        "generalCalibrationApplied": 0.18,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 58,
-        "generalCompetitionPending": true
+        "generalCompetitionPending": false
       }
     },
     "decision": {
       "level": "strong_watch",
       "label": "관심 높음",
       "reasons": [
+        "최근 확인된 일반청약 경쟁률은 134.2대 1입니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "삼성증권",
+        "equalScore": 91,
+        "proportionalScore": 60,
+        "expectedEqualShares": 1.1432,
+        "estimatedDepositForOneProportionalShare": 1671188,
+        "feeKrw": null,
+        "dataQuality": "broker_verified"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 134.2,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
@@ -126,19 +165,5 @@
       "valueScore": 80
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
-  },
-  "offerPrice": 12500,
-  "priceBandMin": 10500,
-  "priceBandMax": 12500,
-  "institutionCompetitionRate": 1294.99,
-  "lockupCommitmentRate": 0.472,
-  "floatRate": 0.294,
-  "marketCapKrw": 150600000000,
-  "publicAllocationShares": 400000,
-  "score": 86,
-  "grade": "A",
-  "decisionLevel": "strong_watch",
-  "expectedGainRate": 0.8701,
-  "hasPutbackRight": false,
-  "putbackSummary": "일반청약자 환매청구권 없음"
+  }
 }

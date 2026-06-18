@@ -1,30 +1,108 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-01T15:34:25.803555",
+  "generatedAt": "2026-06-18T22:24:57.466882",
   "totals": {
-    "generatedStocks": 551,
-    "activeStocks": 0,
-    "upcomingNext7Days": 0
+    "generatedStocks": 496,
+    "activeStocks": 3,
+    "upcomingNext7Days": 2
   },
   "activeReadiness": {
-    "missingLatestSnapshotAt": 0,
-    "missingLatestCompetitionRate": 0,
-    "missingBrokerLevelCompetition": 0,
-    "missingInstitutionCompetitionRate": 0,
-    "missingInstitutionParticipants": 0,
-    "missingLockupCommitmentRate": 0,
-    "liveLikeSourceCount": 0,
+    "missingLatestSnapshotAt": 1,
+    "missingLatestCompetitionRate": 1,
+    "missingBrokerLevelCompetition": 1,
+    "missingInstitutionCompetitionRate": 2,
+    "missingInstitutionParticipants": 3,
+    "missingLockupCommitmentRate": 2,
+    "liveLikeSourceCount": 2,
     "finutsSourceCount": 0,
     "ocrSourceCount": 0
   },
-  "activeLatestSourceCounts": {},
+  "activeLatestSourceCounts": {
+    "naver_calculator_live": 2,
+    "missing": 1
+  },
   "activeSnapshotFreshness": {
     "within_1h": 0,
-    "within_6h": 0,
-    "within_24h": 0,
+    "within_6h": 1,
+    "within_24h": 1,
     "older": 0,
-    "missing": 0
+    "missing": 1
   },
-  "activeSamples": [],
-  "upcomingSamples": []
+  "activeSamples": [
+    {
+      "id": "빅웨이브로보틱스_2026-06-18",
+      "company": "빅웨이브로보틱스",
+      "path": "stocks/빅웨이브로보틱스_2026-06-18.json",
+      "subscriptionStart": "2026-06-18",
+      "subscriptionEnd": "2026-06-19",
+      "latestSnapshotAt": null,
+      "latestSnapshotSource": null,
+      "latestCompetitionRate": null,
+      "institutionCompetitionRate": null,
+      "institutionParticipants": null,
+      "lockupCommitmentRate": null,
+      "issues": [
+        "missing_offer_price",
+        "missing_institution_competition_rate",
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ]
+    },
+    {
+      "id": "스트라드비젼_2026-06-18",
+      "company": "스트라드비젼",
+      "path": "stocks/스트라드비젼_2026-06-18.json",
+      "subscriptionStart": "2026-06-18",
+      "subscriptionEnd": "2026-06-19",
+      "latestSnapshotAt": "2026-06-18T16:12:44",
+      "latestSnapshotSource": "naver_calculator_live",
+      "latestCompetitionRate": 5.92,
+      "institutionCompetitionRate": null,
+      "institutionParticipants": null,
+      "lockupCommitmentRate": null,
+      "issues": [
+        "missing_institution_competition_rate",
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ]
+    },
+    {
+      "id": "져스텍_2026-06-18",
+      "company": "져스텍",
+      "path": "stocks/져스텍_2026-06-18.json",
+      "subscriptionStart": "2026-06-18",
+      "subscriptionEnd": "2026-06-19",
+      "latestSnapshotAt": "2026-06-18T18:56:43",
+      "latestSnapshotSource": "naver_calculator_live",
+      "latestCompetitionRate": 134.2,
+      "institutionCompetitionRate": 1294.99,
+      "institutionParticipants": null,
+      "lockupCommitmentRate": 0.472,
+      "issues": [
+        "missing_institution_participants"
+      ]
+    }
+  ],
+  "upcomingSamples": [
+    {
+      "id": "매드업_2026-06-23",
+      "company": "매드업",
+      "path": "stocks/매드업_2026-06-23.json",
+      "subscriptionStart": "2026-06-23",
+      "subscriptionEnd": "2026-06-24",
+      "leadManagers": [
+        "미래에셋증권"
+      ]
+    },
+    {
+      "id": "레몬헬스케어_2026-06-24",
+      "company": "레몬헬스케어",
+      "path": "stocks/레몬헬스케어_2026-06-24.json",
+      "subscriptionStart": "2026-06-24",
+      "subscriptionEnd": "2026-06-25",
+      "leadManagers": [
+        "KB증권"
+      ]
+    }
+  ]
 }
