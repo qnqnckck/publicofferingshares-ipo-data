@@ -277,16 +277,21 @@
     "져스텍 demand forecast fields are promoted to summary/root fields for app consumers that do not inspect fundamentals or analysis.inputs."
   ],
   "manuallyExcludedCandidates": [
+  ],
+  "correctedCandidates": [
     {
-      "id": "빅웨이브로보틱스_2026-06-18",
+      "id": "빅웨이브로보틱스_2026-06-19",
       "company": "빅웨이브로보틱스",
       "previousSubscriptionStart": "2026-06-18",
       "previousSubscriptionEnd": "2026-06-19",
-      "reason": "unverified_ipo_candidate_not_found_in_naver_ipo_or_dart_filings",
+      "subscriptionStart": "2026-06-19",
+      "subscriptionEnd": "2026-06-22",
+      "refundDate": "2026-06-24",
+      "reason": "schedule_corrected_after_identifier_feed_update",
       "evidence": [
-        "Naver Pay Securities IPO page on 2026-06-17 lists only 져스텍 and 스트라드비젼 as D-1 subscription candidates.",
-        "DART disclosure search returned 0 results for 빅웨이브로보틱스, 빅웨이브, 로보틱스, and corpCode 01722066 for 2026 filings.",
-        "Existing local Finuts source URL ipo_sn=100557 could not be confirmed during review."
+        "data/identifiers/ipo_identifiers.json has subscriptionKey 빅웨이브로보틱스_20260619_20260622.",
+        "Existing local Finuts source URL ipo_sn=100557 is retained for audit.",
+        "Refund date is adjusted to 2026-06-24 based on the corrected subscription end date."
       ]
     }
   ]
