@@ -363,16 +363,20 @@ class IpoCompetitionBatch {
             return a.company.compareTo(b.company);
           });
       final previousGeneratedStocks = await _loadGeneratedIndexStocks();
+      final outputSelected = preserveExistingSnapshots(
+        selected,
+        previousGeneratedStocks,
+      );
       await _writeScheduleChangesReport(
         generatedAt: generatedAt,
         previousStocks: previousGeneratedStocks,
-        currentStocks: selected,
+        currentStocks: outputSelected,
       );
       await _writeSeedDependencyReport(
         generatedAt: generatedAt,
         seedStocks: seedStocks,
         autoCoreStocks: autoSelected,
-        finalStocks: selected,
+        finalStocks: outputSelected,
       );
       await _writeAutoCoreReconciliationReport(
         generatedAt: generatedAt,
@@ -382,7 +386,7 @@ class IpoCompetitionBatch {
       await _writeHeuristicGeneralSharesReport(
         generatedAt: generatedAt,
         preBackfillStocks: mergedByIdentityStocks,
-        finalStocks: selected,
+        finalStocks: outputSelected,
       );
       await _writeNewListingGuardReport(
         generatedAt: generatedAt,
@@ -394,15 +398,17 @@ class IpoCompetitionBatch {
         ],
       );
 
-      _analysisCalibration = buildAnalysisCalibration(selected);
+      _analysisCalibration = buildAnalysisCalibration(outputSelected);
 
       final stockDir = Directory('${options.outDir}/stocks');
       await stockDir.create(recursive: true);
       final indexStocks = <Map<String, Object?>>[];
-      final selectedIds = selected.map((stock) => safeId(stock.id)).toSet();
+      final selectedIds = outputSelected
+          .map((stock) => safeId(stock.id))
+          .toSet();
       await deleteOrphanedStockFiles(stockDir, selectedIds);
 
-      for (final stock in selected) {
+      for (final stock in outputSelected) {
         final normalized = stock.normalized();
         final path = 'stocks/${stock.id}.json';
         await File(
@@ -422,20 +428,20 @@ class IpoCompetitionBatch {
       await writeLightweightFeeds(
         outDir: options.outDir,
         generatedAt: generatedAt,
-        stocks: selected,
+        stocks: outputSelected,
       );
       await writeDashboardFeed(
         outDir: options.outDir,
         generatedAt: generatedAt,
-        stocks: selected,
+        stocks: outputSelected,
       );
-      await File(
-        '${options.outDir}/backtest_report.json',
-      ).writeAsString(prettyJson(buildBacktestReport(selected, generatedAt)));
+      await File('${options.outDir}/backtest_report.json').writeAsString(
+        prettyJson(buildBacktestReport(outputSelected, generatedAt)),
+      );
       await File('${options.outDir}/calibration_report.json').writeAsString(
         prettyJson(
           buildCalibrationReport(
-            stocks: selected,
+            stocks: outputSelected,
             generatedAt: generatedAt,
             calibration: _analysisCalibration,
           ),
@@ -448,13 +454,13 @@ class IpoCompetitionBatch {
             cutoff: cutoff,
             discoveredStocks: discoveredStocks,
             mergedStocks: consolidatedStocks,
-            selectedStocks: selected,
+            selectedStocks: outputSelected,
           ),
         ),
       );
       await _writeFieldCoverageReports(
         generatedAt: generatedAt,
-        stocks: selected,
+        stocks: outputSelected,
       );
       await File(
         '${options.outDir}/broker_metrics_missing_report.json',
@@ -462,18 +468,21 @@ class IpoCompetitionBatch {
         prettyJson(
           buildBrokerMetricsMissingReport(
             generatedAt: generatedAt,
-            stocks: selected,
+            stocks: outputSelected,
           ),
         ),
       );
       await File('${options.outDir}/service_health_report.json').writeAsString(
         prettyJson(
-          buildServiceHealthReport(generatedAt: generatedAt, stocks: selected),
+          buildServiceHealthReport(
+            generatedAt: generatedAt,
+            stocks: outputSelected,
+          ),
         ),
       );
 
       stdout.writeln(
-        '[${generatedAt.toIso8601String()}] generated ${selected.length} stock files.',
+        '[${generatedAt.toIso8601String()}] generated ${outputSelected.length} stock files.',
       );
     } finally {
       _running = false;
@@ -3411,6 +3420,30 @@ List<IpoCompetitionStock> mergeStocksByIdentity(
     byKey[key] = mergePreferredStock(preferred, secondary);
   }
   return byKey.values.toList();
+}
+
+List<IpoCompetitionStock> preserveExistingSnapshots(
+  List<IpoCompetitionStock> currentStocks,
+  List<IpoCompetitionStock> previousStocks,
+) {
+  final previousById = <String, IpoCompetitionStock>{
+    for (final stock in previousStocks) safeId(stock.id): stock,
+  };
+  final previousByIdentity = <String, IpoCompetitionStock>{
+    for (final stock in previousStocks) stockIdentityKey(stock): stock,
+  };
+  return currentStocks.map((stock) {
+    if (stock.snapshots.isNotEmpty) {
+      return stock;
+    }
+    final previous =
+        previousByIdentity[stockIdentityKey(stock)] ??
+        previousById[safeId(stock.id)];
+    if (previous == null || previous.snapshots.isEmpty) {
+      return stock;
+    }
+    return mergePreferredStock(stock, previous);
+  }).toList();
 }
 
 List<IpoCompetitionStock> applyGeneralSharesBackfill(
