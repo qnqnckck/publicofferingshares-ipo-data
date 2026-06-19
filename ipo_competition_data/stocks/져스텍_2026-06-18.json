@@ -49,30 +49,30 @@
   },
   "snapshots": [
     {
-      "capturedAt": "2026-06-19T11:17:06",
+      "capturedAt": "2026-06-19T11:26:10",
       "source": "naver_calculator_live",
       "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A153890",
       "brokers": [
         {
           "name": "삼성증권",
           "offeredShares": 1600000,
-          "subscribedShares": 1820768000,
+          "subscribedShares": 1892288000,
           "offerPrice": 12500,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 1137.98,
+          "competitionRate": 1182.68,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 2274.96,
+          "proportionalCompetitionRate": 2364.36,
           "equalAllocationShares": 200000,
           "proportionalAllocationShares": 200000,
-          "expectedEqualShares": 0.7747,
-          "applicationCount": 258153
+          "expectedEqualShares": 0.7624,
+          "applicationCount": 262325
         }
       ],
       "aggregate": {
         "offeredShares": 1600000,
-        "subscribedShares": 1820768000,
-        "competitionRate": 1137.98
+        "subscribedShares": 1892288000,
+        "competitionRate": 1182.68
       }
     }
   ],
@@ -101,18 +101,18 @@
       "baseCaseListingGainRate": 1.0283,
       "bullCaseListingGainRate": 1.3083,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.784,
-        "oneMillionKrw": 0.845,
-        "fiveMillionKrw": 1.126
+        "minimumSubscription": 0.771,
+        "oneMillionKrw": 0.83,
+        "fiveMillionKrw": 1.101
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 10071,
-        "oneMillionKrw": 10862,
-        "fiveMillionKrw": 14476
+        "minimumSubscription": 9908,
+        "oneMillionKrw": 10669,
+        "fiveMillionKrw": 14147
       },
       "assumptions": {
         "offerPrice": 12500,
-        "competitionRate": 1137.98,
+        "competitionRate": 1182.68,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
@@ -132,7 +132,7 @@
       "level": "strong_watch",
       "label": "관심 높음",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1137.98대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 1182.68대 1입니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
@@ -143,16 +143,16 @@
     "brokerScores": [
       {
         "broker": "삼성증권",
-        "equalScore": 62,
+        "equalScore": 61,
         "proportionalScore": 7,
-        "expectedEqualShares": 0.7747,
-        "estimatedDepositForOneProportionalShare": 14218500,
+        "expectedEqualShares": 0.7624,
+        "estimatedDepositForOneProportionalShare": 14777250,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 1137.98,
+      "latestCompetitionRate": 1182.68,
       "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
