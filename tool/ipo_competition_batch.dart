@@ -3442,7 +3442,27 @@ List<IpoCompetitionStock> preserveExistingSnapshots(
     if (previous == null || previous.snapshots.isEmpty) {
       return stock;
     }
-    return mergePreferredStock(stock, previous);
+    return IpoCompetitionStock(
+      id: stock.id,
+      company: stock.company,
+      market: stock.market,
+      industry: stock.industry,
+      subscriptionStart: stock.subscriptionStart,
+      subscriptionEnd: stock.subscriptionEnd,
+      demandForecastStart: stock.demandForecastStart,
+      demandForecastEnd: stock.demandForecastEnd,
+      refundDate: stock.refundDate,
+      listingDate: stock.listingDate,
+      lockupReleaseDate: stock.lockupReleaseDate,
+      generalSharesDate: stock.generalSharesDate,
+      cbBwDate: stock.cbBwDate,
+      securityType: stock.securityType,
+      leadManagers: stock.leadManagers,
+      sourceIdentifiers: stock.sourceIdentifiers,
+      fundamentals: stock.fundamentals,
+      outcome: stock.outcome,
+      snapshots: previous.snapshots,
+    );
   }).toList();
 }
 
@@ -4232,13 +4252,35 @@ Future<List<IpoManualFundamentalsOverride>> _loadManualFundamentalsRows(
     return const [];
   }
   final decoded = jsonDecode(await file.readAsString());
-  final rawRows = decoded is Map<String, Object?> && decoded['stocks'] is List
-      ? decoded['stocks'] as List
-      : decoded is List
-      ? decoded
-      : throw const FormatException(
-          'Manual fundamentals file must be a JSON array or an object with "stocks".',
-        );
+  final rawRows = <Object?>[];
+  if (decoded is List) {
+    rawRows.addAll(decoded);
+  } else if (decoded is Map<String, Object?>) {
+    final stocks = decoded['stocks'];
+    if (stocks is List) {
+      rawRows.addAll(stocks);
+    }
+    for (final entry in decoded.entries) {
+      if (entry.key == 'schemaVersion' ||
+          entry.key == 'generatedAt' ||
+          entry.key == 'stocks') {
+        continue;
+      }
+      final value = entry.value;
+      if (value is Map<String, Object?>) {
+        rawRows.add({
+          'id': entry.key,
+          if (!value.containsKey('company'))
+            'company': entry.key.replaceFirst(RegExp(r'_\d{4}-\d{2}-\d{2}$'), ''),
+          ...value,
+        });
+      }
+    }
+  } else {
+    throw const FormatException(
+      'Manual fundamentals file must be a JSON array or an object with "stocks".',
+    );
+  }
   return rawRows
       .whereType<Map<String, Object?>>()
       .map(IpoManualFundamentalsOverride.fromJson)
