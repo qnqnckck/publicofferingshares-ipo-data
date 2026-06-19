@@ -2827,7 +2827,21 @@ Future<void> writeLightweightFeeds({
 
   bool isUpcoming(IpoCompetitionStock stock) {
     final start = parseDate(stock.subscriptionStart);
-    return start != null && start.isAfter(today);
+    if (start != null) {
+      return start.isAfter(today);
+    }
+    final hasNoSubscriptionDates =
+        stock.subscriptionStart == null && stock.subscriptionEnd == null;
+    final hasScheduleContext =
+        stock.normalizedDemandForecastStart != null ||
+        stock.fundamentals.priceBandMin != null ||
+        stock.fundamentals.priceBandMax != null ||
+        stock.leadManagers.isNotEmpty;
+    final hasNoCompletedAnchor =
+        parseDate(stock.resolvedListingDate) == null &&
+        parseDate(stock.normalizedGeneralSharesDate) == null &&
+        parseDate(stock.cbBwDate) == null;
+    return hasNoSubscriptionDates && hasScheduleContext && hasNoCompletedAnchor;
   }
 
   bool isRecent(IpoCompetitionStock stock) {
@@ -2927,6 +2941,21 @@ Future<void> writeDashboardFeed({
         parseDate(stock.subscriptionEnd) ??
         parseDate(stock.outcome?.listingDate) ??
         start;
+    if (start == null && end == null) {
+      final hasNoSubscriptionDates =
+          stock.subscriptionStart == null && stock.subscriptionEnd == null;
+      final hasScheduleContext =
+          stock.normalizedDemandForecastStart != null ||
+          stock.fundamentals.priceBandMin != null ||
+          stock.fundamentals.priceBandMax != null ||
+          stock.leadManagers.isNotEmpty;
+      final hasNoCompletedAnchor =
+          parseDate(stock.normalizedGeneralSharesDate) == null &&
+          parseDate(stock.cbBwDate) == null;
+      return hasNoSubscriptionDates &&
+          hasScheduleContext &&
+          hasNoCompletedAnchor;
+    }
     if (start == null && end == null) {
       return false;
     }
