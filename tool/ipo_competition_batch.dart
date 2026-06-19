@@ -751,10 +751,23 @@ class IpoCompetitionBatch {
     if (decoded is! Map<String, Object?> || decoded['stocks'] is! List) {
       return const [];
     }
-    return (decoded['stocks'] as List)
-        .whereType<Map<String, Object?>>()
-        .map(IpoCompetitionStock.fromJson)
-        .toList();
+    final stocks = <IpoCompetitionStock>[];
+    for (final row
+        in (decoded['stocks'] as List).whereType<Map<String, Object?>>()) {
+      final path = (row['path'] ?? '').toString().trim();
+      if (path.isNotEmpty) {
+        final detailFile = File('${options.outDir}/$path');
+        if (await detailFile.exists()) {
+          final detail = jsonDecode(await detailFile.readAsString());
+          if (detail is Map<String, Object?>) {
+            stocks.add(IpoCompetitionStock.fromJson(detail));
+            continue;
+          }
+        }
+      }
+      stocks.add(IpoCompetitionStock.fromJson(row));
+    }
+    return stocks;
   }
 
   Future<void> _writeDiscoveredStocks(

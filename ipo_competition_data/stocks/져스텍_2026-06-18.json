@@ -30,15 +30,15 @@
     "offerPrice": 12500,
     "priceBandMin": 10500,
     "priceBandMax": 12500,
-    "topBandConfirmation": null,
-    "institutionCompetitionRate": null,
+    "topBandConfirmation": true,
+    "institutionCompetitionRate": 1294.99,
     "institutionParticipants": null,
-    "lockupCommitmentRate": null,
-    "floatRate": null,
-    "marketCapKrw": null,
-    "publicAllocationShares": null,
+    "lockupCommitmentRate": 0.472,
+    "floatRate": 0.294,
+    "marketCapKrw": 150600000000,
+    "publicAllocationShares": 400000,
     "hasPutbackRight": false,
-    "putbackSummary": "일반청약자 환매청구권 없음"
+    "putbackSummary": null
   },
   "outcome": {
     "listingDate": "2026-06-29",
@@ -79,34 +79,36 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 19,
-      "grade": "C-",
-      "confidence": 0.9,
+      "overall": 86,
+      "grade": "A",
+      "confidence": 0.95,
       "factors": {
-        "institutionDemand": 0,
-        "demandStrength": 6,
-        "lockupCommitment": 0,
-        "pricing": 8,
+        "institutionDemand": 22,
+        "demandStrength": 8,
+        "lockupCommitment": 14,
+        "pricing": 10,
+        "marketCap": 8,
+        "publicAllocation": 8,
         "leadManagerCoverage": 0
       },
-      "demand": 23,
-      "value": 0,
+      "demand": 87,
+      "value": 80,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.91,
-      "bearCaseListingGainRate": 0.73,
-      "baseCaseListingGainRate": 0.91,
-      "bullCaseListingGainRate": 1.13,
+      "expectedListingGainRate": 1.2583,
+      "bearCaseListingGainRate": 1.0,
+      "baseCaseListingGainRate": 1.2583,
+      "bullCaseListingGainRate": 1.5383,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.501,
         "oneMillionKrw": 0.526,
         "fiveMillionKrw": 0.641
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 5695,
-        "oneMillionKrw": 5981,
-        "fiveMillionKrw": 7288
+        "minimumSubscription": 7874,
+        "oneMillionKrw": 8269,
+        "fiveMillionKrw": 10077
       },
       "assumptions": {
         "offerPrice": 12500,
@@ -114,12 +116,12 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.95,
-        "generalPriorBase": -0.004840000000000005,
-        "institutionBoost": 0.0,
-        "lockupBoost": 0.0,
+        "generalPriorBase": 0.7647085714285714,
+        "institutionBoost": 0.09,
+        "lockupBoost": 0.08049999999999999,
         "participantBoost": 0.0,
-        "topBandBoost": 0.0,
-        "scoreBoost": -0.04,
+        "topBandBoost": 0.06,
+        "scoreBoost": 0.07777777777777778,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 58,
@@ -127,10 +129,11 @@
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "strong_watch",
+      "label": "관심 높음",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 2783.89대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 2783.89대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
         "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
@@ -154,13 +157,13 @@
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
-      "floatRate": null,
+      "institutionCompetitionRate": 1294.99,
+      "lockupCommitmentRate": 0.472,
+      "floatRate": 0.294,
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 23,
-      "valueScore": 0
+      "demandScore": 87,
+      "valueScore": 80
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }
