@@ -4271,7 +4271,10 @@ Future<List<IpoManualFundamentalsOverride>> _loadManualFundamentalsRows(
         rawRows.add({
           'id': entry.key,
           if (!value.containsKey('company'))
-            'company': entry.key.replaceFirst(RegExp(r'_\d{4}-\d{2}-\d{2}$'), ''),
+            'company': entry.key.replaceFirst(
+              RegExp(r'_\d{4}-\d{2}-\d{2}$'),
+              '',
+            ),
           ...value,
         });
       }
