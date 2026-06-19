@@ -724,7 +724,8 @@ class IpoCompetitionBatch {
       return const [];
     }
     final stocks = <IpoCompetitionStock>[];
-    for (final row in (decoded['stocks'] as List).whereType<Map<String, Object?>>()) {
+    for (final row
+        in (decoded['stocks'] as List).whereType<Map<String, Object?>>()) {
       final path = (row['path'] ?? '').toString().trim();
       if (path.isNotEmpty) {
         final detailFile = File('${options.outDir}/$path');
