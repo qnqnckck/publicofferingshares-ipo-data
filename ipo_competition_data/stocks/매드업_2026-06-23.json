@@ -27,13 +27,13 @@
     "미래에셋증권"
   ],
   "fundamentals": {
-    "offerPrice": null,
+    "offerPrice": 8000,
     "priceBandMin": 6900,
     "priceBandMax": 7900,
     "topBandConfirmation": null,
-    "institutionCompetitionRate": null,
+    "institutionCompetitionRate": 1396.0,
     "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "lockupCommitmentRate": 0.2739,
     "floatRate": 0.309,
     "marketCapKrw": null,
     "publicAllocationShares": 500000,
@@ -47,84 +47,101 @@
     "closeReturnRate": null,
     "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100546"
   },
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-06-22T12:00:00+09:00",
+      "source": "naver_simulator",
+      "sourceUrl": "https://finance.naver.com/ipo/",
+      "institutionCompetitionRate": 1396.0,
+      "lockupCommitmentRate": 0.2739,
+      "offerPrice": 8000,
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "institutionCompetitionRate": 1396.0,
+          "lockupCommitmentRate": 0.2739
+        }
+      ]
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 19,
-      "grade": "-",
-      "confidence": 0.4,
+      "overall": 65,
+      "grade": "A-",
+      "confidence": 0.85,
       "factors": {
-        "institutionDemand": 0,
-        "demandStrength": 0,
-        "lockupCommitment": 0,
-        "pricing": 3,
-        "publicAllocation": 8,
-        "leadManagerCoverage": 0
+        "institutionDemand": 25,
+        "demandStrength": 15,
+        "lockupCommitment": 10,
+        "pricing": 8,
+        "publicAllocation": 5,
+        "leadManagerCoverage": 2
       },
-      "demand": 5,
-      "value": 80,
+      "demand": 50,
+      "value": 15,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.176,
-      "bearCaseListingGainRate": -0.024,
-      "baseCaseListingGainRate": 0.176,
-      "bullCaseListingGainRate": 0.456,
+      "expectedListingGainRate": 0.25,
+      "bearCaseListingGainRate": 0.05,
+      "baseCaseListingGainRate": 0.25,
+      "bullCaseListingGainRate": 0.45,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.042,
-        "fiveMillionKrw": 0.208
+        "minimumSubscription": 0.008,
+        "oneMillionKrw": 0.035,
+        "fiveMillionKrw": 0.175
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 66,
-        "oneMillionKrw": 220,
-        "fiveMillionKrw": 1100
+        "minimumSubscription": 160,
+        "oneMillionKrw": 500,
+        "fiveMillionKrw": 2500
       },
       "assumptions": {
-        "offerPrice": null,
-        "competitionRate": null,
-        "feeKrw": null,
+        "offerPrice": 8000,
+        "competitionRate": 1396.0,
+        "lockupCommitmentRate": 0.2739,
+        "feeKrw": 3500,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": -0.004040000000000004,
-        "institutionBoost": 0.0,
-        "lockupBoost": 0.0,
+        "generalCompetitionBaseline": 0.18,
+        "generalPriorBase": 0.02,
+        "institutionBoost": 0.05,
+        "lockupBoost": 0.02,
         "participantBoost": 0.0,
         "topBandBoost": 0.0,
-        "scoreBoost": -0.04,
-        "competitionPresent": false,
-        "generalCalibrationApplied": 0.18,
+        "scoreBoost": 0.03,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.25,
         "generalCalibrationSampleCount": 58,
-        "generalCompetitionPending": true
+        "generalCompetitionPending": false
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "strong_interest",
+      "label": "높은 수요",
       "reasons": [
-        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+        "기관 경쟁률 1396대1로 매우 높은 수요"
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
-        "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
+        "의무보유확약률 27.39%로 기관의 강한 관심을 반영",
+        "공모가 상단가 확정으로 긍정적 신호",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
     "brokerScores": [],
     "inputs": {
       "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
-      "hasOfferPrice": false,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1396.0,
+      "lockupCommitmentRate": 0.2739,
       "floatRate": 0.309,
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 5,
-      "valueScore": 80
+      "demandScore": 50,
+      "valueScore": 15
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }
