@@ -49,30 +49,30 @@
   },
   "snapshots": [
     {
-      "capturedAt": "2026-06-23T15:37:59",
+      "capturedAt": "2026-06-23T15:47:02",
       "source": "naver_calculator_live",
       "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0039P0",
       "brokers": [
         {
           "name": "미래에셋증권",
           "offeredShares": 2000000,
-          "subscribedShares": 217300000,
+          "subscribedShares": 221080000,
           "offerPrice": 8000,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 108.65,
+          "competitionRate": 110.54,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 217.3,
+          "proportionalCompetitionRate": 221.08,
           "equalAllocationShares": 250000,
           "proportionalAllocationShares": 250000,
-          "expectedEqualShares": 1.7049,
-          "applicationCount": 146639
+          "expectedEqualShares": 1.6803,
+          "applicationCount": 148780
         }
       ],
       "aggregate": {
         "offeredShares": 2000000,
-        "subscribedShares": 217300000,
-        "competitionRate": 108.65
+        "subscribedShares": 221080000,
+        "competitionRate": 110.54
       }
     }
   ],
@@ -100,18 +100,18 @@
       "baseCaseListingGainRate": 0.2,
       "bullCaseListingGainRate": 0.42,
       "expectedAllocatedShares": {
-        "minimumSubscription": 1.797,
-        "oneMillionKrw": 2.855,
-        "fiveMillionKrw": 7.457
+        "minimumSubscription": 1.771,
+        "oneMillionKrw": 2.811,
+        "fiveMillionKrw": 7.334
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 2875,
-        "oneMillionKrw": 4569,
-        "fiveMillionKrw": 11932
+        "minimumSubscription": 2833,
+        "oneMillionKrw": 4498,
+        "fiveMillionKrw": 11735
       },
       "assumptions": {
         "offerPrice": 8000,
-        "competitionRate": 108.65,
+        "competitionRate": 110.54,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.24,
@@ -131,7 +131,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 108.65대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 110.54대 1입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -142,14 +142,14 @@
         "broker": "미래에셋증권",
         "equalScore": 100,
         "proportionalScore": 100,
-        "expectedEqualShares": 1.7049,
-        "estimatedDepositForOneProportionalShare": 869200,
+        "expectedEqualShares": 1.6803,
+        "estimatedDepositForOneProportionalShare": 884320,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 108.65,
+      "latestCompetitionRate": 110.54,
       "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
