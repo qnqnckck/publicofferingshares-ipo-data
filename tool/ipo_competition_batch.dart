@@ -3453,7 +3453,10 @@ List<IpoCompetitionStock> mergeStocks(List<IpoCompetitionStock> stocks) {
       sourceIdentifiers: existing.identifiers.merge(stock.identifiers),
       fundamentals: existing.fundamentals.merge(stock.fundamentals),
       outcome: stock.outcome ?? existing.outcome,
-      snapshots: [...existing.snapshots, ...stock.snapshots],
+      snapshots: dedupeCompetitionSnapshots([
+        ...existing.snapshots,
+        ...stock.snapshots,
+      ]),
     );
   }
   return byId.values.toList();
@@ -3808,10 +3811,10 @@ IpoCompetitionStock mergePreferredStock(
   IpoCompetitionStock preferred,
   IpoCompetitionStock secondary,
 ) {
-  final mergedSnapshots = <IpoCompetitionSnapshot>[
+  final mergedSnapshots = dedupeCompetitionSnapshots([
     ...preferred.snapshots,
     ...secondary.snapshots,
-  ];
+  ]);
   return IpoCompetitionStock(
     id: preferred.id,
     company: preferred.company.trim().isEmpty
@@ -4124,7 +4127,18 @@ List<IpoCompetitionStock> mergeBrokerSnapshots(
     if (matches.isEmpty) {
       return stock;
     }
-    final extraSnapshots = matches.map((row) => row.toSnapshot()).toList();
+    final stockSnapshots = dedupeCompetitionSnapshots(stock.snapshots);
+    final snapshotKeys = stockSnapshots.map(_competitionSnapshotKey).toSet();
+    final extraSnapshots = <IpoCompetitionSnapshot>[];
+    for (final row in matches) {
+      final snapshot = row.toSnapshot();
+      if (snapshotKeys.add(_competitionSnapshotKey(snapshot))) {
+        extraSnapshots.add(snapshot);
+      }
+    }
+    if (extraSnapshots.isEmpty) {
+      return stock;
+    }
     return IpoCompetitionStock(
       id: stock.id,
       company: stock.company,
@@ -4144,9 +4158,25 @@ List<IpoCompetitionStock> mergeBrokerSnapshots(
       sourceIdentifiers: stock.identifiers,
       fundamentals: stock.fundamentals,
       outcome: stock.outcome,
-      snapshots: [...stock.snapshots, ...extraSnapshots],
+      snapshots: dedupeCompetitionSnapshots([
+        ...stockSnapshots,
+        ...extraSnapshots,
+      ]),
     );
   }).toList();
+}
+
+List<IpoCompetitionSnapshot> dedupeCompetitionSnapshots(
+  Iterable<IpoCompetitionSnapshot> snapshots,
+) {
+  final seen = <String>{};
+  final deduped = <IpoCompetitionSnapshot>[];
+  for (final snapshot in snapshots) {
+    if (seen.add(_competitionSnapshotKey(snapshot))) {
+      deduped.add(snapshot);
+    }
+  }
+  return deduped;
 }
 
 String _brokerSnapshotRowMergeKey(IpoBrokerSnapshotRow row) {
@@ -4201,7 +4231,7 @@ String _competitionSnapshotKey(IpoCompetitionSnapshot snapshot) {
     snapshot.capturedAt,
     snapshot.source,
     snapshot.sourceUrl ?? '',
-    snapshot.aggregateCompetitionRate ?? '',
+    snapshot.aggregate.competitionRate ?? '',
     brokerKey,
   ].join('||');
 }
