@@ -5711,12 +5711,20 @@ class IpoCompetitionSnapshot {
       0,
       (sum, broker) => sum + broker.subscribedShares,
     );
+    final hasBrokerCompetition = brokers.any(
+      (broker) =>
+          broker.competitionRate != null ||
+          broker.proportionalCompetitionRate != null ||
+          broker.equalCompetitionRate != null,
+    );
     return IpoBrokerCompetitionAggregate(
       offeredShares: offeredShares,
       subscribedShares: subscribedShares,
       competitionRate:
           aggregateCompetitionRate ??
-          (offeredShares <= 0 ? null : subscribedShares / offeredShares),
+          (hasBrokerCompetition && offeredShares > 0
+              ? subscribedShares / offeredShares
+              : null),
     );
   }
 
