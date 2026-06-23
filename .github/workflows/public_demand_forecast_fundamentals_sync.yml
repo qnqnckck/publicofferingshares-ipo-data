@@ -34,7 +34,6 @@ jobs:
           dart run tool/ipo_competition_batch.dart
           --backfill-years 3
           --manual-fundamentals-path data/manual_fundamentals.json
-          --no-finuts-discover
           --no-public-live-collect
 
       - name: Validate public schedule sync

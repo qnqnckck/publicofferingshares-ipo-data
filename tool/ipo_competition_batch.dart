@@ -8038,68 +8038,93 @@ double? median(List<double> values) {
   return roundDouble((sorted[middle - 1] + sorted[middle]) / 2, 4);
 }
 
-Future<Map<String, Object?>> httpGetJson(Uri uri) async {
-  final client = HttpClient();
-  try {
-    final request = await client.getUrl(uri);
-    request.headers.set(HttpHeaders.acceptHeader, 'application/json');
-    final response = await request.close();
-    final body = await utf8.decodeStream(response);
-    if (response.statusCode < 200 || response.statusCode >= 300) {
-      throw HttpException('HTTP ${response.statusCode}: $body', uri: uri);
+HttpClient createHttpClient() {
+  return HttpClient()..connectionTimeout = const Duration(seconds: 15);
+}
+
+Future<T> withHttpRetries<T>(Future<T> Function() request) async {
+  Object? lastError;
+  StackTrace? lastStackTrace;
+  for (var attempt = 0; attempt < 3; attempt++) {
+    try {
+      return await request();
+    } catch (error, stackTrace) {
+      lastError = error;
+      lastStackTrace = stackTrace;
+      if (attempt < 2) {
+        await Future<void>.delayed(Duration(milliseconds: 500 * (attempt + 1)));
+      }
     }
-    final decoded = jsonDecode(body);
-    if (decoded is! Map<String, Object?>) {
-      throw const FormatException('Response root must be a JSON object.');
-    }
-    return decoded;
-  } finally {
-    client.close(force: true);
   }
+  Error.throwWithStackTrace(lastError!, lastStackTrace!);
+}
+
+Future<Map<String, Object?>> httpGetJson(Uri uri) async {
+  return withHttpRetries(() async {
+    final client = createHttpClient();
+    try {
+      final request = await client.getUrl(uri);
+      request.headers.set(HttpHeaders.acceptHeader, 'application/json');
+      final response = await request.close();
+      final body = await utf8.decodeStream(response);
+      if (response.statusCode < 200 || response.statusCode >= 300) {
+        throw HttpException('HTTP ${response.statusCode}: $body', uri: uri);
+      }
+      final decoded = jsonDecode(body);
+      if (decoded is! Map<String, Object?>) {
+        throw const FormatException('Response root must be a JSON object.');
+      }
+      return decoded;
+    } finally {
+      client.close(force: true);
+    }
+  });
 }
 
 Future<Map<String, Object?>> httpPostJson(
   Uri uri,
   Map<String, String> body,
 ) async {
-  final client = HttpClient();
-  try {
-    final request = await client.postUrl(uri);
-    request.headers.set(HttpHeaders.acceptHeader, 'application/json');
-    request.headers.set(
-      HttpHeaders.contentTypeHeader,
-      'application/x-www-form-urlencoded; charset=UTF-8',
-    );
-    request.headers.set(HttpHeaders.userAgentHeader, 'Mozilla/5.0');
-    request.headers.set('X-Requested-With', 'XMLHttpRequest');
-    request.write(
-      body.entries
-          .map(
-            (entry) =>
-                '${Uri.encodeQueryComponent(entry.key)}=${Uri.encodeQueryComponent(entry.value)}',
-          )
-          .join('&'),
-    );
-    final response = await request.close();
-    final responseBody = await utf8.decodeStream(response);
-    if (response.statusCode < 200 || response.statusCode >= 300) {
-      throw HttpException(
-        'HTTP ${response.statusCode}: $responseBody',
-        uri: uri,
+  return withHttpRetries(() async {
+    final client = createHttpClient();
+    try {
+      final request = await client.postUrl(uri);
+      request.headers.set(HttpHeaders.acceptHeader, 'application/json');
+      request.headers.set(
+        HttpHeaders.contentTypeHeader,
+        'application/x-www-form-urlencoded; charset=UTF-8',
       );
+      request.headers.set(HttpHeaders.userAgentHeader, 'Mozilla/5.0');
+      request.headers.set('X-Requested-With', 'XMLHttpRequest');
+      request.write(
+        body.entries
+            .map(
+              (entry) =>
+                  '${Uri.encodeQueryComponent(entry.key)}=${Uri.encodeQueryComponent(entry.value)}',
+            )
+            .join('&'),
+      );
+      final response = await request.close();
+      final responseBody = await utf8.decodeStream(response);
+      if (response.statusCode < 200 || response.statusCode >= 300) {
+        throw HttpException(
+          'HTTP ${response.statusCode}: $responseBody',
+          uri: uri,
+        );
+      }
+      final decoded = jsonDecode(responseBody);
+      if (decoded is! Map<String, Object?>) {
+        return const {};
+      }
+      return decoded;
+    } finally {
+      client.close(force: true);
     }
-    final decoded = jsonDecode(responseBody);
-    if (decoded is! Map<String, Object?>) {
-      return const {};
-    }
-    return decoded;
-  } finally {
-    client.close(force: true);
-  }
+  });
 }
 
 Future<String?> httpPostText(Uri uri, Map<String, String> body) async {
-  final client = HttpClient();
+  final client = createHttpClient();
   try {
     final request = await client.postUrl(uri);
     request.headers.set(
@@ -8139,7 +8164,7 @@ Future<String?> httpGetFirstText(List<String> urls) async {
   }
 
   for (final rawUrl in expanded) {
-    final client = HttpClient();
+    final client = createHttpClient();
     try {
       final uri = Uri.parse(rawUrl);
       final request = await client.getUrl(uri);

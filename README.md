@@ -92,7 +92,6 @@ The shared public refresh step is:
 dart run tool/ipo_competition_batch.dart \
   --backfill-years 3 \
   --manual-fundamentals-path data/manual_fundamentals.json \
-  --no-finuts-discover \
   --no-public-live-collect
 ```
 
@@ -100,10 +99,10 @@ The active workflows are:
 
 - `public_baseline_discovery_sync`
   - weekday 17:30 KST
-  - syncs new IPO baseline rows from public configured sources into `data/discovered/ipo_events.json`
+  - syncs new IPO baseline rows from Finuts and other configured public sources into `data/discovered/ipo_events.json`
 - `public_demand_forecast_fundamentals_sync`
   - weekday 18:00 and 18:20 KST
-  - refreshes public fundamentals/schedule supplements when available
+  - refreshes public fundamentals/schedule supplements when available, including Finuts demand/result fields
 - `public_subscription_live_competition_sync`
   - weekday 09:50 to 17:10 KST in repeated runs
   - refreshes active subscription equal/proportional rows from public live collectors
@@ -153,8 +152,11 @@ preferred in this order for active subscription competition rows:
 `tool/ipo_competition_batch.dart` is the shared normalizer and derived JSON
 builder. Public baseline/fundamentals workflows should call it with:
 
-- `--no-finuts-discover`
 - `--no-public-live-collect`
+
+Use `--no-finuts-discover` only for an explicit Finuts-free fallback run. It
+reduces institution-demand and schedule-result coverage and should not be the
+default for baseline or demand refreshes.
 
 Public live workflows should call it with:
 

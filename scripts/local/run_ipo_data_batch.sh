@@ -50,6 +50,12 @@ rebuild_derived_data() {
 public_refresh_data() {
   "$DART_BIN" run tool/ipo_competition_batch.dart \
     --backfill-years 3 \
+    --manual-fundamentals-path data/manual_fundamentals.json
+}
+
+public_refresh_no_finuts_data() {
+  "$DART_BIN" run tool/ipo_competition_batch.dart \
+    --backfill-years 3 \
     --manual-fundamentals-path data/manual_fundamentals.json \
     --no-finuts-discover
 }
@@ -109,6 +115,7 @@ Usage:
   scripts/local/run_ipo_data_batch.sh live
   scripts/local/run_ipo_data_batch.sh naver-live
   scripts/local/run_ipo_data_batch.sh public-refresh
+  scripts/local/run_ipo_data_batch.sh public-refresh-no-finuts
   scripts/local/run_ipo_data_batch.sh rebuild
   scripts/local/run_ipo_data_batch.sh targeted --stock-id <id> [--company <name>] [--mode fundamentals|broker|full]
 
@@ -117,7 +124,8 @@ Batch mapping:
   demand    공개소스 수요예측/fundamentals 갱신 + 파생 JSON 재생성
   live      공개소스 청약일 균등/비례 경쟁률 갱신
   naver-live live와 동일. 네이버 우선, 이후 공개 증권사/커뮤니티 소스 조회
-  public-refresh 피너츠 없이 DART/iTick/IPOKorea/기사/네이버 등 공개 소스 갱신
+  public-refresh Finuts/DART/iTick/IPOKorea/기사/네이버 등 공개 소스 전체 갱신
+  public-refresh-no-finuts DART/iTick/IPOKorea/기사/네이버 등 공개 소스 갱신
   rebuild   repo 데이터만으로 ipo_competition_data 재생성
   targeted  특정 종목 수동 backfill
 EOF
@@ -177,9 +185,16 @@ case "$BATCH" in
 	    ;;
 
   public-refresh)
-    log "Running public-source IPO data refresh without Finuts"
+    log "Running full public-source IPO data refresh"
     public_refresh_data
     commit_if_changed "Sync public-source IPO data" \
+      data/discovered data/identifiers ipo_competition_data
+    ;;
+
+  public-refresh-no-finuts)
+    log "Running public-source IPO data refresh without Finuts"
+    public_refresh_no_finuts_data
+    commit_if_changed "Sync public-source IPO data without Finuts" \
       data/discovered data/identifiers ipo_competition_data
     ;;
 	
