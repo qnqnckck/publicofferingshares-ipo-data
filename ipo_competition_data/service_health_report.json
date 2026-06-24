@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-24T02:09:57.731178",
+  "generatedAt": "2026-06-24T10:00:54.322819",
   "totals": {
     "generatedStocks": 496,
     "activeStocks": 2,
@@ -8,11 +8,11 @@
   },
   "activeReadiness": {
     "missingLatestSnapshotAt": 0,
-    "missingLatestCompetitionRate": 1,
+    "missingLatestCompetitionRate": 0,
     "missingBrokerLevelCompetition": 0,
-    "missingInstitutionCompetitionRate": 0,
-    "missingInstitutionParticipants": 1,
-    "missingLockupCommitmentRate": 0,
+    "missingInstitutionCompetitionRate": 1,
+    "missingInstitutionParticipants": 2,
+    "missingLockupCommitmentRate": 1,
     "liveLikeSourceCount": 2,
     "finutsSourceCount": 0,
     "ocrSourceCount": 0
@@ -21,9 +21,9 @@
     "naver_calculator_live": 2
   },
   "activeSnapshotFreshness": {
-    "within_1h": 1,
+    "within_1h": 2,
     "within_6h": 0,
-    "within_24h": 1,
+    "within_24h": 0,
     "older": 0,
     "missing": 0
   },
@@ -34,13 +34,18 @@
       "path": "stocks/매드업_2026-06-23.json",
       "subscriptionStart": "2026-06-23",
       "subscriptionEnd": "2026-06-24",
-      "latestSnapshotAt": "2026-06-23T16:02:44",
+      "latestSnapshotAt": "2026-06-24T09:55:20",
       "latestSnapshotSource": "naver_calculator_live",
-      "latestCompetitionRate": 114.42,
-      "institutionCompetitionRate": 1396.0,
-      "institutionParticipants": 2392,
-      "lockupCommitmentRate": 0.27399999999999997,
-      "issues": []
+      "latestCompetitionRate": 680.81,
+      "institutionCompetitionRate": null,
+      "institutionParticipants": null,
+      "lockupCommitmentRate": null,
+      "issues": [
+        "missing_offer_price",
+        "missing_institution_competition_rate",
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate"
+      ]
     },
     {
       "id": "레몬헬스케어_2026-06-24",
@@ -48,9 +53,9 @@
       "path": "stocks/레몬헬스케어_2026-06-24.json",
       "subscriptionStart": "2026-06-24",
       "subscriptionEnd": "2026-06-25",
-      "latestSnapshotAt": "2026-06-24T02:10:23.383913913",
+      "latestSnapshotAt": "2026-06-24T09:55:21",
       "latestSnapshotSource": "naver_calculator_live",
-      "latestCompetitionRate": null,
+      "latestCompetitionRate": 0.0,
       "institutionCompetitionRate": 1238.0,
       "institutionParticipants": null,
       "lockupCommitmentRate": 0.0691,

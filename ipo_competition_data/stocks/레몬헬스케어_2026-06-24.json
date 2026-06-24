@@ -49,7 +49,7 @@
   },
   "snapshots": [
     {
-      "capturedAt": "2026-06-24T02:10:23.383913913",
+      "capturedAt": "2026-06-24T09:55:21",
       "source": "naver_calculator_live",
       "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A365660",
       "brokers": [
@@ -60,19 +60,19 @@
           "offerPrice": 10000,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": null,
+          "competitionRate": 0.0,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": null,
+          "proportionalCompetitionRate": 0.0,
           "equalAllocationShares": 250000,
           "proportionalAllocationShares": 250000,
           "expectedEqualShares": null,
-          "applicationCount": null
+          "applicationCount": 0
         }
       ],
       "aggregate": {
         "offeredShares": 2000000,
         "subscribedShares": 0,
-        "competitionRate": null
+        "competitionRate": 0.0
       }
     }
   ],
@@ -95,42 +95,43 @@
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.7556,
-      "bearCaseListingGainRate": 0.5556,
-      "baseCaseListingGainRate": 0.7556,
-      "bullCaseListingGainRate": 1.0956,
+      "expectedListingGainRate": 0.6276,
+      "bearCaseListingGainRate": 0.4476,
+      "baseCaseListingGainRate": 0.6276,
+      "bullCaseListingGainRate": 0.9076,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.125,
-        "fiveMillionKrw": 0.625
+        "minimumSubscription": 100.0,
+        "oneMillionKrw": 100.0,
+        "fiveMillionKrw": 100.0
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 94,
-        "oneMillionKrw": 945,
-        "fiveMillionKrw": 4723
+        "minimumSubscription": 627580,
+        "oneMillionKrw": 627580,
+        "fiveMillionKrw": 627580
       },
       "assumptions": {
         "offerPrice": 10000,
-        "competitionRate": null,
+        "competitionRate": 0.0,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.0,
+        "generalCompetitionBaseline": 0.03,
         "generalPriorBase": 0.5756399999999999,
         "institutionBoost": 0.09,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
         "topBandBoost": 0.06,
         "scoreBoost": 0.005555555555555556,
-        "competitionPresent": false,
-        "generalCalibrationApplied": 0.18,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 58,
-        "generalCompetitionPending": true
+        "generalCompetitionPending": false
       }
     },
     "decision": {
       "level": "consider",
       "label": "청약 고려",
       "reasons": [
+        "최근 확인된 일반청약 경쟁률은 0.0대 1입니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
@@ -149,7 +150,7 @@
       }
     ],
     "inputs": {
-      "latestCompetitionRate": null,
+      "latestCompetitionRate": 0.0,
       "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
