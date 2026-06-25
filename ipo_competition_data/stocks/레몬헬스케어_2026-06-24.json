@@ -49,30 +49,30 @@
   },
   "snapshots": [
     {
-      "capturedAt": "2026-06-25T10:46:00",
+      "capturedAt": "2026-06-25T10:55:03",
       "source": "naver_calculator_live",
       "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A365660",
       "brokers": [
         {
           "name": "KB증권",
           "offeredShares": 2000000,
-          "subscribedShares": 698420000,
+          "subscribedShares": 781960000,
           "offerPrice": 10000,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 349.21,
+          "competitionRate": 390.98,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 697.42,
+          "proportionalCompetitionRate": 780.96,
           "equalAllocationShares": 250000,
           "proportionalAllocationShares": 250000,
-          "expectedEqualShares": 1.5818,
-          "applicationCount": 158048
+          "expectedEqualShares": 1.5177,
+          "applicationCount": 164728
         }
       ],
       "aggregate": {
         "offeredShares": 2000000,
-        "subscribedShares": 698420000,
-        "competitionRate": 349.21
+        "subscribedShares": 781960000,
+        "competitionRate": 390.98
       }
     }
   ],
@@ -100,18 +100,18 @@
       "baseCaseListingGainRate": 0.6276,
       "bullCaseListingGainRate": 0.9076,
       "expectedAllocatedShares": {
-        "minimumSubscription": 1.61,
-        "oneMillionKrw": 1.868,
-        "fiveMillionKrw": 3.014
+        "minimumSubscription": 1.543,
+        "oneMillionKrw": 1.773,
+        "fiveMillionKrw": 2.796
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 10107,
-        "oneMillionKrw": 11724,
-        "fiveMillionKrw": 18913
+        "minimumSubscription": 9685,
+        "oneMillionKrw": 11130,
+        "fiveMillionKrw": 17550
       },
       "assumptions": {
         "offerPrice": 10000,
-        "competitionRate": 349.21,
+        "competitionRate": 390.98,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.38,
@@ -131,7 +131,7 @@
       "level": "consider",
       "label": "청약 고려",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 349.21대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 390.98대 1입니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
@@ -142,15 +142,15 @@
       {
         "broker": "KB증권",
         "equalScore": 100,
-        "proportionalScore": 29,
-        "expectedEqualShares": 1.5818,
-        "estimatedDepositForOneProportionalShare": 3487100,
+        "proportionalScore": 26,
+        "expectedEqualShares": 1.5177,
+        "estimatedDepositForOneProportionalShare": 3904800,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 349.21,
+      "latestCompetitionRate": 390.98,
       "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
