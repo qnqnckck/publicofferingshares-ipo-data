@@ -27,10 +27,10 @@
     "미래에셋증권"
   ],
   "fundamentals": {
-    "offerPrice": null,
+    "offerPrice": 8000,
     "priceBandMin": 6900,
     "priceBandMax": 7900,
-    "topBandConfirmation": null,
+    "topBandConfirmation": true,
     "institutionCompetitionRate": null,
     "institutionParticipants": null,
     "lockupCommitmentRate": null,
@@ -55,8 +55,8 @@
       "brokers": [
         {
           "name": "미래에셋증권",
-          "offeredShares": 2000000,
-          "subscribedShares": 228840000,
+          "offeredShares": 500000,
+          "subscribedShares": 57210000,
           "offerPrice": 8000,
           "depositRate": 0.5,
           "feeKrw": null,
@@ -70,8 +70,8 @@
         }
       ],
       "aggregate": {
-        "offeredShares": 2000000,
-        "subscribedShares": 228840000,
+        "offeredShares": 500000,
+        "subscribedShares": 57210000,
         "competitionRate": 114.42
       }
     }
@@ -79,35 +79,35 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 19,
+      "overall": 38,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
         "institutionDemand": 0,
-        "demandStrength": 0,
+        "demandStrength": 8,
         "lockupCommitment": 0,
-        "pricing": 3,
+        "pricing": 10,
         "publicAllocation": 8,
         "leadManagerCoverage": 0
       },
-      "demand": 5,
+      "demand": 29,
       "value": 80,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.2,
-      "bearCaseListingGainRate": 0.02,
-      "baseCaseListingGainRate": 0.2,
-      "bullCaseListingGainRate": 0.42,
+      "expectedListingGainRate": 0.26,
+      "bearCaseListingGainRate": 0.08,
+      "baseCaseListingGainRate": 0.26,
+      "bullCaseListingGainRate": 0.54,
       "expectedAllocatedShares": {
         "minimumSubscription": 1.738,
         "oneMillionKrw": 2.743,
         "fiveMillionKrw": 7.113
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 2781,
-        "oneMillionKrw": 4389,
-        "fiveMillionKrw": 11381
+        "minimumSubscription": 3615,
+        "oneMillionKrw": 5706,
+        "fiveMillionKrw": 14795
       },
       "assumptions": {
         "offerPrice": 8000,
@@ -115,11 +115,11 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.24,
-        "generalPriorBase": -0.004920000000000004,
+        "generalPriorBase": 0.20992000000000002,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
-        "topBandBoost": 0.0,
+        "topBandBoost": 0.06,
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
@@ -159,7 +159,7 @@
       "floatRate": 0.309,
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 5,
+      "demandScore": 29,
       "valueScore": 80
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
