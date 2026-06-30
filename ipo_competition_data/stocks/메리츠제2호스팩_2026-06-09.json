@@ -18,7 +18,7 @@
   "subscriptionStart": "2026-06-09",
   "subscriptionEnd": "2026-06-10",
   "refundDate": null,
-  "listingDate": "2026-06-18",
+  "listingDate": "2026-06-19",
   "lockupReleaseDate": null,
   "generalSharesDate": null,
   "cbBwDate": null,
@@ -31,9 +31,9 @@
     "priceBandMin": 2000,
     "priceBandMax": 2000,
     "topBandConfirmation": null,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "institutionCompetitionRate": 1087.58,
+    "institutionParticipants": 1798,
+    "lockupCommitmentRate": 0.0,
     "floatRate": null,
     "marketCapKrw": null,
     "publicAllocationShares": null,
@@ -41,7 +41,7 @@
     "putbackSummary": "일반청약자 환매청구권 없음"
   },
   "outcome": {
-    "listingDate": "2026-06-18",
+    "listingDate": "2026-06-19",
     "openReturnRate": null,
     "highReturnRate": null,
     "closeReturnRate": null,
@@ -51,37 +51,37 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 21,
-      "grade": "-",
-      "confidence": 0.45,
+      "overall": 55,
+      "grade": "C+",
+      "confidence": 0.6,
       "factors": {
         "competition": 0,
-        "institutionDemand": 0,
-        "spacMomentum": 1,
-        "spacVolatility": 3,
+        "institutionDemand": 22,
+        "spacMomentum": 4,
+        "spacVolatility": 4,
         "market": 5,
         "leadManagers": 3,
         "recency": 2,
-        "dataCompleteness": 4
+        "dataCompleteness": 6
       },
-      "demand": 21,
-      "value": 21,
+      "demand": 55,
+      "value": 55,
       "mode": "spac_live_balanced"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.1964,
-      "bearCaseListingGainRate": -0.2,
-      "baseCaseListingGainRate": 0.1964,
-      "bullCaseListingGainRate": 0.5964,
+      "expectedListingGainRate": 0.4804,
+      "bearCaseListingGainRate": -0.1696,
+      "baseCaseListingGainRate": 0.4804,
+      "bullCaseListingGainRate": 1.1804,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
         "oneMillionKrw": 0.625,
         "fiveMillionKrw": 3.125
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 5,
-        "oneMillionKrw": 246,
-        "fiveMillionKrw": 1228
+        "minimumSubscription": 12,
+        "oneMillionKrw": 600,
+        "fiveMillionKrw": 3002
       },
       "assumptions": {
         "offerPrice": 2000,
@@ -90,25 +90,24 @@
         "method": "ipo_score_v4_spac_listing_day_momentum",
         "spacModel": true,
         "proportionalCompetitionRate": null,
-        "institutionCompetitionRate": null,
+        "institutionCompetitionRate": 1087.58,
         "retailTailBoost": 0.0,
         "proportionalTailBoost": 0.0,
         "institutionTailBoost": 0.0,
-        "lowLockupVolatility": false,
-        "uncalibratedBaseGainRate": 0.08789999999999999,
+        "lowLockupVolatility": true,
+        "uncalibratedBaseGainRate": 0.3718764567272727,
         "calibrationApplied": 0.1085,
         "calibrationSampleCount": 1,
         "calibrationCompetitionBucket": null
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
         "스팩 전용 보정으로 일반 IPO 확약률 대신 상장일 수급 요인을 반영했습니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
         "스팩의 낮은 기관 확약률은 일반 IPO 안정성 감점이 아니라 상장일 변동성 위험으로 해석합니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
@@ -120,13 +119,13 @@
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "institutionCompetitionRate": 1087.58,
+      "lockupCommitmentRate": 0.0,
       "floatRate": null,
       "hasOutcome": true,
       "scoreMode": "spac_live_balanced",
-      "demandScore": 21,
-      "valueScore": 21
+      "demandScore": 55,
+      "valueScore": 55
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

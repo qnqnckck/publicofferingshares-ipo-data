@@ -32,7 +32,7 @@
     "priceBandMax": 14000,
     "topBandConfirmation": false,
     "institutionCompetitionRate": 381.3,
-    "institutionParticipants": null,
+    "institutionParticipants": 1604,
     "lockupCommitmentRate": 0.0277,
     "floatRate": 0.4897,
     "marketCapKrw": null,
@@ -79,35 +79,35 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 31,
+      "overall": 38,
       "grade": "C-",
       "confidence": 0.95,
       "factors": {
         "institutionDemand": 8,
-        "demandStrength": 0,
+        "demandStrength": 5,
         "lockupCommitment": 0,
         "pricing": 10,
         "publicAllocation": 4,
         "leadManagerCoverage": 0
       },
-      "demand": 29,
+      "demand": 37,
       "value": 40,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.0367,
-      "bearCaseListingGainRate": -0.1433,
-      "baseCaseListingGainRate": 0.0367,
-      "bullCaseListingGainRate": 0.2567,
+      "expectedListingGainRate": 0.1232,
+      "bearCaseListingGainRate": -0.0568,
+      "baseCaseListingGainRate": 0.1232,
+      "bullCaseListingGainRate": 0.3432,
       "expectedAllocatedShares": {
         "minimumSubscription": 5.563,
         "oneMillionKrw": 7.163,
         "fiveMillionKrw": 14.436
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 2447,
-        "oneMillionKrw": 3151,
-        "fiveMillionKrw": 6350
+        "minimumSubscription": 8227,
+        "oneMillionKrw": 10593,
+        "fiveMillionKrw": 21350
       },
       "assumptions": {
         "offerPrice": 12000,
@@ -115,10 +115,10 @@
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
-        "generalPriorBase": 0.09348,
+        "generalPriorBase": 0.168592,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
-        "participantBoost": 0.0,
+        "participantBoost": 0.025,
         "topBandBoost": 0.0,
         "scoreBoost": -0.04,
         "competitionPresent": true,
@@ -159,7 +159,7 @@
       "floatRate": 0.4897,
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 29,
+      "demandScore": 37,
       "valueScore": 40
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
