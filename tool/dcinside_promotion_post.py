@@ -171,8 +171,15 @@ def upload_image_if_present(page, image_path: str | None) -> None:
         print("image upload field was not found; continuing without image")
 
 
+def dcinside_write_url(gallery: str) -> str:
+    regular_galleries = {"gongmozoo"}
+    board_path = "board" if gallery in regular_galleries else "mgallery/board"
+
+    return f"https://gall.dcinside.com/{board_path}/write/?id={quote(gallery)}"
+
+
 def post_gallery(page, gallery: str, title: str, body: str, image_path: str | None) -> None:
-    write_url = f"https://gall.dcinside.com/mgallery/board/write/?id={quote(gallery)}"
+    write_url = dcinside_write_url(gallery)
     user_id = os.environ.get("DCINSIDE_ID", "").strip()
     password = os.environ.get("DCINSIDE_PASSWORD", "").strip()
     if not user_id or not password:
