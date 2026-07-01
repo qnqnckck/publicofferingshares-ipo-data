@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-25T17:50:10.615889",
+  "generatedAt": "2026-07-01T12:00:34.063930",
   "totals": {
     "generatedStocks": 496,
     "activeStocks": 1,
-    "upcomingNext7Days": 1
+    "upcomingNext7Days": 0
   },
   "activeReadiness": {
     "missingLatestSnapshotAt": 0,
     "missingLatestCompetitionRate": 0,
     "missingBrokerLevelCompetition": 0,
     "missingInstitutionCompetitionRate": 0,
-    "missingInstitutionParticipants": 1,
+    "missingInstitutionParticipants": 0,
     "missingLockupCommitmentRate": 0,
     "liveLikeSourceCount": 1,
     "finutsSourceCount": 0,
@@ -21,40 +21,27 @@
     "naver_calculator_live": 1
   },
   "activeSnapshotFreshness": {
-    "within_1h": 0,
-    "within_6h": 1,
+    "within_1h": 1,
+    "within_6h": 0,
     "within_24h": 0,
     "older": 0,
     "missing": 0
   },
   "activeSamples": [
     {
-      "id": "레몬헬스케어_2026-06-24",
-      "company": "레몬헬스케어",
-      "path": "stocks/레몬헬스케어_2026-06-24.json",
-      "subscriptionStart": "2026-06-24",
-      "subscriptionEnd": "2026-06-25",
-      "latestSnapshotAt": "2026-06-25T16:15:27",
-      "latestSnapshotSource": "naver_calculator_live",
-      "latestCompetitionRate": 1510.57,
-      "institutionCompetitionRate": 1238.0,
-      "institutionParticipants": null,
-      "lockupCommitmentRate": 0.0691,
-      "issues": [
-        "missing_institution_participants"
-      ]
-    }
-  ],
-  "upcomingSamples": [
-    {
       "id": "레메디_2026-07-01",
       "company": "레메디",
       "path": "stocks/레메디_2026-07-01.json",
       "subscriptionStart": "2026-07-01",
       "subscriptionEnd": "2026-07-02",
-      "leadManagers": [
-        "KB증권"
-      ]
+      "latestSnapshotAt": "2026-07-01T11:55:58",
+      "latestSnapshotSource": "naver_calculator_live",
+      "latestCompetitionRate": 20.03,
+      "institutionCompetitionRate": 1146.41,
+      "institutionParticipants": 2246,
+      "lockupCommitmentRate": 0.1793,
+      "issues": []
     }
-  ]
+  ],
+  "upcomingSamples": []
 }
