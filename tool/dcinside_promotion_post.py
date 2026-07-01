@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import os
 import sys
+import time
 from pathlib import Path
 from urllib.parse import quote
 
@@ -60,6 +61,21 @@ def click_first(page, selectors: list[str], label: str) -> None:
     locator.click()
 
 
+def page_snapshot_path(gallery: str, suffix: str) -> Path:
+    snapshot_dir = Path(os.environ.get("IPO_PROMOTION_DEBUG_DIR", "tmp/promotion-debug"))
+    snapshot_dir.mkdir(parents=True, exist_ok=True)
+    safe_gallery = "".join(ch if ch.isalnum() or ch in {"-", "_"} else "_" for ch in gallery)
+
+    return snapshot_dir / f"{int(time.time())}-{safe_gallery}-{suffix}.png"
+
+
+def visible_text(page) -> str:
+    try:
+        return page.locator("body").inner_text(timeout=2000)
+    except Exception:
+        return ""
+
+
 def login_if_needed(page, user_id: str, password: str, return_url: str) -> None:
     page.goto(return_url, wait_until="domcontentloaded", timeout=45000)
     page.wait_for_timeout(1500)
@@ -107,6 +123,11 @@ def login_if_needed(page, user_id: str, password: str, return_url: str) -> None:
     )
     page.wait_for_load_state("domcontentloaded", timeout=45000)
     page.wait_for_timeout(2500)
+
+    if "sign.dcinside.com" in page.url or "login" in page.url.lower():
+        screenshot_path = page_snapshot_path("login", "failed")
+        page.screenshot(path=str(screenshot_path), full_page=True)
+        raise RuntimeError(f"DCInside login did not complete. screenshot={screenshot_path}")
 
 
 def fill_body(page, body: str) -> None:
@@ -178,6 +199,47 @@ def dcinside_write_url(gallery: str) -> str:
     return f"https://gall.dcinside.com/{board_path}/write/?id={quote(gallery)}"
 
 
+def assert_post_submitted(page, gallery: str, write_url: str, dialog_messages: list[str]) -> None:
+    page.wait_for_timeout(3000)
+
+    if dialog_messages:
+        screenshot_path = page_snapshot_path(gallery, "dialog")
+        page.screenshot(path=str(screenshot_path), full_page=True)
+        raise RuntimeError(
+            f"DCInside blocked submit with dialog: {' / '.join(dialog_messages)}. "
+            f"screenshot={screenshot_path}"
+        )
+
+    current_url = page.url
+    body_text = visible_text(page)
+    blocking_keywords = [
+        "자동등록방지",
+        "보안코드",
+        "캡차",
+        "captcha",
+        "권한",
+        "로그인",
+        "비밀번호",
+        "도배",
+        "제한",
+        "차단",
+        "금지",
+    ]
+    found_keyword = next(
+        (keyword for keyword in blocking_keywords if keyword.lower() in body_text.lower()),
+        "",
+    )
+
+    if "/write" in current_url or current_url == write_url or found_keyword:
+        screenshot_path = page_snapshot_path(gallery, "not-submitted")
+        page.screenshot(path=str(screenshot_path), full_page=True)
+        detail = f" keyword={found_keyword}" if found_keyword else ""
+        raise RuntimeError(
+            f"DCInside submit was not confirmed. url={current_url}{detail}. "
+            f"screenshot={screenshot_path}"
+        )
+
+
 def post_gallery(page, gallery: str, title: str, body: str, image_path: str | None) -> None:
     write_url = dcinside_write_url(gallery)
     user_id = os.environ.get("DCINSIDE_ID", "").strip()
@@ -186,6 +248,11 @@ def post_gallery(page, gallery: str, title: str, body: str, image_path: str | No
         raise RuntimeError("DCINSIDE_ID and DCINSIDE_PASSWORD are required.")
 
     print(f"opening DCInside gallery: {gallery}")
+    dialog_messages: list[str] = []
+    page.on("dialog", lambda dialog: (
+        dialog_messages.append(dialog.message),
+        dialog.accept(),
+    ))
     login_if_needed(page, user_id, password, write_url)
 
     if "write" not in page.url:
@@ -219,7 +286,7 @@ def post_gallery(page, gallery: str, title: str, body: str, image_path: str | No
         ],
         "submit",
     )
-    page.wait_for_timeout(3000)
+    assert_post_submitted(page, gallery, write_url, dialog_messages)
     print(f"submitted DCInside gallery: {gallery}")
 
 
