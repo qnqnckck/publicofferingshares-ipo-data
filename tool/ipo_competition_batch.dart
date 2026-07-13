@@ -5502,9 +5502,6 @@ class NewListingGuard {
     IpoCompetitionStock stock,
     HistoricalListingReference reference,
   ) {
-    if (stock.normalizedSecurityType?.toUpperCase() == 'PUBLIC_OFFERING') {
-      return false;
-    }
     if (reference.id != null && safeId(stock.id) == reference.id) {
       return false;
     }
