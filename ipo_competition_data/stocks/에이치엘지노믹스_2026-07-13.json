@@ -44,45 +44,45 @@
   "outcome": null,
   "snapshots": [
     {
-      "capturedAt": "2026-07-14T12:07:28",
+      "capturedAt": "2026-07-14T12:19:35",
       "source": "naver_calculator_live",
       "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0156T0",
       "brokers": [
         {
           "name": "IBK투자증권",
           "offeredShares": 256500,
-          "subscribedShares": 15092460,
+          "subscribedShares": 17005950,
           "offerPrice": 21500,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 58.84,
+          "competitionRate": 66.3,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 117.68,
+          "proportionalCompetitionRate": 132.61,
           "equalAllocationShares": 32063,
           "proportionalAllocationShares": 32062,
-          "expectedEqualShares": 3.7304,
-          "applicationCount": 8595
+          "expectedEqualShares": 3.5825,
+          "applicationCount": 8950
         },
         {
           "name": "KB증권",
           "offeredShares": 2308500,
-          "subscribedShares": 461746170,
+          "subscribedShares": 488155410,
           "offerPrice": 21500,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 200.02,
+          "competitionRate": 211.46,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 399.05,
+          "proportionalCompetitionRate": 421.92,
           "equalAllocationShares": 288563,
           "proportionalAllocationShares": 288562,
-          "expectedEqualShares": 2.7978,
-          "applicationCount": 103139
+          "expectedEqualShares": 2.7311,
+          "applicationCount": 105657
         }
       ],
       "aggregate": {
         "offeredShares": 2565000,
-        "subscribedShares": 476838630,
-        "competitionRate": 185.902
+        "subscribedShares": 505161360,
+        "competitionRate": 196.944
       }
     }
   ],
@@ -111,18 +111,18 @@
       "baseCaseListingGainRate": 0.475,
       "bullCaseListingGainRate": 0.755,
       "expectedAllocatedShares": {
-        "minimumSubscription": 3.784,
-        "oneMillionKrw": 3.981,
-        "fiveMillionKrw": 4.981
+        "minimumSubscription": 3.633,
+        "oneMillionKrw": 3.819,
+        "fiveMillionKrw": 4.763
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 38648,
-        "oneMillionKrw": 40654,
-        "fiveMillionKrw": 50875
+        "minimumSubscription": 37106,
+        "oneMillionKrw": 39000,
+        "fiveMillionKrw": 48647
       },
       "assumptions": {
         "offerPrice": 21500,
-        "competitionRate": 185.902,
+        "competitionRate": 196.944,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.24,
@@ -142,7 +142,7 @@
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 185.9대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 196.94대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
@@ -153,24 +153,24 @@
       {
         "broker": "IBK투자증권",
         "equalScore": 100,
-        "proportionalScore": 79,
-        "expectedEqualShares": 3.7304,
-        "estimatedDepositForOneProportionalShare": 1265060,
+        "proportionalScore": 70,
+        "expectedEqualShares": 3.5825,
+        "estimatedDepositForOneProportionalShare": 1425558,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       },
       {
         "broker": "KB증권",
         "equalScore": 100,
-        "proportionalScore": 23,
-        "expectedEqualShares": 2.7978,
-        "estimatedDepositForOneProportionalShare": 4289788,
+        "proportionalScore": 22,
+        "expectedEqualShares": 2.7311,
+        "estimatedDepositForOneProportionalShare": 4535640,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 185.902,
+      "latestCompetitionRate": 196.944,
       "snapshotCount": 1,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
