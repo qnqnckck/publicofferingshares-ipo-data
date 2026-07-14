@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-03T17:50:06.175240",
+  "generatedAt": "2026-07-14T10:00:15.187534",
   "totals": {
-    "generatedStocks": 496,
-    "activeStocks": 0,
+    "generatedStocks": 497,
+    "activeStocks": 1,
     "upcomingNext7Days": 0
   },
   "activeReadiness": {
@@ -13,18 +13,37 @@
     "missingInstitutionCompetitionRate": 0,
     "missingInstitutionParticipants": 0,
     "missingLockupCommitmentRate": 0,
-    "liveLikeSourceCount": 0,
+    "liveLikeSourceCount": 1,
     "finutsSourceCount": 0,
     "ocrSourceCount": 0
   },
-  "activeLatestSourceCounts": {},
+  "activeLatestSourceCounts": {
+    "naver_calculator_live": 1
+  },
   "activeSnapshotFreshness": {
-    "within_1h": 0,
+    "within_1h": 1,
     "within_6h": 0,
     "within_24h": 0,
     "older": 0,
     "missing": 0
   },
-  "activeSamples": [],
+  "activeSamples": [
+    {
+      "id": "에이치엘지노믹스_2026-07-13",
+      "company": "에이치엘지노믹스",
+      "path": "stocks/에이치엘지노믹스_2026-07-13.json",
+      "subscriptionStart": "2026-07-13",
+      "subscriptionEnd": "2026-07-14",
+      "latestSnapshotAt": "2026-07-14T09:57:25",
+      "latestSnapshotSource": "naver_calculator_live",
+      "latestCompetitionRate": 11.042,
+      "institutionCompetitionRate": 714.52,
+      "institutionParticipants": 2148,
+      "lockupCommitmentRate": 0.0191,
+      "issues": [
+        "missing_external_identifier"
+      ]
+    }
+  ],
   "upcomingSamples": []
 }
