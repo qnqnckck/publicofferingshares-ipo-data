@@ -44,45 +44,45 @@
   "outcome": null,
   "snapshots": [
     {
-      "capturedAt": "2026-07-14T14:47:53",
+      "capturedAt": "2026-07-14T14:56:58",
       "source": "naver_calculator_live",
       "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0156T0",
       "brokers": [
         {
           "name": "IBK투자증권",
           "offeredShares": 256500,
-          "subscribedShares": 61972965,
+          "subscribedShares": 66328335,
           "offerPrice": 21500,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 241.61,
+          "competitionRate": 258.59,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 483.22,
+          "proportionalCompetitionRate": 517.2,
           "equalAllocationShares": 32063,
           "proportionalAllocationShares": 32062,
-          "expectedEqualShares": 2.0944,
-          "applicationCount": 15309
+          "expectedEqualShares": 2.0224,
+          "applicationCount": 15854
         },
         {
           "name": "KB증권",
           "offeredShares": 2308500,
-          "subscribedShares": 948539565,
+          "subscribedShares": 988938315,
           "offerPrice": 21500,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 410.89,
+          "competitionRate": 428.39,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 820.78,
+          "proportionalCompetitionRate": 855.78,
           "equalAllocationShares": 288563,
           "proportionalAllocationShares": 288562,
-          "expectedEqualShares": 1.9707,
-          "applicationCount": 146427
+          "expectedEqualShares": 1.9292,
+          "applicationCount": 149575
         }
       ],
       "aggregate": {
         "offeredShares": 2565000,
-        "subscribedShares": 1010512530,
-        "competitionRate": 393.962
+        "subscribedShares": 1055266650,
+        "competitionRate": 411.41
       }
     }
   ],
@@ -106,26 +106,26 @@
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.475,
-      "bearCaseListingGainRate": 0.295,
-      "baseCaseListingGainRate": 0.475,
-      "bullCaseListingGainRate": 0.755,
+      "expectedListingGainRate": 0.6068,
+      "bearCaseListingGainRate": 0.4268,
+      "baseCaseListingGainRate": 0.6068,
+      "bullCaseListingGainRate": 0.8868,
       "expectedAllocatedShares": {
-        "minimumSubscription": 2.12,
-        "oneMillionKrw": 2.212,
-        "fiveMillionKrw": 2.685
+        "minimumSubscription": 2.047,
+        "oneMillionKrw": 2.135,
+        "fiveMillionKrw": 2.588
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 21649,
-        "oneMillionKrw": 22596,
-        "fiveMillionKrw": 27419
+        "minimumSubscription": 26702,
+        "oneMillionKrw": 27860,
+        "fiveMillionKrw": 33760
       },
       "assumptions": {
         "offerPrice": 21500,
-        "competitionRate": 393.962,
+        "competitionRate": 411.41,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.38,
+        "generalCompetitionBaseline": 0.52,
         "generalPriorBase": 0.47342395428571427,
         "institutionBoost": 0.026815,
         "lockupBoost": 0.0,
@@ -142,7 +142,7 @@
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 393.96대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 411.41대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
@@ -153,9 +153,9 @@
       {
         "broker": "IBK투자증권",
         "equalScore": 100,
-        "proportionalScore": 19,
-        "expectedEqualShares": 2.0944,
-        "estimatedDepositForOneProportionalShare": 5194615,
+        "proportionalScore": 18,
+        "expectedEqualShares": 2.0224,
+        "estimatedDepositForOneProportionalShare": 5559900,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       },
@@ -163,14 +163,14 @@
         "broker": "KB증권",
         "equalScore": 100,
         "proportionalScore": 11,
-        "expectedEqualShares": 1.9707,
-        "estimatedDepositForOneProportionalShare": 8823385,
+        "expectedEqualShares": 1.9292,
+        "estimatedDepositForOneProportionalShare": 9199635,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 393.962,
+      "latestCompetitionRate": 411.41,
       "snapshotCount": 1,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
