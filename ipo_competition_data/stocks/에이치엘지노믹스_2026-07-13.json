@@ -44,45 +44,45 @@
   "outcome": null,
   "snapshots": [
     {
-      "capturedAt": "2026-07-14T10:57:54",
+      "capturedAt": "2026-07-14T11:06:59",
       "source": "naver_calculator_live",
       "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0156T0",
       "brokers": [
         {
           "name": "IBK투자증권",
           "offeredShares": 256500,
-          "subscribedShares": 7238430,
+          "subscribedShares": 7982280,
           "offerPrice": 21500,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 28.22,
+          "competitionRate": 31.12,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 56.44,
+          "proportionalCompetitionRate": 62.25,
           "equalAllocationShares": 32063,
           "proportionalAllocationShares": 32062,
-          "expectedEqualShares": 5.2042,
-          "applicationCount": 6161
+          "expectedEqualShares": 4.9086,
+          "applicationCount": 6532
         },
         {
           "name": "KB증권",
           "offeredShares": 2308500,
-          "subscribedShares": 297103950,
+          "subscribedShares": 326537325,
           "offerPrice": 21500,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 128.7,
+          "competitionRate": 141.45,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 256.4,
+          "proportionalCompetitionRate": 281.9,
           "equalAllocationShares": 288563,
           "proportionalAllocationShares": 288562,
-          "expectedEqualShares": 3.2586,
-          "applicationCount": 88554
+          "expectedEqualShares": 3.1743,
+          "applicationCount": 90907
         }
       ],
       "aggregate": {
         "offeredShares": 2565000,
-        "subscribedShares": 304342380,
-        "competitionRate": 118.652
+        "subscribedShares": 334519605,
+        "competitionRate": 130.417
       }
     }
   ],
@@ -111,18 +111,18 @@
       "baseCaseListingGainRate": 0.475,
       "bullCaseListingGainRate": 0.755,
       "expectedAllocatedShares": {
-        "minimumSubscription": 5.288,
-        "oneMillionKrw": 5.596,
-        "fiveMillionKrw": 7.164
+        "minimumSubscription": 4.985,
+        "oneMillionKrw": 5.265,
+        "fiveMillionKrw": 6.692
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 54011,
-        "oneMillionKrw": 57154,
-        "fiveMillionKrw": 73168
+        "minimumSubscription": 50915,
+        "oneMillionKrw": 53774,
+        "fiveMillionKrw": 68343
       },
       "assumptions": {
         "offerPrice": 21500,
-        "competitionRate": 118.652,
+        "competitionRate": 130.417,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.24,
@@ -142,7 +142,7 @@
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 118.65대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 130.42대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
@@ -154,23 +154,23 @@
         "broker": "IBK투자증권",
         "equalScore": 100,
         "proportionalScore": 100,
-        "expectedEqualShares": 5.2042,
-        "estimatedDepositForOneProportionalShare": 606730,
+        "expectedEqualShares": 4.9086,
+        "estimatedDepositForOneProportionalShare": 669188,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       },
       {
         "broker": "KB증권",
         "equalScore": 100,
-        "proportionalScore": 36,
-        "expectedEqualShares": 3.2586,
-        "estimatedDepositForOneProportionalShare": 2756300,
+        "proportionalScore": 33,
+        "expectedEqualShares": 3.1743,
+        "estimatedDepositForOneProportionalShare": 3030425,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 118.652,
+      "latestCompetitionRate": 130.417,
       "snapshotCount": 1,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
