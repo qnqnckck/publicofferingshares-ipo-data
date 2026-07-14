@@ -44,45 +44,45 @@
   "outcome": null,
   "snapshots": [
     {
-      "capturedAt": "2026-07-14T10:36:44",
+      "capturedAt": "2026-07-14T10:45:48",
       "source": "naver_calculator_live",
       "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0156T0",
       "brokers": [
         {
           "name": "IBK투자증권",
           "offeredShares": 256500,
-          "subscribedShares": 5060745,
+          "subscribedShares": 5866155,
           "offerPrice": 21500,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 19.73,
+          "competitionRate": 22.87,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 39.47,
+          "proportionalCompetitionRate": 45.75,
           "equalAllocationShares": 32063,
           "proportionalAllocationShares": 32062,
-          "expectedEqualShares": 6.2295,
-          "applicationCount": 5147
+          "expectedEqualShares": 5.7082,
+          "applicationCount": 5617
         },
         {
           "name": "KB증권",
           "offeredShares": 2308500,
-          "subscribedShares": 222954930,
+          "subscribedShares": 253911915,
           "offerPrice": 21500,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 96.58,
+          "competitionRate": 109.99,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 192.16,
+          "proportionalCompetitionRate": 218.98,
           "equalAllocationShares": 288563,
           "proportionalAllocationShares": 288562,
-          "expectedEqualShares": 3.5093,
-          "applicationCount": 82228
+          "expectedEqualShares": 3.392,
+          "applicationCount": 85072
         }
       ],
       "aggregate": {
         "offeredShares": 2565000,
-        "subscribedShares": 228015675,
-        "competitionRate": 88.895
+        "subscribedShares": 259778070,
+        "competitionRate": 101.278
       }
     }
   ],
@@ -111,21 +111,21 @@
       "baseCaseListingGainRate": 0.475,
       "bullCaseListingGainRate": 0.755,
       "expectedAllocatedShares": {
-        "minimumSubscription": 6.342,
-        "oneMillionKrw": 6.753,
-        "fiveMillionKrw": 8.846
+        "minimumSubscription": 5.807,
+        "oneMillionKrw": 6.167,
+        "fiveMillionKrw": 8.004
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 64770,
-        "oneMillionKrw": 68965,
-        "fiveMillionKrw": 90340
+        "minimumSubscription": 59306,
+        "oneMillionKrw": 62988,
+        "fiveMillionKrw": 81749
       },
       "assumptions": {
         "offerPrice": 21500,
-        "competitionRate": 88.895,
+        "competitionRate": 101.278,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.1,
+        "generalCompetitionBaseline": 0.24,
         "generalPriorBase": 0.47342395428571427,
         "institutionBoost": 0.026815,
         "lockupBoost": 0.0,
@@ -142,7 +142,7 @@
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 88.9대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 101.28대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
@@ -154,23 +154,23 @@
         "broker": "IBK투자증권",
         "equalScore": 100,
         "proportionalScore": 100,
-        "expectedEqualShares": 6.2295,
-        "estimatedDepositForOneProportionalShare": 424303,
+        "expectedEqualShares": 5.7082,
+        "estimatedDepositForOneProportionalShare": 491813,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       },
       {
         "broker": "KB증권",
         "equalScore": 100,
-        "proportionalScore": 48,
-        "expectedEqualShares": 3.5093,
-        "estimatedDepositForOneProportionalShare": 2065720,
+        "proportionalScore": 42,
+        "expectedEqualShares": 3.392,
+        "estimatedDepositForOneProportionalShare": 2354035,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 88.895,
+      "latestCompetitionRate": 101.278,
       "snapshotCount": 1,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
