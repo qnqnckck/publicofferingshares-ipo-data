@@ -1,88 +1,87 @@
 {
   "schemaVersion": 1,
-  "id": "인제니아테라퓨틱스_2026-07-30",
+  "id": "브릴스_2026-08-25",
   "identifiers": {
-    "subscriptionKey": "인제니아테라퓨틱스_20260730_20260731",
-    "normalizedCompany": "인제니아테라퓨틱스",
+    "subscriptionKey": "브릴스_20260825_20260826",
+    "normalizedCompany": "브릴스",
     "corpCode": null,
     "stockCode": null,
     "kindCode": null,
     "isin": null
   },
-  "company": "인제니아테라퓨틱스",
+  "company": "브릴스",
   "market": "KOSDAQ",
-  "industry": "의학 및 약학 연구개발업",
-  "demandForecastDate": "2026-07-20",
-  "demandForecastStart": "2026-07-20",
-  "demandForecastEnd": "2026-07-24",
-  "subscriptionStart": "2026-07-30",
-  "subscriptionEnd": "2026-07-31",
-  "refundDate": "2026-08-04",
-  "listingDate": "2026-08-18",
+  "industry": "특수 목적용 기계 제조업",
+  "demandForecastDate": "2026-08-14",
+  "demandForecastStart": "2026-08-14",
+  "demandForecastEnd": "2026-08-21",
+  "subscriptionStart": "2026-08-25",
+  "subscriptionEnd": "2026-08-26",
+  "refundDate": "2026-08-28",
+  "listingDate": "2026-09-03",
   "lockupReleaseDate": null,
   "generalSharesDate": null,
   "cbBwDate": null,
-  "securityType": "KDR",
+  "securityType": null,
   "leadManagers": [
-    "삼성증권"
+    "IBK투자증권"
   ],
   "fundamentals": {
-    "offerPrice": 12000,
-    "priceBandMin": 12000,
-    "priceBandMax": 14500,
-    "topBandConfirmation": false,
-    "institutionCompetitionRate": 50.43,
-    "institutionParticipants": 307,
-    "lockupCommitmentRate": 0.0223,
-    "floatRate": 0.256,
-    "marketCapKrw": 600000000000,
-    "publicAllocationShares": 1250000,
+    "offerPrice": null,
+    "priceBandMin": 16500,
+    "priceBandMax": 19500,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": 300000,
     "hasPutbackRight": false,
-    "putbackSummary": "일반청약자 환매청구권 없음"
+    "putbackSummary": null
   },
   "outcome": null,
   "snapshots": [],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 23,
-      "grade": "C-",
-      "confidence": 0.65,
+      "overall": 19,
+      "grade": "-",
+      "confidence": 0.35,
       "factors": {
-        "institutionDemand": 1,
+        "institutionDemand": 0,
         "demandStrength": 0,
         "lockupCommitment": 0,
-        "pricing": 10,
-        "marketCap": 5,
-        "publicAllocation": 4,
+        "pricing": 3,
+        "publicAllocation": 8,
         "leadManagerCoverage": 0
       },
-      "demand": 18,
-      "value": 45,
+      "demand": 5,
+      "value": 80,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.2052,
-      "bearCaseListingGainRate": 0.0052,
-      "baseCaseListingGainRate": 0.2052,
-      "bullCaseListingGainRate": 0.4852,
+      "expectedListingGainRate": 0.176,
+      "bearCaseListingGainRate": -0.024,
+      "baseCaseListingGainRate": 0.176,
+      "bullCaseListingGainRate": 0.456,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.104,
-        "fiveMillionKrw": 0.521
+        "oneMillionKrw": 0.042,
+        "fiveMillionKrw": 0.208
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 31,
-        "oneMillionKrw": 256,
-        "fiveMillionKrw": 1282
+        "minimumSubscription": 66,
+        "oneMillionKrw": 220,
+        "fiveMillionKrw": 1100
       },
       "assumptions": {
-        "offerPrice": 12000,
+        "offerPrice": null,
         "competitionRate": null,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": 0.02515999999999999,
+        "generalPriorBase": -0.0039600000000000034,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
@@ -95,12 +94,14 @@
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "insufficient_data",
+      "label": "데이터 부족",
       "reasons": [
         "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
       ],
       "warnings": [
+        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+        "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
@@ -110,14 +111,14 @@
       "snapshotCount": 0,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
-      "hasOfferPrice": true,
-      "institutionCompetitionRate": 50.43,
-      "lockupCommitmentRate": 0.0223,
-      "floatRate": 0.256,
+      "hasOfferPrice": false,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
       "hasOutcome": false,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 18,
-      "valueScore": 45
+      "demandScore": 5,
+      "valueScore": 80
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }
