@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "id": "stormtech_2023",
+  "identifiers": {
+    "subscriptionKey": "스톰테크_20231109_20231110",
+    "normalizedCompany": "스톰테크",
+    "corpCode": "01226270",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "스톰테크",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2023-10-31",
+  "demandForecastStart": "2023-10-31",
+  "demandForecastEnd": "2023-11-06",
+  "subscriptionStart": "2023-11-09",
+  "subscriptionEnd": "2023-11-10",
+  "refundDate": null,
+  "listingDate": "2023-11-20",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "하이투자증권",
+    "하이"
+  ],
+  "fundamentals": {
+    "offerPrice": 11000,
+    "priceBandMin": 8000,
+    "priceBandMax": 9500,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 573.97,
+    "institutionParticipants": 1815,
+    "lockupCommitmentRate": 0.1211,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": 849800,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2023-11-20",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100069"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2023-11-10T17:30:00+09:00",
+      "source": "public_ipo_result",
+      "sourceUrl": "https://www.etoday.co.kr/news/view/2301331",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 849800,
+          "subscribedShares": 424600560,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 499.64,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 849800,
+        "subscribedShares": 424600560,
+        "competitionRate": 499.64
+      }
+    },
+    {
+      "capturedAt": "2026-08-02T06:50:22.755419",
+      "source": "estimated_broker_split",
+      "sourceUrl": "https://www.etoday.co.kr/news/view/2301331",
+      "brokers": [
+        {
+          "name": "하이투자증권",
+          "offeredShares": 849800,
+          "subscribedShares": 424594072,
+          "offerPrice": 11000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 499.64,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 499.64,
+          "equalAllocationShares": 424900,
+          "proportionalAllocationShares": 424900,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 849800,
+        "subscribedShares": 424594072,
+        "competitionRate": 499.64
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 49,
+      "grade": "C",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 8,
+        "demandStrength": 10,
+        "lockupCommitment": 4,
+        "pricing": 4,
+        "publicAllocation": 6,
+        "leadManagerCoverage": 2
+      },
+      "demand": 42,
+      "value": 80,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.5292,
+      "bearCaseListingGainRate": 0.3492,
+      "baseCaseListingGainRate": 0.5292,
+      "bullCaseListingGainRate": 0.7492,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.02,
+        "oneMillionKrw": 0.182,
+        "fiveMillionKrw": 0.91
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 117,
+        "oneMillionKrw": 1059,
+        "fiveMillionKrw": 5296
+      },
+      "assumptions": {
+        "offerPrice": 11000,
+        "competitionRate": 499.64,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.52,
+        "generalPriorBase": 0.2882843542857143,
+        "institutionBoost": 0.009246250000000003,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.04,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 499.64대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "하이투자증권",
+        "equalScore": 30,
+        "proportionalScore": 36,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 2748020,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 499.64,
+      "snapshotCount": 2,
+      "leadManagerCount": 2,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 573.97,
+      "lockupCommitmentRate": 0.1211,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 42,
+      "valueScore": 80
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

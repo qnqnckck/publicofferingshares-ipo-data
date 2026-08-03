@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "id": "bi_matrix_2023",
+  "identifiers": {
+    "subscriptionKey": "비아이매트릭스_20231031_20231101",
+    "normalizedCompany": "비아이매트릭스",
+    "corpCode": "01462739",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "비아이매트릭스",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2023-10-19",
+  "demandForecastStart": "2023-10-19",
+  "demandForecastEnd": "2023-10-25",
+  "subscriptionStart": "2023-10-31",
+  "subscriptionEnd": "2023-11-01",
+  "refundDate": null,
+  "listingDate": "2023-11-09",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "IBK투자증권",
+    "IBK"
+  ],
+  "fundamentals": {
+    "offerPrice": 13000,
+    "priceBandMin": 9100,
+    "priceBandMax": 11000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 981.09,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2023-11-09",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100086"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2023-11-01T16:00:00+09:00",
+      "source": "public_ipo_backfill",
+      "sourceUrl": "https://finfreedom.tistory.com",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 805.12,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 805.12
+      }
+    },
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100086",
+      "brokers": [
+        {
+          "name": "IBK투자증권",
+          "offeredShares": 300000,
+          "subscribedShares": 484050000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 1500,
+          "competitionRate": 1613.5,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 150000,
+          "proportionalAllocationShares": 150000,
+          "expectedEqualShares": 1.74,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 300000,
+        "subscribedShares": 484050000,
+        "competitionRate": 1613.5
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 51,
+      "grade": "C+",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 15,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 4,
+        "leadManagerCoverage": 2
+      },
+      "demand": 40,
+      "value": 100,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.9701,
+      "bearCaseListingGainRate": 0.7901,
+      "baseCaseListingGainRate": 0.9701,
+      "bullCaseListingGainRate": 1.1901,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 1.746,
+        "oneMillionKrw": 1.788,
+        "fiveMillionKrw": 1.978
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 22023,
+        "oneMillionKrw": 22546,
+        "fiveMillionKrw": 24951
+      },
+      "assumptions": {
+        "offerPrice": 13000,
+        "competitionRate": 1613.5,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.33213608000000006,
+        "institutionBoost": 0.06013625,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1613.5대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "IBK투자증권",
+        "equalScore": 100,
+        "proportionalScore": 10,
+        "expectedEqualShares": 1.74,
+        "estimatedDepositForOneProportionalShare": 10487750,
+        "feeKrw": 1500,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 1613.5,
+      "snapshotCount": 2,
+      "leadManagerCount": 2,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 981.09,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 40,
+      "valueScore": 100
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

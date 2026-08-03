@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "id": "seers_technology_2024",
+  "identifiers": {
+    "subscriptionKey": "씨어스테크놀로지_20240610_20240611",
+    "normalizedCompany": "씨어스테크놀로지",
+    "corpCode": "01514227",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "씨어스테크놀로지",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2024-05-27",
+  "demandForecastStart": "2024-05-27",
+  "demandForecastEnd": "2024-05-31",
+  "subscriptionStart": "2024-06-10",
+  "subscriptionEnd": "2024-06-11",
+  "refundDate": null,
+  "listingDate": "2024-06-19",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "한국투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 17000,
+    "priceBandMin": 10500,
+    "priceBandMax": 14000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 1084.4,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-06-19",
+    "openReturnRate": 1.026470588235294,
+    "highReturnRate": 1.1176470588235294,
+    "closeReturnRate": 0.08823529411764706,
+    "sourceUrl": "https://ckang.tistory.com/115"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-06-11T17:30:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://ckang.tistory.com/115",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1436.96,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1436.96
+      }
+    },
+    {
+      "capturedAt": "2026-08-02T06:50:22.755419",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://ckang.tistory.com/115",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 17000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1436.96,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1436.96,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1436.96
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 43,
+      "grade": "C-",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 22,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 4,
+        "leadManagerCoverage": 0
+      },
+      "demand": 52,
+      "value": 0,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.7531,
+      "bearCaseListingGainRate": 0.5731,
+      "baseCaseListingGainRate": 0.7531,
+      "bullCaseListingGainRate": 0.9731,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.007,
+        "oneMillionKrw": 0.041,
+        "fiveMillionKrw": 0.205
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 89,
+        "oneMillionKrw": 524,
+        "fiveMillionKrw": 2620
+      },
+      "assumptions": {
+        "offerPrice": 17000,
+        "competitionRate": 1436.96,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.2706,
+        "institutionBoost": 0.07305000000000002,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1436.96대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "한국투자증권",
+        "equalScore": 30,
+        "proportionalScore": 8,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 12214160,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 1436.96,
+      "snapshotCount": 2,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1084.4,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 52,
+      "valueScore": 0
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

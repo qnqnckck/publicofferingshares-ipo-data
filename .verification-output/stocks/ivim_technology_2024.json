@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "id": "ivim_technology_2024",
+  "identifiers": {
+    "subscriptionKey": "아이빔테크놀로지_20240725_20240726",
+    "normalizedCompany": "아이빔테크놀로지",
+    "corpCode": "01678312",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "아이빔테크놀로지",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2024-07-15",
+  "demandForecastStart": "2024-07-15",
+  "demandForecastEnd": "2024-07-19",
+  "subscriptionStart": "2024-07-25",
+  "subscriptionEnd": "2024-07-26",
+  "refundDate": null,
+  "listingDate": "2024-08-06",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "삼성증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 10000,
+    "priceBandMin": 7300,
+    "priceBandMax": 8500,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 1011.5,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-08-06",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100216"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-07-26T16:00:00+09:00",
+      "source": "public_monthly_ipo_schedule",
+      "sourceUrl": "https://honda31.tistory.com/281",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1094.66,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1094.66
+      }
+    },
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100216",
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 558500,
+          "subscribedShares": 1222171135,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 2188.31,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 279250,
+          "proportionalAllocationShares": 279250,
+          "expectedEqualShares": 1.24,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 558500,
+        "subscribedShares": 1222171135,
+        "competitionRate": 2188.31
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 43,
+      "grade": "C-",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 22,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 4,
+        "leadManagerCoverage": 0
+      },
+      "demand": 52,
+      "value": 0,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.9739,
+      "bearCaseListingGainRate": 0.7939,
+      "baseCaseListingGainRate": 0.9739,
+      "bullCaseListingGainRate": 1.1939,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 1.245,
+        "oneMillionKrw": 1.286,
+        "fiveMillionKrw": 1.468
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 12121,
+        "oneMillionKrw": 12522,
+        "fiveMillionKrw": 14302
+      },
+      "assumptions": {
+        "offerPrice": 10000,
+        "competitionRate": 2188.31,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.2706,
+        "institutionBoost": 0.0639375,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 2188.31대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "삼성증권",
+        "equalScore": 99,
+        "proportionalScore": 9,
+        "expectedEqualShares": 1.24,
+        "estimatedDepositForOneProportionalShare": 10941550,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 2188.31,
+      "snapshotCount": 2,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1011.5,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 52,
+      "valueScore": 0
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

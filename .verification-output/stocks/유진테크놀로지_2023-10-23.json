@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "id": "유진테크놀로지_2023-10-23",
+  "identifiers": {
+    "subscriptionKey": "유진테크놀로지_20231023_20231024",
+    "normalizedCompany": "유진테크놀로지",
+    "corpCode": "01085026",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "유진테크놀로지",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2023-10-11",
+  "demandForecastStart": "2023-10-11",
+  "demandForecastEnd": "2023-10-17",
+  "subscriptionStart": "2023-10-23",
+  "subscriptionEnd": "2023-10-24",
+  "refundDate": null,
+  "listingDate": "2023-11-02",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "NH투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 17000,
+    "priceBandMin": 12800,
+    "priceBandMax": 14500,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2023-11-02",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100045"
+  },
+  "snapshots": [],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 13,
+      "grade": "-",
+      "confidence": 0.45,
+      "factors": {
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 4,
+        "leadManagerCoverage": 0
+      },
+      "demand": 16,
+      "value": 0,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.1347,
+      "bearCaseListingGainRate": -0.0653,
+      "baseCaseListingGainRate": 0.1347,
+      "bullCaseListingGainRate": 0.4147,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.013,
+        "oneMillionKrw": 0.074,
+        "fiveMillionKrw": 0.368
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 29,
+        "oneMillionKrw": 168,
+        "fiveMillionKrw": 842
+      },
+      "assumptions": {
+        "offerPrice": 17000,
+        "competitionRate": null,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.0,
+        "generalPriorBase": -0.04532,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": false,
+        "generalCalibrationApplied": 0.18,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": true
+      }
+    },
+    "decision": {
+      "level": "insufficient_data",
+      "label": "데이터 부족",
+      "reasons": [
+        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+      ],
+      "warnings": [
+        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": null,
+      "snapshotCount": 0,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 16,
+      "valueScore": 0
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "id": "inswave_systems_2023",
+  "identifiers": {
+    "subscriptionKey": "인스웨이브시스템즈_20230914_20230915",
+    "normalizedCompany": "인스웨이브시스템즈",
+    "corpCode": "01222113",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "인스웨이브시스템즈",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2023-09-06",
+  "demandForecastStart": "2023-09-06",
+  "demandForecastEnd": "2023-09-12",
+  "subscriptionStart": "2023-09-14",
+  "subscriptionEnd": "2023-09-15",
+  "refundDate": null,
+  "listingDate": "2023-09-25",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "신영증권",
+    "신영"
+  ],
+  "fundamentals": {
+    "offerPrice": 24000,
+    "priceBandMin": 20000,
+    "priceBandMax": 24000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 672.42,
+    "institutionParticipants": 1872,
+    "lockupCommitmentRate": 0.0746,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": 275000,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2023-09-25",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100056"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2023-09-15T17:11:00+09:00",
+      "source": "public_ipo_result",
+      "sourceUrl": "https://www.fnnews.com/ampNews/202309151702063203",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 275000,
+          "subscribedShares": 170200250,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 618.91,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 275000,
+        "subscribedShares": 170200250,
+        "competitionRate": 618.91
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:28:42+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100056",
+      "brokers": [
+        {
+          "name": "신영증권",
+          "offeredShares": 275000,
+          "subscribedShares": 340397750,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 1237.81,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 137500,
+          "proportionalAllocationShares": 137500,
+          "expectedEqualShares": 1.63,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 275000,
+        "subscribedShares": 340397750,
+        "competitionRate": 1237.81
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 57,
+      "grade": "C+",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 8,
+        "demandStrength": 10,
+        "lockupCommitment": 4,
+        "pricing": 8,
+        "publicAllocation": 8,
+        "leadManagerCoverage": 2
+      },
+      "demand": 48,
+      "value": 100,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.7416,
+      "bearCaseListingGainRate": 0.5616,
+      "baseCaseListingGainRate": 0.7416,
+      "bullCaseListingGainRate": 0.9616,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 1.638,
+        "oneMillionKrw": 1.664,
+        "fiveMillionKrw": 1.798
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 29153,
+        "oneMillionKrw": 29609,
+        "fiveMillionKrw": 32005
+      },
+      "assumptions": {
+        "offerPrice": 24000,
+        "competitionRate": 1237.81,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.36746589714285716,
+        "institutionBoost": 0.021552499999999995,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.04,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "neutral",
+      "label": "중립",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1237.81대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "신영증권",
+        "equalScore": 100,
+        "proportionalScore": 7,
+        "expectedEqualShares": 1.63,
+        "estimatedDepositForOneProportionalShare": 14853720,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 1237.81,
+      "snapshotCount": 2,
+      "leadManagerCount": 2,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 672.42,
+      "lockupCommitmentRate": 0.0746,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 48,
+      "valueScore": 100
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

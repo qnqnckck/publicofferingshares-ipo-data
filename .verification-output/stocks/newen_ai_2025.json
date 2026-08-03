@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "id": "newen_ai_2025",
+  "identifiers": {
+    "subscriptionKey": "뉴엔에이아이_20250623_20250624",
+    "normalizedCompany": "뉴엔에이아이",
+    "corpCode": "01639508",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "뉴엔에이아이",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": null,
+  "demandForecastStart": null,
+  "demandForecastEnd": null,
+  "subscriptionStart": "2025-06-23",
+  "subscriptionEnd": "2025-06-24",
+  "refundDate": null,
+  "listingDate": "2025-07-04",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "NH투자증권",
+    "신한투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 15000,
+    "priceBandMin": 13000,
+    "priceBandMax": 15000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 995.61,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2025-06-24T16:00:00+09:00",
+      "source": "public_monthly_ipo_schedule",
+      "sourceUrl": "https://honda31.tistory.com/301",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1468.83,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1468.83
+      }
+    },
+    {
+      "capturedAt": "2026-08-02T06:50:22.755419",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://honda31.tistory.com/301",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 15000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1468.83,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1468.83,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "신한투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 15000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1468.83,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1468.83,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1468.83
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 57,
+      "grade": "C+",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 15,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 8,
+        "leadManagerCoverage": 2
+      },
+      "demand": 47,
+      "value": 100,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.742,
+      "bearCaseListingGainRate": 0.562,
+      "baseCaseListingGainRate": 0.742,
+      "bullCaseListingGainRate": 0.962,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.007,
+        "oneMillionKrw": 0.045,
+        "fiveMillionKrw": 0.227
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 76,
+        "oneMillionKrw": 505,
+        "fiveMillionKrw": 2526
+      },
+      "assumptions": {
+        "offerPrice": 15000,
+        "competitionRate": 1468.83,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.38337717714285713,
+        "institutionBoost": 0.06195125,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "neutral",
+      "label": "중립",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1468.83대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "NH투자증권",
+        "equalScore": 30,
+        "proportionalScore": 9,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 11016225,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "신한투자증권",
+        "equalScore": 30,
+        "proportionalScore": 9,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 11016225,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 1468.83,
+      "snapshotCount": 2,
+      "leadManagerCount": 2,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 995.61,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 47,
+      "valueScore": 100
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "id": "m83_2024-08-12",
+  "identifiers": {
+    "subscriptionKey": "m83_20240812_20240813",
+    "normalizedCompany": "m83",
+    "corpCode": "01704680",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "M83",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2024-08-01",
+  "demandForecastStart": "2024-08-01",
+  "demandForecastEnd": "2024-08-07",
+  "subscriptionStart": "2024-08-12",
+  "subscriptionEnd": "2024-08-13",
+  "refundDate": null,
+  "listingDate": "2024-08-22",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "신영",
+    "유진"
+  ],
+  "fundamentals": {
+    "offerPrice": 16000,
+    "priceBandMin": 11000,
+    "priceBandMax": 13000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-08-22",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100238"
+  },
+  "snapshots": [],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 31,
+      "grade": "-",
+      "confidence": 0.45,
+      "factors": {
+        "institutionDemand": 0,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 4,
+        "leadManagerCoverage": 2
+      },
+      "demand": 16,
+      "value": 100,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.2583,
+      "bearCaseListingGainRate": 0.0583,
+      "baseCaseListingGainRate": 0.2583,
+      "bullCaseListingGainRate": 0.5383,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.013,
+        "oneMillionKrw": 0.078,
+        "fiveMillionKrw": 0.391
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 52,
+        "oneMillionKrw": 323,
+        "fiveMillionKrw": 1614
+      },
+      "assumptions": {
+        "offerPrice": 16000,
+        "competitionRate": null,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.0,
+        "generalPriorBase": 0.07828,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": false,
+        "generalCalibrationApplied": 0.18,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": true
+      }
+    },
+    "decision": {
+      "level": "insufficient_data",
+      "label": "데이터 부족",
+      "reasons": [
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+      ],
+      "warnings": [
+        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": null,
+      "snapshotCount": 0,
+      "leadManagerCount": 2,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 16,
+      "valueScore": 100
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

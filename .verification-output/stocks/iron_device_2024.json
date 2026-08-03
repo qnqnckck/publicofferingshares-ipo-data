@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "id": "iron_device_2024",
+  "identifiers": {
+    "subscriptionKey": "아이언디바이스_20240909_20240910",
+    "normalizedCompany": "아이언디바이스",
+    "corpCode": "01706794",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "아이언디바이스",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2024-08-30",
+  "demandForecastStart": "2024-08-30",
+  "demandForecastEnd": "2024-09-05",
+  "subscriptionStart": "2024-09-09",
+  "subscriptionEnd": "2024-09-10",
+  "refundDate": null,
+  "listingDate": "2024-09-23",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "대신증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 7000,
+    "priceBandMin": 4900,
+    "priceBandMax": 5700,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 1152.8,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": 0.0334,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-09-23",
+    "openReturnRate": null,
+    "highReturnRate": 1.6242857142857143,
+    "closeReturnRate": 0.5571428571428572,
+    "sourceUrl": "https://www.hankyung.com/article/2024092324111"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-09-10T17:30:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.fnnews.com/ampNews/202409230918437473",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1965.03,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1965.03
+      }
+    },
+    {
+      "capturedAt": "2026-08-02T06:50:22.755419",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.fnnews.com/ampNews/202409230918437473",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 7000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1965.03,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1965.03,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1965.03
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 43,
+      "grade": "C-",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 22,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 4,
+        "leadManagerCoverage": 0
+      },
+      "demand": 52,
+      "value": 0,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.9916,
+      "bearCaseListingGainRate": 0.8116,
+      "baseCaseListingGainRate": 0.9916,
+      "bullCaseListingGainRate": 1.2116,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.005,
+        "oneMillionKrw": 0.073,
+        "fiveMillionKrw": 0.363
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 35,
+        "oneMillionKrw": 505,
+        "fiveMillionKrw": 2523
+      },
+      "assumptions": {
+        "offerPrice": 7000,
+        "competitionRate": 1965.03,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.2706,
+        "institutionBoost": 0.08159999999999999,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1965.03대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "대신증권",
+        "equalScore": 30,
+        "proportionalScore": 15,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 6877605,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 1965.03,
+      "snapshotCount": 2,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1152.8,
+      "lockupCommitmentRate": 0.0334,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 52,
+      "valueScore": 0
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "id": "studio_samik_2024",
+  "identifiers": {
+    "subscriptionKey": "스튜디오삼익_20240125_20240126",
+    "normalizedCompany": "스튜디오삼익",
+    "corpCode": "01540815",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "스튜디오삼익",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2024-01-17",
+  "demandForecastStart": "2024-01-17",
+  "demandForecastEnd": "2024-01-23",
+  "subscriptionStart": "2024-01-25",
+  "subscriptionEnd": "2024-01-26",
+  "refundDate": null,
+  "listingDate": "2024-02-06",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "DB금융투자",
+    "DB"
+  ],
+  "fundamentals": {
+    "offerPrice": 18000,
+    "priceBandMin": 14500,
+    "priceBandMax": 16500,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 966.9,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-02-06",
+    "openReturnRate": 1.8888888888888888,
+    "highReturnRate": 1.9222222222222223,
+    "closeReturnRate": 1.2166666666666666,
+    "sourceUrl": "https://www.yna.co.kr/view/AKR20240206040551008"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-01-29T13:28:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.newspim.com/news/view/20240129000612",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2650.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 2650.0
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:00:25+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100009",
+      "brokers": [
+        {
+          "name": "DB금융투자",
+          "offeredShares": 212500,
+          "subscribedShares": 1126390250,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 5300.66,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 106250,
+          "proportionalAllocationShares": 106250,
+          "expectedEqualShares": 0.67,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 212500,
+        "subscribedShares": 1126390250,
+        "competitionRate": 5300.66
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 51,
+      "grade": "C+",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 15,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 4,
+        "leadManagerCoverage": 2
+      },
+      "demand": 40,
+      "value": 100,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.9684,
+      "bearCaseListingGainRate": 0.7884,
+      "baseCaseListingGainRate": 0.9684,
+      "bullCaseListingGainRate": 1.1884,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.672,
+        "oneMillionKrw": 0.68,
+        "fiveMillionKrw": 0.722
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 11711,
+        "oneMillionKrw": 11861,
+        "fiveMillionKrw": 12592
+      },
+      "assumptions": {
+        "offerPrice": 18000,
+        "competitionRate": 5300.66,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.3301413714285714,
+        "institutionBoost": 0.0583625,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 5300.66대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "DB금융투자",
+        "equalScore": 54,
+        "proportionalScore": 2,
+        "expectedEqualShares": 0.67,
+        "estimatedDepositForOneProportionalShare": 47705940,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 5300.66,
+      "snapshotCount": 2,
+      "leadManagerCount": 2,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 966.9,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 40,
+      "valueScore": 100
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

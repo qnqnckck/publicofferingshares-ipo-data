@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "id": "posbank_2024",
+  "identifiers": {
+    "subscriptionKey": "포스뱅크_20240117_20240118",
+    "normalizedCompany": "포스뱅크",
+    "corpCode": "00862312",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "포스뱅크",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2024-01-05",
+  "demandForecastStart": "2024-01-05",
+  "demandForecastEnd": "2024-01-11",
+  "subscriptionStart": "2024-01-17",
+  "subscriptionEnd": "2024-01-18",
+  "refundDate": null,
+  "listingDate": "2024-01-29",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "하나증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 18000,
+    "priceBandMin": 13000,
+    "priceBandMax": 15000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 839.03,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-01-29",
+    "openReturnRate": null,
+    "highReturnRate": 2.1277777777777778,
+    "closeReturnRate": 0.2972222222222222,
+    "sourceUrl": "https://www.mk.co.kr/news/stock/10931892"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-01-18T17:30:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/10931892",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1397.07,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1397.07
+      }
+    },
+    {
+      "capturedAt": "2026-08-02T06:50:22.755419",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/10931892",
+      "brokers": [
+        {
+          "name": "하나증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 18000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1397.07,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1397.07,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1397.07
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 33,
+      "grade": "C-",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 15,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 4,
+        "leadManagerCoverage": 0
+      },
+      "demand": 40,
+      "value": 0,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.7224,
+      "bearCaseListingGainRate": 0.5424,
+      "baseCaseListingGainRate": 0.7224,
+      "bullCaseListingGainRate": 0.9424,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.007,
+        "oneMillionKrw": 0.04,
+        "fiveMillionKrw": 0.199
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 93,
+        "oneMillionKrw": 517,
+        "fiveMillionKrw": 2585
+      },
+      "assumptions": {
+        "offerPrice": 18000,
+        "competitionRate": 1397.07,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.16456650285714286,
+        "institutionBoost": 0.04237875,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1397.07대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "하나증권",
+        "equalScore": 30,
+        "proportionalScore": 8,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 12573630,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 1397.07,
+      "snapshotCount": 2,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 839.03,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 40,
+      "valueScore": 0
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

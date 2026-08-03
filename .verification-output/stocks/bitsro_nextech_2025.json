@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "id": "bitsro_nextech_2025",
+  "identifiers": {
+    "subscriptionKey": "비츠로넥스텍_20251111_20251112",
+    "normalizedCompany": "비츠로넥스텍",
+    "corpCode": "01194607",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "비츠로넥스텍",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2025-10-31",
+  "demandForecastStart": "2025-10-31",
+  "demandForecastEnd": "2025-11-06",
+  "subscriptionStart": "2025-11-11",
+  "subscriptionEnd": "2025-11-12",
+  "refundDate": null,
+  "listingDate": "2025-11-21",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "NH투자증권",
+    "교보증권",
+    "교보"
+  ],
+  "fundamentals": {
+    "offerPrice": 6900,
+    "priceBandMin": 5900,
+    "priceBandMax": 6900,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 1015.93,
+    "institutionParticipants": 2239,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": 1100000,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2025-11-21",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100456"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2025-11-12T16:00:00+09:00",
+      "source": "public_monthly_ipo_schedule",
+      "sourceUrl": "https://www.moneys.co.kr/article/2025111217300891085",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 1100000,
+          "subscribedShares": 838452560,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 762.23,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1100000,
+        "subscribedShares": 838452560,
+        "competitionRate": 762.23
+      }
+    },
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100456",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 880000,
+          "subscribedShares": 1401716800,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 1592.86,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 440000,
+          "proportionalAllocationShares": 440000,
+          "expectedEqualShares": 1.74,
+          "applicationCount": null
+        },
+        {
+          "name": "교보증권",
+          "offeredShares": 220000,
+          "subscribedShares": 274964800,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 1249.84,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 110000,
+          "proportionalAllocationShares": 110000,
+          "expectedEqualShares": 2.65,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1100000,
+        "subscribedShares": 1676681600,
+        "competitionRate": 1524.256
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 68,
+      "grade": "B",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 22,
+        "demandStrength": 10,
+        "lockupCommitment": 0,
+        "pricing": 8,
+        "publicAllocation": 6,
+        "leadManagerCoverage": 2
+      },
+      "demand": 65,
+      "value": 80,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 1.0423,
+      "bearCaseListingGainRate": 0.8623,
+      "baseCaseListingGainRate": 1.0423,
+      "bullCaseListingGainRate": 1.2623,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 2.657,
+        "oneMillionKrw": 2.745,
+        "fiveMillionKrw": 3.125
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 19105,
+        "oneMillionKrw": 19742,
+        "fiveMillionKrw": 22477
+      },
+      "assumptions": {
+        "offerPrice": 6900,
+        "competitionRate": 1524.256,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.51988,
+        "institutionBoost": 0.06449125,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.05,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.022222222222222223,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "consider",
+      "label": "청약 고려",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1524.26대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "교보증권",
+        "equalScore": 100,
+        "proportionalScore": 23,
+        "expectedEqualShares": 2.65,
+        "estimatedDepositForOneProportionalShare": 4311948,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      },
+      {
+        "broker": "NH투자증권",
+        "equalScore": 100,
+        "proportionalScore": 18,
+        "expectedEqualShares": 1.74,
+        "estimatedDepositForOneProportionalShare": 5495367,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 1524.256,
+      "snapshotCount": 2,
+      "leadManagerCount": 3,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1015.93,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 65,
+      "valueScore": 80
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

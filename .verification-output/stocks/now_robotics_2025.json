@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "id": "now_robotics_2025",
+  "identifiers": {
+    "subscriptionKey": "나우로보틱스_20250424_20250425",
+    "normalizedCompany": "나우로보틱스",
+    "corpCode": "01594791",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "나우로보틱스",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2025-04-14",
+  "demandForecastStart": "2025-04-14",
+  "demandForecastEnd": "2025-04-18",
+  "subscriptionStart": "2025-04-24",
+  "subscriptionEnd": "2025-04-25",
+  "refundDate": null,
+  "listingDate": "2025-05-08",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "대신증권",
+    "아이엠증권",
+    "아이엠"
+  ],
+  "fundamentals": {
+    "offerPrice": 6800,
+    "priceBandMin": 5900,
+    "priceBandMax": 6800,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 1394.96,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2025-05-08",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100356"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2025-04-25T16:00:00+09:00",
+      "source": "public_monthly_ipo_schedule",
+      "sourceUrl": "https://honda31.tistory.com/298",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1572.19,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1572.19
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:16:27+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100356",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 562500,
+          "subscribedShares": 1841191875,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 3273.23,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 281250,
+          "proportionalAllocationShares": 281250,
+          "expectedEqualShares": 1.67,
+          "applicationCount": null
+        },
+        {
+          "name": "아이엠증권",
+          "offeredShares": 62500,
+          "subscribedShares": 124052500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 1984.84,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 31250,
+          "proportionalAllocationShares": 31250,
+          "expectedEqualShares": 1.47,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 625000,
+        "subscribedShares": 1965244375,
+        "competitionRate": 3144.391
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 66,
+      "grade": "B",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 22,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 8,
+        "leadManagerCoverage": 2
+      },
+      "demand": 58,
+      "value": 100,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 1.0067,
+      "bearCaseListingGainRate": 0.8267,
+      "baseCaseListingGainRate": 1.0067,
+      "bullCaseListingGainRate": 1.2267,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 1.673,
+        "oneMillionKrw": 1.717,
+        "fiveMillionKrw": 1.904
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 11453,
+        "oneMillionKrw": 11752,
+        "fiveMillionKrw": 13032
+      },
+      "assumptions": {
+        "offerPrice": 6800,
+        "competitionRate": 3144.391,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.4592,
+        "institutionBoost": 0.09,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.03333333333333333,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "consider",
+      "label": "청약 고려",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 3144.39대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "아이엠증권",
+        "equalScore": 100,
+        "proportionalScore": 15,
+        "expectedEqualShares": 1.47,
+        "estimatedDepositForOneProportionalShare": 6748456,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      },
+      {
+        "broker": "대신증권",
+        "equalScore": 100,
+        "proportionalScore": 9,
+        "expectedEqualShares": 1.67,
+        "estimatedDepositForOneProportionalShare": 11128982,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 3144.391,
+      "snapshotCount": 2,
+      "leadManagerCount": 3,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1394.96,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 58,
+      "valueScore": 100
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

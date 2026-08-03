@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "id": "인제니아테라퓨틱스_2026-07-30",
+  "identifiers": {
+    "subscriptionKey": "인제니아테라퓨틱스_20260730_20260731",
+    "normalizedCompany": "인제니아테라퓨틱스",
+    "corpCode": null,
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "인제니아테라퓨틱스",
+  "market": "KOSDAQ",
+  "industry": "의학 및 약학 연구개발업",
+  "demandForecastDate": "2026-07-20",
+  "demandForecastStart": "2026-07-20",
+  "demandForecastEnd": "2026-07-24",
+  "subscriptionStart": "2026-07-30",
+  "subscriptionEnd": "2026-07-31",
+  "refundDate": "2026-08-04",
+  "listingDate": "2026-08-18",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": "KDR",
+  "leadManagers": [
+    "삼성증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 12000,
+    "priceBandMin": 12000,
+    "priceBandMax": 14500,
+    "topBandConfirmation": false,
+    "institutionCompetitionRate": 50.43,
+    "institutionParticipants": 307,
+    "lockupCommitmentRate": 0.0223,
+    "floatRate": 0.256,
+    "marketCapKrw": 600000000000,
+    "publicAllocationShares": 1250000,
+    "hasPutbackRight": false,
+    "putbackSummary": "일반청약자 환매청구권 없음"
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2026-07-31T16:06:49",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A950260",
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 5000000,
+          "subscribedShares": 15450000,
+          "offerPrice": 12000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 3.09,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 5.18,
+          "equalAllocationShares": 625000,
+          "proportionalAllocationShares": 625000,
+          "expectedEqualShares": 30.5653,
+          "applicationCount": 20448
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 5000000,
+        "subscribedShares": 15450000,
+        "competitionRate": 3.09
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 23,
+      "grade": "C-",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 1,
+        "demandStrength": 0,
+        "lockupCommitment": 0,
+        "pricing": 10,
+        "marketCap": 5,
+        "publicAllocation": 4,
+        "leadManagerCoverage": 0
+      },
+      "demand": 18,
+      "value": 45,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": -0.01,
+      "bearCaseListingGainRate": -0.15,
+      "baseCaseListingGainRate": -0.01,
+      "bullCaseListingGainRate": 0.21,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 33.802,
+        "oneMillionKrw": 57.534,
+        "fiveMillionKrw": 130.565
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": -4056,
+        "oneMillionKrw": -6904,
+        "fiveMillionKrw": -15668
+      },
+      "assumptions": {
+        "offerPrice": 12000,
+        "competitionRate": 3.09,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.03,
+        "generalPriorBase": 0.027879999999999988,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 3.09대 1입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "삼성증권",
+        "equalScore": 100,
+        "proportionalScore": 100,
+        "expectedEqualShares": 30.5653,
+        "estimatedDepositForOneProportionalShare": 31080,
+        "feeKrw": null,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 3.09,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 50.43,
+      "lockupCommitmentRate": 0.0223,
+      "floatRate": 0.256,
+      "hasOutcome": false,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 18,
+      "valueScore": 45
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

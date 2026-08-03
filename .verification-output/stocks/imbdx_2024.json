@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "id": "imbdx_2024",
+  "identifiers": {
+    "subscriptionKey": "아이엠비디엑스_20240325_20240326",
+    "normalizedCompany": "아이엠비디엑스",
+    "corpCode": "01497373",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "아이엠비디엑스",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2024-03-14",
+  "demandForecastStart": "2024-03-14",
+  "demandForecastEnd": "2024-03-20",
+  "subscriptionStart": "2024-03-25",
+  "subscriptionEnd": "2024-03-26",
+  "refundDate": null,
+  "listingDate": "2024-04-03",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "미래에셋증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 13000,
+    "priceBandMin": 7700,
+    "priceBandMax": 9900,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 865.73,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-04-03",
+    "openReturnRate": 1.1961538461538461,
+    "highReturnRate": 2.1192307692307693,
+    "closeReturnRate": 1.7692307692307692,
+    "sourceUrl": "https://www.mk.co.kr/news/stock/10981715"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-03-26T17:30:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/10981715",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2654.2,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 2654.2
+      }
+    },
+    {
+      "capturedAt": "2026-08-02T06:50:22.755419",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.mk.co.kr/news/stock/10981715",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 13000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2654.2,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2654.2,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 2654.2
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 33,
+      "grade": "C-",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 15,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 4,
+        "leadManagerCoverage": 0
+      },
+      "demand": 40,
+      "value": 0,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.9557,
+      "bearCaseListingGainRate": 0.7757,
+      "baseCaseListingGainRate": 0.9557,
+      "bullCaseListingGainRate": 1.1757,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.004,
+        "oneMillionKrw": 0.029,
+        "fiveMillionKrw": 0.145
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 47,
+        "oneMillionKrw": 360,
+        "fiveMillionKrw": 1800
+      },
+      "assumptions": {
+        "offerPrice": 13000,
+        "competitionRate": 2654.2,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.16831975999999998,
+        "institutionBoost": 0.04571625,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 2654.2대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 30,
+        "proportionalScore": 6,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 17252300,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 2654.2,
+      "snapshotCount": 2,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 865.73,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 40,
+      "valueScore": 0
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

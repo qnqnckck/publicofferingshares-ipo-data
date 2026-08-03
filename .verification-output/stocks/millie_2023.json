@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "id": "millie_2023",
+  "identifiers": {
+    "subscriptionKey": "밀리의서재_20230918_20230919",
+    "normalizedCompany": "밀리의서재",
+    "corpCode": "01467451",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "밀리의서재",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2023-09-07",
+  "demandForecastStart": "2023-09-07",
+  "demandForecastEnd": "2023-09-13",
+  "subscriptionStart": "2023-09-18",
+  "subscriptionEnd": "2023-09-19",
+  "refundDate": null,
+  "listingDate": "2023-09-27",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "미래에셋증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 23000,
+    "priceBandMin": 20000,
+    "priceBandMax": 23000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 619.24,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2023-09-27",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100057"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2023-09-19T16:00:00+09:00",
+      "source": "public_ipo_backfill",
+      "sourceUrl": "https://www.businesspost.co.kr/BP?command=mobile_view&num=327830",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 449.56,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 449.56
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:28:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100057",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 375000,
+          "subscribedShares": 337170000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 899.12,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 187500,
+          "proportionalAllocationShares": 187500,
+          "expectedEqualShares": 0.69,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 375000,
+        "subscribedShares": 337170000,
+        "competitionRate": 899.12
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 29,
+      "grade": "C-",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 8,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 8,
+        "leadManagerCoverage": 0
+      },
+      "demand": 35,
+      "value": 0,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.6949,
+      "bearCaseListingGainRate": 0.5149,
+      "baseCaseListingGainRate": 0.6949,
+      "bullCaseListingGainRate": 0.9149,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.701,
+        "oneMillionKrw": 0.738,
+        "fiveMillionKrw": 0.932
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 11206,
+        "oneMillionKrw": 11801,
+        "fiveMillionKrw": 14893
+      },
+      "assumptions": {
+        "offerPrice": 23000,
+        "competitionRate": 899.12,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.10087030857142858,
+        "institutionBoost": 0.014905000000000002,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 899.12대 1입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 55,
+        "proportionalScore": 10,
+        "expectedEqualShares": 0.69,
+        "estimatedDepositForOneProportionalShare": 10339880,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 899.12,
+      "snapshotCount": 2,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 619.24,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 35,
+      "valueScore": 0
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

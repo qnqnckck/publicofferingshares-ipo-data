@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "id": "ds_dansuk_2023",
+  "identifiers": {
+    "subscriptionKey": "디에스단석_20231214_20231215",
+    "normalizedCompany": "디에스단석",
+    "corpCode": "00108612",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "디에스단석",
+  "market": "KOSPI",
+  "industry": "",
+  "demandForecastDate": null,
+  "demandForecastStart": null,
+  "demandForecastEnd": null,
+  "subscriptionStart": "2023-12-14",
+  "subscriptionEnd": "2023-12-15",
+  "refundDate": null,
+  "listingDate": "2023-12-22",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "KB증권",
+    "NH투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 100000,
+    "priceBandMin": 79000,
+    "priceBandMax": 89000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 341.84,
+    "institutionParticipants": 1843,
+    "lockupCommitmentRate": 0.0855,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": 305000,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2023-12-22",
+    "openReturnRate": 2.7,
+    "highReturnRate": 3.0,
+    "closeReturnRate": 3.0,
+    "sourceUrl": "https://news.bizwatch.co.kr/article/market/2023/12/22/0035"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2023-12-15T16:00:00+09:00",
+      "source": "public_ipo_result",
+      "sourceUrl": "https://www.investnews.co.kr/news/articleView.html?idxno=3001050",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 649.033,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "NH투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 339.02,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "통합",
+          "offeredShares": 305000,
+          "subscribedShares": 300120000,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 984.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 305000,
+        "subscribedShares": 300120000,
+        "competitionRate": 984.0
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 52,
+      "grade": "C+",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 8,
+        "demandStrength": 10,
+        "lockupCommitment": 4,
+        "pricing": 4,
+        "publicAllocation": 8,
+        "leadManagerCoverage": 2
+      },
+      "demand": 42,
+      "value": 100,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.72,
+      "bearCaseListingGainRate": 0.54,
+      "baseCaseListingGainRate": 0.72,
+      "bullCaseListingGainRate": 0.94,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.01,
+        "oneMillionKrw": 0.01,
+        "fiveMillionKrw": 0.051
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 732,
+        "oneMillionKrw": 732,
+        "fiveMillionKrw": 3659
+      },
+      "assumptions": {
+        "offerPrice": 100000,
+        "competitionRate": 984.0,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.29519999999999996,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.04,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "neutral",
+      "label": "중립",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 984.0대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "NH투자증권",
+        "equalScore": 30,
+        "proportionalScore": 6,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 16951000,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "KB증권",
+        "equalScore": 30,
+        "proportionalScore": 3,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 32451650,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 984.0,
+      "snapshotCount": 1,
+      "leadManagerCount": 2,
+      "market": "KOSPI",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 341.84,
+      "lockupCommitmentRate": 0.0855,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 42,
+      "valueScore": 100
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

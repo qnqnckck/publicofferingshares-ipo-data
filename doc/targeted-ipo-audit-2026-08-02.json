@@ -1,0 +1,26 @@
+{
+  "asOfDate": "2026-08-02",
+  "scope": "Targeted broker snapshot durability repair",
+  "candidates": [
+    {
+      "company": "인제니아테라퓨틱스",
+      "subscriptionStart": "2026-07-30",
+      "subscriptionEnd": "2026-07-31",
+      "classification": "ipo-kdr",
+      "status": "corrected",
+      "eventId": "인제니아테라퓨틱스_2026-07-30",
+      "evidenceUrls": [
+        "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A950260"
+      ],
+      "verifiedFields": {
+        "broker": "삼성증권",
+        "equalAllocationShares": 625000,
+        "applicationCount": 20448,
+        "expectedEqualShares": 30.5653,
+        "displayEqualShares": 30.57,
+        "proportionalCompetitionRate": 5.18
+      },
+      "notes": "Persisted the verified Naver calculator snapshot in the canonical broker input so future batch rebuilds retain the equal-allocation metric."
+    }
+  ]
+}

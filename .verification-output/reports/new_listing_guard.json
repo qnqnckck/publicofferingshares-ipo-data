@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-02T06:50:22.755419",
+  "paths": {
+    "seed": "data/ipo_competition_seed.json",
+    "outcomes": "data/outcomes",
+    "listedCompanyExclusions": "data/listed_company_exclusions.json",
+    "report": ".verification-output/reports/new_listing_guard.json"
+  },
+  "totals": {
+    "historicalCompanies": 531,
+    "blocked": 2
+  },
+  "blocked": [
+    {
+      "stage": "final",
+      "reason": "company_already_has_historical_listing",
+      "id": "루닛_2026-04-27",
+      "company": "루닛",
+      "subscriptionStart": "2026-04-27",
+      "subscriptionEnd": "2026-04-28",
+      "listingDate": "2026-04-28",
+      "identifiers": {
+        "subscriptionKey": "루닛_20260427_20260428",
+        "normalizedCompany": "루닛",
+        "corpCode": "01397620",
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "루닛",
+        "company": "루닛",
+        "id": "루닛_2023-11-06",
+        "referenceDate": "2023-11-07",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    },
+    {
+      "stage": "final",
+      "reason": "company_already_has_historical_listing",
+      "id": "에이텀_2026-04-27",
+      "company": "에이텀",
+      "subscriptionStart": "2026-04-27",
+      "subscriptionEnd": "2026-04-28",
+      "listingDate": "2026-04-28",
+      "identifiers": {
+        "subscriptionKey": "에이텀_20260427_20260428",
+        "normalizedCompany": "에이텀",
+        "corpCode": "01444380",
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "matchedHistorical": {
+        "companyKey": "에이텀",
+        "company": "에이텀",
+        "id": "에이텀_2023-11-21",
+        "referenceDate": "2023-12-01",
+        "source": "outcome",
+        "subscriptionKey": null
+      }
+    }
+  ]
+}

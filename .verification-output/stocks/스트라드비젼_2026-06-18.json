@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "id": "스트라드비젼_2026-06-18",
+  "identifiers": {
+    "subscriptionKey": "스트라드비젼_20260618_20260619",
+    "normalizedCompany": "스트라드비젼",
+    "corpCode": "01370517",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "스트라드비젼",
+  "market": "KOSDAQ",
+  "industry": "자율주행 소프트웨어",
+  "demandForecastDate": "2026-06-09",
+  "demandForecastStart": "2026-06-09",
+  "demandForecastEnd": "2026-06-15",
+  "subscriptionStart": "2026-06-18",
+  "subscriptionEnd": "2026-06-19",
+  "refundDate": "2026-06-23",
+  "listingDate": "2026-06-30",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "KB증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 12000,
+    "priceBandMin": 12000,
+    "priceBandMax": 14000,
+    "topBandConfirmation": false,
+    "institutionCompetitionRate": 381.3,
+    "institutionParticipants": 1604,
+    "lockupCommitmentRate": 0.0277,
+    "floatRate": 0.4897,
+    "marketCapKrw": null,
+    "publicAllocationShares": 1750000,
+    "hasPutbackRight": false,
+    "putbackSummary": "일반청약자 환매청구권 없음"
+  },
+  "outcome": {
+    "listingDate": "2026-06-30",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100543"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2026-06-19T16:04:55",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A475040",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 7000000,
+          "subscribedShares": 320810000,
+          "offerPrice": 12000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 45.83,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 90.67,
+          "equalAllocationShares": 875000,
+          "proportionalAllocationShares": 875000,
+          "expectedEqualShares": 5.3445,
+          "applicationCount": 163719
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 7000000,
+        "subscribedShares": 320810000,
+        "competitionRate": 45.83
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 38,
+      "grade": "C-",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 8,
+        "demandStrength": 5,
+        "lockupCommitment": 0,
+        "pricing": 10,
+        "publicAllocation": 4,
+        "leadManagerCoverage": 0
+      },
+      "demand": 37,
+      "value": 40,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.1232,
+      "bearCaseListingGainRate": -0.0568,
+      "baseCaseListingGainRate": 0.1232,
+      "bullCaseListingGainRate": 0.3432,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 5.563,
+        "oneMillionKrw": 7.163,
+        "fiveMillionKrw": 14.436
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 8227,
+        "oneMillionKrw": 10593,
+        "fiveMillionKrw": 21350
+      },
+      "assumptions": {
+        "offerPrice": 12000,
+        "competitionRate": 45.83,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.03,
+        "generalPriorBase": 0.168592,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.025,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 45.83대 1입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "KB증권",
+        "equalScore": 100,
+        "proportionalScore": 100,
+        "expectedEqualShares": 5.3445,
+        "estimatedDepositForOneProportionalShare": 544020,
+        "feeKrw": null,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 45.83,
+      "snapshotCount": 1,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 381.3,
+      "lockupCommitmentRate": 0.0277,
+      "floatRate": 0.4897,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 37,
+      "valueScore": 40
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

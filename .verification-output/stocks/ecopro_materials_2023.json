@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "id": "ecopro_materials_2023",
+  "identifiers": {
+    "subscriptionKey": "에코프로머티리얼즈_20231108_20231109",
+    "normalizedCompany": "에코프로머티리얼즈",
+    "corpCode": "01311408",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "에코프로머티리얼즈",
+  "market": "KOSPI",
+  "industry": "",
+  "demandForecastDate": null,
+  "demandForecastStart": null,
+  "demandForecastEnd": null,
+  "subscriptionStart": "2023-11-08",
+  "subscriptionEnd": "2023-11-09",
+  "refundDate": null,
+  "listingDate": "2023-11-17",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "미래에셋증권",
+    "NH투자증권",
+    "하이투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 36200,
+    "priceBandMin": 36200,
+    "priceBandMax": 44000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 17.2,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [
+    {
+      "capturedAt": "2023-11-09T16:00:00+09:00",
+      "source": "public_ipo_backfill",
+      "sourceUrl": "https://www.hankyung.com/article/202311095486Y",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 70.04,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 70.04
+      }
+    },
+    {
+      "capturedAt": "2026-08-02T06:50:22.755419",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.hankyung.com/article/202311095486Y",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 36200,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 70.04,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 70.04,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 36200,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 70.04,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 70.04,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        },
+        {
+          "name": "하이투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 36200,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 70.04,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 70.04,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 70.04
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 33,
+      "grade": "C-",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 1,
+        "demandStrength": 0,
+        "lockupCommitment": 0,
+        "pricing": 10,
+        "leadManagerCoverage": 2
+      },
+      "demand": 18,
+      "value": 100,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.06,
+      "bearCaseListingGainRate": -0.12,
+      "baseCaseListingGainRate": 0.06,
+      "bullCaseListingGainRate": 0.28,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.143,
+        "oneMillionKrw": 0.394,
+        "fiveMillionKrw": 1.972
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 310,
+        "oneMillionKrw": 857,
+        "fiveMillionKrw": 4283
+      },
+      "assumptions": {
+        "offerPrice": 36200,
+        "competitionRate": 70.04,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.1,
+        "generalPriorBase": 0.10987999999999999,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 70.04대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "NH투자증권",
+        "equalScore": 30,
+        "proportionalScore": 79,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 1267724,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 30,
+        "proportionalScore": 79,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 1267724,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      },
+      {
+        "broker": "하이투자증권",
+        "equalScore": 30,
+        "proportionalScore": 79,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 1267724,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 70.04,
+      "snapshotCount": 2,
+      "leadManagerCount": 3,
+      "market": "KOSPI",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 17.2,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 18,
+      "valueScore": 100
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

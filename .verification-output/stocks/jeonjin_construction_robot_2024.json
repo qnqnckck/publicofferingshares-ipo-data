@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "id": "jeonjin_construction_robot_2024",
+  "identifiers": {
+    "subscriptionKey": "전진건설로봇_20240808_20240809",
+    "normalizedCompany": "전진건설로봇",
+    "corpCode": "00372129",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "전진건설로봇",
+  "market": "KOSPI",
+  "industry": "",
+  "demandForecastDate": "2024-07-30",
+  "demandForecastStart": "2024-07-30",
+  "demandForecastEnd": "2024-08-05",
+  "subscriptionStart": "2024-08-08",
+  "subscriptionEnd": "2024-08-09",
+  "refundDate": null,
+  "listingDate": "2024-08-19",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "미래에셋증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 16500,
+    "priceBandMin": 13800,
+    "priceBandMax": 15700,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 870.2,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-08-19",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100233"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-08-09T16:00:00+09:00",
+      "source": "public_monthly_ipo_schedule",
+      "sourceUrl": "https://honda31.tistory.com/281",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1087.26,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 1087.26
+      }
+    },
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100233",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 923295,
+          "subscribedShares": 2007723443,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 2174.52,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 461648,
+          "proportionalAllocationShares": 461648,
+          "expectedEqualShares": 1.37,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 923295,
+        "subscribedShares": 2007723443,
+        "competitionRate": 2174.519999566769
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 33,
+      "grade": "C-",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 15,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 4,
+        "leadManagerCoverage": 0
+      },
+      "demand": 40,
+      "value": 0,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.9563,
+      "bearCaseListingGainRate": 0.7763,
+      "baseCaseListingGainRate": 0.9563,
+      "bullCaseListingGainRate": 1.1763,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 1.375,
+        "oneMillionKrw": 1.398,
+        "fiveMillionKrw": 1.509
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 21689,
+        "oneMillionKrw": 22056,
+        "fiveMillionKrw": 23815
+      },
+      "assumptions": {
+        "offerPrice": 16500,
+        "competitionRate": 2174.519999566769,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.1689481142857143,
+        "institutionBoost": 0.046275000000000004,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 2174.52대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 100,
+        "proportionalScore": 6,
+        "expectedEqualShares": 1.37,
+        "estimatedDepositForOneProportionalShare": 17939790,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 2174.519999566769,
+      "snapshotCount": 2,
+      "leadManagerCount": 1,
+      "market": "KOSPI",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 870.2,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 40,
+      "valueScore": 0
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

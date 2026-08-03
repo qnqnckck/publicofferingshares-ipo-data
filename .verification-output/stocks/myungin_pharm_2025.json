@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "id": "myungin_pharm_2025",
+  "identifiers": {
+    "subscriptionKey": "명인제약_20250918_20250919",
+    "normalizedCompany": "명인제약",
+    "corpCode": "00179489",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "명인제약",
+  "market": "KOSPI",
+  "industry": "",
+  "demandForecastDate": "2025-09-09",
+  "demandForecastStart": "2025-09-09",
+  "demandForecastEnd": "2025-09-15",
+  "subscriptionStart": "2025-09-18",
+  "subscriptionEnd": "2025-09-19",
+  "refundDate": null,
+  "listingDate": "2025-10-01",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "KB증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 58000,
+    "priceBandMin": 45000,
+    "priceBandMax": 58000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 488.95,
+    "institutionParticipants": 2028,
+    "lockupCommitmentRate": 0.696,
+    "floatRate": null,
+    "marketCapKrw": 846800000000,
+    "publicAllocationShares": 1020000,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2025-10-01",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100433"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2025-09-19T17:00:00+09:00",
+      "source": "public_ipo_result",
+      "sourceUrl": "https://www.dailian.co.kr/news/view/1551692",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 1020000,
+          "subscribedShares": 598736890,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 587.0,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1020000,
+        "subscribedShares": 598736890,
+        "competitionRate": 587.0
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:21:36+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100433",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 850000,
+          "subscribedShares": 997041500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 1500,
+          "competitionRate": 1172.99,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 425000,
+          "proportionalAllocationShares": 425000,
+          "expectedEqualShares": 0.8,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 850000,
+        "subscribedShares": 997041500,
+        "competitionRate": 1172.99
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 66,
+      "grade": "B",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 8,
+        "demandStrength": 10,
+        "lockupCommitment": 18,
+        "pricing": 8,
+        "marketCap": 3,
+        "publicAllocation": 6,
+        "leadManagerCoverage": 0
+      },
+      "demand": 71,
+      "value": 45,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.8267,
+      "bearCaseListingGainRate": 0.6467,
+      "baseCaseListingGainRate": 0.8267,
+      "bullCaseListingGainRate": 1.1267,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.809,
+        "oneMillionKrw": 0.815,
+        "fiveMillionKrw": 0.873
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 38766,
+        "oneMillionKrw": 39062,
+        "fiveMillionKrw": 41881
+      },
+      "assumptions": {
+        "offerPrice": 58000,
+        "competitionRate": 1172.99,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.504035257142857,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.1,
+        "participantBoost": 0.04,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.03333333333333333,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "consider",
+      "label": "청약 고려",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1172.99대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "KB증권",
+        "equalScore": 64,
+        "proportionalScore": 3,
+        "expectedEqualShares": 0.8,
+        "estimatedDepositForOneProportionalShare": 34016710,
+        "feeKrw": 1500,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 1172.99,
+      "snapshotCount": 2,
+      "leadManagerCount": 1,
+      "market": "KOSPI",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 488.95,
+      "lockupCommitmentRate": 0.696,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 71,
+      "valueScore": 45
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

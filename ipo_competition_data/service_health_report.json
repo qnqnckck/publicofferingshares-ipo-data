@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-31T17:50:55.857182",
+  "generatedAt": "2026-08-03T10:00:31.969822",
   "totals": {
-    "generatedStocks": 486,
+    "generatedStocks": 481,
     "activeStocks": 1,
-    "upcomingNext7Days": 2
+    "upcomingNext7Days": 1
   },
   "activeReadiness": {
     "missingLatestSnapshotAt": 0,
     "missingLatestCompetitionRate": 0,
     "missingBrokerLevelCompetition": 0,
-    "missingInstitutionCompetitionRate": 0,
-    "missingInstitutionParticipants": 0,
-    "missingLockupCommitmentRate": 0,
+    "missingInstitutionCompetitionRate": 1,
+    "missingInstitutionParticipants": 1,
+    "missingLockupCommitmentRate": 1,
     "liveLikeSourceCount": 1,
     "finutsSourceCount": 0,
     "ocrSourceCount": 0
@@ -21,41 +21,35 @@
     "naver_calculator_live": 1
   },
   "activeSnapshotFreshness": {
-    "within_1h": 0,
-    "within_6h": 1,
+    "within_1h": 1,
+    "within_6h": 0,
     "within_24h": 0,
     "older": 0,
     "missing": 0
   },
   "activeSamples": [
     {
-      "id": "인제니아테라퓨틱스_2026-07-30",
-      "company": "인제니아테라퓨틱스",
-      "path": "stocks/인제니아테라퓨틱스_2026-07-30.json",
-      "subscriptionStart": "2026-07-30",
-      "subscriptionEnd": "2026-07-31",
-      "latestSnapshotAt": "2026-07-31T16:06:49",
-      "latestSnapshotSource": "naver_calculator_live",
-      "latestCompetitionRate": 3.09,
-      "institutionCompetitionRate": 50.43,
-      "institutionParticipants": 307,
-      "lockupCommitmentRate": 0.0223,
-      "issues": [
-        "missing_external_identifier"
-      ]
-    }
-  ],
-  "upcomingSamples": [
-    {
       "id": "딜리셔스_2026-08-03",
       "company": "딜리셔스",
       "path": "stocks/딜리셔스_2026-08-03.json",
       "subscriptionStart": "2026-08-03",
       "subscriptionEnd": "2026-08-04",
-      "leadManagers": [
-        "한국투자증권"
+      "latestSnapshotAt": "2026-08-03T09:55:43",
+      "latestSnapshotSource": "naver_calculator_live",
+      "latestCompetitionRate": 0.19,
+      "institutionCompetitionRate": null,
+      "institutionParticipants": null,
+      "lockupCommitmentRate": null,
+      "issues": [
+        "missing_offer_price",
+        "missing_institution_competition_rate",
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate",
+        "missing_external_identifier"
       ]
-    },
+    }
+  ],
+  "upcomingSamples": [
     {
       "id": "케이앤에스아이앤씨_2026-08-04",
       "company": "케이앤에스아이앤씨",

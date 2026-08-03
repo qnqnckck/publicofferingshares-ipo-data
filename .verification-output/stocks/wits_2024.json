@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "id": "wits_2024",
+  "identifiers": {
+    "subscriptionKey": "위츠_20241107_20241108",
+    "normalizedCompany": "위츠",
+    "corpCode": "00763330",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "위츠",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2024-10-28",
+  "demandForecastStart": "2024-10-28",
+  "demandForecastEnd": "2024-11-01",
+  "subscriptionStart": "2024-11-07",
+  "subscriptionEnd": "2024-11-08",
+  "refundDate": null,
+  "listingDate": "2024-11-20",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "신한투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 6400,
+    "priceBandMin": 5300,
+    "priceBandMax": 6400,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 997.37,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-11-20",
+    "openReturnRate": null,
+    "highReturnRate": 0.5546875,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.ajunews.com/view/20241120093635200"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-11-08T17:30:00+09:00",
+      "source": "article_final",
+      "sourceUrl": "https://www.ajunews.com/view/20241120093635200",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 233.16,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 233.16
+      }
+    },
+    {
+      "capturedAt": "2026-08-02T06:50:22.755419",
+      "source": "estimated_broker_rate_only",
+      "sourceUrl": "https://www.ajunews.com/view/20241120093635200",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": 6400,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 233.16,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 233.16,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 233.16
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 39,
+      "grade": "C-",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 15,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 8,
+        "leadManagerCoverage": 0
+      },
+      "demand": 47,
+      "value": 0,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.4022,
+      "bearCaseListingGainRate": 0.2222,
+      "baseCaseListingGainRate": 0.4022,
+      "bullCaseListingGainRate": 0.6222,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.043,
+        "oneMillionKrw": 0.67,
+        "fiveMillionKrw": 3.351
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 110,
+        "oneMillionKrw": 1725,
+        "fiveMillionKrw": 8624
+      },
+      "assumptions": {
+        "offerPrice": 6400,
+        "competitionRate": 233.16,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.38,
+        "generalPriorBase": 0.23602458285714287,
+        "institutionBoost": 0.06217125,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 233.16대 1입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "신한투자증권",
+        "equalScore": 30,
+        "proportionalScore": 100,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 746112,
+        "feeKrw": null,
+        "dataQuality": "partial"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 233.16,
+      "snapshotCount": 2,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 997.37,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 47,
+      "valueScore": 0
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

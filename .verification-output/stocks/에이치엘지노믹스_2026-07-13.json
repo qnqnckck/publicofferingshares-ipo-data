@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "id": "에이치엘지노믹스_2026-07-13",
+  "identifiers": {
+    "subscriptionKey": "에이치엘지노믹스_20260713_20260714",
+    "normalizedCompany": "에이치엘지노믹스",
+    "corpCode": null,
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "에이치엘지노믹스",
+  "market": "KOSDAQ",
+  "industry": "원료의약품 제조업",
+  "demandForecastDate": "2026-07-02",
+  "demandForecastStart": "2026-07-02",
+  "demandForecastEnd": "2026-07-08",
+  "subscriptionStart": "2026-07-13",
+  "subscriptionEnd": "2026-07-14",
+  "refundDate": "2026-07-16",
+  "listingDate": "2026-07-24",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "KB증권",
+    "IBK투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 21500,
+    "priceBandMin": 18500,
+    "priceBandMax": 21500,
+    "topBandConfirmation": true,
+    "institutionCompetitionRate": 714.52,
+    "institutionParticipants": 2148,
+    "lockupCommitmentRate": 0.0191,
+    "floatRate": 0.3304,
+    "marketCapKrw": 167300000000,
+    "publicAllocationShares": 641250,
+    "hasPutbackRight": false,
+    "putbackSummary": "일반청약자 환매청구권 없음"
+  },
+  "outcome": null,
+  "snapshots": [],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 62,
+      "grade": "B-",
+      "confidence": 0.65,
+      "factors": {
+        "institutionDemand": 15,
+        "demandStrength": 10,
+        "lockupCommitment": 0,
+        "pricing": 10,
+        "marketCap": 8,
+        "publicAllocation": 8,
+        "leadManagerCoverage": 2
+      },
+      "demand": 56,
+      "value": 90,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.6072,
+      "bearCaseListingGainRate": 0.4072,
+      "baseCaseListingGainRate": 0.6072,
+      "bullCaseListingGainRate": 0.9472,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.013,
+        "oneMillionKrw": 0.058,
+        "fiveMillionKrw": 0.291
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 163,
+        "oneMillionKrw": 759,
+        "fiveMillionKrw": 3795
+      },
+      "assumptions": {
+        "offerPrice": 21500,
+        "competitionRate": null,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.0,
+        "generalPriorBase": 0.42723625142857147,
+        "institutionBoost": 0.026815,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.04,
+        "topBandBoost": 0.06,
+        "scoreBoost": -0.04,
+        "competitionPresent": false,
+        "generalCalibrationApplied": 0.18,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": true
+      }
+    },
+    "decision": {
+      "level": "neutral",
+      "label": "중립",
+      "reasons": [
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": null,
+      "snapshotCount": 0,
+      "leadManagerCount": 2,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 714.52,
+      "lockupCommitmentRate": 0.0191,
+      "floatRate": 0.3304,
+      "hasOutcome": false,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 56,
+      "valueScore": 90
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "id": "au_brands_2025",
+  "identifiers": {
+    "subscriptionKey": "에이유브랜즈_20250325_20250326",
+    "normalizedCompany": "에이유브랜즈",
+    "corpCode": "01803927",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "에이유브랜즈",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2025-03-13",
+  "demandForecastStart": "2025-03-13",
+  "demandForecastEnd": "2025-03-19",
+  "subscriptionStart": "2025-03-25",
+  "subscriptionEnd": "2025-03-26",
+  "refundDate": null,
+  "listingDate": "2025-04-03",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "한국투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 16000,
+    "priceBandMin": 14000,
+    "priceBandMax": 16000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 816.22,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2025-04-03",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100351"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2025-03-26T16:00:00+09:00",
+      "source": "public_monthly_ipo_schedule",
+      "sourceUrl": "https://honda31.tistory.com/291",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 969.32,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 969.32
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:07:46+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100351",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 500000,
+          "subscribedShares": 968825000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 1937.65,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 250000,
+          "proportionalAllocationShares": 250000,
+          "expectedEqualShares": 1.48,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 500000,
+        "subscribedShares": 968825000,
+        "competitionRate": 1937.65
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 39,
+      "grade": "C-",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 15,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 8,
+        "leadManagerCoverage": 0
+      },
+      "demand": 47,
+      "value": 0,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.9495,
+      "bearCaseListingGainRate": 0.7695,
+      "baseCaseListingGainRate": 0.9495,
+      "bullCaseListingGainRate": 1.1695,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 1.485,
+        "oneMillionKrw": 1.512,
+        "fiveMillionKrw": 1.641
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 22563,
+        "oneMillionKrw": 22975,
+        "fiveMillionKrw": 24935
+      },
+      "assumptions": {
+        "offerPrice": 16000,
+        "competitionRate": 1937.65,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.2105600685714286,
+        "institutionBoost": 0.0395275,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 1937.65대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "한국투자증권",
+        "equalScore": 100,
+        "proportionalScore": 6,
+        "expectedEqualShares": 1.48,
+        "estimatedDepositForOneProportionalShare": 15501200,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 1937.65,
+      "snapshotCount": 2,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 816.22,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 47,
+      "valueScore": 0
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "id": "kistron_2025",
+  "identifiers": {
+    "subscriptionKey": "키스트론_20250522_20250523",
+    "normalizedCompany": "키스트론",
+    "corpCode": "00197670",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "키스트론",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2025-05-12",
+  "demandForecastStart": "2025-05-12",
+  "demandForecastEnd": "2025-05-16",
+  "subscriptionStart": "2025-05-22",
+  "subscriptionEnd": "2025-05-23",
+  "refundDate": null,
+  "listingDate": "2025-06-02",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "신한투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 3600,
+    "priceBandMin": 3100,
+    "priceBandMax": 3600,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 1140.95,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2025-06-02",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100372"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2025-05-23T16:00:00+09:00",
+      "source": "public_monthly_ipo_schedule",
+      "sourceUrl": "https://honda31.tistory.com/300",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2166.01,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 2166.01
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:16:53+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100372",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 1575000,
+          "subscribedShares": 6821356500,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 4331.02,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 787500,
+          "proportionalAllocationShares": 787500,
+          "expectedEqualShares": 4.12,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1575000,
+        "subscribedShares": 6821356500,
+        "competitionRate": 4331.02
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 48,
+      "grade": "C",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 22,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 8,
+        "leadManagerCoverage": 0
+      },
+      "demand": 58,
+      "value": 0,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.9901,
+      "bearCaseListingGainRate": 0.8101,
+      "baseCaseListingGainRate": 0.9901,
+      "bullCaseListingGainRate": 1.2101,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 4.122,
+        "oneMillionKrw": 4.184,
+        "fiveMillionKrw": 4.441
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 14694,
+        "oneMillionKrw": 14914,
+        "fiveMillionKrw": 15828
+      },
+      "assumptions": {
+        "offerPrice": 3600,
+        "competitionRate": 4331.02,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.3116,
+        "institutionBoost": 0.08011875,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 4331.02대 1입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "신한투자증권",
+        "equalScore": 100,
+        "proportionalScore": 13,
+        "expectedEqualShares": 4.12,
+        "estimatedDepositForOneProportionalShare": 7795836,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 4331.02,
+      "snapshotCount": 2,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1140.95,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 58,
+      "valueScore": 0
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "id": "pns_mechanics_2024",
+  "identifiers": {
+    "subscriptionKey": "피앤에스미캐닉스_20240722_20240723",
+    "normalizedCompany": "피앤에스미캐닉스",
+    "corpCode": "01419205",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "피앤에스미캐닉스",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2024-07-11",
+  "demandForecastStart": "2024-07-11",
+  "demandForecastEnd": "2024-07-17",
+  "subscriptionStart": "2024-07-22",
+  "subscriptionEnd": "2024-07-23",
+  "refundDate": null,
+  "listingDate": "2024-07-31",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "키움증권",
+    "키움"
+  ],
+  "fundamentals": {
+    "offerPrice": 22000,
+    "priceBandMin": 14000,
+    "priceBandMax": 17000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 986.08,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-07-31",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100217"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-07-23T16:00:00+09:00",
+      "source": "public_monthly_ipo_schedule",
+      "sourceUrl": "https://honda31.tistory.com/280",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 986.08,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 986.08
+      }
+    },
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100217",
+      "brokers": [
+        {
+          "name": "키움증권",
+          "offeredShares": 337500,
+          "subscribedShares": 1070496000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 3171.84,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 168750,
+          "proportionalAllocationShares": 168750,
+          "expectedEqualShares": 0.71,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 337500,
+        "subscribedShares": 1070496000,
+        "competitionRate": 3171.84
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 51,
+      "grade": "C+",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 15,
+        "demandStrength": 6,
+        "lockupCommitment": 0,
+        "pricing": 4,
+        "leadManagerCoverage": 2
+      },
+      "demand": 40,
+      "value": 100,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.9708,
+      "bearCaseListingGainRate": 0.7908,
+      "baseCaseListingGainRate": 0.9708,
+      "bullCaseListingGainRate": 1.1908,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.713,
+        "oneMillionKrw": 0.724,
+        "fiveMillionKrw": 0.782
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 15231,
+        "oneMillionKrw": 15469,
+        "fiveMillionKrw": 16694
+      },
+      "assumptions": {
+        "offerPrice": 22000,
+        "competitionRate": 3171.84,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.3328375314285714,
+        "institutionBoost": 0.06076000000000001,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 3171.84대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "키움증권",
+        "equalScore": 57,
+        "proportionalScore": 3,
+        "expectedEqualShares": 0.71,
+        "estimatedDepositForOneProportionalShare": 34890240,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 3171.84,
+      "snapshotCount": 2,
+      "leadManagerCount": 2,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 986.08,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 40,
+      "valueScore": 100
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

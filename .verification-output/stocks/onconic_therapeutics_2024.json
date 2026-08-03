@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "id": "onconic_therapeutics_2024",
+  "identifiers": {
+    "subscriptionKey": "온코닉테라퓨틱스_20241209_20241210",
+    "normalizedCompany": "온코닉테라퓨틱스",
+    "corpCode": "01632912",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "온코닉테라퓨틱스",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2024-11-27",
+  "demandForecastStart": "2024-11-27",
+  "demandForecastEnd": "2024-12-03",
+  "subscriptionStart": "2024-12-09",
+  "subscriptionEnd": "2024-12-10",
+  "refundDate": null,
+  "listingDate": "2024-12-19",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "NH투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 13000,
+    "priceBandMin": 16000,
+    "priceBandMax": 18200,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 198.96,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": null,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2024-12-19",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100299"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2024-12-10T16:00:00+09:00",
+      "source": "public_monthly_ipo_schedule",
+      "sourceUrl": "https://honda31.tistory.com/286",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 0,
+          "subscribedShares": 0,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 91.88,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 0,
+        "subscribedShares": 0,
+        "competitionRate": 91.88
+      }
+    },
+    {
+      "capturedAt": "2026-04-29T01:16:14+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100299",
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 387500,
+          "subscribedShares": 71207000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 183.76,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 193750,
+          "proportionalAllocationShares": 193750,
+          "expectedEqualShares": 6.74,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 387500,
+        "subscribedShares": 71207000,
+        "competitionRate": 183.76
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 17,
+      "grade": "C-",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 3,
+        "demandStrength": 0,
+        "lockupCommitment": 0,
+        "pricing": 10,
+        "leadManagerCoverage": 0
+      },
+      "demand": 21,
+      "value": 0,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.2,
+      "bearCaseListingGainRate": 0.02,
+      "baseCaseListingGainRate": 0.2,
+      "bullCaseListingGainRate": 0.42,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 6.794,
+        "oneMillionKrw": 7.159,
+        "fiveMillionKrw": 8.833
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 17665,
+        "oneMillionKrw": 18612,
+        "fiveMillionKrw": 22966
+      },
+      "assumptions": {
+        "offerPrice": 13000,
+        "competitionRate": 183.76,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.24,
+        "generalPriorBase": -0.021320000000000002,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "caution",
+      "label": "주의",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 183.76대 1입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "NH투자증권",
+        "equalScore": 100,
+        "proportionalScore": 84,
+        "expectedEqualShares": 6.74,
+        "estimatedDepositForOneProportionalShare": 1194440,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 183.76,
+      "snapshotCount": 2,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 198.96,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 21,
+      "valueScore": 0
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

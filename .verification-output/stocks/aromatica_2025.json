@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "id": "aromatica_2025",
+  "identifiers": {
+    "subscriptionKey": "아로마티카_20251118_20251119",
+    "normalizedCompany": "아로마티카",
+    "corpCode": "01381805",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "아로마티카",
+  "market": "KOSDAQ",
+  "industry": "",
+  "demandForecastDate": "2025-11-07",
+  "demandForecastStart": "2025-11-07",
+  "demandForecastEnd": "2025-11-13",
+  "subscriptionStart": "2025-11-18",
+  "subscriptionEnd": "2025-11-19",
+  "refundDate": null,
+  "listingDate": "2025-11-27",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "신한투자증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 8000,
+    "priceBandMin": 6000,
+    "priceBandMax": 8000,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": 1153.0,
+    "institutionParticipants": 2274,
+    "lockupCommitmentRate": 0.5801,
+    "floatRate": null,
+    "marketCapKrw": 101700000000,
+    "publicAllocationShares": 750000,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": {
+    "listingDate": "2025-11-27",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100464"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2025-11-19T16:00:00+09:00",
+      "source": "public_monthly_ipo_schedule",
+      "sourceUrl": "https://www.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=04641206642367360",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 750000,
+          "subscribedShares": 2148882160,
+          "offerPrice": null,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 2865.17,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 750000,
+        "subscribedShares": 2148882160,
+        "competitionRate": 2865.17
+      }
+    },
+    {
+      "capturedAt": "2026-04-27T22:38:45+09:00",
+      "source": "finuts_member_secondary",
+      "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100464",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 750000,
+          "subscribedShares": 4297005000,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 5729.34,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 375000,
+          "proportionalAllocationShares": 375000,
+          "expectedEqualShares": 1.25,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 750000,
+        "subscribedShares": 4297005000,
+        "competitionRate": 5729.34
+      }
+    }
+  ],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 90,
+      "grade": "A",
+      "confidence": 0.95,
+      "factors": {
+        "institutionDemand": 22,
+        "demandStrength": 10,
+        "lockupCommitment": 18,
+        "pricing": 8,
+        "marketCap": 8,
+        "publicAllocation": 6,
+        "leadManagerCoverage": 0
+      },
+      "demand": 94,
+      "value": 70,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 1.2616,
+      "bearCaseListingGainRate": 1.0,
+      "baseCaseListingGainRate": 1.2616,
+      "bullCaseListingGainRate": 1.4816,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 1.252,
+        "oneMillionKrw": 1.272,
+        "fiveMillionKrw": 1.359
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 12634,
+        "oneMillionKrw": 12836,
+        "fiveMillionKrw": 13717
+      },
+      "assumptions": {
+        "offerPrice": 8000,
+        "competitionRate": 5729.34,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.7888400000000001,
+        "institutionBoost": 0.081625,
+        "lockupBoost": 0.1,
+        "participantBoost": 0.05,
+        "topBandBoost": 0.0,
+        "scoreBoost": 0.08,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": false
+      }
+    },
+    "decision": {
+      "level": "strong_watch",
+      "label": "관심 높음",
+      "reasons": [
+        "최근 확인된 일반청약 경쟁률은 5729.34대 1입니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [
+      {
+        "broker": "신한투자증권",
+        "equalScore": 100,
+        "proportionalScore": 4,
+        "expectedEqualShares": 1.25,
+        "estimatedDepositForOneProportionalShare": 22917360,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
+    "inputs": {
+      "latestCompetitionRate": 5729.34,
+      "snapshotCount": 2,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1153.0,
+      "lockupCommitmentRate": 0.5801,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 94,
+      "valueScore": 70
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}

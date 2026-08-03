@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "id": "레몬헬스케어_2026-06-24",
+  "identifiers": {
+    "subscriptionKey": "레몬헬스케어_20260624_20260625",
+    "normalizedCompany": "레몬헬스케어",
+    "corpCode": "01424261",
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "레몬헬스케어",
+  "market": "KOSDAQ",
+  "industry": "디지털 헬스케어",
+  "demandForecastDate": "2026-06-15",
+  "demandForecastStart": "2026-06-15",
+  "demandForecastEnd": "2026-06-19",
+  "subscriptionStart": "2026-06-24",
+  "subscriptionEnd": "2026-06-25",
+  "refundDate": "2026-06-29",
+  "listingDate": "2026-07-06",
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "KB증권"
+  ],
+  "fundamentals": {
+    "offerPrice": 10000,
+    "priceBandMin": 7500,
+    "priceBandMax": 10000,
+    "topBandConfirmation": true,
+    "institutionCompetitionRate": 1238.0,
+    "institutionParticipants": 2233,
+    "lockupCommitmentRate": 0.0692,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": 500000,
+    "hasPutbackRight": false,
+    "putbackSummary": "일반청약자 환매청구권 없음"
+  },
+  "outcome": {
+    "listingDate": "2026-07-06",
+    "openReturnRate": null,
+    "highReturnRate": null,
+    "closeReturnRate": null,
+    "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100550"
+  },
+  "snapshots": [],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 75,
+      "grade": "B+",
+      "confidence": 0.6,
+      "factors": {
+        "institutionDemand": 22,
+        "demandStrength": 10,
+        "lockupCommitment": 4,
+        "pricing": 10,
+        "publicAllocation": 8,
+        "leadManagerCoverage": 0
+      },
+      "demand": 74,
+      "value": 80,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.7439,
+      "bearCaseListingGainRate": 0.5439,
+      "baseCaseListingGainRate": 0.7439,
+      "bullCaseListingGainRate": 1.0839,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.013,
+        "oneMillionKrw": 0.125,
+        "fiveMillionKrw": 0.625
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 93,
+        "oneMillionKrw": 930,
+        "fiveMillionKrw": 4649
+      },
+      "assumptions": {
+        "offerPrice": 10000,
+        "competitionRate": null,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.0,
+        "generalPriorBase": 0.5638933333333335,
+        "institutionBoost": 0.09,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.05,
+        "topBandBoost": 0.06,
+        "scoreBoost": 0.016666666666666666,
+        "competitionPresent": false,
+        "generalCalibrationApplied": 0.18,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": true
+      }
+    },
+    "decision": {
+      "level": "consider",
+      "label": "청약 고려",
+      "reasons": [
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
+      ],
+      "warnings": [
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": null,
+      "snapshotCount": 0,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1238.0,
+      "lockupCommitmentRate": 0.0692,
+      "floatRate": null,
+      "hasOutcome": true,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 74,
+      "valueScore": 80
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
