@@ -43,30 +43,30 @@
   "outcome": null,
   "snapshots": [
     {
-      "capturedAt": "2026-08-04T15:47:56",
+      "capturedAt": "2026-08-04T15:57:00",
       "source": "naver_calculator_live",
       "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A483350",
       "brokers": [
         {
           "name": "한국투자증권",
           "offeredShares": 2200000,
-          "subscribedShares": 20746000,
+          "subscribedShares": 22330000,
           "offerPrice": 7000,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 9.43,
+          "competitionRate": 10.15,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 17.86,
+          "proportionalCompetitionRate": 19.3,
           "equalAllocationShares": 275000,
           "proportionalAllocationShares": 275000,
-          "expectedEqualShares": 15.3272,
-          "applicationCount": 17942
+          "expectedEqualShares": 14.9807,
+          "applicationCount": 18357
         }
       ],
       "aggregate": {
         "offeredShares": 2200000,
-        "subscribedShares": 20746000,
-        "competitionRate": 9.43
+        "subscribedShares": 22330000,
+        "competitionRate": 10.15
       }
     }
   ],
@@ -95,18 +95,18 @@
       "baseCaseListingGainRate": -0.01,
       "bullCaseListingGainRate": 0.21,
       "expectedAllocatedShares": {
-        "minimumSubscription": 16.388,
-        "oneMillionKrw": 30.476,
-        "fiveMillionKrw": 91.073
+        "minimumSubscription": 15.966,
+        "oneMillionKrw": 29.055,
+        "fiveMillionKrw": 85.354
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -1147,
-        "oneMillionKrw": -2133,
-        "fiveMillionKrw": -6375
+        "minimumSubscription": -1118,
+        "oneMillionKrw": -2034,
+        "fiveMillionKrw": -5975
       },
       "assumptions": {
         "offerPrice": 7000,
-        "competitionRate": 9.43,
+        "competitionRate": 10.15,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
@@ -126,7 +126,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 9.43대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 10.15대 1입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -137,14 +137,14 @@
         "broker": "한국투자증권",
         "equalScore": 100,
         "proportionalScore": 100,
-        "expectedEqualShares": 15.3272,
-        "estimatedDepositForOneProportionalShare": 62510,
+        "expectedEqualShares": 14.9807,
+        "estimatedDepositForOneProportionalShare": 67550,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 9.43,
+      "latestCompetitionRate": 10.15,
       "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
