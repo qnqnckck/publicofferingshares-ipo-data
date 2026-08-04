@@ -1,28 +1,28 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-03T17:50:34.507932",
+  "generatedAt": "2026-08-04T10:00:42.554212",
   "totals": {
     "generatedStocks": 481,
-    "activeStocks": 1,
+    "activeStocks": 2,
     "upcomingNext7Days": 1
   },
   "activeReadiness": {
     "missingLatestSnapshotAt": 0,
     "missingLatestCompetitionRate": 0,
     "missingBrokerLevelCompetition": 0,
-    "missingInstitutionCompetitionRate": 1,
-    "missingInstitutionParticipants": 1,
-    "missingLockupCommitmentRate": 1,
-    "liveLikeSourceCount": 1,
+    "missingInstitutionCompetitionRate": 2,
+    "missingInstitutionParticipants": 2,
+    "missingLockupCommitmentRate": 2,
+    "liveLikeSourceCount": 2,
     "finutsSourceCount": 0,
     "ocrSourceCount": 0
   },
   "activeLatestSourceCounts": {
-    "naver_calculator_live": 1
+    "naver_calculator_live": 2
   },
   "activeSnapshotFreshness": {
-    "within_1h": 0,
-    "within_6h": 1,
+    "within_1h": 2,
+    "within_6h": 0,
     "within_24h": 0,
     "older": 0,
     "missing": 0
@@ -34,9 +34,29 @@
       "path": "stocks/딜리셔스_2026-08-03.json",
       "subscriptionStart": "2026-08-03",
       "subscriptionEnd": "2026-08-04",
-      "latestSnapshotAt": "2026-08-03T16:10:53",
+      "latestSnapshotAt": "2026-08-04T09:57:32",
       "latestSnapshotSource": "naver_calculator_live",
-      "latestCompetitionRate": 1.49,
+      "latestCompetitionRate": 3.91,
+      "institutionCompetitionRate": null,
+      "institutionParticipants": null,
+      "lockupCommitmentRate": null,
+      "issues": [
+        "missing_offer_price",
+        "missing_institution_competition_rate",
+        "missing_institution_participants",
+        "missing_lockup_commitment_rate",
+        "missing_external_identifier"
+      ]
+    },
+    {
+      "id": "케이앤에스아이앤씨_2026-08-04",
+      "company": "케이앤에스아이앤씨",
+      "path": "stocks/케이앤에스아이앤씨_2026-08-04.json",
+      "subscriptionStart": "2026-08-04",
+      "subscriptionEnd": "2026-08-05",
+      "latestSnapshotAt": "2026-08-04T09:57:31",
+      "latestSnapshotSource": "naver_calculator_live",
+      "latestCompetitionRate": 2.22,
       "institutionCompetitionRate": null,
       "institutionParticipants": null,
       "lockupCommitmentRate": null,
@@ -51,13 +71,13 @@
   ],
   "upcomingSamples": [
     {
-      "id": "케이앤에스아이앤씨_2026-08-04",
-      "company": "케이앤에스아이앤씨",
-      "path": "stocks/케이앤에스아이앤씨_2026-08-04.json",
-      "subscriptionStart": "2026-08-04",
-      "subscriptionEnd": "2026-08-05",
+      "id": "기도산업_2026-08-11",
+      "company": "기도산업",
+      "path": "stocks/기도산업_2026-08-11.json",
+      "subscriptionStart": "2026-08-11",
+      "subscriptionEnd": "2026-08-12",
       "leadManagers": [
-        "IBK투자증권"
+        "미래에셋증권"
       ]
     }
   ]
