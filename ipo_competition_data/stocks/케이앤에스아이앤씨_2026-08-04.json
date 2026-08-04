@@ -43,30 +43,30 @@
   "outcome": null,
   "snapshots": [
     {
-      "capturedAt": "2026-08-04T10:57:56",
+      "capturedAt": "2026-08-04T11:10:01",
       "source": "naver_calculator_live",
       "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A487400",
       "brokers": [
         {
           "name": "IBK투자증권",
           "offeredShares": 2400000,
-          "subscribedShares": 9096000,
+          "subscribedShares": 9648000,
           "offerPrice": 11000,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 3.79,
+          "competitionRate": 4.02,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 7.59,
+          "proportionalCompetitionRate": 8.05,
           "equalAllocationShares": 300000,
           "proportionalAllocationShares": 300000,
-          "expectedEqualShares": 57.0342,
-          "applicationCount": 5260
+          "expectedEqualShares": 52.5486,
+          "applicationCount": 5709
         }
       ],
       "aggregate": {
         "offeredShares": 2400000,
-        "subscribedShares": 9096000,
-        "competitionRate": 3.79
+        "subscribedShares": 9648000,
+        "competitionRate": 4.02
       }
     }
   ],
@@ -95,18 +95,18 @@
       "baseCaseListingGainRate": -0.01,
       "bullCaseListingGainRate": 0.21,
       "expectedAllocatedShares": {
-        "minimumSubscription": 59.673,
-        "oneMillionKrw": 81.021,
-        "fiveMillionKrw": 157.034
+        "minimumSubscription": 55.036,
+        "oneMillionKrw": 75.163,
+        "fiveMillionKrw": 152.549
       },
       "expectedProfitKrw": {
-        "minimumSubscription": -6564,
-        "oneMillionKrw": -8912,
-        "fiveMillionKrw": -17274
+        "minimumSubscription": -6054,
+        "oneMillionKrw": -8268,
+        "fiveMillionKrw": -16780
       },
       "assumptions": {
         "offerPrice": 11000,
-        "competitionRate": 3.79,
+        "competitionRate": 4.02,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
@@ -126,7 +126,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 3.79대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 4.02대 1입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -137,14 +137,14 @@
         "broker": "IBK투자증권",
         "equalScore": 100,
         "proportionalScore": 100,
-        "expectedEqualShares": 57.0342,
-        "estimatedDepositForOneProportionalShare": 41745,
+        "expectedEqualShares": 52.5486,
+        "estimatedDepositForOneProportionalShare": 44275,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 3.79,
+      "latestCompetitionRate": 4.02,
       "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
