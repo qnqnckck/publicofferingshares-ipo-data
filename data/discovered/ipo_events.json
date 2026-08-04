@@ -1,39 +1,39 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-04T17:50:46.875975",
+  "generatedAt": "2026-08-04T22:20:09.991381",
   "stocks": [
     {
       "schemaVersion": 1,
-      "id": "브릴스_2026-08-25",
+      "id": "글로벌테크놀로지_2026-09-16",
       "identifiers": {
-        "subscriptionKey": "브릴스_20260825_20260826",
-        "normalizedCompany": "브릴스",
+        "subscriptionKey": "글로벌테크놀로지_20260916_20260917",
+        "normalizedCompany": "글로벌테크놀로지",
         "corpCode": null,
         "stockCode": null,
         "kindCode": null,
         "isin": null
       },
-      "company": "브릴스",
+      "company": "글로벌테크놀로지",
       "market": "KOSDAQ",
-      "industry": "특수 목적용 기계 제조업",
-      "demandForecastDate": "2026-08-14",
-      "demandForecastStart": "2026-08-14",
-      "demandForecastEnd": "2026-08-21",
-      "subscriptionStart": "2026-08-25",
-      "subscriptionEnd": "2026-08-26",
-      "refundDate": "2026-08-28",
-      "listingDate": "2026-09-03",
+      "industry": "전기용 기계ㆍ장비 및 관련 기자재 도매업",
+      "demandForecastDate": "2026-09-07",
+      "demandForecastStart": "2026-09-07",
+      "demandForecastEnd": "2026-09-11",
+      "subscriptionStart": "2026-09-16",
+      "subscriptionEnd": "2026-09-17",
+      "refundDate": null,
+      "listingDate": null,
       "lockupReleaseDate": null,
       "generalSharesDate": null,
       "cbBwDate": null,
       "securityType": null,
       "leadManagers": [
-        "IBK투자증권"
+        "한국투자증권"
       ],
       "fundamentals": {
         "offerPrice": null,
-        "priceBandMin": 16500,
-        "priceBandMax": 19500,
+        "priceBandMin": 13000,
+        "priceBandMax": 15000,
         "topBandConfirmation": null,
         "institutionCompetitionRate": null,
         "institutionParticipants": null,
@@ -128,9 +128,134 @@
     },
     {
       "schemaVersion": 1,
-      "id": "빅웨이브로보틱스_2026-08-13",
+      "id": "덕산넵코어스_2026-09-16",
       "identifiers": {
-        "subscriptionKey": "빅웨이브로보틱스_20260813_20260814",
+        "subscriptionKey": "덕산넵코어스_20260916_20260917",
+        "normalizedCompany": "덕산넵코어스",
+        "corpCode": null,
+        "stockCode": "266690",
+        "kindCode": null,
+        "isin": null
+      },
+      "company": "덕산넵코어스",
+      "market": "KOSDAQ",
+      "industry": "기타 무선 통신장비 제조업",
+      "demandForecastDate": "2026-09-08",
+      "demandForecastStart": "2026-09-08",
+      "demandForecastEnd": "2026-09-14",
+      "subscriptionStart": "2026-09-16",
+      "subscriptionEnd": "2026-09-17",
+      "refundDate": "2026-09-21",
+      "listingDate": null,
+      "lockupReleaseDate": null,
+      "generalSharesDate": null,
+      "cbBwDate": null,
+      "securityType": null,
+      "leadManagers": [
+        "대신증권"
+      ],
+      "fundamentals": {
+        "offerPrice": null,
+        "priceBandMin": 12400,
+        "priceBandMax": 14600,
+        "topBandConfirmation": null,
+        "institutionCompetitionRate": null,
+        "institutionParticipants": null,
+        "lockupCommitmentRate": null,
+        "floatRate": null,
+        "marketCapKrw": 234113740000,
+        "publicAllocationShares": null,
+        "hasPutbackRight": false,
+        "putbackSummary": null
+      },
+      "outcome": null,
+      "snapshots": [],
+      "analysis": {
+        "methodVersion": "ipo-score-v5-demand-value",
+        "score": {
+          "overall": 16,
+          "grade": "-",
+          "confidence": 0.35,
+          "factors": {
+            "institutionDemand": 0,
+            "demandStrength": 0,
+            "lockupCommitment": 0,
+            "pricing": 3,
+            "marketCap": 8,
+            "leadManagerCoverage": 0
+          },
+          "demand": 5,
+          "value": 67,
+          "mode": "general_pre_subscription_demand_value"
+        },
+        "expectedReturn": {
+          "expectedListingGainRate": -0.1,
+          "bearCaseListingGainRate": -0.15,
+          "baseCaseListingGainRate": -0.1,
+          "bullCaseListingGainRate": 0.18,
+          "expectedAllocatedShares": {
+            "minimumSubscription": 0.013,
+            "oneMillionKrw": 0.042,
+            "fiveMillionKrw": 0.208
+          },
+          "expectedProfitKrw": {
+            "minimumSubscription": -38,
+            "oneMillionKrw": -125,
+            "fiveMillionKrw": -625
+          },
+          "assumptions": {
+            "offerPrice": null,
+            "competitionRate": null,
+            "feeKrw": null,
+            "method": "ipo_score_v6_general_competition_calibrated",
+            "generalCompetitionBaseline": 0.0,
+            "generalPriorBase": -0.16631999999999997,
+            "institutionBoost": 0.0,
+            "lockupBoost": 0.0,
+            "participantBoost": 0.0,
+            "topBandBoost": 0.0,
+            "scoreBoost": -0.04,
+            "competitionPresent": false,
+            "generalCalibrationApplied": 0.0,
+            "generalCalibrationSampleCount": 0,
+            "generalCompetitionPending": true
+          }
+        },
+        "decision": {
+          "level": "insufficient_data",
+          "label": "데이터 부족",
+          "reasons": [
+            "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+          ],
+          "warnings": [
+            "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+            "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
+            "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+          ]
+        },
+        "brokerScores": [],
+        "inputs": {
+          "latestCompetitionRate": null,
+          "snapshotCount": 0,
+          "leadManagerCount": 1,
+          "market": "KOSDAQ",
+          "hasOfferPrice": false,
+          "institutionCompetitionRate": null,
+          "lockupCommitmentRate": null,
+          "floatRate": null,
+          "hasOutcome": false,
+          "scoreMode": "general_pre_subscription_demand_value",
+          "demandScore": 5,
+          "valueScore": 67
+        },
+        "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "빅웨이브로보틱스_2026-09-16",
+      "identifiers": {
+        "subscriptionKey": "빅웨이브로보틱스_20260916_20260917",
         "normalizedCompany": "빅웨이브로보틱스",
         "corpCode": "01722066",
         "stockCode": null,
@@ -140,12 +265,12 @@
       "company": "빅웨이브로보틱스",
       "market": "KOSDAQ",
       "industry": "응용 소프트웨어 개발 및 공급업",
-      "demandForecastDate": "2026-08-10",
-      "demandForecastStart": "2026-08-10",
-      "demandForecastEnd": "2026-08-10",
-      "subscriptionStart": "2026-08-13",
-      "subscriptionEnd": "2026-08-14",
-      "refundDate": "2026-08-19",
+      "demandForecastDate": null,
+      "demandForecastStart": null,
+      "demandForecastEnd": null,
+      "subscriptionStart": "2026-09-16",
+      "subscriptionEnd": "2026-09-17",
+      "refundDate": null,
       "listingDate": null,
       "lockupReleaseDate": null,
       "generalSharesDate": null,
@@ -261,9 +386,384 @@
     },
     {
       "schemaVersion": 1,
-      "id": "스카이랩스_2026-08-13",
+      "id": "와이즈플래닛컴퍼니_2026-09-14",
       "identifiers": {
-        "subscriptionKey": "스카이랩스_20260813_20260814",
+        "subscriptionKey": "와이즈플래닛컴퍼니_20260914_20260915",
+        "normalizedCompany": "와이즈플래닛컴퍼니",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "company": "와이즈플래닛컴퍼니",
+      "market": "KOSDAQ",
+      "industry": "광고물 문안, 도안, 설계 등 작성업",
+      "demandForecastDate": "2026-09-04",
+      "demandForecastStart": "2026-09-04",
+      "demandForecastEnd": "2026-09-10",
+      "subscriptionStart": "2026-09-14",
+      "subscriptionEnd": "2026-09-15",
+      "refundDate": null,
+      "listingDate": null,
+      "lockupReleaseDate": null,
+      "generalSharesDate": null,
+      "cbBwDate": null,
+      "securityType": null,
+      "leadManagers": [
+        "대신증권"
+      ],
+      "fundamentals": {
+        "offerPrice": null,
+        "priceBandMin": 10000,
+        "priceBandMax": 12000,
+        "topBandConfirmation": null,
+        "institutionCompetitionRate": null,
+        "institutionParticipants": null,
+        "lockupCommitmentRate": null,
+        "floatRate": null,
+        "marketCapKrw": null,
+        "publicAllocationShares": null,
+        "hasPutbackRight": false,
+        "putbackSummary": null
+      },
+      "outcome": null,
+      "snapshots": [],
+      "analysis": {
+        "methodVersion": "ipo-score-v5-demand-value",
+        "score": {
+          "overall": 4,
+          "grade": "-",
+          "confidence": 0.35,
+          "factors": {
+            "institutionDemand": 0,
+            "demandStrength": 0,
+            "lockupCommitment": 0,
+            "pricing": 3,
+            "leadManagerCoverage": 0
+          },
+          "demand": 5,
+          "value": 0,
+          "mode": "general_pre_subscription_demand_value"
+        },
+        "expectedReturn": {
+          "expectedListingGainRate": -0.1,
+          "bearCaseListingGainRate": -0.15,
+          "baseCaseListingGainRate": -0.1,
+          "bullCaseListingGainRate": 0.18,
+          "expectedAllocatedShares": {
+            "minimumSubscription": 0.013,
+            "oneMillionKrw": 0.042,
+            "fiveMillionKrw": 0.208
+          },
+          "expectedProfitKrw": {
+            "minimumSubscription": -38,
+            "oneMillionKrw": -125,
+            "fiveMillionKrw": -625
+          },
+          "assumptions": {
+            "offerPrice": null,
+            "competitionRate": null,
+            "feeKrw": null,
+            "method": "ipo_score_v6_general_competition_calibrated",
+            "generalCompetitionBaseline": 0.0,
+            "generalPriorBase": -0.2,
+            "institutionBoost": 0.0,
+            "lockupBoost": 0.0,
+            "participantBoost": 0.0,
+            "topBandBoost": 0.0,
+            "scoreBoost": -0.04,
+            "competitionPresent": false,
+            "generalCalibrationApplied": 0.0,
+            "generalCalibrationSampleCount": 0,
+            "generalCompetitionPending": true
+          }
+        },
+        "decision": {
+          "level": "insufficient_data",
+          "label": "데이터 부족",
+          "reasons": [
+            "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+          ],
+          "warnings": [
+            "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+            "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
+            "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+          ]
+        },
+        "brokerScores": [],
+        "inputs": {
+          "latestCompetitionRate": null,
+          "snapshotCount": 0,
+          "leadManagerCount": 1,
+          "market": "KOSDAQ",
+          "hasOfferPrice": false,
+          "institutionCompetitionRate": null,
+          "lockupCommitmentRate": null,
+          "floatRate": null,
+          "hasOutcome": false,
+          "scoreMode": "general_pre_subscription_demand_value",
+          "demandScore": 5,
+          "valueScore": 0
+        },
+        "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "네오사피엔스_2026-09-08",
+      "identifiers": {
+        "subscriptionKey": "네오사피엔스_20260908_20260909",
+        "normalizedCompany": "네오사피엔스",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "company": "네오사피엔스",
+      "market": "KOSDAQ",
+      "industry": "소프트웨어 개발 및 공급업",
+      "demandForecastDate": "2026-08-31",
+      "demandForecastStart": "2026-08-31",
+      "demandForecastEnd": "2026-09-04",
+      "subscriptionStart": "2026-09-08",
+      "subscriptionEnd": "2026-09-09",
+      "refundDate": null,
+      "listingDate": null,
+      "lockupReleaseDate": null,
+      "generalSharesDate": null,
+      "cbBwDate": null,
+      "securityType": null,
+      "leadManagers": [
+        "대신증권"
+      ],
+      "fundamentals": {
+        "offerPrice": null,
+        "priceBandMin": 13800,
+        "priceBandMax": 15800,
+        "topBandConfirmation": null,
+        "institutionCompetitionRate": null,
+        "institutionParticipants": null,
+        "lockupCommitmentRate": null,
+        "floatRate": null,
+        "marketCapKrw": null,
+        "publicAllocationShares": null,
+        "hasPutbackRight": false,
+        "putbackSummary": null
+      },
+      "outcome": null,
+      "snapshots": [],
+      "analysis": {
+        "methodVersion": "ipo-score-v5-demand-value",
+        "score": {
+          "overall": 4,
+          "grade": "-",
+          "confidence": 0.35,
+          "factors": {
+            "institutionDemand": 0,
+            "demandStrength": 0,
+            "lockupCommitment": 0,
+            "pricing": 3,
+            "leadManagerCoverage": 0
+          },
+          "demand": 5,
+          "value": 0,
+          "mode": "general_pre_subscription_demand_value"
+        },
+        "expectedReturn": {
+          "expectedListingGainRate": -0.1,
+          "bearCaseListingGainRate": -0.15,
+          "baseCaseListingGainRate": -0.1,
+          "bullCaseListingGainRate": 0.18,
+          "expectedAllocatedShares": {
+            "minimumSubscription": 0.013,
+            "oneMillionKrw": 0.042,
+            "fiveMillionKrw": 0.208
+          },
+          "expectedProfitKrw": {
+            "minimumSubscription": -38,
+            "oneMillionKrw": -125,
+            "fiveMillionKrw": -625
+          },
+          "assumptions": {
+            "offerPrice": null,
+            "competitionRate": null,
+            "feeKrw": null,
+            "method": "ipo_score_v6_general_competition_calibrated",
+            "generalCompetitionBaseline": 0.0,
+            "generalPriorBase": -0.2,
+            "institutionBoost": 0.0,
+            "lockupBoost": 0.0,
+            "participantBoost": 0.0,
+            "topBandBoost": 0.0,
+            "scoreBoost": -0.04,
+            "competitionPresent": false,
+            "generalCalibrationApplied": 0.0,
+            "generalCalibrationSampleCount": 0,
+            "generalCompetitionPending": true
+          }
+        },
+        "decision": {
+          "level": "insufficient_data",
+          "label": "데이터 부족",
+          "reasons": [
+            "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+          ],
+          "warnings": [
+            "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+            "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
+            "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+          ]
+        },
+        "brokerScores": [],
+        "inputs": {
+          "latestCompetitionRate": null,
+          "snapshotCount": 0,
+          "leadManagerCount": 1,
+          "market": "KOSDAQ",
+          "hasOfferPrice": false,
+          "institutionCompetitionRate": null,
+          "lockupCommitmentRate": null,
+          "floatRate": null,
+          "hasOutcome": false,
+          "scoreMode": "general_pre_subscription_demand_value",
+          "demandScore": 5,
+          "valueScore": 0
+        },
+        "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "nh스팩34호_2026-09-01",
+      "identifiers": {
+        "subscriptionKey": "NH스팩34호_20260901_20260902",
+        "normalizedCompany": "NH스팩34호",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "company": "NH스팩34호",
+      "market": "KOSDAQ",
+      "industry": "그 외 기타 분류 안된 금융업",
+      "demandForecastDate": "2026-08-24",
+      "demandForecastStart": "2026-08-24",
+      "demandForecastEnd": "2026-08-25",
+      "subscriptionStart": "2026-09-01",
+      "subscriptionEnd": "2026-09-02",
+      "refundDate": null,
+      "listingDate": null,
+      "lockupReleaseDate": null,
+      "generalSharesDate": null,
+      "cbBwDate": null,
+      "securityType": "SPAC",
+      "leadManagers": [
+        "NH투자증권"
+      ],
+      "fundamentals": {
+        "offerPrice": 2000,
+        "priceBandMin": 2000,
+        "priceBandMax": 2000,
+        "topBandConfirmation": true,
+        "institutionCompetitionRate": null,
+        "institutionParticipants": null,
+        "lockupCommitmentRate": null,
+        "floatRate": null,
+        "marketCapKrw": null,
+        "publicAllocationShares": null,
+        "hasPutbackRight": false,
+        "putbackSummary": null
+      },
+      "outcome": null,
+      "snapshots": [],
+      "analysis": {
+        "methodVersion": "ipo-score-v5-demand-value",
+        "score": {
+          "overall": 23,
+          "grade": "-",
+          "confidence": 0.45,
+          "factors": {
+            "competition": 0,
+            "institutionDemand": 0,
+            "spacMomentum": 1,
+            "spacVolatility": 3,
+            "market": 5,
+            "leadManagers": 3,
+            "recency": 3,
+            "dataCompleteness": 4
+          },
+          "demand": 23,
+          "value": 23,
+          "mode": "spac_live_balanced"
+        },
+        "expectedReturn": {
+          "expectedListingGainRate": 0.0879,
+          "bearCaseListingGainRate": -0.2,
+          "baseCaseListingGainRate": 0.0879,
+          "bullCaseListingGainRate": 0.4879,
+          "expectedAllocatedShares": {
+            "minimumSubscription": 0.013,
+            "oneMillionKrw": 0.625,
+            "fiveMillionKrw": 3.125
+          },
+          "expectedProfitKrw": {
+            "minimumSubscription": 2,
+            "oneMillionKrw": 110,
+            "fiveMillionKrw": 549
+          },
+          "assumptions": {
+            "offerPrice": 2000,
+            "competitionRate": null,
+            "feeKrw": null,
+            "method": "ipo_score_v4_spac_listing_day_momentum",
+            "spacModel": true,
+            "proportionalCompetitionRate": null,
+            "institutionCompetitionRate": null,
+            "retailTailBoost": 0.0,
+            "proportionalTailBoost": 0.0,
+            "institutionTailBoost": 0.0,
+            "lowLockupVolatility": false,
+            "uncalibratedBaseGainRate": 0.08789999999999999,
+            "calibrationApplied": 0.0,
+            "calibrationSampleCount": 0,
+            "calibrationCompetitionBucket": null
+          }
+        },
+        "decision": {
+          "level": "insufficient_data",
+          "label": "데이터 부족",
+          "reasons": [
+            "스팩 전용 보정으로 일반 IPO 확약률 대신 상장일 수급 요인을 반영했습니다."
+          ],
+          "warnings": [
+            "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+            "스팩의 낮은 기관 확약률은 일반 IPO 안정성 감점이 아니라 상장일 변동성 위험으로 해석합니다.",
+            "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+          ]
+        },
+        "brokerScores": [],
+        "inputs": {
+          "latestCompetitionRate": null,
+          "snapshotCount": 0,
+          "leadManagerCount": 1,
+          "market": "KOSDAQ",
+          "hasOfferPrice": true,
+          "institutionCompetitionRate": null,
+          "lockupCommitmentRate": null,
+          "floatRate": null,
+          "hasOutcome": false,
+          "scoreMode": "spac_live_balanced",
+          "demandScore": 23,
+          "valueScore": 23
+        },
+        "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "스카이랩스_2026-08-26",
+      "identifiers": {
+        "subscriptionKey": "스카이랩스_20260826_20260827",
         "normalizedCompany": "스카이랩스",
         "corpCode": null,
         "stockCode": null,
@@ -273,12 +773,12 @@
       "company": "스카이랩스",
       "market": "KOSDAQ",
       "industry": "의료용 기기 제조업",
-      "demandForecastDate": "2026-08-13",
-      "demandForecastStart": "2026-08-13",
-      "demandForecastEnd": "2026-08-14",
-      "subscriptionStart": "2026-08-13",
-      "subscriptionEnd": "2026-08-14",
-      "refundDate": "2026-08-19",
+      "demandForecastDate": "2026-08-14",
+      "demandForecastStart": "2026-08-14",
+      "demandForecastEnd": "2026-08-21",
+      "subscriptionStart": "2026-08-26",
+      "subscriptionEnd": "2026-08-27",
+      "refundDate": null,
       "listingDate": null,
       "lockupReleaseDate": null,
       "generalSharesDate": null,
@@ -300,6 +800,130 @@
         "publicAllocationShares": null,
         "hasPutbackRight": false,
         "putbackSummary": "일반청약자 환매청구권 없음"
+      },
+      "outcome": null,
+      "snapshots": [],
+      "analysis": {
+        "methodVersion": "ipo-score-v5-demand-value",
+        "score": {
+          "overall": 4,
+          "grade": "-",
+          "confidence": 0.35,
+          "factors": {
+            "institutionDemand": 0,
+            "demandStrength": 0,
+            "lockupCommitment": 0,
+            "pricing": 3,
+            "leadManagerCoverage": 0
+          },
+          "demand": 5,
+          "value": 0,
+          "mode": "general_pre_subscription_demand_value"
+        },
+        "expectedReturn": {
+          "expectedListingGainRate": -0.1,
+          "bearCaseListingGainRate": -0.15,
+          "baseCaseListingGainRate": -0.1,
+          "bullCaseListingGainRate": 0.18,
+          "expectedAllocatedShares": {
+            "minimumSubscription": 0.013,
+            "oneMillionKrw": 0.042,
+            "fiveMillionKrw": 0.208
+          },
+          "expectedProfitKrw": {
+            "minimumSubscription": -38,
+            "oneMillionKrw": -125,
+            "fiveMillionKrw": -625
+          },
+          "assumptions": {
+            "offerPrice": null,
+            "competitionRate": null,
+            "feeKrw": null,
+            "method": "ipo_score_v6_general_competition_calibrated",
+            "generalCompetitionBaseline": 0.0,
+            "generalPriorBase": -0.2,
+            "institutionBoost": 0.0,
+            "lockupBoost": 0.0,
+            "participantBoost": 0.0,
+            "topBandBoost": 0.0,
+            "scoreBoost": -0.04,
+            "competitionPresent": false,
+            "generalCalibrationApplied": 0.0,
+            "generalCalibrationSampleCount": 0,
+            "generalCompetitionPending": true
+          }
+        },
+        "decision": {
+          "level": "insufficient_data",
+          "label": "데이터 부족",
+          "reasons": [
+            "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+          ],
+          "warnings": [
+            "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+            "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
+            "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+          ]
+        },
+        "brokerScores": [],
+        "inputs": {
+          "latestCompetitionRate": null,
+          "snapshotCount": 0,
+          "leadManagerCount": 1,
+          "market": "KOSDAQ",
+          "hasOfferPrice": false,
+          "institutionCompetitionRate": null,
+          "lockupCommitmentRate": null,
+          "floatRate": null,
+          "hasOutcome": false,
+          "scoreMode": "general_pre_subscription_demand_value",
+          "demandScore": 5,
+          "valueScore": 0
+        },
+        "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "브릴스_2026-08-25",
+      "identifiers": {
+        "subscriptionKey": "브릴스_20260825_20260826",
+        "normalizedCompany": "브릴스",
+        "corpCode": null,
+        "stockCode": null,
+        "kindCode": null,
+        "isin": null
+      },
+      "company": "브릴스",
+      "market": "KOSDAQ",
+      "industry": "특수 목적용 기계 제조업",
+      "demandForecastDate": "2026-08-14",
+      "demandForecastStart": "2026-08-14",
+      "demandForecastEnd": "2026-08-21",
+      "subscriptionStart": "2026-08-25",
+      "subscriptionEnd": "2026-08-26",
+      "refundDate": "2026-08-28",
+      "listingDate": "2026-09-03",
+      "lockupReleaseDate": null,
+      "generalSharesDate": null,
+      "cbBwDate": null,
+      "securityType": null,
+      "leadManagers": [
+        "IBK투자증권"
+      ],
+      "fundamentals": {
+        "offerPrice": null,
+        "priceBandMin": 16500,
+        "priceBandMax": 19500,
+        "topBandConfirmation": null,
+        "institutionCompetitionRate": null,
+        "institutionParticipants": null,
+        "lockupCommitmentRate": null,
+        "floatRate": null,
+        "marketCapKrw": null,
+        "publicAllocationShares": null,
+        "hasPutbackRight": false,
+        "putbackSummary": null
       },
       "outcome": null,
       "snapshots": [],
