@@ -111,7 +111,7 @@ def fetch_finuts_events() -> list[FinutsEvent]:
 def load_seed_events() -> list[FinutsEvent]:
     if not SEED_PATH.exists():
         return []
-    payload = json.loads(SEED_PATH.read_text())
+    payload = json.loads(SEED_PATH.read_text(encoding="utf-8"))
     stocks = payload.get("stocks", [])
     if not isinstance(stocks, list):
         return []
@@ -155,7 +155,7 @@ def _to_int(value: Any) -> int | None:
 def load_feed_items() -> dict[str, dict[str, Any]]:
     items: dict[str, dict[str, Any]] = {}
     for name in ["active.json", "upcoming.json", "index.json"]:
-        payload = json.loads((DATA_DIR / name).read_text())
+        payload = json.loads((DATA_DIR / name).read_text(encoding="utf-8"))
         for item in payload.get("stocks", []):
             if not isinstance(item, dict):
                 continue
@@ -170,7 +170,7 @@ def load_stock_detail(stock_id: str) -> dict[str, Any] | None:
     path = DATA_DIR / "stocks" / f"{stock_id}.json"
     if not path.exists():
         return None
-    payload = json.loads(path.read_text())
+    payload = json.loads(path.read_text(encoding="utf-8"))
     return payload if isinstance(payload, dict) else None
 
 
