@@ -5,7 +5,7 @@
     "subscriptionKey": "니어스랩_20260812_20260813",
     "normalizedCompany": "니어스랩",
     "corpCode": "01588897",
-    "stockCode": null,
+    "stockCode": "417030",
     "kindCode": null,
     "isin": null
   },
@@ -27,99 +27,136 @@
     "삼성증권"
   ],
   "fundamentals": {
-    "offerPrice": null,
+    "offerPrice": 41200,
     "priceBandMin": 30000,
     "priceBandMax": 41200,
-    "topBandConfirmation": null,
-    "institutionCompetitionRate": null,
+    "topBandConfirmation": true,
+    "institutionCompetitionRate": 743.49,
     "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "lockupCommitmentRate": 0.0126,
     "floatRate": 0.372,
     "marketCapKrw": 236660000000,
     "publicAllocationShares": 227500,
-    "hasPutbackRight": false,
-    "putbackSummary": null
+    "hasPutbackRight": true,
+    "putbackSummary": "상장일부터 6개월간 공모가 90% 기준 환매청구권 부여"
   },
   "outcome": null,
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-08-12T13:27:40+09:00",
+      "source": "naver_calculator_live_intraday",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A417030",
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 227500,
+          "subscribedShares": 1380925,
+          "offerPrice": 41200,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 6.07,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 11.15,
+          "equalAllocationShares": 113750,
+          "proportionalAllocationShares": 113750,
+          "expectedEqualShares": 7.5073,
+          "applicationCount": 15152
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 227500,
+        "subscribedShares": 1380925,
+        "competitionRate": 6.07
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 19,
-      "grade": "-",
-      "confidence": 0.4,
+      "overall": 58,
+      "grade": "B-",
+      "confidence": 0.95,
       "factors": {
-        "institutionDemand": 0,
-        "demandStrength": 0,
+        "institutionDemand": 15,
+        "demandStrength": 8,
         "lockupCommitment": 0,
-        "pricing": 3,
+        "pricing": 10,
         "marketCap": 8,
         "publicAllocation": 8,
-        "leadManagerCoverage": 0
+        "leadManagerCoverage": 0,
+        "putbackRight": 4
       },
-      "demand": 5,
-      "value": 80,
+      "demand": 53,
+      "value": 83,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.176,
-      "bearCaseListingGainRate": -0.024,
-      "baseCaseListingGainRate": 0.176,
-      "bullCaseListingGainRate": 0.456,
+      "expectedListingGainRate": 0.3909,
+      "bearCaseListingGainRate": 0.2109,
+      "baseCaseListingGainRate": 0.3909,
+      "bullCaseListingGainRate": 0.6709,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.042,
-        "fiveMillionKrw": 0.208
+        "minimumSubscription": 9.155,
+        "oneMillionKrw": 11.506,
+        "fiveMillionKrw": 27.501
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 66,
-        "oneMillionKrw": 220,
-        "fiveMillionKrw": 1100
+        "minimumSubscription": 147431,
+        "oneMillionKrw": 185295,
+        "fiveMillionKrw": 442877
       },
       "assumptions": {
-        "offerPrice": null,
-        "competitionRate": null,
+        "offerPrice": 41200,
+        "competitionRate": 6.07,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": -0.004040000000000004,
-        "institutionBoost": 0.0,
+        "generalCompetitionBaseline": 0.03,
+        "generalPriorBase": 0.41517630857142857,
+        "institutionBoost": 0.03043625,
         "lockupBoost": 0.0,
         "participantBoost": 0.0,
-        "topBandBoost": 0.0,
+        "topBandBoost": 0.06,
         "scoreBoost": -0.04,
-        "competitionPresent": false,
-        "generalCalibrationApplied": 0.18,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 54,
-        "generalCompetitionPending": true
+        "generalCompetitionPending": false
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
-        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+        "최근 확인된 일반청약 경쟁률은 6.07대 1입니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
-        "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "삼성증권",
+        "equalScore": 100,
+        "proportionalScore": 100,
+        "expectedEqualShares": 7.5073,
+        "estimatedDepositForOneProportionalShare": 229690,
+        "feeKrw": null,
+        "dataQuality": "broker_verified"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 6.07,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
-      "hasOfferPrice": false,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 743.49,
+      "lockupCommitmentRate": 0.0126,
       "floatRate": 0.372,
       "hasOutcome": false,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 5,
-      "valueScore": 80
+      "demandScore": 53,
+      "valueScore": 83
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }
