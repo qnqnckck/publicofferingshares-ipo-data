@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-09T23:08:46.002287",
+  "generatedAt": "2026-08-12T13:41:43.940576",
   "stocks": [
     {
       "schemaVersion": 1,
@@ -1014,7 +1014,7 @@
         "subscriptionKey": "니어스랩_20260812_20260813",
         "normalizedCompany": "니어스랩",
         "corpCode": null,
-        "stockCode": null,
+        "stockCode": "417030",
         "kindCode": null,
         "isin": null
       },
@@ -1140,7 +1140,7 @@
         "subscriptionKey": "해치텍_20260812_20260813",
         "normalizedCompany": "해치텍",
         "corpCode": null,
-        "stockCode": null,
+        "stockCode": "0155E0",
         "kindCode": null,
         "isin": null
       },
@@ -1266,7 +1266,7 @@
         "subscriptionKey": "기도산업_20260811_20260812",
         "normalizedCompany": "기도산업",
         "corpCode": null,
-        "stockCode": null,
+        "stockCode": "282620",
         "kindCode": null,
         "isin": null
       },
@@ -1285,7 +1285,8 @@
       "cbBwDate": null,
       "securityType": null,
       "leadManagers": [
-        "미래에셋증권"
+        "미래에셋증권",
+        "삼성증권"
       ],
       "fundamentals": {
         "offerPrice": null,
@@ -1306,7 +1307,7 @@
       "analysis": {
         "methodVersion": "ipo-score-v5-demand-value",
         "score": {
-          "overall": 19,
+          "overall": 20,
           "grade": "-",
           "confidence": 0.4,
           "factors": {
@@ -1316,10 +1317,10 @@
             "pricing": 3,
             "marketCap": 8,
             "publicAllocation": 8,
-            "leadManagerCoverage": 0
+            "leadManagerCoverage": 2
           },
           "demand": 5,
-          "value": 80,
+          "value": 90,
           "mode": "general_pre_subscription_demand_value"
         },
         "expectedReturn": {
@@ -1343,7 +1344,7 @@
             "feeKrw": null,
             "method": "ipo_score_v6_general_competition_calibrated",
             "generalCompetitionBaseline": 0.0,
-            "generalPriorBase": -0.14948,
+            "generalPriorBase": -0.14274666666666666,
             "institutionBoost": 0.0,
             "lockupBoost": 0.0,
             "participantBoost": 0.0,
@@ -1359,7 +1360,7 @@
           "level": "insufficient_data",
           "label": "데이터 부족",
           "reasons": [
-            "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+            "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
           ],
           "warnings": [
             "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
@@ -1371,7 +1372,7 @@
         "inputs": {
           "latestCompetitionRate": null,
           "snapshotCount": 0,
-          "leadManagerCount": 1,
+          "leadManagerCount": 2,
           "market": "KOSDAQ",
           "hasOfferPrice": false,
           "institutionCompetitionRate": null,
@@ -1380,7 +1381,7 @@
           "hasOutcome": false,
           "scoreMode": "general_pre_subscription_demand_value",
           "demandScore": 5,
-          "valueScore": 80
+          "valueScore": 90
         },
         "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
       }
