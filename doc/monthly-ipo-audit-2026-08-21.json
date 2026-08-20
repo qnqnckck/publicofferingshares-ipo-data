@@ -1,0 +1,164 @@
+{
+  "asOfDate": "2026-08-21",
+  "rangeStart": "2026-08-01",
+  "rangeEndExclusive": "2026-10-01",
+  "sources": [
+    {
+      "name": "KIND 신규상장 및 공모기업",
+      "url": "https://kind.krx.co.kr/main.do?method=loadInitPage&scrnmode=1",
+      "checkedAt": "2026-08-21"
+    },
+    {
+      "name": "Naver 기반 SNAKESTOCK IPO 캘린더",
+      "url": "https://snakestock.com/calendar/kr-ipo",
+      "checkedAt": "2026-08-21"
+    },
+    {
+      "name": "콕스톡 공모주 상장 일정",
+      "url": "https://www.kokstock.com/stock/ipo_listing.asp",
+      "checkedAt": "2026-08-21"
+    },
+    {
+      "name": "서울거래 IPO 일정",
+      "url": "https://www.seoulexchange.kr/stocks/ipo/schedule/",
+      "checkedAt": "2026-08-21"
+    },
+    {
+      "name": "Npay IPO 캘린더",
+      "url": "https://ustock.naver.com/service/ipo",
+      "checkedAt": "2026-08-21"
+    }
+  ],
+  "candidates": [
+    {
+      "company": "딜리셔스",
+      "subscriptionStart": "2026-08-03",
+      "subscriptionEnd": "2026-08-04",
+      "classification": "ipo",
+      "status": "matched",
+      "eventId": "딜리셔스_2026-08-03",
+      "evidenceUrls": ["https://kind.krx.co.kr/main.do?method=loadInitPage&scrnmode=1", "https://www.kokstock.com/stock/ipo_listing.asp"],
+      "notes": "KIND 신규상장 공시와 현재 상장 캘린더를 근거로 상장일 2026-08-12를 원본에 보완했다."
+    },
+    {
+      "company": "케이앤에스아이앤씨",
+      "subscriptionStart": "2026-08-04",
+      "subscriptionEnd": "2026-08-05",
+      "classification": "ipo",
+      "status": "matched",
+      "eventId": "케이앤에스아이앤씨_2026-08-04",
+      "evidenceUrls": ["https://kind.krx.co.kr/main.do?method=loadInitPage&scrnmode=1", "https://www.mk.co.kr/news/stock/1139852"],
+      "notes": "한국거래소 상장 승인 보도와 실제 거래 개시 자료를 근거로 상장일 2026-08-13을 원본에 보완했다."
+    },
+    {
+      "company": "기도산업",
+      "subscriptionStart": "2026-08-11",
+      "subscriptionEnd": "2026-08-12",
+      "classification": "ipo",
+      "status": "matched",
+      "eventId": "기도산업_2026-08-11",
+      "evidenceUrls": ["https://kind.krx.co.kr/main.do?method=loadInitPage&scrnmode=1", "https://snakestock.com/calendar/kr-ipo", "https://www.kokstock.com/stock/ipo_listing.asp"],
+      "notes": "현재 KIND·Naver 기반 일정·상장 캘린더가 일치해 상장일 2026-08-21을 원본에 보완했다."
+    },
+    {
+      "company": "니어스랩",
+      "subscriptionStart": "2026-08-12",
+      "subscriptionEnd": "2026-08-13",
+      "classification": "ipo",
+      "status": "matched",
+      "eventId": "니어스랩_2026-08-12",
+      "evidenceUrls": ["https://snakestock.com/calendar/kr-ipo", "https://www.kokstock.com/stock/ipo_listing.asp", "https://etfshopping.com/ipo/%EB%8B%88%EC%96%B4%EC%8A%A4%EB%9E%A9"],
+      "notes": "상장일 2026-08-24를 포함해 원본과 현재 일정이 일치한다. 2026-08-11 제출 증권신고서 기반 자료로 기관 참여 1,795곳을 보완했다."
+    },
+    {
+      "company": "해치텍",
+      "subscriptionStart": "2026-08-12",
+      "subscriptionEnd": "2026-08-13",
+      "classification": "ipo",
+      "status": "matched",
+      "eventId": "해치텍_2026-08-12",
+      "evidenceUrls": ["https://snakestock.com/calendar/kr-ipo", "https://www.kokstock.com/stock/ipo_listing.asp"],
+      "notes": "상장일 2026-08-25를 포함해 원본과 현재 일정이 일치한다."
+    },
+    {
+      "company": "스카이랩스",
+      "subscriptionStart": "2026-08-26",
+      "subscriptionEnd": "2026-08-27",
+      "classification": "ipo",
+      "status": "matched",
+      "eventId": "스카이랩스_2026-08-26",
+      "evidenceUrls": ["https://www.seoulexchange.kr/stocks/ipo/schedule/", "https://ustock.naver.com/service/ipo"],
+      "notes": "8월 26~27일 청약 일정이 원본과 일치하며 상장일은 아직 확정 자료가 없어 null을 유지한다."
+    },
+    {
+      "company": "NH스팩34호",
+      "subscriptionStart": "2026-09-01",
+      "subscriptionEnd": "2026-09-02",
+      "classification": "spac",
+      "status": "matched",
+      "eventId": "nh스팩34호_2026-09-01",
+      "evidenceUrls": ["https://www.seoulexchange.kr/stocks/ipo/schedule/", "https://ustock.naver.com/service/ipo"],
+      "notes": "법인식 명칭 엔에이치기업인수목적34호와 동일한 독립 SPAC 청약이다."
+    },
+    {
+      "company": "브릴스",
+      "subscriptionStart": "2026-09-08",
+      "subscriptionEnd": "2026-09-09",
+      "classification": "ipo",
+      "status": "matched",
+      "eventId": "브릴스_2026-09-08",
+      "evidenceUrls": ["https://www.seoulexchange.kr/stocks/ipo/schedule/", "https://ustock.naver.com/service/ipo", "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260804000332"],
+      "notes": "정정된 9월 8~9일 청약 일정이 유지된다."
+    },
+    {
+      "company": "네오사피엔스",
+      "subscriptionStart": "2026-09-08",
+      "subscriptionEnd": "2026-09-09",
+      "classification": "ipo",
+      "status": "matched",
+      "eventId": "네오사피엔스_2026-09-08",
+      "evidenceUrls": ["https://www.seoulexchange.kr/stocks/ipo/schedule/", "https://ustock.naver.com/service/ipo"],
+      "notes": "현재 일정 제공처와 원본이 일치한다."
+    },
+    {
+      "company": "와이즈플래닛컴퍼니",
+      "subscriptionStart": "2026-09-14",
+      "subscriptionEnd": "2026-09-15",
+      "classification": "ipo",
+      "status": "matched",
+      "eventId": "와이즈플래닛컴퍼니_2026-09-14",
+      "evidenceUrls": ["https://www.seoulexchange.kr/stocks/ipo/schedule/", "https://ustock.naver.com/service/ipo"],
+      "notes": "현재 일정 제공처와 원본이 일치한다."
+    },
+    {
+      "company": "글로벌테크놀로지",
+      "subscriptionStart": "2026-09-16",
+      "subscriptionEnd": "2026-09-17",
+      "classification": "ipo",
+      "status": "matched",
+      "eventId": "글로벌테크놀로지_2026-09-16",
+      "evidenceUrls": ["https://www.seoulexchange.kr/stocks/ipo/schedule/", "https://ustock.naver.com/service/ipo"],
+      "notes": "현재 일정 제공처와 원본이 일치한다."
+    },
+    {
+      "company": "덕산넵코어스",
+      "subscriptionStart": "2026-09-16",
+      "subscriptionEnd": "2026-09-17",
+      "classification": "ipo",
+      "status": "matched",
+      "eventId": "덕산넵코어스_2026-09-16",
+      "evidenceUrls": ["https://www.seoulexchange.kr/stocks/ipo/schedule/", "https://ustock.naver.com/service/ipo"],
+      "notes": "현재 일정 제공처와 원본이 일치한다."
+    },
+    {
+      "company": "빅웨이브로보틱스",
+      "subscriptionStart": "2026-09-16",
+      "subscriptionEnd": "2026-09-17",
+      "classification": "ipo",
+      "status": "matched",
+      "eventId": "빅웨이브로보틱스_2026-09-16",
+      "evidenceUrls": ["https://www.seoulexchange.kr/stocks/ipo/schedule/", "https://ustock.naver.com/service/ipo"],
+      "notes": "과거 8월 기사보다 최신 정정 일정인 9월 16~17일을 유지한다."
+    }
+  ]
+}
