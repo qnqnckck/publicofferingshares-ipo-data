@@ -43,30 +43,30 @@
   "outcome": null,
   "snapshots": [
     {
-      "capturedAt": "2026-08-12T13:27:41+09:00",
-      "source": "naver_calculator_live_intraday",
-      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0155E0",
+      "capturedAt": "2026-08-13T18:32:23+09:00",
+      "source": "issuer_final_subscription_result",
+      "sourceUrl": "https://www.newsprime.co.kr/news/article/?no=743859&sec_no=56",
       "brokers": [
         {
           "name": "DB증권",
           "offeredShares": 250000,
-          "subscribedShares": 130000,
+          "subscribedShares": 6432725,
           "offerPrice": 23000,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 0.52,
+          "competitionRate": 25.7309,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1.04,
+          "proportionalCompetitionRate": 51.4618,
           "equalAllocationShares": 125000,
           "proportionalAllocationShares": 125000,
-          "expectedEqualShares": 67.2043,
-          "applicationCount": 1860
+          "expectedEqualShares": 6.2217,
+          "applicationCount": 20091
         }
       ],
       "aggregate": {
         "offeredShares": 250000,
-        "subscribedShares": 130000,
-        "competitionRate": 0.52
+        "subscribedShares": 6432725,
+        "competitionRate": 25.7309
       }
     }
   ],
@@ -96,18 +96,18 @@
       "baseCaseListingGainRate": 0.1302,
       "bullCaseListingGainRate": 0.3502,
       "expectedAllocatedShares": {
-        "minimumSubscription": 86.435,
-        "oneMillionKrw": 150.816,
-        "fiveMillionKrw": 167.204
+        "minimumSubscription": 6.61,
+        "oneMillionKrw": 7.911,
+        "fiveMillionKrw": 14.67
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 258810,
-        "oneMillionKrw": 451585,
-        "fiveMillionKrw": 500655
+        "minimumSubscription": 19793,
+        "oneMillionKrw": 23689,
+        "fiveMillionKrw": 43927
       },
       "assumptions": {
         "offerPrice": 23000,
-        "competitionRate": 0.52,
+        "competitionRate": 25.7309,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
@@ -127,7 +127,7 @@
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 0.52대 1입니다."
+        "최근 확인된 일반청약 경쟁률은 25.73대 1입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
@@ -138,14 +138,14 @@
         "broker": "DB증권",
         "equalScore": 100,
         "proportionalScore": 100,
-        "expectedEqualShares": 67.2043,
-        "estimatedDepositForOneProportionalShare": 11960,
+        "expectedEqualShares": 6.2217,
+        "estimatedDepositForOneProportionalShare": 591811,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 0.52,
+      "latestCompetitionRate": 25.7309,
       "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
