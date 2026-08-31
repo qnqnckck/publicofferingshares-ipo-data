@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "id": "진코스텍_2026-10-02",
+  "identifiers": {
+    "subscriptionKey": "진코스텍_20261002_20261006",
+    "normalizedCompany": "진코스텍",
+    "corpCode": null,
+    "stockCode": null,
+    "kindCode": null,
+    "isin": null
+  },
+  "company": "진코스텍",
+  "market": "KOSDAQ",
+  "industry": "화장품 제조업",
+  "demandForecastDate": "2026-09-16",
+  "demandForecastStart": "2026-09-16",
+  "demandForecastEnd": "2026-09-22",
+  "subscriptionStart": "2026-10-02",
+  "subscriptionEnd": "2026-10-06",
+  "refundDate": "2026-10-08",
+  "listingDate": null,
+  "lockupReleaseDate": null,
+  "generalSharesDate": null,
+  "cbBwDate": null,
+  "securityType": null,
+  "leadManagers": [
+    "하나증권"
+  ],
+  "fundamentals": {
+    "offerPrice": null,
+    "priceBandMin": 19500,
+    "priceBandMax": 23500,
+    "topBandConfirmation": null,
+    "institutionCompetitionRate": null,
+    "institutionParticipants": null,
+    "lockupCommitmentRate": null,
+    "floatRate": null,
+    "marketCapKrw": null,
+    "publicAllocationShares": 213000,
+    "hasPutbackRight": false,
+    "putbackSummary": null
+  },
+  "outcome": null,
+  "snapshots": [],
+  "analysis": {
+    "methodVersion": "ipo-score-v5-demand-value",
+    "score": {
+      "overall": 19,
+      "grade": "-",
+      "confidence": 0.35,
+      "factors": {
+        "institutionDemand": 0,
+        "demandStrength": 0,
+        "lockupCommitment": 0,
+        "pricing": 3,
+        "publicAllocation": 8,
+        "leadManagerCoverage": 0
+      },
+      "demand": 5,
+      "value": 80,
+      "mode": "general_pre_subscription_demand_value"
+    },
+    "expectedReturn": {
+      "expectedListingGainRate": 0.176,
+      "bearCaseListingGainRate": -0.024,
+      "baseCaseListingGainRate": 0.176,
+      "bullCaseListingGainRate": 0.456,
+      "expectedAllocatedShares": {
+        "minimumSubscription": 0.013,
+        "oneMillionKrw": 0.042,
+        "fiveMillionKrw": 0.208
+      },
+      "expectedProfitKrw": {
+        "minimumSubscription": 66,
+        "oneMillionKrw": 220,
+        "fiveMillionKrw": 1100
+      },
+      "assumptions": {
+        "offerPrice": null,
+        "competitionRate": null,
+        "feeKrw": null,
+        "method": "ipo_score_v6_general_competition_calibrated",
+        "generalCompetitionBaseline": 0.0,
+        "generalPriorBase": -0.0039600000000000034,
+        "institutionBoost": 0.0,
+        "lockupBoost": 0.0,
+        "participantBoost": 0.0,
+        "topBandBoost": 0.0,
+        "scoreBoost": -0.04,
+        "competitionPresent": false,
+        "generalCalibrationApplied": 0.18,
+        "generalCalibrationSampleCount": 54,
+        "generalCompetitionPending": true
+      }
+    },
+    "decision": {
+      "level": "insufficient_data",
+      "label": "데이터 부족",
+      "reasons": [
+        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+      ],
+      "warnings": [
+        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+        "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
+        "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
+      ]
+    },
+    "brokerScores": [],
+    "inputs": {
+      "latestCompetitionRate": null,
+      "snapshotCount": 0,
+      "leadManagerCount": 1,
+      "market": "KOSDAQ",
+      "hasOfferPrice": false,
+      "institutionCompetitionRate": null,
+      "lockupCommitmentRate": null,
+      "floatRate": null,
+      "hasOutcome": false,
+      "scoreMode": "general_pre_subscription_demand_value",
+      "demandScore": 5,
+      "valueScore": 80
+    },
+    "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
+  }
+}
