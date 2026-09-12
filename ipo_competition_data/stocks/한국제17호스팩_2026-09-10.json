@@ -41,75 +41,115 @@
     "putbackSummary": "일반청약자 환매청구권 없음"
   },
   "outcome": null,
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-09-11T16:15:00+09:00",
+      "source": "public_final_result_secondary",
+      "sourceUrl": "https://blog.naver.com/msql/224408466070",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 1750000,
+          "subscribedShares": 864710000,
+          "offerPrice": null,
+          "depositRate": 1.0,
+          "feeKrw": 2000,
+          "competitionRate": 494.12,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 988.24,
+          "equalAllocationShares": 875000,
+          "proportionalAllocationShares": 875000,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1750000,
+        "subscribedShares": 864710000,
+        "competitionRate": 494.12
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 63,
-      "grade": "B-",
-      "confidence": 0.65,
+      "overall": 70,
+      "grade": "B",
+      "confidence": 0.9,
       "factors": {
-        "competition": 4,
+        "competition": 9,
         "institutionDemand": 22,
-        "spacMomentum": 5,
+        "spacMomentum": 6,
         "spacVolatility": 4,
         "market": 5,
         "leadManagers": 3,
-        "recency": 4,
-        "dataCompleteness": 6
+        "recency": 2,
+        "dataCompleteness": 8
       },
-      "demand": 63,
-      "value": 63,
+      "demand": 70,
+      "value": 70,
       "mode": "spac_live_balanced"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.673,
-      "bearCaseListingGainRate": 0.023,
-      "baseCaseListingGainRate": 0.673,
-      "bullCaseListingGainRate": 1.373,
+      "expectedListingGainRate": 0.6444,
+      "bearCaseListingGainRate": -0.0056,
+      "baseCaseListingGainRate": 0.6444,
+      "bullCaseListingGainRate": 1.3444,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.625,
-        "fiveMillionKrw": 3.125
+        "minimumSubscription": 0.02,
+        "oneMillionKrw": 1.012,
+        "fiveMillionKrw": 5.059
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 17,
-        "oneMillionKrw": 841,
-        "fiveMillionKrw": 4207
+        "minimumSubscription": 26,
+        "oneMillionKrw": 1304,
+        "fiveMillionKrw": 6521
       },
       "assumptions": {
         "offerPrice": 2000,
-        "competitionRate": null,
+        "competitionRate": 494.12,
         "feeKrw": null,
         "method": "ipo_score_v4_spac_listing_day_momentum",
         "spacModel": true,
-        "proportionalCompetitionRate": null,
+        "proportionalCompetitionRate": 988.24,
         "institutionCompetitionRate": 1270.51,
         "retailTailBoost": 0.0,
         "proportionalTailBoost": 0.0,
         "institutionTailBoost": 0.011751666666666665,
         "lowLockupVolatility": true,
-        "uncalibratedBaseGainRate": 0.45304769742424245,
-        "calibrationApplied": 0.22,
+        "uncalibratedBaseGainRate": 0.5092453409090908,
+        "calibrationApplied": 0.1352,
         "calibrationSampleCount": 2,
-        "calibrationCompetitionBucket": null
+        "calibrationCompetitionBucket": "0-499"
       }
     },
     "decision": {
-      "level": "neutral",
-      "label": "중립",
+      "level": "consider",
+      "label": "청약 고려",
       "reasons": [
-        "스팩 전용 보정으로 일반 IPO 확약률 대신 상장일 수급 요인을 반영했습니다."
+        "최근 확인된 일반청약 경쟁률은 494.12대 1입니다.",
+        "스팩 전용 보정으로 비례 경쟁률 988.24대 1을 상장일 수급 요인에 반영했습니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
         "스팩의 낮은 기관 확약률은 일반 IPO 안정성 감점이 아니라 상장일 변동성 위험으로 해석합니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "한국투자증권",
+        "equalScore": 30,
+        "proportionalScore": 51,
+        "expectedEqualShares": null,
+        "estimatedDepositForOneProportionalShare": 1976480,
+        "feeKrw": 2000,
+        "dataQuality": "partial"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 494.12,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
@@ -118,8 +158,8 @@
       "floatRate": 0.8046,
       "hasOutcome": false,
       "scoreMode": "spac_live_balanced",
-      "demandScore": 63,
-      "valueScore": 63
+      "demandScore": 70,
+      "valueScore": 70
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }
