@@ -28,13 +28,13 @@
     "미래에셋증권"
   ],
   "fundamentals": {
-    "offerPrice": null,
+    "offerPrice": 18000,
     "priceBandMin": 15000,
     "priceBandMax": 18000,
-    "topBandConfirmation": null,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "topBandConfirmation": true,
+    "institutionCompetitionRate": 1109.37,
+    "institutionParticipants": 2255,
+    "lockupCommitmentRate": 0.1814,
     "floatRate": 0.268,
     "marketCapKrw": 185440000000,
     "publicAllocationShares": 380000,
@@ -48,84 +48,146 @@
     "closeReturnRate": null,
     "sourceUrl": "https://www.finuts.co.kr/html/ipo/ipoView.php?ipo_sn=100557"
   },
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-09-15T12:59:24+09:00",
+      "source": "naver_calculator_live_day1",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0035S0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 744800,
+          "subscribedShares": 21628992,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 29.04,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 58.08,
+          "equalAllocationShares": 98000,
+          "proportionalAllocationShares": 98000,
+          "expectedEqualShares": null,
+          "applicationCount": 37568
+        },
+        {
+          "name": "유진투자증권",
+          "offeredShares": 775200,
+          "subscribedShares": 10496208,
+          "offerPrice": null,
+          "depositRate": 0.5,
+          "feeKrw": 2000,
+          "competitionRate": 13.54,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 27.08,
+          "equalAllocationShares": 102000,
+          "proportionalAllocationShares": 102000,
+          "expectedEqualShares": null,
+          "applicationCount": 12869
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1520000,
+        "subscribedShares": 32125200,
+        "competitionRate": 21.135
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 20,
-      "grade": "-",
-      "confidence": 0.4,
+      "overall": 83,
+      "grade": "A-",
+      "confidence": 0.95,
       "factors": {
-        "institutionDemand": 0,
-        "demandStrength": 0,
-        "lockupCommitment": 0,
-        "pricing": 3,
+        "institutionDemand": 22,
+        "demandStrength": 10,
+        "lockupCommitment": 9,
+        "pricing": 10,
         "marketCap": 8,
         "publicAllocation": 8,
         "leadManagerCoverage": 2
       },
-      "demand": 5,
+      "demand": 82,
       "value": 90,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.1827,
-      "bearCaseListingGainRate": -0.0173,
-      "baseCaseListingGainRate": 0.1827,
-      "bullCaseListingGainRate": 0.4627,
+      "expectedListingGainRate": 0.8425,
+      "bearCaseListingGainRate": 0.6625,
+      "baseCaseListingGainRate": 0.8425,
+      "bullCaseListingGainRate": 1.1225,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.042,
-        "fiveMillionKrw": 0.208
+        "minimumSubscription": 8.399,
+        "oneMillionKrw": 10.555,
+        "fiveMillionKrw": 21.069
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 69,
-        "oneMillionKrw": 228,
-        "fiveMillionKrw": 1142
+        "minimumSubscription": 127374,
+        "oneMillionKrw": 160061,
+        "fiveMillionKrw": 319513
       },
       "assumptions": {
-        "offerPrice": null,
-        "competitionRate": null,
+        "offerPrice": 18000,
+        "competitionRate": 21.135,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": 0.002693333333333351,
-        "institutionBoost": 0.0,
-        "lockupBoost": 0.0,
-        "participantBoost": 0.0,
-        "topBandBoost": 0.0,
-        "scoreBoost": -0.04,
-        "competitionPresent": false,
-        "generalCalibrationApplied": 0.18,
+        "generalCompetitionBaseline": 0.03,
+        "generalPriorBase": 0.7163051428571428,
+        "institutionBoost": 0.07617124999999998,
+        "lockupBoost": 0.007850000000000003,
+        "participantBoost": 0.05,
+        "topBandBoost": 0.06,
+        "scoreBoost": 0.06111111111111111,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 54,
-        "generalCompetitionPending": true
+        "generalCompetitionPending": false
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "strong_watch",
+      "label": "관심 높음",
       "reasons": [
-        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
+        "최근 확인된 일반청약 경쟁률은 21.14대 1입니다.",
+        "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
-        "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 100,
+        "proportionalScore": 100,
+        "expectedEqualShares": 2.6086,
+        "estimatedDepositForOneProportionalShare": 522720,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      },
+      {
+        "broker": "유진투자증권",
+        "equalScore": 100,
+        "proportionalScore": 100,
+        "expectedEqualShares": 7.926,
+        "estimatedDepositForOneProportionalShare": 243720,
+        "feeKrw": 2000,
+        "dataQuality": "broker_verified"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 21.135,
+      "snapshotCount": 1,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
-      "hasOfferPrice": false,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1109.37,
+      "lockupCommitmentRate": 0.1814,
       "floatRate": 0.268,
       "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 5,
+      "demandScore": 82,
       "valueScore": 90
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
