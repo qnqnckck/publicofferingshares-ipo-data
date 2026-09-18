@@ -43,8 +43,8 @@
   "outcome": null,
   "snapshots": [
     {
-      "capturedAt": "2026-09-18T12:59:43+09:00",
-      "source": "naver_calculator_live_intraday",
+      "capturedAt": "2026-09-18T16:06:02+09:00",
+      "source": "naver_calculator_post_close_observation",
       "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A468670",
       "brokers": [
         {
@@ -54,19 +54,19 @@
           "offerPrice": 19500,
           "depositRate": 0.5,
           "feeKrw": null,
-          "competitionRate": 860.86,
+          "competitionRate": 1676.26,
           "equalCompetitionRate": null,
-          "proportionalCompetitionRate": 1721.71,
+          "proportionalCompetitionRate": 3352.52,
           "equalAllocationShares": 150000,
           "proportionalAllocationShares": 150000,
           "expectedEqualShares": null,
-          "applicationCount": 75440
+          "applicationCount": 113800
         }
       ],
       "aggregate": {
         "offeredShares": 300000,
         "subscribedShares": null,
-        "competitionRate": 860.86
+        "competitionRate": 1676.26
       }
     }
   ],
@@ -90,26 +90,26 @@
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.9784,
-      "bearCaseListingGainRate": 0.7984,
-      "baseCaseListingGainRate": 0.9784,
-      "bullCaseListingGainRate": 1.2584,
+      "expectedListingGainRate": 1.2084,
+      "bearCaseListingGainRate": 1.0,
+      "baseCaseListingGainRate": 1.2084,
+      "bullCaseListingGainRate": 1.4884,
       "expectedAllocatedShares": {
-        "minimumSubscription": 2.0,
-        "oneMillionKrw": 2.048,
-        "fiveMillionKrw": 2.286
+        "minimumSubscription": 1.324,
+        "oneMillionKrw": 1.349,
+        "fiveMillionKrw": 1.471
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 38157,
-        "oneMillionKrw": 39072,
-        "fiveMillionKrw": 43618
+        "minimumSubscription": 31200,
+        "oneMillionKrw": 31780,
+        "fiveMillionKrw": 34664
       },
       "assumptions": {
         "offerPrice": 19500,
-        "competitionRate": 860.86,
+        "competitionRate": 1676.26,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.72,
+        "generalCompetitionBaseline": 0.95,
         "generalPriorBase": 0.7018028571428572,
         "institutionBoost": 0.0859675,
         "lockupBoost": 0.016875,
@@ -126,10 +126,11 @@
       "level": "strong_watch",
       "label": "관심 높음",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 860.86대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 1676.26대 1입니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
@@ -137,15 +138,15 @@
       {
         "broker": "IBK투자증권",
         "equalScore": 100,
-        "proportionalScore": 6,
-        "expectedEqualShares": 1.9883,
-        "estimatedDepositForOneProportionalShare": 16786673,
+        "proportionalScore": 3,
+        "expectedEqualShares": 1.3181,
+        "estimatedDepositForOneProportionalShare": 32687070,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 860.86,
+      "latestCompetitionRate": 1676.26,
       "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",

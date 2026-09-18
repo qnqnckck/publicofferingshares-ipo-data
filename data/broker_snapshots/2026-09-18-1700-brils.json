@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "notes": "13:00 scheduled run. Only published pool/count/rates are supplied; no calculated expectedEqualShares or exact subscribed-share estimate. Intraday, not final allocation.",
+  "notes": "17:00 retail-only scheduled run. Source captured at 16:06:02 KST, not 17:00. Only published pool/count/rates are supplied. Post-close observation, not final allotment. Superseded 12:59 input is archived in doc/2026-09-18-1259-brils-observation.json.",
   "snapshots": [
     {
       "id": "브릴스_2026-09-17",
       "company": "브릴스",
-      "capturedAt": "2026-09-18T12:59:43+09:00",
-      "source": "naver_calculator_live_intraday",
+      "capturedAt": "2026-09-18T16:06:02+09:00",
+      "source": "naver_calculator_post_close_observation",
       "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A468670",
-      "aggregateCompetitionRate": 860.86,
+      "aggregateCompetitionRate": 1676.26,
       "brokers": [
         {
           "name": "IBK투자증권",
@@ -16,11 +16,11 @@
           "subscribedShares": null,
           "offerPrice": 19500,
           "depositRate": 0.5,
-          "competitionRate": 860.86,
-          "proportionalCompetitionRate": 1721.71,
+          "competitionRate": 1676.26,
+          "proportionalCompetitionRate": 3352.52,
           "equalAllocationShares": 150000,
           "proportionalAllocationShares": 150000,
-          "applicationCount": 75440,
+          "applicationCount": 113800,
           "expectedEqualShares": null
         }
       ]
