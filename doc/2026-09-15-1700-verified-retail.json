@@ -1,0 +1,56 @@
+{
+  "checkedAt": "2026-09-15T17:10:00+09:00",
+  "checkedAtPrecision": "minute (observation made immediately after 17:09:55 KST clock check)",
+  "status": "verified_provider_observations_not_applied_or_published",
+  "blockingErrors": 8,
+  "finality": "Provisional provider snapshots; not confirmed final allotments.",
+  "equalExpectationMethod": "Published orgEqlShares / published sbscNum. An expectation, not an allotment guarantee.",
+  "stocks": [
+    {
+      "id": "와이즈플래닛컴퍼니_2026-09-14",
+      "subscriptionStart": "2026-09-14",
+      "subscriptionEnd": "2026-09-15",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0010S0",
+      "baseTime": "2026-09-15T16:06:31+09:00",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "capturedAt": "2026-09-15T16:06:31+09:00",
+          "applicationCount": 165616,
+          "equalAllocationShares": 200000,
+          "expectedEqualShares": 1.2076127910346826,
+          "proportionalCompetitionRate": 2955.3,
+          "totalCompetitionRate": 1477.65
+        }
+      ]
+    },
+    {
+      "id": "빅웨이브로보틱스_2026-09-15",
+      "subscriptionStart": "2026-09-15",
+      "subscriptionEnd": "2026-09-16",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0035S0",
+      "baseTime": "2026-09-15T16:06:31+09:00",
+      "stage": "day1",
+      "brokers": [
+        {
+          "name": "유진투자증권",
+          "capturedAt": "2026-09-15T16:06:31+09:00",
+          "applicationCount": 21348,
+          "equalAllocationShares": 102000,
+          "expectedEqualShares": 4.77796514896009,
+          "proportionalCompetitionRate": 50.58,
+          "totalCompetitionRate": 25.29
+        },
+        {
+          "name": "미래에셋증권",
+          "capturedAt": "2026-09-15T16:06:23+09:00",
+          "applicationCount": 66731,
+          "equalAllocationShares": 98000,
+          "expectedEqualShares": 1.4685828175810343,
+          "proportionalCompetitionRate": 120.6,
+          "totalCompetitionRate": 60.3
+        }
+      ]
+    }
+  ]
+}

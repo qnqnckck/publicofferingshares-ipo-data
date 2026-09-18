@@ -1,0 +1,90 @@
+{
+  "observedAt": "2026-09-16T17:05:46+09:00",
+  "automationId": "13",
+  "runScope": "17:00 today-active retail subscriptions only",
+  "status": "provider_observations_not_applied_or_published",
+  "publicationBlockedBy": "Existing monthly audit: 6 ERROR, 15 WARNING",
+  "source": "Npay public IPO calculator operands",
+  "timezoneNote": "Provider baseTime/updtTm have no offset; recorded as Korean market time (Asia/Seoul). Observation time has an explicit +09:00 offset.",
+  "finality": "Not confirmed final allotments. Provider capture time, not retrieval time, determines freshness.",
+  "equalExpectationPolicy": "The response publishes equal-allocation pools and application counts, but no explicit expectedEqualShares field. No expectation is calculated in this run; null means not directly published by this endpoint, not zero.",
+  "stocks": [
+    {
+      "id": "빅웨이브로보틱스_2026-09-15",
+      "company": "빅웨이브로보틱스",
+      "subscriptionStart": "2026-09-15",
+      "subscriptionEnd": "2026-09-16",
+      "providerCode": "A0035S0",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0035S0",
+      "baseTime": "2026-09-16T16:04:22",
+      "stage": "closing_day_provider_snapshot_not_final_allotment",
+      "brokers": [
+        {
+          "name": "유진투자증권",
+          "capturedAt": "2026-09-16T16:04:22",
+          "applicationCount": 87303,
+          "equalAllocationShares": 102000,
+          "proportionalAllocationShares": 102000,
+          "expectedEqualShares": null,
+          "proportionalCompetitionRate": 2840.94,
+          "totalCompetitionRate": 1420.47
+        },
+        {
+          "name": "미래에셋증권",
+          "capturedAt": "2026-09-16T16:04:21",
+          "applicationCount": 161196,
+          "equalAllocationShares": 98000,
+          "proportionalAllocationShares": 98000,
+          "expectedEqualShares": null,
+          "proportionalCompetitionRate": 2655.68,
+          "totalCompetitionRate": 1327.84
+        }
+      ]
+    },
+    {
+      "id": "덕산넵코어스_2026-09-16",
+      "company": "덕산넵코어스",
+      "subscriptionStart": "2026-09-16",
+      "subscriptionEnd": "2026-09-17",
+      "providerCode": "A266690",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A266690",
+      "baseTime": "2026-09-16T16:04:20",
+      "stage": "day1_provisional",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "capturedAt": "2026-09-16T16:04:20",
+          "applicationCount": 31812,
+          "equalAllocationShares": 375000,
+          "proportionalAllocationShares": 375000,
+          "expectedEqualShares": null,
+          "proportionalCompetitionRate": 5.48,
+          "totalCompetitionRate": 2.74
+        }
+      ]
+    },
+    {
+      "id": "글로벌테크놀로지_2026-09-16",
+      "company": "글로벌테크놀로지",
+      "subscriptionStart": "2026-09-16",
+      "subscriptionEnd": "2026-09-17",
+      "providerCode": "A486510",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A486510",
+      "baseTime": "2026-09-16T16:02:26",
+      "stage": "day1_provisional",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "capturedAt": "2026-09-16T16:02:26",
+          "applicationCount": 22699,
+          "equalAllocationShares": 500000,
+          "proportionalAllocationShares": 500000,
+          "expectedEqualShares": null,
+          "proportionalCompetitionRate": 1.82,
+          "totalCompetitionRate": 1.41
+        }
+      ],
+      "notes": "Preserve provider prtCmptRatio=1.82 exactly; do not replace it with twice ttlCmptRatio or infer an explanation without a source."
+    }
+  ]
+}

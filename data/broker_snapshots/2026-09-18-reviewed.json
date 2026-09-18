@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-18",
+  "notes": [
+    "Source timestamps are Korean market time with an explicit +09:00 offset.",
+    "Equal expectation = published equal-allocation pool / published application count; it is not guaranteed allocation.",
+    "offeredShares is the retail pool (equal + proportional), not Npay orgAllcShares which includes institution allocation.",
+    "Unknown subscribedShares remains null in canonical inputs and generated outputs; do not infer exact counts from rounded competition ratios.",
+    "Post-close observations are not final allotment tables. See the review report for issuer/broker corroboration and aggregate discrepancy."
+  ],
+  "snapshots": [
+    {
+      "id": "와이즈플래닛컴퍼니_2026-09-14",
+      "company": "와이즈플래닛컴퍼니",
+      "capturedAt": "2026-09-15T16:06:31+09:00",
+      "source": "naver_calculator_post_close_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0010S0",
+      "aggregateCompetitionRate": 1477.65,
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 400000,
+          "subscribedShares": 591060000,
+          "offerPrice": 12000,
+          "depositRate": 0.5,
+          "competitionRate": 1477.65,
+          "proportionalCompetitionRate": 2955.3,
+          "equalAllocationShares": 200000,
+          "proportionalAllocationShares": 200000,
+          "applicationCount": 165616,
+          "expectedEqualShares": 1.20761279
+        }
+      ],
+      "corroborationUrl": "https://marketin.edaily.co.kr/News/ReadE?newsId=02683046645580776",
+      "observationRecord": "doc/2026-09-15-1700-verified-retail.json"
+    },
+    {
+      "id": "빅웨이브로보틱스_2026-09-15",
+      "company": "빅웨이브로보틱스",
+      "capturedAt": "2026-09-16T16:04:22+09:00",
+      "source": "naver_calculator_post_close_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0035S0",
+      "aggregateCompetitionRate": 1375.34,
+      "brokers": [
+        {
+          "name": "유진투자증권",
+          "offeredShares": 204000,
+          "subscribedShares": null,
+          "offerPrice": 18000,
+          "depositRate": 0.5,
+          "competitionRate": 1420.47,
+          "proportionalCompetitionRate": 2840.94,
+          "equalAllocationShares": 102000,
+          "proportionalAllocationShares": 102000,
+          "applicationCount": 87303,
+          "expectedEqualShares": 1.16834473
+        },
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 196000,
+          "subscribedShares": null,
+          "offerPrice": 18000,
+          "depositRate": 0.5,
+          "competitionRate": 1327.84,
+          "proportionalCompetitionRate": 2655.68,
+          "equalAllocationShares": 98000,
+          "proportionalAllocationShares": 98000,
+          "applicationCount": 161196,
+          "expectedEqualShares": 0.60795553
+        }
+      ],
+      "corroborationUrl": "https://biz.newdaily.co.kr/site/data/html/2026/09/16/2026091600326.html",
+      "observationRecord": "doc/2026-09-16-1700-observed-retail.json",
+      "aggregateEvidenceUrl": "https://www.mimint.co.kr/bbs/view/news/S1N11/5586822",
+      "notes": "Issuer reports aggregate 1375.34; broker post-close observations weight to 1375.08. Keep published aggregate and observed broker values separately; do not infer exact subscribed counts from rounded ratios."
+    },
+    {
+      "id": "글로벌테크놀로지_2026-09-16",
+      "company": "글로벌테크놀로지",
+      "capturedAt": "2026-09-17T16:01:17+09:00",
+      "source": "naver_calculator_post_close_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A486510",
+      "aggregateCompetitionRate": 57.15,
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 1000000,
+          "subscribedShares": null,
+          "offerPrice": 10000,
+          "depositRate": 0.5,
+          "competitionRate": 57.15,
+          "proportionalCompetitionRate": 113.3,
+          "equalAllocationShares": 500000,
+          "proportionalAllocationShares": 500000,
+          "applicationCount": 77278,
+          "expectedEqualShares": 6.47014674
+        }
+      ],
+      "corroborationUrl": "https://www.truefriend.com/main/Main.jsp",
+      "notes": "Keep provider proportional ratio 113.3 as reported, not twice total ratio."
+    },
+    {
+      "id": "덕산넵코어스_2026-09-16",
+      "company": "덕산넵코어스",
+      "capturedAt": "2026-09-17T16:01:19+09:00",
+      "source": "naver_calculator_post_close_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A266690",
+      "aggregateCompetitionRate": 332.82,
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 750000,
+          "subscribedShares": 249614780,
+          "offerPrice": 14600,
+          "depositRate": 0.5,
+          "competitionRate": 332.82,
+          "proportionalCompetitionRate": 665.64,
+          "equalAllocationShares": 375000,
+          "proportionalAllocationShares": 375000,
+          "applicationCount": 132911,
+          "expectedEqualShares": 2.8214369
+        }
+      ],
+      "corroborationUrl": "https://www.newspim.com/news/view/20260917001294"
+    },
+    {
+      "id": "브릴스_2026-09-17",
+      "company": "브릴스",
+      "capturedAt": "2026-09-18T11:29:15+09:00",
+      "source": "naver_calculator_live_intraday",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A468670",
+      "aggregateCompetitionRate": 649.63,
+      "brokers": [
+        {
+          "name": "IBK투자증권",
+          "offeredShares": 300000,
+          "subscribedShares": null,
+          "offerPrice": 19500,
+          "depositRate": 0.5,
+          "competitionRate": 649.63,
+          "proportionalCompetitionRate": 1299.26,
+          "equalAllocationShares": 150000,
+          "proportionalAllocationShares": 150000,
+          "applicationCount": 63682,
+          "expectedEqualShares": 2.35545366
+        }
+      ],
+      "notes": "Intraday observation on subscription closing day; not final."
+    }
+  ]
+}

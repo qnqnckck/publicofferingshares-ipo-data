@@ -5713,10 +5713,14 @@ class IpoCompetitionSnapshot {
       0,
       (sum, broker) => sum + broker.offeredShares,
     );
-    final subscribedShares = brokers.fold<int>(
-      0,
-      (sum, broker) => sum + broker.subscribedShares,
-    );
+    final subscribedShares = brokers.isEmpty
+        ? null
+        : brokers.fold<int?>(
+            0,
+            (sum, broker) => sum == null || broker.subscribedShares == null
+                ? null
+                : sum + broker.subscribedShares!,
+          );
     final hasBrokerCompetition = brokers.any(
       (broker) =>
           broker.competitionRate != null ||
@@ -5728,7 +5732,7 @@ class IpoCompetitionSnapshot {
       subscribedShares: subscribedShares,
       competitionRate:
           aggregateCompetitionRate ??
-          (hasBrokerCompetition && offeredShares > 0
+          (hasBrokerCompetition && offeredShares > 0 && subscribedShares != null
               ? subscribedShares / offeredShares
               : null),
     );
@@ -5764,7 +5768,7 @@ class IpoBrokerCompetition {
 
   final String name;
   final int offeredShares;
-  final int subscribedShares;
+  final int? subscribedShares;
   final int? offerPrice;
   final double? depositRate;
   final int? feeKrw;
@@ -5778,7 +5782,7 @@ class IpoBrokerCompetition {
 
   factory IpoBrokerCompetition.fromJson(Map<String, Object?> json) {
     final offeredShares = readInt(json['offeredShares']);
-    final subscribedShares = readInt(json['subscribedShares']);
+    final subscribedShares = readOptionalInt(json['subscribedShares']);
     return IpoBrokerCompetition(
       name: readRequiredString(json, 'name'),
       offeredShares: offeredShares,
@@ -5788,7 +5792,9 @@ class IpoBrokerCompetition {
       feeKrw: readOptionalInt(json['feeKrw']),
       competitionRate:
           readDouble(json['competitionRate']) ??
-          (offeredShares <= 0 ? null : subscribedShares / offeredShares),
+          (offeredShares <= 0 || subscribedShares == null
+              ? null
+              : subscribedShares / offeredShares),
       equalCompetitionRate: readDouble(json['equalCompetitionRate']),
       proportionalCompetitionRate: readDouble(
         json['proportionalCompetitionRate'],
@@ -5873,7 +5879,7 @@ class IpoBrokerCompetitionAggregate {
   });
 
   final int offeredShares;
-  final int subscribedShares;
+  final int? subscribedShares;
   final double? competitionRate;
 
   Map<String, Object?> toJson() {
