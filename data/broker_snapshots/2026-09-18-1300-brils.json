@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "notes": "13:00 scheduled run. Only published pool/count/rates are supplied; no calculated expectedEqualShares or exact subscribed-share estimate. Intraday, not final allocation.",
+  "snapshots": [
+    {
+      "id": "브릴스_2026-09-17",
+      "company": "브릴스",
+      "capturedAt": "2026-09-18T12:59:43+09:00",
+      "source": "naver_calculator_live_intraday",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A468670",
+      "aggregateCompetitionRate": 860.86,
+      "brokers": [
+        {
+          "name": "IBK투자증권",
+          "offeredShares": 300000,
+          "subscribedShares": null,
+          "offerPrice": 19500,
+          "depositRate": 0.5,
+          "competitionRate": 860.86,
+          "proportionalCompetitionRate": 1721.71,
+          "equalAllocationShares": 150000,
+          "proportionalAllocationShares": 150000,
+          "applicationCount": 75440,
+          "expectedEqualShares": null
+        }
+      ]
+    }
+  ]
+}

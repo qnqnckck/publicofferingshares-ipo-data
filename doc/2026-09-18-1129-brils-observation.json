@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "status": "superseded_observation_not_batch_input",
+  "reason": "App merges older explicit expectedEqualShares into newer null values; the batch expected-allocation helper chooses the historical maximum. Archive the superseded intraday row outside batch inputs while preserving its evidence and prior Git history. Only the latest actual Brils pool/count/rates feed this run.",
+  "snapshot": {
+    "id": "브릴스_2026-09-17",
+    "company": "브릴스",
+    "capturedAt": "2026-09-18T11:29:15+09:00",
+    "source": "naver_calculator_live_intraday",
+    "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A468670",
+    "aggregateCompetitionRate": 649.63,
+    "brokers": [
+      {
+        "name": "IBK투자증권",
+        "offeredShares": 300000,
+        "subscribedShares": null,
+        "offerPrice": 19500,
+        "depositRate": 0.5,
+        "competitionRate": 649.63,
+        "proportionalCompetitionRate": 1299.26,
+        "equalAllocationShares": 150000,
+        "proportionalAllocationShares": 150000,
+        "applicationCount": 63682,
+        "expectedEqualShares": 2.35545366
+      }
+    ],
+    "notes": "Intraday observation on subscription closing day; not final."
+  }
+}

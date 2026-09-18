@@ -6,7 +6,8 @@
     "Equal expectation = published equal-allocation pool / published application count; it is not guaranteed allocation.",
     "offeredShares is the retail pool (equal + proportional), not Npay orgAllcShares which includes institution allocation.",
     "Unknown subscribedShares remains null in canonical inputs and generated outputs; do not infer exact counts from rounded competition ratios.",
-    "Post-close observations are not final allotment tables. See the review report for issuer/broker corroboration and aggregate discrepancy."
+    "Post-close observations are not final allotment tables. See the review report for issuer/broker corroboration and aggregate discrepancy.",
+    "Brils 11:29 observation superseded at 13:00; preserved in doc/2026-09-18-1129-brils-observation.json, not active batch input. Latest Brils input is 2026-09-18-1300-brils.json."
   ],
   "snapshots": [
     {
@@ -122,30 +123,6 @@
         }
       ],
       "corroborationUrl": "https://www.newspim.com/news/view/20260917001294"
-    },
-    {
-      "id": "브릴스_2026-09-17",
-      "company": "브릴스",
-      "capturedAt": "2026-09-18T11:29:15+09:00",
-      "source": "naver_calculator_live_intraday",
-      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A468670",
-      "aggregateCompetitionRate": 649.63,
-      "brokers": [
-        {
-          "name": "IBK투자증권",
-          "offeredShares": 300000,
-          "subscribedShares": null,
-          "offerPrice": 19500,
-          "depositRate": 0.5,
-          "competitionRate": 649.63,
-          "proportionalCompetitionRate": 1299.26,
-          "equalAllocationShares": 150000,
-          "proportionalAllocationShares": 150000,
-          "applicationCount": 63682,
-          "expectedEqualShares": 2.35545366
-        }
-      ],
-      "notes": "Intraday observation on subscription closing day; not final."
     }
   ]
 }
