@@ -105,4 +105,8 @@ The ignored `build/apply_reviewed_20260918.py` mechanically copies reviewed gene
 
 ## Publication
 
-Publication gate cleared: zero monthly data errors, passing regression execution and batch analysis, with the analyzer/Finuts infrastructure limitations disclosed above. Target is `main` at `https://github.com/qnqnckck/publicofferingshares-ipo-data.git`. Remote commit and served-feed verification will be recorded after the push. No GitHub Actions, app binaries, or store releases are part of this update.
+Published data commit: `b25b657920dd29eb0fec4e64064afae14e767d09`, branch `main`, remote `https://github.com/qnqnckck/publicofferingshares-ipo-data.git`. `git push origin main` succeeded; `git ls-remote origin refs/heads/main` matched the local commit exactly.
+
+Verified all 19 changed app-facing endpoints directly on the unmodified production base URL `https://raw.githubusercontent.com/qnqnckck/publicofferingshares-ipo-data/main/ipo_competition_data`: six feeds plus 13 stock files. Every remote JSON document matched its local generated document structurally. This is served-feed verification, not a claim that a particular installed device has already refreshed its cache.
+
+Publication gate: zero monthly data errors, passing regression execution and batch analysis, with the analyzer/Finuts infrastructure limitations disclosed above. No GitHub Actions, app binaries, or store releases were triggered. Prior untracked audit notes not required by this publication remain intact.
