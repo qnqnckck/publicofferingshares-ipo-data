@@ -89,3 +89,11 @@ git diff --check
 ```
 
 Existing dirty `data/identifiers/ipo_identifiers.json` is preserved byte-for-byte (SHA256 B389739C910688045D7E18E34ED1F9CD1C123CD8E85A7AD8E0A43B7766B1344A). Prior untracked audit notes remain outside this change. No app code, binaries, GitHub Actions or store operations were requested or performed in this refresh.
+
+## Publication verification
+
+- Data commit: `bad86e14c9437a2afba966ceaa0b60cd8cd80670`, pushed to `origin/main`. `git ls-remote origin refs/heads/main` returned the same SHA.
+- Exact unqualified `main` GitHub Raw URLs verified **7/7 equal to local JSON**: `stocks/엠비디_2026-10-28.json`, `active.json`, `upcoming.json`, `recent.json`, `dashboard.json`, `index.json`, `yearly/2026.json`. No cache-busting query or Contents API fallback was needed.
+- [Live MBD detail](https://raw.githubusercontent.com/qnqnckck/publicofferingshares-ipo-data/main/ipo_competition_data/stocks/%EC%97%A0%EB%B9%84%EB%94%94_2026-10-28.json) confirms Oct 28-29, Nov 2 refund, 9,600-11,700 indicative band, float 0.3406 and null final offer.
+- [Live upcoming feed](https://raw.githubusercontent.com/qnqnckck/publicofferingshares-ipo-data/main/ipo_competition_data/upcoming.json) contains the new canonical MBD row once. All six feed families were checked locally for existing detail paths; dashboard obsolete IDs were removed while preserving valid history.
+- App data refresh is sufficient; no reinstall or new store binary is needed. On-device cache refresh was not directly exercised in this data-only task.
