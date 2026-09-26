@@ -136,6 +136,13 @@ white/gray "정보 부족" state and grade `-` until enough source fields are pr
 
 ## Data source policy
 
+The [September 26, 2026 reviewed refresh](doc/2026-09-26-manual-refresh.md)
+documents a new official KB SPAC 34 allotment snapshot, corrected Melcon float
+and putback summaries, and three regular-session listing outcomes. The newer
+official broker snapshot supersedes the older secondary observation without
+deleting history. Unpublished demand results remain null; see the report for
+the outstanding monthly audit findings and the user's scoped publication request.
+
 Do not fabricate historical competition rates. Seed rows should come from a
 verifiable source such as Finuts, broker notices, or manually reviewed public
 disclosures.

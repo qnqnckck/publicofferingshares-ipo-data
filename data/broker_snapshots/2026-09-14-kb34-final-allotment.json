@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "notes": "Official KB Securities final allotment/refund notice, published September 14 at 14:26:52 KST and reviewed September 26. Equal allocation is the published average 8.53 shares (actual allotment 8 or 9), not guaranteed fractional shares. Proportional competition 793.66 is explicitly published; do not double aggregate competition. Aggregate competition is the rounded exact published subscribed/offered share ratio. This supersedes the September 11 secondary snapshot's imputed total and missing application count.",
+  "snapshots": [
+    {
+      "id": "kb제34호스팩_2026-09-10",
+      "company": "KB제34호스팩",
+      "capturedAt": "2026-09-14T14:26:52+09:00",
+      "source": "kbsec_final_allotment_notice",
+      "sourceUrl": "https://www.kbsec.com/go.able?idt=20260914&linkcd=s060901010000&seq=10010338",
+      "aggregateCompetitionRate": 397.33,
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 1750000,
+          "subscribedShares": 695325420,
+          "offerPrice": 2000,
+          "depositRate": 1.0,
+          "competitionRate": 397.33,
+          "proportionalCompetitionRate": 793.66,
+          "equalAllocationShares": 875000,
+          "proportionalAllocationShares": 875000,
+          "applicationCount": 102589,
+          "expectedEqualShares": 8.53
+        }
+      ]
+    }
+  ]
+}

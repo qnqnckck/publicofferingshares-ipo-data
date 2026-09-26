@@ -40,7 +40,13 @@
     "hasPutbackRight": false,
     "putbackSummary": "일반청약자 환매청구권 없음"
   },
-  "outcome": null,
+  "outcome": {
+    "listingDate": "2026-09-22",
+    "openReturnRate": 0.7075,
+    "highReturnRate": 1.61,
+    "closeReturnRate": 0.0775,
+    "sourceUrl": "https://www.hankyung.com/article/2026092217581"
+  },
   "snapshots": [
     {
       "capturedAt": "2026-09-11T16:15:00+09:00",
@@ -91,19 +97,19 @@
       "mode": "spac_live_balanced"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.6444,
-      "bearCaseListingGainRate": -0.0056,
-      "baseCaseListingGainRate": 0.6444,
-      "bullCaseListingGainRate": 1.3444,
+      "expectedListingGainRate": 0.7292,
+      "bearCaseListingGainRate": 0.0792,
+      "baseCaseListingGainRate": 0.7292,
+      "bullCaseListingGainRate": 1.4292,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.02,
         "oneMillionKrw": 1.012,
         "fiveMillionKrw": 5.059
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 26,
-        "oneMillionKrw": 1304,
-        "fiveMillionKrw": 6521
+        "minimumSubscription": 30,
+        "oneMillionKrw": 1476,
+        "fiveMillionKrw": 7379
       },
       "assumptions": {
         "offerPrice": 2000,
@@ -118,8 +124,8 @@
         "institutionTailBoost": 0.011751666666666665,
         "lowLockupVolatility": true,
         "uncalibratedBaseGainRate": 0.5092453409090908,
-        "calibrationApplied": 0.1352,
-        "calibrationSampleCount": 2,
+        "calibrationApplied": 0.22,
+        "calibrationSampleCount": 4,
         "calibrationCompetitionBucket": "0-499"
       }
     },
@@ -156,7 +162,7 @@
       "institutionCompetitionRate": 1270.51,
       "lockupCommitmentRate": 0.000001,
       "floatRate": 0.8046,
-      "hasOutcome": false,
+      "hasOutcome": true,
       "scoreMode": "spac_live_balanced",
       "demandScore": 70,
       "valueScore": 70
