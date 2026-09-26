@@ -115,3 +115,15 @@ The user responded to the documented publication hold with `푸시까지 해줘�
 Flow: explicit user publication request -> scoped revalidation -> unchanged pending results documented -> reviewed commit -> normal main push -> GitHub SHA and raw JSON verification.
 
 Pre-push remote main was checked and still equals `470d596c6c633786cb38e238a9d00f9c04d7717a`; no concurrent remote changes were found. Publication result will be recorded below after verification.
+
+### Publication completed and remotely verified (16:24 KST)
+
+- Data commit: `fd34f5860ec31283f7c16668e5042c4d21fe8c52` (`Publish verified September IPO results and October corrections`), exactly 16 reviewed files.
+- `git push origin main`: PASS, ordinary fast-forward from `470d596c6` to `fd34f5860`, without force.
+- `git ls-remote origin refs/heads/main`: PASS, exactly the data commit above.
+- `py -X utf8 build/verify_remote_20260926.py`: PASS. All 14 committed JSON files plus the unchanged `active.json` were fetched from exact public `main` raw URLs and compared with JSON loaded from the committed Git blobs. All 15 matched; no CDN delay or Contents API fallback was needed.
+- Verified app feed endpoints: [index](https://raw.githubusercontent.com/qnqnckck/publicofferingshares-ipo-data/main/ipo_competition_data/index.json), [active](https://raw.githubusercontent.com/qnqnckck/publicofferingshares-ipo-data/main/ipo_competition_data/active.json), [upcoming](https://raw.githubusercontent.com/qnqnckck/publicofferingshares-ipo-data/main/ipo_competition_data/upcoming.json), [recent](https://raw.githubusercontent.com/qnqnckck/publicofferingshares-ipo-data/main/ipo_competition_data/recent.json), dashboard and yearly/2026, plus all five reviewed stock detail URLs.
+- Repeated pre-push JSON/feed integrity, `git diff --cached --check`, Dart analysis and pending-count regression tests: PASS. Monthly audit remains explicitly **12 pending-publication errors / 19 warnings**, not passed; the scoped user authorization above is the reason the verified corrections were published.
+- Melcon and Jincostech's twelve unpublished demand fields remain null. This is successful publication of verified corrections, not a claim of fully available future demand results.
+- Existing identifier bytes and unrelated historical notes remain untouched and uncommitted. No app binary release, workflow dispatch or automation setting change was made.
+- This verification record is a documentation-only follow-up; it does not change the published JSON.
