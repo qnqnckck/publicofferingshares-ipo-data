@@ -143,6 +143,21 @@ official broker snapshot supersedes the older secondary observation without
 deleting history. Unpublished demand results remain null; see the report for
 the outstanding monthly audit findings and the user's scoped publication request.
 
+The [September 28 scheduled review](doc/2026-09-28-1300-refresh.md) adds a
+locally prepared Korea SPAC 17 snapshot sourced from its official September 15
+issuance report: 104,394 applications and 865,588,260 subscribed shares. The
+official observation supersedes the earlier secondary total; no estimated
+equal-allotment value was inserted. This was held by the September 28 scheduled
+monthly-audit gate; see the September 29 manual publication exception below.
+
+The [September 29 manual refresh](doc/2026-09-29-manual-refresh.md) prepares
+Jincostech's final offer and institutional results from the September 28 final
+terms and September 29 prospectus. Quantity-basis lockup is derived from the
+published requested-share totals, not institution counts. Melcon remains pending.
+On September 29 the user explicitly approved a scoped main publication of only
+the verified Jincostech and Korea SPAC 17 corrections. The six Melcon errors are
+not suppressed; this exception does not change the scheduled publication gate.
+
 Do not fabricate historical competition rates. Seed rows should come from a
 verifiable source such as Finuts, broker notices, or manually reviewed public
 disclosures.

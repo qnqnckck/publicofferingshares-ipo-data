@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "notes": "Official September 15 securities issuance results, read on September 28 at 13:07:39 KST. capturedAt is this source observation time, not the September 11 subscription close or the filing publication time. The official table reports 104394 applications, 865588260 subscribed shares and 1750000 retail shares, with 875000 shares in each allotment pool. Aggregate competition 494.62 is the rounded exact total-share ratio. Proportional competition 988.24 is the rounded residual subscribed shares after equal allotment divided by the proportional pool, following the filing's stated method; it is not twice the aggregate rate. Actual equal allocation was 8 shares each plus 39848 additional single-share allocations by lottery. No estimated equal-allocation value is inserted; the published application count and pool remain the calculation inputs. This later official observation supersedes the September 11 secondary snapshot without deleting it.",
+  "snapshots": [
+    {
+      "id": "한국제17호스팩_2026-09-10",
+      "company": "한국제17호스팩",
+      "capturedAt": "2026-09-28T13:07:39+09:00",
+      "source": "dart_final_allotment_report",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260915000160",
+      "aggregateCompetitionRate": 494.62,
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 1750000,
+          "subscribedShares": 865588260,
+          "offerPrice": 2000,
+          "depositRate": 1.0,
+          "competitionRate": 494.62,
+          "proportionalCompetitionRate": 988.24,
+          "equalAllocationShares": 875000,
+          "proportionalAllocationShares": 875000,
+          "applicationCount": 104394
+        }
+      ]
+    }
+  ]
+}

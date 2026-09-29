@@ -27,15 +27,15 @@
     "하나증권"
   ],
   "fundamentals": {
-    "offerPrice": null,
+    "offerPrice": 23500,
     "priceBandMin": 19500,
     "priceBandMax": 23500,
-    "topBandConfirmation": null,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "topBandConfirmation": true,
+    "institutionCompetitionRate": 1097.62,
+    "institutionParticipants": 2006,
+    "lockupCommitmentRate": 0.052881,
     "floatRate": 0.5844,
-    "marketCapKrw": null,
+    "marketCapKrw": 88983525500,
     "publicAllocationShares": 213000,
     "hasPutbackRight": false,
     "putbackSummary": "일반청약자 환매청구권 없음"
@@ -45,48 +45,49 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 19,
-      "grade": "-",
-      "confidence": 0.4,
+      "overall": 75,
+      "grade": "B+",
+      "confidence": 0.65,
       "factors": {
-        "institutionDemand": 0,
-        "demandStrength": 0,
-        "lockupCommitment": 0,
-        "pricing": 3,
+        "institutionDemand": 22,
+        "demandStrength": 10,
+        "lockupCommitment": 4,
+        "pricing": 10,
+        "marketCap": 8,
         "publicAllocation": 8,
         "leadManagerCoverage": 0
       },
-      "demand": 5,
+      "demand": 74,
       "value": 80,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.176,
-      "bearCaseListingGainRate": -0.024,
-      "baseCaseListingGainRate": 0.176,
-      "bullCaseListingGainRate": 0.456,
+      "expectedListingGainRate": 0.7409,
+      "bearCaseListingGainRate": 0.5409,
+      "baseCaseListingGainRate": 0.7409,
+      "bullCaseListingGainRate": 1.0809,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.042,
-        "fiveMillionKrw": 0.208
+        "oneMillionKrw": 0.053,
+        "fiveMillionKrw": 0.266
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 66,
-        "oneMillionKrw": 220,
-        "fiveMillionKrw": 1100
+        "minimumSubscription": 218,
+        "oneMillionKrw": 926,
+        "fiveMillionKrw": 4631
       },
       "assumptions": {
-        "offerPrice": null,
+        "offerPrice": 23500,
         "competitionRate": null,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": -0.004040000000000004,
-        "institutionBoost": 0.0,
+        "generalPriorBase": 0.5609200000000001,
+        "institutionBoost": 0.07470249999999999,
         "lockupBoost": 0.0,
-        "participantBoost": 0.0,
-        "topBandBoost": 0.0,
-        "scoreBoost": -0.04,
+        "participantBoost": 0.04,
+        "topBandBoost": 0.06,
+        "scoreBoost": 0.016666666666666666,
         "competitionPresent": false,
         "generalCalibrationApplied": 0.18,
         "generalCalibrationSampleCount": 55,
@@ -94,14 +95,12 @@
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "consider",
+      "label": "청약 고려",
       "reasons": [
-        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
-        "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
@@ -111,13 +110,13 @@
       "snapshotCount": 0,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
-      "hasOfferPrice": false,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1097.62,
+      "lockupCommitmentRate": 0.052881,
       "floatRate": 0.5844,
       "hasOutcome": false,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 5,
+      "demandScore": 74,
       "valueScore": 80
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
