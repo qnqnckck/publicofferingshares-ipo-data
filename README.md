@@ -158,6 +158,14 @@ On September 29 the user explicitly approved a scoped main publication of only
 the verified Jincostech and Korea SPAC 17 corrections. The six Melcon errors are
 not suppressed; this exception does not change the scheduled publication gate.
 
+The [September 30 scheduled refresh](doc/2026-09-30-1300-refresh.md) resolves
+Melcon's pending demand results from its final prospectus. Lockup is stored on
+the requested-share basis (36.0714%), not the approximately 33.1% institution-count
+basis reported by some news releases. It also records Melcon/Jincostech's announced
+October 15 listing targets and verified September 29 opening/closing outcomes for
+Bigwave Robotics and Global Technology. The monthly audit now has zero errors;
+unverified listing-day highs and sixteen later October listing dates remain null.
+
 Do not fabricate historical competition rates. Seed rows should come from a
 verifiable source such as Finuts, broker notices, or manually reviewed public
 disclosures.
