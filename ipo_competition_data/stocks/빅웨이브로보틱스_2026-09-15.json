@@ -44,7 +44,7 @@
   "outcome": {
     "listingDate": "2026-09-29",
     "openReturnRate": 2.111111111111111,
-    "highReturnRate": null,
+    "highReturnRate": 2.3333333333333335,
     "closeReturnRate": 0.6611111111111111,
     "sourceUrl": "https://www.thebell.co.kr/front/newsview.asp?code=0204&key=202609291600465440106922"
   },
@@ -132,6 +132,48 @@
         "subscribedShares": null,
         "competitionRate": 1375.34
       }
+    },
+    {
+      "capturedAt": "2026-09-30T14:17:31+09:00",
+      "source": "dart_final_allotment_report_derived_ratios",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260918000412",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 196000,
+          "subscribedShares": 233334830,
+          "offerPrice": 18000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 1190.48,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2380.97,
+          "equalAllocationShares": 98000,
+          "proportionalAllocationShares": 98000,
+          "expectedEqualShares": null,
+          "applicationCount": 161122
+        },
+        {
+          "name": "유진투자증권",
+          "offeredShares": 204000,
+          "subscribedShares": 289777660,
+          "offerPrice": 18000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 1420.48,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2839.96,
+          "equalAllocationShares": 102000,
+          "proportionalAllocationShares": 102000,
+          "expectedEqualShares": null,
+          "applicationCount": 87216
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 400000,
+        "subscribedShares": 523112490,
+        "competitionRate": 1307.78
+      }
     }
   ],
   "analysis": {
@@ -160,18 +202,18 @@
       "baseCaseListingGainRate": 0.9807,
       "bullCaseListingGainRate": 1.2607,
       "expectedAllocatedShares": {
-        "minimumSubscription": 7.933,
-        "oneMillionKrw": 7.966,
-        "fiveMillionKrw": 8.128
+        "minimumSubscription": 7.934,
+        "oneMillionKrw": 7.969,
+        "fiveMillionKrw": 8.138
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 140042,
-        "oneMillionKrw": 140626,
-        "fiveMillionKrw": 143478
+        "minimumSubscription": 140048,
+        "oneMillionKrw": 140663,
+        "fiveMillionKrw": 143663
       },
       "assumptions": {
         "offerPrice": 18000,
-        "competitionRate": 1375.34,
+        "competitionRate": 1307.78,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
@@ -191,7 +233,7 @@
       "level": "strong_watch",
       "label": "관심 높음",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1375.34대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 1307.78대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
@@ -203,26 +245,26 @@
     "brokerScores": [
       {
         "broker": "유진투자증권",
-        "equalScore": 93,
+        "equalScore": 94,
         "proportionalScore": 4,
-        "expectedEqualShares": 1.1683,
-        "estimatedDepositForOneProportionalShare": 25568460,
+        "expectedEqualShares": 1.1695,
+        "estimatedDepositForOneProportionalShare": 25559640,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       },
       {
         "broker": "미래에셋증권",
         "equalScore": 49,
-        "proportionalScore": 4,
-        "expectedEqualShares": 0.608,
-        "estimatedDepositForOneProportionalShare": 23901120,
+        "proportionalScore": 5,
+        "expectedEqualShares": 0.6082,
+        "estimatedDepositForOneProportionalShare": 21428730,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 1375.34,
-      "snapshotCount": 2,
+      "latestCompetitionRate": 1307.78,
+      "snapshotCount": 3,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

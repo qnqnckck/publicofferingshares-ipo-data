@@ -43,7 +43,7 @@
   "outcome": {
     "listingDate": "2026-09-29",
     "openReturnRate": 1.115,
-    "highReturnRate": null,
+    "highReturnRate": 1.975,
     "closeReturnRate": 0.822,
     "sourceUrl": "https://www.thebell.co.kr/front/newsview.asp?code=00&key=202609291557207160104518"
   },
@@ -72,6 +72,33 @@
       "aggregate": {
         "offeredShares": 1000000,
         "subscribedShares": null,
+        "competitionRate": 57.15
+      }
+    },
+    {
+      "capturedAt": "2026-09-30T14:17:31+09:00",
+      "source": "dart_final_allotment_report_derived_ratios",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260921000349",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 1000000,
+          "subscribedShares": 57149700,
+          "offerPrice": 10000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 57.15,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 113.3,
+          "equalAllocationShares": 500000,
+          "proportionalAllocationShares": 500000,
+          "expectedEqualShares": null,
+          "applicationCount": 77278
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1000000,
+        "subscribedShares": 57149700,
         "competitionRate": 57.15
       }
     }
@@ -151,7 +178,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 57.15,
-      "snapshotCount": 1,
+      "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

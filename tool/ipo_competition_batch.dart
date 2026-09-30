@@ -5929,6 +5929,13 @@ String? readString(Map<String, Object?> json, String key) {
 
 int snapshotSourcePriority(String source) {
   final normalized = source.trim().toLowerCase();
+  // Reviewed final allotment disclosures supersede live/post-close feeds,
+  // including when those feeds were fetched again after the filing.
+  if (normalized == 'dart_final_allotment_report' ||
+      normalized == 'dart_final_allotment_report_derived_ratios' ||
+      normalized == 'kbsec_final_allotment_notice') {
+    return 110;
+  }
   if (normalized.contains('finuts')) {
     return 100;
   }

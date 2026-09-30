@@ -166,6 +166,14 @@ October 15 listing targets and verified September 29 opening/closing outcomes fo
 Bigwave Robotics and Global Technology. The monthly audit now has zero errors;
 unverified listing-day highs and sixteen later October listing dates remain null.
 
+The [September 30 manual correction](doc/2026-09-30-manual-correction.md) adds
+Bigwave/Global final allotment observations and three verified listing highs.
+Bigwave's final aggregate is 1307.78 after excluding invalid subscriptions.
+Reviewed DART/broker final allotment sources now outrank provisional collectors,
+so the public feeds actually select the corrected counts and broker ratios.
+Earlier observations remain available as history. Session-specific regular
+closes and demand-stage institutional lockup inputs are preserved.
+
 Do not fabricate historical competition rates. Seed rows should come from a
 verifiable source such as Finuts, broker notices, or manually reviewed public
 disclosures.

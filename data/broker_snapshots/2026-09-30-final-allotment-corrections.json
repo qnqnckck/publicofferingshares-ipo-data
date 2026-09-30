@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-30T14:17:31+09:00",
+  "notes": [
+    "capturedAt is the September30 source review time, not subscription closing time or filing publication time. Final September18/21 allotment reports supersede older post-close observations without deleting history.",
+    "Competition ratios are rounded to2 decimal places from exact official share counts. They are arithmetic ratios, not estimated application counts or imputed subscribed shares.",
+    "No expectedEqualShares override is inserted. Exact final pool/application counts are provided so the existing generator can calculate an average; actual allocations remain whole shares and lotteries.",
+    "Bigwave: 248338 valid applications and523112490 subscribed shares/400000 retail shares =1307.78. The initial1375.34 announcement is retained only in the historical snapshot. DART excludes duplicate and over-limit subscriptions.",
+    "Bigwave Yujin: 87216 valid applications,289777660 shares,102000 equal and102000 proportional shares. DART says proportional allocation uses demand remaining after equal allocation. Derived residual-share ratio=(289777660-102000)/102000=2839.96. Actual equal allotment:1share each plus14784 lottery shares.",
+    "Bigwave Mirae:161122 valid applications,233334830 shares,98000 equal and98000 proportional shares. The broker refund table states equal allocation uses additional payment, so proportional ratio=233334830/98000=2380.97; do not subtract the equal pool or retain the initial2655.68 observation. Equal allotment is0or1share.",
+    "Global:77278 applications and57149700 subscribed shares. Final equal/proportional pools500000each. Derived residual-share proportional ratio=(57149700-500000)/500000=113.30, corroborating the prior observation. Equal allotment:6shares each plus36332 lottery shares.",
+    "Institutional demand-stage lockup and float inputs are unchanged. Final allocation-basis lockup is a different denominator and must not overwrite demand-stage lockup."
+  ],
+  "snapshots": [
+    {
+      "id": "빅웨이브로보틱스_2026-09-15",
+      "company": "빅웨이브로보틱스",
+      "capturedAt": "2026-09-30T14:17:31+09:00",
+      "source": "dart_final_allotment_report_derived_ratios",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260918000412",
+      "corroborationUrl": "https://securities.miraeasset.com/bbs/board/message/view.do?categoryId=41&messageId=2342819",
+      "corroborationAttachmentUrl": "https://securities.miraeasset.com/bbs/board/message/file.do?attachmentId=2147358",
+      "aggregateCompetitionRate": 1307.78,
+      "brokers": [
+        {
+          "name": "유진투자증권",
+          "offeredShares": 204000,
+          "subscribedShares": 289777660,
+          "offerPrice": 18000,
+          "depositRate": 0.5,
+          "competitionRate": 1420.48,
+          "proportionalCompetitionRate": 2839.96,
+          "equalAllocationShares": 102000,
+          "proportionalAllocationShares": 102000,
+          "applicationCount": 87216
+        },
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 196000,
+          "subscribedShares": 233334830,
+          "offerPrice": 18000,
+          "depositRate": 0.5,
+          "competitionRate": 1190.48,
+          "proportionalCompetitionRate": 2380.97,
+          "equalAllocationShares": 98000,
+          "proportionalAllocationShares": 98000,
+          "applicationCount": 161122
+        }
+      ]
+    },
+    {
+      "id": "글로벌테크놀로지_2026-09-16",
+      "company": "글로벌테크놀로지",
+      "capturedAt": "2026-09-30T14:17:31+09:00",
+      "source": "dart_final_allotment_report_derived_ratios",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260921000349",
+      "aggregateCompetitionRate": 57.15,
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 1000000,
+          "subscribedShares": 57149700,
+          "offerPrice": 10000,
+          "depositRate": 0.5,
+          "competitionRate": 57.15,
+          "proportionalCompetitionRate": 113.3,
+          "equalAllocationShares": 500000,
+          "proportionalAllocationShares": 500000,
+          "applicationCount": 77278
+        }
+      ]
+    }
+  ]
+}
