@@ -178,6 +178,16 @@ Do not fabricate historical competition rates. Seed rows should come from a
 verifiable source such as Finuts, broker notices, or manually reviewed public
 disclosures.
 
+The [October 2 reviewed refresh](doc/2026-10-02-manual-refresh.md) adds four
+November IPO baselines from primary filings, Melcon's October 1 day-one retail
+observation and the completed regular-session listing outcomes for Duksan
+Neocore and Brils. Melcon's 95,884 applications, 43.97 total competition and
+87.93 proportional competition are preliminary, timestamped October 1 16:02:50
+KST, not October 2 final results. Its retail pool is 625,000 shares, not the
+calculator API's 2,500,000 total-offering field. Unpublished subscribed-share
+counts remain null. Initial Optonics float is 22.71%; 33.91% describes six months
+after listing. November final offer prices and demand results remain pending.
+
 Scheduled automation should use public sources by default and must remain able
 to run without authenticated upstream credentials. Public source data should be
 preferred in this order for active subscription competition rows:

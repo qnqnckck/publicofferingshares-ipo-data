@@ -40,7 +40,13 @@
     "hasPutbackRight": false,
     "putbackSummary": "일반청약자 환매청구권 없음"
   },
-  "outcome": null,
+  "outcome": {
+    "listingDate": "2026-10-01",
+    "openReturnRate": 2.169230769230769,
+    "highReturnRate": 2.1846153846153844,
+    "closeReturnRate": 0.5615384615384615,
+    "sourceUrl": "https://www.ebn.co.kr/news/articleView.html?idxno=1726440"
+  },
   "snapshots": [
     {
       "capturedAt": "2026-09-18T16:06:02+09:00",
@@ -118,7 +124,7 @@
         "scoreBoost": 0.05555555555555555,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 54,
+        "generalCalibrationSampleCount": 59,
         "generalCompetitionPending": false
       }
     },
@@ -154,7 +160,7 @@
       "institutionCompetitionRate": 1187.74,
       "lockupCommitmentRate": 0.2175,
       "floatRate": 0.2642,
-      "hasOutcome": false,
+      "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 82,
       "valueScore": 80

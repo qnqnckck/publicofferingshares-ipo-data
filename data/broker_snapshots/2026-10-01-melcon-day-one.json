@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-02T06:20:04+09:00",
+  "notes": [
+    "October1 day-one observation only, not final subscription competition or final equal allotment. Source baseTime/updtTm is 2026-10-01T16:02:50 KST.",
+    "The API orgAllcShares=2500000 is total IPO offering, not retail allocation. Use official retail625000, equal312500 and proportional312500. Do not multiply rounded competition by total IPO shares.",
+    "Subscribed share count is unpublished by this endpoint and stays null. Equal expected shares are derived by the generator from312500/95884. Jincostech is pre-opening and no zero placeholder snapshot is added."
+  ],
+  "snapshots": [
+    {
+      "id": "멜콘_2026-10-01",
+      "company": "멜콘",
+      "capturedAt": "2026-10-01T16:02:50+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A179880",
+      "aggregateCompetitionRate": 43.97,
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 625000,
+          "subscribedShares": null,
+          "offerPrice": 12300,
+          "depositRate": 0.5,
+          "competitionRate": 43.97,
+          "proportionalCompetitionRate": 87.93,
+          "equalAllocationShares": 312500,
+          "proportionalAllocationShares": 312500,
+          "applicationCount": 95884
+        }
+      ]
+    }
+  ]
+}
