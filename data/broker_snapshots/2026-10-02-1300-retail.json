@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-02T13:03:00+09:00",
+  "notes": [
+    "October 2 near-13:00 intraday observations, not final subscription competition or confirmed allotments. Each capturedAt is the source broker update time, not the collection clock.",
+    "Retail offered shares use equal plus proportional pools, matching reviewed prospectuses. API orgAllcShares is total IPO offering: 2500000 for Melcon and 852000 for Jincostech; these are not retail allocations.",
+    "Unpublished subscribed-share counts remain null. The existing generator derives indicative equal averages from published pool and application count; no final expectedEqualShares override is supplied."
+  ],
+  "snapshots": [
+    {
+      "id": "멜콘_2026-10-01",
+      "company": "멜콘",
+      "capturedAt": "2026-10-02T12:58:26+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A179880",
+      "aggregateCompetitionRate": 905.91,
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 625000,
+          "subscribedShares": null,
+          "offerPrice": 12300,
+          "depositRate": 0.5,
+          "competitionRate": 905.91,
+          "proportionalCompetitionRate": 1811.81,
+          "equalAllocationShares": 312500,
+          "proportionalAllocationShares": 312500,
+          "applicationCount": 185283
+        }
+      ]
+    },
+    {
+      "id": "진코스텍_2026-10-02",
+      "company": "진코스텍",
+      "capturedAt": "2026-10-02T12:58:23+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A250030",
+      "aggregateCompetitionRate": 5.36,
+      "brokers": [
+        {
+          "name": "하나증권",
+          "offeredShares": 213000,
+          "subscribedShares": null,
+          "offerPrice": 23500,
+          "depositRate": 0.5,
+          "competitionRate": 5.36,
+          "proportionalCompetitionRate": 10.71,
+          "equalAllocationShares": 106500,
+          "proportionalAllocationShares": 106500,
+          "applicationCount": 32442
+        }
+      ]
+    }
+  ]
+}

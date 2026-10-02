@@ -188,6 +188,11 @@ calculator API's 2,500,000 total-offering field. Unpublished subscribed-share
 counts remain null. Initial Optonics float is 22.71%; 33.91% describes six months
 after listing. November final offer prices and demand results remain pending.
 
+The [October 2 13:00 review](doc/2026-10-02-1300-refresh.md) adds timestamped
+12:58 intraday observations for Melcon and Jincostech. These replace neither
+historical snapshots nor final allotments; subscribed-share counts remain null.
+Elis demand metrics remain pending, with pricing reported for October 6.
+
 Scheduled automation should use public sources by default and must remain able
 to run without authenticated upstream credentials. Public source data should be
 preferred in this order for active subscription competition rows:

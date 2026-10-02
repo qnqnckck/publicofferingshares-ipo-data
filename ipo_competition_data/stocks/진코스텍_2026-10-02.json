@@ -41,13 +41,41 @@
     "putbackSummary": "일반청약자 환매청구권 없음"
   },
   "outcome": null,
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-10-02T12:58:23+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A250030",
+      "brokers": [
+        {
+          "name": "하나증권",
+          "offeredShares": 213000,
+          "subscribedShares": null,
+          "offerPrice": 23500,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 5.36,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 10.71,
+          "equalAllocationShares": 106500,
+          "proportionalAllocationShares": 106500,
+          "expectedEqualShares": null,
+          "applicationCount": 32442
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 213000,
+        "subscribedShares": null,
+        "competitionRate": 5.36
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
       "overall": 75,
       "grade": "B+",
-      "confidence": 0.65,
+      "confidence": 0.95,
       "factors": {
         "institutionDemand": 22,
         "demandStrength": 10,
@@ -62,52 +90,63 @@
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.7409,
-      "bearCaseListingGainRate": 0.5409,
-      "baseCaseListingGainRate": 0.7409,
-      "bullCaseListingGainRate": 1.0809,
+      "expectedListingGainRate": 0.701,
+      "bearCaseListingGainRate": 0.521,
+      "baseCaseListingGainRate": 0.701,
+      "bullCaseListingGainRate": 0.981,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.053,
-        "fiveMillionKrw": 0.266
+        "minimumSubscription": 5.148,
+        "oneMillionKrw": 11.222,
+        "fiveMillionKrw": 42.978
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 218,
-        "oneMillionKrw": 926,
-        "fiveMillionKrw": 4631
+        "minimumSubscription": 84819,
+        "oneMillionKrw": 184875,
+        "fiveMillionKrw": 708046
       },
       "assumptions": {
         "offerPrice": 23500,
-        "competitionRate": null,
+        "competitionRate": 5.36,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": 0.5609200000000001,
+        "generalCompetitionBaseline": 0.03,
+        "generalPriorBase": 0.62156,
         "institutionBoost": 0.07470249999999999,
         "lockupBoost": 0.0,
         "participantBoost": 0.04,
         "topBandBoost": 0.06,
         "scoreBoost": 0.016666666666666666,
-        "competitionPresent": false,
-        "generalCalibrationApplied": 0.18,
-        "generalCalibrationSampleCount": 57,
-        "generalCompetitionPending": true
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
+        "generalCalibrationSampleCount": 59,
+        "generalCompetitionPending": false
       }
     },
     "decision": {
       "level": "consider",
       "label": "청약 고려",
       "reasons": [
+        "최근 확인된 일반청약 경쟁률은 5.36대 1입니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "하나증권",
+        "equalScore": 100,
+        "proportionalScore": 100,
+        "expectedEqualShares": 3.2828,
+        "estimatedDepositForOneProportionalShare": 125843,
+        "feeKrw": null,
+        "dataQuality": "broker_verified"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 5.36,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
