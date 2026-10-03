@@ -193,6 +193,15 @@ The [October 2 13:00 review](doc/2026-10-02-1300-refresh.md) adds timestamped
 historical snapshots nor final allotments; subscribed-share counts remain null.
 Elis demand metrics remain pending, with pricing reported for October 6.
 
+The [October 4 reviewed update](doc/2026-10-04-manual-refresh.md) includes
+Dongwon Parts and KMF November baselines from their initial DART filings and
+the October 2 16:13:45 Melcon/Jincostech retail observations. Pre-demand
+allocation pools and float are filing baselines, not final allotments. Equal
+averages remain indicative; final institutional results are not fabricated.
+Elis is unchanged and its pending monthly audit errors are not suppressed.
+The user explicitly approved this four-record publication exception; scheduled
+publication still requires zero audit errors. See the report for evidence.
+
 Scheduled automation should use public sources by default and must remain able
 to run without authenticated upstream credentials. Public source data should be
 preferred in this order for active subscription competition rows:
