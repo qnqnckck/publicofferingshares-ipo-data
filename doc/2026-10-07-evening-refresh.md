@@ -46,6 +46,12 @@ KST clock -> calendars / disclosure leads -> candidate ledger -> primary-source 
 - `dart run tool/ipo_snapshot_priority_test.dart`: passed final/closing priority, corrected filings, preserved histories and provisional fallback.
 - `git diff --check`: passed. Pre-existing identifier/October2 ledger changes and older untracked notes are excluded from the intended commit.
 - `py -X utf8 tool/validate_finuts_schedule_sync.py --warn-on-analysis-issues`: exit0, local seed fallback. Finuts timed out (WinError10060), so this is not a live-Finuts verification claim; current independent calendars and changed primary schedules were checked separately.
-- Final publication verification: pending scoped push and exact Raw/remote-SHA checks.
+- Independent PowerShell `ConvertFrom-Json` parsing: passed all560 input/output/ledger JSON documents. Final staged `git diff --cached --check`: passed.
+
+### Publication verification
+
+- Data commit `8de5c1a630c6a796ed45fbde8ade6502789aa72a` was pushed to the nested data repository `origin/main`; `git ls-remote origin refs/heads/main` matched local HEAD exactly.
+- `py -X utf8 build/verify_remote_20261007.py`: passed all11 exact GitHub Raw documents on main: five reviewed stock details, index, active, upcoming, recent, yearly2026 and dashboard. Every fetched JSON matched its local reviewed value. No CDN fallback or stale-content exception was needed.
+- This publication uses the normal zero-error gate. Unrelated local identifier/October2 audit work and older notes remain outside the commit. App binaries and workflows were not changed or dispatched.
 
 The morning report remains historical evidence. Its five MS Bio errors were resolved by the new official results; no earlier exception approval was reused.
