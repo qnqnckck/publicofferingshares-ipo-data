@@ -73,7 +73,27 @@ void main() {
     'A secondary article containing final is not an official allotment.',
   );
   check(stock([]).latestSnapshot == null, 'Empty histories remain pending.');
+  final closing = snapshot(
+    'dart_subscription_close_report',
+    '2026-10-07T08:51:01+09:00',
+    685.83,
+  );
+  final laterPortal = snapshot(
+    'naver_calculator_live',
+    '2026-10-07T09:00:00+09:00',
+    685.33,
+  );
+  check(
+    stock([closing, laterPortal, finuts]).latestSnapshot?.source ==
+        'dart_subscription_close_report',
+    'Reviewed issuer closing totals outrank later provisional observations.',
+  );
+  check(
+    stock([closing, original, laterPortal]).latestSnapshot?.source ==
+        'dart_final_allotment_report',
+    'Closing subscription totals are not final allotments.',
+  );
   print(
-    'PASS: official final priority, corrected filings, preserved history and provisional fallback.',
+    'PASS: official final/closing priority, corrected filings, preserved history and provisional fallback.',
   );
 }

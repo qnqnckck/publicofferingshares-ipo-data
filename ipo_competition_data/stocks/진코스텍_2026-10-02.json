@@ -95,6 +95,60 @@
         "subscribedShares": null,
         "competitionRate": 8.6
       }
+    },
+    {
+      "capturedAt": "2026-10-06T16:14:51+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A250030",
+      "brokers": [
+        {
+          "name": "하나증권",
+          "offeredShares": 213000,
+          "subscribedShares": null,
+          "offerPrice": 23500,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 685.33,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1370.66,
+          "equalAllocationShares": 106500,
+          "proportionalAllocationShares": 106500,
+          "expectedEqualShares": null,
+          "applicationCount": 147227
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 213000,
+        "subscribedShares": null,
+        "competitionRate": 685.33
+      }
+    },
+    {
+      "capturedAt": "2026-10-07T08:51:01+09:00",
+      "source": "dart_subscription_close_report",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261006600712",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 213000,
+          "subscribedShares": 146081630,
+          "offerPrice": 23500,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 685.83,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 106500,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 213000,
+        "subscribedShares": 146081630,
+        "competitionRate": 685.83
+      }
     }
   ],
   "analysis": {
@@ -117,26 +171,26 @@
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.701,
-      "bearCaseListingGainRate": 0.521,
-      "baseCaseListingGainRate": 0.701,
-      "bullCaseListingGainRate": 0.981,
+      "expectedListingGainRate": 0.7114,
+      "bearCaseListingGainRate": 0.5314,
+      "baseCaseListingGainRate": 0.7114,
+      "bullCaseListingGainRate": 0.9914,
       "expectedAllocatedShares": {
-        "minimumSubscription": 4.446,
-        "oneMillionKrw": 8.231,
-        "fiveMillionKrw": 28.023
+        "minimumSubscription": 3.297,
+        "oneMillionKrw": 3.345,
+        "fiveMillionKrw": 3.593
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 73239,
-        "oneMillionKrw": 135600,
-        "fiveMillionKrw": 461669
+        "minimumSubscription": 55123,
+        "oneMillionKrw": 55916,
+        "fiveMillionKrw": 60065
       },
       "assumptions": {
         "offerPrice": 23500,
-        "competitionRate": 8.6,
+        "competitionRate": 685.83,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.03,
+        "generalCompetitionBaseline": 0.52,
         "generalPriorBase": 0.62156,
         "institutionBoost": 0.07470249999999999,
         "lockupBoost": 0.0,
@@ -153,7 +207,7 @@
       "level": "consider",
       "label": "청약 고려",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 8.6대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 685.83대 1입니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
@@ -163,17 +217,17 @@
     "brokerScores": [
       {
         "broker": "하나증권",
-        "equalScore": 100,
-        "proportionalScore": 100,
-        "expectedEqualShares": 2.2956,
-        "estimatedDepositForOneProportionalShare": 202100,
+        "equalScore": 58,
+        "proportionalScore": 6,
+        "expectedEqualShares": 0.7234,
+        "estimatedDepositForOneProportionalShare": 16105255,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 8.6,
-      "snapshotCount": 2,
+      "latestCompetitionRate": 685.83,
+      "snapshotCount": 4,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

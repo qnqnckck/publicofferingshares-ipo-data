@@ -202,6 +202,29 @@ Elis is unchanged and its pending monthly audit errors are not suppressed.
 The user explicitly approved this four-record publication exception; scheduled
 publication still requires zero audit errors. See the report for evidence.
 
+The [October 7 reviewed update](doc/2026-10-07-manual-refresh.md) prepares
+Elice's final institutional results and October 7 intraday broker observations,
+Jincostech's October 6 closing observations, and MS Bio's disclosed no-putback
+summary. Elice lockup uses requested shares (13.6971%), not institution counts;
+its post-offering share count includes the additional underwriter acquisition.
+`dart_subscription_close_report` ranks below final allotment reports but above
+provisional collectors. Jincostech's issuer aggregate (685.83) stays distinct
+from its calculator broker observation (685.33); the latter's account count and
+equal/proportional indicators are not asserted to be final allotments. Elice's
+intraday aggregate is an allocation-weighted average of rounded broker ratios.
+The morning review initially held publication for missing MS Bio results;
+the evening review below supersedes that pending state.
+
+The [October 7 evening update](doc/2026-10-07-evening-refresh.md) resolves MS Bio's
+final results from its new prospectus (quantity lockup30.6152%), corrects its
+post-offering capitalization/float, adds Genon's November4-5 IPO baseline,
+and records Elice's October7 16:04:53 first-day observation. Melcon's official
+issuance report confirms254,009 accounts and explicitly states proportional
+competition3,481.33; this must not be replaced with twice its aggregate ratio.
+All histories remain intact. Announced future listing plans for Elice/MS Bio
+are distinguished from completed exchange listings. The October-November audit
+has zero errors; pending future values are documented without placeholders.
+
 Scheduled automation should use public sources by default and must remain able
 to run without authenticated upstream credentials. Public source data should be
 preferred in this order for active subscription competition rows:

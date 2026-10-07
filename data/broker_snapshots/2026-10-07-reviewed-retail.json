@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-07T08:51:01+09:00",
+  "notes": [
+    "Jincostech issuer closing disclosure dated October 6 reports 146081630 retail subscribed shares / 213000 offered shares and 685.83:1. Its capturedAt records this review time, not an invented filing timestamp. This is not a final allotment report.",
+    "The issuer reports no account count or equal/proportional final allotment. The aggregate row retains the 106500-share minimum equal pool disclosed in the October 1 prospectus (https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261001000594), not a final individual allotment. Retain the calculator's October 6 16:14:51 broker observation separately instead of mixing account counts and ratios from different sources.",
+    "Jincostech calculator has 147227 applications, total685.33 and proportional1370.66. Equal pool/application average is indicative, not a final entitlement. A future final allotment report takes precedence.",
+    "Elice's October 7 08:46:59 observation is intraday, not closing or final. Retain directly reported broker ratios and counts, including Samsung proportional0.22; do not replace it with a mechanically doubled ratio.",
+    "Retail offeredShares uses the verified equal plus proportional pools. Naver orgAllcShares represents total IPO underwriting and must not be used as retail shares. Unpublished subscribed-share counts remain null."
+  ],
+  "snapshots": [
+    {
+      "id": "진코스텍_2026-10-02",
+      "company": "진코스텍",
+      "capturedAt": "2026-10-06T16:14:51+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A250030",
+      "aggregateCompetitionRate": 685.33,
+      "brokers": [
+        {
+          "name": "하나증권",
+          "offeredShares": 213000,
+          "subscribedShares": null,
+          "offerPrice": 23500,
+          "depositRate": 0.5,
+          "competitionRate": 685.33,
+          "proportionalCompetitionRate": 1370.66,
+          "equalAllocationShares": 106500,
+          "proportionalAllocationShares": 106500,
+          "applicationCount": 147227
+        }
+      ]
+    },
+    {
+      "id": "진코스텍_2026-10-02",
+      "company": "진코스텍",
+      "capturedAt": "2026-10-07T08:51:01+09:00",
+      "source": "dart_subscription_close_report",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261006600712",
+      "aggregateCompetitionRate": 685.83,
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 213000,
+          "subscribedShares": 146081630,
+          "offerPrice": 23500,
+          "depositRate": 0.5,
+          "competitionRate": 685.83,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 106500,
+          "proportionalAllocationShares": null,
+          "applicationCount": null
+        }
+      ]
+    },
+    {
+      "id": "엘리스그룹_2026-10-07",
+      "company": "엘리스그룹",
+      "capturedAt": "2026-10-07T08:46:59+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0158S0",
+      "aggregateCompetitionRate": 0.426,
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 444400,
+          "subscribedShares": null,
+          "offerPrice": 90500,
+          "depositRate": 0.5,
+          "competitionRate": 0.38,
+          "proportionalCompetitionRate": 0.76,
+          "equalAllocationShares": 222200,
+          "proportionalAllocationShares": 222200,
+          "applicationCount": 3230
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 111100,
+          "subscribedShares": null,
+          "offerPrice": 90500,
+          "depositRate": 0.5,
+          "competitionRate": 0.61,
+          "proportionalCompetitionRate": 0.22,
+          "equalAllocationShares": 55550,
+          "proportionalAllocationShares": 55550,
+          "applicationCount": 883
+        }
+      ]
+    }
+  ]
+}

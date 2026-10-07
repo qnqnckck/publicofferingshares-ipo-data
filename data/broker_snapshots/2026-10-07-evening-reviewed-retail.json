@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-07T23:34:32+09:00",
+  "notes": [
+    "Elice calculator baseTime and both broker update times are October 7 16:04:53 KST. This is the first subscription day, not a final subscription result or allotment. Earlier snapshots are retained.",
+    "Elice aggregate9.192 is the allocation-weighted average of reported rounded broker ratios, not an exact subscribed-share count. Preserve Samsung proportional16.75 directly; do not double its total8.88. Unknown subscribed shares and individual allotments stay null.",
+    "Melcon October 7 DART issuance report section II confirms retail625000, applications254009, subscribed1088422690, equal312500 and proportional312500. Aggregate1741.48 is rounded from subscribed/offered. The report directly states the residual-deposit proportional ratio3481.33; do not substitute a mechanically doubled aggregate.",
+    "Melcon final equal allotment is one share per account plus58491 shares distributed by lottery. Generated equal average312500/254009 is a summary average, not a fractional individual entitlement. capturedAt for the DART row is the review time, not an invented filing timestamp."
+  ],
+  "snapshots": [
+    {
+      "id": "엘리스그룹_2026-10-07",
+      "company": "엘리스그룹",
+      "capturedAt": "2026-10-07T16:04:53+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0158S0",
+      "aggregateCompetitionRate": 9.192,
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 444400,
+          "subscribedShares": null,
+          "offerPrice": 90500,
+          "depositRate": 0.5,
+          "competitionRate": 9.27,
+          "proportionalCompetitionRate": 18.54,
+          "equalAllocationShares": 222200,
+          "proportionalAllocationShares": 222200,
+          "applicationCount": 64602
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 111100,
+          "subscribedShares": null,
+          "offerPrice": 90500,
+          "depositRate": 0.5,
+          "competitionRate": 8.88,
+          "proportionalCompetitionRate": 16.75,
+          "equalAllocationShares": 55550,
+          "proportionalAllocationShares": 55550,
+          "applicationCount": 16670
+        }
+      ]
+    },
+    {
+      "id": "멜콘_2026-10-01",
+      "company": "멜콘",
+      "capturedAt": "2026-10-07T23:34:32+09:00",
+      "source": "dart_final_allotment_report",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261007000189",
+      "aggregateCompetitionRate": 1741.48,
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 625000,
+          "subscribedShares": 1088422690,
+          "offerPrice": 12300,
+          "depositRate": 0.5,
+          "competitionRate": 1741.48,
+          "proportionalCompetitionRate": 3481.33,
+          "equalAllocationShares": 312500,
+          "proportionalAllocationShares": 312500,
+          "applicationCount": 254009
+        }
+      ]
+    }
+  ]
+}

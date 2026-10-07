@@ -5936,6 +5936,11 @@ int snapshotSourcePriority(String source) {
       normalized == 'kbsec_final_allotment_notice') {
     return 110;
   }
+  // Issuer closing totals outrank provisional feeds, but remain distinct from
+  // final allotment reports, which can exclude invalid applications later.
+  if (normalized == 'dart_subscription_close_report') {
+    return 105;
+  }
   if (normalized.contains('finuts')) {
     return 100;
   }
