@@ -168,6 +168,48 @@
         "subscribedShares": null,
         "competitionRate": 167.256
       }
+    },
+    {
+      "capturedAt": "2026-10-08T16:06:39+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0158S0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 444400,
+          "subscribedShares": null,
+          "offerPrice": 90500,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 408.76,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 817.52,
+          "equalAllocationShares": 222200,
+          "proportionalAllocationShares": 222200,
+          "expectedEqualShares": null,
+          "applicationCount": 229879
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 111100,
+          "subscribedShares": null,
+          "offerPrice": 90500,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 406.28,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 811.55,
+          "equalAllocationShares": 55550,
+          "proportionalAllocationShares": 55550,
+          "expectedEqualShares": null,
+          "applicationCount": 59539
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 555500,
+        "subscribedShares": null,
+        "competitionRate": 408.264
+      }
     }
   ],
   "analysis": {
@@ -190,26 +232,26 @@
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.3826,
-      "bearCaseListingGainRate": 0.2026,
-      "baseCaseListingGainRate": 0.3826,
-      "bullCaseListingGainRate": 0.6626,
+      "expectedListingGainRate": 0.59,
+      "bearCaseListingGainRate": 0.41,
+      "baseCaseListingGainRate": 0.59,
+      "bullCaseListingGainRate": 0.87,
       "expectedAllocatedShares": {
-        "minimumSubscription": 68.852,
-        "oneMillionKrw": 68.859,
-        "fiveMillionKrw": 69.123
+        "minimumSubscription": 0.991,
+        "oneMillionKrw": 0.994,
+        "fiveMillionKrw": 1.102
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 2383812,
-        "oneMillionKrw": 2384029,
-        "fiveMillionKrw": 2393178
+        "minimumSubscription": 52919,
+        "oneMillionKrw": 53057,
+        "fiveMillionKrw": 58837
       },
       "assumptions": {
         "offerPrice": 90500,
-        "competitionRate": 167.256,
+        "competitionRate": 408.264,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.24,
+        "generalCompetitionBaseline": 0.52,
         "generalPriorBase": 0.3811760628571429,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
@@ -226,7 +268,7 @@
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 167.26대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 408.26대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
@@ -235,27 +277,27 @@
     },
     "brokerScores": [
       {
-        "broker": "삼성증권",
-        "equalScore": 100,
-        "proportionalScore": 8,
-        "expectedEqualShares": 1.476,
-        "estimatedDepositForOneProportionalShare": 13214810,
+        "broker": "미래에셋증권",
+        "equalScore": 77,
+        "proportionalScore": 3,
+        "expectedEqualShares": 0.9666,
+        "estimatedDepositForOneProportionalShare": 36992780,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       },
       {
-        "broker": "미래에셋증권",
-        "equalScore": 100,
-        "proportionalScore": 6,
-        "expectedEqualShares": 1.5153,
-        "estimatedDepositForOneProportionalShare": 15605820,
+        "broker": "삼성증권",
+        "equalScore": 75,
+        "proportionalScore": 3,
+        "expectedEqualShares": 0.933,
+        "estimatedDepositForOneProportionalShare": 36722638,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 167.256,
-      "snapshotCount": 3,
+      "latestCompetitionRate": 408.264,
+      "snapshotCount": 4,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

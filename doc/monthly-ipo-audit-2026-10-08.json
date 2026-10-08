@@ -42,9 +42,19 @@
       "name": "Genon corroborating news",
       "url": "https://www.etnews.com/20261008000064",
       "checkedAt": "2026-10-08"
+    },
+    {
+      "name": "다비오 correction demand",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261006100034",
+      "checkedAt": "2026-10-08"
+    },
+    {
+      "name": "유캐스트 correction demand",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261001100050",
+      "checkedAt": "2026-10-08"
     }
   ],
-  "notes": "October-November 13:00 KST full review: 39 candidates, 25 matched, 14 excluded, 0 unresolved. No new IPO identity or subscription-window change across current calendars. Elice 13:01:09 intraday metrics are provisional. DTS October8 prospectus confirms no putback; demand closes at17:00 today and pricing announcement is scheduled October12. Preserve unpublished fields as null and all prior histories.",
+  "notes": "October-November manual post-close review:39 candidates,25 matched issuer identities,14 excluded,0 identity-unresolved. Elice16:06:39 calculator observation is post-close but not official final allotment. Ucast and Dabeeo have correction demands: filing effectiveness suspended and schedules may change; retain last announced windows without claiming reconfirmation or inventing replacement dates.",
   "candidates": [
     {
       "company": "제논",
@@ -57,7 +67,8 @@
         "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261007000505",
         "https://stock.startuprecipe.co.kr/",
         "https://pikumo.net/ipo",
-        "https://www.etnews.com/20261008000064"
+        "https://www.etnews.com/20261008000064",
+        "https://www.38.co.kr/html/fund/index.htm?o=k"
       ],
       "notes": "October 8 calendar reconciliation retains the exact issuer/subscription window. Earlier primary sources are retained; not every unchanged field was freshly re-extracted today."
     },
@@ -153,7 +164,7 @@
         "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261006000451",
         "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0158S0"
       ],
-      "notes": "October 8 calendar reconciliation retains the exact issuer/subscription window. Earlier primary sources are retained; not every unchanged field was freshly re-extracted today. Add October8 13:01:09 KST provisional calculator snapshot: Mirae146634 accounts,total172.44,proportional344.88; Samsung37635,total146.52,proportional292.04. Aggregate167.256 uses retail allocation weights. No final result label."
+      "notes": "October8 source baseTime16:06:39 KST; Mirae update16:06:38,229879 accounts,total408.76,proportional817.52; Samsung16:06:39,59539 accounts,total406.28,proportional811.55. Aggregate408.264 weighted by retail allocations. Closing observation, not final allotment. Preserve all earlier snapshots and demand-stage inputs."
     },
     {
       "company": "래블업",
@@ -236,9 +247,11 @@
         "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260915000390",
         "https://www.thebell.co.kr/front/newsview.asp?code=0401&key=202609170945186240104673",
         "https://ipo.mainpy.dev/2026-10",
-        "https://www.sonnimlab.com/schedule/"
+        "https://www.sonnimlab.com/schedule/",
+        "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261006100034",
+        "https://newspim.com/news/view/20261007000822"
       ],
-      "notes": "October 8 calendar reconciliation retains the exact issuer/subscription window. Earlier primary sources are retained; not every unchanged field was freshly re-extracted today."
+      "notes": "Exact issuer identity matched. Regulatory correction demand suspends filing effectiveness; the last filed October19-20 schedule may change and is NOT reconfirmed effective. No revised dates or withdrawal verified. Keep historical announced window, do not invent replacements or treat this as a confirmed cancellation."
     },
     {
       "company": "유캐스트",
@@ -253,9 +266,11 @@
         "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260909000378",
         "https://www.thebell.co.kr/front/newsview.asp?key=202609111452136120108746",
         "https://www.38.co.kr/html/fund/index.htm?o=k",
-        "https://www.sonnimlab.com/schedule/"
+        "https://www.sonnimlab.com/schedule/",
+        "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261001100050",
+        "https://newspim.com/news/view/20261007000822"
       ],
-      "notes": "October 8 calendar reconciliation retains the exact issuer/subscription window. Earlier primary sources are retained; not every unchanged field was freshly re-extracted today."
+      "notes": "Exact issuer identity matched. Regulatory correction demand suspends filing effectiveness; the last filed October19-20 schedule may change and is NOT reconfirmed effective. No revised dates or withdrawal verified. Keep historical announced window, do not invent replacements or treat this as a confirmed cancellation."
     },
     {
       "company": "크리에이츠",
@@ -615,5 +630,6 @@
       ],
       "notes": "Already-listed issuer capital raising, not a new IPO."
     }
-  ]
+  ],
+  "reviewedAt": "2026-10-08T16:18:39+09:00"
 }

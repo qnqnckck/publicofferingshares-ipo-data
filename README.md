@@ -232,6 +232,17 @@ prospectus confirms no putback; its final pricing/demand fields remain pending.
 The 39-candidate October-November ledger retains 25 IPO/SPAC identities and
 14 exclusions, without inventing unpublished data.
 
+The [October 8 post-close refresh](doc/2026-10-08-manual-refresh.md) records
+Elice's 16:06:39 calculator observation. Equal averages remain indicative and
+Samsung's reported proportional ratio is preserved directly. Ucast and Dabeeo
+have regulatory correction demands; their last filed schedules may change and
+are not reconfirmed effective dates. No replacement dates were invented.
+
+The post-close review also corrects the expected-allocation helper to use the
+current source-priority observation per broker instead of the largest historical
+equal average. Earlier snapshots remain intact; the reviewed Elice output is
+regenerated without a bulk historical rewrite or a change to demand grading.
+
 Scheduled automation should use public sources by default and must remain able
 to run without authenticated upstream credentials. Public source data should be
 preferred in this order for active subscription competition rows:

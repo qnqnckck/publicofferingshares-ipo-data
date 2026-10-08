@@ -7251,14 +7251,12 @@ Map<String, double> expectedAllocatedSharesFor({
 
 double? bestEqualExpectedSharesPerAccount(IpoCompetitionStock stock) {
   double? best;
-  for (final snapshot in stock.snapshots) {
-    for (final broker in snapshot.brokers) {
-      final expected = broker.equalExpectedSharesPerAccount;
-      if (expected != null &&
-          expected > 0 &&
-          (best == null || expected > best)) {
-        best = expected;
-      }
+  // Use the current source-priority observation per broker, not a historical
+  // maximum that can retain an inflated first-day allocation estimate.
+  for (final broker in brokerScoresFor(stock.normalized())) {
+    final expected = broker.expectedEqualShares;
+    if (expected != null && expected > 0 && (best == null || expected > best)) {
+      best = expected;
     }
   }
   return best;
