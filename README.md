@@ -225,6 +225,13 @@ All histories remain intact. Announced future listing plans for Elice/MS Bio
 are distinguished from completed exchange listings. The October-November audit
 has zero errors; pending future values are documented without placeholders.
 
+The [October 8 13:00 review](doc/2026-10-08-1300-refresh.md) records Elice's
+13:01:09 KST intraday broker counts and directly reported proportional ratios.
+These are provisional observations, not final allotments. DTS's October 8
+prospectus confirms no putback; its final pricing/demand fields remain pending.
+The 39-candidate October-November ledger retains 25 IPO/SPAC identities and
+14 exclusions, without inventing unpublished data.
+
 Scheduled automation should use public sources by default and must remain able
 to run without authenticated upstream credentials. Public source data should be
 preferred in this order for active subscription competition rows:

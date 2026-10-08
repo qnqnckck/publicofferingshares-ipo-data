@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "Elice calculator baseTime and both broker update times are October 8 13:01:09 KST. This is an intraday observation on the final subscription day, not a final subscription result or allotment. Preserve all earlier snapshots.",
+    "Aggregate167.256 is the retail-allocation-weighted average of reported rounded broker ratios, not an exact subscribed-share count. Preserve Samsung proportional292.04 directly; do not double its total146.52. Unknown subscribed shares and individual allotments remain null.",
+    "Retail offered shares are the sum of the published equal/proportional pools, not calculator orgAllcShares, which represents the full underwriting allocation. The generated pool/application-count average is indicative and is not a guaranteed fractional individual allotment."
+  ],
+  "snapshots": [
+    {
+      "id": "엘리스그룹_2026-10-07",
+      "company": "엘리스그룹",
+      "capturedAt": "2026-10-08T13:01:09+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0158S0",
+      "aggregateCompetitionRate": 167.256,
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 444400,
+          "subscribedShares": null,
+          "offerPrice": 90500,
+          "depositRate": 0.5,
+          "competitionRate": 172.44,
+          "proportionalCompetitionRate": 344.88,
+          "equalAllocationShares": 222200,
+          "proportionalAllocationShares": 222200,
+          "applicationCount": 146634
+        },
+        {
+          "name": "삼성증권",
+          "offeredShares": 111100,
+          "subscribedShares": null,
+          "offerPrice": 90500,
+          "depositRate": 0.5,
+          "competitionRate": 146.52,
+          "proportionalCompetitionRate": 292.04,
+          "equalAllocationShares": 55550,
+          "proportionalAllocationShares": 55550,
+          "applicationCount": 37635
+        }
+      ]
+    }
+  ]
+}
