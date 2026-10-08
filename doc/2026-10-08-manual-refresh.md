@@ -138,4 +138,10 @@ py -X utf8 tool/validate_finuts_schedule_sync.py --warn-on-analysis-issues
 git -c safe.directory=E:/harness/projects/publicofferingshares/ipo-data diff --check
 ```
 
-Publication verification pending at this checkpoint.
+Published commit: `a7fc7d47372c224352174f85aea8e5eea96119ee` on `origin/main`
+in `qnqnckck/publicofferingshares-ipo-data`. Remote main SHA matched local HEAD.
+`py -X utf8 build/verify_remote_20261008.py` confirmed semantic equality for
+eight exact GitHub Raw URLs: index, active, upcoming, recent, yearly/2026,
+dashboard, Elice detail and unchanged DTS detail. No alternate branch or
+cache-busting URL was used. Only the pre-existing unrelated dirty files remain.
+This follow-up changes publication evidence only.
