@@ -243,6 +243,16 @@ current source-priority observation per broker instead of the largest historical
 equal average. Earlier snapshots remain intact; the reviewed Elice output is
 regenerated without a bulk historical rewrite or a change to demand grading.
 
+The [October 9 13:00 refresh](doc/2026-10-09-1300-refresh.md) adds November IPO
+baselines for Enki Whitehat and Yeonggwang YKMC (a different issuer from
+Yeonggwang), and migrates Dabeeo to its officially revised November10-11 window.
+The old Dabeeo event/detail is superseded, not duplicated. The latest Jincostech
+issuance report confirms147,227 applications and106,500 shares in each equal
+and proportional pool. Its final aggregate observation is separate from the
+provisional Hana calculator ratio because the report states no numeric final
+proportional ratio. Demand-stage lockup remains unchanged. Pending results are
+not fabricated, and Elice leaves the active feed after its subscription end.
+
 Scheduled automation should use public sources by default and must remain able
 to run without authenticated upstream credentials. Public source data should be
 preferred in this order for active subscription competition rows:

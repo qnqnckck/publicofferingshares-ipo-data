@@ -149,6 +149,33 @@
         "subscribedShares": 146081630,
         "competitionRate": 685.83
       }
+    },
+    {
+      "capturedAt": "2026-10-09T13:08:10+09:00",
+      "source": "dart_final_allotment_report",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261008000730",
+      "brokers": [
+        {
+          "name": "통합",
+          "offeredShares": 213000,
+          "subscribedShares": 146081630,
+          "offerPrice": 23500,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 685.83,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 106500,
+          "proportionalAllocationShares": 106500,
+          "expectedEqualShares": null,
+          "applicationCount": 147227
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 213000,
+        "subscribedShares": 146081630,
+        "competitionRate": 685.83
+      }
     }
   ],
   "analysis": {
@@ -176,14 +203,14 @@
       "baseCaseListingGainRate": 0.7114,
       "bullCaseListingGainRate": 0.9914,
       "expectedAllocatedShares": {
-        "minimumSubscription": 3.297,
-        "oneMillionKrw": 3.345,
-        "fiveMillionKrw": 3.593
+        "minimumSubscription": 0.738,
+        "oneMillionKrw": 0.785,
+        "fiveMillionKrw": 1.034
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 55123,
-        "oneMillionKrw": 55916,
-        "fiveMillionKrw": 60065
+        "minimumSubscription": 12337,
+        "oneMillionKrw": 13130,
+        "fiveMillionKrw": 17279
       },
       "assumptions": {
         "offerPrice": 23500,
@@ -227,7 +254,7 @@
     ],
     "inputs": {
       "latestCompetitionRate": 685.83,
-      "snapshotCount": 4,
+      "snapshotCount": 5,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
