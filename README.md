@@ -253,6 +253,27 @@ provisional Hana calculator ratio because the report states no numeric final
 proportional ratio. Demand-stage lockup remains unchanged. Pending results are
 not fabricated, and Elice leaves the active feed after its subscription end.
 
+The [October 12 13:00 review](doc/2026-10-12-1300-refresh.md) prepares MS Bio's
+12:58:14 KST first-day observation: KB reports69,886 applications, total8.72 and
+proportional16.44, with500,000 shares in each allocation pool. These are
+intraday indicators, not final allotments. Its retail pool is1,000,000 shares,
+not4,000,000 total IPO shares. Publication is held because DTS has six missing
+final-demand fields in the scheduled monthly audit; no exception is applied.
+
+The [October 12 manual recheck](doc/2026-10-12-manual-refresh.md) adds a second
+MS Bio intraday observation at14:31:43 KST:90,680 applications, total11.78 and
+direct proportional22.55. The earlier12:58:14 observation remains in history.
+At that review the local draft had not been published, DTS remained pending,
+and no new scoped publication exception had yet been granted.
+
+The [October 13 verified-metric commit](doc/2026-10-13-verified-retail-commit.md)
+records the user's subsequent explicit instruction to commit verified values.
+MS Bio's October12 16:01:25 first-day observation has106,172 applications,
+total14.43 and direct proportional27.85; the indicative equal average is4.7093.
+Both earlier snapshots are preserved. This scoped manual commit does not alter
+DTS pending fields or the scheduled zero-error gate. The user also explicitly
+approved pushing this verified-only change set; see the report for the result.
+
 Scheduled automation should use public sources by default and must remain able
 to run without authenticated upstream credentials. Public source data should be
 preferred in this order for active subscription competition rows:

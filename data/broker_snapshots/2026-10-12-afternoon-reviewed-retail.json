@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "MS Bio Naver calculator baseTime and KB updateTime are October12 14:31:43 KST. First-day intraday observation, not final competition or allotment. Preserve the earlier12:58:14 observation.",
+    "KB directly reports total11.78 and proportional22.55. Do not mechanically double the total. Retail1000000 is500000 equal+500000 proportional shares, not4000000 total underwriting/IPO shares. Official October7 prospectus20261007000328 corroborates the retail baseline.",
+    "Pool/application-count equal averages remain indicative, not guaranteed personal allotments. Exact subscribed shares remain null."
+  ],
+  "snapshots": [
+    {
+      "id": "엠에스바이오_2026-10-12",
+      "company": "엠에스바이오",
+      "capturedAt": "2026-10-12T14:31:43+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0013Y0",
+      "aggregateCompetitionRate": 11.78,
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 1000000,
+          "subscribedShares": null,
+          "offerPrice": 7800,
+          "depositRate": 0.5,
+          "competitionRate": 11.78,
+          "proportionalCompetitionRate": 22.55,
+          "equalAllocationShares": 500000,
+          "proportionalAllocationShares": 500000,
+          "applicationCount": 90680
+        }
+      ]
+    }
+  ]
+}

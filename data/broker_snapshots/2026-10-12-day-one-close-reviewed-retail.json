@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "MS Bio public calculator rechecked October13 KST: baseTime and KB updtTm remain October12 16:01:25 KST. Day-one post-session observation, not final subscription competition or allotment. Preserve earlier12:58:14 and14:31:43 observations.",
+    "KB directly reports total14.43 and proportional27.85; do not double the total. Retail1000000 equals500000 equal+500000 proportional shares, not4000000 total IPO shares. The October7 prospectus20261007000328 corroborates the retail baseline.",
+    "The pool/account equal average is indicative, not a guaranteed personal allotment. Exact subscribed shares remain null. Added under the user's October13 request to commit verified metrics; DTS pending fields are unchanged."
+  ],
+  "snapshots": [
+    {
+      "id": "엠에스바이오_2026-10-12",
+      "company": "엠에스바이오",
+      "capturedAt": "2026-10-12T16:01:25+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0013Y0",
+      "aggregateCompetitionRate": 14.43,
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 1000000,
+          "subscribedShares": null,
+          "offerPrice": 7800,
+          "depositRate": 0.5,
+          "competitionRate": 14.43,
+          "proportionalCompetitionRate": 27.85,
+          "equalAllocationShares": 500000,
+          "proportionalAllocationShares": 500000,
+          "applicationCount": 106172
+        }
+      ]
+    }
+  ]
+}
