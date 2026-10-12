@@ -89,4 +89,18 @@ py -X utf8 tool/validate_finuts_schedule_sync.py --warn-on-analysis-issues
 git -c safe.directory=E:/harness/projects/publicofferingshares/ipo-data diff --check
 ```
 
-User-approved publication: pending final scoped staging and remote verification.
+User-approved publication completed:
+
+- Data commit `5b50c35ef7befaeb8e3492d1861f3b697f827e91`, 15 scoped files,
+  pushed to `origin/main` with no force or history rewrite.
+- `git ls-remote` confirmed the data commit on main. Exact GitHub Raw JSON
+  comparison passed all8 documents: MS Bio and unchanged DTS details, index,
+  active, upcoming, recent, yearly2026 and dashboard. App-facing data is now
+  available on the same main URLs the app consumes.
+- Both Python and PowerShell parsed568 JSON documents; staged whitespace
+  validation passed. Unrelated identifier/audit changes and old untracked
+  review documents were left outside the commit.
+- The six DTS gaps and the separately reconciled SK alias-check limitation
+  remain documented; the scoped exception does not claim a full audit pass.
+
+Remote check: `py -X utf8 build/verify_remote_20261013.py`.
