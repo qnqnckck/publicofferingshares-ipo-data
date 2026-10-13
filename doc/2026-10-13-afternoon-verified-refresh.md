@@ -133,4 +133,19 @@ git diff --cached --check
 
 ### Publication
 
-Validation complete; commit, push and exact public-URL verification follow.
+Published the approved two-issuer change as
+`9b16890ab8099dc3197d49145aa809cc7d715f4a` to nested data `origin/main`.
+Remote main matched the local commit SHA. All 9 exact GitHub Raw app endpoints
+matched committed JSON: index, active, upcoming, recent, yearly/2026, dashboard,
+MS Bio detail, DTS detail and unchanged Elice detail. No CDN delay or Contents
+API fallback was needed. This documentation-only follow-up changes no data.
+
+```powershell
+git commit -m "Refresh verified October 13 MS Bio and DTS retail metrics"
+git push origin main
+py -X utf8 build/verify_remote_20261013_afternoon.py
+```
+
+Publication is complete for the two approved issuers only. Full-dataset final
+result completeness is not claimed; Elice's unverified fields and associated
+local drafts remain outside this commit, exactly as approved.
