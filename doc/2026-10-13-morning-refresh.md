@@ -133,5 +133,16 @@ git diff --check
 ### Publication
 
 The user previously explicitly approved commit and push in this conversation.
-Only this reviewed update will be committed to nested data `main`.
-Remote verification pending at the time this pre-publication report is written.
+Published only this reviewed update to nested data `origin/main` as
+`52664c8303867f1cde3087c9655ceb2a75b15c9f`.
+`git ls-remote origin refs/heads/main` matched that local SHA after the push.
+Exact GitHub Raw JSON matched all10 checked app endpoints: index,active,
+upcoming,recent,yearly2026,dashboard,MS Bio,DTS,new AL Robot and Adel details.
+No CDN mismatch or Contents API fallback was needed. The publication-evidence
+documentation follow-up changes no app data.
+
+```powershell
+git commit -m "Refresh October-November IPO data and October 13 retail metrics"
+git push origin main
+py -X utf8 build/verify_remote_20261013.py
+```
