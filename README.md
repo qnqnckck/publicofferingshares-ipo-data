@@ -388,3 +388,15 @@ as institution competition rate, institution participant count, lock-up
 commitment rate, retail competition rate, broker-level competition, and external
 identifiers. The broker metric gap report focuses only on stocks that still
 cannot render broker-level equal/proportional context from generated JSON.
+
+## October 13 afternoon verified-only publication
+
+The user explicitly approved publishing only verified MS Bio/DTS observations
+while withholding Elice's partial-final correction and the related generator
+changes. The 13:09 and 14:34:35 KST observations are preserved together with
+older history. All new values are intraday provisional, not final allotments.
+Only these two stock details and their feed rows are in the scoped publication.
+The full local draft still has the known Elice audit error; this manual exception
+does not relax future scheduled validation gates. See the
+[afternoon review](doc/2026-10-13-afternoon-verified-refresh.md) for exact values,
+validation results, commit/push status and app-facing endpoint verification.

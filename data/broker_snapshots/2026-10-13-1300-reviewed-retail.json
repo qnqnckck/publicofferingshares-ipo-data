@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-13T13:14:53+09:00",
+  "notes": [
+    "13:00 refresh, rechecked source observations at 13:09:31 KST. Intraday provisional metrics only, not final subscription or allotment results. Earlier observations remain in history.",
+    "DTS shared baseTime is 13:09:31; Daishin updated 13:09:30 and Eugene 13:09:31. Aggregate 19.178 is the retail-pool-weighted average of reported rounded broker totals (20.36*0.9 + 8.54*0.1), not an exact final ratio. Direct proportional ratios are not doubled or reverse-engineered.",
+    "Retail offered shares equal published equal/proportional pools. orgAllcShares is underwriting volume, not retail volume. Unknown subscribed-share counts stay null. Equal pool/application averages are indicative, not guaranteed allotments."
+  ],
+  "snapshots": [
+    {
+      "id": "엠에스바이오_2026-10-12",
+      "company": "엠에스바이오",
+      "capturedAt": "2026-10-13T13:09:31+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0013Y0",
+      "aggregateCompetitionRate": 778.67,
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 1000000,
+          "subscribedShares": null,
+          "offerPrice": 7800,
+          "depositRate": 0.5,
+          "competitionRate": 778.67,
+          "proportionalCompetitionRate": 1556.34,
+          "equalAllocationShares": 500000,
+          "proportionalAllocationShares": 500000,
+          "applicationCount": 201644
+        }
+      ]
+    },
+    {
+      "id": "디티에스_2026-10-13",
+      "company": "디티에스",
+      "capturedAt": "2026-10-13T13:09:31+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0015M0",
+      "aggregateCompetitionRate": 19.178,
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 501507,
+          "subscribedShares": null,
+          "offerPrice": 18500,
+          "depositRate": 0.5,
+          "competitionRate": 20.36,
+          "proportionalCompetitionRate": 40.72,
+          "equalAllocationShares": 250754,
+          "proportionalAllocationShares": 250753,
+          "applicationCount": 60015
+        },
+        {
+          "name": "유진투자증권",
+          "offeredShares": 55723,
+          "subscribedShares": null,
+          "offerPrice": 18500,
+          "depositRate": 0.5,
+          "competitionRate": 8.54,
+          "proportionalCompetitionRate": 17.08,
+          "equalAllocationShares": 27862,
+          "proportionalAllocationShares": 27861,
+          "applicationCount": 6308
+        }
+      ]
+    }
+  ]
+}

@@ -4,7 +4,7 @@
   "rangeEndExclusive": "2026-12-01",
   "sources": [
     {
-      "name": "38 calendar (AL Robot lagging)",
+      "name": "38 calendar (13:00 recheck now reflects AL Robot and Adel)",
       "url": "https://www.38.co.kr/html/fund/index.htm?o=k",
       "checkedAt": "2026-10-13"
     },
@@ -62,9 +62,19 @@
       "name": "DTS live calculator",
       "url": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0015M0",
       "checkedAt": "2026-10-13"
+    },
+    {
+      "name": "Elice Mirae Asset official final allotment notice",
+      "url": "https://securities.miraeasset.com/bbs/board/message/view.do?messageId=2343308&categoryId=41",
+      "checkedAt": "2026-10-13"
+    },
+    {
+      "name": "Elice Samsung official final allotment notice",
+      "url": "https://www.samsungpop.com/customer/guide.do?cmd=notice_view&menuNo=020306&MenuSeqNo=24603",
+      "checkedAt": "2026-10-13"
     }
   ],
-  "notes": "43 decisions:27 matched plus1 added,15 excluded,0 unresolved identities. Included16 October/12 November. All27 previous issuer DART indexes checked; new DTS final prospectus and AL Robot corrected filing reviewed. Adel new domestic IPO; Simwon America Nasdaq offering explicitly excludes Korean residents. Prior unchanged primary facts/exclusions retained without claiming full re-extraction. Ucast schedule effectiveness remains suspended pending correction. Retail observations are provisional at source timestamps, not final results.",
+  "notes": "Afternoon manual recheck:43 decisions,28 matched,15 excluded,0 unresolved identities;16 October/12 November. 38,Mainpy October/November and Todaystk calendars reconciled; all28 issuer DART indexes rechecked with no newer filing than the morning review. Mainpy now also reflects AL Robot/Adel corrections. Prior primary facts and exclusions retained without claiming full re-extraction. Ucast effectiveness remains suspended pending correction. MS Bio/DTS13:09:31 and14:34:35 intraday observations verified. Elice official corrections remain LOCAL ONLY: final aggregate and Mirae numeric final proportional ratio are not disclosed in checked sources. Full working-tree audit retains1 Elice error. User explicitly approved this run's MS Bio/DTS-only commit and push; Elice data and generator drafts are excluded. No future scheduled audit gate is relaxed.",
   "candidates": [
     {
       "company": "제논",
@@ -179,9 +189,12 @@
         "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261006000447",
         "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261006000451",
         "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0158S0",
-        "https://todaystk.kr/ipo"
+        "https://todaystk.kr/ipo",
+        "https://securities.miraeasset.com/bbs/board/message/view.do?messageId=2343308&categoryId=41",
+        "https://securities.miraeasset.com/bbs/board/message/file.do?attachmentId=2147765",
+        "https://www.samsungpop.com/customer/guide.do?cmd=notice_view&menuNo=020306&MenuSeqNo=24603"
       ],
-      "notes": "October13 checked DART index has no new issuance result after October6 prospectus. Prior post-close calculator observations remain provisional; no final allotment fabricated."
+      "notes": "LOCAL UNPUBLISHED correction, excluded from afternoon publication:October12 notices confirm Mirae229707 valid applications after172 duplicates excluded,equal222200/proportional222200; numeric final proportional/total ratios undisclosed. Samsung59347 applications,equal55550/proportional55550,final proportional811.27; final total ratio undisclosed. Afternoon DART index still has no newer issuance report afterOctober6. No rounded-allotment reverse calculation or copying old provisional ratios into final rows. Public Elice remains byte-for-byte as HEAD with historical provisional Naver observations; full local draft's1 audit error is not suppressed."
     },
     {
       "company": "래블업",
@@ -220,7 +233,7 @@
         "https://todaystk.kr/ipo",
         "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0013Y0"
       ],
-      "notes": "October13 08:57:24 source observation:KB106172 applications,aggregate14.39,proportional27.78,equal pool500000; equal estimate4.7093 shares. PriorOctober12 observations preserved. Provisional rounding/revision,not final subscription or allocation."
+      "notes": "October13 latest source14:34:35:KB233993 applications,total1028.96,direct proportional2056.91,equal pool500000. Earlier13:09:31:201644,total778.67,proportional1556.34 also preserved along with morning/October12 history. Equal average is pool/count,not guaranteed allotment. All intraday provisional,not final. User explicitly approved scoped commit/push of this issuer and DTS only."
     },
     {
       "company": "디티에스",
@@ -241,7 +254,7 @@
         "https://m.eugenefn.com/no20r.do?msgId=523324&topFlag=0",
         "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0015M0"
       ],
-      "notes": "October12 final prospectus:18500KRW,983.98 institutions,2381 participants. Quantity lockup218871000/1644913000=13.30593168%,stored0.133059; press12.27% conflicts with primary quantity table and is not used. Post-offering14881735shares x18500=275312097500KRW includes22290 additional underwriter shares. Float2250787/14881735=15.12% disclosed; retail557230. Eugene official notice confirms listing targetOctober23 (not listed yet). Source snapshotOctober13 08:57:23,provisional broker rates/counts,not final."
+      "notes": "October12 final prospectus:18500KRW,983.98 institutions,2381 participants. Quantity lockup218871000/1644913000=13.30593168%,stored0.133059; conflicting press12.27% not used. Post-offering14881735shares x18500=275312097500KRW includes22290 extra underwriter shares. Float15.12%;retail557230;Eugene notice lists targetOctober23,not completed listing. Latest sourceOctober13 14:34:35:Daishin71815 applications,total25.23,proportional50.46,updated14:34:34;Eugene7672,total10.64,proportional21.28,updated14:34:35. Weighted rounded aggregate23.771. Earlier13:09 and morning retained;all intraday provisional. User explicitly approved scoped commit/push with MS Bio only."
     },
     {
       "company": "SK증권제14호스팩",
@@ -711,7 +724,7 @@
       "subscriptionStart": "2026-11-23",
       "subscriptionEnd": "2026-11-24",
       "classification": "ipo",
-      "status": "added",
+      "status": "matched",
       "eventId": "아델_2026-11-23",
       "evidenceUrls": [
         "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261012000445",
@@ -733,5 +746,5 @@
       "notes": "Nasdaq IPO explicitly excludes Korean residents from the offering. No domestic public subscription. November5 calendar date and November9 payment are illustrative reference dates in the US bookbuilding disclosure,not a confirmed Korean retail window. Exclude from domestic IPO app; no tentative USD/KRW values imported."
     }
   ],
-  "reviewedAt": "2026-10-13T09:07:00+09:00"
+  "reviewedAt": "2026-10-13T14:43:14+09:00"
 }
