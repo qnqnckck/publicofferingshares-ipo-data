@@ -168,6 +168,48 @@
         "subscribedShares": null,
         "competitionRate": 23.771
       }
+    },
+    {
+      "capturedAt": "2026-10-13T16:05:30+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0015M0",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 501507,
+          "subscribedShares": null,
+          "offerPrice": 18500,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 30.25,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 60.49,
+          "equalAllocationShares": 250754,
+          "proportionalAllocationShares": 250753,
+          "expectedEqualShares": null,
+          "applicationCount": 83209
+        },
+        {
+          "name": "유진투자증권",
+          "offeredShares": 55723,
+          "subscribedShares": null,
+          "offerPrice": 18500,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 13.27,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 26.54,
+          "equalAllocationShares": 27862,
+          "proportionalAllocationShares": 27861,
+          "expectedEqualShares": null,
+          "applicationCount": 9008
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 557230,
+        "subscribedShares": null,
+        "competitionRate": 28.552
+      }
     }
   ],
   "analysis": {
@@ -195,18 +237,18 @@
       "baseCaseListingGainRate": 0.6225,
       "bullCaseListingGainRate": 0.9025,
       "expectedAllocatedShares": {
-        "minimumSubscription": 4.052,
-        "oneMillionKrw": 5.906,
-        "fiveMillionKrw": 15.001
+        "minimumSubscription": 3.443,
+        "oneMillionKrw": 4.986,
+        "fiveMillionKrw": 12.559
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 46668,
-        "oneMillionKrw": 68010,
-        "fiveMillionKrw": 172760
+        "minimumSubscription": 39653,
+        "oneMillionKrw": 57422,
+        "fiveMillionKrw": 144632
       },
       "assumptions": {
         "offerPrice": 18500,
-        "competitionRate": 23.771,
+        "competitionRate": 28.552,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
@@ -226,7 +268,7 @@
       "level": "consider",
       "label": "청약 고려",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 23.77대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 28.55대 1입니다.",
         "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
       ],
       "warnings": [
@@ -238,8 +280,8 @@
         "broker": "대신증권",
         "equalScore": 100,
         "proportionalScore": 100,
-        "expectedEqualShares": 3.4917,
-        "estimatedDepositForOneProportionalShare": 466755,
+        "expectedEqualShares": 3.0135,
+        "estimatedDepositForOneProportionalShare": 559533,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       },
@@ -247,15 +289,15 @@
         "broker": "유진투자증권",
         "equalScore": 100,
         "proportionalScore": 100,
-        "expectedEqualShares": 3.6316,
-        "estimatedDepositForOneProportionalShare": 196840,
+        "expectedEqualShares": 3.093,
+        "estimatedDepositForOneProportionalShare": 245495,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 23.771,
-      "snapshotCount": 3,
+      "latestCompetitionRate": 28.552,
+      "snapshotCount": 4,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
