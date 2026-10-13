@@ -122,6 +122,33 @@
         "subscribedShares": null,
         "competitionRate": 14.43
       }
+    },
+    {
+      "capturedAt": "2026-10-13T08:57:24+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0013Y0",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 1000000,
+          "subscribedShares": null,
+          "offerPrice": 7800,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 14.39,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 27.78,
+          "equalAllocationShares": 500000,
+          "proportionalAllocationShares": 500000,
+          "expectedEqualShares": null,
+          "applicationCount": 106172
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1000000,
+        "subscribedShares": null,
+        "competitionRate": 14.39
+      }
     }
   ],
   "analysis": {
@@ -149,18 +176,18 @@
       "baseCaseListingGainRate": 0.9329,
       "bullCaseListingGainRate": 1.2129,
       "expectedAllocatedShares": {
-        "minimumSubscription": 5.402,
-        "oneMillionKrw": 13.594,
-        "fiveMillionKrw": 49.132
+        "minimumSubscription": 5.404,
+        "oneMillionKrw": 13.619,
+        "fiveMillionKrw": 49.256
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 39311,
-        "oneMillionKrw": 98918,
-        "fiveMillionKrw": 357516
+        "minimumSubscription": 39325,
+        "oneMillionKrw": 99097,
+        "fiveMillionKrw": 358415
       },
       "assumptions": {
         "offerPrice": 7800,
-        "competitionRate": 14.43,
+        "competitionRate": 14.39,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
@@ -180,7 +207,7 @@
       "level": "strong_watch",
       "label": "관심 높음",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 14.43대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 14.39대 1입니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
@@ -193,14 +220,14 @@
         "equalScore": 100,
         "proportionalScore": 100,
         "expectedEqualShares": 4.7093,
-        "estimatedDepositForOneProportionalShare": 108615,
+        "estimatedDepositForOneProportionalShare": 108342,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 14.43,
-      "snapshotCount": 3,
+      "latestCompetitionRate": 14.39,
+      "snapshotCount": 4,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

@@ -274,6 +274,13 @@ Both earlier snapshots are preserved. This scoped manual commit does not alter
 DTS pending fields or the scheduled zero-error gate. The user also explicitly
 approved pushing this verified-only change set; see the report for the result.
 
+The [October 13 morning refresh](doc/2026-10-13-morning-refresh.md) resolves
+DTS's final demand fields and adds timestamped MS Bio/DTS retail observations.
+DTS quantity-basis lockup is13.3059% per the primary table, not the conflicting
+press percentage. AL Robot moves to November6-9 and Adel joins November23-24;
+the foreign Simwon America offering is excluded. The October/November audit
+has28 included issuers,0 errors and23 pending-listing-date warnings.
+
 Scheduled automation should use public sources by default and must remain able
 to run without authenticated upstream credentials. Public source data should be
 preferred in this order for active subscription competition rows:
