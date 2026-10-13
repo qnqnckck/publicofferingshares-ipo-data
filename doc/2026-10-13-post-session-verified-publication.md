@@ -110,5 +110,19 @@ git diff --cached --check
 
 ### Publication
 
-The selected candidate is validated. Commit, push and exact public-endpoint
-verification follow; their results will be recorded after verification.
+The approved two-issuer data was committed as
+7295fe9e320205f408e2481b6bb06b3890a70fba and pushed to origin/main.
+Remote main matched the local data commit. All9 exact GitHub Raw app endpoints
+matched committed JSON: index,active,upcoming,recent,yearly/2026,dashboard,
+MS Bio detail,DTS detail and unchanged Elice detail. Both source timestamps and
+broker metrics match the reviewed canonical input. No CDN delay or Contents API
+fallback was needed. This documentation follow-up changes no public data.
+
+```powershell
+git commit -m "Publish verified October 13 post-session retail metrics"
+git push origin main
+py -X utf8 build/verify_remote_20261013_post_session.py
+```
+
+Publication is complete for the approved two issuers. Elice's local partial-final
+draft remains unpublished; its existing public provisional history is unchanged.
