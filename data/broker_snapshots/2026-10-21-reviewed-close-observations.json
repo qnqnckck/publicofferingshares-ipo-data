@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "Post-close portal observations, not official final individual allotments. Equal pool/application averages are estimates. Source times retained; checked again October22. Creates gross allocation anomaly excluded."
+  ],
+  "snapshots": [
+    {
+      "id": "티앤이코리아_2026-10-20",
+      "company": "티앤이코리아",
+      "capturedAt": "2026-10-21T16:07:21+09:00",
+      "source": "naver_calculator_post_close_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0053F0",
+      "aggregateCompetitionRate": 1252.9,
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 600000,
+          "subscribedShares": null,
+          "offerPrice": 15300,
+          "depositRate": 0.5,
+          "competitionRate": 1252.9,
+          "proportionalCompetitionRate": 2505.79,
+          "equalAllocationShares": 300000,
+          "proportionalAllocationShares": 300000,
+          "applicationCount": 208413
+        }
+      ]
+    },
+    {
+      "id": "크리에이츠_2026-10-20",
+      "company": "크리에이츠",
+      "capturedAt": "2026-10-21T16:06:50+09:00",
+      "source": "naver_calculator_post_close_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A439270",
+      "aggregateCompetitionRate": 6.92,
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 350000,
+          "subscribedShares": null,
+          "offerPrice": 15000,
+          "depositRate": 0.5,
+          "competitionRate": 6.92,
+          "proportionalCompetitionRate": 12.84,
+          "equalAllocationShares": 175000,
+          "proportionalAllocationShares": 175000,
+          "applicationCount": 20048
+        }
+      ]
+    }
+  ]
+}
