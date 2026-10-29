@@ -31,9 +31,9 @@
     "priceBandMin": 2000,
     "priceBandMax": 2000,
     "topBandConfirmation": true,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "institutionCompetitionRate": 1228.38,
+    "institutionParticipants": 1945,
+    "lockupCommitmentRate": 0.002442250176593474,
     "floatRate": 0.9745,
     "marketCapKrw": 13340000000,
     "publicAllocationShares": 1625000,
@@ -45,37 +45,37 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 23,
-      "grade": "C-",
-      "confidence": 0.5,
+      "overall": 56,
+      "grade": "C+",
+      "confidence": 0.65,
       "factors": {
         "competition": 0,
-        "institutionDemand": 0,
-        "spacMomentum": 1,
-        "spacVolatility": 3,
+        "institutionDemand": 22,
+        "spacMomentum": 5,
+        "spacVolatility": 4,
         "market": 5,
         "leadManagers": 3,
-        "recency": 3,
-        "dataCompleteness": 4
+        "recency": 2,
+        "dataCompleteness": 6
       },
-      "demand": 23,
-      "value": 23,
+      "demand": 56,
+      "value": 56,
       "mode": "spac_live_balanced"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.3357,
-      "bearCaseListingGainRate": -0.0843,
-      "baseCaseListingGainRate": 0.3357,
-      "bullCaseListingGainRate": 0.7357,
+      "expectedListingGainRate": 0.6372,
+      "bearCaseListingGainRate": -0.0128,
+      "baseCaseListingGainRate": 0.6372,
+      "bullCaseListingGainRate": 1.3372,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
         "oneMillionKrw": 0.625,
         "fiveMillionKrw": 3.125
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 8,
-        "oneMillionKrw": 420,
-        "fiveMillionKrw": 2098
+        "minimumSubscription": 16,
+        "oneMillionKrw": 796,
+        "fiveMillionKrw": 3982
       },
       "assumptions": {
         "offerPrice": 2000,
@@ -84,25 +84,24 @@
         "method": "ipo_score_v4_spac_listing_day_momentum",
         "spacModel": true,
         "proportionalCompetitionRate": null,
-        "institutionCompetitionRate": null,
+        "institutionCompetitionRate": 1228.38,
         "retailTailBoost": 0.0,
         "proportionalTailBoost": 0.0,
-        "institutionTailBoost": 0.0,
-        "lowLockupVolatility": false,
-        "uncalibratedBaseGainRate": 0.11570000000000001,
+        "institutionTailBoost": 0.004730000000000018,
+        "lowLockupVolatility": true,
+        "uncalibratedBaseGainRate": 0.4171985172727273,
         "calibrationApplied": 0.22,
-        "calibrationSampleCount": 2,
+        "calibrationSampleCount": 4,
         "calibrationCompetitionBucket": null
       }
     },
     "decision": {
-      "level": "caution",
-      "label": "주의",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
         "스팩 전용 보정으로 일반 IPO 확약률 대신 상장일 수급 요인을 반영했습니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
         "스팩의 낮은 기관 확약률은 일반 IPO 안정성 감점이 아니라 상장일 변동성 위험으로 해석합니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
@@ -114,13 +113,13 @@
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "institutionCompetitionRate": 1228.38,
+      "lockupCommitmentRate": 0.002442250176593474,
       "floatRate": 0.9745,
       "hasOutcome": false,
       "scoreMode": "spac_live_balanced",
-      "demandScore": 23,
-      "valueScore": 23
+      "demandScore": 56,
+      "valueScore": 56
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }
