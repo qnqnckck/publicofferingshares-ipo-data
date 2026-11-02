@@ -28,6 +28,8 @@ For dirty repositories use an isolated publication candidate from HEAD plus veri
 
 ## Known unfinished state (2026-11-02; recheck, do not assume current)
 
+Publication update: manual scoped push `6c091b6abaad2865ae6ab705b674b52c75d1d2f8` supersedes the historical SHA/state below for 영광 listingDate and Nov2 Dongwon/Baropharm observations. All9changed public JSON artifacts match GitHub Contents at this exact commit. Raw recent/dashboard/yearly match, but stock3 + index/active/upcoming still return cached prior content at verification; public rollout is pending, not complete. Retry exact Raw comparison on next run. Other historical dirty corrections remain withheld. Context and portable skill also pushed; app handoff doc pushed as77c9400.
+
 - Last confirmed public SHA: `290a113c1839dca12ba74d641029c6822a94cbf6`.
 - 영광 listingDate locally `2026-11-02`, but remote stock/index/yearly were null when checked this evening. Pending publication, not pending announcement.
 - Dongwon/Baropharm first-day observations and other dirty data remain local-only. They continue subscriptions November3; do not call November2 observations final.
