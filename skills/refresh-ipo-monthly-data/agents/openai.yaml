@@ -1,0 +1,6 @@
+interface:
+  display_name: "Monthly IPO Data Refresh"
+  short_description: "Audit IPO gaps and verify publication for requested months"
+  default_prompt: "Use $refresh-ipo-monthly-data to reconcile the requested IPO months, review every missing field, validate feeds, and verify any authorized publication."
+policy:
+  allow_implicit_invocation: true

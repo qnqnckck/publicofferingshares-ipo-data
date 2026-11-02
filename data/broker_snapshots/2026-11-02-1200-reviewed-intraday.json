@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "First-day intraday observations, not final competition or confirmed allotments."
+  ],
+  "snapshots": [
+    {
+      "id": "동원파츠_2026-11-02",
+      "company": "동원파츠",
+      "capturedAt": "2026-11-02T12:00:05+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0162D0",
+      "aggregateCompetitionRate": 8.07,
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 507500,
+          "subscribedShares": null,
+          "offerPrice": 26500,
+          "depositRate": 0.5,
+          "competitionRate": 8.07,
+          "proportionalCompetitionRate": 15.14,
+          "equalAllocationShares": 253750,
+          "proportionalAllocationShares": 253750,
+          "applicationCount": 32862
+        }
+      ]
+    },
+    {
+      "id": "바로팜_2026-11-02",
+      "company": "바로팜",
+      "capturedAt": "2026-11-02T12:00:04+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "aggregateCompetitionRate": 0.68,
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "competitionRate": 0.68,
+          "proportionalCompetitionRate": 1.36,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "applicationCount": 4912
+        }
+      ]
+    }
+  ]
+}

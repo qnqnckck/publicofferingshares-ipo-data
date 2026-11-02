@@ -41,13 +41,122 @@
     "putbackSummary": "일반청약자 환매청구권 상장일부터 3개월"
   },
   "outcome": null,
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-11-02T09:59:10+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 0.19,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 0.38,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 1851
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 0.19
+      }
+    },
+    {
+      "capturedAt": "2026-11-02T11:02:40+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 0.49,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 0.98,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 3753
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 0.49
+      }
+    },
+    {
+      "capturedAt": "2026-11-02T12:00:04+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 0.68,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1.36,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 4912
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 0.68
+      }
+    },
+    {
+      "capturedAt": "2026-11-02T15:58:58+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 1.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 3.6,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 12020
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 1.8
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
       "overall": 34,
       "grade": "C-",
-      "confidence": 0.65,
+      "confidence": 0.95,
       "factors": {
         "institutionDemand": 3,
         "demandStrength": 1,
@@ -63,52 +172,62 @@
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.2866,
-      "bearCaseListingGainRate": 0.0866,
-      "baseCaseListingGainRate": 0.2866,
-      "bullCaseListingGainRate": 0.5666,
+      "expectedListingGainRate": 0.0668,
+      "bearCaseListingGainRate": -0.1132,
+      "baseCaseListingGainRate": 0.0668,
+      "bullCaseListingGainRate": 0.2868,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.076,
-        "fiveMillionKrw": 0.381
+        "minimumSubscription": 24.066,
+        "oneMillionKrw": 52.386,
+        "fiveMillionKrw": 118.511
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 59,
-        "oneMillionKrw": 358,
-        "fiveMillionKrw": 1791
+        "minimumSubscription": 26375,
+        "oneMillionKrw": 57412,
+        "fiveMillionKrw": 129881
       },
       "assumptions": {
         "offerPrice": 16400,
-        "competitionRate": null,
+        "competitionRate": 1.8,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": 0.10656000000000002,
+        "generalCompetitionBaseline": 0.03,
+        "generalPriorBase": 0.11807999999999999,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.01,
         "topBandBoost": 0.0,
         "scoreBoost": -0.04,
-        "competitionPresent": false,
-        "generalCalibrationApplied": 0.18,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 58,
-        "generalCompetitionPending": true
+        "generalCompetitionPending": false
       }
     },
     "decision": {
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+        "최근 확인된 일반청약 경쟁률은 1.8대 1입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "미래에셋증권",
+        "equalScore": 100,
+        "proportionalScore": 100,
+        "expectedEqualShares": 18.5108,
+        "estimatedDepositForOneProportionalShare": 29520,
+        "feeKrw": null,
+        "dataQuality": "broker_verified"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 1.8,
+      "snapshotCount": 4,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
