@@ -5933,12 +5933,15 @@ int snapshotSourcePriority(String source) {
   // including when those feeds were fetched again after the filing.
   if (normalized == 'dart_final_allotment_report' ||
       normalized == 'dart_final_allotment_report_derived_ratios' ||
-      normalized == 'kbsec_final_allotment_notice') {
+      normalized == 'kbsec_final_allotment_notice' ||
+      normalized == 'miraeasset_final_allotment_notice' ||
+      normalized == 'samsung_final_allotment_notice') {
     return 110;
   }
   // Issuer closing totals outrank provisional feeds, but remain distinct from
   // final allotment reports, which can exclude invalid applications later.
-  if (normalized == 'dart_subscription_close_report') {
+  if (normalized == 'dart_subscription_close_report' ||
+      normalized == 'korea_investment_subscription_close_notice') {
     return 105;
   }
   if (normalized.contains('finuts')) {

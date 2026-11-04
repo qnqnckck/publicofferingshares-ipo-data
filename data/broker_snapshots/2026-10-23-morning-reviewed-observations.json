@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "Provisional portal observations at the source timestamps, not final competition or guaranteed equal allotment. Retail pool uses equal plus proportional pools, not orgAllcShares."
+  ],
+  "snapshots": [
+    {
+      "id": "영광_2026-10-22",
+      "company": "영광",
+      "capturedAt": "2026-10-23T08:58:46+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A359410",
+      "aggregateCompetitionRate": 30.94,
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 565000,
+          "subscribedShares": null,
+          "offerPrice": 17000,
+          "depositRate": 0.5,
+          "competitionRate": 30.94,
+          "proportionalCompetitionRate": 60.88,
+          "equalAllocationShares": 282500,
+          "proportionalAllocationShares": 282500,
+          "applicationCount": 47724
+        }
+      ]
+    },
+    {
+      "id": "이에스티_2026-10-22",
+      "company": "이에스티",
+      "capturedAt": "2026-10-23T08:58:45+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A495910",
+      "aggregateCompetitionRate": 5.16,
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 550000,
+          "subscribedShares": null,
+          "offerPrice": 12400,
+          "depositRate": 0.5,
+          "competitionRate": 5.16,
+          "proportionalCompetitionRate": 10.32,
+          "equalAllocationShares": 275000,
+          "proportionalAllocationShares": 275000,
+          "applicationCount": 19801
+        }
+      ]
+    }
+  ]
+}

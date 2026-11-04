@@ -30,7 +30,7 @@
     "offerPrice": 2000,
     "priceBandMin": 2000,
     "priceBandMax": 2000,
-    "topBandConfirmation": null,
+    "topBandConfirmation": true,
     "institutionCompetitionRate": 1256.48,
     "institutionParticipants": 1927,
     "lockupCommitmentRate": null,
@@ -40,86 +40,131 @@
     "hasPutbackRight": false,
     "putbackSummary": "일반청약자 환매청구권 없음"
   },
-  "outcome": null,
-  "snapshots": [],
+  "outcome": {
+    "listingDate": "2026-10-30",
+    "openReturnRate": 0.405,
+    "highReturnRate": null,
+    "closeReturnRate": -0.064,
+    "sourceUrl": "https://kind.krx.co.kr/listinvstg/pubprcCmpStkprcByIssue.do?method=pubprcCmpStkprcByIssueMain"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2026-10-27T16:01:00+09:00",
+      "source": "dart_final_allotment_report_derived_ratios",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261023000488",
+      "brokers": [
+        {
+          "name": "한화투자증권",
+          "offeredShares": 1500000,
+          "subscribedShares": 278622250,
+          "offerPrice": 2000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 185.74816666666666,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 371.4963333333333,
+          "equalAllocationShares": 750000,
+          "proportionalAllocationShares": 750000,
+          "expectedEqualShares": null,
+          "applicationCount": 54473
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1500000,
+        "subscribedShares": 278622250,
+        "competitionRate": 185.74816666666666
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 54,
-      "grade": "C+",
-      "confidence": 0.6,
+      "overall": 62,
+      "grade": "B-",
+      "confidence": 0.9,
       "factors": {
-        "competition": 0,
+        "competition": 5,
         "institutionDemand": 22,
         "spacMomentum": 5,
         "spacVolatility": 3,
         "market": 5,
         "leadManagers": 3,
         "recency": 2,
-        "dataCompleteness": 5
+        "dataCompleteness": 7
       },
-      "demand": 54,
-      "value": 54,
+      "demand": 62,
+      "value": 62,
       "mode": "spac_live_balanced"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.5826,
-      "bearCaseListingGainRate": 0.1626,
-      "baseCaseListingGainRate": 0.5826,
-      "bullCaseListingGainRate": 0.9826,
+      "expectedListingGainRate": 0.5808,
+      "bearCaseListingGainRate": 0.1608,
+      "baseCaseListingGainRate": 0.5808,
+      "bullCaseListingGainRate": 0.9808,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.625,
-        "fiveMillionKrw": 3.125
+        "minimumSubscription": 13.822,
+        "oneMillionKrw": 16.46,
+        "fiveMillionKrw": 27.227
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 15,
-        "oneMillionKrw": 728,
-        "fiveMillionKrw": 3641
+        "minimumSubscription": 16057,
+        "oneMillionKrw": 19121,
+        "fiveMillionKrw": 31629
       },
       "assumptions": {
         "offerPrice": 2000,
-        "competitionRate": null,
+        "competitionRate": 185.74816666666666,
         "feeKrw": null,
         "method": "ipo_score_v4_spac_listing_day_momentum",
         "spacModel": true,
-        "proportionalCompetitionRate": null,
+        "proportionalCompetitionRate": 371.4963333333333,
         "institutionCompetitionRate": 1256.48,
         "retailTailBoost": 0.0,
         "proportionalTailBoost": 0.0,
         "institutionTailBoost": 0.009413333333333336,
         "lowLockupVolatility": false,
-        "uncalibratedBaseGainRate": 0.36260677818181825,
-        "calibrationApplied": 0.22,
-        "calibrationSampleCount": 4,
-        "calibrationCompetitionBucket": null
+        "uncalibratedBaseGainRate": 0.36573169454545457,
+        "calibrationApplied": 0.2151,
+        "calibrationSampleCount": 6,
+        "calibrationCompetitionBucket": "0-499"
       }
     },
     "decision": {
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "스팩 전용 보정으로 일반 IPO 확약률 대신 상장일 수급 요인을 반영했습니다."
+        "최근 확인된 일반청약 경쟁률은 185.75대 1입니다.",
+        "스팩 전용 보정으로 비례 경쟁률 371.5대 1을 상장일 수급 요인에 반영했습니다."
       ],
       "warnings": [
         "스팩의 낮은 기관 확약률은 일반 IPO 안정성 감점이 아니라 상장일 변동성 위험으로 해석합니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "한화투자증권",
+        "equalScore": 100,
+        "proportionalScore": 100,
+        "expectedEqualShares": 13.7683,
+        "estimatedDepositForOneProportionalShare": 371496,
+        "feeKrw": null,
+        "dataQuality": "broker_verified"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 185.74816666666666,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1256.48,
       "lockupCommitmentRate": null,
       "floatRate": 0.936,
-      "hasOutcome": false,
+      "hasOutcome": true,
       "scoreMode": "spac_live_balanced",
-      "demandScore": 54,
-      "valueScore": 54
+      "demandScore": 62,
+      "valueScore": 62
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

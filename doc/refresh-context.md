@@ -2,6 +2,8 @@
 
 ## Stable execution contract
 
+- Latest manual instruction2026-11-04 supersedes the earlier full-pass-only decision for this repair: **recheck unverified items and push all verified changes**. The scoped exception covers the October–December repair described in `doc/2026-11-04-three-month-repair.md`; remaining official-none lockup, ALRobot listing conflict and missing final-broker evidence are not certified or filled with guesses. It does not carry over to scheduled runs. Before declaring publication complete verify the repair commit and every scoped public file; candidate is `build/publication-repair-20261104`.
+
 - Data repository: `E:\harness\projects\publicofferingshares\ipo-data`; verify Git root/origin on entry. App repository is its parent, not the publication target.
 - Public data: `https://raw.githubusercontent.com/qnqnckck/publicofferingshares-ipo-data/main/ipo_competition_data`.
 - User instruction on 2026-11-02: always finish data updates through scoped commit, main push and public-feed verification; do not repeatedly ask for routine push approval. This is NOT permission to fabricate values, bypass explicit audit gates, publish unrelated changes or force-push.

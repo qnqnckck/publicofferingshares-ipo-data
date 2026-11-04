@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "Intraday provisional portal observations. Equal estimates are pool/application averages, not guaranteed allocations."
+  ],
+  "snapshots": [
+    {
+      "id": "래블업_2026-10-22",
+      "company": "래블업",
+      "capturedAt": "2026-10-23T15:50:35+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0147B0",
+      "aggregateCompetitionRate": 3.38,
+      "brokers": [
+        {
+          "name": "NH투자증권",
+          "offeredShares": 545000,
+          "subscribedShares": null,
+          "offerPrice": 19000,
+          "depositRate": 0.5,
+          "competitionRate": 3.38,
+          "proportionalCompetitionRate": 6.76,
+          "equalAllocationShares": 272500,
+          "proportionalAllocationShares": 272500,
+          "applicationCount": 20582
+        }
+      ]
+    },
+    {
+      "id": "영광_2026-10-22",
+      "company": "영광",
+      "capturedAt": "2026-10-23T15:53:39+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A359410",
+      "aggregateCompetitionRate": 654.16,
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 565000,
+          "subscribedShares": null,
+          "offerPrice": 17000,
+          "depositRate": 0.5,
+          "competitionRate": 654.16,
+          "proportionalCompetitionRate": 1307.33,
+          "equalAllocationShares": 282500,
+          "proportionalAllocationShares": 282500,
+          "applicationCount": 170248
+        }
+      ]
+    },
+    {
+      "id": "이에스티_2026-10-22",
+      "company": "이에스티",
+      "capturedAt": "2026-10-23T15:53:37+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A495910",
+      "aggregateCompetitionRate": 28.01,
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 550000,
+          "subscribedShares": null,
+          "offerPrice": 12400,
+          "depositRate": 0.5,
+          "competitionRate": 28.01,
+          "proportionalCompetitionRate": 56.02,
+          "equalAllocationShares": 275000,
+          "proportionalAllocationShares": 275000,
+          "applicationCount": 49503
+        }
+      ]
+    }
+  ]
+}

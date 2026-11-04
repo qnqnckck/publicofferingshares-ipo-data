@@ -18,7 +18,7 @@
   "subscriptionStart": "2026-10-15",
   "subscriptionEnd": "2026-10-16",
   "refundDate": "2026-10-20",
-  "listingDate": null,
+  "listingDate": "2026-10-27",
   "lockupReleaseDate": null,
   "generalSharesDate": null,
   "cbBwDate": null,
@@ -40,46 +40,80 @@
     "hasPutbackRight": false,
     "putbackSummary": "일반청약자 환매청구권 없음"
   },
-  "outcome": null,
-  "snapshots": [],
+  "outcome": {
+    "listingDate": "2026-10-27",
+    "openReturnRate": 1.0325,
+    "highReturnRate": null,
+    "closeReturnRate": -0.0275,
+    "sourceUrl": "https://kind.krx.co.kr/listinvstg/pubprcCmpStkprcByIssue.do?method=pubprcCmpStkprcByIssueMain"
+  },
+  "snapshots": [
+    {
+      "capturedAt": "2026-10-28T16:01:00+09:00",
+      "source": "dart_final_allotment_report_derived_ratios",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261020000380",
+      "brokers": [
+        {
+          "name": "SK증권",
+          "offeredShares": 1625000,
+          "subscribedShares": 1066028530,
+          "offerPrice": 2000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 656.0175569230769,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 812500,
+          "proportionalAllocationShares": 812500,
+          "expectedEqualShares": null,
+          "applicationCount": 69844
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1625000,
+        "subscribedShares": 1066028530,
+        "competitionRate": 656.0175569230769
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 56,
-      "grade": "C+",
-      "confidence": 0.65,
+      "overall": 71,
+      "grade": "B",
+      "confidence": 0.9,
       "factors": {
-        "competition": 0,
+        "competition": 9,
         "institutionDemand": 22,
-        "spacMomentum": 5,
+        "spacMomentum": 7,
         "spacVolatility": 4,
         "market": 5,
         "leadManagers": 3,
         "recency": 2,
-        "dataCompleteness": 6
+        "dataCompleteness": 8
       },
-      "demand": 56,
-      "value": 56,
+      "demand": 71,
+      "value": 71,
       "mode": "spac_live_balanced"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.6372,
-      "bearCaseListingGainRate": -0.0128,
-      "baseCaseListingGainRate": 0.6372,
-      "bullCaseListingGainRate": 1.3372,
+      "expectedListingGainRate": 0.5889,
+      "bearCaseListingGainRate": -0.0611,
+      "baseCaseListingGainRate": 0.5889,
+      "bullCaseListingGainRate": 1.2889,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.625,
-        "fiveMillionKrw": 3.125
+        "minimumSubscription": 11.648,
+        "oneMillionKrw": 12.395,
+        "fiveMillionKrw": 15.444
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 16,
-        "oneMillionKrw": 796,
-        "fiveMillionKrw": 3982
+        "minimumSubscription": 13719,
+        "oneMillionKrw": 14599,
+        "fiveMillionKrw": 18190
       },
       "assumptions": {
         "offerPrice": 2000,
-        "competitionRate": null,
+        "competitionRate": 656.0175569230769,
         "feeKrw": null,
         "method": "ipo_score_v4_spac_listing_day_momentum",
         "spacModel": true,
@@ -89,37 +123,49 @@
         "proportionalTailBoost": 0.0,
         "institutionTailBoost": 0.004730000000000018,
         "lowLockupVolatility": true,
-        "uncalibratedBaseGainRate": 0.4171985172727273,
-        "calibrationApplied": 0.22,
-        "calibrationSampleCount": 4,
-        "calibrationCompetitionBucket": null
+        "uncalibratedBaseGainRate": 0.5596022090114685,
+        "calibrationApplied": 0.0293,
+        "calibrationSampleCount": 6,
+        "calibrationCompetitionBucket": "500-999"
       }
     },
     "decision": {
-      "level": "neutral",
-      "label": "중립",
+      "level": "consider",
+      "label": "청약 고려",
       "reasons": [
-        "스팩 전용 보정으로 일반 IPO 확약률 대신 상장일 수급 요인을 반영했습니다."
+        "최근 확인된 일반청약 경쟁률은 656.02대 1입니다.",
+        "스팩 전용 보정으로 일반 IPO 확약률 대신 상장일 수급 요인을 반영했습니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
         "스팩의 낮은 기관 확약률은 일반 IPO 안정성 감점이 아니라 상장일 변동성 위험으로 해석합니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "SK증권",
+        "equalScore": 100,
+        "proportionalScore": 100,
+        "expectedEqualShares": 11.6331,
+        "estimatedDepositForOneProportionalShare": 656018,
+        "feeKrw": null,
+        "dataQuality": "broker_verified"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 656.0175569230769,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1228.38,
       "lockupCommitmentRate": 0.002442250176593474,
       "floatRate": 0.9745,
-      "hasOutcome": false,
+      "hasOutcome": true,
       "scoreMode": "spac_live_balanced",
-      "demandScore": 56,
-      "valueScore": 56
+      "demandScore": 71,
+      "valueScore": 71
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

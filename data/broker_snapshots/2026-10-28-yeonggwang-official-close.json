@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "Korea Investment homepage explicitly reports final subscription competition 684.73:1 for Yeonggwang, October 22-23. capturedAt is retrieval time, not a source publication timestamp. Aggregate closing ratio only; no final account count or individual allotment is asserted."
+  ],
+  "snapshots": [
+    {
+      "id": "영광_2026-10-22",
+      "company": "영광",
+      "capturedAt": "2026-10-28T19:04:00+09:00",
+      "source": "korea_investment_subscription_close_notice",
+      "sourceUrl": "https://securities.koreainvestment.com/main/Main.jsp",
+      "aggregateCompetitionRate": 684.73,
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 565000,
+          "offerPrice": 17000,
+          "competitionRate": 684.73
+        }
+      ]
+    }
+  ]
+}

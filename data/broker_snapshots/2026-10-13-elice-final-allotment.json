@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-13T13:14:53+09:00",
+  "notes": [
+    "Official notices published October 12, reviewed October 13. capturedAt is the review timestamp, not an invented notice publication time. Each snapshot retains its own broker source URL.",
+    "Mirae Asset confirms 229707 valid applications after excluding 172 duplicate cross-broker applications, equal pool222200 and proportional pool222200. Its notice explicitly says final proportional competition differs from the live screen. Neither the notice nor attached refund/allotment workbook states the numeric final proportional or total competition, so both stay null; do not infer them from rounded allotment rows.",
+    "Mirae attachment: https://securities.miraeasset.com/bbs/board/message/file.do?attachmentId=2147765 . Read-only inspection of sheet 환불조견표 A1:L115 confirms counts/pools but no numeric final competition ratio.",
+    "Samsung confirms 59347 applications, equal pool55550, proportional pool55550 and final proportional competition811.27. Its notice does not state final total competition or exact subscribed shares. Source body: https://www.samsungpop.com/ux/kor/customer/notice/notice/noticeViewContent.do?MenuSeqNo=24603 .",
+    "Prior Naver counts229879/59539, ratios817.52/811.55 and aggregate408.264 remain historical provisional observations, not confirmed final data. No aggregate is carried into the official rows. Equal pool/count is an indicative average; actual valid accounts receive zero or one share by lottery, not a guaranteed fractional allocation."
+  ],
+  "snapshots": [
+    {
+      "id": "엘리스그룹_2026-10-07",
+      "company": "엘리스그룹",
+      "capturedAt": "2026-10-13T13:14:53+09:00",
+      "source": "miraeasset_final_allotment_notice",
+      "sourceUrl": "https://securities.miraeasset.com/bbs/board/message/view.do?messageId=2343308&categoryId=41",
+      "aggregateCompetitionRate": null,
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 444400,
+          "subscribedShares": null,
+          "offerPrice": 90500,
+          "depositRate": 0.5,
+          "competitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 222200,
+          "proportionalAllocationShares": 222200,
+          "applicationCount": 229707
+        }
+      ]
+    },
+    {
+      "id": "엘리스그룹_2026-10-07",
+      "company": "엘리스그룹",
+      "capturedAt": "2026-10-13T13:14:53+09:00",
+      "source": "samsung_final_allotment_notice",
+      "sourceUrl": "https://www.samsungpop.com/customer/guide.do?cmd=notice_view&menuNo=020306&MenuSeqNo=24603",
+      "aggregateCompetitionRate": null,
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 111100,
+          "subscribedShares": null,
+          "offerPrice": 90500,
+          "depositRate": 0.5,
+          "competitionRate": null,
+          "proportionalCompetitionRate": 811.27,
+          "equalAllocationShares": 55550,
+          "proportionalAllocationShares": 55550,
+          "applicationCount": 59347
+        }
+      ]
+    }
+  ]
+}

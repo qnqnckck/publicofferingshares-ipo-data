@@ -400,3 +400,8 @@ The full local draft still has the known Elice audit error; this manual exceptio
 does not relax future scheduled validation gates. See the
 [afternoon review](doc/2026-10-13-afternoon-verified-refresh.md) for exact values,
 validation results, commit/push status and app-facing endpoint verification.
+
+
+## November4 verified repair
+
+See [review and remaining gaps](doc/2026-11-04-three-month-repair.md). Official Mirae/Samsung final allotments and Korea Investment closing notices now outrank provisional portal observations. Histories are retained; listing-day open/close values come from KRX KIND, and undisclosed highs remain null. This manual scoped publication does not waive scheduled audit gates.

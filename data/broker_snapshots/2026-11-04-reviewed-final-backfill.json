@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "November4 read of official issuance reports. capturedAt is review time; sourcePublishedDate is the actual filing date. Counts exclude invalid applications as described in each report. Equal pool divided by applications is an average, not a guaranteed personal allocation.",
+    "DTS Daishin proportional competition997.54 is explicitly stated in the final report. No direct proportional ratio is inferred for other brokers. MSBio final retail allocation increased to1002500 after employee undersubscription."
+  ],
+  "snapshots": [
+    {
+      "id": "크리에이츠_2026-10-20",
+      "company": "크리에이츠",
+      "capturedAt": "2026-11-04T15:20:00+09:00",
+      "source": "dart_final_allotment_report_derived_ratios",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261023000137",
+      "sourcePublishedDate": "2026-10-23",
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 350000,
+          "subscribedShares": 2422670,
+          "offerPrice": 15000,
+          "applicationCount": 20048,
+          "equalAllocationShares": 175000,
+          "proportionalAllocationShares": 175000
+        }
+      ]
+    },
+    {
+      "id": "엠에스바이오_2026-10-12",
+      "company": "엠에스바이오",
+      "capturedAt": "2026-11-04T15:20:00+09:00",
+      "source": "dart_final_allotment_report_derived_ratios",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261015000326",
+      "sourcePublishedDate": "2026-10-15",
+      "brokers": [
+        {
+          "name": "KB증권",
+          "offeredShares": 1002500,
+          "subscribedShares": 1542355120,
+          "offerPrice": 7800,
+          "applicationCount": 286498,
+          "equalAllocationShares": 501250,
+          "proportionalAllocationShares": 501250
+        }
+      ]
+    },
+    {
+      "id": "디티에스_2026-10-13",
+      "company": "디티에스",
+      "capturedAt": "2026-11-04T15:20:00+09:00",
+      "source": "dart_final_allotment_report_derived_ratios",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261016000472",
+      "sourcePublishedDate": "2026-10-16",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 501507,
+          "subscribedShares": 500698210,
+          "offerPrice": 18500,
+          "applicationCount": 212527,
+          "equalAllocationShares": 250754,
+          "proportionalAllocationShares": 250753,
+          "proportionalCompetitionRate": 997.54
+        },
+        {
+          "name": "유진투자증권",
+          "offeredShares": 55723,
+          "subscribedShares": 49225200,
+          "offerPrice": 18500,
+          "applicationCount": 28393,
+          "equalAllocationShares": 27862,
+          "proportionalAllocationShares": 27861
+        }
+      ]
+    }
+  ]
+}

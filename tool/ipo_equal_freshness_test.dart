@@ -103,6 +103,66 @@ void main() {
     bestEqualExpectedSharesPerAccount(subject([])) == null,
     'Missing observations remain unknown.',
   );
+  // Separate official broker notices can disclose valid account counts without
+  // an aggregate or a numeric proportional ratio. Never resurrect portal values.
+  final partialMirae = IpoCompetitionSnapshot.fromJson({
+    'source': 'miraeasset_final_allotment_notice',
+    'capturedAt': '2026-10-13T13:14:53+09:00',
+    'brokers': [
+      {
+        'name': 'A',
+        'offeredShares': 444400,
+        'equalAllocationShares': 222200,
+        'proportionalAllocationShares': 222200,
+        'applicationCount': 229707,
+      },
+    ],
+  });
+  final partialSamsung = IpoCompetitionSnapshot.fromJson({
+    'source': 'samsung_final_allotment_notice',
+    'capturedAt': '2026-10-13T13:14:53+09:00',
+    'brokers': [
+      {
+        'name': 'B',
+        'offeredShares': 111100,
+        'offerPrice': 90500,
+        'depositRate': 0.5,
+        'equalAllocationShares': 55550,
+        'proportionalAllocationShares': 55550,
+        'applicationCount': 59347,
+        'proportionalCompetitionRate': 811.27,
+      },
+    ],
+  });
+  for (final rows in [
+    [laterPortal, partialMirae, partialSamsung],
+    [partialSamsung, partialMirae, laterPortal],
+  ]) {
+    final reviewed = subject(rows);
+    check(
+      reviewed.latestSnapshot?.aggregate.competitionRate == null,
+      'A partial final notice must not claim an old provisional aggregate.',
+    );
+    final byBroker = {
+      for (final score in brokerScoresFor(reviewed)) score.broker: score,
+    };
+    check(
+      (byBroker['A']!.expectedEqualShares! - 222200 / 229707).abs() < 1e-9 &&
+          (byBroker['B']!.expectedEqualShares! - 55550 / 59347).abs() < 1e-9,
+      'Both independent official notices must replace provisional counts.',
+    );
+    check(
+      byBroker['A']!.dataQuality == 'partial' &&
+          byBroker['A']!.estimatedDepositForOneProportionalShare == null,
+      'An undisclosed final proportional ratio remains unknown.',
+    );
+    check(
+      byBroker['B']!.dataQuality == 'broker_verified' &&
+          byBroker['B']!.estimatedDepositForOneProportionalShare != null,
+      'The other broker can retain its directly disclosed final ratio.',
+    );
+    check(reviewed.snapshots.length == 3, 'Keep provisional history.');
+  }
   print(
     'PASS: current equal estimates, order independence, source priority, nulls and aggregate exclusion.',
   );

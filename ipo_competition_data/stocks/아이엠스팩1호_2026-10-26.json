@@ -27,101 +27,167 @@
     "iM증권"
   ],
   "fundamentals": {
-    "offerPrice": null,
+    "offerPrice": 2000,
     "priceBandMin": 2000,
     "priceBandMax": 2000,
-    "topBandConfirmation": null,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
+    "topBandConfirmation": true,
+    "institutionCompetitionRate": 1266.52,
+    "institutionParticipants": 1869,
     "lockupCommitmentRate": null,
     "floatRate": 0.9542,
     "marketCapKrw": 10480000000,
     "publicAllocationShares": 1250000,
     "hasPutbackRight": false,
-    "putbackSummary": null
+    "putbackSummary": "일반청약자 환매청구권 없음"
   },
   "outcome": null,
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-10-26T11:03:00+09:00",
+      "source": "imsec_official_subscription_terms",
+      "sourceUrl": "https://ww2.imfnsec.com/research/bussiness_indust/re020301.jsp?bid=C_A001&aid=4922",
+      "brokers": [
+        {
+          "name": "iM증권",
+          "offeredShares": 1250000,
+          "subscribedShares": null,
+          "offerPrice": 2000,
+          "depositRate": 1.0,
+          "feeKrw": null,
+          "competitionRate": null,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": null,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1250000,
+        "subscribedShares": null,
+        "competitionRate": null
+      }
+    },
+    {
+      "capturedAt": "2026-10-29T12:04:00+09:00",
+      "source": "dart_final_allotment_report_derived_ratios",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261029000155",
+      "brokers": [
+        {
+          "name": "iM증권",
+          "offeredShares": 1250000,
+          "subscribedShares": 1390912890,
+          "offerPrice": 2000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1112.730312,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 625000,
+          "proportionalAllocationShares": 625000,
+          "expectedEqualShares": null,
+          "applicationCount": 46581
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1250000,
+        "subscribedShares": 1390912890,
+        "competitionRate": 1112.730312
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 20,
-      "grade": "-",
-      "confidence": 0.4,
+      "overall": 76,
+      "grade": "B+",
+      "confidence": 0.9,
       "factors": {
-        "competition": 0,
-        "institutionDemand": 0,
-        "spacMomentum": 0,
+        "competition": 13,
+        "institutionDemand": 22,
+        "spacMomentum": 9,
         "spacVolatility": 3,
         "market": 5,
         "leadManagers": 3,
-        "recency": 3,
-        "dataCompleteness": 3
+        "recency": 2,
+        "dataCompleteness": 7
       },
-      "demand": 20,
-      "value": 20,
+      "demand": 76,
+      "value": 76,
       "mode": "spac_live_balanced"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.2634,
-      "bearCaseListingGainRate": -0.1566,
-      "baseCaseListingGainRate": 0.2634,
-      "bullCaseListingGainRate": 0.6634,
+      "expectedListingGainRate": 0.9003,
+      "bearCaseListingGainRate": 0.4803,
+      "baseCaseListingGainRate": 0.9003,
+      "bullCaseListingGainRate": 1.3003,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.042,
-        "fiveMillionKrw": 0.208
+        "minimumSubscription": 13.426,
+        "oneMillionKrw": 13.867,
+        "fiveMillionKrw": 15.664
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 99,
-        "oneMillionKrw": 329,
-        "fiveMillionKrw": 1646
+        "minimumSubscription": 24177,
+        "oneMillionKrw": 24970,
+        "fiveMillionKrw": 28206
       },
       "assumptions": {
-        "offerPrice": null,
-        "competitionRate": null,
+        "offerPrice": 2000,
+        "competitionRate": 1112.730312,
         "feeKrw": null,
         "method": "ipo_score_v4_spac_listing_day_momentum",
         "spacModel": true,
         "proportionalCompetitionRate": null,
-        "institutionCompetitionRate": null,
+        "institutionCompetitionRate": 1266.52,
         "retailTailBoost": 0.0,
         "proportionalTailBoost": 0.0,
-        "institutionTailBoost": 0.0,
+        "institutionTailBoost": 0.011086666666666663,
         "lowLockupVolatility": false,
-        "uncalibratedBaseGainRate": 0.0434,
-        "calibrationApplied": 0.22,
-        "calibrationSampleCount": 2,
+        "uncalibratedBaseGainRate": 0.6880346598938181,
+        "calibrationApplied": 0.2123,
+        "calibrationSampleCount": 6,
         "calibrationCompetitionBucket": null
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "consider",
+      "label": "청약 고려",
       "reasons": [
-        "스팩 전용 보정으로 일반 IPO 확약률 대신 상장일 수급 요인을 반영했습니다."
+        "최근 확인된 일반청약 경쟁률은 1112.73대 1입니다.",
+        "스팩 전용 보정으로 일반 IPO 확약률 대신 상장일 수급 요인을 반영했습니다.",
+        "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
         "스팩의 낮은 기관 확약률은 일반 IPO 안정성 감점이 아니라 상장일 변동성 위험으로 해석합니다.",
-        "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "iM증권",
+        "equalScore": 100,
+        "proportionalScore": 90,
+        "expectedEqualShares": 13.4175,
+        "estimatedDepositForOneProportionalShare": 1112730,
+        "feeKrw": null,
+        "dataQuality": "broker_verified"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 1112.730312,
+      "snapshotCount": 2,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
-      "hasOfferPrice": false,
-      "institutionCompetitionRate": null,
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1266.52,
       "lockupCommitmentRate": null,
       "floatRate": 0.9542,
       "hasOutcome": false,
       "scoreMode": "spac_live_balanced",
-      "demandScore": 20,
-      "valueScore": 20
+      "demandScore": 76,
+      "valueScore": 76
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }

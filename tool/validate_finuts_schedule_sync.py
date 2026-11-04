@@ -26,7 +26,10 @@ def normalize_company_key(company: str) -> str:
         .replace("주식회사", "")
         .replace(" ", "")
     )
-    return "".join(ch for ch in compact if ch.isalnum() or ("가" <= ch <= "힣"))
+    key = "".join(ch for ch in compact if ch.isalnum() or ("가" <= ch <= "힣"))
+    # Exact reviewed alias, not fuzzy matching. DART20261028000471:
+    # Shinyoung HappyTomorrow No.12 SPAC, subscription2026-11-24~25.
+    return {"신영스팩12호": "신영해피투모로우제12호스팩"}.get(key, key)
 
 
 def parse_date(value: Any) -> date | None:
@@ -232,6 +235,12 @@ def main() -> int:
         anchor = event.subscription_start or event.listing_date
         if anchor is None or anchor < today or anchor > horizon:
             continue
+        if (event.listing_date and event.subscription_end
+                and event.listing_date <= event.subscription_end):
+            warnings.append(
+                f"{event.company} source listing date {event.listing_date} is not after "
+                "subscription close; do not import it as a verified listing date."
+            )
         feed = feed_items.get(event.key)
         if feed is None:
             missing.append(

@@ -40,8 +40,41 @@
     "hasPutbackRight": false,
     "putbackSummary": "일반청약자 환매청구권 없음"
   },
-  "outcome": null,
+  "outcome": {
+    "listingDate": "2026-10-29",
+    "openReturnRate": 0.9836601307189542,
+    "highReturnRate": null,
+    "closeReturnRate": 0.40522875816993464,
+    "sourceUrl": "https://kind.krx.co.kr/listinvstg/pubprcCmpStkprcByIssue.do?method=pubprcCmpStkprcByIssueMain"
+  },
   "snapshots": [
+    {
+      "capturedAt": "2026-10-20T16:01:51+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0053F0",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 600000,
+          "subscribedShares": null,
+          "offerPrice": 15300,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 23.46,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 46.92,
+          "equalAllocationShares": 300000,
+          "proportionalAllocationShares": 300000,
+          "expectedEqualShares": null,
+          "applicationCount": 52435
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 600000,
+        "subscribedShares": null,
+        "competitionRate": 23.46
+      }
+    },
     {
       "capturedAt": "2026-10-21T16:07:21+09:00",
       "source": "naver_calculator_post_close_observation",
@@ -67,6 +100,33 @@
         "offeredShares": 600000,
         "subscribedShares": null,
         "competitionRate": 1252.9
+      }
+    },
+    {
+      "capturedAt": "2026-10-27T15:03:47+09:00",
+      "source": "dart_final_allotment_report_derived_ratios",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261023000136",
+      "brokers": [
+        {
+          "name": "신한투자증권",
+          "offeredShares": 600000,
+          "subscribedShares": 752036560,
+          "offerPrice": 15300,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 1253.3942666666667,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2506.7885333333334,
+          "equalAllocationShares": 300000,
+          "proportionalAllocationShares": 300000,
+          "expectedEqualShares": null,
+          "applicationCount": 208413
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 600000,
+        "subscribedShares": 752036560,
+        "competitionRate": 1253.3942666666667
       }
     }
   ],
@@ -102,11 +162,11 @@
       "expectedProfitKrw": {
         "minimumSubscription": 21913,
         "oneMillionKrw": 22582,
-        "fiveMillionKrw": 25741
+        "fiveMillionKrw": 25739
       },
       "assumptions": {
         "offerPrice": 15300,
-        "competitionRate": 1252.9,
+        "competitionRate": 1253.3942666666667,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.72,
@@ -118,7 +178,7 @@
         "scoreBoost": 0.05555555555555555,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 58,
+        "generalCalibrationSampleCount": 68,
         "generalCompetitionPending": false
       }
     },
@@ -126,7 +186,7 @@
       "level": "strong_watch",
       "label": "관심 높음",
       "reasons": [
-        "최근 확인된 일반청약 경쟁률은 1252.9대 1입니다.",
+        "최근 확인된 일반청약 경쟁률은 1253.39대 1입니다.",
         "현재 입력 데이터 기준 청약 매력도 점수가 평균 이상입니다."
       ],
       "warnings": [
@@ -140,21 +200,21 @@
         "equalScore": 100,
         "proportionalScore": 5,
         "expectedEqualShares": 1.4394,
-        "estimatedDepositForOneProportionalShare": 19169294,
+        "estimatedDepositForOneProportionalShare": 19176932,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 1252.9,
-      "snapshotCount": 1,
+      "latestCompetitionRate": 1253.3942666666667,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 1041.02,
       "lockupCommitmentRate": 0.29522682723645244,
       "floatRate": 0.3129,
-      "hasOutcome": false,
+      "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 82,
       "valueScore": 80

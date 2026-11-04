@@ -40,8 +40,41 @@
     "hasPutbackRight": false,
     "putbackSummary": "일반청약자 환매청구권 없음"
   },
-  "outcome": null,
+  "outcome": {
+    "listingDate": "2026-10-30",
+    "openReturnRate": -0.2,
+    "highReturnRate": null,
+    "closeReturnRate": -0.376,
+    "sourceUrl": "https://kind.krx.co.kr/listinvstg/pubprcCmpStkprcByIssue.do?method=pubprcCmpStkprcByIssueMain"
+  },
   "snapshots": [
+    {
+      "capturedAt": "2026-10-20T18:56:27+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A439270",
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 350000,
+          "subscribedShares": null,
+          "offerPrice": 15000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 1.7,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2.39,
+          "equalAllocationShares": 175000,
+          "proportionalAllocationShares": 175000,
+          "expectedEqualShares": null,
+          "applicationCount": 8612
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 350000,
+        "subscribedShares": null,
+        "competitionRate": 1.7
+      }
+    },
     {
       "capturedAt": "2026-10-21T16:06:50+09:00",
       "source": "naver_calculator_post_close_observation",
@@ -67,6 +100,33 @@
         "offeredShares": 350000,
         "subscribedShares": null,
         "competitionRate": 6.92
+      }
+    },
+    {
+      "capturedAt": "2026-11-04T15:20:00+09:00",
+      "source": "dart_final_allotment_report_derived_ratios",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261023000137",
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 350000,
+          "subscribedShares": 2422670,
+          "offerPrice": 15000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 6.921914285714286,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 175000,
+          "proportionalAllocationShares": 175000,
+          "expectedEqualShares": null,
+          "applicationCount": 20048
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 350000,
+        "subscribedShares": 2422670,
+        "competitionRate": 6.921914285714286
       }
     }
   ],
@@ -96,17 +156,17 @@
       "bullCaseListingGainRate": 0.2801,
       "expectedAllocatedShares": {
         "minimumSubscription": 10.174,
-        "oneMillionKrw": 18.363,
-        "fiveMillionKrw": 56.899
+        "oneMillionKrw": 18.36,
+        "fiveMillionKrw": 56.885
       },
       "expectedProfitKrw": {
         "minimumSubscription": 9172,
-        "oneMillionKrw": 16555,
-        "fiveMillionKrw": 51295
+        "oneMillionKrw": 16552,
+        "fiveMillionKrw": 51283
       },
       "assumptions": {
         "offerPrice": 15000,
-        "competitionRate": 6.92,
+        "competitionRate": 6.921914285714286,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.03,
@@ -118,7 +178,7 @@
         "scoreBoost": -0.04,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 58,
+        "generalCalibrationSampleCount": 68,
         "generalCompetitionPending": false
       }
     },
@@ -138,21 +198,21 @@
         "equalScore": 100,
         "proportionalScore": 100,
         "expectedEqualShares": 8.7291,
-        "estimatedDepositForOneProportionalShare": 96300,
+        "estimatedDepositForOneProportionalShare": 51914,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
-      "latestCompetitionRate": 6.92,
-      "snapshotCount": 1,
+      "latestCompetitionRate": 6.921914285714286,
+      "snapshotCount": 3,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
       "institutionCompetitionRate": 240.46,
       "lockupCommitmentRate": 1.9803089720040672e-05,
       "floatRate": 0.3943,
-      "hasOutcome": false,
+      "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 23,
       "valueScore": 80

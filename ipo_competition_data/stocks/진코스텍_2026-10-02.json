@@ -40,7 +40,13 @@
     "hasPutbackRight": false,
     "putbackSummary": "일반청약자 환매청구권 없음"
   },
-  "outcome": null,
+  "outcome": {
+    "listingDate": "2026-10-15",
+    "openReturnRate": 0.02127659574468085,
+    "highReturnRate": null,
+    "closeReturnRate": -0.36425531914893616,
+    "sourceUrl": "https://kind.krx.co.kr/listinvstg/pubprcCmpStkprcByIssue.do?method=pubprcCmpStkprcByIssueMain"
+  },
   "snapshots": [
     {
       "capturedAt": "2026-10-02T12:58:23+09:00",
@@ -156,7 +162,7 @@
       "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261008000730",
       "brokers": [
         {
-          "name": "통합",
+          "name": "하나증권",
           "offeredShares": 213000,
           "subscribedShares": 146081630,
           "offerPrice": 23500,
@@ -226,7 +232,7 @@
         "scoreBoost": 0.016666666666666666,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 59,
+        "generalCalibrationSampleCount": 68,
         "generalCompetitionPending": false
       }
     },
@@ -245,9 +251,9 @@
       {
         "broker": "하나증권",
         "equalScore": 58,
-        "proportionalScore": 6,
+        "proportionalScore": 12,
         "expectedEqualShares": 0.7234,
-        "estimatedDepositForOneProportionalShare": 16105255,
+        "estimatedDepositForOneProportionalShare": 8058503,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       }
@@ -261,7 +267,7 @@
       "institutionCompetitionRate": 1097.62,
       "lockupCommitmentRate": 0.052881,
       "floatRate": 0.5844,
-      "hasOutcome": false,
+      "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 74,
       "valueScore": 80

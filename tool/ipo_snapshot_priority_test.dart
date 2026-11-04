@@ -33,6 +33,8 @@ void main() {
     'dart_final_allotment_report',
     'dart_final_allotment_report_derived_ratios',
     'kbsec_final_allotment_notice',
+    'miraeasset_final_allotment_notice',
+    'samsung_final_allotment_notice',
   ]) {
     final official = snapshot(source, '2026-09-18T16:00:00+09:00', 1307.78);
     for (final observations in [
@@ -77,6 +79,21 @@ void main() {
     'dart_subscription_close_report',
     '2026-10-07T08:51:01+09:00',
     685.83,
+  );
+  final brokerClosing = snapshot(
+    'korea_investment_subscription_close_notice',
+    '2026-10-28T19:04:00+09:00',
+    684.73,
+  );
+  check(
+    stock([brokerClosing, live, finuts]).latestSnapshot == brokerClosing ||
+        stock([brokerClosing, live, finuts]).latestSnapshot?.source ==
+            brokerClosing.source,
+    'Official broker closing totals outrank provisional observations.',
+  );
+  check(
+    stock([brokerClosing, original]).latestSnapshot?.source == original.source,
+    'Final allotments still outrank broker closing totals.',
   );
   final laterPortal = snapshot(
     'naver_calculator_live',

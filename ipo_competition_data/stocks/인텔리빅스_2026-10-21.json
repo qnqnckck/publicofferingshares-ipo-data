@@ -40,7 +40,13 @@
     "hasPutbackRight": false,
     "putbackSummary": "일반청약자 환매청구권 없음"
   },
-  "outcome": null,
+  "outcome": {
+    "listingDate": "2026-10-30",
+    "openReturnRate": 1.1433333333333333,
+    "highReturnRate": null,
+    "closeReturnRate": 2.4444444444444446,
+    "sourceUrl": "https://kind.krx.co.kr/listinvstg/pubprcCmpStkprcByIssue.do?method=pubprcCmpStkprcByIssueMain"
+  },
   "snapshots": [
     {
       "capturedAt": "2026-10-29T09:29:11+09:00",
@@ -118,7 +124,7 @@
         "scoreBoost": 0.016666666666666666,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 58,
+        "generalCalibrationSampleCount": 68,
         "generalCompetitionPending": false
       }
     },
@@ -154,7 +160,7 @@
       "institutionCompetitionRate": 1234.3,
       "lockupCommitmentRate": 0.0614337022256252,
       "floatRate": 0.2395,
-      "hasOutcome": false,
+      "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 74,
       "valueScore": 80

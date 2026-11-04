@@ -40,7 +40,13 @@
     "hasPutbackRight": false,
     "putbackSummary": "일반청약자 환매청구권 없음"
   },
-  "outcome": null,
+  "outcome": {
+    "listingDate": "2026-10-15",
+    "openReturnRate": 1.2276422764227641,
+    "highReturnRate": null,
+    "closeReturnRate": 0.42032520325203254,
+    "sourceUrl": "https://kind.krx.co.kr/listinvstg/pubprcCmpStkprcByIssue.do?method=pubprcCmpStkprcByIssueMain"
+  },
   "snapshots": [
     {
       "capturedAt": "2026-10-01T16:02:50+09:00",
@@ -176,14 +182,14 @@
       "baseCaseListingGainRate": 1.2723,
       "bullCaseListingGainRate": 1.5523,
       "expectedAllocatedShares": {
-        "minimumSubscription": 3.265,
-        "oneMillionKrw": 3.306,
-        "fiveMillionKrw": 3.493
+        "minimumSubscription": 1.236,
+        "oneMillionKrw": 1.277,
+        "fiveMillionKrw": 1.464
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 51093,
-        "oneMillionKrw": 51733,
-        "fiveMillionKrw": 54656
+        "minimumSubscription": 19342,
+        "oneMillionKrw": 19983,
+        "fiveMillionKrw": 22906
       },
       "assumptions": {
         "offerPrice": 12300,
@@ -199,7 +205,7 @@
         "scoreBoost": 0.08,
         "competitionPresent": true,
         "generalCalibrationApplied": 0.0,
-        "generalCalibrationSampleCount": 59,
+        "generalCalibrationSampleCount": 68,
         "generalCompetitionPending": false
       }
     },
@@ -235,7 +241,7 @@
       "institutionCompetitionRate": 1136.84,
       "lockupCommitmentRate": 0.360714,
       "floatRate": 0.345,
-      "hasOutcome": false,
+      "hasOutcome": true,
       "scoreMode": "general_pre_subscription_demand_value",
       "demandScore": 90,
       "valueScore": 80
