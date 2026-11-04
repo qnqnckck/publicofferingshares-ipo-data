@@ -1,5 +1,9 @@
 # October–December repair and publication
 
+## Latest verification and cleanup
+
+2026-11-04 16:51 KST: the prior TNE Raw cache discrepancy is resolved. All 46 scoped public artifacts match local and committed values. Remaining redundant local formatting/order changes were reconciled and historical unpublished notes preserved in a hashed recovery archive; see `2026-11-04-local-reconciliation.md`. Older pending-publication and full-audit-only statements below describe earlier execution stages, superseded by the recorded later manual scoped authorization and actual publication. Outstanding evidence gaps remain open; this is not a claim that full audits pass.
+
 ## Idea / MVP
 User requests repair and push after detailed explanation of five missing issuers, two stale schedules, unpublished demand/retail data and205review issues. Scope: October1–January1exclusive lifecycle data and applicable feeds, not unrelated historical/app changes. Success requires evidence-backed input corrections, full regenerated feed membership, and exact local/committed/public equality for scope. Null remains for genuinely pending/official-none data; no-zero instruction retained.
 

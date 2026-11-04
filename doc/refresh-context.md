@@ -1,5 +1,11 @@
 # IPO refresh context — read before every refresh
 
+## Latest handoff — 2026-11-04 16:51 KST
+
+TNE recheck and public parity are complete: all 40 scoped stock details and six feeds matched Raw main and local/committed artifacts at `0ebaaa6f509bc2966d839a99c609f30e4ba82f5b`. Earlier TNE CDN-pending statements below are historical, not current blockers. No additional numeric correction was needed. See `2026-11-04-local-reconciliation.md`.
+
+Remaining local drafts were reconciled with published HEAD after byte-for-byte backup: nine data/code/README files differed only in formatting, ordering or generated metadata; three historical tracked document revisions and 144 unpublished historical research files were archived under `build/local-reconciliation-20261104/original-files/` with original relative paths. `manifest.json` records hashes; `original.index` preserves original staging. Older references to an absent historical `doc/` file can be resolved there. This archive is local recovery material, not a public feed or new source of verified facts. Use the committed `monthly-ipo-audit-2026-11-04-repair.json` for current carried gaps. Do not restore old drafts wholesale or silently certify the outstanding finality/lockup/listing-conflict/high-price gaps.
+
 ## Stable execution contract
 
 - Latest manual instruction2026-11-04 supersedes the earlier full-pass-only decision for this repair: **recheck unverified items and push all verified changes**. The scoped exception covers the October–December repair described in `doc/2026-11-04-three-month-repair.md`; remaining official-none lockup, ALRobot listing conflict and missing final-broker evidence are not certified or filled with guesses. It does not carry over to scheduled runs. Before declaring publication complete verify the repair commit and every scoped public file; candidate is `build/publication-repair-20261104`.
