@@ -1,5 +1,9 @@
 # IPO refresh context — read before every refresh
 
+## Manual disposition — November4 21:31 KST
+
+Latest user asks to reverify and either discard or publish held changes after the scheduled blocker disclosures. ALRobot seven demand/fundamental corrections were reverified against November4 DART final terms and selected for scoped manual publication; listingDate remains excluded/null. See `2026-11-04-manual-held-resolution.md` for exact scope, known audit errors and verification status. The 17h/18h/19h local logs are retained as historical records, superseded by this manual disposition, not instructions to restore the old candidate. Future scheduled publication still requires zero errors. No other held source corrections are certified by this operation.
+
 ## Latest handoff — 2026-11-04 16:51 KST
 
 TNE recheck and public parity are complete: all 40 scoped stock details and six feeds matched Raw main and local/committed artifacts at `0ebaaa6f509bc2966d839a99c609f30e4ba82f5b`. Earlier TNE CDN-pending statements below are historical, not current blockers. No additional numeric correction was needed. See `2026-11-04-local-reconciliation.md`.
