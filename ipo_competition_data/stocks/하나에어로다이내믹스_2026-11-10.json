@@ -27,13 +27,13 @@
     "IBK투자증권"
   ],
   "fundamentals": {
-    "offerPrice": null,
+    "offerPrice": 5700,
     "priceBandMin": 4700,
     "priceBandMax": 5700,
-    "topBandConfirmation": null,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "topBandConfirmation": true,
+    "institutionCompetitionRate": 1051.38,
+    "institutionParticipants": 2152,
+    "lockupCommitmentRate": 0.04161938642958,
     "floatRate": 0.3083,
     "marketCapKrw": null,
     "publicAllocationShares": 1100000,
@@ -45,48 +45,48 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 15,
-      "grade": "-",
-      "confidence": 0.4,
+      "overall": 67,
+      "grade": "B",
+      "confidence": 0.65,
       "factors": {
-        "institutionDemand": 0,
-        "demandStrength": 0,
+        "institutionDemand": 22,
+        "demandStrength": 10,
         "lockupCommitment": 0,
-        "pricing": 3,
+        "pricing": 10,
         "publicAllocation": 6,
         "leadManagerCoverage": 0
       },
-      "demand": 5,
+      "demand": 68,
       "value": 60,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.149,
-      "bearCaseListingGainRate": -0.051,
-      "baseCaseListingGainRate": 0.149,
-      "bullCaseListingGainRate": 0.429,
+      "expectedListingGainRate": 0.6817,
+      "bearCaseListingGainRate": 0.4817,
+      "baseCaseListingGainRate": 0.6817,
+      "bullCaseListingGainRate": 1.0217,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.042,
-        "fiveMillionKrw": 0.208
+        "oneMillionKrw": 0.219,
+        "fiveMillionKrw": 1.096
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 56,
-        "oneMillionKrw": 186,
-        "fiveMillionKrw": 931
+        "minimumSubscription": 49,
+        "oneMillionKrw": 852,
+        "fiveMillionKrw": 4261
       },
       "assumptions": {
-        "offerPrice": null,
+        "offerPrice": 5700,
         "competitionRate": null,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": -0.030973333333333332,
-        "institutionBoost": 0.0,
+        "generalPriorBase": 0.5017200000000002,
+        "institutionBoost": 0.06892250000000001,
         "lockupBoost": 0.0,
-        "participantBoost": 0.0,
-        "topBandBoost": 0.0,
-        "scoreBoost": -0.04,
+        "participantBoost": 0.04,
+        "topBandBoost": 0.06,
+        "scoreBoost": -0.027777777777777776,
         "competitionPresent": false,
         "generalCalibrationApplied": 0.18,
         "generalCalibrationSampleCount": 68,
@@ -94,14 +94,12 @@
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "consider",
+      "label": "청약 고려",
       "reasons": [
         "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
-        "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
@@ -111,13 +109,13 @@
       "snapshotCount": 0,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
-      "hasOfferPrice": false,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1051.38,
+      "lockupCommitmentRate": 0.04161938642958,
       "floatRate": 0.3083,
       "hasOutcome": false,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 5,
+      "demandScore": 68,
       "valueScore": 60
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."

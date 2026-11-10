@@ -1,5 +1,11 @@
 # IPO refresh context — read before every refresh
 
+## Current publication policy — verified deltas with deferred missing values (2026-11-10)
+
+The user explicitly changed the operating policy: leave unsupported/missing values `null`, keep researching them, and continue publishing independently verified updates without waiting for every omission to be filled. This supersedes the full-zero-errors-only rule for **scoped verified deltas**. Every run still executes and records the full monthly phase and completeness audits. A scoped delta may proceed only through `scripts/check_verified_delta.py` with an exact manifest, same-candidate independent service and QA review, verified provenance, unchanged snapshots, null preservation, exact feed membership/parity, no changed paths outside the manifest, and no new audit errors. Any target-scope hard error, target source conflict, stale/wrong target membership, malformed value, or feed mismatch blocks publication. Unchanged out-of-scope issues of any category remain visible as deferred work and must retain their IDs/categories; new issues block. Never relabel them resolved or claim the full audit passed. Do not infer values to clear an audit. This is the standing partial-publication policy, not a one-run exception.
+
+For the 2026-11-10 Hana delta, see `doc/2026-11-10-verified-delta-policy-and-publication.md` and the exact manifest in `doc/verified-delta-manifests/2026-11-10-hana.json`. Its current KST subscription day membership must be exactly once in `active.json` and absent from `upcoming.json`, matching the canonical index row. Previous task141 validation alone did not publish anything; the present run must still complete this gate and public parity checks.
+
 ## Manual disposition — November4 21:31 KST
 
 Latest user asks to reverify and either discard or publish held changes after the scheduled blocker disclosures. ALRobot seven demand/fundamental corrections were reverified against November4 DART final terms and selected for scoped manual publication; listingDate remains excluded/null. See `2026-11-04-manual-held-resolution.md` for exact scope, known audit errors and verification status. The 17h/18h/19h local logs are retained as historical records, superseded by this manual disposition, not instructions to restore the old candidate. Future scheduled publication still requires zero errors. No other held source corrections are certified by this operation.
@@ -10,7 +16,7 @@ TNE recheck and public parity are complete: all 40 scoped stock details and six 
 
 Remaining local drafts were reconciled with published HEAD after byte-for-byte backup: nine data/code/README files differed only in formatting, ordering or generated metadata; three historical tracked document revisions and 144 unpublished historical research files were archived under `build/local-reconciliation-20261104/original-files/` with original relative paths. `manifest.json` records hashes; `original.index` preserves original staging. Older references to an absent historical `doc/` file can be resolved there. This archive is local recovery material, not a public feed or new source of verified facts. Use the committed `monthly-ipo-audit-2026-11-04-repair.json` for current carried gaps. Do not restore old drafts wholesale or silently certify the outstanding finality/lockup/listing-conflict/high-price gaps.
 
-## Stable execution contract
+## Historical execution contract (superseded only as stated above)
 
 - Latest manual instruction2026-11-04 supersedes the earlier full-pass-only decision for this repair: **recheck unverified items and push all verified changes**. The scoped exception covers the October–December repair described in `doc/2026-11-04-three-month-repair.md`; remaining official-none lockup, ALRobot listing conflict and missing final-broker evidence are not certified or filled with guesses. It does not carry over to scheduled runs. Before declaring publication complete verify the repair commit and every scoped public file; candidate is `build/publication-repair-20261104`.
 
@@ -18,7 +24,7 @@ Remaining local drafts were reconciled with published HEAD after byte-for-byte b
 - Public data: `https://raw.githubusercontent.com/qnqnckck/publicofferingshares-ipo-data/main/ipo_competition_data`.
 - User instruction on 2026-11-02: always finish data updates through scoped commit, main push and public-feed verification; do not repeatedly ask for routine push approval. This is NOT permission to fabricate values, bypass explicit audit gates, publish unrelated changes or force-push.
 - If a current heartbeat explicitly prohibits publishing with audit errors, honor it. A manual exception must identify its precise blockers and scope. Resolve actionable review gaps instead of indefinitely repeating the same error count; never label missing research as confirmed unpublished.
-- Scheduled runs: Asia/Seoul weekdays09:00–19:00; 13h full review + Dart analysis; 17h broker-only. Manual refresh requests are not restricted to these hours.
+- Scheduled runs: Asia/Seoul weekdays09:00–19:00; 13h full review + Dart analysis; 17h broker-only. Manual refresh requests are not restricted to these hours. The former zero-error publication condition is superseded for verified deltas by the current policy above; all other scope and provenance controls remain.
 
 ## Coverage: not subscription month alone
 
