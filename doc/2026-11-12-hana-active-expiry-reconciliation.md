@@ -8,4 +8,4 @@ The fail-closed membership validator now accepts an exact newest issuer filing w
 
 The official local batch generator was run with public discovery and live collectors disabled, writing to an isolated output directory. Only its newly generated `active.json` was selected: the expired Hana row is absent, the still-open MBD row remains, and all other public files are unchanged. Baseline full-audit errors were 131; candidate errors are 130, with the expired-membership error removed. Remaining missing/null and source-review gaps are still open.
 
-Publication remains pending same-candidate independent operations and QA approval, the fail-closed scoped delta gate, normal commit/push, and raw-main parity.
+Publication completed on 2026-11-12 KST after same-candidate independent Ops #211 and QA #212 approvals and a PASS from the fail-closed scoped gate. Commit `1cbcfd234a8cff4fcb5f9aaab9010a3272740892` is on main. The immutable commit-pinned raw `active.json` returned HTTP 200 and matched local SHA-256 `35a109179da7cda8befdb9e0375ab6a1aaba6bfba2dd3044f98eee3d85ae79ee`; it contains only MBD and excludes expired Hana. App screen/CDN status was not checked.
