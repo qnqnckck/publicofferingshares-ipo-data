@@ -46,3 +46,14 @@ git ls-remote origin refs/heads/main
 ```
 
 Publishing requires explicit user authorization. If authorization exists in the current conversation, publish after all validation gates pass.
+
+## Official withdrawal delta
+
+For a multi-target withdrawal candidate, run both full audits on baseline and candidate, then use the withdrawal-specific fail-closed gate:
+
+```powershell
+py -3 <skill-path>/scripts/check_withdrawn_delta.py --repo <candidate-repo> --manifest <withdrawal-manifest.json> --source-record <official-observations.json> --source-root <raw-source-root> --baseline-phase <baseline-phase.log> --candidate-phase <candidate-phase.log> --baseline-completeness <baseline-completeness.json> --candidate-completeness <candidate-completeness.json> --report <withdrawal-gate.json>
+py -3 -m unittest <skill-path>/scripts/test_check_withdrawn_delta.py
+```
+
+This gate only handles source-backed withdrawal removal; ordinary updates continue through `check_verified_delta.py`.
