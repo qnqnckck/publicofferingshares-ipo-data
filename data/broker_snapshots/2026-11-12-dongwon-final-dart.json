@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "Saved DART final totals; aggregate calculated as 618832270/507500. Direct proportional rate and final per-applicant allocation are not disclosed and remain null. Existing historical Naver snapshot is preserved without claiming a raw response hash."
+  ],
+  "snapshots": [
+    {
+      "id": "동원파츠_2026-11-02",
+      "company": "동원파츠",
+      "capturedAt": "2026-11-12T14:13:14.128+09:00",
+      "source": "dart_official_issuance_results_report",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261105000056&dcmNo=11642053&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+      "sourcePublishedDate": "2026-11-05",
+      "brokers": [
+        {
+          "name": "삼성증권",
+          "offeredShares": 507500,
+          "subscribedShares": 618832270,
+          "offerPrice": 26500,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 1219.3739310344827,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 253750,
+          "proportionalAllocationShares": 253750,
+          "expectedEqualShares": null,
+          "applicationCount": 238550
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 507500,
+        "subscribedShares": 618832270,
+        "competitionRate": 1219.3739310344827,
+        "applicationCount": 238550
+      }
+    }
+  ]
+}
