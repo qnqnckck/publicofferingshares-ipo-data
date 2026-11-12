@@ -143,14 +143,32 @@ def dart_subscription_dates(html_text):
         rf"청약개시일\s*청약종료일\s*납입기일\s*코스닥시장\s*공모\s*({date})\s*({date})",
         text,
     )
-    if not match:
-        return None
 
     def iso(value):
         digits = re.findall(r"\d+", value)
         return f"{int(digits[0]):04d}-{int(digits[1]):02d}-{int(digits[2]):02d}"
 
-    return iso(match.group(1)), iso(match.group(2))
+    if match:
+        return iso(match.group(1)), iso(match.group(2))
+
+    # A final prospectus can be the issuer's newest filing after subscription.
+    # Accept its explicit general-investor schedule only when both endpoints are
+    # written in the same line and resolve to one unique date pair.
+    end_date = r"(?:(?:20\d{2}\s*년\s*)?\d{1,2}\s*월\s*\d{1,2}\s*일|20\d{2}\.\d{1,2}\.\d{1,2})"
+    explicit_pairs = re.findall(
+        rf"일반(?:투자자|청약자)\s*청약(?:일|기일)\s*[:：]\s*({date})\s*[~～]\s*({end_date})",
+        text,
+    )
+
+    def iso_end(value, start):
+        end_parts = [int(x) for x in re.findall(r"\d+", value)]
+        start_year = int(re.findall(r"\d+", start)[0])
+        if len(end_parts) == 2:
+            end_parts.insert(0, start_year)
+        return f"{end_parts[0]:04d}-{end_parts[1]:02d}-{end_parts[2]:02d}"
+
+    pairs = {(iso(start), iso_end(end, start)) for start, end in explicit_pairs}
+    return next(iter(pairs)) if len(pairs) == 1 else None
 
 
 def changed_leaf_paths(before, after, prefix=""):
@@ -332,6 +350,17 @@ def check(repo, manifest_path, source_record_path, source_root,
         for path, ids in manifest.get("allowedNonTargetRemovals", {}).items()
         for item_id in ids
     }
+    target_removals = set()
+    for path in manifest.get("feedPaths", []):
+        if manifest.get("feedMembership", {}).get(path) != "none":
+            continue
+        old_feed = base_json(repo, base, path)
+        try:
+            old_rows = rows(old_feed) if old_feed is not None else []
+        except ValueError:
+            old_rows = []
+        if sum(row.get("id") == target for row in old_rows):
+            target_removals.add((path, target))
     evidence_removals = set()
     as_of = manifest.get("membershipAsOfDate")
     for evidence in manifest.get("membershipRemovalEvidence", []):
@@ -340,6 +369,10 @@ def check(repo, manifest_path, source_record_path, source_root,
         if path not in manifest.get("feedPaths", []):
             failures.append(f"membership removal evidence names a non-feed path: {path}")
             continue
+        if item_id == target and (path, item_id) not in target_removals:
+            failures.append(f"target membership removal is not declared by a baseline row and membership=none: {item_id}")
+        if item_id != target and (path, item_id) not in declared_removals:
+            failures.append(f"non-target membership removal is not declared in the manifest: {item_id}")
         old_feed = base_json(repo, base, path)
         try:
             old_rows = rows(old_feed) if old_feed is not None else []
@@ -461,7 +494,12 @@ def check(repo, manifest_path, source_record_path, source_root,
                 or normalize_issuer(schedule_report.get("issuer")) != normalize_issuer(event.get("company"))
                 or normalize_issuer(schedule_report.get("issuer")) != normalize_issuer(removed_stock.get("company"))):
             failures.append(f"latest schedule report issuer does not match canonical event/detail: {item_id}")
-        if (schedule_report.get("reportTitle") != "증권발행실적보고서"
+        latest_title = str(latest.get("latestFilingTitle", ""))
+        normalized_latest_title = re.sub(r"^\[[^]]+\]\s*", "", latest_title).strip()
+        eligible_schedule_title = (normalized_latest_title == "증권발행실적보고서"
+                                   or normalized_latest_title in ("투자설명서", "증권신고서(지분증권)"))
+        if (not eligible_schedule_title
+                or schedule_report.get("reportTitle") != latest_title
                 or schedule_report.get("rcpNo") != latest.get("latestRcpNo")
                 or (report_query.get("rcpNo") or [None])[0] != latest.get("latestRcpNo")):
             failures.append(f"latest schedule report is not the exact newest issuer filing: {item_id}")
@@ -486,8 +524,8 @@ def check(repo, manifest_path, source_record_path, source_root,
             declared_schedule = (schedule_report.get("subscriptionStart"), schedule_report.get("subscriptionEnd"))
             if observed_schedule != expected_schedule or declared_schedule != expected_schedule:
                 failures.append(f"latest issuer report schedule does not match canonical event/feed dates: {item_id}")
-    if declared_removals != evidence_removals:
-        failures.append("declared membership removals and evidence records differ")
+    if declared_removals | target_removals != evidence_removals:
+        failures.append("declared target/non-target membership removals and evidence records differ")
 
     event_path = repo / manifest["canonicalEventPath"]
     event = locate_event(read_json(event_path), target)
@@ -563,7 +601,7 @@ def check(repo, manifest_path, source_record_path, source_root,
     allowed_null = set(manifest.get("retainedNullFields", []))
     phase_field_map = manifest.get("phaseNullFieldMap", {})
     for code, message in new_phase:
-        if target in message:
+        if target in message and (code, message) not in base_phase:
             field = phase_field_map.get(code)
             if not permitted_null_issue(target, target, code, field, allowed_phase_codes, allowed_null, stock):
                 failures.append(f"hard target-scope phase error: [{code}] {message}")
@@ -577,11 +615,15 @@ def check(repo, manifest_path, source_record_path, source_root,
     for code, event_id, field, detail, severity in comp_additions:
         if not permitted_null_issue(event_id, target, code, field, {"missing_review"}, allowed_null, stock):
             failures.append(f"new completeness audit error: {code}/{event_id}/{field}")
+    baseline_target_signatures = {sig for sig in base_comp if sig[1] == target}
     for issue in candidate_comp_report.get("issues", []):
         if issue.get("severity") == "ERROR" and issue.get("eventId") == target:
+            signature = set_issue_signature(issue)
+            if signature in baseline_target_signatures:
+                continue
             if permitted_null_issue(issue.get("eventId"), target, issue.get("code"), issue.get("field"), {"missing_review"}, allowed_null, stock):
                 continue
-            failures.append(f"hard target-scope audit error: {issue.get('code')}/{target}/{issue.get('field','')}")
+            failures.append(f"new hard target-scope audit error: {issue.get('code')}/{target}/{issue.get('field','')}")
 
     report = {
         "status": "PASS" if not failures else "FAIL",
@@ -597,8 +639,9 @@ def check(repo, manifest_path, source_record_path, source_root,
             "candidateCompletenessErrors": len(new_comp),
             "newCompletenessErrors": len(comp_additions),
             "residualErrorsRemain": bool(new_phase or new_comp),
+            "carriedForwardUnchangedTarget": sorted(set_issue_signature(x) for x in candidate_comp_report.get("issues", []) if x.get("severity") == "ERROR" and x.get("eventId") == target and set_issue_signature(x) in base_comp),
             "carriedForwardUnchangedOutOfScope": sorted(set_issue_signature(x) for x in candidate_comp_report.get("issues", []) if x.get("severity") == "ERROR" and x.get("eventId") != target and set_issue_signature(x) in {set_issue_signature(y) for y in baseline_comp_report.get("issues", []) if y.get("severity") == "ERROR"}),
-            "interpretation": "full audits are reported, not claimed green; unchanged out-of-scope issues remain visible, new errors and target-scope integrity errors block"
+            "interpretation": "full audits are reported, not claimed green; only exact target fields and memberships named by the manifest are in scope; unchanged audit issues remain open, while new errors, changed-field integrity errors, or feed mismatches block"
         },
         "failures": failures,
         "notes": notes

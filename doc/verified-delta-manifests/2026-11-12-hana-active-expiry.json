@@ -1,0 +1,104 @@
+{
+  "policyVersion": "verified_delta_with_deferred_nulls_v1",
+  "baseHead": "8e68813413fea9ba7de92fbc3ba9dab1817eabea",
+  "target": {
+    "id": "하나에어로다이내믹스_2026-11-10",
+    "company": "하나에어로다이내믹스",
+    "issuer": "주식회사 하나에어로다이내믹스",
+    "stockCode": "271160",
+    "broker": "IBK투자증권",
+    "date": "2026-11-10"
+  },
+  "allowedChangedPaths": [
+    "doc/2026-11-12-hana-active-expiry-reconciliation.md",
+    "doc/refresh-context.md",
+    "doc/verified-delta-manifests/2026-11-12-hana-active-expiry.json",
+    "docs/analysis_methodology.md",
+    "ipo_competition_data/active.json",
+    "skills/refresh-ipo-monthly-data/scripts/check_verified_delta.py"
+  ],
+  "changedDataPaths": [
+    "ipo_competition_data/active.json"
+  ],
+  "canonicalPaths": [],
+  "canonicalEventPath": "data/discovered/ipo_events.json",
+  "canonicalManualPath": "data/manual_fundamentals.json",
+  "feedPaths": [
+    "ipo_competition_data/active.json"
+  ],
+  "feedMembership": {
+    "ipo_competition_data/active.json": "none"
+  },
+  "feedGeneratedAt": {
+    "ipo_competition_data/active.json": "2026-11-12T11:59:24.785962"
+  },
+  "allowedFeedLeafPointers": {
+    "ipo_competition_data/active.json": []
+  },
+  "feedParityFields": [],
+  "allowedNonTargetRemovals": {},
+  "membershipAsOfDate": "2026-11-12",
+  "membershipRemovalEvidence": [
+    {
+      "path": "ipo_competition_data/active.json",
+      "id": "하나에어로다이내믹스_2026-11-10",
+      "issuer": "하나에어로다이내믹스",
+      "asOfDate": "2026-11-12",
+      "sourceObservationAsOfDate": "2026-11-12",
+      "subscriptionStart": "2026-11-10",
+      "subscriptionEnd": "2026-11-11",
+      "eligibility": "active_end_before_as_of",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260921000405",
+      "observedUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261109000166&dcmNo=11646227&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+      "httpStatus": 200,
+      "requestStartedAtKst": "2026-11-12T12:03:44.017704+09:00",
+      "responseCompletedAtKst": "2026-11-12T12:03:44.373328+09:00",
+      "rawFile": "raw/dart_hana_latest_filing_body.html",
+      "rawSha256": "02def41a4c03ac5371e22c5066fa7a622a14027e9c8470346c6d92098383a770",
+      "bytes": 3570898,
+      "latestFilingSearch": {
+        "url": "https://dart.fss.or.kr/dsab001/search.ax?textCrpNm=%ED%95%98%EB%82%98%EC%97%90%EC%96%B4%EB%A1%9C%EB%8B%A4%EC%9D%B4%EB%82%B4%EB%AF%B9%EC%8A%A4",
+        "httpStatus": 200,
+        "requestStartedAtKst": "2026-11-12T12:02:49.835701+09:00",
+        "responseCompletedAtKst": "2026-11-12T12:02:49.947193+09:00",
+        "rawSha256": "43622403dc2cb5a72d1eb361ae9b952b1ec94465730cb5a3c694e57fb00b95c2",
+        "bytes": 12677,
+        "rawFile": "raw/dart_hana_current_search.html",
+        "latestRcpNo": "20261109000166",
+        "latestFilingDate": "2026.11.09",
+        "latestFilingTitle": "[기재정정] 투자설명서",
+        "issuer": "하나에어로다이내믹스"
+      },
+      "latestScheduleReport": {
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261109000166&dcmNo=11646227&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+        "httpStatus": 200,
+        "requestStartedAtKst": "2026-11-12T12:03:44.017704+09:00",
+        "responseCompletedAtKst": "2026-11-12T12:03:44.373328+09:00",
+        "rawSha256": "02def41a4c03ac5371e22c5066fa7a622a14027e9c8470346c6d92098383a770",
+        "bytes": 3570898,
+        "rawFile": "raw/dart_hana_latest_filing_body.html",
+        "issuer": "하나에어로다이내믹스",
+        "reportTitle": "[기재정정] 투자설명서",
+        "rcpNo": "20261109000166",
+        "subscriptionStart": "2026-11-10",
+        "subscriptionEnd": "2026-11-11"
+      }
+    }
+  ],
+  "verifiedFields": {},
+  "retainedNullFields": [],
+  "expectedSnapshots": [],
+  "allowedStockLeafPointers": [],
+  "canonicalVerifiedFields": {
+    "company": "하나에어로다이내믹스",
+    "subscriptionStart": "2026-11-10",
+    "subscriptionEnd": "2026-11-11"
+  },
+  "allowedCanonicalEventLeafPointers": [],
+  "verifiedManualFields": {},
+  "allowedCanonicalManualLeafPointers": [],
+  "allowedNewNullIssueCodes": [],
+  "phaseNullFieldMap": {},
+  "sourceNullRetailFields": [],
+  "requireEmptyRetailSnapshots": false
+}

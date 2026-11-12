@@ -293,3 +293,8 @@ weights:
 5. Publish calibration error and confidence with each method version.
 
 Until that is done, `confidence` should be shown prominently in the app.
+
+
+## Scoped verified publication and carried audit gaps
+
+A verified delta is bounded by its exact manifest: target identity, changed canonical fields, detail leaves, feed membership, and feed parity. The complete phase and completeness audits still run on every delta. Unchanged issue signatures—including issues on the target record in fields outside the declared delta—are carried forward as open and reported; they do not block an unrelated verified correction. Any new issue, changed-field conflict, wrong identity/date, stale target membership, malformed source evidence, or mismatch still fails the gate. This keeps missing research visible without stopping a separate independently verified repair.
