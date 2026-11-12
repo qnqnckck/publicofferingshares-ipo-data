@@ -6,7 +6,7 @@ declared null fields; it rejects new errors, target-scope integrity errors,
 unexpected file changes, bad provenance, or feed drift.
 """
 import argparse
-from datetime import datetime
+from datetime import datetime, timezone
 from html.parser import HTMLParser
 import hashlib
 import json
@@ -307,7 +307,7 @@ def check(repo, manifest_path, source_record_path, source_root,
         new_target = [x for x in new_rows if x.get("id") == target]
         old_target = [x for x in old_rows if x.get("id") == target]
         membership = manifest["feedMembership"].get(path, "preserve")
-        if membership == "one" and len(new_target) != 1:
+        if membership in ("one", "canonical_window") and len(new_target) != 1:
             failures.append(f"target must occur exactly once in {path}")
         if membership == "none" and new_target:
             failures.append(f"target must not occur in {path}")
@@ -316,14 +316,104 @@ def check(repo, manifest_path, source_record_path, source_root,
         removal_ids = manifest.get("allowedNonTargetRemovals", {}).get(path, [])
         if any(item_id == target for item_id in removal_ids):
             failures.append(f"target id cannot be declared as a non-target removal in {path}")
-        exact, reason = exact_feed_removal_result(
-            [x for x in old_rows if x.get("id") != target],
-            [x for x in new_rows if x.get("id") != target],
-            removal_ids,
-        )
-        if not exact:
-            failures.append(f"non-target feed scope mismatch in {path}: {reason}")
-        if membership == "one":
+        if membership == "canonical_window":
+            window_spec = manifest.get("canonicalWindow", {}).get(path, {})
+            reference_path = manifest.get("newMembershipReferencePath")
+            reference_data = read_json(repo / reference_path) if reference_path else None
+            try:
+                reference_rows = rows(reference_data) if reference_data is not None else []
+            except ValueError:
+                reference_rows = []
+            reference_ids = [row.get("id") for row in reference_rows]
+            old_by_id = {row.get("id"): row for row in old_rows}
+            new_by_id = {row.get("id"): row for row in new_rows}
+            reference_by_id = {row.get("id"): row for row in reference_rows}
+            additions = manifest.get("allowedNonTargetAdditions", {}).get(path, [])
+            actual_additions = set(new_by_id) - set(old_by_id) - {target}
+            actual_removals = set(old_by_id) - set(new_by_id)
+            if not window_spec or not reference_path:
+                failures.append(f"canonical-window feed lacks explicit spec/reference: {path}")
+            if (len(reference_rows) != window_spec.get("limit") or
+                    window_spec.get("limit") != 60 or
+                    len(reference_ids) != len(set(reference_ids))):
+                failures.append(f"canonical-window reference must contain exactly 60 unique rows: {path}")
+            generator_path = window_spec.get("generatorPath")
+            generator_sha = window_spec.get("generatorSha256")
+            generator_file = repo / generator_path if generator_path else None
+            generator_text = generator_file.read_text(encoding="utf-8") if generator_file and generator_file.is_file() else ""
+            if (not generator_file or not generator_file.is_file() or sha256(generator_file) != generator_sha or
+                    f"feedItems(recent, {window_spec.get('limit')})" not in generator_text):
+                failures.append(f"canonical-window generator/hash/60-row cap mismatch: {path}")
+            # Bind the candidate's generatedAt and exact output bytes to a producer
+            # execution record. The record itself is hash-pinned by the manifest;
+            # this makes a forged/nonzero execution fail closed without a circular
+            # manifest hash inside the record.
+            execution = manifest.get("generationExecutionEvidence", {})
+            record_rel = execution.get("recordPath")
+            record_hash = execution.get("recordSha256")
+            record_file = source_root / record_rel if record_rel else None
+            try:
+                record_safe = bool(record_file and record_file.resolve().is_relative_to(source_root))
+            except (OSError, ValueError):
+                record_safe = False
+            if (not record_safe or not record_file.is_file() or not record_hash or
+                    sha256(record_file) != record_hash):
+                failures.append(f"canonical-window producer execution record missing or hash mismatch: {path}")
+            else:
+                try:
+                    execution_record = read_json(record_file)
+                    started = datetime.fromisoformat(execution_record["startedAtUtc"])
+                    completed = datetime.fromisoformat(execution_record["completedAtUtc"])
+                    generated = datetime.fromisoformat(execution_record["generatorReportedAt"])
+                    if generated.tzinfo is None:
+                        from zoneinfo import ZoneInfo
+                        generated = generated.replace(tzinfo=ZoneInfo("Asia/Seoul"))
+                    if started.tzinfo is None or completed.tzinfo is None:
+                        raise ValueError("producer execution times must carry timezone offsets")
+                    generated_utc = generated.astimezone(timezone.utc)
+                    if execution_record.get("status") != "completed" or execution_record.get("exitCode") != 0:
+                        failures.append(f"canonical-window producer did not complete successfully: {path}")
+                    if not (started.astimezone(timezone.utc) <= generated_utc <= completed.astimezone(timezone.utc)):
+                        failures.append(f"canonical-window generatedAt is outside producer execution interval: {path}")
+                    if execution_record.get("generatorSha256") != generator_sha:
+                        failures.append(f"canonical-window producer generator hash mismatch: {path}")
+                    if execution_record.get("generatorReportedAt") != expected_generated_at:
+                        failures.append(f"canonical-window producer generatedAt differs from manifest: {path}")
+                    if execution_record.get("candidateRecentOutputSha256") != sha256(p):
+                        failures.append(f"canonical-window producer output SHA differs from candidate: {path}")
+                    if execution_record.get("referenceOutputSha256") != sha256(repo / reference_path):
+                        failures.append(f"canonical-window producer output SHA differs from reference: {path}")
+                    canonical_rel = execution_record.get("canonicalOutputPath")
+                    canonical_file = source_root / canonical_rel if canonical_rel else None
+                    if (not canonical_file or not canonical_file.resolve().is_relative_to(source_root) or
+                            not canonical_file.is_file() or
+                            execution_record.get("canonicalRecentOutputSha256") != sha256(canonical_file)):
+                        failures.append(f"canonical-window canonical generator output missing or hash mismatch: {path}")
+                except Exception as exc:
+                    failures.append(f"canonical-window producer execution record is invalid: {exc}")
+            if len(new_rows) != 60 or [row.get("id") for row in new_rows] != reference_ids:
+                failures.append(f"candidate membership/order differs from exact canonical 60-row window: {path}")
+            if actual_additions != set(additions) or actual_removals != set(removal_ids):
+                failures.append(f"canonical-window additions/removals differ from exact manifest scope: {path}")
+            if target not in reference_by_id or (set(additions) - set(reference_by_id)):
+                failures.append(f"canonical-window target/additions are absent from reference: {path}")
+            for item_id, row in new_by_id.items():
+                if item_id == target or item_id not in old_by_id:
+                    if reference_by_id.get(item_id) != row:
+                        failures.append(f"canonical-window new/target row differs from reference: {path}/{item_id}")
+                elif old_by_id[item_id] != row:
+                    failures.append(f"canonical-window retained row changed outside target scope: {path}/{item_id}")
+            if not reference_path:
+                failures.append(f"canonical-window membership lacks reference path: {path}")
+        else:
+            exact, reason = exact_feed_removal_result(
+                [x for x in old_rows if x.get("id") != target],
+                [x for x in new_rows if x.get("id") != target],
+                removal_ids,
+            )
+            if not exact:
+                failures.append(f"non-target feed scope mismatch in {path}: {reason}")
+        if membership in ("one", "canonical_window"):
             reference_path = manifest.get("newMembershipReferencePath")
             if not reference_path:
                 failures.append(f"target membership lacks a declared reference row: {path}")
@@ -373,6 +463,41 @@ def check(repo, manifest_path, source_record_path, source_root,
             failures.append(f"target membership removal is not declared by a baseline row and membership=none: {item_id}")
         if item_id != target and (path, item_id) not in declared_removals:
             failures.append(f"non-target membership removal is not declared in the manifest: {item_id}")
+        if evidence.get("type") == "canonical_recent_window_eviction":
+            spec = manifest.get("canonicalWindow", {}).get(path, {})
+            reference_path = manifest.get("newMembershipReferencePath")
+            reference_file = repo / reference_path if reference_path else None
+            reference_data = read_json(reference_file) if reference_file and reference_file.is_file() else None
+            try:
+                reference_rows = rows(reference_data) if reference_data is not None else []
+            except ValueError:
+                reference_rows = []
+            old_feed = base_json(repo, base, path)
+            try:
+                old_rows = rows(old_feed) if old_feed is not None else []
+            except ValueError:
+                old_rows = []
+            generator_path = spec.get("generatorPath")
+            generator_file = repo / generator_path if generator_path else None
+            if path != "ipo_competition_data/recent.json":
+                failures.append(f"recent-window eviction evidence used for non-recent feed: {path}/{item_id}")
+            if sum(row.get("id") == item_id for row in old_rows) != 1:
+                failures.append(f"recent-window eviction must remove one baseline row: {item_id}")
+            if any(row.get("id") == item_id for row in reference_rows):
+                failures.append(f"recent-window eviction remains in canonical window reference: {item_id}")
+            if (not reference_file or not reference_file.is_file() or
+                    sha256(reference_file) != evidence.get("referenceSha256") or
+                    evidence.get("referencePath") != reference_path or
+                    len(reference_rows) != 60 or len({row.get("id") for row in reference_rows}) != 60):
+                failures.append(f"recent-window eviction reference hash/count/identity mismatch: {item_id}")
+            if (not generator_file or not generator_file.is_file() or
+                    sha256(generator_file) != spec.get("generatorSha256") or
+                    spec.get("limit") != 60 or evidence.get("limit") != 60 or
+                    f"feedItems(recent, 60)" not in generator_file.read_text(encoding="utf-8")):
+                failures.append(f"recent-window eviction generator/cap mismatch: {item_id}")
+            if evidence.get("asOfDate") != manifest.get("membershipAsOfDate"):
+                failures.append(f"recent-window eviction as-of date mismatch: {item_id}")
+            continue
         old_feed = base_json(repo, base, path)
         try:
             old_rows = rows(old_feed) if old_feed is not None else []

@@ -18,7 +18,7 @@
   "subscriptionStart": "2026-11-06",
   "subscriptionEnd": "2026-11-09",
   "refundDate": "2026-11-11",
-  "listingDate": null,
+  "listingDate": "2026-11-18",
   "lockupReleaseDate": null,
   "generalSharesDate": null,
   "cbBwDate": null,
@@ -41,13 +41,41 @@
     "putbackSummary": "일반청약자 환매청구권 없음"
   },
   "outcome": null,
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-11-12T14:13:15.430+09:00",
+      "source": "dart_official_issuance_results_report",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261111000281&dcmNo=11649528&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 600000,
+          "subscribedShares": 500838210,
+          "offerPrice": 17600,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 834.73035,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1669.46,
+          "equalAllocationShares": 300000,
+          "proportionalAllocationShares": 300000,
+          "expectedEqualShares": null,
+          "applicationCount": 178689
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 600000,
+        "subscribedShares": 500838210,
+        "competitionRate": 834.73035
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
       "overall": 60,
       "grade": "B-",
-      "confidence": 0.65,
+      "confidence": 0.95,
       "factors": {
         "institutionDemand": 15,
         "demandStrength": 10,
@@ -62,52 +90,62 @@
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.6257,
-      "bearCaseListingGainRate": 0.4257,
-      "baseCaseListingGainRate": 0.6257,
-      "bullCaseListingGainRate": 0.9657,
+      "expectedListingGainRate": 0.8365,
+      "bearCaseListingGainRate": 0.6565,
+      "baseCaseListingGainRate": 0.8365,
+      "bullCaseListingGainRate": 1.1165,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.071,
-        "fiveMillionKrw": 0.355
+        "minimumSubscription": 1.691,
+        "oneMillionKrw": 1.747,
+        "fiveMillionKrw": 2.019
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 138,
-        "oneMillionKrw": 782,
-        "fiveMillionKrw": 3911
+        "minimumSubscription": 24893,
+        "oneMillionKrw": 25718,
+        "fiveMillionKrw": 29727
       },
       "assumptions": {
         "offerPrice": 17600,
-        "competitionRate": null,
+        "competitionRate": 834.73035,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": 0.4457007314285715,
+        "generalCompetitionBaseline": 0.72,
+        "generalPriorBase": 0.49388459428571424,
         "institutionBoost": 0.0464675,
         "lockupBoost": 0.0,
         "participantBoost": 0.05,
         "topBandBoost": 0.06,
         "scoreBoost": -0.04,
-        "competitionPresent": false,
-        "generalCalibrationApplied": 0.18,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 68,
-        "generalCompetitionPending": true
+        "generalCompetitionPending": false
       }
     },
     "decision": {
       "level": "neutral",
       "label": "중립",
       "reasons": [
-        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+        "최근 확인된 일반청약 경쟁률은 834.73대 1입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "대신증권",
+        "equalScore": 100,
+        "proportionalScore": 7,
+        "expectedEqualShares": 1.6789,
+        "estimatedDepositForOneProportionalShare": 14691248,
+        "feeKrw": null,
+        "dataQuality": "broker_verified"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 834.73035,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

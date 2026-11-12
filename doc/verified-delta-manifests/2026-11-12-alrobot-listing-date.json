@@ -1,0 +1,256 @@
+{
+  "policyVersion": "verified_delta_with_deferred_nulls_v1",
+  "baseHead": "2cdab921fa1fd7782f46a6e575666bff7000e6ee",
+  "target": {
+    "id": "에이엘로봇_2026-11-06",
+    "company": "에이엘로봇",
+    "issuer": "에이엘로봇",
+    "stockCode": "471800",
+    "broker": "대신증권",
+    "date": "2026-11-06"
+  },
+  "allowedChangedPaths": [
+    "data/broker_snapshots/2026-11-12-alrobot-final-dart.json",
+    "data/discovered/ipo_events.json",
+    "doc/2026-11-12-alrobot-listing-date-fix.md",
+    "doc/refresh-context.md",
+    "doc/verified-delta-manifests/2026-11-12-alrobot-listing-date.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/recent-alrobot-reference.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/stocks/에이엘로봇_2026-11-06.json",
+    "ipo_competition_data/yearly/2026.json",
+    "skills/refresh-ipo-monthly-data/scripts/check_verified_delta.py"
+  ],
+  "changedDataPaths": [
+    "data/discovered/ipo_events.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/stocks/에이엘로봇_2026-11-06.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "canonicalPaths": [
+    "data/broker_snapshots/2026-11-12-alrobot-final-dart.json",
+    "data/discovered/ipo_events.json"
+  ],
+  "canonicalEventPath": "data/discovered/ipo_events.json",
+  "canonicalManualPath": "data/manual_fundamentals.json",
+  "feedPaths": [
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/yearly/2026.json",
+    "ipo_competition_data/recent.json"
+  ],
+  "feedMembership": {
+    "ipo_competition_data/dashboard.json": "preserve",
+    "ipo_competition_data/index.json": "preserve",
+    "ipo_competition_data/yearly/2026.json": "preserve",
+    "ipo_competition_data/recent.json": "canonical_window"
+  },
+  "newMembershipReferencePath": "ipo_competition_data/recent-alrobot-reference.json",
+  "feedParityFields": [
+    "listingDate"
+  ],
+  "allowedFeedLeafPointers": {
+    "ipo_competition_data/dashboard.json": [
+      "/bestBrokerCompetitionRate",
+      "/bestBrokerName",
+      "/latestCompetitionRate",
+      "/latestSnapshotAt",
+      "/listingDate"
+    ],
+    "ipo_competition_data/index.json": [
+      "/expectedGainRate",
+      "/latestCompetitionRate",
+      "/latestSnapshotAt",
+      "/listingDate"
+    ],
+    "ipo_competition_data/yearly/2026.json": [
+      "/expectedGainRate",
+      "/latestCompetitionRate",
+      "/latestSnapshotAt",
+      "/listingDate"
+    ],
+    "ipo_competition_data/recent.json": [
+      "/listingDate",
+      "/latestCompetitionRate",
+      "/latestSnapshotAt"
+    ]
+  },
+  "allowedStockLeafPointers": [
+    "/analysis/brokerScores",
+    "/analysis/decision/reasons",
+    "/analysis/expectedReturn/assumptions/competitionPresent",
+    "/analysis/expectedReturn/assumptions/competitionRate",
+    "/analysis/expectedReturn/assumptions/generalCalibrationApplied",
+    "/analysis/expectedReturn/assumptions/generalCompetitionBaseline",
+    "/analysis/expectedReturn/assumptions/generalCompetitionPending",
+    "/analysis/expectedReturn/assumptions/generalPriorBase",
+    "/analysis/expectedReturn/baseCaseListingGainRate",
+    "/analysis/expectedReturn/bearCaseListingGainRate",
+    "/analysis/expectedReturn/bullCaseListingGainRate",
+    "/analysis/expectedReturn/expectedAllocatedShares/fiveMillionKrw",
+    "/analysis/expectedReturn/expectedAllocatedShares/minimumSubscription",
+    "/analysis/expectedReturn/expectedAllocatedShares/oneMillionKrw",
+    "/analysis/expectedReturn/expectedListingGainRate",
+    "/analysis/expectedReturn/expectedProfitKrw/fiveMillionKrw",
+    "/analysis/expectedReturn/expectedProfitKrw/minimumSubscription",
+    "/analysis/expectedReturn/expectedProfitKrw/oneMillionKrw",
+    "/analysis/inputs/latestCompetitionRate",
+    "/analysis/inputs/snapshotCount",
+    "/analysis/score/confidence",
+    "/listingDate",
+    "/snapshots"
+  ],
+  "canonicalVerifiedFields": {
+    "listingDate": "2026-11-18"
+  },
+  "allowedCanonicalEventLeafPointers": [
+    "/listingDate"
+  ],
+  "allowedCanonicalManualLeafPointers": [],
+  "verifiedFields": {
+    "listingDate": "2026-11-18"
+  },
+  "retainedNullFields": [],
+  "expectedSnapshots": [
+    {
+      "capturedAt": "2026-11-12T14:13:15.430+09:00",
+      "source": "dart_official_issuance_results_report",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261111000281&dcmNo=11649528&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 600000,
+          "subscribedShares": 500838210,
+          "offerPrice": 17600,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 834.73035,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1669.46,
+          "equalAllocationShares": 300000,
+          "proportionalAllocationShares": 300000,
+          "expectedEqualShares": null,
+          "applicationCount": 178689
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 600000,
+        "subscribedShares": 500838210,
+        "competitionRate": 834.73035
+      }
+    }
+  ],
+  "membershipAsOfDate": "2026-11-12",
+  "sourceObservation": {
+    "runId": "2026-11-12-alrobot-listingdate-fix",
+    "language": "ko",
+    "timezone": "Asia/Seoul",
+    "asOfKst": "2026-11-12T14:13:15.430+09:00",
+    "targetEventId": "에이엘로봇_2026-11-06",
+    "field": "listingDate",
+    "value": "2026-11-18",
+    "status": "planned_official_issuer_report",
+    "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261111000281&dcmNo=11649528&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+    "issuerSearchUrl": "https://dart.fss.or.kr/dsab001/search.ax?textCrpNm=%EC%97%90%EC%9D%B4%EC%97%98%EB%A1%9C%EB%B4%87",
+    "requestStartedAtKst": "2026-11-12T14:13:15.034+09:00",
+    "responseCompletedAtKst": "2026-11-12T14:13:15.430+09:00",
+    "rawFile": "raw/dart_alrobot_issuance_results.html",
+    "rawSha256": "8e24848d7865112e1550a3c53a0b231c7c66afa2c58878b3c62bbd1014959c37",
+    "bytes": 155042,
+    "priorValue": null,
+    "whyCorrected": "The signed issuer securities issuance report section IV.3 states the listing/trading start date is 2026-11-18 (scheduled). This resolves the prior secondary-calendar-only conflict; it is not represented as an actual listing date.",
+    "priorReviewPreserved": "The previous conflict note remains in the earlier lifecycle-audit run. Current candidate field review was superseded by this issuer filing.",
+    "retailSnapshot": {
+      "capturedAt": "2026-11-12T14:13:15.430+09:00",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261111000281&dcmNo=11649528&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+      "rawSha256": "8e24848d7865112e1550a3c53a0b231c7c66afa2c58878b3c62bbd1014959c37",
+      "generalShares": 600000,
+      "applicationCount": 178689,
+      "subscribedShares": 500838210,
+      "aggregateCompetitionRate": 834.73035,
+      "equalAllocationShares": 300000,
+      "proportionalAllocationShares": 300000,
+      "proportionalCompetitionRate": 1669.46,
+      "expectedEqualShares": null
+    }
+  },
+  "candidateGeneratedAt": "2026-11-12T15:15:50.214949",
+  "verifiedManualFields": {},
+  "allowedNewNullIssueCodes": [],
+  "phaseNullFieldMap": {},
+  "sourceNullRetailFields": [],
+  "requireEmptyRetailSnapshots": false,
+  "membershipRemovalEvidence": [
+    {
+      "type": "canonical_recent_window_eviction",
+      "path": "ipo_competition_data/recent.json",
+      "id": "진양폴리_2026-03-19",
+      "asOfDate": "2026-11-12",
+      "limit": 60,
+      "referencePath": "ipo_competition_data/recent-alrobot-reference.json",
+      "referenceSha256": "de6ed7cf91dc7cc264eea5dbae00c94076a64c1452029e2df9588e2da9beeb2d"
+    },
+    {
+      "type": "canonical_recent_window_eviction",
+      "path": "ipo_competition_data/recent.json",
+      "id": "엔에이치스팩33호_2026-03-17",
+      "asOfDate": "2026-11-12",
+      "limit": 60,
+      "referencePath": "ipo_competition_data/recent-alrobot-reference.json",
+      "referenceSha256": "de6ed7cf91dc7cc264eea5dbae00c94076a64c1452029e2df9588e2da9beeb2d"
+    },
+    {
+      "type": "canonical_recent_window_eviction",
+      "path": "ipo_competition_data/recent.json",
+      "id": "meju_2026",
+      "asOfDate": "2026-11-12",
+      "limit": 60,
+      "referencePath": "ipo_competition_data/recent-alrobot-reference.json",
+      "referenceSha256": "de6ed7cf91dc7cc264eea5dbae00c94076a64c1452029e2df9588e2da9beeb2d"
+    },
+    {
+      "type": "canonical_recent_window_eviction",
+      "path": "ipo_competition_data/recent.json",
+      "id": "티웨이항공_2026-03-16",
+      "asOfDate": "2026-11-12",
+      "limit": 60,
+      "referencePath": "ipo_competition_data/recent-alrobot-reference.json",
+      "referenceSha256": "de6ed7cf91dc7cc264eea5dbae00c94076a64c1452029e2df9588e2da9beeb2d"
+    }
+  ],
+  "allowedNonTargetRemovals": {
+    "ipo_competition_data/recent.json": [
+      "진양폴리_2026-03-19",
+      "엔에이치스팩33호_2026-03-17",
+      "meju_2026",
+      "티웨이항공_2026-03-16"
+    ]
+  },
+  "assertNotMemberPaths": [],
+  "snapshotDigest": "02eb86e3add9355396ab3fa714da8f3f7b458c3cefe32e4816303d5ff2936690",
+  "feedGeneratedAt": {
+    "ipo_competition_data/recent.json": "2026-11-12T15:15:50.214949"
+  },
+  "allowedNonTargetAdditions": {
+    "ipo_competition_data/recent.json": [
+      "하나에어로다이내믹스_2026-11-10",
+      "옵토닉스_2026-11-05",
+      "영광와이케이엠씨_2026-11-04"
+    ]
+  },
+  "canonicalWindow": {
+    "ipo_competition_data/recent.json": {
+      "generatorPath": "tool/ipo_competition_batch.dart",
+      "generatorSha256": "c5948e6b5a4b537150832fa5eadaf2d73a93a424f8ed5a6efe12155d0598540d",
+      "limit": 60
+    }
+  },
+  "generationExecutionEvidence": {
+    "recordPath": "generation-v5-provenance.json",
+    "recordSha256": "c6e6e11f7d80174164b852633233643709a389e8c8785620da9a1e7947581200"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "Official DART securities issuance report observed 2026-11-12 14:13:15.034–14:13:15.430 KST; raw SHA256 8e24848d7865112e1550a3c53a0b231c7c66afa2c58878b3c62bbd1014959c37. Aggregate competition is reported directly as submitted shares divided by 600,000 general shares; proportional ratio is explicitly stated as 1,669.46:1. expectedEqualShares intentionally null because no guaranteed individual average is reported."
+  ],
+  "snapshots": [
+    {
+      "id": "에이엘로봇_2026-11-06",
+      "company": "에이엘로봇",
+      "capturedAt": "2026-11-12T14:13:15.430+09:00",
+      "source": "dart_official_issuance_results_report",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261111000281&dcmNo=11649528&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+      "sourcePublishedDate": "2026-11-11",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 600000,
+          "subscribedShares": 500838210,
+          "offerPrice": 17600,
+          "applicationCount": 178689,
+          "equalAllocationShares": 300000,
+          "proportionalAllocationShares": 300000,
+          "proportionalCompetitionRate": 1669.46,
+          "expectedEqualShares": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 600000,
+        "subscribedShares": 500838210,
+        "competitionRate": 834.73035,
+        "applicationCount": 178689
+      }
+    }
+  ]
+}

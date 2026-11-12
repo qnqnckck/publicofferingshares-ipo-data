@@ -77,3 +77,13 @@ The v2 candidate on published main (`edb23300b5fa08f5bf9bc1569b697f1e8c1fcbe0`) 
 ## Latest scoped reconciliation — 2026-11-12 Hana active expiry
 
 Hana's official IBK/DART-confirmed window ended 2026-11-11. The 2026-11-12 current DART issuer query binds the newest filing `20261109000166` to its explicit general-investor window, with exact response timestamps and raw hashes in the app run. The generated active feed now excludes this expired row while retaining MBD for its active window. Full audit errors decrease 131→130; unchanged missing/source-review issues remain open. See `doc/2026-11-12-hana-active-expiry-reconciliation.md` and exact manifest `doc/verified-delta-manifests/2026-11-12-hana-active-expiry.json`. Same-candidate Ops #211 and QA #212 approved; scoped gate PASS. Published to main at `1cbcfd234a8cff4fcb5f9aaab9010a3272740892`; immutable raw active-feed SHA matched local. App screen/CDN was not checked.
+
+
+## 2026-11-12 ALRobot verified delta — canonical-window correction pending review
+
+DART securities issuance report `20261111000281` supports ALRobot's planned 2026-11-18 listing and final retail values. The first candidate omitted ALRobot from `recent.json` and failed QA. The second candidate added ALRobot but preserved all 60 old feed entries, creating 61 rows; independent Ops #218 and QA #219 rejected it and it was not published. The current candidate reuses the independently generated canonical 60-row recent membership/order, preserves unchanged historical rows and all detail/history files, adds the four newly eligible window rows (ALRobot, Hana, Optonics, YKMC), and rolls four oldest rows out of `recent.json` only. A fail-closed `canonical_window` manifest contract now checks the fixed 60-row cap, exact generator source hash, canonical order, exact membership additions/removals, added-row equality, and retained-row immutability. Fresh full audits and same-fingerprint Ops/QA approval are required; residual unrelated errors remain open. No push or public parity check has run for this candidate.
+
+
+## ALRobot recent-window producer provenance follow-up — 2026-11-12
+
+The ALRobot planned-listing correction remains unpublished until fresh same-fingerprint Ops and QA approve. Recent-window producer evidence is stored in the app operations run `generation-v5-provenance.json`; the exact record hash is pinned in the candidate manifest and the fail-closed delta validator verifies successful execution, timestamp bounds, generator hash and candidate/reference output hashes. Residual audit errors remain visible and unresolved.
