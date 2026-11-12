@@ -1,0 +1,207 @@
+{
+  "policyVersion": "verified_delta_with_deferred_nulls_v1",
+  "baseHead": "3186104874a2c62b6356bff1f400f3cfd3f40a4a",
+  "target": {
+    "id": "엠비디_2026-11-12",
+    "company": "엠비디",
+    "issuer": "엠비디㈜",
+    "stockCode": "498150",
+    "broker": "하나증권",
+    "date": "2026-11-12"
+  },
+  "allowedChangedPaths": [
+    "data/discovered/ipo_events.json",
+    "data/manual_fundamentals.json",
+    "doc/2026-11-12-mbd-verified-delta.md",
+    "doc/refresh-context.md",
+    "doc/verified-delta-manifests/2026-11-12-mbd.json",
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/stocks/엠비디_2026-11-12.json",
+    "ipo_competition_data/upcoming.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "changedDataPaths": [
+    "data/discovered/ipo_events.json",
+    "data/manual_fundamentals.json",
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/stocks/엠비디_2026-11-12.json",
+    "ipo_competition_data/upcoming.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "canonicalPaths": [
+    "data/discovered/ipo_events.json",
+    "data/manual_fundamentals.json"
+  ],
+  "canonicalEventPath": "data/discovered/ipo_events.json",
+  "canonicalManualPath": "data/manual_fundamentals.json",
+  "feedPaths": [
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/upcoming.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "feedMembership": {
+    "ipo_competition_data/active.json": "one",
+    "ipo_competition_data/dashboard.json": "one",
+    "ipo_competition_data/index.json": "one",
+    "ipo_competition_data/recent.json": "none",
+    "ipo_competition_data/upcoming.json": "none",
+    "ipo_competition_data/yearly/2026.json": "one"
+  },
+  "newMembershipReferencePath": "ipo_competition_data/index.json",
+  "feedParityFields": [
+    "offerPrice",
+    "institutionCompetitionRate",
+    "institutionParticipants",
+    "lockupCommitmentRate",
+    "latestCompetitionRate",
+    "score",
+    "grade",
+    "decisionLevel",
+    "expectedGainRate"
+  ],
+  "allowedStockLeafPointers": [
+    "/analysis/decision/label",
+    "/analysis/decision/level",
+    "/analysis/decision/warnings",
+    "/analysis/expectedReturn/assumptions/generalPriorBase",
+    "/analysis/expectedReturn/assumptions/offerPrice",
+    "/analysis/expectedReturn/assumptions/participantBoost",
+    "/analysis/expectedReturn/baseCaseListingGainRate",
+    "/analysis/expectedReturn/bearCaseListingGainRate",
+    "/analysis/expectedReturn/bullCaseListingGainRate",
+    "/analysis/expectedReturn/expectedAllocatedShares/fiveMillionKrw",
+    "/analysis/expectedReturn/expectedAllocatedShares/oneMillionKrw",
+    "/analysis/expectedReturn/expectedListingGainRate",
+    "/analysis/expectedReturn/expectedProfitKrw/fiveMillionKrw",
+    "/analysis/expectedReturn/expectedProfitKrw/minimumSubscription",
+    "/analysis/expectedReturn/expectedProfitKrw/oneMillionKrw",
+    "/analysis/inputs/demandScore",
+    "/analysis/inputs/hasOfferPrice",
+    "/analysis/inputs/institutionCompetitionRate",
+    "/analysis/inputs/lockupCommitmentRate",
+    "/analysis/score/confidence",
+    "/analysis/score/demand",
+    "/analysis/score/factors/demandStrength",
+    "/analysis/score/factors/institutionDemand",
+    "/analysis/score/factors/pricing",
+    "/analysis/score/grade",
+    "/analysis/score/overall",
+    "/fundamentals/institutionCompetitionRate",
+    "/fundamentals/institutionParticipants",
+    "/fundamentals/lockupCommitmentRate",
+    "/fundamentals/offerPrice",
+    "/fundamentals/topBandConfirmation",
+    "/sourceUrl"
+  ],
+  "allowedCanonicalEventLeafPointers": [
+    "/analysis/inputs/floatRate",
+    "/analysis/score/factors/marketCap",
+    "/fundamentals/institutionCompetitionRate",
+    "/fundamentals/institutionParticipants",
+    "/fundamentals/lockupCommitmentRate",
+    "/fundamentals/offerPrice",
+    "/fundamentals/topBandConfirmation",
+    "/sourceUrl"
+  ],
+  "allowedCanonicalManualLeafPointers": [
+    "/institutionCompetitionRate",
+    "/institutionParticipants",
+    "/lockupCommitmentRate",
+    "/offerPrice",
+    "/topBandConfirmation"
+  ],
+  "allowedFeedLeafPointers": {
+    "ipo_competition_data/active.json": [],
+    "ipo_competition_data/dashboard.json": [
+      "/decisionLevel",
+      "/grade",
+      "/institutionCompetitionRate",
+      "/institutionParticipants",
+      "/lockupCommitmentRate",
+      "/score"
+    ],
+    "ipo_competition_data/index.json": [
+      "/decisionLevel",
+      "/expectedGainRate",
+      "/grade",
+      "/institutionCompetitionRate",
+      "/institutionParticipants",
+      "/lockupCommitmentRate",
+      "/offerPrice",
+      "/score"
+    ],
+    "ipo_competition_data/recent.json": [],
+    "ipo_competition_data/upcoming.json": [],
+    "ipo_competition_data/yearly/2026.json": [
+      "/decisionLevel",
+      "/expectedGainRate",
+      "/grade",
+      "/institutionCompetitionRate",
+      "/institutionParticipants",
+      "/lockupCommitmentRate",
+      "/offerPrice",
+      "/score"
+    ]
+  },
+  "verifiedFields": {
+    "fundamentals.offerPrice": 7000,
+    "fundamentals.topBandConfirmation": false,
+    "fundamentals.institutionCompetitionRate": 187.1,
+    "fundamentals.institutionParticipants": 925,
+    "fundamentals.lockupCommitmentRate": 0.0
+  },
+  "canonicalVerifiedFields": {
+    "fundamentals.offerPrice": 7000,
+    "fundamentals.topBandConfirmation": false,
+    "fundamentals.institutionCompetitionRate": 187.1,
+    "fundamentals.institutionParticipants": 925,
+    "fundamentals.lockupCommitmentRate": 0.0
+  },
+  "verifiedManualFields": {
+    "offerPrice": 7000,
+    "topBandConfirmation": false,
+    "institutionCompetitionRate": 187.1,
+    "institutionParticipants": 925,
+    "lockupCommitmentRate": 0.0
+  },
+  "retainedNullFields": [
+    "fundamentals.marketCapKrw",
+    "listingDate",
+    "outcome",
+    "snapshots.0.applicationCount",
+    "snapshots.0.equalAllocationShares",
+    "snapshots.0.indicativeEqualShares",
+    "snapshots.0.proportionalCompetitionRate",
+    "snapshots.0.proportionalAllocationShares"
+  ],
+  "sourceNullRetailFields": [
+    "observedAtKst",
+    "observedAtUtc",
+    "applicationCount",
+    "equalAllocationShares",
+    "indicativeEqualShares",
+    "proportionalCompetitionRate",
+    "proportionalAllocationShares"
+  ],
+  "requireEmptyRetailSnapshots": true,
+  "expectedSnapshots": [],
+  "allowedNewNullIssueCodes": [
+    "missing_marketCapKrw"
+  ],
+  "phaseNullFieldMap": {
+    "missing_marketCapKrw": "fundamentals.marketCapKrw"
+  },
+  "assertNotMemberPaths": [
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/upcoming.json"
+  ]
+}

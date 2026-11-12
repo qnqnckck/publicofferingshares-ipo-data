@@ -27,13 +27,13 @@
     "하나증권"
   ],
   "fundamentals": {
-    "offerPrice": null,
+    "offerPrice": 7000,
     "priceBandMin": 9600,
     "priceBandMax": 11700,
-    "topBandConfirmation": null,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "topBandConfirmation": false,
+    "institutionCompetitionRate": 187.1,
+    "institutionParticipants": 925,
+    "lockupCommitmentRate": 0.0,
     "floatRate": 0.3406,
     "marketCapKrw": null,
     "publicAllocationShares": 500000,
@@ -45,46 +45,46 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 19,
-      "grade": "-",
-      "confidence": 0.4,
+      "overall": 33,
+      "grade": "C-",
+      "confidence": 0.65,
       "factors": {
-        "institutionDemand": 0,
-        "demandStrength": 0,
+        "institutionDemand": 3,
+        "demandStrength": 1,
         "lockupCommitment": 0,
-        "pricing": 3,
+        "pricing": 10,
         "publicAllocation": 8,
         "leadManagerCoverage": 0
       },
-      "demand": 5,
+      "demand": 23,
       "value": 80,
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.176,
-      "bearCaseListingGainRate": -0.024,
-      "baseCaseListingGainRate": 0.176,
-      "bullCaseListingGainRate": 0.456,
+      "expectedListingGainRate": 0.2792,
+      "bearCaseListingGainRate": 0.0792,
+      "baseCaseListingGainRate": 0.2792,
+      "bullCaseListingGainRate": 0.5592,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.042,
-        "fiveMillionKrw": 0.208
+        "oneMillionKrw": 0.179,
+        "fiveMillionKrw": 0.893
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 66,
-        "oneMillionKrw": 220,
-        "fiveMillionKrw": 1100
+        "minimumSubscription": 24,
+        "oneMillionKrw": 349,
+        "fiveMillionKrw": 1745
       },
       "assumptions": {
-        "offerPrice": null,
+        "offerPrice": 7000,
         "competitionRate": null,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
         "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": -0.004040000000000004,
+        "generalPriorBase": 0.09916000000000001,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
-        "participantBoost": 0.0,
+        "participantBoost": 0.01,
         "topBandBoost": 0.0,
         "scoreBoost": -0.04,
         "competitionPresent": false,
@@ -94,14 +94,12 @@
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "caution",
+      "label": "주의",
       "reasons": [
         "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
-        "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
@@ -111,15 +109,16 @@
       "snapshotCount": 0,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
-      "hasOfferPrice": false,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 187.1,
+      "lockupCommitmentRate": 0.0,
       "floatRate": 0.3406,
       "hasOutcome": false,
       "scoreMode": "general_pre_subscription_demand_value",
-      "demandScore": 5,
+      "demandScore": 23,
       "valueScore": 80
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
-  }
+  },
+  "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261110000261&dcmNo=11647885&eleId=4&offset=941863&length=2962129&dtd=dart4.xsd"
 }

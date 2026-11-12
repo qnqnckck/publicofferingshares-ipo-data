@@ -6,7 +6,7 @@ The user explicitly changed the operating policy: leave unsupported/missing valu
 
 ## Withdrawn IPO removal — 2026-11-12
 
-For an official withdrawal, remove the offering from active canonical inputs, every public feed, and its public stock-detail file. Preserve the exact original canonical event and generated detail (including snapshots) in `data/withdrawn_ipo_events.json`, with official source URL, raw SHA-256, actual response times, Korean language and Asia/Seoul timezone. Validate only with `scripts/check_withdrawn_delta.py` and an exact multi-target manifest; do not weaken or repurpose the single-active-target gate. See `doc/2026-11-12-withdrawn-ipo-dispositions.md`. The C&M/JNTG candidate is local until same-hash operations/QA approval and public parity finish.
+For an official withdrawal, remove the offering from active canonical inputs, every public feed, and its public stock-detail file. Preserve the exact original canonical event and generated detail (including snapshots) in `data/withdrawn_ipo_events.json`, with official source URL, raw SHA-256, actual response times, Korean language and Asia/Seoul timezone. Validate only with `scripts/check_withdrawn_delta.py` and an exact multi-target manifest; do not weaken or repurpose the single-active-target gate. See `doc/2026-11-12-withdrawn-ipo-dispositions.md`. The C&M/JNTG withdrawal delta was published to main at `3186104874a2c62b6356bff1f400f3cfd3f40a4a`; same-hash operations/QA approvals and exact public feed/detail parity passed. Its original events and details remain in the withdrawal ledger.
 
 For the 2026-11-10 Hana delta, see `doc/2026-11-10-verified-delta-policy-and-publication.md` and the exact manifest in `doc/verified-delta-manifests/2026-11-10-hana.json`. Its current KST subscription day membership must be exactly once in `active.json` and absent from `upcoming.json`, matching the canonical index row. Previous task141 validation alone did not publish anything; the present run must still complete this gate and public parity checks.
 
@@ -63,3 +63,8 @@ Publication update: manual scoped push `6c091b6abaad2865ae6ab705b674b52c75d1d2f8
 - Dongwon/Baropharm first-day observations and other dirty data remain local-only. They continue subscriptions November3; do not call November2 observations final.
 - Latest manual run: `doc/2026-11-02-2246-manual-review.md`; supplementary audit had156missing-review errors, NOT156proven wrong numbers. Finuts schedule now passes. Expanded lifecycle audit may expose additional real gaps; do not weaken it to preserve the previous count.
 - Next work: reconcile carried listing corrections (영광 first), obtain primary evidence for missing-field reviews, validate scoped publication and complete remote verification. Do not claim this context-hardening task published the data.
+
+
+## Verified MBD demand delta — 2026-11-12
+
+MBD's corrected DART prospectus supports a KRW 7,000 final offer price, 925 institutional participants, reported institutional competition of 187.10:1 on the 1,500,000-share allocation pool, and no institutional requested-share lockups. Provenance and raw SHA-256 values are in `doc/2026-11-12-mbd-verified-delta.md` and the app run. Market cap remains null because it would be derived, listing date is unannounced, and no retail live snapshots were observed. The target is active for the official 2026-11-12–13 KST subscription dates; the live 10-minute collector remains separately blocked pending official stock-code mapping and roster.
