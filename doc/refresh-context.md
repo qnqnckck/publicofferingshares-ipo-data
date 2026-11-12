@@ -68,3 +68,8 @@ Publication update: manual scoped push `6c091b6abaad2865ae6ab705b674b52c75d1d2f8
 ## Verified MBD demand delta — 2026-11-12
 
 MBD's corrected DART prospectus supports a KRW 7,000 final offer price, 925 institutional participants, reported institutional competition of 187.10:1 on the 1,500,000-share allocation pool, and no institutional requested-share lockups. Provenance and raw SHA-256 values are in `doc/2026-11-12-mbd-verified-delta.md` and the app run. Market cap remains null because it would be derived, listing date is unannounced, and no retail live snapshots were observed. The target is active for the official 2026-11-12–13 KST subscription dates; the live 10-minute collector remains separately blocked pending official stock-code mapping and roster.
+
+
+## 2026-11-12 expired feed membership reconciliation candidate
+
+The v2 candidate on published main (`edb23300b5fa08f5bf9bc1569b697f1e8c1fcbe0`) removes four completed subscriptions from active/upcoming: NexEye and Youngkwang YKMC from active; Optonics and AL.Robot from upcoming. The current issuer-search top filing is joined to its issuer-specific DART issuance-results schedule body; the body dates must match canonical schedule values. Hana Aerodynamic remains because the first candidate incorrectly linked MBD evidence. Raw hashes/timestamps and independent review results are retained in the app run. No canonical event/detail/history or other feed rows are changed; unobserved retail/final allocation fields remain null. The v1 candidate failed Ops and QA and was not published; v2 requires a new fail-closed gate and same-fingerprint Ops/QA passes before publication.

@@ -1,0 +1,320 @@
+{
+  "policyVersion": "verified_delta_with_deferred_nulls_v1",
+  "baseHead": "edb23300b5fa08f5bf9bc1569b697f1e8c1fcbe0",
+  "target": {
+    "id": "엠비디_2026-11-12",
+    "company": "엠비디",
+    "issuer": "엠비디㈜",
+    "stockCode": "498150",
+    "broker": "하나증권",
+    "date": "2026-11-12"
+  },
+  "allowedChangedPaths": [
+    "doc/2026-11-12-expired-feed-membership-cleanup.md",
+    "doc/refresh-context.md",
+    "doc/verified-delta-manifests/2026-11-12-feed-cleanup.json",
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/upcoming.json",
+    "skills/refresh-ipo-monthly-data/scripts/check_verified_delta.py",
+    "skills/refresh-ipo-monthly-data/scripts/test_check_verified_delta.py"
+  ],
+  "changedDataPaths": [
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/upcoming.json"
+  ],
+  "canonicalPaths": [
+    "data/discovered/ipo_events.json",
+    "data/manual_fundamentals.json"
+  ],
+  "canonicalEventPath": "data/discovered/ipo_events.json",
+  "canonicalManualPath": "data/manual_fundamentals.json",
+  "feedPaths": [
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/upcoming.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "feedMembership": {
+    "ipo_competition_data/active.json": "one",
+    "ipo_competition_data/dashboard.json": "one",
+    "ipo_competition_data/index.json": "one",
+    "ipo_competition_data/recent.json": "none",
+    "ipo_competition_data/upcoming.json": "none",
+    "ipo_competition_data/yearly/2026.json": "one"
+  },
+  "newMembershipReferencePath": "ipo_competition_data/index.json",
+  "feedParityFields": [
+    "offerPrice",
+    "institutionCompetitionRate",
+    "institutionParticipants",
+    "lockupCommitmentRate",
+    "latestCompetitionRate",
+    "score",
+    "grade",
+    "decisionLevel",
+    "expectedGainRate"
+  ],
+  "allowedStockLeafPointers": [],
+  "allowedCanonicalEventLeafPointers": [],
+  "allowedCanonicalManualLeafPointers": [],
+  "allowedFeedLeafPointers": {
+    "ipo_competition_data/active.json": [],
+    "ipo_competition_data/dashboard.json": [],
+    "ipo_competition_data/index.json": [],
+    "ipo_competition_data/recent.json": [],
+    "ipo_competition_data/upcoming.json": [],
+    "ipo_competition_data/yearly/2026.json": []
+  },
+  "verifiedFields": {
+    "fundamentals.offerPrice": 7000,
+    "fundamentals.topBandConfirmation": false,
+    "fundamentals.institutionCompetitionRate": 187.1,
+    "fundamentals.institutionParticipants": 925,
+    "fundamentals.lockupCommitmentRate": 0.0
+  },
+  "canonicalVerifiedFields": {
+    "fundamentals.offerPrice": 7000,
+    "fundamentals.topBandConfirmation": false,
+    "fundamentals.institutionCompetitionRate": 187.1,
+    "fundamentals.institutionParticipants": 925,
+    "fundamentals.lockupCommitmentRate": 0.0
+  },
+  "verifiedManualFields": {
+    "offerPrice": 7000,
+    "topBandConfirmation": false,
+    "institutionCompetitionRate": 187.1,
+    "institutionParticipants": 925,
+    "lockupCommitmentRate": 0.0
+  },
+  "retainedNullFields": [
+    "fundamentals.marketCapKrw",
+    "listingDate",
+    "outcome",
+    "snapshots.0.applicationCount",
+    "snapshots.0.equalAllocationShares",
+    "snapshots.0.indicativeEqualShares",
+    "snapshots.0.proportionalCompetitionRate",
+    "snapshots.0.proportionalAllocationShares"
+  ],
+  "sourceNullRetailFields": [
+    "observedAtKst",
+    "observedAtUtc",
+    "applicationCount",
+    "equalAllocationShares",
+    "indicativeEqualShares",
+    "proportionalCompetitionRate",
+    "proportionalAllocationShares"
+  ],
+  "requireEmptyRetailSnapshots": true,
+  "expectedSnapshots": [],
+  "allowedNewNullIssueCodes": [
+    "missing_marketCapKrw"
+  ],
+  "phaseNullFieldMap": {
+    "missing_marketCapKrw": "fundamentals.marketCapKrw"
+  },
+  "assertNotMemberPaths": [
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/upcoming.json"
+  ],
+  "feedGeneratedAt": {
+    "ipo_competition_data/active.json": "2026-11-12T10:04:16.074061",
+    "ipo_competition_data/upcoming.json": "2026-11-12T10:04:16.074061"
+  },
+  "allowedNonTargetRemovals": {
+    "ipo_competition_data/active.json": [
+      "넥스아이_2026-11-03",
+      "영광와이케이엠씨_2026-11-04"
+    ],
+    "ipo_competition_data/upcoming.json": [
+      "옵토닉스_2026-11-05",
+      "에이엘로봇_2026-11-06"
+    ]
+  },
+  "membershipAsOfDate": "2026-11-12",
+  "membershipRemovalEvidence": [
+    {
+      "path": "ipo_competition_data/active.json",
+      "id": "넥스아이_2026-11-03",
+      "issuer": "넥스아이",
+      "asOfDate": "2026-11-12",
+      "sourceObservationAsOfDate": "2026-11-12",
+      "subscriptionStart": "2026-11-03",
+      "subscriptionEnd": "2026-11-04",
+      "eligibility": "active_end_before_as_of",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260928000260",
+      "observedUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261106000215&dcmNo=11644758&eleId=5&offset=6821&length=114138&dtd=dart4.xsd",
+      "httpStatus": 200,
+      "requestStartedAtKst": "2026-11-12T09:57:52.058118+09:00",
+      "responseCompletedAtKst": "2026-11-12T09:57:52.203693+09:00",
+      "rawFile": "raw/issuance_넥스아이_2026-11-03.html",
+      "rawSha256": "9d42c844e9ca2645e042b1c0368babf4fda15b3c1d85a7a25317dd3cf0aba303",
+      "bytes": 87034,
+      "latestFilingSearch": {
+        "url": "https://dart.fss.or.kr/dsab001/search.ax?textCrpNm=%EB%84%A5%EC%8A%A4%EC%95%84%EC%9D%B4",
+        "httpStatus": 200,
+        "requestStartedAtKst": "2026-11-12T09:49:38.281872+09:00",
+        "responseCompletedAtKst": "2026-11-12T09:49:38.394115+09:00",
+        "rawSha256": "506e83d09873156e6c573354b2c9dd325c5fd354ac9c430f0a070c534b784179",
+        "bytes": 9370,
+        "rawFile": "raw/search_넥스아이_2026-11-03.html",
+        "latestRcpNo": "20261106000215",
+        "latestFilingDate": "2026.11.06",
+        "latestFilingTitle": "증권발행실적보고서",
+        "issuer": "넥스아이"
+      },
+      "latestScheduleReport": {
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261106000215&dcmNo=11644758&eleId=5&offset=6821&length=114138&dtd=dart4.xsd",
+        "httpStatus": 200,
+        "requestStartedAtKst": "2026-11-12T09:57:52.058118+09:00",
+        "responseCompletedAtKst": "2026-11-12T09:57:52.203693+09:00",
+        "rawFile": "raw/issuance_넥스아이_2026-11-03.html",
+        "rawSha256": "9d42c844e9ca2645e042b1c0368babf4fda15b3c1d85a7a25317dd3cf0aba303",
+        "bytes": 87034,
+        "issuer": "넥스아이",
+        "reportTitle": "증권발행실적보고서",
+        "rcpNo": "20261106000215",
+        "subscriptionStart": "2026-11-03",
+        "subscriptionEnd": "2026-11-04"
+      }
+    },
+    {
+      "path": "ipo_competition_data/active.json",
+      "id": "영광와이케이엠씨_2026-11-04",
+      "issuer": "영광와이케이엠씨",
+      "asOfDate": "2026-11-12",
+      "sourceObservationAsOfDate": "2026-11-12",
+      "subscriptionStart": "2026-11-04",
+      "subscriptionEnd": "2026-11-05",
+      "eligibility": "active_end_before_as_of",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261008000649",
+      "observedUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261109000183&dcmNo=11646270&eleId=5&offset=6857&length=148670&dtd=dart4.xsd",
+      "httpStatus": 200,
+      "requestStartedAtKst": "2026-11-12T09:57:52.630438+09:00",
+      "responseCompletedAtKst": "2026-11-12T09:57:52.756371+09:00",
+      "rawFile": "raw/issuance_영광와이케이엠씨_2026-11-04.html",
+      "rawSha256": "9241a33d19d6ec66a844276162f723dce8418b0f06e88cae206bd06b6eb152b1",
+      "bytes": 162069,
+      "latestFilingSearch": {
+        "url": "https://dart.fss.or.kr/dsab001/search.ax?textCrpNm=%EC%98%81%EA%B4%91%EC%99%80%EC%9D%B4%EC%BC%80%EC%9D%B4%EC%97%A0%EC%94%A8",
+        "httpStatus": 200,
+        "requestStartedAtKst": "2026-11-12T09:49:38.395295+09:00",
+        "responseCompletedAtKst": "2026-11-12T09:49:38.508034+09:00",
+        "rawSha256": "7310a9038c685a8d79a9d1e687aa3f28a5c73c894f1f0f78f78d96739f484fef",
+        "bytes": 9647,
+        "rawFile": "raw/search_영광와이케이엠씨_2026-11-04.html",
+        "latestRcpNo": "20261109000183",
+        "latestFilingDate": "2026.11.09",
+        "latestFilingTitle": "증권발행실적보고서",
+        "issuer": "영광와이케이엠씨"
+      },
+      "latestScheduleReport": {
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261109000183&dcmNo=11646270&eleId=5&offset=6857&length=148670&dtd=dart4.xsd",
+        "httpStatus": 200,
+        "requestStartedAtKst": "2026-11-12T09:57:52.630438+09:00",
+        "responseCompletedAtKst": "2026-11-12T09:57:52.756371+09:00",
+        "rawFile": "raw/issuance_영광와이케이엠씨_2026-11-04.html",
+        "rawSha256": "9241a33d19d6ec66a844276162f723dce8418b0f06e88cae206bd06b6eb152b1",
+        "bytes": 162069,
+        "issuer": "영광와이케이엠씨",
+        "reportTitle": "증권발행실적보고서",
+        "rcpNo": "20261109000183",
+        "subscriptionStart": "2026-11-04",
+        "subscriptionEnd": "2026-11-05"
+      }
+    },
+    {
+      "path": "ipo_competition_data/upcoming.json",
+      "id": "옵토닉스_2026-11-05",
+      "issuer": "옵토닉스",
+      "asOfDate": "2026-11-12",
+      "sourceObservationAsOfDate": "2026-11-12",
+      "subscriptionStart": "2026-11-05",
+      "subscriptionEnd": "2026-11-06",
+      "eligibility": "upcoming_start_not_after_as_of",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260929000347",
+      "observedUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261110000258&dcmNo=11647869&eleId=5&offset=6556&length=136284&dtd=dart4.xsd",
+      "httpStatus": 200,
+      "requestStartedAtKst": "2026-11-12T09:57:53.194306+09:00",
+      "responseCompletedAtKst": "2026-11-12T09:57:53.345448+09:00",
+      "rawFile": "raw/issuance_옵토닉스_2026-11-05.html",
+      "rawSha256": "d98f6edc8d86393b0c9e52653a83e3e907ab4fae331fe01c939da2d5df91c3d2",
+      "bytes": 112757,
+      "latestFilingSearch": {
+        "url": "https://dart.fss.or.kr/dsab001/search.ax?textCrpNm=%EC%98%B5%ED%86%A0%EB%8B%89%EC%8A%A4",
+        "httpStatus": 200,
+        "requestStartedAtKst": "2026-11-12T09:49:38.508524+09:00",
+        "responseCompletedAtKst": "2026-11-12T09:49:38.627318+09:00",
+        "rawSha256": "087f58b54acfbaa94e58355ba1c7c887b40441f0466adddb37711890715efba5",
+        "bytes": 10377,
+        "rawFile": "raw/search_옵토닉스_2026-11-05.html",
+        "latestRcpNo": "20261110000258",
+        "latestFilingDate": "2026.11.10",
+        "latestFilingTitle": "증권발행실적보고서",
+        "issuer": "옵토닉스"
+      },
+      "latestScheduleReport": {
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261110000258&dcmNo=11647869&eleId=5&offset=6556&length=136284&dtd=dart4.xsd",
+        "httpStatus": 200,
+        "requestStartedAtKst": "2026-11-12T09:57:53.194306+09:00",
+        "responseCompletedAtKst": "2026-11-12T09:57:53.345448+09:00",
+        "rawFile": "raw/issuance_옵토닉스_2026-11-05.html",
+        "rawSha256": "d98f6edc8d86393b0c9e52653a83e3e907ab4fae331fe01c939da2d5df91c3d2",
+        "bytes": 112757,
+        "issuer": "옵토닉스",
+        "reportTitle": "증권발행실적보고서",
+        "rcpNo": "20261110000258",
+        "subscriptionStart": "2026-11-05",
+        "subscriptionEnd": "2026-11-06"
+      }
+    },
+    {
+      "path": "ipo_competition_data/upcoming.json",
+      "id": "에이엘로봇_2026-11-06",
+      "issuer": "에이엘로봇",
+      "asOfDate": "2026-11-12",
+      "sourceObservationAsOfDate": "2026-11-12",
+      "subscriptionStart": "2026-11-06",
+      "subscriptionEnd": "2026-11-09",
+      "eligibility": "upcoming_start_not_after_as_of",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261012000490",
+      "observedUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261111000281&dcmNo=11649528&eleId=5&offset=7193&length=150056&dtd=dart4.xsd",
+      "httpStatus": 200,
+      "requestStartedAtKst": "2026-11-12T09:57:53.805740+09:00",
+      "responseCompletedAtKst": "2026-11-12T09:57:53.959049+09:00",
+      "rawFile": "raw/issuance_에이엘로봇_2026-11-06.html",
+      "rawSha256": "bf3ee8678a0dd61ee74437f43ab60c0b365ffe2cd4a37c44255ed692d997a3bf",
+      "bytes": 129808,
+      "latestFilingSearch": {
+        "url": "https://dart.fss.or.kr/dsab001/search.ax?textCrpNm=%EC%97%90%EC%9D%B4%EC%97%98%EB%A1%9C%EB%B4%87",
+        "httpStatus": 200,
+        "requestStartedAtKst": "2026-11-12T09:49:38.627972+09:00",
+        "responseCompletedAtKst": "2026-11-12T09:49:40.476182+09:00",
+        "rawSha256": "09fd44c47e4a5ff011d758df8ddbae967efb92dc45cb7374dfdfffb99f8d23f1",
+        "bytes": 10777,
+        "rawFile": "raw/search_에이엘로봇_2026-11-06.html",
+        "latestRcpNo": "20261111000281",
+        "latestFilingDate": "2026.11.11",
+        "latestFilingTitle": "증권발행실적보고서",
+        "issuer": "에이엘로봇"
+      },
+      "latestScheduleReport": {
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261111000281&dcmNo=11649528&eleId=5&offset=7193&length=150056&dtd=dart4.xsd",
+        "httpStatus": 200,
+        "requestStartedAtKst": "2026-11-12T09:57:53.805740+09:00",
+        "responseCompletedAtKst": "2026-11-12T09:57:53.959049+09:00",
+        "rawFile": "raw/issuance_에이엘로봇_2026-11-06.html",
+        "rawSha256": "bf3ee8678a0dd61ee74437f43ab60c0b365ffe2cd4a37c44255ed692d997a3bf",
+        "bytes": 129808,
+        "issuer": "에이엘로봇",
+        "reportTitle": "증권발행실적보고서",
+        "rcpNo": "20261111000281",
+        "subscriptionStart": "2026-11-06",
+        "subscriptionEnd": "2026-11-09"
+      }
+    }
+  ],
+  "manifestPurpose": "expire already-ended public feed memberships only; preserve canonical events, public details, historical observations, all other feed rows and event fields"
+}

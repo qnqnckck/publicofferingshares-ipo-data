@@ -7,6 +7,7 @@ unexpected file changes, bad provenance, or feed drift.
 """
 import argparse
 from datetime import datetime
+from html.parser import HTMLParser
 import hashlib
 import json
 import math
@@ -14,7 +15,7 @@ from pathlib import Path, PurePosixPath
 import re
 import subprocess
 import sys
-from urllib.parse import urlparse
+from urllib.parse import urlparse, parse_qs
 
 
 def read_json(path):
@@ -87,6 +88,71 @@ def rows(data):
     raise ValueError("feed must be a list or an object with a stocks list")
 
 
+def exact_feed_removal_result(old_rows, new_rows, removal_ids):
+    """Check that a feed differs only by explicitly declared row removals."""
+    ids = list(removal_ids)
+    if len(ids) != len(set(ids)):
+        return False, "duplicate declared removal id"
+    old_ids = [row.get("id") for row in old_rows]
+    new_ids = [row.get("id") for row in new_rows]
+    for item_id in ids:
+        if old_ids.count(item_id) != 1:
+            return False, f"removed id must occur exactly once in base: {item_id}"
+        if item_id in new_ids:
+            return False, f"removed id remains in candidate: {item_id}"
+    expected = [row for row in old_rows if row.get("id") not in set(ids)]
+    if new_rows != expected:
+        return False, "candidate rows differ beyond declared removals"
+    return True, ""
+
+
+def latest_dart_search_filing(html_text):
+    """Read the first filing row shown by DART's descending issuer search."""
+    for row in re.findall(r"<tr\b[^>]*>(.*?)</tr>", html_text, re.S | re.I):
+        rcp = re.search(r"openReportViewer\('([^']+)'", row)
+        if not rcp:
+            continue
+        date_tokens = re.findall(r"<td[^>]*>\s*(20\d{2}\.\d{2}\.\d{2})\s*</td>", row, re.S | re.I)
+        anchor = re.search(r"openReportViewer\('[^']+'[^>]*>(.*?)</a>", row, re.S | re.I)
+        if not date_tokens or not anchor:
+            return None
+        title = re.sub(r"<[^>]+>", " ", anchor.group(1))
+        title = re.sub(r"\s+", " ", title).strip()
+        return {"rcpNo": rcp.group(1), "filingDate": date_tokens[0], "title": title}
+    return None
+
+
+def dart_document_text(html_text):
+    class TextOnly(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.parts = []
+
+        def handle_data(self, data):
+            self.parts.append(data)
+
+    parser = TextOnly()
+    parser.feed(html_text)
+    return re.sub(r"\s+", " ", " ".join(parser.parts)).strip()
+
+
+def dart_subscription_dates(html_text):
+    text = dart_document_text(html_text)
+    date = r"(?:20\d{2}\s*년\s*\d{1,2}\s*월\s*\d{1,2}\s*일|20\d{2}\.\d{1,2}\.\d{1,2})"
+    match = re.search(
+        rf"청약개시일\s*청약종료일\s*납입기일\s*코스닥시장\s*공모\s*({date})\s*({date})",
+        text,
+    )
+    if not match:
+        return None
+
+    def iso(value):
+        digits = re.findall(r"\d+", value)
+        return f"{int(digits[0]):04d}-{int(digits[1]):02d}-{int(digits[2]):02d}"
+
+    return iso(match.group(1)), iso(match.group(2))
+
+
 def changed_leaf_paths(before, after, prefix=""):
     """Return changed JSON-pointer leaves, including additions/removals."""
     if isinstance(before, dict) and isinstance(after, dict):
@@ -144,6 +210,7 @@ def feed_value(stock, field):
 def check(repo, manifest_path, source_record_path, source_root,
           baseline_phase, candidate_phase, baseline_completeness, candidate_completeness):
     repo = Path(repo).resolve()
+    source_root = Path(source_root).resolve()
     manifest = read_json(manifest_path)
     failures, notes = [], []
     base = manifest["baseHead"]
@@ -216,6 +283,9 @@ def check(repo, manifest_path, source_record_path, source_root,
         except ValueError as exc:
             failures.append(f"invalid feed structure {path}: {exc}")
             continue
+        expected_generated_at = manifest.get("feedGeneratedAt", {}).get(path)
+        if expected_generated_at and new_data.get("generatedAt") != expected_generated_at:
+            failures.append(f"feed generatedAt differs from recorded actual generation time: {path}")
         new_target = [x for x in new_rows if x.get("id") == target]
         old_target = [x for x in old_rows if x.get("id") == target]
         membership = manifest["feedMembership"].get(path, "preserve")
@@ -225,18 +295,26 @@ def check(repo, manifest_path, source_record_path, source_root,
             failures.append(f"target must not occur in {path}")
         if membership == "preserve" and len(new_target) != len(old_target):
             failures.append(f"target membership changed unexpectedly in {path}")
-        if [x for x in new_rows if x.get("id") != target] != [x for x in old_rows if x.get("id") != target]:
-            failures.append(f"non-target feed rows changed in {path}")
-        if membership == "one" and not old_target and len(new_target) == 1:
+        removal_ids = manifest.get("allowedNonTargetRemovals", {}).get(path, [])
+        if any(item_id == target for item_id in removal_ids):
+            failures.append(f"target id cannot be declared as a non-target removal in {path}")
+        exact, reason = exact_feed_removal_result(
+            [x for x in old_rows if x.get("id") != target],
+            [x for x in new_rows if x.get("id") != target],
+            removal_ids,
+        )
+        if not exact:
+            failures.append(f"non-target feed scope mismatch in {path}: {reason}")
+        if membership == "one":
             reference_path = manifest.get("newMembershipReferencePath")
             if not reference_path:
-                failures.append(f"new target membership lacks a declared reference row: {path}")
+                failures.append(f"target membership lacks a declared reference row: {path}")
             else:
                 reference_data = read_json(repo / reference_path)
                 reference_rows = rows(reference_data)
                 reference_target = [x for x in reference_rows if x.get("id") == target]
                 if len(reference_target) != 1 or new_target[0] != reference_target[0]:
-                    failures.append(f"new target feed row must exactly match the declared canonical feed row: {path}")
+                    failures.append(f"target feed row must exactly match the declared canonical feed row: {path}")
         for row in new_target:
             if row.get("path") != f"stocks/{target}.json":
                 failures.append(f"bad target path in {path}")
@@ -248,6 +326,168 @@ def check(repo, manifest_path, source_record_path, source_root,
             expected_feed_fields = set(manifest.get("allowedFeedLeafPointers", {}).get(path, []))
             if actual_feed_fields != expected_feed_fields:
                 failures.append(f"target feed field scope mismatch in {path}; unexpected={sorted(actual_feed_fields-expected_feed_fields)}, missing={sorted(expected_feed_fields-actual_feed_fields)}")
+
+    declared_removals = {
+        (path, item_id)
+        for path, ids in manifest.get("allowedNonTargetRemovals", {}).items()
+        for item_id in ids
+    }
+    evidence_removals = set()
+    as_of = manifest.get("membershipAsOfDate")
+    for evidence in manifest.get("membershipRemovalEvidence", []):
+        path, item_id = evidence.get("path"), evidence.get("id")
+        evidence_removals.add((path, item_id))
+        if path not in manifest.get("feedPaths", []):
+            failures.append(f"membership removal evidence names a non-feed path: {path}")
+            continue
+        old_feed = base_json(repo, base, path)
+        try:
+            old_rows = rows(old_feed) if old_feed is not None else []
+        except ValueError:
+            old_rows = []
+        old_matches = [x for x in old_rows if x.get("id") == item_id]
+        if len(old_matches) != 1:
+            failures.append(f"membership removal base row missing or duplicated: {path}/{item_id}")
+            continue
+        base_event_doc = base_json(repo, base, manifest["canonicalEventPath"])
+        event = locate_event(base_event_doc, item_id) if base_event_doc is not None else None
+        removed_stock = base_json(repo, base, f"ipo_competition_data/stocks/{item_id}.json")
+        if not event or not removed_stock:
+            failures.append(f"membership removal lacks canonical event/detail evidence: {item_id}")
+            continue
+        row = old_matches[0]
+        start, end = event.get("subscriptionStart"), event.get("subscriptionEnd")
+        normalize_issuer = lambda value: re.sub(r"[\s㈜()（）.,·]", "", str(value or ""))
+        if (normalize_issuer(evidence.get("issuer")) != normalize_issuer(event.get("company"))
+                or normalize_issuer(evidence.get("issuer")) != normalize_issuer(removed_stock.get("company"))):
+            failures.append(f"membership removal source issuer does not match canonical event/detail: {item_id}")
+        expected_start, expected_end = evidence.get("subscriptionStart"), evidence.get("subscriptionEnd")
+        if (start, end) != (expected_start, expected_end):
+            failures.append(f"membership removal schedule differs from canonical event: {item_id}")
+        if (row.get("subscriptionStart"), row.get("subscriptionEnd")) != (start, end):
+            failures.append(f"membership removal schedule differs from feed row: {item_id}")
+        if (removed_stock.get("subscriptionStart"), removed_stock.get("subscriptionEnd")) != (start, end):
+            failures.append(f"membership removal schedule differs from stock detail: {item_id}")
+        source_url = event.get("sourceUrl")
+        if source_url != evidence.get("sourceUrl") or not source_url.startswith("https://"):
+            failures.append(f"membership removal source URL mismatch: {item_id}")
+        observed_url = urlparse(evidence.get("observedUrl", ""))
+        raw_rel = PurePosixPath(evidence.get("rawFile", ""))
+        raw_path = (source_root / Path(*raw_rel.parts)).resolve()
+        if observed_url.scheme != "https" or not observed_url.netloc or evidence.get("httpStatus") != 200:
+            failures.append(f"membership removal source fetch is not successful HTTPS: {item_id}")
+        if ".." in raw_rel.parts or source_root not in raw_path.parents:
+            failures.append(f"unsafe membership removal raw path: {item_id}")
+        elif not raw_path.is_file() or sha256(raw_path) != evidence.get("rawSha256"):
+            failures.append(f"membership removal raw hash mismatch: {item_id}")
+        stamps = []
+        for stamp in ("requestStartedAtKst", "responseCompletedAtKst"):
+            try:
+                value = datetime.fromisoformat(evidence[stamp])
+                if value.utcoffset() is None:
+                    raise ValueError()
+                stamps.append(value)
+            except (KeyError, TypeError, ValueError):
+                failures.append(f"membership removal source timestamp/timezone missing: {item_id}/{stamp}")
+        if len(stamps) == 2 and stamps[1] < stamps[0]:
+            failures.append(f"membership removal source timestamps are reversed: {item_id}")
+        if evidence.get("httpStatus") != 200 or evidence.get("bytes", 0) <= 0:
+            failures.append(f"membership removal source response is empty or unsuccessful: {item_id}")
+        if evidence.get("asOfDate") != as_of or not as_of:
+            failures.append(f"membership removal as-of date mismatch: {item_id}")
+        try:
+            from datetime import date
+            date.fromisoformat(as_of)
+            start_date = date.fromisoformat(start)
+            end_date = date.fromisoformat(end)
+            eligible = end_date < date.fromisoformat(as_of) if path.endswith("active.json") else start_date <= date.fromisoformat(as_of)
+            if not eligible:
+                failures.append(f"membership removal is not time-eligible for {path}: {item_id}")
+        except (TypeError, ValueError):
+            failures.append(f"membership removal has invalid date: {item_id}")
+        latest = evidence.get("latestFilingSearch")
+        if not isinstance(latest, dict):
+            failures.append(f"membership removal lacks current DART filing-search evidence: {item_id}")
+            continue
+        search_url = urlparse(latest.get("url", ""))
+        search_rel = PurePosixPath(latest.get("rawFile", ""))
+        search_path = (source_root / Path(*search_rel.parts)).resolve()
+        if search_url.scheme != "https" or search_url.netloc != "dart.fss.or.kr" or not search_url.path.endswith("/dsab001/search.ax") or latest.get("httpStatus") != 200:
+            failures.append(f"current DART filing-search source is not successful official HTTPS: {item_id}")
+        search_issuer = (parse_qs(search_url.query).get("textCrpNm") or [None])[0]
+        if (normalize_issuer(latest.get("issuer")) != normalize_issuer(event.get("company"))
+                or normalize_issuer(search_issuer) != normalize_issuer(event.get("company"))):
+            failures.append(f"current DART filing-search issuer/query does not match canonical event: {item_id}")
+        search_path_safe = ".." not in search_rel.parts and source_root in search_path.parents
+        if not search_path_safe:
+            failures.append(f"unsafe current DART filing-search raw path: {item_id}")
+        elif not search_path.is_file() or sha256(search_path) != latest.get("rawSha256"):
+            failures.append(f"current DART filing-search raw hash mismatch: {item_id}")
+        search_stamps = []
+        for stamp in ("requestStartedAtKst", "responseCompletedAtKst"):
+            try:
+                value = datetime.fromisoformat(latest[stamp])
+                if value.utcoffset() is None:
+                    raise ValueError()
+                search_stamps.append(value)
+            except (KeyError, TypeError, ValueError):
+                failures.append(f"current DART filing-search timestamp/timezone missing: {item_id}/{stamp}")
+        if len(search_stamps) == 2 and search_stamps[1] < search_stamps[0]:
+            failures.append(f"current DART filing-search timestamps are reversed: {item_id}")
+        try:
+            newest_date = datetime.strptime(latest.get("latestFilingDate", ""), "%Y.%m.%d").date()
+            cutoff_date = datetime.fromisoformat(as_of).date()
+            if newest_date > cutoff_date:
+                failures.append(f"current DART newest filing date is after membership as-of date: {item_id}")
+        except (TypeError, ValueError):
+            failures.append(f"current DART newest filing date is invalid: {item_id}")
+        if search_path_safe and search_path.is_file() and sha256(search_path) == latest.get("rawSha256"):
+            parsed = latest_dart_search_filing(search_path.read_text(encoding="utf-8", errors="replace"))
+            declared = {"rcpNo": latest.get("latestRcpNo"), "filingDate": latest.get("latestFilingDate"), "title": latest.get("latestFilingTitle")}
+            if parsed != declared:
+                failures.append(f"current DART newest filing does not match captured search result: {item_id}")
+        schedule_report = evidence.get("latestScheduleReport")
+        if not isinstance(schedule_report, dict):
+            failures.append(f"membership removal lacks issuer-bound latest schedule report: {item_id}")
+            continue
+        report_url = urlparse(schedule_report.get("url", ""))
+        report_query = parse_qs(report_url.query)
+        report_rel = PurePosixPath(schedule_report.get("rawFile", ""))
+        report_path = (source_root / Path(*report_rel.parts)).resolve()
+        if (report_url.scheme != "https" or report_url.netloc != "dart.fss.or.kr"
+                or report_url.path != "/report/viewer.do" or schedule_report.get("httpStatus") != 200):
+            failures.append(f"latest schedule report is not a successful official DART report: {item_id}")
+        if (schedule_report.get("issuer") is None
+                or normalize_issuer(schedule_report.get("issuer")) != normalize_issuer(event.get("company"))
+                or normalize_issuer(schedule_report.get("issuer")) != normalize_issuer(removed_stock.get("company"))):
+            failures.append(f"latest schedule report issuer does not match canonical event/detail: {item_id}")
+        if (schedule_report.get("reportTitle") != "증권발행실적보고서"
+                or schedule_report.get("rcpNo") != latest.get("latestRcpNo")
+                or (report_query.get("rcpNo") or [None])[0] != latest.get("latestRcpNo")):
+            failures.append(f"latest schedule report is not the exact newest issuer filing: {item_id}")
+        if ".." in report_rel.parts or source_root not in report_path.parents:
+            failures.append(f"unsafe latest schedule report raw path: {item_id}")
+        elif not report_path.is_file() or sha256(report_path) != schedule_report.get("rawSha256"):
+            failures.append(f"latest schedule report raw hash mismatch: {item_id}")
+        report_stamps = []
+        for stamp in ("requestStartedAtKst", "responseCompletedAtKst"):
+            try:
+                value = datetime.fromisoformat(schedule_report[stamp])
+                if value.utcoffset() is None:
+                    raise ValueError()
+                report_stamps.append(value)
+            except (KeyError, TypeError, ValueError):
+                failures.append(f"latest schedule report timestamp/timezone missing: {item_id}/{stamp}")
+        if len(report_stamps) == 2 and report_stamps[1] < report_stamps[0]:
+            failures.append(f"latest schedule report timestamps are reversed: {item_id}")
+        if report_path.is_file() and sha256(report_path) == schedule_report.get("rawSha256"):
+            observed_schedule = dart_subscription_dates(report_path.read_text(encoding="utf-8", errors="replace"))
+            expected_schedule = (start, end)
+            declared_schedule = (schedule_report.get("subscriptionStart"), schedule_report.get("subscriptionEnd"))
+            if observed_schedule != expected_schedule or declared_schedule != expected_schedule:
+                failures.append(f"latest issuer report schedule does not match canonical event/feed dates: {item_id}")
+    if declared_removals != evidence_removals:
+        failures.append("declared membership removals and evidence records differ")
 
     event_path = repo / manifest["canonicalEventPath"]
     event = locate_event(read_json(event_path), target)
@@ -299,7 +539,6 @@ def check(repo, manifest_path, source_record_path, source_root,
             failures.append(f"source record has an unexpected retail value: {field}")
     if stock.get("snapshots", []) != [] and manifest.get("requireEmptyRetailSnapshots", False):
         failures.append("retail snapshots must remain empty when no live source values were observed")
-    source_root = Path(source_root).resolve()
     for name, source in source_record.get("sources", {}).items():
         url = urlparse(source.get("url", ""))
         raw_rel = PurePosixPath(source.get("rawFile", ""))
