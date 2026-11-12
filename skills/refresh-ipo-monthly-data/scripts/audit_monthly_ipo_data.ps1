@@ -178,10 +178,14 @@ foreach ($event in $events) {
     if ((Has-Value $fundamentals.floatRate) -and ([double]$fundamentals.floatRate -lt 0 -or [double]$fundamentals.floatRate -gt 1)) { Add-Issue "ERROR" "float_range" "$id floatRate must be a fraction from 0 to 1." }
 
     if ($null -ne $subscriptionEnd -and $now -gt $subscriptionEnd) {
-        $latest = @($stock.snapshots | Sort-Object capturedAt | Select-Object -Last 1)
-        if ($latest.Count -eq 0 -or -not (Has-Value $latest[0].aggregate.competitionRate)) { Add-Issue "ERROR" "retail_competition" "$id has no final aggregate retail competition after subscription close." }
+        # A broker-specific observation can be newer than the official aggregate
+        # snapshot and legitimately omit aggregate fields. Audit the latest
+        # snapshot that actually carries the aggregate instead of treating a
+        # partial newer broker observation as a missing aggregate.
+        $latestAggregate = @($stock.snapshots | Where-Object { Has-Value $_.aggregate.competitionRate } | Sort-Object capturedAt | Select-Object -Last 1)
+        if ($latestAggregate.Count -eq 0) { Add-Issue "ERROR" "retail_competition" "$id has no final aggregate retail competition after subscription close." }
         else {
-            $brokers = @($latest[0].brokers)
+            $brokers = @($latestAggregate[0].brokers)
             if ($brokers.Count -eq 0) { Add-Issue "ERROR" "broker_snapshot" "$id has no broker rows after subscription close." }
             foreach ($broker in $brokers) {
                 if (-not (Has-Value $broker.applicationCount)) { Add-Issue "WARNING" "application_count" "$id/$($broker.name) has no application count." }

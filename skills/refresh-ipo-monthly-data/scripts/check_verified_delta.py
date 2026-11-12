@@ -33,9 +33,17 @@ def sha256(path):
 def at(obj, dotted):
     value = obj
     for key in dotted.split("."):
-        if not isinstance(value, dict) or key not in value:
+        if isinstance(value, dict):
+            if key not in value:
+                return None
+            value = value[key]
+        elif isinstance(value, list) and key.isdecimal():
+            index = int(key)
+            if index >= len(value):
+                return None
+            value = value[index]
+        else:
             return None
-        value = value[key]
     return value
 
 
@@ -43,9 +51,11 @@ def set_issue_signature(issue):
     return tuple(str(issue.get(k, "")) for k in ("code", "eventId", "field", "detail", "severity"))
 
 
-def permitted_null_issue(event_id, target, code, field, allowed_codes, allowed_fields, stock):
-    return (event_id == target and code in allowed_codes and field in allowed_fields
-            and at(stock, field) is None)
+def permitted_null_issue(event_id, target, code, field, allowed_codes, allowed_fields, stock, field_map=None):
+    resolved_field = (field_map or {}).get(field, field)
+    return (event_id == target and code in allowed_codes and
+            (field in allowed_fields or resolved_field in allowed_fields)
+            and at(stock, resolved_field) is None)
 
 
 def issue_additions(baseline, candidate):
@@ -209,13 +219,20 @@ def feed_value(stock, field):
         "institutionCompetitionRate": "fundamentals.institutionCompetitionRate",
         "institutionParticipants": "fundamentals.institutionParticipants",
         "lockupCommitmentRate": "fundamentals.lockupCommitmentRate",
-        "latestCompetitionRate": "snapshots.0.competitionRate",
+        "latestCompetitionRate": "latestAggregateSnapshot.aggregate.competitionRate",
         "score": "analysis.score.overall",
         "grade": "analysis.score.grade",
         "decisionLevel": "analysis.decision.level",
         "expectedGainRate": "analysis.expectedReturn.expectedListingGainRate",
     }
     dotted = mapping.get(field, field)
+    if field == "latestCompetitionRate":
+        snapshots = stock.get("snapshots", [])
+        for snapshot in reversed(snapshots if isinstance(snapshots, list) else []):
+            aggregate = snapshot.get("aggregate") if isinstance(snapshot, dict) else None
+            if isinstance(aggregate, dict) and aggregate.get("competitionRate") is not None:
+                return aggregate["competitionRate"]
+        return None
     if dotted.startswith("snapshots."):
         parts = dotted.split(".")
         try:
@@ -273,6 +290,31 @@ def check(repo, manifest_path, source_record_path, source_root,
                 failures.append("existing target snapshots were not preserved as a prefix")
         if stock.get("snapshots", []) != manifest.get("expectedSnapshots", stock.get("snapshots", [])):
             failures.append("target snapshot contents differ from declared expected state")
+        # A missing direct proportional rate must never be replaced with the
+        # aggregate competition rate or used to fabricate proportional estimates.
+        # Keep this invariant in the publication gate as well as the generator so
+        # a future regression cannot pass a scoped data publication unnoticed.
+        broker_scores = stock.get("analysis", {}).get("brokerScores", [])
+        for snapshot in stock.get("snapshots", []):
+            for broker in snapshot.get("brokers", []):
+                broker_name = broker.get("name")
+                direct_rates = [
+                    item.get("proportionalCompetitionRate")
+                    for item_snapshot in stock.get("snapshots", [])
+                    for item in item_snapshot.get("brokers", [])
+                    if item.get("name") == broker_name
+                    and item.get("proportionalCompetitionRate") is not None
+                ]
+                if direct_rates:
+                    continue
+                scored = [item for item in broker_scores if item.get("broker") == broker_name]
+                if len(scored) != 1:
+                    failures.append(f"missing proportional source lacks one matching broker score: {broker_name}")
+                    continue
+                score = scored[0]
+                if (score.get("proportionalScore") is not None or
+                        score.get("estimatedDepositForOneProportionalShare") is not None):
+                    failures.append(f"missing proportional source produced a proportional score/estimate: {broker_name}")
         old = base_json(repo, base, stock_rel)
         actual_leafs = changed_leaf_paths(old, stock)
         allowed = set(manifest.get("allowedStockLeafPointers", []))
@@ -429,6 +471,14 @@ def check(repo, manifest_path, source_record_path, source_root,
             for field in manifest.get("feedParityFields", []):
                 if field in row and row[field] != feed_value(stock, field):
                     failures.append(f"target feed/detail mismatch in {path}: {field}")
+            for field, expected in manifest.get("feedVerifiedValues", {}).get(path, {}).items():
+                value = row.get(field)
+                if isinstance(expected, (int, float)) and not isinstance(expected, bool):
+                    same = isinstance(value, (int, float)) and math.isclose(value, expected, rel_tol=1e-12, abs_tol=1e-12)
+                else:
+                    same = value == expected
+                if not same:
+                    failures.append(f"target feed verified-value mismatch in {path}: {field}")
         if len(old_target) == len(new_target) == 1:
             actual_feed_fields = changed_leaf_paths(old_target[0], new_target[0])
             expected_feed_fields = set(manifest.get("allowedFeedLeafPointers", {}).get(path, []))
@@ -696,6 +746,14 @@ def check(repo, manifest_path, source_record_path, source_root,
         failures.append("source record issuer/stock identity mismatch")
     if source_record.get("language") != "ko" or source_record.get("timezone") != "Asia/Seoul":
         failures.append("source language/timezone mismatch")
+    for field, expected in manifest.get("sourceRecordFields", {}).items():
+        value = at(source_record, field)
+        if isinstance(expected, (int, float)) and not isinstance(expected, bool):
+            same = isinstance(value, (int, float)) and math.isclose(value, expected, rel_tol=1e-12, abs_tol=1e-12)
+        else:
+            same = value == expected
+        if not same:
+            failures.append(f"source record verified-value mismatch: {field}")
     retail = source_record.get("dailyRetailObservation", {})
     for field in manifest.get("sourceNullRetailFields", []):
         if retail.get(field) is not None:
@@ -738,7 +796,9 @@ def check(repo, manifest_path, source_record_path, source_root,
     new_comp, candidate_comp_report = issue_report(candidate_completeness)
     comp_additions = issue_additions(base_comp, new_comp)
     for code, event_id, field, detail, severity in comp_additions:
-        if not permitted_null_issue(event_id, target, code, field, {"missing_review"}, allowed_null, stock):
+        allowed_comp_null_codes = set(manifest.get("allowedNewNullIssueCodes", []))
+        if not permitted_null_issue(event_id, target, code, field, allowed_comp_null_codes,
+                                    allowed_null, stock, manifest.get("completenessNullFieldMap", {})):
             failures.append(f"new completeness audit error: {code}/{event_id}/{field}")
     baseline_target_signatures = {sig for sig in base_comp if sig[1] == target}
     for issue in candidate_comp_report.get("issues", []):
@@ -746,7 +806,9 @@ def check(repo, manifest_path, source_record_path, source_root,
             signature = set_issue_signature(issue)
             if signature in baseline_target_signatures:
                 continue
-            if permitted_null_issue(issue.get("eventId"), target, issue.get("code"), issue.get("field"), {"missing_review"}, allowed_null, stock):
+            if permitted_null_issue(issue.get("eventId"), target, issue.get("code"), issue.get("field"),
+                                    set(manifest.get("allowedNewNullIssueCodes", [])), allowed_null, stock,
+                                    manifest.get("completenessNullFieldMap", {})):
                 continue
             failures.append(f"new hard target-scope audit error: {issue.get('code')}/{target}/{issue.get('field','')}")
 

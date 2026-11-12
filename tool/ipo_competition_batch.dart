@@ -1807,7 +1807,7 @@ class IpoCompetitionBatch {
       return stock.fundamentals.institutionParticipants == null ||
           stock.fundamentals.lockupCommitmentRate == null ||
           stock.fundamentals.publicAllocationShares == null ||
-          stock.latestSnapshot?.aggregate.competitionRate == null;
+          stock.latestAggregateSnapshot?.aggregate.competitionRate == null;
     }
 
     final candidates = stocks.where(isCompleted).where(needsSupplement).toList()
@@ -2155,7 +2155,9 @@ class IpoCompetitionBatch {
           feeKrw: null,
           competitionRate: totalRate,
           equalCompetitionRate: null,
-          proportionalCompetitionRate: proportionalRate ?? totalRate,
+          // Aggregate retail competition is not the proportional rate. Keep
+          // the latter unknown unless the source explicitly reports it.
+          proportionalCompetitionRate: proportionalRate,
           equalAllocationShares: equalAllocationShares,
           proportionalAllocationShares: proportionalAllocationShares,
           expectedEqualShares: expectedEqualShares,
@@ -2570,6 +2572,27 @@ class IpoCompetitionStock {
     });
   }
 
+  /// Latest snapshot that actually contains an aggregate competition value.
+  /// Per-broker sources such as Naver may publish proportional ratios without
+  /// publishing the aggregate ratio; those observations must not erase or
+  /// masquerade as the aggregate value from a separate source.
+  IpoCompetitionSnapshot? get latestAggregateSnapshot {
+    final candidates = snapshots
+        .where((snapshot) => snapshot.aggregate.competitionRate != null)
+        .toList();
+    if (candidates.isEmpty) {
+      return null;
+    }
+    return candidates.reduce((a, b) {
+      final aPriority = snapshotSourcePriority(a.source);
+      final bPriority = snapshotSourcePriority(b.source);
+      if (aPriority != bPriority) {
+        return aPriority > bPriority ? a : b;
+      }
+      return a.capturedAt.compareTo(b.capturedAt) >= 0 ? a : b;
+    });
+  }
+
   Map<String, Object?> toJson() {
     final analysis = analyzeStock(this);
     return {
@@ -2625,7 +2648,7 @@ class IpoCompetitionStock {
       'generalSharesDate': normalizedGeneralSharesDate,
       'cbBwDate': normalizedCbBwDate,
       'securityType': normalizedSecurityType,
-      'latestCompetitionRate': latest?.aggregate.competitionRate,
+      'latestCompetitionRate': latestAggregateSnapshot?.aggregate.competitionRate,
       'latestSnapshotAt': latest?.capturedAt,
       'score': analysis.score.overall,
       'grade': analysis.score.grade,
@@ -3036,7 +3059,7 @@ Map<String, Object?> buildDashboardFeedItem(
     'cbBwDate': stock.normalizedCbBwDate,
     'securityType': stock.normalizedSecurityType,
     'latestSnapshotAt': latest?.capturedAt,
-    'latestCompetitionRate': latest?.aggregate.competitionRate,
+    'latestCompetitionRate': stock.latestAggregateSnapshot?.aggregate.competitionRate,
     'institutionCompetitionRate': stock.fundamentals.institutionCompetitionRate,
     'institutionParticipants': stock.fundamentals.institutionParticipants,
     'lockupCommitmentRate': stock.fundamentals.lockupCommitmentRate,
@@ -3146,7 +3169,7 @@ Map<String, Object?> buildCoverageReport({
     qualityRows.add({
       ...stockIssueJson(stock, issues),
       'issueCount': issues.length,
-      'latestCompetitionRate': stock.latestSnapshot?.aggregate.competitionRate,
+      'latestCompetitionRate': stock.latestAggregateSnapshot?.aggregate.competitionRate,
       'institutionCompetitionRate':
           stock.fundamentals.institutionCompetitionRate,
       'lockupCommitmentRate': stock.fundamentals.lockupCommitmentRate,
@@ -3256,7 +3279,7 @@ List<String> coverageIssuesFor(IpoCompetitionStock stock, DateTime today) {
   if (fundamentals.lockupCommitmentRate == null) {
     issues.add('missing_lockup_commitment_rate');
   }
-  if (latest?.aggregate.competitionRate == null && isCompleted) {
+  if (stock.latestAggregateSnapshot?.aggregate.competitionRate == null && isCompleted) {
     issues.add('missing_retail_competition_rate');
   }
   if (latest == null && isCompleted) {
@@ -3361,7 +3384,7 @@ Map<String, Object?> buildServiceHealthReport({
     if (stock.fundamentals.lockupCommitmentRate == null) {
       missingLockupCommitmentRate += 1;
     }
-    if (latest?.aggregate.competitionRate == null) {
+    if (stock.latestAggregateSnapshot?.aggregate.competitionRate == null) {
       missingLatestCompetitionRate += 1;
     }
     if (!hasBrokerLevelSnapshot(stock)) {
@@ -3379,7 +3402,7 @@ Map<String, Object?> buildServiceHealthReport({
       'subscriptionEnd': stock.subscriptionEnd,
       'latestSnapshotAt': latest?.capturedAt,
       'latestSnapshotSource': latest?.source,
-      'latestCompetitionRate': latest?.aggregate.competitionRate,
+      'latestCompetitionRate': stock.latestAggregateSnapshot?.aggregate.competitionRate,
       'institutionCompetitionRate':
           stock.fundamentals.institutionCompetitionRate,
       'institutionParticipants': stock.fundamentals.institutionParticipants,
@@ -5862,7 +5885,8 @@ class IpoBrokerCompetition {
 
   double? estimatedDepositForOneProportionalShare(int? stockOfferPrice) {
     final price = offerPrice ?? stockOfferPrice;
-    final rate = proportionalCompetitionRate ?? competitionRate;
+    // Do not substitute aggregate competition for a missing proportional rate.
+    final rate = proportionalCompetitionRate;
     final deposit = depositRate ?? 0.5;
     if (price == null || price <= 0 || rate == null || rate <= 0) {
       return null;
@@ -6029,7 +6053,7 @@ IpoAnalysis analyzeStock(
   final isSpac = isSpacStock(stock);
   final latestRate = ignoreLiveCompetitionForReturn
       ? null
-      : stock.latestSnapshot?.aggregate.competitionRate;
+      : stock.latestAggregateSnapshot?.aggregate.competitionRate;
   final institutionScore = scoreInstitutionDemand(stock.fundamentals);
   final demandStrengthScore = isSpac ? 0 : scoreDemandStrengthForStock(stock);
   final spacMomentumScore = isSpac ? scoreSpacMomentum(stock) : 0;
@@ -6320,7 +6344,7 @@ class IpoBrokerScore {
 
   final String broker;
   final int equalScore;
-  final int proportionalScore;
+  final int? proportionalScore;
   final double? expectedEqualShares;
   final double? estimatedDepositForOneProportionalShare;
   final int? feeKrw;
@@ -6654,7 +6678,7 @@ int scoreDemandStrengthForStock(IpoCompetitionStock stock) {
 }
 
 int scoreSpacMomentum(IpoCompetitionStock stock) {
-  final retailRate = stock.latestSnapshot?.aggregate.competitionRate;
+  final retailRate = stock.latestAggregateSnapshot?.aggregate.competitionRate;
   final proportionalRate = maxProportionalCompetitionRate(stock);
   final institutionRate = stock.fundamentals.institutionCompetitionRate;
   var score = 0;
@@ -6698,7 +6722,7 @@ int scoreSpacMomentum(IpoCompetitionStock stock) {
 
 int scoreSpacVolatility(IpoCompetitionStock stock) {
   final lockupRate = stock.fundamentals.lockupCommitmentRate;
-  final retailRate = stock.latestSnapshot?.aggregate.competitionRate;
+  final retailRate = stock.latestAggregateSnapshot?.aggregate.competitionRate;
   var score = 2;
   if (lockupRate == null) {
     score += 1;
@@ -6767,7 +6791,7 @@ int scoreCompetitionForStock(
 }) {
   final direct = ignoreLiveCompetition
       ? 0
-      : scoreCompetition(stock.latestSnapshot?.aggregate.competitionRate);
+      : scoreCompetition(stock.latestAggregateSnapshot?.aggregate.competitionRate);
   if (direct > 0) {
     return direct;
   }
@@ -6885,7 +6909,7 @@ double confidenceFor(IpoCompetitionStock stock) {
   if (stock.fundamentals.floatRate != null) {
     confidence += 0.05;
   }
-  if (stock.latestSnapshot?.aggregate.competitionRate != null) {
+  if (stock.latestAggregateSnapshot?.aggregate.competitionRate != null) {
     confidence += 0.05;
   }
   if (isSpacStock(stock)) {
@@ -7450,7 +7474,7 @@ List<IpoBrokerScore> brokerScoresFor(IpoCompetitionStock stock) {
             ? 30
             : clampInt((expectedEqual * 80).round(), 0, 100);
         final proportionalScore = depositForOne == null
-            ? 30
+            ? null
             : clampInt((100000000 / depositForOne).round(), 0, 100);
         final hasPositiveApplicationCount =
             broker.applicationCount != null && broker.applicationCount! > 0;
@@ -7476,7 +7500,9 @@ List<IpoBrokerScore> brokerScoresFor(IpoCompetitionStock stock) {
         if (byEqual != 0) {
           return byEqual;
         }
-        return b.proportionalScore.compareTo(a.proportionalScore);
+        return (b.proportionalScore ?? -1).compareTo(
+          a.proportionalScore ?? -1,
+        );
       });
   return scores;
 }
@@ -7610,7 +7636,7 @@ IpoAnalysisCalibration buildAnalysisCalibration(
           stock,
           calibration: const IpoAnalysisCalibration(),
         );
-        final competitionRate = stock.latestSnapshot?.aggregate.competitionRate;
+        final competitionRate = stock.latestAggregateSnapshot?.aggregate.competitionRate;
         return {
           'id': safeId(stock.id),
           'competitionBucket': competitionBucketFor(competitionRate),
@@ -7737,7 +7763,7 @@ Map<String, Object?> buildCalibrationReport({
           stock,
           calibration: const IpoAnalysisCalibration(),
         );
-        final competitionRate = stock.latestSnapshot?.aggregate.competitionRate;
+        final competitionRate = stock.latestAggregateSnapshot?.aggregate.competitionRate;
         return {
           'id': safeId(stock.id),
           'company': stock.company,

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "Naver Npay IPO page observed 2026-11-12 16:13:16.759–16:13:16.837 KST; page labels broker figures as of 2026-11-12 16:13 KST (minute precision; embedded fetchedAt 2026-11-12T16:13:16.820+09:00). The page directly displays expected equal allocation 1.13 shares and proportional competition 2,685.7:1 for 한국투자증권. It does not report total subscribed shares, application count, or a proportional pool; those remain null in this source snapshot."
+  ],
+  "snapshots": [
+    {
+      "id": "옵토닉스_2026-11-05",
+      "company": "옵토닉스",
+      "capturedAt": "2026-11-12T16:13:16.837+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://ustock.naver.com/service/ipo/493260",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 550000,
+          "subscribedShares": null,
+          "offerPrice": 12000,
+          "competitionRate": null,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2685.7,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": 1.13,
+          "applicationCount": null
+        }
+      ]
+    }
+  ]
+}

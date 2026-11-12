@@ -126,6 +126,7 @@ def audit(repo, ledger, start, end, as_of):
             finals = candidate.get('finalSnapshotReviews', [])
             covered = set()
             aggregate_final = False
+            reviewed_broker_values = {}
             for snap in snapshots:
                 # Explicit reviewed digest binds finality to exact content, not its source label.
                 review = next((r for r in finals if r.get('snapshotSha256') == digest(snap)), None)
@@ -144,20 +145,30 @@ def audit(repo, ledger, start, end, as_of):
                 for broker in snap.get('brokers') or []:
                     name = broker.get('name')
                     covered.add(name)
-                    for field in ('offeredShares', 'applicationCount', 'competitionRate'):
-                        inspect('brokers.'+str(name)+'.'+field, broker.get(field), True)
-                    # Pool size alone is not an equal-per-account estimate.
-                    equal = broker.get('expectedEqualShares')
-                    if not present(equal) and (broker.get('applicationCount') or 0) > 0 and present(broker.get('equalAllocationShares')):
-                        equal = broker['equalAllocationShares']/broker['applicationCount']
-                    inspect('brokers.'+str(name)+'.expectedEqualShares', equal, True)
-                    display = next((r for r in (stock.get('analysis') or {}).get('brokerScores', []) if r.get('broker') == name), {})
-                    if present(equal) and not present(display.get('expectedEqualShares')):
-                        add('equal_display_missing', key, str(name))
-                    proportional = broker.get('proportionalCompetitionRate')
-                    if not present(proportional) and (broker.get('proportionalAllocationShares') or 0) > 0 and present(broker.get('subscribedShares')):
-                        proportional = broker['subscribedShares']/broker['proportionalAllocationShares']
-                    inspect('brokers.'+str(name)+'.proportionalCompetitionRate', proportional, True)
+                    values = reviewed_broker_values.setdefault(name, {})
+                    # Combine only values explicitly present in independently
+                    # reviewed source snapshots. Per-broker sources often carry
+                    # only allocation metrics, while the issuer filing carries
+                    # application and aggregate totals.
+                    for field in ('offeredShares', 'applicationCount', 'competitionRate',
+                                  'expectedEqualShares', 'proportionalCompetitionRate',
+                                  'equalAllocationShares', 'proportionalAllocationShares'):
+                        if field not in values and present(broker.get(field)):
+                            values[field] = broker.get(field)
+            for name, values in reviewed_broker_values.items():
+                for field in ('offeredShares', 'applicationCount', 'competitionRate'):
+                    inspect('brokers.'+str(name)+'.'+field, values.get(field), True)
+                # Pool size alone is not an equal-per-account estimate.
+                equal = values.get('expectedEqualShares')
+                if not present(equal) and (values.get('applicationCount') or 0) > 0 and present(values.get('equalAllocationShares')):
+                    equal = values['equalAllocationShares']/values['applicationCount']
+                inspect('brokers.'+str(name)+'.expectedEqualShares', equal, True)
+                display = next((r for r in (stock.get('analysis') or {}).get('brokerScores', []) if r.get('broker') == name), {})
+                if present(equal) and not present(display.get('expectedEqualShares')):
+                    add('equal_display_missing', key, str(name))
+                # Do not infer this ratio from total subscribed shares and the
+                # proportional pool. Only a directly reported rate counts.
+                inspect('brokers.'+str(name)+'.proportionalCompetitionRate', values.get('proportionalCompetitionRate'), True)
             for name in set(managers)-covered: add('missing_final_broker', key, name)
             if not aggregate_final: add('aggregate_final_unverified', key)
         if iso(stock.get('listingDate')) and stock['listingDate'] < as_of:

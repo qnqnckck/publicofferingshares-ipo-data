@@ -1,0 +1,266 @@
+{
+  "policyVersion": "verified_delta_with_deferred_nulls_v1",
+  "baseHead": "c9578dbf37fb02159b7971807c4df2e7b9107942",
+  "target": {
+    "id": "옵토닉스_2026-11-05",
+    "company": "옵토닉스",
+    "issuer": "옵토닉스",
+    "stockCode": "493260",
+    "broker": "한국투자증권",
+    "date": "2026-11-05"
+  },
+  "allowedChangedPaths": [
+    "data/broker_snapshots/2026-11-12-optonics-final-dart.json",
+    "data/broker_snapshots/2026-11-12-optonics-naver-final.json",
+    "doc/2026-11-12-optonics-final-retail.md",
+    "doc/refresh-context.md",
+    "doc/verified-delta-manifests/2026-11-12-optonics-retail.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/stocks/옵토닉스_2026-11-05.json",
+    "ipo_competition_data/yearly/2026.json",
+    "skills/refresh-ipo-monthly-data/scripts/check_refresh_completeness.py",
+    "skills/refresh-ipo-monthly-data/scripts/check_verified_delta.py",
+    "skills/refresh-ipo-monthly-data/scripts/audit_monthly_ipo_data.ps1",
+    "tool/ipo_competition_batch.dart"
+  ],
+  "changedDataPaths": [
+    "data/broker_snapshots/2026-11-12-optonics-final-dart.json",
+    "data/broker_snapshots/2026-11-12-optonics-naver-final.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/stocks/옵토닉스_2026-11-05.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "canonicalPaths": [
+    "data/broker_snapshots/2026-11-12-optonics-final-dart.json",
+    "data/broker_snapshots/2026-11-12-optonics-naver-final.json"
+  ],
+  "canonicalEventPath": "data/discovered/ipo_events.json",
+  "canonicalManualPath": "data/manual_fundamentals.json",
+  "feedPaths": [
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/yearly/2026.json",
+    "ipo_competition_data/recent.json"
+  ],
+  "feedMembership": {
+    "ipo_competition_data/dashboard.json": "preserve",
+    "ipo_competition_data/index.json": "preserve",
+    "ipo_competition_data/yearly/2026.json": "preserve",
+    "ipo_competition_data/recent.json": "preserve"
+  },
+  "feedParityFields": [
+    "listingDate",
+    "latestCompetitionRate"
+  ],
+  "feedVerifiedValues": {
+    "ipo_competition_data/dashboard.json": {
+      "latestSnapshotAt": "2026-11-12T16:13:16.837+09:00",
+      "latestCompetitionRate": 1343.3241818181818,
+      "bestBrokerCompetitionRate": 2685.7
+    },
+    "ipo_competition_data/index.json": {
+      "latestSnapshotAt": "2026-11-12T16:13:16.837+09:00",
+      "latestCompetitionRate": 1343.3241818181818
+    },
+    "ipo_competition_data/yearly/2026.json": {
+      "latestSnapshotAt": "2026-11-12T16:13:16.837+09:00",
+      "latestCompetitionRate": 1343.3241818181818
+    },
+    "ipo_competition_data/recent.json": {
+      "latestSnapshotAt": "2026-11-12T16:13:16.837+09:00",
+      "latestCompetitionRate": 1343.3241818181818
+    }
+  },
+  "allowedFeedLeafPointers": {
+    "ipo_competition_data/dashboard.json": [
+      "/bestBrokerCompetitionRate",
+      "/bestBrokerName",
+      "/latestCompetitionRate",
+      "/latestSnapshotAt"
+    ],
+    "ipo_competition_data/index.json": [
+      "/expectedGainRate",
+      "/latestCompetitionRate",
+      "/latestSnapshotAt"
+    ],
+    "ipo_competition_data/yearly/2026.json": [
+      "/expectedGainRate",
+      "/latestCompetitionRate",
+      "/latestSnapshotAt"
+    ],
+    "ipo_competition_data/recent.json": [
+      "/expectedGainRate",
+      "/latestCompetitionRate",
+      "/latestSnapshotAt"
+    ]
+  },
+  "allowedStockLeafPointers": [
+    "/analysis/brokerScores",
+    "/analysis/decision/reasons",
+    "/analysis/decision/warnings",
+    "/analysis/expectedReturn/assumptions/competitionPresent",
+    "/analysis/expectedReturn/assumptions/competitionRate",
+    "/analysis/expectedReturn/assumptions/generalCalibrationApplied",
+    "/analysis/expectedReturn/assumptions/generalCompetitionBaseline",
+    "/analysis/expectedReturn/assumptions/generalCompetitionPending",
+    "/analysis/expectedReturn/assumptions/generalPriorBase",
+    "/analysis/expectedReturn/baseCaseListingGainRate",
+    "/analysis/expectedReturn/bearCaseListingGainRate",
+    "/analysis/expectedReturn/bullCaseListingGainRate",
+    "/analysis/expectedReturn/expectedAllocatedShares/fiveMillionKrw",
+    "/analysis/expectedReturn/expectedAllocatedShares/minimumSubscription",
+    "/analysis/expectedReturn/expectedAllocatedShares/oneMillionKrw",
+    "/analysis/expectedReturn/expectedListingGainRate",
+    "/analysis/expectedReturn/expectedProfitKrw/fiveMillionKrw",
+    "/analysis/expectedReturn/expectedProfitKrw/minimumSubscription",
+    "/analysis/expectedReturn/expectedProfitKrw/oneMillionKrw",
+    "/analysis/inputs/latestCompetitionRate",
+    "/analysis/inputs/snapshotCount",
+    "/analysis/score/confidence",
+    "/snapshots"
+  ],
+  "canonicalVerifiedFields": {},
+  "allowedCanonicalEventLeafPointers": [],
+  "allowedCanonicalManualLeafPointers": [],
+  "verifiedManualFields": {},
+  "verifiedFields": {
+    "snapshots.0.brokers.0.applicationCount": 244228,
+    "snapshots.0.brokers.0.subscribedShares": 738828300,
+    "snapshots.0.brokers.0.offeredShares": 550000,
+    "snapshots.0.brokers.0.equalAllocationShares": 275000,
+    "snapshots.0.brokers.0.proportionalAllocationShares": 275000,
+    "snapshots.0.brokers.0.proportionalCompetitionRate": null,
+    "snapshots.0.aggregate.competitionRate": 1343.3241818181818,
+    "snapshots.1.brokers.0.proportionalCompetitionRate": 2685.7,
+    "snapshots.1.brokers.0.expectedEqualShares": 1.13,
+    "snapshots.1.aggregate.competitionRate": null,
+    "analysis.inputs.latestCompetitionRate": 1343.3241818181818,
+    "analysis.brokerScores.0.proportionalScore": 6,
+    "analysis.brokerScores.0.expectedEqualShares": 1.13,
+    "analysis.brokerScores.0.estimatedDepositForOneProportionalShare": 16114200
+  },
+  "retainedNullFields": [
+    "snapshots.0.brokers.0.proportionalCompetitionRate",
+    "snapshots.0.brokers.0.expectedEqualShares",
+    "snapshots.1.brokers.0.subscribedShares",
+    "snapshots.1.brokers.0.applicationCount",
+    "snapshots.1.brokers.0.competitionRate",
+    "snapshots.1.brokers.0.equalAllocationShares",
+    "snapshots.1.brokers.0.proportionalAllocationShares",
+    "snapshots.1.aggregate.competitionRate"
+  ],
+  "expectedSnapshots": [
+    {
+      "capturedAt": "2026-11-12T14:13:15.032+09:00",
+      "source": "dart_official_issuance_results_report",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261110000258&dcmNo=11647869&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 550000,
+          "subscribedShares": 738828300,
+          "offerPrice": 12000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1343.3241818181818,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 275000,
+          "proportionalAllocationShares": 275000,
+          "expectedEqualShares": null,
+          "applicationCount": 244228
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 550000,
+        "subscribedShares": 738828300,
+        "competitionRate": 1343.3241818181818
+      }
+    },
+    {
+      "capturedAt": "2026-11-12T16:13:16.837+09:00",
+      "source": "naver_calculator_live",
+      "sourceUrl": "https://ustock.naver.com/service/ipo/493260",
+      "brokers": [
+        {
+          "name": "한국투자증권",
+          "offeredShares": 550000,
+          "subscribedShares": null,
+          "offerPrice": 12000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": null,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2685.7,
+          "equalAllocationShares": null,
+          "proportionalAllocationShares": null,
+          "expectedEqualShares": 1.13,
+          "applicationCount": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 550000,
+        "subscribedShares": null,
+        "competitionRate": null
+      }
+    }
+  ],
+  "sourceNullRetailFields": [
+    "finalPerApplicantAllocation"
+  ],
+  "requireEmptyRetailSnapshots": false,
+  "allowedNewNullIssueCodes": [
+    "missing_review",
+    "documented_gap"
+  ],
+  "phaseNullFieldMap": {},
+  "completenessNullFieldMap": {
+    "brokers.한국투자증권.proportionalCompetitionRate": "snapshots.0.brokers.0.proportionalCompetitionRate"
+  },
+  "feedGeneratedAt": {
+    "ipo_competition_data/dashboard.json": "2026-11-12T16:19:18.182516",
+    "ipo_competition_data/index.json": "2026-11-12T16:19:18.182516",
+    "ipo_competition_data/yearly/2026.json": "2026-11-12T16:19:18.182516",
+    "ipo_competition_data/recent.json": "2026-11-12T16:19:18.182516"
+  },
+  "membershipAsOfDate": "2026-11-12",
+  "membershipRemovalEvidence": [],
+  "sourceExpectation": {
+    "sources": {
+      "final_issuance_results": {
+        "rawSha256": "953af1138ad5e506a5195575f653b2ea7e76d14e14c08a5eed8909f05c01a84f",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261110000258&dcmNo=11647869&eleId=1&offset=0&length=0&dtd=dart4.xsd"
+      },
+      "naver_ipo_final_calculator": {
+        "rawSha256": "234d71fa7e6766a1c74d0efc3114185333a26db2738b14c0253e8ef04562d74c",
+        "url": "https://ustock.naver.com/service/ipo/493260",
+        "displayedDataAsOf": "2026-11-12T16:13+09:00",
+        "embeddedFetchedAt": "2026-11-12T16:13:16.820+09:00"
+      }
+    },
+    "language": "ko",
+    "timezone": "Asia/Seoul"
+  },
+  "sourceRecordFields": {
+    "dailyRetailObservation.aggregateCompetitionRate": 1343.3241818181818,
+    "dailyRetailObservation.proportionalCompetitionRate": 2685.7,
+    "dailyRetailObservation.expectedEqualShares": 1.13,
+    "dailyRetailObservation.finalPerApplicantAllocation": null,
+    "sources.naver_ipo_final_calculator.displayedDataAsOf": "2026-11-12T16:13+09:00",
+    "sources.naver_ipo_final_calculator.displayedDataAsOfLabel": "26.11.12 16:13 기준",
+    "sources.naver_ipo_final_calculator.embeddedFetchedAt": "2026-11-12T16:13:16.820+09:00",
+    "fieldProvenance.proportionalCompetitionRate": "naver_ipo_final_calculator; directly displayed as of page label 26.11.12 16:13 KST (minute precision)",
+    "fieldProvenance.expectedEqualShares": "naver_ipo_final_calculator; displayed as indicative as of page label 26.11.12 16:13 KST (minute precision)",
+    "notes.0": "Naver page label is 26.11.12 16:13 기준 (KST, minute precision); embedded fetchedAt is 2026-11-12T16:13:16.820+09:00. Direct proportional and indicative equal values are separated from DART aggregate; final per-applicant allocation remains null."
+  },
+  "calculationPolicy": {
+    "aggregateCompetitionRate": "subscribedShares/publicOfferedShares; calculated from DART",
+    "proportionalCompetitionRate": "direct Naver-reported value; never inferred from aggregate or pool arithmetic",
+    "expectedEqualShares": "Naver-displayed indicative quantity; not a confirmed final per-applicant allotment",
+    "finalPerApplicantAllocation": "unknown and null"
+  }
+}
