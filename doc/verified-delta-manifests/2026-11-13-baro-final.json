@@ -1,0 +1,511 @@
+{
+  "policyVersion": "verified_delta_with_deferred_nulls_v1",
+  "baseHead": "8b49a591d5bccca05e53a92630d6bfc712d4012c",
+  "target": {
+    "id": "바로팜_2026-11-02",
+    "company": "바로팜",
+    "issuer": "바로팜",
+    "stockCode": null,
+    "broker": "미래에셋증권",
+    "date": "2026-11-02"
+  },
+  "allowedChangedPaths": [
+    "data/broker_snapshots/2026-11-13-baro-final-dart.json",
+    "doc/verified-delta-manifests/2026-11-13-baro-final.json",
+    "ipo_competition_data/stocks/바로팜_2026-11-02.json"
+  ],
+  "changedDataPaths": [
+    "data/broker_snapshots/2026-11-13-baro-final-dart.json",
+    "ipo_competition_data/stocks/바로팜_2026-11-02.json"
+  ],
+  "canonicalPaths": [
+    "data/broker_snapshots/2026-11-13-baro-final-dart.json"
+  ],
+  "canonicalEventPath": "data/discovered/ipo_events.json",
+  "canonicalManualPath": "data/manual_fundamentals.json",
+  "feedPaths": [],
+  "feedMembership": {},
+  "feedParityFields": [
+    "listingDate",
+    "latestCompetitionRate"
+  ],
+  "allowedStockLeafPointers": [
+    "/analysis/inputs/snapshotCount",
+    "/snapshots"
+  ],
+  "canonicalVerifiedFields": {},
+  "verifiedManualFields": {},
+  "verifiedFields": {
+    "snapshots.14.brokers.0.name": "미래에셋증권",
+    "snapshots.14.brokers.0.offeredShares": 445000,
+    "snapshots.14.brokers.0.subscribedShares": 8577190,
+    "snapshots.14.brokers.0.offerPrice": 16400,
+    "snapshots.14.brokers.0.depositRate": 0.5,
+    "snapshots.14.brokers.0.feeKrw": null,
+    "snapshots.14.brokers.0.competitionRate": 19.27458426966292,
+    "snapshots.14.brokers.0.equalCompetitionRate": null,
+    "snapshots.14.brokers.0.proportionalCompetitionRate": null,
+    "snapshots.14.brokers.0.equalAllocationShares": 222500,
+    "snapshots.14.brokers.0.proportionalAllocationShares": 222500,
+    "snapshots.14.brokers.0.expectedEqualShares": null,
+    "snapshots.14.brokers.0.applicationCount": 52856,
+    "snapshots.14.aggregate.competitionRate": 19.27458426966292
+  },
+  "retainedNullFields": [
+    "snapshots.14.brokers.0.feeKrw",
+    "snapshots.14.brokers.0.equalCompetitionRate",
+    "snapshots.14.brokers.0.proportionalCompetitionRate",
+    "snapshots.14.brokers.0.expectedEqualShares",
+    "outcome"
+  ],
+  "expectedSnapshots": [
+    {
+      "capturedAt": "2026-11-02T09:59:10+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 0.19,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 0.38,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 1851
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 0.19
+      }
+    },
+    {
+      "capturedAt": "2026-11-02T11:02:40+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 0.49,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 0.98,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 3753
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 0.49
+      }
+    },
+    {
+      "capturedAt": "2026-11-02T12:00:04+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 0.68,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1.36,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 4912
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 0.68
+      }
+    },
+    {
+      "capturedAt": "2026-11-02T15:58:58+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 1.8,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 3.6,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 12020
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 1.8
+      }
+    },
+    {
+      "capturedAt": "2026-11-03T08:57:15+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 2.08,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 4.16,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 13004
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 2.08
+      }
+    },
+    {
+      "capturedAt": "2026-11-03T09:57:47+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 3.87,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 7.74,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 16651
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 3.87
+      }
+    },
+    {
+      "capturedAt": "2026-11-03T10:55:18+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 5.87,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 11.74,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 21593
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 5.87
+      }
+    },
+    {
+      "capturedAt": "2026-11-03T12:01:52+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 7.98,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 15.96,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 26980
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 7.98
+      }
+    },
+    {
+      "capturedAt": "2026-11-03T13:02:26+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 9.32,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 18.64,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 32163
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 9.32
+      }
+    },
+    {
+      "capturedAt": "2026-11-03T13:56:52+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 11.39,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 22.78,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 38624
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 11.39
+      }
+    },
+    {
+      "capturedAt": "2026-11-03T15:00:22+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 14.39,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 28.78,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 47324
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 14.39
+      }
+    },
+    {
+      "capturedAt": "2026-11-03T15:30:36+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 15.46,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 30.92,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 49693
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 15.46
+      }
+    },
+    {
+      "capturedAt": "2026-11-03T16:00:51+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 19.27,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 38.54,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 52856
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 19.27
+      }
+    },
+    {
+      "capturedAt": "2026-11-03T16:08:39+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0153R0",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": null,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 19.27,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 38.54,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 52856
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": null,
+        "competitionRate": 19.27
+      }
+    },
+    {
+      "capturedAt": "2026-11-12T14:13:14.392+09:00",
+      "source": "dart_official_issuance_results_report",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261105000006&dcmNo=11641888&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": 8577190,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 19.27458426966292,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 52856
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": 8577190,
+        "competitionRate": 19.27458426966292
+      }
+    }
+  ],
+  "sourceNullRetailFields": [
+    "proportionalCompetitionRate",
+    "expectedEqualShares",
+    "finalPerApplicantAllocation"
+  ],
+  "requireEmptyRetailSnapshots": false,
+  "allowedNewNullIssueCodes": [
+    "missing_review",
+    "documented_gap"
+  ],
+  "phaseNullFieldMap": {},
+  "completenessNullFieldMap": {},
+  "sourceRecordFields": {
+    "dailyRetailObservation.aggregateCompetitionRate": 19.27458426966292,
+    "dailyRetailObservation.applicationCount": 52856,
+    "dailyRetailObservation.subscribedShares": 8577190,
+    "dailyRetailObservation.publicOfferedShares": 445000,
+    "dailyRetailObservation.equalAllocationShares": 222500,
+    "dailyRetailObservation.proportionalAllocationShares": 222500,
+    "dailyRetailObservation.proportionalCompetitionRate": null,
+    "dailyRetailObservation.expectedEqualShares": null,
+    "dailyRetailObservation.finalPerApplicantAllocation": null,
+    "targetIds": [
+      "바로팜_2026-11-02"
+    ],
+    "sources.final_issuance_results.url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261105000006&dcmNo=11641888&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+    "sources.final_issuance_results.httpStatus": 200,
+    "sources.final_issuance_results.rawFile": "raw/dart.html",
+    "sources.final_issuance_results.rawSha256": "7f8a52e7e60d25276256650daa155fa9a3808f5aa329d7299c6ace3a27986bd6",
+    "sources.final_issuance_results.bytes": 100615,
+    "sources.final_issuance_results.requestStartedAtKst": "2026-11-12T14:13:14.130+09:00",
+    "sources.final_issuance_results.responseCompletedAtKst": "2026-11-12T14:13:14.392+09:00",
+    "sources.final_issuance_results.publishedDate": "2026-11-05",
+    "sources.final_issuance_results.rcpNo": "20261105000006",
+    "sources.final_issuance_results.dcmNo": "11641888",
+    "historicalNaverObservation.rawResponseBodySha256": null,
+    "historicalNaverObservation.observedAt": "2026-11-03T16:08:39+09:00",
+    "historicalNaverObservation.proportionalCompetitionRate": 38.54
+  },
+  "assertNotMemberPaths": [
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/upcoming.json"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "Saved DART final totals; aggregate calculated as 8577190/445000. Direct proportional rate and final per-applicant allocation are not disclosed and remain null. Existing historical Naver snapshot is preserved without claiming a raw response hash."
+  ],
+  "snapshots": [
+    {
+      "id": "바로팜_2026-11-02",
+      "company": "바로팜",
+      "capturedAt": "2026-11-12T14:13:14.392+09:00",
+      "source": "dart_official_issuance_results_report",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261105000006&dcmNo=11641888&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+      "sourcePublishedDate": "2026-11-05",
+      "brokers": [
+        {
+          "name": "미래에셋증권",
+          "offeredShares": 445000,
+          "subscribedShares": 8577190,
+          "offerPrice": 16400,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 19.27458426966292,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 222500,
+          "proportionalAllocationShares": 222500,
+          "expectedEqualShares": null,
+          "applicationCount": 52856
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 445000,
+        "subscribedShares": 8577190,
+        "competitionRate": 19.27458426966292,
+        "applicationCount": 52856
+      }
+    }
+  ]
+}
