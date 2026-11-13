@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "Aggregate competition calculated from DART totals; direct proportional competition absent and null. Equal tiers/lottery are not one individual outcome. Source observation time is successful saved DART response, not generation time."
+  ],
+  "snapshots": [
+    {
+      "id": "하나에어로다이내믹스_2026-11-10",
+      "company": "하나에어로다이내믹스",
+      "capturedAt": "2026-11-13T19:32:19.532600+09:00",
+      "source": "dart_official_issuance_results_report",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261113000458&dcmNo=11653471&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+      "sourcePublishedDate": "2026-11-13",
+      "brokers": [
+        {
+          "name": "IBK투자증권",
+          "offeredShares": 1100000,
+          "subscribedShares": 2036256250,
+          "competitionRate": 1851.1420454545455,
+          "equalAllocationShares": 550000,
+          "proportionalAllocationShares": 550000,
+          "proportionalCompetitionRate": null,
+          "applicationCount": 129620,
+          "equalCompetitionRate": null,
+          "expectedEqualShares": null,
+          "offerPrice": 5700,
+          "depositRate": null,
+          "feeKrw": null
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1100000,
+        "subscribedShares": 2036256250,
+        "competitionRate": 1851.1420454545455,
+        "applicationCount": 129620
+      }
+    }
+  ]
+}

@@ -18,7 +18,7 @@
   "subscriptionStart": "2026-11-10",
   "subscriptionEnd": "2026-11-11",
   "refundDate": "2026-11-13",
-  "listingDate": null,
+  "listingDate": "2026-11-20",
   "lockupReleaseDate": null,
   "generalSharesDate": null,
   "cbBwDate": null,
@@ -41,13 +41,41 @@
     "putbackSummary": "일반청약자 환매청구권 없음"
   },
   "outcome": null,
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-11-13T19:32:19.532600+09:00",
+      "source": "dart_official_issuance_results_report",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261113000458&dcmNo=11653471&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+      "brokers": [
+        {
+          "name": "IBK투자증권",
+          "offeredShares": 1100000,
+          "subscribedShares": 2036256250,
+          "offerPrice": 5700,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1851.1420454545455,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 550000,
+          "proportionalAllocationShares": 550000,
+          "expectedEqualShares": null,
+          "applicationCount": 129620
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1100000,
+        "subscribedShares": 2036256250,
+        "competitionRate": 1851.1420454545455
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
       "overall": 67,
       "grade": "B",
-      "confidence": 0.65,
+      "confidence": 0.95,
       "factors": {
         "institutionDemand": 22,
         "demandStrength": 10,
@@ -61,52 +89,63 @@
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.6817,
-      "bearCaseListingGainRate": 0.4817,
-      "baseCaseListingGainRate": 0.6817,
-      "bullCaseListingGainRate": 1.0217,
+      "expectedListingGainRate": 1.0911,
+      "bearCaseListingGainRate": 0.9111,
+      "baseCaseListingGainRate": 1.0911,
+      "bullCaseListingGainRate": 1.3711,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.219,
-        "fiveMillionKrw": 1.096
+        "minimumSubscription": 4.249,
+        "oneMillionKrw": 4.338,
+        "fiveMillionKrw": 4.717
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 49,
-        "oneMillionKrw": 852,
-        "fiveMillionKrw": 4261
+        "minimumSubscription": 26424,
+        "oneMillionKrw": 26980,
+        "fiveMillionKrw": 29338
       },
       "assumptions": {
         "offerPrice": 5700,
-        "competitionRate": null,
+        "competitionRate": 1851.1420454545455,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": 0.5017200000000002,
+        "generalCompetitionBaseline": 0.95,
+        "generalPriorBase": 0.55596,
         "institutionBoost": 0.06892250000000001,
         "lockupBoost": 0.0,
         "participantBoost": 0.04,
         "topBandBoost": 0.06,
         "scoreBoost": -0.027777777777777776,
-        "competitionPresent": false,
-        "generalCalibrationApplied": 0.18,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 68,
-        "generalCompetitionPending": true
+        "generalCompetitionPending": false
       }
     },
     "decision": {
       "level": "consider",
       "label": "청약 고려",
       "reasons": [
-        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+        "최근 확인된 일반청약 경쟁률은 1851.14대 1입니다."
       ],
       "warnings": [
+        "경쟁률이 높아 실제 배정 수량은 매우 작을 수 있습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "IBK투자증권",
+        "equalScore": 100,
+        "proportionalScore": null,
+        "expectedEqualShares": 4.2432,
+        "estimatedDepositForOneProportionalShare": null,
+        "feeKrw": null,
+        "dataQuality": "broker_verified"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 1851.1420454545455,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,

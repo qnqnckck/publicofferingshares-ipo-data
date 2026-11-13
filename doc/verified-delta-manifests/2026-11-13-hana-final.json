@@ -1,0 +1,273 @@
+{
+  "policyVersion": "verified_delta_with_deferred_nulls_v1",
+  "baseHead": "c112a499e1fa7dc75391a141bac56875bdf4beb4",
+  "target": {
+    "id": "하나에어로다이내믹스_2026-11-10",
+    "company": "하나에어로다이내믹스",
+    "issuer": "하나에어로다이내믹스",
+    "stockCode": "271160",
+    "broker": "IBK투자증권",
+    "date": "2026-11-10"
+  },
+  "allowedChangedPaths": [
+    "data/broker_snapshots/2026-11-13-hana-final-dart.json",
+    "data/discovered/ipo_events.json",
+    "doc/verified-delta-manifests/2026-11-13-hana-final.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/stocks/하나에어로다이내믹스_2026-11-10.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "changedDataPaths": [
+    "data/broker_snapshots/2026-11-13-hana-final-dart.json",
+    "data/discovered/ipo_events.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/stocks/하나에어로다이내믹스_2026-11-10.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "canonicalPaths": [
+    "data/broker_snapshots/2026-11-13-hana-final-dart.json",
+    "data/discovered/ipo_events.json"
+  ],
+  "canonicalEventPath": "data/discovered/ipo_events.json",
+  "canonicalManualPath": "data/manual_fundamentals.json",
+  "feedPaths": [
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "feedMembership": {
+    "ipo_competition_data/index.json": "preserve",
+    "ipo_competition_data/dashboard.json": "preserve",
+    "ipo_competition_data/recent.json": "preserve",
+    "ipo_competition_data/yearly/2026.json": "preserve"
+  },
+  "feedParityFields": [
+    "listingDate",
+    "latestCompetitionRate"
+  ],
+  "feedVerifiedValues": {
+    "ipo_competition_data/index.json": {
+      "listingDate": "2026-11-20",
+      "latestCompetitionRate": 1851.1420454545455,
+      "latestSnapshotAt": "2026-11-13T19:32:19.532600+09:00"
+    },
+    "ipo_competition_data/dashboard.json": {
+      "listingDate": "2026-11-20",
+      "latestCompetitionRate": 1851.1420454545455,
+      "latestSnapshotAt": "2026-11-13T19:32:19.532600+09:00"
+    },
+    "ipo_competition_data/recent.json": {
+      "listingDate": "2026-11-20",
+      "latestCompetitionRate": 1851.1420454545455,
+      "latestSnapshotAt": "2026-11-13T19:32:19.532600+09:00"
+    },
+    "ipo_competition_data/yearly/2026.json": {
+      "listingDate": "2026-11-20",
+      "latestCompetitionRate": 1851.1420454545455,
+      "latestSnapshotAt": "2026-11-13T19:32:19.532600+09:00"
+    }
+  },
+  "feedGeneratedAt": {
+    "ipo_competition_data/index.json": "2026-11-13T19:33:52.747406",
+    "ipo_competition_data/dashboard.json": "2026-11-13T19:33:52.747406",
+    "ipo_competition_data/recent.json": "2026-11-13T19:33:52.747406",
+    "ipo_competition_data/yearly/2026.json": "2026-11-13T19:33:52.747406"
+  },
+  "allowedFeedLeafPointers": {
+    "ipo_competition_data/index.json": [
+      "/expectedGainRate",
+      "/latestCompetitionRate",
+      "/latestSnapshotAt",
+      "/listingDate"
+    ],
+    "ipo_competition_data/dashboard.json": [
+      "/bestBrokerCompetitionRate",
+      "/bestBrokerName",
+      "/latestCompetitionRate",
+      "/latestSnapshotAt",
+      "/listingDate"
+    ],
+    "ipo_competition_data/recent.json": [
+      "/expectedGainRate",
+      "/latestCompetitionRate",
+      "/latestSnapshotAt",
+      "/listingDate"
+    ],
+    "ipo_competition_data/yearly/2026.json": [
+      "/expectedGainRate",
+      "/latestCompetitionRate",
+      "/latestSnapshotAt",
+      "/listingDate"
+    ]
+  },
+  "allowedStockLeafPointers": [
+    "/analysis/brokerScores",
+    "/analysis/decision/reasons",
+    "/analysis/decision/warnings",
+    "/analysis/expectedReturn/assumptions/competitionPresent",
+    "/analysis/expectedReturn/assumptions/competitionRate",
+    "/analysis/expectedReturn/assumptions/generalCalibrationApplied",
+    "/analysis/expectedReturn/assumptions/generalCompetitionBaseline",
+    "/analysis/expectedReturn/assumptions/generalCompetitionPending",
+    "/analysis/expectedReturn/assumptions/generalPriorBase",
+    "/analysis/expectedReturn/baseCaseListingGainRate",
+    "/analysis/expectedReturn/bearCaseListingGainRate",
+    "/analysis/expectedReturn/bullCaseListingGainRate",
+    "/analysis/expectedReturn/expectedAllocatedShares/fiveMillionKrw",
+    "/analysis/expectedReturn/expectedAllocatedShares/minimumSubscription",
+    "/analysis/expectedReturn/expectedAllocatedShares/oneMillionKrw",
+    "/analysis/expectedReturn/expectedListingGainRate",
+    "/analysis/expectedReturn/expectedProfitKrw/fiveMillionKrw",
+    "/analysis/expectedReturn/expectedProfitKrw/minimumSubscription",
+    "/analysis/expectedReturn/expectedProfitKrw/oneMillionKrw",
+    "/analysis/inputs/latestCompetitionRate",
+    "/analysis/inputs/snapshotCount",
+    "/analysis/score/confidence",
+    "/listingDate",
+    "/snapshots"
+  ],
+  "allowedCanonicalEventLeafPointers": [
+    "/listingDate"
+  ],
+  "allowedCanonicalManualLeafPointers": [],
+  "canonicalVerifiedFields": {
+    "listingDate": "2026-11-20"
+  },
+  "verifiedManualFields": {},
+  "verifiedFields": {
+    "snapshots.0.brokers.0.name": "IBK투자증권",
+    "snapshots.0.brokers.0.offeredShares": 1100000,
+    "snapshots.0.brokers.0.subscribedShares": 2036256250,
+    "snapshots.0.brokers.0.offerPrice": 5700,
+    "snapshots.0.brokers.0.depositRate": null,
+    "snapshots.0.brokers.0.feeKrw": null,
+    "snapshots.0.brokers.0.competitionRate": 1851.1420454545455,
+    "snapshots.0.brokers.0.equalCompetitionRate": null,
+    "snapshots.0.brokers.0.proportionalCompetitionRate": null,
+    "snapshots.0.brokers.0.equalAllocationShares": 550000,
+    "snapshots.0.brokers.0.proportionalAllocationShares": 550000,
+    "snapshots.0.brokers.0.expectedEqualShares": null,
+    "snapshots.0.brokers.0.applicationCount": 129620,
+    "snapshots.0.aggregate.competitionRate": 1851.1420454545455,
+    "listingDate": "2026-11-20"
+  },
+  "retainedNullFields": [
+    "outcome",
+    "snapshots.0.brokers.0.depositRate",
+    "snapshots.0.brokers.0.feeKrw",
+    "snapshots.0.brokers.0.equalCompetitionRate",
+    "snapshots.0.brokers.0.proportionalCompetitionRate",
+    "snapshots.0.brokers.0.expectedEqualShares"
+  ],
+  "expectedSnapshots": [
+    {
+      "capturedAt": "2026-11-13T19:32:19.532600+09:00",
+      "source": "dart_official_issuance_results_report",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261113000458&dcmNo=11653471&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+      "brokers": [
+        {
+          "name": "IBK투자증권",
+          "offeredShares": 1100000,
+          "subscribedShares": 2036256250,
+          "offerPrice": 5700,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 1851.1420454545455,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 550000,
+          "proportionalAllocationShares": 550000,
+          "expectedEqualShares": null,
+          "applicationCount": 129620
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 1100000,
+        "subscribedShares": 2036256250,
+        "competitionRate": 1851.1420454545455
+      }
+    }
+  ],
+  "sourceNullRetailFields": [
+    "proportionalCompetitionRate",
+    "expectedEqualShares",
+    "finalPerApplicantAllocation"
+  ],
+  "requireEmptyRetailSnapshots": false,
+  "allowedNewNullIssueCodes": [],
+  "phaseNullFieldMap": {},
+  "completenessNullFieldMap": {},
+  "sourceRecordFields": {
+    "dailyRetailObservation.aggregateCompetitionRate": 1851.1420454545455,
+    "dailyRetailObservation.applicationCount": 129620,
+    "dailyRetailObservation.subscribedShares": 2036256250,
+    "dailyRetailObservation.publicOfferedShares": 1100000,
+    "dailyRetailObservation.equalAllocationShares": 550000,
+    "dailyRetailObservation.proportionalAllocationShares": 550000,
+    "dailyRetailObservation.proportionalCompetitionRate": null,
+    "dailyRetailObservation.expectedEqualShares": null,
+    "dailyRetailObservation.finalPerApplicantAllocation": null,
+    "sources.final_issuance_results.url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261113000458&dcmNo=11653471&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+    "sources.final_issuance_results.rcpNo": "20261113000458",
+    "sources.final_issuance_results.dcmNo": "11653471",
+    "sources.final_issuance_results.publishedDate": "2026-11-13",
+    "sources.final_issuance_results.httpStatus": 200,
+    "sources.final_issuance_results.rawFile": "raw/dart.html",
+    "sources.final_issuance_results.rawSha256": "09a947411367c382d73d244106dd47e07d6191c6d1f7ffc0cd59c8a1faa92c76",
+    "sources.final_issuance_results.bytes": 101720,
+    "sources.final_issuance_results.requestStartedAtKst": "2026-11-13T19:32:19.388484+09:00",
+    "sources.final_issuance_results.responseCompletedAtKst": "2026-11-13T19:32:19.532600+09:00",
+    "directlyReported.plannedListingDate": "2026-11-20",
+    "fieldProvenance": {
+      "aggregateCompetitionRate": {
+        "kind": "calculated",
+        "formula": "2036256250 / 1100000",
+        "value": 1851.1420454545455
+      },
+      "proportionalCompetitionRate": {
+        "kind": "absent",
+        "value": null,
+        "reason": "Narrative allocation method only; no directly reported numeric rate. No doubling."
+      },
+      "refundDate": {
+        "kind": "not_confirmed_by_this_raw",
+        "value": null,
+        "reason": "Payment date is not evidence for refund date; preserve existing stored refund date without recertification."
+      },
+      "individualFinalAllocation": {
+        "kind": "not_single_outcome",
+        "value": null,
+        "reason": "4 shares plus randomized residual and unit-dependent proportional table cannot specify one individual outcome."
+      }
+    },
+    "directlyReported": {
+      "offerPriceKrw": 5700,
+      "totalOfferedShares": 4400000,
+      "totalIssueAmountKrw": 25080000000,
+      "retailSubscriptionAmountKrw": 11606660625000,
+      "retailFinalAmountKrw": 6270000000,
+      "institutionalFinalShares": 3300000,
+      "institutionalFinalAmountKrw": 18810000000,
+      "institutionalFinalCount": 2137,
+      "subscriptionStart": "2026-11-10",
+      "subscriptionEnd": "2026-11-11",
+      "paymentDate": "2026-11-13",
+      "allotmentAnnouncementDate": "2026-11-13",
+      "plannedRegistrationDate": "2026-11-17",
+      "plannedListingDate": "2026-11-20",
+      "equalBasePerApplication": 4,
+      "equalResidualRandomShares": 31520,
+      "proportionalResidualRandomShares": 1857
+    },
+    "sourceObservedAt": "2026-11-13T19:32:19.532600+09:00"
+  },
+  "assertNotMemberPaths": [
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/upcoming.json"
+  ]
+}
