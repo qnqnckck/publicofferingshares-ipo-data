@@ -1,0 +1,339 @@
+{
+  "policyVersion": "verified_delta_with_deferred_nulls_v1",
+  "baseHead": "63a33f90fd8dd632f076e8dd077db046f37af3bc",
+  "target": {
+    "id": "영광와이케이엠씨_2026-11-04",
+    "company": "영광와이케이엠씨",
+    "issuer": "영광와이케이엠씨",
+    "stockCode": null,
+    "broker": "대신증권",
+    "date": "2026-11-04"
+  },
+  "allowedChangedPaths": [
+    "data/broker_snapshots/2026-11-13-ykmc-final-dart.json",
+    "doc/verified-delta-manifests/2026-11-13-ykmc-final.json",
+    "ipo_competition_data/stocks/영광와이케이엠씨_2026-11-04.json"
+  ],
+  "changedDataPaths": [
+    "data/broker_snapshots/2026-11-13-ykmc-final-dart.json",
+    "ipo_competition_data/stocks/영광와이케이엠씨_2026-11-04.json"
+  ],
+  "canonicalPaths": [
+    "data/broker_snapshots/2026-11-13-ykmc-final-dart.json"
+  ],
+  "canonicalEventPath": "data/discovered/ipo_events.json",
+  "canonicalManualPath": "data/manual_fundamentals.json",
+  "feedPaths": [],
+  "feedMembership": {},
+  "feedParityFields": [
+    "listingDate",
+    "latestCompetitionRate"
+  ],
+  "allowedStockLeafPointers": [
+    "/analysis/inputs/snapshotCount",
+    "/snapshots"
+  ],
+  "canonicalVerifiedFields": {},
+  "verifiedManualFields": {},
+  "verifiedFields": {
+    "snapshots.7.brokers.0.name": "대신증권",
+    "snapshots.7.brokers.0.offeredShares": 575000,
+    "snapshots.7.brokers.0.subscribedShares": 772030770,
+    "snapshots.7.brokers.0.offerPrice": 11000,
+    "snapshots.7.brokers.0.depositRate": 0.5,
+    "snapshots.7.brokers.0.feeKrw": null,
+    "snapshots.7.brokers.0.competitionRate": 1342.6622086956522,
+    "snapshots.7.brokers.0.equalCompetitionRate": null,
+    "snapshots.7.brokers.0.proportionalCompetitionRate": 1342.66,
+    "snapshots.7.brokers.0.equalAllocationShares": 287500,
+    "snapshots.7.brokers.0.proportionalAllocationShares": 287500,
+    "snapshots.7.brokers.0.expectedEqualShares": null,
+    "snapshots.7.brokers.0.applicationCount": 215502,
+    "snapshots.7.aggregate.competitionRate": 1342.6622086956522
+  },
+  "retainedNullFields": [
+    "snapshots.7.brokers.0.feeKrw",
+    "snapshots.7.brokers.0.equalCompetitionRate",
+    "snapshots.7.brokers.0.expectedEqualShares",
+    "outcome"
+  ],
+  "expectedSnapshots": [
+    {
+      "capturedAt": "2026-11-04T09:58:35+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A345290",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 575000,
+          "subscribedShares": null,
+          "offerPrice": 11000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 4.22,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 8.44,
+          "equalAllocationShares": 287500,
+          "proportionalAllocationShares": 287500,
+          "expectedEqualShares": null,
+          "applicationCount": 18033
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 575000,
+        "subscribedShares": null,
+        "competitionRate": 4.22
+      }
+    },
+    {
+      "capturedAt": "2026-11-04T10:56:06+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A345290",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 575000,
+          "subscribedShares": null,
+          "offerPrice": 11000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 5.58,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 11.17,
+          "equalAllocationShares": 287500,
+          "proportionalAllocationShares": 287500,
+          "expectedEqualShares": null,
+          "applicationCount": 31473
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 575000,
+        "subscribedShares": null,
+        "competitionRate": 5.58
+      }
+    },
+    {
+      "capturedAt": "2026-11-04T11:53:34+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A345290",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 575000,
+          "subscribedShares": null,
+          "offerPrice": 11000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 7.33,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 14.66,
+          "equalAllocationShares": 287500,
+          "proportionalAllocationShares": 287500,
+          "expectedEqualShares": null,
+          "applicationCount": 41072
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 575000,
+        "subscribedShares": null,
+        "competitionRate": 7.33
+      }
+    },
+    {
+      "capturedAt": "2026-11-04T12:57:07+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A345290",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 575000,
+          "subscribedShares": null,
+          "offerPrice": 11000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 8.45,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 16.91,
+          "equalAllocationShares": 287500,
+          "proportionalAllocationShares": 287500,
+          "expectedEqualShares": null,
+          "applicationCount": 49924
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 575000,
+        "subscribedShares": null,
+        "competitionRate": 8.45
+      }
+    },
+    {
+      "capturedAt": "2026-11-04T14:00:44+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A345290",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 575000,
+          "subscribedShares": null,
+          "offerPrice": 11000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 9.99,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 19.98,
+          "equalAllocationShares": 287500,
+          "proportionalAllocationShares": 287500,
+          "expectedEqualShares": null,
+          "applicationCount": 57703
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 575000,
+        "subscribedShares": null,
+        "competitionRate": 9.99
+      }
+    },
+    {
+      "capturedAt": "2026-11-04T14:58:15+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A345290",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 575000,
+          "subscribedShares": null,
+          "offerPrice": 11000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 11.86,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 23.73,
+          "equalAllocationShares": 287500,
+          "proportionalAllocationShares": 287500,
+          "expectedEqualShares": null,
+          "applicationCount": 63594
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 575000,
+        "subscribedShares": null,
+        "competitionRate": 11.86
+      }
+    },
+    {
+      "capturedAt": "2026-11-04T16:02:53+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A345290",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 575000,
+          "subscribedShares": null,
+          "offerPrice": 11000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 14.22,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 28.44,
+          "equalAllocationShares": 287500,
+          "proportionalAllocationShares": 287500,
+          "expectedEqualShares": null,
+          "applicationCount": 71366
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 575000,
+        "subscribedShares": null,
+        "competitionRate": 14.22
+      }
+    },
+    {
+      "capturedAt": "2026-11-13T19:11:48.073+09:00",
+      "source": "dart_official_issuance_results_report",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261109000183&dcmNo=11646270&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 575000,
+          "subscribedShares": 772030770,
+          "offerPrice": 11000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 1342.6622086956522,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1342.66,
+          "equalAllocationShares": 287500,
+          "proportionalAllocationShares": 287500,
+          "expectedEqualShares": null,
+          "applicationCount": 215502
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 575000,
+        "subscribedShares": 772030770,
+        "competitionRate": 1342.6622086956522
+      }
+    }
+  ],
+  "sourceNullRetailFields": [
+    "expectedEqualShares",
+    "finalPerApplicantAllocation"
+  ],
+  "requireEmptyRetailSnapshots": false,
+  "allowedNewNullIssueCodes": [
+    "missing_review",
+    "documented_gap"
+  ],
+  "phaseNullFieldMap": {},
+  "completenessNullFieldMap": {},
+  "sourceRecordFields": {
+    "dailyRetailObservation.aggregateCompetitionRate": 1342.6622086956522,
+    "dailyRetailObservation.applicationCount": 215502,
+    "dailyRetailObservation.subscribedShares": 772030770,
+    "dailyRetailObservation.publicOfferedShares": 575000,
+    "dailyRetailObservation.equalAllocationShares": 287500,
+    "dailyRetailObservation.proportionalAllocationShares": 287500,
+    "dailyRetailObservation.proportionalCompetitionRate": 1342.66,
+    "dailyRetailObservation.expectedEqualShares": null,
+    "dailyRetailObservation.finalPerApplicantAllocation": null,
+    "targetIds": [
+      "영광와이케이엠씨_2026-11-04"
+    ],
+    "fieldProvenance": {
+      "aggregateCompetitionRate": {
+        "value": 1342.6622086956522,
+        "kind": "derived",
+        "formula": "772030770 / 575000"
+      },
+      "proportionalCompetitionRate": {
+        "value": 1342.66,
+        "kind": "directly_reported",
+        "basis": "residual subscription deposit",
+        "sourceSection": "II. 청약 및 배정에 관한 사항; 일반청약자 배정"
+      },
+      "applicationCount": {
+        "value": 215502,
+        "kind": "directly_reported",
+        "basis": "general applications excluding duplicate applications"
+      },
+      "finalPerApplicantAllocation": {
+        "value": null,
+        "reason": "Official 1-share baseline plus randomized residual allocation and subscription-unit distribution do not define one aggregate schema-compatible individual final outcome"
+      }
+    },
+    "sources.final_issuance_results.url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261109000183&dcmNo=11646270&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+    "sources.final_issuance_results.httpStatus": 200,
+    "sources.final_issuance_results.rawFile": "raw/dart.html",
+    "sources.final_issuance_results.rawSha256": "a22f758cfae487883de01ed2b5ef96f604bf4534940e589d2f44176f61b1eb15",
+    "sources.final_issuance_results.bytes": 189296,
+    "sources.final_issuance_results.requestStartedAtKst": "2026-11-13T19:11:47.715+09:00",
+    "sources.final_issuance_results.responseCompletedAtKst": "2026-11-13T19:11:48.073+09:00",
+    "sources.final_issuance_results.publishedDate": "2026-11-09",
+    "sources.final_issuance_results.rcpNo": "20261109000183",
+    "sources.final_issuance_results.dcmNo": "11646270"
+  },
+  "assertNotMemberPaths": [
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/upcoming.json"
+  ]
+}

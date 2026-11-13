@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "DART directly reports residual-deposit proportional competition 1342.66; aggregate 772030770/575000 is separately calculated. No doubling. Count excludes duplicate applications; final individual outcome remains null."
+  ],
+  "snapshots": [
+    {
+      "id": "영광와이케이엠씨_2026-11-04",
+      "company": "영광와이케이엠씨",
+      "capturedAt": "2026-11-13T19:11:48.073+09:00",
+      "source": "dart_official_issuance_results_report",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261109000183&dcmNo=11646270&eleId=1&offset=0&length=0&dtd=dart4.xsd",
+      "sourcePublishedDate": "2026-11-09",
+      "brokers": [
+        {
+          "name": "대신증권",
+          "offeredShares": 575000,
+          "subscribedShares": 772030770,
+          "offerPrice": 11000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 1342.6622086956522,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1342.66,
+          "equalAllocationShares": 287500,
+          "proportionalAllocationShares": 287500,
+          "expectedEqualShares": null,
+          "applicationCount": 215502
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 575000,
+        "subscribedShares": 772030770,
+        "competitionRate": 1342.6622086956522,
+        "applicationCount": 215502
+      }
+    }
+  ]
+}
