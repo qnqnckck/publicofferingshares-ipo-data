@@ -149,7 +149,7 @@ def dart_document_text(html_text):
 def dart_subscription_dates(html_text):
     text = dart_document_text(html_text)
     date = r"(?:20\d{2}\s*년\s*\d{1,2}\s*월\s*\d{1,2}\s*일|20\d{2}\.\d{1,2}\.\d{1,2})"
-    match = re.search(
+    matches = re.findall(
         rf"청약개시일\s*청약종료일\s*납입기일\s*코스닥시장\s*공모\s*({date})\s*({date})",
         text,
     )
@@ -158,27 +158,51 @@ def dart_subscription_dates(html_text):
         digits = re.findall(r"\d+", value)
         return f"{int(digits[0]):04d}-{int(digits[1]):02d}-{int(digits[2]):02d}"
 
-    if match:
-        return iso(match.group(1)), iso(match.group(2))
+    # Collect all supported representations; conflicting schedules must not be
+    # resolved by taking the first match.
+    pairs = []
+    pairs.extend((iso(start), iso(end)) for start, end in matches)
 
-    # A final prospectus can be the issuer's newest filing after subscription.
-    # Accept its explicit general-investor schedule only when both endpoints are
-    # written in the same line and resolve to one unique date pair.
     end_date = r"(?:(?:20\d{2}\s*년\s*)?\d{1,2}\s*월\s*\d{1,2}\s*일|20\d{2}\.\d{1,2}\.\d{1,2})"
     explicit_pairs = re.findall(
-        rf"일반(?:투자자|청약자)\s*청약(?:일|기일)\s*[:：]\s*({date})\s*[~～]\s*({end_date})",
+        rf"일반(?:투자자|청약자)\s*청약(?:일|기일)\s*[:：]\s*({date})(?:\s*\([월화수목금토일]\))?\s*[~～]\s*({end_date})(?:\s*\([월화수목금토일]\))?",
         text,
     )
 
     def iso_end(value, start):
-        end_parts = [int(x) for x in re.findall(r"\d+", value)]
-        start_year = int(re.findall(r"\d+", start)[0])
-        if len(end_parts) == 2:
-            end_parts.insert(0, start_year)
-        return f"{end_parts[0]:04d}-{end_parts[1]:02d}-{end_parts[2]:02d}"
+        parts = [int(x) for x in re.findall(r"\d+", value)]
+        if len(parts) == 2:
+            parts.insert(0, int(re.findall(r"\d+", start)[0]))
+        return f"{parts[0]:04d}-{parts[1]:02d}-{parts[2]:02d}"
 
-    pairs = {(iso(start), iso_end(end, start)) for start, end in explicit_pairs}
-    return next(iter(pairs)) if len(pairs) == 1 else None
+    pairs.extend((iso(start), iso_end(end, start)) for start, end in explicit_pairs)
+
+    # Saved DART prospectus: 청약기일 spans institutional and general rows,
+    # 일반투자자 spans exactly the adjacent 개시일 / 종료일 rows. Keep table
+    # boundaries and labels so unrelated payment/forecast dates cannot fill gaps.
+    for table in re.findall(r"<table\b[^>]*>(.*?)</table\s*>", html_text, re.I | re.S):
+        if "청약기일" not in dart_document_text(table):
+            continue
+        rows_text = [dart_document_text(row) for row in
+                     re.findall(r"<tr\b[^>]*>(.*?)</tr\s*>", table, re.I | re.S)]
+        for index, row in enumerate(rows_text):
+            if not re.match(r"일반(?:투자자|청약자)\s+개시일\b", row):
+                continue
+            start = re.fullmatch(rf"일반(?:투자자|청약자)\s+개시일\s+({date})(?:\s*\([월화수목금토일]\))?", row)
+            end = re.fullmatch(rf"종료일\s+({date})(?:\s*\([월화수목금토일]\))?", rows_text[index + 1] if index + 1 < len(rows_text) else "")
+            if not start or not end:
+                return None
+            pairs.append((iso(start.group(1)), iso(end.group(1))))
+
+    unique = set(pairs)
+    if len(unique) != 1:
+        return None
+    pair = next(iter(unique))
+    try:
+        start, end = (datetime.strptime(value, "%Y-%m-%d").date() for value in pair)
+    except ValueError:
+        return None
+    return pair if start <= end else None
 
 
 def changed_leaf_paths(before, after, prefix=""):

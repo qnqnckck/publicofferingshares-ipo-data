@@ -68,5 +68,44 @@ class VerifiedDeltaPolicyTests(unittest.TestCase):
             self.assertEqual(phase_errors(path), {("missing_x", "one"), ("conflict", "three")})
 
 
+    def test_prospectus_general_investor_adjacent_rows(self):
+        # Shape of saved official DART rcpNo=20261110000261 (MBD).
+        table = """<TABLE><TR><TD rowspan='4'>청약기일</TD>
+        <TD rowspan='2'>기관투자자</TD><TD>개시일</TD><TD>2026년 11월 12일(목)</TD></TR>
+        <TR><TD>종료일</TD><TD>2026년 11월 13일(금)</TD></TR>
+        <TR><TD rowspan='2'>일반투자자</TD><TD>개시일</TD><TD>2026년 11월 12일(목)</TD></TR>
+        <TR><TD>종료일</TD><TD>2026년 11월 13일(금)</TD></TR></TABLE>"""
+        self.assertEqual(dart_subscription_dates(table), ("2026-11-12", "2026-11-13"))
+        for original, replacement in (("11월 12일", "11월 32일"),
+                                      ("11월 13일", ""), ("개시일", "납입기일"),
+                                      ("11월 12일", "11월 14일")):
+            with self.subTest(replacement=replacement):
+                self.assertIsNone(dart_subscription_dates(table.replace(original, replacement)))
+        self.assertIsNone(dart_subscription_dates(table + table.replace("11월 12일", "11월 11일")))
+
+    def test_legacy_schedule_invalid_and_conflicting_dates_fail_closed(self):
+        self.assertIsNone(dart_subscription_dates("일반투자자 청약일: 2026.02.30 ~ 2026.03.01"))
+        self.assertIsNone(dart_subscription_dates(
+            "일반투자자 청약일: 2026.11.12 ~ 2026.11.13 "
+            "일반투자자 청약일: 2026.11.11 ~ 2026.11.13"))
+
+
 if __name__ == "__main__":
     unittest.main()
+
+
+class WeekdayExplicitRangeTests(unittest.TestCase):
+    def test_weekday_range(self):
+        self.assertEqual(dart_subscription_dates('일반청약자 청약일: 2026년 11월 12일(목) ~ 2026년 11월 13일(금)'), ('2026-11-12', '2026-11-13'))
+
+    def test_weekday_negative_ranges(self):
+        for line in [
+            '일반청약자 청약일: 2026년 13월 12일(목) ~ 2026년 13월 13일(금)',
+            '일반청약자 청약일: 2026년 11월 31일(목) ~ 2026년 11월 32일(금)',
+            '일반청약자 청약일: 2026년 11월 13일(금) ~ 2026년 11월 12일(목)',
+            '일반청약자 청약일: 2026년 11월 12일(목) ~ 13일(금)',
+            '일반청약자 청약일: 2026년 11월 12일(목) ~',
+            '일반청약자 청약일: 2026년 11월 12일(목) ~ 2026년 11월 13일(금) 일반청약자 청약일: 2026년 11월 14일(토) ~ 2026년 11월 15일(일)',
+        ]:
+            with self.subTest(line=line):
+                self.assertIsNone(dart_subscription_dates(line))
