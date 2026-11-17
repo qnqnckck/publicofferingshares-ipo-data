@@ -1,0 +1,100 @@
+{
+  "policyVersion": "verified_delta_with_deferred_nulls_v1",
+  "baseHead": "26d7dd3c0bfcaa5452c121bcdbd0df3deceb95a6",
+  "target": {
+    "id": "엠비디_2026-11-12",
+    "company": "엠비디",
+    "issuer": "엠비디",
+    "stockCode": "498150",
+    "broker": "하나증권",
+    "date": "2026-11-12"
+  },
+  "allowedChangedPaths": [
+    "ipo_competition_data/active.json",
+    "doc/verified-delta-manifests/2026-11-17-mbd-active-expiry.json"
+  ],
+  "changedDataPaths": [
+    "ipo_competition_data/active.json"
+  ],
+  "canonicalPaths": [],
+  "canonicalEventPath": "data/discovered/ipo_events.json",
+  "canonicalManualPath": "data/manual_fundamentals.json",
+  "feedPaths": [
+    "ipo_competition_data/active.json"
+  ],
+  "feedMembership": {
+    "ipo_competition_data/active.json": "none"
+  },
+  "feedGeneratedAt": {
+    "ipo_competition_data/active.json": "2026-11-17T09:12:37.124133+09:00"
+  },
+  "allowedFeedLeafPointers": {
+    "ipo_competition_data/active.json": []
+  },
+  "feedParityFields": [],
+  "allowedNonTargetRemovals": {},
+  "membershipAsOfDate": "2026-11-17",
+  "membershipRemovalEvidence": [
+    {
+      "path": "ipo_competition_data/active.json",
+      "id": "엠비디_2026-11-12",
+      "issuer": "엠비디",
+      "asOfDate": "2026-11-17",
+      "sourceObservationAsOfDate": "2026-11-17",
+      "subscriptionStart": "2026-11-12",
+      "subscriptionEnd": "2026-11-13",
+      "eligibility": "active_end_before_as_of",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261110000261&dcmNo=11647885&eleId=4&offset=941863&length=2962129&dtd=dart4.xsd",
+      "observedUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261110000261&dcmNo=11647885&eleId=4&offset=941863&length=2962129&dtd=dart4.xsd",
+      "latestFilingSearch": {
+        "url": "https://dart.fss.or.kr/dsab001/search.ax?textCrpNm=%EC%97%A0%EB%B9%84%EB%94%94&startDate=20261110&endDate=20261117&currentPage=1&maxResults=100&maxLinks=10&sort=date&series=desc&finalReport=recent&pageGubun=corp",
+        "requestStartedAtKst": "2026-11-17T08:58:56.257199+09:00",
+        "httpStatus": 200,
+        "rawFile": "raw/dart-search-current.html",
+        "rawSha256": "8d1b746eab25a9bd1fc264e094a67589ed7ab84e82e3b79bbf536e398f4aa462",
+        "bytes": 3516,
+        "responseCompletedAtKst": "2026-11-17T08:58:56.346825+09:00",
+        "issuer": "엠비디",
+        "latestRcpNo": "20261110000261",
+        "latestFilingDate": "2026.11.10",
+        "latestFilingTitle": "[기재정정] 투자설명서"
+      },
+      "latestScheduleReport": {
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261110000261&dcmNo=11647885&eleId=4&offset=941863&length=2962129&dtd=dart4.xsd",
+        "requestStartedAtKst": "2026-11-16T19:14:31.530836+09:00",
+        "httpStatus": 200,
+        "rawFile": "raw/dart-body.html",
+        "rawSha256": "98ae39bf0c755f957978e6d977ca940b95ed6959c2ce4c00fceb03f4ab690926",
+        "bytes": 3218600,
+        "responseCompletedAtKst": "2026-11-16T19:14:32.348002+09:00",
+        "issuer": "엠비디",
+        "reportTitle": "[기재정정] 투자설명서",
+        "rcpNo": "20261110000261",
+        "subscriptionStart": "2026-11-12",
+        "subscriptionEnd": "2026-11-13"
+      },
+      "httpStatus": 200,
+      "requestStartedAtKst": "2026-11-16T19:14:31.530836+09:00",
+      "responseCompletedAtKst": "2026-11-16T19:14:32.348002+09:00",
+      "rawFile": "raw/dart-body.html",
+      "rawSha256": "98ae39bf0c755f957978e6d977ca940b95ed6959c2ce4c00fceb03f4ab690926",
+      "bytes": 3218600
+    }
+  ],
+  "verifiedFields": {},
+  "retainedNullFields": [],
+  "expectedSnapshots": [],
+  "allowedStockLeafPointers": [],
+  "canonicalVerifiedFields": {
+    "company": "엠비디",
+    "subscriptionStart": "2026-11-12",
+    "subscriptionEnd": "2026-11-13"
+  },
+  "allowedCanonicalEventLeafPointers": [],
+  "verifiedManualFields": {},
+  "allowedCanonicalManualLeafPointers": [],
+  "allowedNewNullIssueCodes": [],
+  "phaseNullFieldMap": {},
+  "sourceNullRetailFields": [],
+  "requireEmptyRetailSnapshots": false
+}
