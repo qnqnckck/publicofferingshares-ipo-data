@@ -1,0 +1,413 @@
+{
+  "policyVersion": "verified_delta_with_deferred_nulls_v1",
+  "baseHead": "471fe49938830d1f94b9497f89ea523f70719ebb",
+  "target": {
+    "id": "유캐스트_2026-11-18",
+    "company": "유캐스트",
+    "issuer": "유캐스트",
+    "stockCode": "0175C0",
+    "broker": "유진투자증권,신영증권",
+    "date": "2026-11-18"
+  },
+  "allowedChangedPaths": [
+    "data/broker_snapshots/2026-11-19-ucast-intraday.json",
+    "data/discovered/ipo_events.json",
+    "data/manual_fundamentals.json",
+    "doc/verified-delta-manifests/2026-11-19-ucast.json",
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/recent-ucast-reference.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/stocks/유캐스트_2026-11-18.json",
+    "ipo_competition_data/upcoming.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "changedDataPaths": [
+    "data/broker_snapshots/2026-11-19-ucast-intraday.json",
+    "data/discovered/ipo_events.json",
+    "data/manual_fundamentals.json",
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/recent-ucast-reference.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/stocks/유캐스트_2026-11-18.json",
+    "ipo_competition_data/upcoming.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "canonicalPaths": [
+    "data/broker_snapshots/2026-11-19-ucast-intraday.json",
+    "data/discovered/ipo_events.json",
+    "data/manual_fundamentals.json",
+    "ipo_competition_data/recent-ucast-reference.json"
+  ],
+  "canonicalEventPath": "data/discovered/ipo_events.json",
+  "canonicalManualPath": "data/manual_fundamentals.json",
+  "feedPaths": [
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/upcoming.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "feedMembership": {
+    "ipo_competition_data/index.json": "preserve",
+    "ipo_competition_data/active.json": "one",
+    "ipo_competition_data/upcoming.json": "none",
+    "ipo_competition_data/recent.json": "canonical_window",
+    "ipo_competition_data/dashboard.json": "preserve",
+    "ipo_competition_data/yearly/2026.json": "preserve"
+  },
+  "newMembershipReferencePath": "ipo_competition_data/recent-ucast-reference.json",
+  "feedParityFields": [
+    "offerPrice",
+    "listingDate",
+    "institutionCompetitionRate",
+    "institutionParticipants",
+    "lockupCommitmentRate",
+    "latestCompetitionRate",
+    "score",
+    "grade",
+    "decisionLevel",
+    "expectedGainRate"
+  ],
+  "allowedStockLeafPointers": [
+    "/analysis/brokerScores",
+    "/analysis/decision/label",
+    "/analysis/decision/level",
+    "/analysis/decision/warnings",
+    "/analysis/expectedReturn/assumptions/generalPriorBase",
+    "/analysis/expectedReturn/assumptions/offerPrice",
+    "/analysis/expectedReturn/baseCaseListingGainRate",
+    "/analysis/expectedReturn/bearCaseListingGainRate",
+    "/analysis/expectedReturn/bullCaseListingGainRate",
+    "/analysis/expectedReturn/expectedAllocatedShares/fiveMillionKrw",
+    "/analysis/expectedReturn/expectedAllocatedShares/minimumSubscription",
+    "/analysis/expectedReturn/expectedAllocatedShares/oneMillionKrw",
+    "/analysis/expectedReturn/expectedListingGainRate",
+    "/analysis/expectedReturn/expectedProfitKrw/fiveMillionKrw",
+    "/analysis/expectedReturn/expectedProfitKrw/minimumSubscription",
+    "/analysis/expectedReturn/expectedProfitKrw/oneMillionKrw",
+    "/analysis/inputs/demandScore",
+    "/analysis/inputs/floatRate",
+    "/analysis/inputs/hasOfferPrice",
+    "/analysis/inputs/institutionCompetitionRate",
+    "/analysis/inputs/lockupCommitmentRate",
+    "/analysis/inputs/snapshotCount",
+    "/analysis/score/confidence",
+    "/analysis/score/demand",
+    "/analysis/score/factors/demandStrength",
+    "/analysis/score/factors/institutionDemand",
+    "/analysis/score/factors/pricing",
+    "/analysis/score/grade",
+    "/analysis/score/overall",
+    "/fundamentals/floatRate",
+    "/fundamentals/institutionCompetitionRate",
+    "/fundamentals/institutionParticipants",
+    "/fundamentals/lockupCommitmentRate",
+    "/fundamentals/offerPrice",
+    "/fundamentals/topBandConfirmation",
+    "/identifiers/stockCode",
+    "/listingDate",
+    "/snapshots"
+  ],
+  "allowedCanonicalEventLeafPointers": [
+    "/analysis/decision/label",
+    "/analysis/decision/level",
+    "/analysis/decision/warnings",
+    "/analysis/expectedReturn/assumptions/generalPriorBase",
+    "/analysis/expectedReturn/assumptions/offerPrice",
+    "/analysis/expectedReturn/baseCaseListingGainRate",
+    "/analysis/expectedReturn/bullCaseListingGainRate",
+    "/analysis/expectedReturn/expectedAllocatedShares/fiveMillionKrw",
+    "/analysis/expectedReturn/expectedAllocatedShares/oneMillionKrw",
+    "/analysis/expectedReturn/expectedListingGainRate",
+    "/analysis/expectedReturn/expectedProfitKrw/fiveMillionKrw",
+    "/analysis/expectedReturn/expectedProfitKrw/minimumSubscription",
+    "/analysis/expectedReturn/expectedProfitKrw/oneMillionKrw",
+    "/analysis/inputs/demandScore",
+    "/analysis/inputs/floatRate",
+    "/analysis/inputs/hasOfferPrice",
+    "/analysis/inputs/institutionCompetitionRate",
+    "/analysis/inputs/lockupCommitmentRate",
+    "/analysis/score/confidence",
+    "/analysis/score/demand",
+    "/analysis/score/factors/demandStrength",
+    "/analysis/score/factors/institutionDemand",
+    "/analysis/score/factors/pricing",
+    "/analysis/score/grade",
+    "/analysis/score/overall",
+    "/fundamentals/floatRate",
+    "/fundamentals/institutionCompetitionRate",
+    "/fundamentals/institutionParticipants",
+    "/fundamentals/lockupCommitmentRate",
+    "/fundamentals/offerPrice",
+    "/fundamentals/topBandConfirmation",
+    "/identifiers/stockCode",
+    "/listingDate",
+    "/sourceUrl"
+  ],
+  "allowedCanonicalManualLeafPointers": [
+    "/floatRate",
+    "/institutionCompetitionRate",
+    "/institutionParticipants",
+    "/lockupCommitmentRate",
+    "/offerPrice",
+    "/topBandConfirmation"
+  ],
+  "allowedFeedLeafPointers": {
+    "ipo_competition_data/index.json": [
+      "/decisionLevel",
+      "/expectedGainRate",
+      "/grade",
+      "/identifiers/stockCode",
+      "/institutionCompetitionRate",
+      "/institutionParticipants",
+      "/latestSnapshotAt",
+      "/listingDate",
+      "/lockupCommitmentRate",
+      "/offerPrice",
+      "/score"
+    ],
+    "ipo_competition_data/active.json": [],
+    "ipo_competition_data/upcoming.json": [],
+    "ipo_competition_data/recent.json": [],
+    "ipo_competition_data/dashboard.json": [
+      "/decisionLevel",
+      "/grade",
+      "/identifiers/stockCode",
+      "/institutionCompetitionRate",
+      "/institutionParticipants",
+      "/latestSnapshotAt",
+      "/listingDate",
+      "/lockupCommitmentRate",
+      "/score"
+    ],
+    "ipo_competition_data/yearly/2026.json": [
+      "/decisionLevel",
+      "/expectedGainRate",
+      "/grade",
+      "/identifiers/stockCode",
+      "/institutionCompetitionRate",
+      "/institutionParticipants",
+      "/latestSnapshotAt",
+      "/listingDate",
+      "/lockupCommitmentRate",
+      "/offerPrice",
+      "/score"
+    ]
+  },
+  "verifiedFields": {
+    "fundamentals.offerPrice": 19000,
+    "fundamentals.topBandConfirmation": false,
+    "fundamentals.institutionCompetitionRate": 173.42,
+    "fundamentals.institutionParticipants": 715,
+    "fundamentals.lockupCommitmentRate": 0.005737681284779287,
+    "fundamentals.floatRate": 0.3676,
+    "fundamentals.publicAllocationShares": 200000,
+    "listingDate": "2026-11-30"
+  },
+  "canonicalVerifiedFields": {
+    "fundamentals.offerPrice": 19000,
+    "fundamentals.topBandConfirmation": false,
+    "fundamentals.institutionCompetitionRate": 173.42,
+    "fundamentals.institutionParticipants": 715,
+    "fundamentals.lockupCommitmentRate": 0.005737681284779287,
+    "fundamentals.floatRate": 0.3676,
+    "fundamentals.publicAllocationShares": 200000,
+    "listingDate": "2026-11-30"
+  },
+  "verifiedManualFields": {
+    "offerPrice": 19000,
+    "topBandConfirmation": false,
+    "institutionCompetitionRate": 173.42,
+    "institutionParticipants": 715,
+    "lockupCommitmentRate": 0.005737681284779287,
+    "floatRate": 0.3676,
+    "publicAllocationShares": 200000
+  },
+  "retainedNullFields": [
+    "fundamentals.marketCapKrw",
+    "outcome"
+  ],
+  "sourceNullRetailFields": [],
+  "requireEmptyRetailSnapshots": false,
+  "expectedSnapshots": [
+    {
+      "capturedAt": "2026-11-19T08:33:34+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0175C0",
+      "brokers": [
+        {
+          "name": "신영증권",
+          "offeredShares": 40000,
+          "subscribedShares": null,
+          "offerPrice": 19000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 0.86,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1.71,
+          "equalAllocationShares": 20000,
+          "proportionalAllocationShares": 20000,
+          "expectedEqualShares": null,
+          "applicationCount": 372
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 40000,
+        "subscribedShares": null,
+        "competitionRate": null
+      }
+    },
+    {
+      "capturedAt": "2026-11-19T08:51:43+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0175C0",
+      "brokers": [
+        {
+          "name": "유진투자증권",
+          "offeredShares": 160000,
+          "subscribedShares": null,
+          "offerPrice": 19000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": null,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 80000,
+          "proportionalAllocationShares": 80000,
+          "expectedEqualShares": null,
+          "applicationCount": 1277
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 160000,
+        "subscribedShares": null,
+        "competitionRate": null
+      }
+    }
+  ],
+  "allowedNewNullIssueCodes": [
+    "missing_marketCapKrw"
+  ],
+  "phaseNullFieldMap": {
+    "missing_marketCapKrw": "fundamentals.marketCapKrw"
+  },
+  "assertNotMemberPaths": [
+    "ipo_competition_data/upcoming.json"
+  ],
+  "feedGeneratedAt": {
+    "ipo_competition_data/index.json": "2026-11-19T09:01:58.312946",
+    "ipo_competition_data/active.json": "2026-11-19T09:01:58.312946",
+    "ipo_competition_data/upcoming.json": "2026-11-19T09:01:58.312946",
+    "ipo_competition_data/recent.json": "2026-11-19T09:01:58.312946",
+    "ipo_competition_data/dashboard.json": "2026-11-19T09:01:58.312946",
+    "ipo_competition_data/yearly/2026.json": "2026-11-19T09:01:58.312946"
+  },
+  "membershipAsOfDate": "2026-11-19",
+  "membershipRemovalEvidence": [
+    {
+      "name": "ucast-body-4",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261117000116&dcmNo=11663294&eleId=4&offset=675671&length=3732849&dtd=dart4.xsd",
+      "requestStartedAtKst": "2026-11-19T08:54:22.596457+09:00",
+      "httpStatus": 200,
+      "rawFile": "raw/ucast-body-4.html",
+      "rawSha256": "00c02ac50650f6ee7c69069e6bcefb13a50c6c9dd0ea37181d6198dc0dcd101e",
+      "bytes": 3867302,
+      "responseCompletedAtKst": "2026-11-19T08:54:23.326539+09:00",
+      "path": "ipo_competition_data/upcoming.json",
+      "id": "유캐스트_2026-11-18",
+      "issuer": "유캐스트",
+      "asOfDate": "2026-11-19",
+      "sourceObservationAsOfDate": "2026-11-19",
+      "subscriptionStart": "2026-11-18",
+      "subscriptionEnd": "2026-11-19",
+      "eligibility": "upcoming_start_on_or_before_as_of",
+      "sourceUrl": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261021000443",
+      "observedUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261117000116&dcmNo=11663294&eleId=4&offset=675671&length=3732849&dtd=dart4.xsd",
+      "latestFilingSearch": {
+        "name": "ucast-search",
+        "url": "https://dart.fss.or.kr/dsab001/search.ax?textCrpNm=%EC%9C%A0%EC%BA%90%EC%8A%A4%ED%8A%B8&startDate=20261001&endDate=20261119&currentPage=1&maxResults=100&maxLinks=10&sort=date&series=desc&finalReport=recent&pageGubun=corp",
+        "requestStartedAtKst": "2026-11-19T08:53:51.147579+09:00",
+        "httpStatus": 200,
+        "rawFile": "raw/ucast-search.html",
+        "rawSha256": "65774ccfe7837935c9fdff65de9494edbe7cc074c057b9b3dabde3bde2cbcdc2",
+        "bytes": 5808,
+        "responseCompletedAtKst": "2026-11-19T08:53:51.296450+09:00",
+        "issuer": "유캐스트",
+        "latestRcpNo": "20261117000116",
+        "latestFilingDate": "2026.11.17",
+        "latestFilingTitle": "[기재정정] 투자설명서"
+      },
+      "latestScheduleReport": {
+        "name": "ucast-body-4",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261117000116&dcmNo=11663294&eleId=4&offset=675671&length=3732849&dtd=dart4.xsd",
+        "requestStartedAtKst": "2026-11-19T08:54:22.596457+09:00",
+        "httpStatus": 200,
+        "rawFile": "raw/ucast-body-4.html",
+        "rawSha256": "00c02ac50650f6ee7c69069e6bcefb13a50c6c9dd0ea37181d6198dc0dcd101e",
+        "bytes": 3867302,
+        "responseCompletedAtKst": "2026-11-19T08:54:23.326539+09:00",
+        "issuer": "유캐스트",
+        "rcpNo": "20261117000116",
+        "reportTitle": "[기재정정] 투자설명서",
+        "subscriptionStart": "2026-11-18",
+        "subscriptionEnd": "2026-11-19"
+      }
+    },
+    {
+      "type": "canonical_recent_window_eviction",
+      "path": "ipo_competition_data/recent.json",
+      "id": "resense_medical_2026",
+      "asOfDate": "2026-11-19",
+      "limit": 60,
+      "referencePath": "ipo_competition_data/recent-ucast-reference.json",
+      "referenceSha256": "fc94640b2171345972c75fd150624765db269133748fc8308f3d7bd446aa7ed3"
+    },
+    {
+      "type": "canonical_recent_window_eviction",
+      "path": "ipo_competition_data/recent.json",
+      "id": "신한제17호스팩_2026-03-19",
+      "asOfDate": "2026-11-19",
+      "limit": 60,
+      "referencePath": "ipo_competition_data/recent-ucast-reference.json",
+      "referenceSha256": "fc94640b2171345972c75fd150624765db269133748fc8308f3d7bd446aa7ed3"
+    }
+  ],
+  "canonicalWindow": {
+    "ipo_competition_data/recent.json": {
+      "generatorPath": "tool/ipo_competition_batch.dart",
+      "generatorSha256": "fa593c801e34aa026b6cf1aa2241128739c7920413a562582698cca56bab2ab1",
+      "limit": 60
+    }
+  },
+  "generationExecutionEvidence": {
+    "recordPath": "generation-record.json",
+    "recordSha256": "6273a7d4a7b68be06566d835f0efba136672f557bb1abd2789b991ff6ec1f6f6"
+  },
+  "allowedNonTargetAdditions": {
+    "ipo_competition_data/recent.json": [
+      "엠비디_2026-11-12"
+    ]
+  },
+  "allowedNonTargetRemovals": {
+    "ipo_competition_data/recent.json": [
+      "resense_medical_2026",
+      "신한제17호스팩_2026-03-19"
+    ]
+  },
+  "brokerSnapshotInputSha256": "db26418e2c8f92371e33478a794cc8d9127a3e70bedcc5d7464245323330289e",
+  "intradaySourceSha256": "f78ea01fa017862dd67a66e15809fd3f0f3255fb90247e16167d46f916a02d67",
+  "sourceRecordFields": {
+    "verifiedFields.offerPrice": 19000,
+    "verifiedFields.topBandConfirmation": false,
+    "verifiedFields.institutionCompetitionRate": 173.42,
+    "verifiedFields.institutionParticipants": 715,
+    "verifiedFields.lockupCommitmentRate": 0.005737681284779287,
+    "verifiedFields.floatRate": 0.3676,
+    "verifiedFields.publicAllocationShares": 200000
+  }
+}
