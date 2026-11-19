@@ -1,7 +1,7 @@
 """Fail-closed validation for source-backed IPO withdrawal removals.
 
 This gate is intentionally separate from the active single-target verified-delta
-gate. It accepts only an exact multi-target withdrawal disposition, preserves
+gate. It accepts only an exact one- or two-target withdrawal disposition, preserves
 the original event and detail in a withdrawal ledger, removes all active feed
 and detail membership, and rejects unrelated changes or new audit errors.
 """
@@ -68,8 +68,8 @@ def check(repo, manifest_path, source_record_path, source_root,
 
     targets = manifest.get("targets", [])
     ids = [t.get("id") for t in targets]
-    if len(ids) != 2 or len(set(ids)) != 2 or not all(ids):
-        failures.append("withdrawal manifest must contain exactly two unique target IDs")
+    if len(ids) not in (1, 2) or len(set(ids)) != len(ids) or not all(ids):
+        failures.append("withdrawal manifest must contain one or two unique target IDs")
     canonical_path = manifest["canonicalEventPath"]
     archive_path = manifest["withdrawalArchivePath"]
     active_doc = read_json(repo / canonical_path)

@@ -2653,7 +2653,7 @@ class IpoCompetitionStock {
       'score': analysis.score.overall,
       'grade': analysis.score.grade,
       'decisionLevel': analysis.decision.level,
-      'expectedGainRate': analysis.expectedReturn.expectedListingGainRate,
+      'expectedGainRate': roundDouble(analysis.expectedReturn.expectedListingGainRate, 4),
       'path': path,
     };
   }
