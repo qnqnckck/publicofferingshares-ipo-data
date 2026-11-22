@@ -1,0 +1,190 @@
+{
+  "baseHead": "e430219b5f6b90ecc1b68f91e8454be8644cea6b",
+  "target": {
+    "id": "유캐스트_2026-11-18",
+    "company": "유캐스트",
+    "issuer": "유캐스트",
+    "stockCode": "0175C0"
+  },
+  "allowedChangedPaths": [
+    "data/discovered/ipo_events.json",
+    "doc/verified-delta-manifests/ucast-source.json"
+  ],
+  "changedDataPaths": [
+    "data/discovered/ipo_events.json"
+  ],
+  "canonicalPaths": [
+    "data/discovered/ipo_events.json"
+  ],
+  "canonicalEventPath": "data/discovered/ipo_events.json",
+  "canonicalManualPath": "data/manual_fundamentals.json",
+  "canonicalVerifiedFields": {
+    "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261117000116&dcmNo=11663294&eleId=4&offset=675671&length=3732849&dtd=dart4.xsd"
+  },
+  "verifiedManualFields": {
+    "offerPrice": 19000
+  },
+  "verifiedFields": {
+    "fundamentals.offerPrice": 19000
+  },
+  "feedPaths": [],
+  "feedMembership": {},
+  "feedGeneratedAt": {
+    "ipo_competition_data/active.json": "2026-11-22T23:59:49.786758",
+    "ipo_competition_data/recent.json": "2026-11-22T23:59:49.786758",
+    "ipo_competition_data/index.json": "2026-11-22T23:59:49.786758",
+    "ipo_competition_data/dashboard.json": "2026-11-22T23:59:49.786758",
+    "ipo_competition_data/yearly/2026.json": "2026-11-22T23:59:49.786758"
+  },
+  "feedParityFields": [
+    "grade",
+    "score",
+    "latestCompetitionRate",
+    "offerPrice",
+    "decisionLevel",
+    "expectedGainRate"
+  ],
+  "allowedFeedLeafPointers": {
+    "ipo_competition_data/active.json": [],
+    "ipo_competition_data/recent.json": [
+      "/latestSnapshotAt"
+    ],
+    "ipo_competition_data/index.json": [
+      "/latestSnapshotAt"
+    ],
+    "ipo_competition_data/dashboard.json": [
+      "/bestBrokerCompetitionRate",
+      "/bestBrokerName",
+      "/latestSnapshotAt"
+    ],
+    "ipo_competition_data/yearly/2026.json": [
+      "/latestSnapshotAt"
+    ]
+  },
+  "allowedStockLeafPointers": [],
+  "expectedSnapshots": [
+    {
+      "capturedAt": "2026-11-19T08:33:34+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0175C0",
+      "brokers": [
+        {
+          "name": "신영증권",
+          "offeredShares": 40000,
+          "subscribedShares": null,
+          "offerPrice": 19000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 0.86,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1.71,
+          "equalAllocationShares": 20000,
+          "proportionalAllocationShares": 20000,
+          "expectedEqualShares": null,
+          "applicationCount": 372
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 40000,
+        "subscribedShares": null,
+        "competitionRate": null
+      }
+    },
+    {
+      "capturedAt": "2026-11-19T08:51:43+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0175C0",
+      "brokers": [
+        {
+          "name": "유진투자증권",
+          "offeredShares": 160000,
+          "subscribedShares": null,
+          "offerPrice": 19000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": null,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 80000,
+          "proportionalAllocationShares": 80000,
+          "expectedEqualShares": null,
+          "applicationCount": 1277
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 160000,
+        "subscribedShares": null,
+        "competitionRate": null
+      }
+    },
+    {
+      "capturedAt": "2026-11-19T09:01:07+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0175C0",
+      "brokers": [
+        {
+          "name": "신영증권",
+          "offeredShares": 40000,
+          "subscribedShares": null,
+          "offerPrice": 19000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 1.07,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2.13,
+          "equalAllocationShares": 20000,
+          "proportionalAllocationShares": 20000,
+          "expectedEqualShares": null,
+          "applicationCount": 381
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 40000,
+        "subscribedShares": null,
+        "competitionRate": null
+      }
+    },
+    {
+      "capturedAt": "2026-11-19T09:09:47+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0175C0",
+      "brokers": [
+        {
+          "name": "유진투자증권",
+          "offeredShares": 160000,
+          "subscribedShares": null,
+          "offerPrice": 19000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": null,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 80000,
+          "proportionalAllocationShares": 80000,
+          "expectedEqualShares": null,
+          "applicationCount": 1315
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 160000,
+        "subscribedShares": null,
+        "competitionRate": null
+      }
+    }
+  ],
+  "retainedNullFields": [
+    "outcome",
+    "fundamentals.marketCapKrw"
+  ],
+  "assertNotMemberPaths": [],
+  "membershipAsOfDate": "2026-11-22",
+  "sourceRecordFields": {
+    "sources.dart-유캐스트-body-4.url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261117000116&dcmNo=11663294&eleId=4&offset=675671&length=3732849&dtd=dart4.xsd"
+  },
+  "brokerSourceSha256": "60b05ed293c569cde60c572dda2eac42d54ae6fc9e46825d5911b2674ac30780",
+  "brokerSnapshotInputSha256": "5b7e43da39d2aede67175e44a37293788306086f1720a072fb000cd1e686f4d9",
+  "membershipRemovalEvidence": [],
+  "allowedCanonicalEventLeafPointers": [
+    "/sourceUrl"
+  ]
+}
