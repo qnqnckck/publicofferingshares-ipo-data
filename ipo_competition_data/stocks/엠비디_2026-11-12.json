@@ -41,13 +41,41 @@
     "putbackSummary": "증권신고서상 일반청약자 환매청구권 없음"
   },
   "outcome": null,
-  "snapshots": [],
+  "snapshots": [
+    {
+      "capturedAt": "2026-11-23T00:00:16.821878+09:00",
+      "source": "dart_official_issuance_results_report",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261117000038&dcmNo=11662979&eleId=5&offset=6830&length=134344&dtd=dart4.xsd",
+      "brokers": [
+        {
+          "name": "하나증권",
+          "offeredShares": 500000,
+          "subscribedShares": 86457840,
+          "offerPrice": 7000,
+          "depositRate": null,
+          "feeKrw": null,
+          "competitionRate": 172.91568,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 250000,
+          "proportionalAllocationShares": 250000,
+          "expectedEqualShares": null,
+          "applicationCount": 37635
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 500000,
+        "subscribedShares": 86457840,
+        "competitionRate": 172.91568
+      }
+    }
+  ],
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
       "overall": 33,
       "grade": "C-",
-      "confidence": 0.65,
+      "confidence": 0.95,
       "factors": {
         "institutionDemand": 3,
         "demandStrength": 1,
@@ -61,52 +89,62 @@
       "mode": "general_pre_subscription_demand_value"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.2792,
-      "bearCaseListingGainRate": 0.0792,
-      "baseCaseListingGainRate": 0.2792,
-      "bullCaseListingGainRate": 0.5592,
+      "expectedListingGainRate": 0.21,
+      "bearCaseListingGainRate": 0.03,
+      "baseCaseListingGainRate": 0.21,
+      "bullCaseListingGainRate": 0.43,
       "expectedAllocatedShares": {
-        "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.179,
-        "fiveMillionKrw": 0.893
+        "minimumSubscription": 6.701,
+        "oneMillionKrw": 7.469,
+        "fiveMillionKrw": 10.774
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 24,
-        "oneMillionKrw": 349,
-        "fiveMillionKrw": 1745
+        "minimumSubscription": 9850,
+        "oneMillionKrw": 10979,
+        "fiveMillionKrw": 15837
       },
       "assumptions": {
         "offerPrice": 7000,
-        "competitionRate": null,
+        "competitionRate": 172.91568,
         "feeKrw": null,
         "method": "ipo_score_v6_general_competition_calibrated",
-        "generalCompetitionBaseline": 0.0,
-        "generalPriorBase": 0.09916000000000001,
+        "generalCompetitionBaseline": 0.24,
+        "generalPriorBase": 0.10987999999999999,
         "institutionBoost": 0.0,
         "lockupBoost": 0.0,
         "participantBoost": 0.01,
         "topBandBoost": 0.0,
         "scoreBoost": -0.04,
-        "competitionPresent": false,
-        "generalCalibrationApplied": 0.18,
+        "competitionPresent": true,
+        "generalCalibrationApplied": 0.0,
         "generalCalibrationSampleCount": 68,
-        "generalCompetitionPending": true
+        "generalCompetitionPending": false
       }
     },
     "decision": {
       "level": "caution",
       "label": "주의",
       "reasons": [
-        "아직 판단에 필요한 입력 데이터가 충분하지 않습니다."
+        "최근 확인된 일반청약 경쟁률은 172.92대 1입니다."
       ],
       "warnings": [
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
-    "brokerScores": [],
+    "brokerScores": [
+      {
+        "broker": "하나증권",
+        "equalScore": 100,
+        "proportionalScore": null,
+        "expectedEqualShares": 6.6428,
+        "estimatedDepositForOneProportionalShare": null,
+        "feeKrw": null,
+        "dataQuality": "broker_verified"
+      }
+    ],
     "inputs": {
-      "latestCompetitionRate": null,
-      "snapshotCount": 0,
+      "latestCompetitionRate": 172.91568,
+      "snapshotCount": 1,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
@@ -119,6 +157,5 @@
       "valueScore": 80
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
-  },
-  "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261110000261&dcmNo=11647885&eleId=4&offset=941863&length=2962129&dtd=dart4.xsd"
+  }
 }
