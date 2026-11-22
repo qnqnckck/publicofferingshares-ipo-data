@@ -1511,132 +1511,6 @@
     },
     {
       "schemaVersion": 1,
-      "id": "아델_2026-11-23",
-      "identifiers": {
-        "subscriptionKey": "아델_20261123_20261124",
-        "normalizedCompany": "아델",
-        "corpCode": null,
-        "stockCode": null,
-        "kindCode": null,
-        "isin": null
-      },
-      "company": "아델",
-      "market": "KOSDAQ",
-      "industry": "퇴행성 신경질환 항체치료제 연구개발업",
-      "demandForecastDate": "2026-11-12",
-      "demandForecastStart": "2026-11-12",
-      "demandForecastEnd": "2026-11-18",
-      "subscriptionStart": "2026-11-23",
-      "subscriptionEnd": "2026-11-24",
-      "refundDate": "2026-11-26",
-      "listingDate": null,
-      "lockupReleaseDate": null,
-      "generalSharesDate": null,
-      "cbBwDate": null,
-      "securityType": "IPO",
-      "leadManagers": [
-        "삼성증권",
-        "미래에셋증권"
-      ],
-      "fundamentals": {
-        "offerPrice": null,
-        "priceBandMin": 18000,
-        "priceBandMax": 25000,
-        "topBandConfirmation": null,
-        "institutionCompetitionRate": null,
-        "institutionParticipants": null,
-        "lockupCommitmentRate": null,
-        "floatRate": 0.3629,
-        "marketCapKrw": null,
-        "publicAllocationShares": 542500,
-        "hasPutbackRight": false,
-        "putbackSummary": "일반청약자 환매청구권 없음"
-      },
-      "outcome": null,
-      "snapshots": [],
-      "analysis": {
-        "methodVersion": "ipo-score-v5-demand-value",
-        "score": {
-          "overall": 22,
-          "grade": "-",
-          "confidence": 0.4,
-          "factors": {
-            "institutionDemand": 0,
-            "demandStrength": 0,
-            "lockupCommitment": 0,
-            "pricing": 3,
-            "publicAllocation": 8,
-            "leadManagerCoverage": 2
-          },
-          "demand": 5,
-          "value": 100,
-          "mode": "general_pre_subscription_demand_value"
-        },
-        "expectedReturn": {
-          "expectedListingGainRate": -0.1,
-          "bearCaseListingGainRate": -0.15,
-          "baseCaseListingGainRate": -0.1,
-          "bullCaseListingGainRate": 0.18,
-          "expectedAllocatedShares": {
-            "minimumSubscription": 0.013,
-            "oneMillionKrw": 0.042,
-            "fiveMillionKrw": 0.208
-          },
-          "expectedProfitKrw": {
-            "minimumSubscription": -38,
-            "oneMillionKrw": -125,
-            "fiveMillionKrw": -625
-          },
-          "assumptions": {
-            "offerPrice": null,
-            "competitionRate": null,
-            "feeKrw": null,
-            "method": "ipo_score_v6_general_competition_calibrated",
-            "generalCompetitionBaseline": 0.0,
-            "generalPriorBase": -0.12927999999999998,
-            "institutionBoost": 0.0,
-            "lockupBoost": 0.0,
-            "participantBoost": 0.0,
-            "topBandBoost": 0.0,
-            "scoreBoost": -0.04,
-            "competitionPresent": false,
-            "generalCalibrationApplied": 0.0,
-            "generalCalibrationSampleCount": 0,
-            "generalCompetitionPending": true
-          }
-        },
-        "decision": {
-          "level": "insufficient_data",
-          "label": "데이터 부족",
-          "reasons": [
-            "복수 주관사가 참여해 청약 채널이 분산되어 있습니다."
-          ],
-          "warnings": [
-            "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
-            "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
-            "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
-          ]
-        },
-        "brokerScores": [],
-        "inputs": {
-          "latestCompetitionRate": null,
-          "snapshotCount": 0,
-          "leadManagerCount": 2,
-          "market": "KOSDAQ",
-          "hasOfferPrice": false,
-          "institutionCompetitionRate": null,
-          "lockupCommitmentRate": null,
-          "floatRate": 0.3629,
-          "hasOutcome": false,
-          "scoreMode": "general_pre_subscription_demand_value",
-          "demandScore": 5,
-          "valueScore": 100
-        },
-        "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
-      }
-    },
-    {
-      "schemaVersion": 1,
       "id": "유캐스트_2026-11-18",
       "identifiers": {
         "subscriptionKey": "유캐스트_20261118_20261119",
@@ -5179,7 +5053,7 @@
         "topBandConfirmation": true,
         "institutionCompetitionRate": 1232.51,
         "institutionParticipants": 2001,
-        "lockupCommitmentRate": 0.000078043,
+        "lockupCommitmentRate": 7.8043e-05,
         "floatRate": 0.9709,
         "marketCapKrw": 14420000000,
         "publicAllocationShares": 1750000,
@@ -5260,7 +5134,7 @@
           "market": "KOSDAQ",
           "hasOfferPrice": true,
           "institutionCompetitionRate": 1232.51,
-          "lockupCommitmentRate": 0.000078043,
+          "lockupCommitmentRate": 7.8043e-05,
           "floatRate": 0.9709,
           "hasOutcome": false,
           "scoreMode": "spac_live_balanced",
@@ -5429,7 +5303,7 @@
         "topBandConfirmation": true,
         "institutionCompetitionRate": 1270.51,
         "institutionParticipants": 2040,
-        "lockupCommitmentRate": 0.000001,
+        "lockupCommitmentRate": 1e-06,
         "floatRate": 0.8046,
         "marketCapKrw": 17400000000,
         "publicAllocationShares": 1750000,
@@ -5510,7 +5384,7 @@
           "market": "KOSDAQ",
           "hasOfferPrice": true,
           "institutionCompetitionRate": 1270.51,
-          "lockupCommitmentRate": 0.000001,
+          "lockupCommitmentRate": 1e-06,
           "floatRate": 0.8046,
           "hasOutcome": false,
           "scoreMode": "spac_live_balanced",
@@ -5555,7 +5429,7 @@
         "topBandConfirmation": true,
         "institutionCompetitionRate": 1160.7,
         "institutionParticipants": 2050,
-        "lockupCommitmentRate": 0.00004730060194746038,
+        "lockupCommitmentRate": 4.730060194746038e-05,
         "floatRate": 0.9392,
         "marketCapKrw": 18100000000,
         "publicAllocationShares": 2125000,
@@ -5636,7 +5510,7 @@
           "market": "KOSDAQ",
           "hasOfferPrice": true,
           "institutionCompetitionRate": 1160.7,
-          "lockupCommitmentRate": 0.00004730060194746038,
+          "lockupCommitmentRate": 4.730060194746038e-05,
           "floatRate": 0.9392,
           "hasOutcome": false,
           "scoreMode": "spac_live_balanced",
