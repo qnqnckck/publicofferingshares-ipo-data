@@ -1,0 +1,329 @@
+{
+  "baseHead": "5e016952238e0518a0137e1cc67d834e42e7f10e",
+  "target": {
+    "id": "유캐스트_2026-11-18",
+    "company": "유캐스트",
+    "issuer": "유캐스트",
+    "stockCode": "0175C0"
+  },
+  "allowedChangedPaths": [
+    "data/broker_snapshots/2026-11-22-ucast-post-close.json",
+    "doc/verified-delta-manifests/ucast-release.json",
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/stocks/유캐스트_2026-11-18.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "changedDataPaths": [
+    "data/broker_snapshots/2026-11-22-ucast-post-close.json",
+    "ipo_competition_data/stocks/유캐스트_2026-11-18.json",
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "canonicalPaths": [
+    "data/broker_snapshots/2026-11-22-ucast-post-close.json"
+  ],
+  "canonicalEventPath": "data/discovered/ipo_events.json",
+  "canonicalManualPath": "data/manual_fundamentals.json",
+  "canonicalVerifiedFields": {
+    "fundamentals.offerPrice": 19000
+  },
+  "verifiedManualFields": {
+    "offerPrice": 19000
+  },
+  "verifiedFields": {
+    "fundamentals.offerPrice": 19000
+  },
+  "feedPaths": [
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "feedMembership": {
+    "ipo_competition_data/active.json": "none",
+    "ipo_competition_data/recent.json": "preserve",
+    "ipo_competition_data/index.json": "preserve",
+    "ipo_competition_data/upcoming.json": "none",
+    "ipo_competition_data/dashboard.json": "preserve",
+    "ipo_competition_data/yearly/2026.json": "preserve"
+  },
+  "feedGeneratedAt": {
+    "ipo_competition_data/active.json": "2026-11-23T00:07:24.364056+09:00",
+    "ipo_competition_data/recent.json": "2026-11-23T00:07:24.365312+09:00",
+    "ipo_competition_data/index.json": "2026-11-23T00:07:24.372679+09:00",
+    "ipo_competition_data/dashboard.json": "2026-11-23T00:07:24.387670+09:00",
+    "ipo_competition_data/yearly/2026.json": "2026-11-23T00:07:24.398393+09:00"
+  },
+  "feedParityFields": [
+    "grade",
+    "score",
+    "latestCompetitionRate",
+    "offerPrice",
+    "decisionLevel",
+    "expectedGainRate"
+  ],
+  "allowedFeedLeafPointers": {
+    "ipo_competition_data/active.json": [],
+    "ipo_competition_data/recent.json": [
+      "/latestSnapshotAt"
+    ],
+    "ipo_competition_data/index.json": [
+      "/latestSnapshotAt"
+    ],
+    "ipo_competition_data/dashboard.json": [
+      "/bestBrokerCompetitionRate",
+      "/bestBrokerName",
+      "/latestSnapshotAt"
+    ],
+    "ipo_competition_data/yearly/2026.json": [
+      "/latestSnapshotAt"
+    ]
+  },
+  "allowedStockLeafPointers": [
+    "/analysis/brokerScores",
+    "/analysis/expectedReturn/expectedAllocatedShares/fiveMillionKrw",
+    "/analysis/expectedReturn/expectedAllocatedShares/minimumSubscription",
+    "/analysis/expectedReturn/expectedAllocatedShares/oneMillionKrw",
+    "/analysis/expectedReturn/expectedProfitKrw/fiveMillionKrw",
+    "/analysis/expectedReturn/expectedProfitKrw/minimumSubscription",
+    "/analysis/expectedReturn/expectedProfitKrw/oneMillionKrw",
+    "/analysis/inputs/snapshotCount",
+    "/snapshots"
+  ],
+  "expectedSnapshots": [
+    {
+      "capturedAt": "2026-11-19T08:33:34+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0175C0",
+      "brokers": [
+        {
+          "name": "신영증권",
+          "offeredShares": 40000,
+          "subscribedShares": null,
+          "offerPrice": 19000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 0.86,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 1.71,
+          "equalAllocationShares": 20000,
+          "proportionalAllocationShares": 20000,
+          "expectedEqualShares": null,
+          "applicationCount": 372
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 40000,
+        "subscribedShares": null,
+        "competitionRate": null
+      }
+    },
+    {
+      "capturedAt": "2026-11-19T08:51:43+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0175C0",
+      "brokers": [
+        {
+          "name": "유진투자증권",
+          "offeredShares": 160000,
+          "subscribedShares": null,
+          "offerPrice": 19000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": null,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 80000,
+          "proportionalAllocationShares": 80000,
+          "expectedEqualShares": null,
+          "applicationCount": 1277
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 160000,
+        "subscribedShares": null,
+        "competitionRate": null
+      }
+    },
+    {
+      "capturedAt": "2026-11-19T09:01:07+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0175C0",
+      "brokers": [
+        {
+          "name": "신영증권",
+          "offeredShares": 40000,
+          "subscribedShares": null,
+          "offerPrice": 19000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 1.07,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 2.13,
+          "equalAllocationShares": 20000,
+          "proportionalAllocationShares": 20000,
+          "expectedEqualShares": null,
+          "applicationCount": 381
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 40000,
+        "subscribedShares": null,
+        "competitionRate": null
+      }
+    },
+    {
+      "capturedAt": "2026-11-19T09:09:47+09:00",
+      "source": "naver_calculator_intraday_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0175C0",
+      "brokers": [
+        {
+          "name": "유진투자증권",
+          "offeredShares": 160000,
+          "subscribedShares": null,
+          "offerPrice": 19000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": null,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": null,
+          "equalAllocationShares": 80000,
+          "proportionalAllocationShares": 80000,
+          "expectedEqualShares": null,
+          "applicationCount": 1315
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 160000,
+        "subscribedShares": null,
+        "competitionRate": null
+      }
+    },
+    {
+      "capturedAt": "2026-11-19T16:07:05+09:00",
+      "source": "naver_calculator_post_close_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0175C0",
+      "brokers": [
+        {
+          "name": "유진투자증권",
+          "offeredShares": 160000,
+          "subscribedShares": null,
+          "offerPrice": 19000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 0.09,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 0.18,
+          "equalAllocationShares": 80000,
+          "proportionalAllocationShares": 80000,
+          "expectedEqualShares": null,
+          "applicationCount": 2500
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 160000,
+        "subscribedShares": null,
+        "competitionRate": null
+      }
+    },
+    {
+      "capturedAt": "2026-11-19T16:07:46+09:00",
+      "source": "naver_calculator_post_close_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0175C0",
+      "brokers": [
+        {
+          "name": "신영증권",
+          "offeredShares": 40000,
+          "subscribedShares": null,
+          "offerPrice": 19000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 2.1,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 4.19,
+          "equalAllocationShares": 20000,
+          "proportionalAllocationShares": 20000,
+          "expectedEqualShares": null,
+          "applicationCount": 660
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 40000,
+        "subscribedShares": null,
+        "competitionRate": null
+      }
+    }
+  ],
+  "retainedNullFields": [
+    "outcome",
+    "fundamentals.marketCapKrw"
+  ],
+  "assertNotMemberPaths": [
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/upcoming.json"
+  ],
+  "membershipAsOfDate": "2026-11-22",
+  "sourceRecordFields": {
+    "stockCode": "0175C0"
+  },
+  "brokerSourceSha256": "60b05ed293c569cde60c572dda2eac42d54ae6fc9e46825d5911b2674ac30780",
+  "brokerSnapshotInputSha256": "5b7e43da39d2aede67175e44a37293788306086f1720a072fb000cd1e686f4d9",
+  "membershipRemovalEvidence": [
+    {
+      "name": "dart-유캐스트-body-4",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261117000116&dcmNo=11663294&eleId=4&offset=675671&length=3732849&dtd=dart4.xsd",
+      "requestStartedAtKst": "2026-11-22T23:58:38.926774+09:00",
+      "httpStatus": 200,
+      "rawFile": "raw/dart-유캐스트-body-4.html",
+      "rawSha256": "00c02ac50650f6ee7c69069e6bcefb13a50c6c9dd0ea37181d6198dc0dcd101e",
+      "bytes": 3867302,
+      "responseCompletedAtKst": "2026-11-22T23:58:39.409370+09:00",
+      "path": "ipo_competition_data/active.json",
+      "id": "유캐스트_2026-11-18",
+      "issuer": "유캐스트",
+      "asOfDate": "2026-11-22",
+      "sourceObservationAsOfDate": "2026-11-22",
+      "subscriptionStart": "2026-11-18",
+      "subscriptionEnd": "2026-11-19",
+      "eligibility": "active_end_before_as_of",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261117000116&dcmNo=11663294&eleId=4&offset=675671&length=3732849&dtd=dart4.xsd",
+      "observedUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261117000116&dcmNo=11663294&eleId=4&offset=675671&length=3732849&dtd=dart4.xsd",
+      "latestFilingSearch": {
+        "name": "dart-유캐스트",
+        "url": "https://dart.fss.or.kr/dsab001/search.ax?textCrpNm=%EC%9C%A0%EC%BA%90%EC%8A%A4%ED%8A%B8&startDate=20261001&endDate=20261122&currentPage=1&maxResults=100&maxLinks=10&sort=date&series=desc&finalReport=recent&pageGubun=corp",
+        "requestStartedAtKst": "2026-11-22T23:58:20.088158+09:00",
+        "httpStatus": 200,
+        "rawFile": "raw/dart-유캐스트.html",
+        "rawSha256": "65774ccfe7837935c9fdff65de9494edbe7cc074c057b9b3dabde3bde2cbcdc2",
+        "bytes": 5808,
+        "responseCompletedAtKst": "2026-11-22T23:58:20.351318+09:00",
+        "issuer": "유캐스트",
+        "latestRcpNo": "20261117000116",
+        "latestFilingDate": "2026.11.17",
+        "latestFilingTitle": "[기재정정] 투자설명서"
+      },
+      "latestScheduleReport": {
+        "name": "dart-유캐스트-body-4",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261117000116&dcmNo=11663294&eleId=4&offset=675671&length=3732849&dtd=dart4.xsd",
+        "requestStartedAtKst": "2026-11-22T23:58:38.926774+09:00",
+        "httpStatus": 200,
+        "rawFile": "raw/dart-유캐스트-body-4.html",
+        "rawSha256": "00c02ac50650f6ee7c69069e6bcefb13a50c6c9dd0ea37181d6198dc0dcd101e",
+        "bytes": 3867302,
+        "responseCompletedAtKst": "2026-11-22T23:58:39.409370+09:00",
+        "issuer": "유캐스트",
+        "reportTitle": "[기재정정] 투자설명서",
+        "rcpNo": "20261117000116",
+        "subscriptionStart": "2026-11-18",
+        "subscriptionEnd": "2026-11-19"
+      }
+    }
+  ]
+}

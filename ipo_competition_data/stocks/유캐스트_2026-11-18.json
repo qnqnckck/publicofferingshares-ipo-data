@@ -150,6 +150,60 @@
         "subscribedShares": null,
         "competitionRate": null
       }
+    },
+    {
+      "capturedAt": "2026-11-19T16:07:05+09:00",
+      "source": "naver_calculator_post_close_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0175C0",
+      "brokers": [
+        {
+          "name": "유진투자증권",
+          "offeredShares": 160000,
+          "subscribedShares": null,
+          "offerPrice": 19000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 0.09,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 0.18,
+          "equalAllocationShares": 80000,
+          "proportionalAllocationShares": 80000,
+          "expectedEqualShares": null,
+          "applicationCount": 2500
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 160000,
+        "subscribedShares": null,
+        "competitionRate": null
+      }
+    },
+    {
+      "capturedAt": "2026-11-19T16:07:46+09:00",
+      "source": "naver_calculator_post_close_observation",
+      "sourceUrl": "https://m.stock.naver.com/front-api/ipo/calculator/operands?code=A0175C0",
+      "brokers": [
+        {
+          "name": "신영증권",
+          "offeredShares": 40000,
+          "subscribedShares": null,
+          "offerPrice": 19000,
+          "depositRate": 0.5,
+          "feeKrw": null,
+          "competitionRate": 2.1,
+          "equalCompetitionRate": null,
+          "proportionalCompetitionRate": 4.19,
+          "equalAllocationShares": 20000,
+          "proportionalAllocationShares": 20000,
+          "expectedEqualShares": null,
+          "applicationCount": 660
+        }
+      ],
+      "aggregate": {
+        "offeredShares": 40000,
+        "subscribedShares": null,
+        "competitionRate": null
+      }
     }
   ],
   "analysis": {
@@ -176,14 +230,14 @@
       "baseCaseListingGainRate": 0.3227,
       "bullCaseListingGainRate": 0.6027,
       "expectedAllocatedShares": {
-        "minimumSubscription": 60.849,
-        "oneMillionKrw": 60.902,
-        "fiveMillionKrw": 61.165
+        "minimumSubscription": 32.013,
+        "oneMillionKrw": 32.066,
+        "fiveMillionKrw": 32.329
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 373060,
-        "oneMillionKrw": 373387,
-        "fiveMillionKrw": 375000
+        "minimumSubscription": 196266,
+        "oneMillionKrw": 196593,
+        "fiveMillionKrw": 198206
       },
       "assumptions": {
         "offerPrice": 19000,
@@ -218,24 +272,24 @@
         "broker": "신영증권",
         "equalScore": 100,
         "proportionalScore": 100,
-        "expectedEqualShares": 52.4934,
-        "estimatedDepositForOneProportionalShare": 20235,
+        "expectedEqualShares": 30.303,
+        "estimatedDepositForOneProportionalShare": 39805,
         "feeKrw": null,
         "dataQuality": "broker_verified"
       },
       {
         "broker": "유진투자증권",
         "equalScore": 100,
-        "proportionalScore": null,
-        "expectedEqualShares": 60.8365,
-        "estimatedDepositForOneProportionalShare": null,
+        "proportionalScore": 100,
+        "expectedEqualShares": 32.0,
+        "estimatedDepositForOneProportionalShare": 1710,
         "feeKrw": null,
-        "dataQuality": "partial"
+        "dataQuality": "broker_verified"
       }
     ],
     "inputs": {
       "latestCompetitionRate": null,
-      "snapshotCount": 4,
+      "snapshotCount": 6,
       "leadManagerCount": 2,
       "market": "KOSDAQ",
       "hasOfferPrice": true,
