@@ -1,0 +1,158 @@
+{
+  "policyVersion": "verified_delta_with_deferred_nulls_v1",
+  "baseHead": "d81c1163f8e6347605bea18c898c3b81e5a4b5f1",
+  "target": {
+    "id": "다비오_2026-12-01",
+    "company": "다비오",
+    "issuer": "다비오",
+    "stockCode": null
+  },
+  "allowedChangedPaths": [
+    "data/discovered/ipo_events.json",
+    "doc/verified-delta-manifests/davio-release.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/stocks/다비오_2026-12-01.json",
+    "ipo_competition_data/upcoming.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "changedDataPaths": [
+    "data/discovered/ipo_events.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/stocks/다비오_2026-12-01.json",
+    "ipo_competition_data/upcoming.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "canonicalPaths": [
+    "data/discovered/ipo_events.json",
+    "data/manual_fundamentals.json"
+  ],
+  "canonicalEventPath": "data/discovered/ipo_events.json",
+  "canonicalManualPath": "data/manual_fundamentals.json",
+  "feedPaths": [
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/upcoming.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "feedMembership": {
+    "ipo_competition_data/dashboard.json": "preserve",
+    "ipo_competition_data/index.json": "preserve",
+    "ipo_competition_data/upcoming.json": "preserve",
+    "ipo_competition_data/yearly/2026.json": "preserve"
+  },
+  "feedParityFields": [
+    "subscriptionStart",
+    "subscriptionEnd",
+    "refundDate",
+    "demandForecastDate",
+    "demandForecastStart",
+    "demandForecastEnd",
+    "identifiers.subscriptionKey"
+  ],
+  "allowedStockLeafPointers": [
+    "/demandForecastDate",
+    "/demandForecastEnd",
+    "/demandForecastStart",
+    "/identifiers/subscriptionKey",
+    "/refundDate",
+    "/subscriptionEnd",
+    "/subscriptionStart"
+  ],
+  "allowedCanonicalEventLeafPointers": [
+    "/demandForecastDate",
+    "/demandForecastEnd",
+    "/demandForecastStart",
+    "/identifiers/subscriptionKey",
+    "/refundDate",
+    "/subscriptionEnd",
+    "/subscriptionStart"
+  ],
+  "allowedCanonicalManualLeafPointers": [],
+  "allowedFeedLeafPointers": {
+    "ipo_competition_data/dashboard.json": [
+      "/demandForecastDate",
+      "/demandForecastEnd",
+      "/demandForecastStart",
+      "/identifiers/subscriptionKey",
+      "/refundDate",
+      "/subscriptionEnd",
+      "/subscriptionStart"
+    ],
+    "ipo_competition_data/index.json": [
+      "/demandForecastDate",
+      "/demandForecastEnd",
+      "/demandForecastStart",
+      "/expectedGainRate",
+      "/identifiers/subscriptionKey",
+      "/refundDate",
+      "/subscriptionEnd",
+      "/subscriptionStart"
+    ],
+    "ipo_competition_data/upcoming.json": [
+      "/demandForecastDate",
+      "/demandForecastEnd",
+      "/demandForecastStart",
+      "/expectedGainRate",
+      "/identifiers/subscriptionKey",
+      "/refundDate",
+      "/subscriptionEnd",
+      "/subscriptionStart"
+    ],
+    "ipo_competition_data/yearly/2026.json": [
+      "/demandForecastDate",
+      "/demandForecastEnd",
+      "/demandForecastStart",
+      "/expectedGainRate",
+      "/identifiers/subscriptionKey",
+      "/refundDate",
+      "/subscriptionEnd",
+      "/subscriptionStart"
+    ]
+  },
+  "verifiedFields": {
+    "subscriptionStart": "2026-12-09",
+    "subscriptionEnd": "2026-12-10",
+    "refundDate": "2026-12-14",
+    "demandForecastDate": "2026-11-30",
+    "demandForecastStart": "2026-11-30",
+    "demandForecastEnd": "2026-12-04",
+    "identifiers.subscriptionKey": "다비오_20261209_20261210"
+  },
+  "canonicalVerifiedFields": {
+    "subscriptionStart": "2026-12-09",
+    "subscriptionEnd": "2026-12-10",
+    "refundDate": "2026-12-14",
+    "demandForecastDate": "2026-11-30",
+    "demandForecastStart": "2026-11-30",
+    "demandForecastEnd": "2026-12-04",
+    "identifiers.subscriptionKey": "다비오_20261209_20261210"
+  },
+  "verifiedManualFields": {},
+  "sourceRecordFields": {
+    "verifiedSchedule.subscriptionStart": "2026-12-09",
+    "verifiedSchedule.subscriptionEnd": "2026-12-10",
+    "verifiedSchedule.refundDate": "2026-12-14",
+    "verifiedSchedule.demandForecastDate": "2026-11-30",
+    "verifiedSchedule.demandForecastStart": "2026-11-30",
+    "verifiedSchedule.demandForecastEnd": "2026-12-04"
+  },
+  "retainedNullFields": [
+    "listingDate",
+    "fundamentals.offerPrice",
+    "fundamentals.institutionCompetitionRate",
+    "fundamentals.institutionParticipants",
+    "fundamentals.lockupCommitmentRate",
+    "fundamentals.marketCapKrw"
+  ],
+  "expectedSnapshots": [],
+  "requireEmptyRetailSnapshots": true,
+  "allowedNewNullIssueCodes": [],
+  "feedGeneratedAt": {
+    "ipo_competition_data/dashboard.json": "2026-11-23T00:07:28.273587+09:00",
+    "ipo_competition_data/index.json": "2026-11-23T00:07:28.289289+09:00",
+    "ipo_competition_data/upcoming.json": "2026-11-23T00:07:28.300135+09:00",
+    "ipo_competition_data/yearly/2026.json": "2026-11-23T00:07:28.301881+09:00"
+  }
+}
