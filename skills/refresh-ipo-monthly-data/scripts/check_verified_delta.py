@@ -116,6 +116,12 @@ def exact_feed_removal_result(old_rows, new_rows, removal_ids):
     return True, ""
 
 
+def normalize_membership_issuer(value):
+    """Keep issuer identity intact; equate only numbered SPAC terminal names."""
+    name = re.sub(r"[\s㈜()（）.,·]", "", str(value or ""))
+    return re.sub(r"(제[0-9]+호)(?:스팩|기업인수목적)$", r"\1스팩", name)
+
+
 def latest_dart_search_filing(html_text):
     """Read the first filing row shown by DART's descending issuer search."""
     for row in re.findall(r"<tr\b[^>]*>(.*?)</tr>", html_text, re.S | re.I):
@@ -589,7 +595,7 @@ def check(repo, manifest_path, source_record_path, source_root,
             continue
         row = old_matches[0]
         start, end = event.get("subscriptionStart"), event.get("subscriptionEnd")
-        normalize_issuer = lambda value: re.sub(r"[\s㈜()（）.,·]", "", str(value or ""))
+        normalize_issuer = normalize_membership_issuer
         if (normalize_issuer(evidence.get("issuer")) != normalize_issuer(event.get("company"))
                 or normalize_issuer(evidence.get("issuer")) != normalize_issuer(removed_stock.get("company"))):
             failures.append(f"membership removal source issuer does not match canonical event/detail: {item_id}")
@@ -601,7 +607,8 @@ def check(repo, manifest_path, source_record_path, source_root,
         if (removed_stock.get("subscriptionStart"), removed_stock.get("subscriptionEnd")) != (start, end):
             failures.append(f"membership removal schedule differs from stock detail: {item_id}")
         source_url = event.get("sourceUrl")
-        if source_url != evidence.get("sourceUrl") or not source_url.startswith("https://"):
+        if (not isinstance(source_url, str) or source_url != evidence.get("sourceUrl")
+                or not source_url.startswith("https://")):
             failures.append(f"membership removal source URL mismatch: {item_id}")
         observed_url = urlparse(evidence.get("observedUrl", ""))
         raw_rel = PurePosixPath(evidence.get("rawFile", ""))
