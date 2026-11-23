@@ -1,0 +1,97 @@
+{
+  "baseHead": "96b6bca1d76c955de2a7ac69a52d9c561b57b300",
+  "target": {
+    "id": "신영해피투모로우제12호스팩_2026-11-24",
+    "company": "신영해피투모로우제12호스팩",
+    "issuer": "신영해피투모로우제12호기업인수목적",
+    "stockCode": null
+  },
+  "allowedChangedPaths": [
+    "doc/verified-delta-manifests/2026-11-24-shinyoung12-source.json",
+    "data/discovered/ipo_events.json"
+  ],
+  "changedDataPaths": [
+    "data/discovered/ipo_events.json"
+  ],
+  "canonicalPaths": [
+    "data/discovered/ipo_events.json"
+  ],
+  "canonicalEventPath": "data/discovered/ipo_events.json",
+  "canonicalManualPath": "data/manual_fundamentals.json",
+  "canonicalVerifiedFields": {
+    "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261123000373&dcmNo=11671074&eleId=4&offset=249662&length=985283&dtd=dart4.xsd"
+  },
+  "verifiedManualFields": {},
+  "verifiedFields": {},
+  "feedPaths": [],
+  "feedMembership": {},
+  "feedGeneratedAt": {
+    "ipo_competition_data/active.json": "2026-11-24T00:15:02.022437",
+    "ipo_competition_data/upcoming.json": "2026-11-24T00:15:02.022437",
+    "ipo_competition_data/index.json": "2026-11-24T00:15:02.022437",
+    "ipo_competition_data/dashboard.json": "2026-11-24T00:15:02.022437",
+    "ipo_competition_data/yearly/2026.json": "2026-11-24T00:15:02.022437"
+  },
+  "feedParityFields": [
+    "offerPrice",
+    "institutionCompetitionRate",
+    "institutionParticipants",
+    "lockupCommitmentRate",
+    "grade",
+    "score",
+    "latestCompetitionRate",
+    "decisionLevel",
+    "expectedGainRate"
+  ],
+  "newMembershipReferencePath": "ipo_competition_data/index.json",
+  "allowedFeedLeafPointers": {
+    "ipo_competition_data/active.json": [],
+    "ipo_competition_data/upcoming.json": [],
+    "ipo_competition_data/index.json": [
+      "/decisionLevel",
+      "/expectedGainRate",
+      "/grade",
+      "/institutionCompetitionRate",
+      "/institutionParticipants",
+      "/lockupCommitmentRate",
+      "/offerPrice",
+      "/score"
+    ],
+    "ipo_competition_data/dashboard.json": [
+      "/decisionLevel",
+      "/grade",
+      "/institutionCompetitionRate",
+      "/institutionParticipants",
+      "/lockupCommitmentRate",
+      "/score"
+    ],
+    "ipo_competition_data/yearly/2026.json": [
+      "/decisionLevel",
+      "/expectedGainRate",
+      "/grade",
+      "/institutionCompetitionRate",
+      "/institutionParticipants",
+      "/lockupCommitmentRate",
+      "/offerPrice",
+      "/score"
+    ]
+  },
+  "allowedStockLeafPointers": [],
+  "allowedCanonicalEventLeafPointers": [
+    "/sourceUrl"
+  ],
+  "allowedCanonicalManualLeafPointers": [],
+  "expectedSnapshots": [],
+  "requireEmptyRetailSnapshots": true,
+  "retainedNullFields": [
+    "outcome",
+    "listingDate",
+    "fundamentals.marketCapKrw"
+  ],
+  "membershipAsOfDate": "2026-11-24",
+  "assertNotMemberPaths": [],
+  "sourceRecordFields": {
+    "sources.dart-prospectus-full.url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261123000373&dcmNo=11671074&eleId=4&offset=249662&length=985283&dtd=dart4.xsd"
+  },
+  "membershipRemovalEvidence": []
+}
