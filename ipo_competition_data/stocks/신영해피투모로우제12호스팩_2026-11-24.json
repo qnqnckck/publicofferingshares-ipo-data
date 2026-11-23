@@ -27,15 +27,15 @@
     "신영증권"
   ],
   "fundamentals": {
-    "offerPrice": null,
+    "offerPrice": 2000,
     "priceBandMin": 2000,
     "priceBandMax": 2000,
-    "topBandConfirmation": null,
-    "institutionCompetitionRate": null,
-    "institutionParticipants": null,
-    "lockupCommitmentRate": null,
+    "topBandConfirmation": true,
+    "institutionCompetitionRate": 1275.8,
+    "institutionParticipants": 1983,
+    "lockupCommitmentRate": 0.0015674793680988018,
     "floatRate": 0.9835,
-    "marketCapKrw": null,
+    "marketCapKrw": 12710000000,
     "publicAllocationShares": 1562500,
     "hasPutbackRight": false,
     "putbackSummary": "증권신고서상 일반청약자 환매청구권 없음"
@@ -45,66 +45,64 @@
   "analysis": {
     "methodVersion": "ipo-score-v5-demand-value",
     "score": {
-      "overall": 20,
-      "grade": "-",
-      "confidence": 0.4,
+      "overall": 63,
+      "grade": "B-",
+      "confidence": 0.65,
       "factors": {
-        "competition": 0,
-        "institutionDemand": 0,
-        "spacMomentum": 0,
-        "spacVolatility": 3,
+        "competition": 4,
+        "institutionDemand": 22,
+        "spacMomentum": 5,
+        "spacVolatility": 4,
         "market": 5,
         "leadManagers": 3,
-        "recency": 3,
-        "dataCompleteness": 3
+        "recency": 4,
+        "dataCompleteness": 6
       },
-      "demand": 20,
-      "value": 20,
+      "demand": 63,
+      "value": 63,
       "mode": "spac_live_balanced"
     },
     "expectedReturn": {
-      "expectedListingGainRate": 0.2557,
-      "bearCaseListingGainRate": -0.1643,
-      "baseCaseListingGainRate": 0.2557,
-      "bullCaseListingGainRate": 0.6557,
+      "expectedListingGainRate": 0.668,
+      "bearCaseListingGainRate": 0.018,
+      "baseCaseListingGainRate": 0.668,
+      "bullCaseListingGainRate": 1.368,
       "expectedAllocatedShares": {
         "minimumSubscription": 0.013,
-        "oneMillionKrw": 0.042,
-        "fiveMillionKrw": 0.208
+        "oneMillionKrw": 0.625,
+        "fiveMillionKrw": 3.125
       },
       "expectedProfitKrw": {
-        "minimumSubscription": 96,
-        "oneMillionKrw": 320,
-        "fiveMillionKrw": 1598
+        "minimumSubscription": 17,
+        "oneMillionKrw": 835,
+        "fiveMillionKrw": 4175
       },
       "assumptions": {
-        "offerPrice": null,
+        "offerPrice": 2000,
         "competitionRate": null,
         "feeKrw": null,
         "method": "ipo_score_v4_spac_listing_day_momentum",
         "spacModel": true,
         "proportionalCompetitionRate": null,
-        "institutionCompetitionRate": null,
+        "institutionCompetitionRate": 1275.8,
         "retailTailBoost": 0.0,
         "proportionalTailBoost": 0.0,
-        "institutionTailBoost": 0.0,
-        "lowLockupVolatility": false,
-        "uncalibratedBaseGainRate": 0.0434,
-        "calibrationApplied": 0.2123,
+        "institutionTailBoost": 0.012633333333333326,
+        "lowLockupVolatility": true,
+        "uncalibratedBaseGainRate": 0.4538614757575758,
+        "calibrationApplied": 0.2141,
         "calibrationSampleCount": 6,
         "calibrationCompetitionBucket": null
       }
     },
     "decision": {
-      "level": "insufficient_data",
-      "label": "데이터 부족",
+      "level": "neutral",
+      "label": "중립",
       "reasons": [
         "스팩 전용 보정으로 일반 IPO 확약률 대신 상장일 수급 요인을 반영했습니다."
       ],
       "warnings": [
-        "기관 수요예측, 확약, 유통가능물량 등 핵심 입력이 부족해 신뢰도가 낮습니다.",
         "스팩의 낮은 기관 확약률은 일반 IPO 안정성 감점이 아니라 상장일 변동성 위험으로 해석합니다.",
-        "공모가가 없어 기대 수익은 3만원 가정값으로 계산했습니다.",
         "본 지표는 투자 권유가 아니라 공개 데이터 기반 참고값입니다."
       ]
     },
@@ -114,14 +112,14 @@
       "snapshotCount": 0,
       "leadManagerCount": 1,
       "market": "KOSDAQ",
-      "hasOfferPrice": false,
-      "institutionCompetitionRate": null,
-      "lockupCommitmentRate": null,
+      "hasOfferPrice": true,
+      "institutionCompetitionRate": 1275.8,
+      "lockupCommitmentRate": 0.0015674793680988018,
       "floatRate": 0.9835,
       "hasOutcome": false,
       "scoreMode": "spac_live_balanced",
-      "demandScore": 20,
-      "valueScore": 20
+      "demandScore": 63,
+      "valueScore": 63
     },
     "disclaimer": "공개 데이터 기반 참고 지표이며 투자 권유가 아닙니다."
   }
