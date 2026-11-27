@@ -1,0 +1,183 @@
+{
+  "baseHead": "a676cd0c072f715f19a89f73a8d73493ca31170c",
+  "target": {
+    "id": "신영해피투모로우제12호스팩_2026-11-24",
+    "company": "신영해피투모로우제12호스팩",
+    "issuer": "신영해피투모로우제12호기업인수목적",
+    "stockCode": null
+  },
+  "allowedChangedPaths": [
+    "data/discovered/ipo_events.json",
+    "ipo_competition_data/stocks/신영해피투모로우제12호스팩_2026-11-24.json",
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/yearly/2026.json",
+    "doc/verified-delta-manifests/2026-11-27-shinyoung12.json",
+    "ipo_competition_data/recent-shinyoung12-reference.json"
+  ],
+  "changedDataPaths": [
+    "data/discovered/ipo_events.json",
+    "ipo_competition_data/stocks/신영해피투모로우제12호스팩_2026-11-24.json",
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "canonicalPaths": [
+    "data/discovered/ipo_events.json"
+  ],
+  "canonicalEventPath": "data/discovered/ipo_events.json",
+  "canonicalManualPath": "data/manual_fundamentals.json",
+  "canonicalVerifiedFields": {
+    "listingDate": "2026-12-03"
+  },
+  "verifiedManualFields": {},
+  "verifiedFields": {
+    "listingDate": "2026-12-03"
+  },
+  "feedPaths": [
+    "ipo_competition_data/active.json",
+    "ipo_competition_data/recent.json",
+    "ipo_competition_data/dashboard.json",
+    "ipo_competition_data/index.json",
+    "ipo_competition_data/yearly/2026.json"
+  ],
+  "feedMembership": {
+    "ipo_competition_data/active.json": "none",
+    "ipo_competition_data/recent.json": "canonical_window",
+    "ipo_competition_data/dashboard.json": "preserve",
+    "ipo_competition_data/index.json": "preserve",
+    "ipo_competition_data/yearly/2026.json": "preserve"
+  },
+  "feedGeneratedAt": {
+    "ipo_competition_data/active.json": "2026-11-27T09:12:25.481321",
+    "ipo_competition_data/recent.json": "2026-11-27T09:12:25.481321",
+    "ipo_competition_data/dashboard.json": "2026-11-27T09:12:25.481321",
+    "ipo_competition_data/index.json": "2026-11-27T09:12:25.481321",
+    "ipo_competition_data/yearly/2026.json": "2026-11-27T09:12:25.481321"
+  },
+  "feedParityFields": [
+    "listingDate"
+  ],
+  "newMembershipReferencePath": "ipo_competition_data/recent-shinyoung12-reference.json",
+  "allowedFeedLeafPointers": {
+    "ipo_competition_data/active.json": [],
+    "ipo_competition_data/recent.json": [],
+    "ipo_competition_data/dashboard.json": [
+      "/listingDate"
+    ],
+    "ipo_competition_data/index.json": [
+      "/listingDate"
+    ],
+    "ipo_competition_data/yearly/2026.json": [
+      "/listingDate"
+    ]
+  },
+  "allowedStockLeafPointers": [
+    "/listingDate"
+  ],
+  "allowedCanonicalEventLeafPointers": [
+    "/listingDate"
+  ],
+  "allowedCanonicalManualLeafPointers": [],
+  "expectedSnapshots": [],
+  "requireEmptyRetailSnapshots": true,
+  "retainedNullFields": [],
+  "membershipAsOfDate": "2026-11-27",
+  "assertNotMemberPaths": [
+    "ipo_competition_data/upcoming.json"
+  ],
+  "sourceRecordFields": {
+    "listingDate": "2026-12-03"
+  },
+  "membershipRemovalEvidence": [
+    {
+      "name": "prospectus",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261123000373&dcmNo=11671074&eleId=4&offset=249662&length=985283&dtd=dart4.xsd",
+      "requestStartedAtKst": "2026-11-27T09:12:03.642687+09:00",
+      "httpStatus": 200,
+      "rawFile": "prospectus.html",
+      "rawSha256": "8393a81e82c34c6aaffc89504622d85dd101da2a3bff011619fc19f7cff8df3b",
+      "bytes": 1182214,
+      "responseCompletedAtKst": "2026-11-27T09:12:03.894361+09:00",
+      "path": "ipo_competition_data/active.json",
+      "id": "신영해피투모로우제12호스팩_2026-11-24",
+      "issuer": "신영해피투모로우제12호스팩",
+      "asOfDate": "2026-11-27",
+      "sourceObservationAsOfDate": "2026-11-27",
+      "subscriptionStart": "2026-11-24",
+      "subscriptionEnd": "2026-11-25",
+      "eligibility": "active_end_before_as_of",
+      "sourceUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261123000373&dcmNo=11671074&eleId=4&offset=249662&length=985283&dtd=dart4.xsd",
+      "observedUrl": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261123000373&dcmNo=11671074&eleId=4&offset=249662&length=985283&dtd=dart4.xsd",
+      "latestFilingSearch": {
+        "name": "search",
+        "url": "https://dart.fss.or.kr/dsab001/search.ax?textCrpNm=%EC%8B%A0%EC%98%81%ED%95%B4%ED%94%BC%ED%88%AC%EB%AA%A8%EB%A1%9C%EC%9A%B0%EC%A0%9C12%ED%98%B8%EA%B8%B0%EC%97%85%EC%9D%B8%EC%88%98%EB%AA%A9%EC%A0%81&startDate=20261001&endDate=20261127&currentPage=1&maxResults=100&maxLinks=10&sort=date&series=desc&finalReport=recent&pageGubun=corp",
+        "rawFile": "search.html",
+        "rawSha256": "7078734ae507cf24a68ffdb0027e4fec2b79e231238ad008903a9a65d0a0b706",
+        "requestStartedAtKst": "2026-11-27T09:12:03.367535+09:00",
+        "responseCompletedAtKst": "2026-11-27T09:12:03.456938+09:00",
+        "httpStatus": 200,
+        "bytes": 5045,
+        "issuer": "신영해피투모로우제12호스팩",
+        "latestRcpNo": "20261123000373",
+        "latestFilingDate": "2026.11.23",
+        "latestFilingTitle": "[기재정정] 투자설명서"
+      },
+      "latestScheduleReport": {
+        "name": "prospectus",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261123000373&dcmNo=11671074&eleId=4&offset=249662&length=985283&dtd=dart4.xsd",
+        "requestStartedAtKst": "2026-11-27T09:12:03.642687+09:00",
+        "httpStatus": 200,
+        "rawFile": "prospectus.html",
+        "rawSha256": "8393a81e82c34c6aaffc89504622d85dd101da2a3bff011619fc19f7cff8df3b",
+        "bytes": 1182214,
+        "responseCompletedAtKst": "2026-11-27T09:12:03.894361+09:00",
+        "issuer": "신영해피투모로우제12호스팩",
+        "reportTitle": "[기재정정] 투자설명서",
+        "rcpNo": "20261123000373",
+        "subscriptionStart": "2026-11-24",
+        "subscriptionEnd": "2026-11-25"
+      }
+    },
+    {
+      "path": "ipo_competition_data/recent.json",
+      "type": "canonical_recent_window_eviction",
+      "id": "inventera_2026",
+      "asOfDate": "2026-11-27",
+      "limit": 60,
+      "referencePath": "ipo_competition_data/recent-shinyoung12-reference.json",
+      "referenceSha256": "7b73f5652a1d086ef71c555ec99eef2e2286fc921a5d2a75367c4eebc11b8d87"
+    }
+  ],
+  "sourceObservation": {
+    "field": "listingDate",
+    "value": "2026-12-03",
+    "status": "planned",
+    "sourceUrl": "https://m.stock.naver.com/front-api/ipo/detail?code=A0231Y0",
+    "rawSha256": "e0a04a1ae95535148003e40f8eb856ac7f317eaa55a8c3a85f14ce69e99b7568",
+    "observedAt": "2026-11-27T09:12:03.984065+09:00"
+  },
+  "allowedNonTargetRemovals": {
+    "ipo_competition_data/recent.json": [
+      "inventera_2026"
+    ]
+  },
+  "allowedNonTargetAdditions": {
+    "ipo_competition_data/recent.json": []
+  },
+  "canonicalWindow": {
+    "ipo_competition_data/recent.json": {
+      "limit": 60,
+      "generatorPath": "tool/ipo_competition_batch.dart",
+      "generatorSha256": "fa593c801e34aa026b6cf1aa2241128739c7920413a562582698cca56bab2ab1"
+    }
+  },
+  "generationExecutionEvidence": {
+    "recordPath": "generation.json",
+    "recordSha256": "3e29ba27e2bd2dc0c3d0f34731f04836995e336e615baec6f247345913c21ba6"
+  }
+}
